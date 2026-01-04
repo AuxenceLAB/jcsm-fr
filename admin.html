@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="fr" class="bg-gray-50">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JCSM Admin - Analytics</title>
+    <link rel="icon" type="image/png" href="images/logo.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <style>
+        .login-overlay {
+            position: fixed;
+            inset: 0;
+            background: #fff;
+            z-index: 50;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .dashboard {
+            display: none;
+        }
+    </style>
+</head>
+
+<body class="text-gray-900">
+
+    <!-- Login Screen -->
+    <div id="login-screen" class="login-overlay">
+        <div class="w-full max-w-sm p-8 bg-white rounded-2xl shadow-xl text-center">
+            <div class="w-16 h-16 bg-blue-600 rounded-xl mx-auto flex items-center justify-center mb-6">
+                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                </svg>
+            </div>
+            <h2 class="text-2xl font-bold mb-6">Accès Analytics</h2>
+            <form id="login-form" class="space-y-4">
+                <input type="password" id="password" placeholder="Mot de passe"
+                    class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 outline-none transition-all">
+                <button type="submit"
+                    class="w-full bg-black text-white py-3 rounded-lg font-bold hover:bg-gray-800 transition-all">Entrer</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Dashboard -->
+    <div id="dashboard" class="dashboard min-h-screen">
+        <nav class="bg-white border-b border-gray-200 sticky top-0 z-40">
+            <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+                <div class="flex items-center space-x-3">
+                    <span class="text-xl font-bold">JCSM Analytics</span>
+                    <span class="bg-green-100 text-green-700 text-xs px-2 py-1 rounded-full">Live</span>
+                </div>
+                <button onclick="logout()"
+                    class="text-sm font-medium text-gray-500 hover:text-red-500">Déconnexion</button>
+            </div>
+        </nav>
+
+        <main class="max-w-7xl mx-auto px-6 py-8">
+            <!-- KPIs -->
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+                    <h3 class="text-gray-500 text-sm font-medium mb-2">Visiteurs Totaux</h3>
+                    <p class="text-3xl font-bold" id="kpi-visitors">0</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+                    <h3 class="text-gray-500 text-sm font-medium mb-2">Vues de Page</h3>
+                    <p class="text-3xl font-bold" id="kpi-views">0</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+                    <h3 class="text-gray-500 text-sm font-medium mb-2">Clics Actions</h3>
+                    <p class="text-3xl font-bold" id="kpi-clicks">0</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+                    <h3 class="text-gray-500 text-sm font-medium mb-2">Temps Moyen</h3>
+                    <p class="text-3xl font-bold" id="kpi-time">0s</p>
+                </div>
+            </div>
+
+            <!-- Charts -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+                    <h3 class="font-bold mb-4">Traffic (24h)</h3>
+                    <canvas id="trafficChart"></canvas>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+                    <h3 class="font-bold mb-4">Pages Populaires</h3>
+                    <canvas id="pagesChart"></canvas>
+                </div>
+            </div>
+
+            <!-- Events Log -->
+            <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+                <div class="px-6 py-4 border-b border-gray-100 flex justify-between items-center">
+                    <h3 class="font-bold">Derniers Événements</h3>
+                    <button onclick="clearData()" class="text-xs text-red-500 hover:underline">Effacer les
+                        données</button>
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-sm text-left">
+                        <thead class="bg-gray-50 text-gray-500">
+                            <tr>
+                                <th class="px-6 py-3">Heure</th>
+                                <th class="px-6 py-3">Événement</th>
+                                <th class="px-6 py-3">Page</th>
+                                <th class="px-6 py-3">Détails</th>
+                            </tr>
+                        </thead>
+                        <tbody id="events-table-body" class="divide-y divide-gray-100">
+                            <!-- Events populated here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // AUTHENTICATION
+        const loginForm = document.getElementById('login-form');
+        const loginScreen = document.getElementById('login-screen');
+        const dashboard = document.getElementById('dashboard');
+
+        // Check session
+        if (sessionStorage.getItem('admin_auth') === 'true') {
+            showDashboard();
+        }
+
+        loginForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const pass = document.getElementById('password').value;
+            if (pass === 'JCSM2025' || pass === 'admin') {
+                sessionStorage.setItem('admin_auth', 'true');
+                showDashboard();
+            } else {
+                alert('Mot de passe incorrect');
+            }
+        });
+
+        function showDashboard() {
+            loginScreen.style.display = 'none';
+            dashboard.style.display = 'block';
+            initDashboard();
+        }
+
+        function logout() {
+            sessionStorage.removeItem('admin_auth');
+            location.reload();
+        }
+
+        function clearData() {
+            if (confirm('Tout effacer ?')) {
+                localStorage.removeItem('jcsm_analytics_queue');
+                location.reload();
+            }
+        }
+
+        // DASHBOARD LOGIC
+        function initDashboard() {
+            const rawData = JSON.parse(localStorage.getItem('jcsm_analytics_queue') || '[]');
+            // Filter out garbage if any
+            const data = rawData.filter(d => d && d.event);
+
+            // KPIs
+            document.getElementById('kpi-visitors').innerText = new Set(data.map(d => d.sessionId)).size;
+            document.getElementById('kpi-views').innerText = data.filter(d => d.event === 'page_view').length;
+            document.getElementById('kpi-clicks').innerText = data.filter(d => d.event === 'click_cta').length;
+
+            // Charts
+            renderTrafficChart(data);
+            renderPagesChart(data);
+            renderEventsTable(data);
+        }
+
+        function renderTrafficChart(data) {
+            const views = data.filter(d => d.event === 'page_view');
+            const hours = {};
+            // Group by hour (mock for last 24h based on timestamp)
+            views.forEach(v => {
+                const h = new Date(v.timestamp).getHours() + 'h';
+                hours[h] = (hours[h] || 0) + 1;
+            });
+
+            new Chart(document.getElementById('trafficChart'), {
+                type: 'line',
+                data: {
+                    labels: Object.keys(hours),
+                    datasets: [{
+                        label: 'Vues de page',
+                        data: Object.values(hours),
+                        borderColor: '#0070F3',
+                        tension: 0.4,
+                        fill: true,
+                        backgroundColor: 'rgba(0, 112, 243, 0.1)'
+                    }]
+                },
+                options: { responsive: true, plugins: { legend: { display: false } } }
+            });
+        }
+
+        function renderPagesChart(data) {
+            const views = data.filter(d => d.event === 'page_view');
+            const pages = {};
+            views.forEach(v => {
+                const p = v.url === '/' ? '/accueil' : v.url;
+                pages[p] = (pages[p] || 0) + 1;
+            });
+
+            new Chart(document.getElementById('pagesChart'), {
+                type: 'bar',
+                data: {
+                    labels: Object.keys(pages),
+                    datasets: [{
+                        label: 'Vues',
+                        data: Object.values(pages),
+                        backgroundColor: ['#0070F3', '#7928CA', '#FF0080', '#000000']
+                    }]
+                },
+                options: { responsive: true }
+            });
+        }
+
+        function renderEventsTable(data) {
+            const tbody = document.getElementById('events-table-body');
+            const recent = [...data].reverse().slice(0, 20); // Last 20
+
+            tbody.innerHTML = recent.map(e => `
+                <tr class="hover:bg-gray-50 transition-colors">
+                    <td class="px-6 py-4 text-gray-500">${new Date(e.timestamp).toLocaleTimeString()}</td>
+                    <td class="px-6 py-4 font-medium">
+                        <span class="px-2 py-1 rounded text-xs ${getEventColor(e.event)}">
+                            ${e.event}
+                        </span>
+                    </td>
+                    <td class="px-6 py-4 text-gray-600">${e.url}</td>
+                    <td class="px-6 py-4 text-gray-400 text-xs font-mono">${JSON.stringify(e.data || {}).substring(0, 50)}</td>
+                </tr>
+            `).join('');
+        }
+
+        function getEventColor(type) {
+            if (type === 'page_view') return 'bg-blue-100 text-blue-700';
+            if (type === 'click_cta') return 'bg-purple-100 text-purple-700';
+            if (type === 'form_start') return 'bg-yellow-100 text-yellow-700';
+            if (type === 'form_submit') return 'bg-green-100 text-green-700';
+            return 'bg-gray-100 text-gray-700';
+        }
+    </script>
+</body>
+
+</html>

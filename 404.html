@@ -1,87 +1,161 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" class="h-full">
+
 <head>
     <base target="_self">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Page introuvable | JCSM</title>
+    <title>404 - Perdu dans l'espace | JCSM</title>
     <meta name="robots" content="noindex, follow">
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="styles.css">
     <link rel="icon" type="image/png" href="images/logo.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+
     <style>
-        * {
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-            box-sizing: border-box;
+        body {
+            font-family: 'Inter', sans-serif;
+            overflow: hidden;
+            background: #000;
+            color: white;
         }
-        
-        html, body { 
-            overflow-x: hidden !important;
-            max-width: 100vw;
+
+        /* Stars */
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
             width: 100%;
-            margin: 0;
-            padding: 0;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle var(--duration) ease-in-out infinite;
+            opacity: var(--opacity);
+        }
+
+        @keyframes twinkle {
+
+            0%,
+            100% {
+                transform: scale(1);
+                opacity: var(--opacity);
+            }
+
+            50% {
+                transform: scale(1.5);
+                opacity: 1;
+            }
+        }
+
+        /* Glitch Text */
+        .glitch-text {
+            font-size: 8rem;
+            font-weight: 900;
             position: relative;
+            text-shadow: 2px 2px #0070F3, -2px -2px #FF0080;
+            animation: glitch 3s infinite;
         }
-        
-        /* Empêcher tout débordement horizontal */
-        main, section, article, header, footer, nav, div {
-            max-width: 100%;
-            box-sizing: border-box;
+
+        @keyframes glitch {
+            0% {
+                transform: translate(0)
+            }
+
+            2% {
+                transform: translate(-2px, 2px)
+            }
+
+            4% {
+                transform: translate(2px, -2px)
+            }
+
+            6% {
+                transform: translate(0)
+            }
+
+            100% {
+                transform: translate(0)
+            }
         }
-        
-        section {
-            overflow-x: hidden;
-            width: 100%;
+
+        /* Floating Astronaut/Element */
+        .floating {
+            animation: float 6s ease-in-out infinite;
         }
-        
-        /* S'assurer que tous les conteneurs sont centrés */
-        .max-w-7xl, .max-w-6xl, .max-w-5xl, .max-w-4xl, .max-w-3xl, .max-w-2xl, .max-w-xl {
-            margin-left: auto !important;
-            margin-right: auto !important;
-            padding-left: 1.5rem;
-            padding-right: 1.5rem;
-            box-sizing: border-box;
-            max-width: 100%;
-        }
-        
-        img, video, iframe {
-            max-width: 100%;
-            height: auto;
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(-20px) rotate(5deg);
+            }
         }
     </style>
 </head>
-<body class="min-h-screen bg-[#FAFAFA] text-gray-900 flex flex-col">
-    <main class="flex-1 flex items-center justify-center px-6">
-        <div class="max-w-xl w-full text-center">
-            <div class="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-black text-white mb-6">
-                <span class="text-2xl font-semibold">404</span>
-            </div>
-            <h1 class="text-4xl md:text-5xl font-bold tracking-tight mb-4">Page introuvable</h1>
-            <p class="text-lg text-gray-600 mb-8">
-                La page que vous recherchez n'existe plus ou a changé d'adresse. 
-                Vous pouvez revenir à l'accueil ou découvrir nos services IRVE.
-            </p>
-            <div class="flex flex-wrap justify-center gap-4 mb-10">
-                <a href="index.html" class="btn-primary px-6 py-3 rounded-xl font-medium text-sm sm:text-base">
-                    Retour à l'accueil
-                </a>
-                <a href="pilotage-projets.html" class="btn-secondary px-6 py-3 rounded-xl font-medium text-sm sm:text-base border border-gray-300">
-                    Découvrir nos services
-                </a>
-            </div>
-            <p class="text-sm text-gray-500">
-                Besoin d'aide ? <a href="mailto:contact@jcsm.fr" class="underline hover:text-gray-900">contact@jcsm.fr</a>
-            </p>
+
+<body class="h-full flex items-center justify-center relative">
+
+    <!-- Stars Background -->
+    <div class="stars" id="stars"></div>
+
+    <main class="relative z-10 text-center px-4">
+        <div class="mb-8 floating">
+            <span class="text-6xl">🚀</span>
+        </div>
+
+        <h1 class="glitch-text mb-4 leading-none">404</h1>
+
+        <h2
+            class="text-2xl md:text-3xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500">
+            Houston, on a un problème...
+        </h2>
+
+        <p class="text-gray-400 text-lg mb-10 max-w-md mx-auto">
+            La page que vous cherchez a peut-être été aspirée par un trou noir ou n'existe pas.
+        </p>
+
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="index.html"
+                class="group relative px-8 py-4 bg-white text-black font-bold rounded-full overflow-hidden transition-transform hover:scale-105 active:scale-95">
+                <span class="relative z-10 group-hover:text-blue-600 transition-colors">Retour sur Terre</span>
+                <div
+                    class="absolute inset-0 bg-blue-100 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left">
+                </div>
+            </a>
+
+            <a href="contact.html"
+                class="px-8 py-4 border border-white/20 rounded-full hover:bg-white/10 transition-colors backdrop-blur-sm">
+                Signaler une anomalie
+            </a>
         </div>
     </main>
-    <script src="animations.js" defer></script>
+
+    <script>
+        // Generate Stars
+        const starsContainer = document.getElementById('stars');
+        for (let i = 0; i < 100; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            const size = Math.random() * 3 + 1;
+            star.style.width = size + 'px';
+            star.style.height = size + 'px';
+            star.style.left = Math.random() * 100 + '%';
+            star.style.top = Math.random() * 100 + '%';
+            star.style.setProperty('--duration', (Math.random() * 3 + 2) + 's');
+            star.style.setProperty('--opacity', Math.random() * 0.7 + 0.3);
+            starsContainer.appendChild(star);
+        }
+    </script>
 </body>
+
 </html>
-
-

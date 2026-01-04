@@ -11,52 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="styles.css">
-    <style>
-        * {
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-            box-sizing: border-box;
-        }
-        
-        html, body { 
-            overflow-x: hidden !important;
-            max-width: 100vw;
-            width: 100%;
-            margin: 0;
-            padding: 0;
-            position: relative;
-        }
-        
-        /* Empêcher tout débordement horizontal */
-        main, section, article, header, footer, nav, div {
-            max-width: 100%;
-            box-sizing: border-box;
-        }
-        
-        section {
-            overflow-x: hidden;
-            width: 100%;
-        }
-        
-        /* S'assurer que tous les conteneurs sont centrés */
-        .max-w-7xl, .max-w-6xl, .max-w-5xl, .max-w-4xl, .max-w-3xl, .max-w-2xl, .max-w-xl {
-            margin-left: auto !important;
-            margin-right: auto !important;
-            padding-left: 1.5rem;
-            padding-right: 1.5rem;
-            box-sizing: border-box;
-            max-width: 100%;
-        }
-        
-        img, video, iframe {
-            max-width: 100%;
-            height: auto;
-        }
-        
-        .gradient-bg { background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); }
-        .glass-effect { backdrop-filter: blur(15px); background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); }
-        .text-premium { color: #BCC6CC; }
-    </style>
+    
     <script>
         tailwind.config = {
             theme: {
@@ -257,6 +212,12 @@
             </div>
         </div>
     </footer>
+    
+
+    <script src="js/utils.js"></script>
+    <script src="js/public.js"></script>
+    <script src="js/wow-effects.js"></script>
+    
     <script src="animations.js" defer></script>
 </body>
 </html>

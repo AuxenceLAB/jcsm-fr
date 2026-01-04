@@ -1,8 +1,27 @@
+# JCSM - Robots.txt
+# https://jcsm.fr
+
 User-agent: *
 Allow: /
-Disallow: /mentions-legales.html
-Disallow: /confidentialite.html
-Disallow: /cgv.html
-Disallow: /interne.html
 
+# Sitemaps
 Sitemap: https://jcsm.fr/sitemap.xml
+
+# Disallow internal/private pages
+Disallow: /interne.html
+Disallow: /api/
+Disallow: /*.json$
+
+# Disallow admin assets
+Disallow: /js/app.js
+Disallow: /js/map.js
+
+# Allow CSS and JS for rendering
+Allow: /styles.css
+Allow: /js/public.js
+Allow: /js/wow-effects.js
+Allow: /js/utils.js
+Allow: /js/landing.js
+
+# Crawl-delay
+Crawl-delay: 1

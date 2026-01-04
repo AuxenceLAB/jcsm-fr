@@ -121,339 +121,35 @@
         rel="stylesheet">
 
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0070F3',
+                        secondary: '#7928CA',
+                    }
+                }
+            }
+        }
+    </script>
     <link rel="stylesheet" href="styles.css">
-
     <link rel="icon" type="image/png" href="images/logo.png">
 
+    <!-- PWA -->
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="images/logo.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <!-- Font Preload for Performance -->
+    <link rel="preload"
+        href="https://fonts.gstatic.com/s/inter/v13/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hiJ-Ek-_EeA.woff2"
+        as="font" type="font/woff2" crossorigin>
+
     <style>
-        * {
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
-
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: #FAFAFA;
-            color: #1a1a1a;
-        }
-
-        /* Amélioration des contrastes pour accessibilité WCAG AA */
-        .text-gray-600 {
-            color: #4b5563;
-            /* Contraste amélioré */
-        }
-
-        .text-gray-500 {
-            color: #6b7280;
-            /* Contraste amélioré */
-        }
-
-        /* Empêcher tout débordement horizontal */
-        html,
-        body {
-            overflow-x: hidden !important;
-            max-width: 100vw !important;
-            width: 100%;
-            margin: 0;
-            padding: 0;
-            position: relative;
-        }
-
-        main,
-        section,
-        article,
-        header,
-        footer,
-        nav,
-        div {
-            max-width: 100%;
-            box-sizing: border-box;
-        }
-
-        section {
-            overflow-x: hidden;
-            width: 100%;
-        }
-
-        /* S'assurer que tous les conteneurs sont centrés */
-        .max-w-7xl,
-        .max-w-6xl,
-        .max-w-5xl,
-        .max-w-4xl,
-        .max-w-3xl,
-        .max-w-2xl,
-        .max-w-xl {
-            margin-left: auto !important;
-            margin-right: auto !important;
-            padding-left: 1.5rem;
-            padding-right: 1.5rem;
-            box-sizing: border-box;
-            max-width: 100%;
-        }
-
-        @media (max-width: 640px) {
-
-            .max-w-7xl,
-            .max-w-6xl,
-            .max-w-5xl,
-            .max-w-4xl,
-            .max-w-3xl,
-            .max-w-2xl,
-            .max-w-xl {
-                padding-left: 1rem;
-                padding-right: 1rem;
-            }
-        }
-
-        /* Optimisation images pour mobile */
-        @media (max-width: 768px) {
-            img {
-                max-width: 100%;
-                height: auto;
-                display: block;
-            }
-
-            .section-appear img {
-                display: block !important;
-            }
-
-            /* Ajustement padding sections sur mobile */
-            section {
-                padding-left: 1rem;
-                padding-right: 1rem;
-            }
-
-            /* Espacement réduit entre éléments sur mobile */
-            .grid {
-                gap: 1.5rem;
-            }
-        }
-
-        .preloader {
-            position: fixed;
-            inset: 0;
-            background: #FAFAFA;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 10000;
-            transition: opacity 0.3s ease;
-        }
-
-        .preloader.hide {
-            opacity: 0;
-            pointer-events: none;
-        }
-
-        .glass-nav {
-            background: rgba(250, 250, 250, 0.8);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(0, 0, 0, 0.06);
-        }
-
-        .gradient-text {
-            background: linear-gradient(135deg, #0070F3 0%, #7928CA 50%, #0070F3 100%);
-            background-size: 200% 200%;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            animation: gradient-shift 3s ease infinite;
-            position: relative;
-        }
-
-        @keyframes gradient-shift {
-
-            0%,
-            100% {
-                background-position: 0% 50%;
-            }
-
-            50% {
-                background-position: 100% 50%;
-            }
-        }
-
-        /* Effet de brillance sur le gradient text */
-        .gradient-text::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
-            animation: shine 3s infinite;
-        }
-
-        @keyframes shine {
-            0% {
-                left: -100%;
-            }
-
-            100% {
-                left: 100%;
-            }
-        }
-
-        /* Compteur animé */
-        .counter {
-            display: inline-block;
-        }
-
-        /* Effet de lumière premium sur les boutons */
-        .btn-primary {
-            position: relative;
-            overflow: hidden;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            background: linear-gradient(135deg, #000 0%, #1a1a1a 100%);
-            color: #fff;
-        }
-
-        .btn-primary::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: left 0.6s;
-        }
-
-        .btn-primary:hover::before {
-            left: 100%;
-        }
-
-        .btn-primary::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            border-radius: 50%;
-            background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, transparent 70%);
-            transform: translate(-50%, -50%);
-            transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1), height 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-            pointer-events: none;
-        }
-
-        .btn-primary:hover::after {
-            width: 300px;
-            height: 300px;
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-3px) scale(1.02);
-            box-shadow: 0 16px 32px -8px rgba(0, 0, 0, 0.35), 0 0 20px rgba(59, 130, 246, 0.2);
-        }
-
-        /* Animation premium au scroll avec effet de profondeur */
-        .section-appear {
-            opacity: 0;
-            transform: translateY(35px) scale(0.97);
-            transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1), transform 0.7s cubic-bezier(0.4, 0, 0.2, 1), filter 0.7s cubic-bezier(0.4, 0, 0.2, 1);
-            will-change: opacity, transform, filter;
-            filter: blur(3px);
-        }
-
-        .section-appear.visible {
-            opacity: 1;
-            transform: translateY(0) scale(1);
-            filter: blur(0);
-        }
-
-        /* Glow effect premium sur les cartes au hover */
-        .card-hover {
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-        }
-
-        .card-hover::before {
-            content: '';
-            position: absolute;
-            inset: -2px;
-            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1));
-            border-radius: inherit;
-            opacity: 0;
-            transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            z-index: -1;
-            filter: blur(12px);
-        }
-
-        .card-hover:hover::before {
-            opacity: 1;
-        }
-
-        .card-hover:hover {
-            transform: translateY(-10px) scale(1.02);
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.2), 0 0 30px rgba(59, 130, 246, 0.15);
-        }
-
-        /* Particules premium animées en arrière-plan */
-        .particles-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 0;
-            opacity: 0.04;
-            overflow: hidden;
-        }
-
-        .particle {
-            position: absolute;
-            width: 2px;
-            height: 2px;
-            background: linear-gradient(135deg, #0070F3, #7928CA);
-            border-radius: 50%;
-            animation: float 20s infinite ease-in-out;
-            will-change: transform, opacity;
-            box-shadow: 0 0 6px rgba(59, 130, 246, 0.5);
-        }
-
-        @keyframes float {
-
-            0%,
-            100% {
-                transform: translate(0, 0) scale(1);
-                opacity: 0.4;
-            }
-
-            25% {
-                transform: translate(100px, -100px) scale(1.2);
-                opacity: 0.8;
-            }
-
-            50% {
-                transform: translate(-50px, -200px) scale(0.8);
-                opacity: 0.6;
-            }
-
-            75% {
-                transform: translate(-150px, -50px) scale(1.1);
-                opacity: 0.7;
-            }
-        }
-
-        /* Transition de page smooth */
-        body {
-            opacity: 0;
-            transition: opacity 0.3s ease-in;
-        }
-
-        body.loaded {
-            opacity: 1;
-        }
-
-        /* Smooth page transitions */
-        a[href$=".html"] {
-            transition: all 0.2s ease;
-        }
-
+        /* Inline styles for index.html specific components */
         .card-hover {
             transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
             position: relative;
@@ -1129,10 +825,9 @@
                                 l'IRVE depuis 2018</span>
                         </div>
                         <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight tracking-tight mb-4"
-                            data-split="words" style="opacity: 0;">
+                            data-split="words">
                             Maîtrise Complète des Infrastructures de Recharge de Véhicule <span
-                                class="gradient-text">Électrique</span>
-                        </h1>
+                                class="gradient-text">Électrique</span></h1>
                         <p class="text-sm sm:text-base md:text-lg text-gray-600 leading-snug section-appear">
                             De la conception à l'exploitation, une expertise intégrale et éprouvée pour garantir la
                             performance et la pérennité de vos infrastructures de recharge électrique.
@@ -1161,7 +856,7 @@
                             <img id="hero-image" src="images/index.jpg"
                                 alt="Borne de recharge électrique IRVE professionnelle installée par JCSM"
                                 class="w-full h-auto max-h-[200px] sm:max-h-[300px] md:max-h-[400px] lg:max-h-[500px] object-cover rounded-2xl image-hover shadow-2xl parallax-image"
-                                width="1200" height="800" loading="lazy" fetchpriority="high">
+                                width="1200" height="800" loading="eager" fetchpriority="high">
                         </div>
                     </div>
                 </div>
@@ -1334,103 +1029,103 @@
                 <div class="logo-marquee-track">
                     <div
                         class="logo-item flex items-center justify-center bg-white border-2 border-gray-200 rounded-xl px-12 py-8 min-w-[200px] hover:border-blue-500 hover:shadow-xl">
-                        <img src="images/SPIE.jpg" alt="SPIE"
+                        <img src="images/SPIE.jpg" alt="SPIE" width="128" height="64"
                             class="h-16 w-auto opacity-90 hover:opacity-100 transition-all">
                     </div>
                     <div
                         class="logo-item flex items-center justify-center bg-white border-2 border-gray-200 rounded-xl px-12 py-8 min-w-[200px] hover:border-blue-500 hover:shadow-xl">
-                        <img src="images/equans.png" alt="Equans"
+                        <img src="images/equans.png" alt="Equans" width="128" height="64"
                             class="h-16 w-auto opacity-90 hover:opacity-100 transition-all">
                     </div>
                     <div
                         class="logo-item flex items-center justify-center bg-white border-2 border-gray-200 rounded-xl px-12 py-8 min-w-[200px] hover:border-blue-500 hover:shadow-xl">
-                        <img src="images/powerdot.png" alt="Powerdot"
+                        <img src="images/powerdot.png" alt="Powerdot" width="128" height="64"
                             class="h-16 w-auto opacity-90 hover:opacity-100 transition-all">
                     </div>
                     <div
                         class="logo-item flex items-center justify-center bg-white border-2 border-gray-200 rounded-xl px-12 py-8 min-w-[200px] hover:border-blue-500 hover:shadow-xl">
-                        <img src="images/freshmile.png" alt="Freshmile"
+                        <img src="images/freshmile.png" alt="Freshmile" width="128" height="64"
                             class="h-16 w-auto opacity-90 hover:opacity-100 transition-all">
                     </div>
                     <div
                         class="logo-item flex items-center justify-center bg-white border-2 border-gray-200 rounded-xl px-12 py-8 min-w-[200px] hover:border-blue-500 hover:shadow-xl">
-                        <img src="images/becable.png" alt="Be Cable"
+                        <img src="images/becable.png" alt="Be Cable" width="128" height="64"
                             class="h-16 w-auto opacity-90 hover:opacity-100 transition-all">
                     </div>
                     <div
                         class="logo-item flex items-center justify-center bg-white border-2 border-gray-200 rounded-xl px-12 py-8 min-w-[200px] hover:border-blue-500 hover:shadow-xl">
-                        <img src="images/perpignan.png" alt="Perpignan"
+                        <img src="images/perpignan.png" alt="Perpignan" width="128" height="64"
                             class="h-16 w-auto opacity-90 hover:opacity-100 transition-all">
                     </div>
                     <div
                         class="logo-item flex items-center justify-center bg-white border-2 border-gray-200 rounded-xl px-12 py-8 min-w-[200px] hover:border-blue-500 hover:shadow-xl">
-                        <img src="images/basicfit.png" alt="Basic Fit"
+                        <img src="images/basicfit.png" alt="Basic Fit" width="128" height="64"
                             class="h-16 w-auto opacity-90 hover:opacity-100 transition-all">
                     </div>
                     <div
                         class="logo-item flex items-center justify-center bg-white border-2 border-gray-200 rounded-xl px-12 py-8 min-w-[200px] hover:border-blue-500 hover:shadow-xl">
-                        <img src="images/bouygues.png" alt="Bouygues"
+                        <img src="images/bouygues.png" alt="Bouygues" width="128" height="64"
                             class="h-16 w-auto opacity-90 hover:opacity-100 transition-all">
                     </div>
                     <div
                         class="logo-item flex items-center justify-center bg-white border-2 border-gray-200 rounded-xl px-12 py-8 min-w-[200px] hover:border-blue-500 hover:shadow-xl">
-                        <img src="images/carplug.svg" alt="Carplug"
+                        <img src="images/carplug.svg" alt="Carplug" width="128" height="64"
                             class="h-16 w-auto opacity-90 hover:opacity-100 transition-all">
                     </div>
                     <div
                         class="logo-item flex items-center justify-center bg-white border-2 border-gray-200 rounded-xl px-12 py-8 min-w-[200px] hover:border-blue-500 hover:shadow-xl">
-                        <img src="images/legrand.png" alt="Legrand"
+                        <img src="images/legrand.png" alt="Legrand" width="128" height="64"
                             class="h-16 w-auto opacity-90 hover:opacity-100 transition-all">
                     </div>
                     <!-- duplication pour défilement continu -->
                     <div
                         class="logo-item flex items-center justify-center bg-white border-2 border-gray-200 rounded-xl px-12 py-8 min-w-[200px] hover:border-blue-500 hover:shadow-xl">
-                        <img src="images/SPIE.jpg" alt="SPIE"
+                        <img src="images/SPIE.jpg" alt="SPIE" width="128" height="64"
                             class="h-16 w-auto opacity-90 hover:opacity-100 transition-all">
                     </div>
                     <div
                         class="logo-item flex items-center justify-center bg-white border-2 border-gray-200 rounded-xl px-12 py-8 min-w-[200px] hover:border-blue-500 hover:shadow-xl">
-                        <img src="images/equans.png" alt="Equans"
+                        <img src="images/equans.png" alt="Equans" width="128" height="64"
                             class="h-16 w-auto opacity-90 hover:opacity-100 transition-all">
                     </div>
                     <div
                         class="logo-item flex items-center justify-center bg-white border-2 border-gray-200 rounded-xl px-12 py-8 min-w-[200px] hover:border-blue-500 hover:shadow-xl">
-                        <img src="images/powerdot.png" alt="Powerdot"
+                        <img src="images/powerdot.png" alt="Powerdot" width="128" height="64"
                             class="h-16 w-auto opacity-90 hover:opacity-100 transition-all">
                     </div>
                     <div
                         class="logo-item flex items-center justify-center bg-white border-2 border-gray-200 rounded-xl px-12 py-8 min-w-[200px] hover:border-blue-500 hover:shadow-xl">
-                        <img src="images/freshmile.png" alt="Freshmile"
+                        <img src="images/freshmile.png" alt="Freshmile" width="128" height="64"
                             class="h-16 w-auto opacity-90 hover:opacity-100 transition-all">
                     </div>
                     <div
                         class="logo-item flex items-center justify-center bg-white border-2 border-gray-200 rounded-xl px-12 py-8 min-w-[200px] hover:border-blue-500 hover:shadow-xl">
-                        <img src="images/becable.png" alt="Be Cable"
+                        <img src="images/becable.png" alt="Be Cable" width="128" height="64"
                             class="h-16 w-auto opacity-90 hover:opacity-100 transition-all">
                     </div>
                     <div
                         class="logo-item flex items-center justify-center bg-white border-2 border-gray-200 rounded-xl px-12 py-8 min-w-[200px] hover:border-blue-500 hover:shadow-xl">
-                        <img src="images/perpignan.png" alt="Perpignan"
+                        <img src="images/perpignan.png" alt="Perpignan" width="128" height="64"
                             class="h-16 w-auto opacity-90 hover:opacity-100 transition-all">
                     </div>
                     <div
                         class="logo-item flex items-center justify-center bg-white border-2 border-gray-200 rounded-xl px-12 py-8 min-w-[200px] hover:border-blue-500 hover:shadow-xl">
-                        <img src="images/basicfit.png" alt="Basic Fit"
+                        <img src="images/basicfit.png" alt="Basic Fit" width="128" height="64"
                             class="h-16 w-auto opacity-90 hover:opacity-100 transition-all">
                     </div>
                     <div
                         class="logo-item flex items-center justify-center bg-white border-2 border-gray-200 rounded-xl px-12 py-8 min-w-[200px] hover:border-blue-500 hover:shadow-xl">
-                        <img src="images/bouygues.png" alt="Bouygues"
+                        <img src="images/bouygues.png" alt="Bouygues" width="128" height="64"
                             class="h-16 w-auto opacity-90 hover:opacity-100 transition-all">
                     </div>
                     <div
                         class="logo-item flex items-center justify-center bg-white border-2 border-gray-200 rounded-xl px-12 py-8 min-w-[200px] hover:border-blue-500 hover:shadow-xl">
-                        <img src="images/carplug.svg" alt="Carplug"
+                        <img src="images/carplug.svg" alt="Carplug" width="128" height="64"
                             class="h-16 w-auto opacity-90 hover:opacity-100 transition-all">
                     </div>
                     <div
                         class="logo-item flex items-center justify-center bg-white border-2 border-gray-200 rounded-xl px-12 py-8 min-w-[200px] hover:border-blue-500 hover:shadow-xl">
-                        <img src="images/legrand.png" alt="Legrand"
+                        <img src="images/legrand.png" alt="Legrand" width="128" height="64"
                             class="h-16 w-auto opacity-90 hover:opacity-100 transition-all">
                     </div>
                 </div>
@@ -1688,330 +1383,22 @@
         </svg>
     </button>
 
+    <script src="js/utils.js"></script>
+    <script src="js/public.js"></script>
+    <script src="js/landing.js"></script>
+    <script src="js/analytics.js" defer></script>
+    <script src="js/wow-effects.js"></script>
+    <script src="animations.js" defer></script>
+    <!-- Service Worker Registration -->
     <script>
-        // Initialisation du body (transition smooth)
-        document.body.classList.add('loaded');
-
-        // Création des particules subtiles optimisées
-        function createParticles() {
-            const particlesBg = document.getElementById('particles-bg');
-            if (!particlesBg) return;
-
-            // Particules premium pour effet visuel
-            const particleCount = 25;
-            for (let i = 0; i < particleCount; i++) {
-                const particle = document.createElement('div');
-                particle.className = 'particle';
-                particle.style.left = Math.random() * 100 + '%';
-                particle.style.top = Math.random() * 100 + '%';
-                particle.style.animationDelay = Math.random() * 25 + 's';
-                particle.style.animationDuration = (20 + Math.random() * 10) + 's';
-                particlesBg.appendChild(particle);
-            }
-        }
-
-        // Transitions de page smooth avec effet premium
-        document.querySelectorAll('a[href$=".html"]').forEach(link => {
-            link.addEventListener('click', function (e) {
-                if (this.hostname === window.location.hostname && !this.getAttribute('target')) {
-                    document.body.style.transition = 'opacity 0.3s ease-out, transform 0.3s ease-out';
-                    document.body.style.opacity = '0';
-                    document.body.style.transform = 'scale(0.98)';
-                    setTimeout(() => {
-                        window.location.href = this.href;
-                    }, 300);
-                }
-            });
-        });
-
-        // Preloader
-        window.addEventListener('load', function () {
-            createParticles();
-            const preloader = document.getElementById('preloader');
-            setTimeout(() => preloader.classList.add('hide'), 100);
-        });
-
-        // Mobile menu
-        const btn = document.getElementById('mobile-menu-btn');
-        const menu = document.getElementById('mobile-menu');
-        const close = document.getElementById('mobile-menu-close');
-        const overlay = document.getElementById('mobile-menu-overlay');
-
-        btn?.addEventListener('click', () => {
-            menu.classList.add('open');
-            overlay.classList.add('active');
-        });
-
-        [close, overlay].forEach(el => {
-            el?.addEventListener('click', () => {
-                menu.classList.remove('open');
-                overlay.classList.remove('active');
-            });
-        });
-
-        // Scroll animations
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, { threshold: 0.1 });
-
-        document.querySelectorAll('.section-appear').forEach(el => observer.observe(el));
-
-        // Smooth scroll
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                const href = this.getAttribute('href');
-                if (href === '#') return;
-                e.preventDefault();
-                const target = document.querySelector(href);
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-            });
-        });
-
-        // Barre de progression de scroll
-        const scrollProgress = document.getElementById('scroll-progress');
-        window.addEventListener('scroll', () => {
-            const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            const scrolled = (window.pageYOffset / windowHeight) * 100;
-            scrollProgress.style.width = scrolled + '%';
-        });
-
-        // Scroll to top button
-        const scrollTopBtn = document.getElementById('scrollTop');
-        window.addEventListener('scroll', () => {
-            if (window.pageYOffset > 300) {
-                scrollTopBtn.classList.add('visible');
-            } else {
-                scrollTopBtn.classList.remove('visible');
-            }
-        });
-        scrollTopBtn.addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-
-        // Défilement continu premium des logos "Ils nous font confiance"
-        (function initLogoMarquee() {
-            const marquee = document.querySelector('.logo-marquee');
-            const track = document.querySelector('.logo-marquee-track');
-            if (!marquee || !track) return;
-
-            let offset = 0;
-            let lastTime = null;
-            const baseSpeed = 40; // pixels par seconde sur desktop
-
-            function step(timestamp) {
-                if (!lastTime) lastTime = timestamp;
-                const delta = (timestamp - lastTime) / 1000; // en secondes
-                lastTime = timestamp;
-
-                // Ajuste légèrement la vitesse sur mobile (un peu plus rapide)
-                const isMobile = window.matchMedia('(max-width: 768px)').matches;
-                const speed = isMobile ? baseSpeed * 1.2 : baseSpeed;
-
-                const trackWidth = track.scrollWidth / 2; // on a 2 séries consécutives
-                offset -= speed * delta;
-                if (Math.abs(offset) >= trackWidth) {
-                    offset = 0;
-                }
-                track.style.transform = `translateX(${offset}px)`;
-
-                requestAnimationFrame(step);
-            }
-
-            // Laisse le swipe possible sur mobile (overflow-x déjà géré en CSS media query)
-            requestAnimationFrame(step);
-        })();
-
-        // Compteurs animés pour les statistiques
-        function animateCounter(element, target, duration = 2000) {
-            let start = 0;
-            const increment = target / (duration / 16);
-            const timer = setInterval(() => {
-                start += increment;
-                if (start >= target) {
-                    element.textContent = target;
-                    clearInterval(timer);
-                } else {
-                    element.textContent = Math.floor(start);
-                }
-            }, 16);
-        }
-
-        // Observer pour déclencher les compteurs quand la section est visible
-        const statsObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const counters = entry.target.querySelectorAll('.counter');
-                    counters.forEach(counter => {
-                        const target = parseInt(counter.getAttribute('data-target'));
-                        if (target && counter.textContent === '0') {
-                            animateCounter(counter, target);
-                        }
-                    });
-                    statsObserver.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.5 });
-
-        // Trouver la section des stats (section qui contient "Notre Crédibilité en Chiffres")
-        const allSections = document.querySelectorAll('section');
-        allSections.forEach(section => {
-            const heading = section.querySelector('h2');
-            if (heading && heading.textContent.includes('Crédibilité')) {
-                statsObserver.observe(section);
-            }
-        });
-
-        // Parallax effect pour l'image hero
-        const heroImage = document.getElementById('hero-image');
-        if (heroImage) {
-            let ticking = false;
-            const handleScroll = () => {
-                if (!ticking) {
-                    window.requestAnimationFrame(() => {
-                        const scrolled = window.pageYOffset;
-                        const parallaxSpeed = 0.3; // Vitesse du parallax (ajustable)
-                        const maxTranslate = 30; // Maximum de translation en pixels
-                        const translateY = Math.min(scrolled * parallaxSpeed, maxTranslate);
-                        heroImage.style.transform = `translateY(${translateY}px)`;
-                        ticking = false;
-                    });
-                    ticking = true;
-                }
-            };
-            window.addEventListener('scroll', handleScroll, { passive: true });
-        }
-
-
-        // Service Worker registration
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
                 navigator.serviceWorker.register('/sw.js')
-                    .then((registration) => console.log('SW registered'))
                     .catch((error) => console.log('SW registration failed'));
             });
         }
-
-        // Lazy loading images
-        if ('loading' in HTMLImageElement.prototype) {
-            const images = document.querySelectorAll('img[data-src]');
-            images.forEach(img => {
-                img.src = img.dataset.src;
-            });
-        } else {
-            const script = document.createElement('script');
-            script.src = 'https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js';
-            document.body.appendChild(script);
-        }
-
-        // Form validation and error messages
-        const form = document.getElementById('contactForm');
-        const formMessage = document.getElementById('formMessage');
-
-        form.addEventListener('submit', function (e) {
-            e.preventDefault();
-            let isValid = true;
-            const submitBtn = form.querySelector('button[type="submit"]');
-            const submitText = submitBtn.querySelector('.submit-text');
-            const submitLoading = submitBtn.querySelector('.submit-loading');
-
-            // Reset previous errors
-            form.querySelectorAll('.error-message').forEach(el => {
-                el.classList.add('hidden');
-                el.textContent = '';
-            });
-            form.querySelectorAll('input, textarea').forEach(el => {
-                el.classList.remove('border-red-500');
-            });
-
-            // Validate name
-            const nom = document.getElementById('nom');
-            if (!nom.value.trim() || nom.value.length < 2) {
-                showError(nom, 'Le nom doit contenir au moins 2 caractères');
-                isValid = false;
-            }
-
-            // Validate email
-            const email = document.getElementById('email');
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!email.value.trim() || !emailRegex.test(email.value)) {
-                showError(email, 'Veuillez entrer une adresse email valide');
-                isValid = false;
-            }
-
-            // Validate message
-            const message = document.getElementById('message');
-            if (!message.value.trim() || message.value.length < 10) {
-                showError(message, 'Le message doit contenir au moins 10 caractères');
-                isValid = false;
-            }
-
-            // Validate RGPD
-            const rgpd = document.getElementById('rgpd');
-            if (!rgpd.checked) {
-                showError(rgpd, 'Vous devez accepter la politique de confidentialité');
-                isValid = false;
-            }
-
-            if (isValid) {
-                submitText.classList.add('hidden');
-                submitLoading.classList.remove('hidden');
-                submitBtn.disabled = true;
-
-                // Submit form
-                const formData = new FormData(form);
-                fetch(form.action, {
-                    method: 'POST',
-                    body: formData,
-                    headers: { 'Accept': 'application/json' }
-                })
-                    .then(response => {
-                        if (response.ok) {
-                            showSuccess('Message envoyé avec succès. Un expert JCSM vous répond sous 12 heures ouvrées.');
-                            form.reset();
-                        } else {
-                            showError(null, 'Une erreur est survenue. Veuillez réessayer.');
-                        }
-                    })
-                    .catch(() => {
-                        showError(null, 'Une erreur est survenue. Veuillez réessayer.');
-                    })
-                    .finally(() => {
-                        submitText.classList.remove('hidden');
-                        submitLoading.classList.add('hidden');
-                        submitBtn.disabled = false;
-                    });
-            }
-        });
-
-        function showError(field, message) {
-            if (field) {
-                field.classList.add('border-red-500');
-                const errorSpan = field.parentElement.querySelector('.error-message');
-                if (errorSpan) {
-                    errorSpan.textContent = message;
-                    errorSpan.classList.remove('hidden');
-                }
-            } else {
-                formMessage.textContent = message;
-                formMessage.className = 'p-4 rounded-xl mb-6 text-center font-medium bg-red-50 text-red-700 border border-red-200';
-                formMessage.classList.remove('hidden');
-            }
-        }
-
-        function showSuccess(message) {
-            formMessage.textContent = message;
-            formMessage.className = 'p-4 rounded-xl mb-6 text-center font-medium bg-green-50 text-green-700 border border-green-200';
-            formMessage.classList.remove('hidden');
-            setTimeout(() => formMessage.classList.add('hidden'), 5000);
-        }
     </script>
-    <script src="animations.js" defer></script>
+
 </body>
 
 </html>
