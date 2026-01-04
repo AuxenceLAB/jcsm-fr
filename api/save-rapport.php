@@ -124,40 +124,63 @@ if (file_put_contents($filepath, json_encode($rapportData, JSON_PRETTY_PRINT | J
 
 // Fonction pour générer le HTML
 function generateHTML($data) {
+    $date = date('d/m/Y', strtotime($data['dateIntervention']));
+    $logoPath = 'https://jcsm.fr/images/logo.png'; // URL absolue pour le rapport final
+    
+    // Traitement des photos pour l'affichage
+    $photosHtml = '';
+    if (!empty($data['photos']) && is_array($data['photos'])) {
+        $photosHtml = '<div class="section"><h2 class="section-title">Photos</h2><div class="photos-grid">';
+        foreach ($data['photos'] as $photo) {
+            // Si c'est du base64, on l'affiche directement
+            if (strpos($photo, 'data:image') === 0) {
+                $photosHtml .= '<div class="photo-item"><img src="' . $photo . '" alt="Photo intervention"></div>';
+            }
+        }
+        $photosHtml .= '</div></div>';
+    }
+
     return '<!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
     <title>Rapport d\'Intervention - ' . htmlspecialchars($data['ticket']) . '</title>
     <style>
-        body { font-family: Arial, sans-serif; padding: 20px; max-width: 800px; margin: 0 auto; }
-        h1 { color: #333; border-bottom: 2px solid #0070F3; padding-bottom: 10px; }
-        .section { margin-bottom: 20px; }
-        .label { font-weight: bold; color: #666; }
-        .value { margin-top: 5px; margin-bottom: 15px; }
-        .header { background: #f3f4f6; padding: 15px; border-radius: 8px; margin-bottom: 20px; }
+        body { font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; padding: 40px; max-width: 900px; margin: 0 auto; color: #1f2937; line-height: 1.6; background-color: #ffffff; }
+        .header { display: flex; justify-content: space-between; align-items: center; border-bottom: 3px solid #000; padding-bottom: 20px; margin-bottom: 40px; }
+        .logo-container img { height: 60px; }
+        .doc-title { text-align: right; }
+        .doc-title h1 { margin: 0; font-size: 24px; text-transform: uppercase; color: #000; letter-spacing: 1px; }
+        .doc-title p { margin: 5px 0 0; color: #6b7280; font-size: 14px; }
+        
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-bottom: 40px; }
+        .info-box { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 8px; padding: 20px; }
+        .info-box h3 { margin-top: 0; margin-bottom: 15px; color: #0070F3; font-size: 16px; text-transform: uppercase; border-bottom: 1px solid #e5e7eb; padding-bottom: 8px; }
+        .info-row { display: flex; margin-bottom: 8px; }
+        .info-label { font-weight: 600; width: 120px; color: #4b5563; }
+        .info-value { flex: 1; color: #111827; }
+        
+        .section { margin-bottom: 30px; }
+        .section-title { background: #000; color: #fff; padding: 10px 15px; font-size: 16px; text-transform: uppercase; border-radius: 4px; margin-bottom: 20px; }
+        .content-box { border: 1px solid #e5e7eb; padding: 20px; border-radius: 8px; min-height: 100px; background: #fff; white-space: pre-wrap; }
+        
+        .photos-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+        .photo-item { border: 1px solid #e5e7eb; padding: 10px; border-radius: 8px; text-align: center; }
+        .photo-item img { max-width: 100%; height: auto; max-height: 300px; object-fit: contain; }
+        
+        .footer { margin-top: 60px; padding-top: 20px; border-top: 1px solid #e5e7eb; text-align: center; font-size: 12px; color: #9ca3af; }
+        
+        .status-badge { display: inline-block; padding: 4px 12px; border-radius: 9999px; font-weight: 600; font-size: 14px; }
+        .status-success { background-color: #d1fae5; color: #065f46; }
+        
+        @media print {
+            body { padding: 0; }
+            .info-box, .content-box { border: 1px solid #ccc; }
+        }
     </style>
 </head>
 <body>
-    <h1>Rapport d\'Intervention</h1>
-    
     <div class="header">
-        <p><span class="label">Ticket:</span> <span class="value">' . htmlspecialchars($data['ticket']) . '</span></p>
-        <p><span class="label">Site:</span> <span class="value">' . htmlspecialchars($data['nomSite']) . '</span></p>
-        <p><span class="label">Adresse:</span> <span class="value">' . htmlspecialchars($data['adresse']) . '</span></p>
-    </div>
-    
-    <div class="section">
-        <p><span class="label">Date d\'intervention:</span> <span class="value">' . htmlspecialchars($data['dateIntervention']) . '</span></p>
-        <p><span class="label">Heure d\'arrivée:</span> <span class="value">' . htmlspecialchars($data['heureArrivee']) . '</span></p>
-        <p><span class="label">Heure de départ:</span> <span class="value">' . htmlspecialchars($data['heureDepart']) . '</span></p>
-    </div>
-    
-    <div class="section">
-        <p class="label">Problème constaté:</p>
-        <p class="value">' . nl2br(htmlspecialchars($data['probleme'])) . '</p>
-    </div>
-    
     <div class="section">
         <p class="label">Action réalisée:</p>
         <p class="value">' . nl2br(htmlspecialchars($data['actionRealisee'])) . '</p>
