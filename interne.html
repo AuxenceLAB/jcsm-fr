@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,26 +10,29 @@
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
-    
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" type="image/png" href="images/logo.png">
-    
+
     <!-- Leaflet CSS -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-    
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
     <style>
         * {
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
             box-sizing: border-box;
         }
-        
+
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             background: #FAFAFA;
@@ -36,58 +40,58 @@
             margin: 0;
             padding: 0;
         }
-        
+
         #map {
             height: 100%;
             width: 100%;
             min-height: 500px;
         }
-        
+
         .intervention-item {
             transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
             cursor: pointer;
             border-left: 3px solid transparent;
         }
-        
+
         .intervention-item:hover {
             transform: translateX(4px);
             background: #F9FAFB;
             border-left-color: #0070F3;
         }
-        
+
         .intervention-item.selected {
             background: #EBF4FF;
             border-left: 4px solid #0070F3;
             box-shadow: 0 2px 8px rgba(0, 112, 243, 0.1);
         }
-        
+
         .view-toggle {
             display: none;
         }
-        
+
         @media (max-width: 1024px) {
             .main-grid {
                 grid-template-columns: 1fr !important;
             }
-            
+
             .view-toggle {
                 display: flex;
             }
-            
+
             .list-view.hidden,
             .map-view.hidden {
                 display: none;
             }
         }
-        
+
         .leaflet-popup-content-wrapper {
             border-radius: 12px;
         }
-        
+
         .leaflet-popup-content {
             margin: 16px;
         }
-        
+
         .delai-badge {
             padding: 4px 12px;
             border-radius: 12px;
@@ -95,34 +99,34 @@
             font-weight: 600;
             display: inline-block;
         }
-        
+
         .delai-urgent {
             background: #FEE2E2;
             color: #991B1B;
         }
-        
+
         .delai-rapide {
             background: #FEF3C7;
             color: #92400E;
         }
-        
+
         .delai-standard {
             background: #D1FAE5;
             color: #065F46;
         }
-        
+
         .leaflet-marker-icon.urgent-marker {
             filter: hue-rotate(0deg) saturate(1.5);
         }
-        
+
         .leaflet-marker-icon.rapide-marker {
             filter: hue-rotate(30deg) saturate(1.3);
         }
-        
+
         .leaflet-marker-icon.standard-marker {
             filter: hue-rotate(120deg) saturate(1.2);
         }
-        
+
         .report-form-panel {
             position: fixed;
             top: 80px;
@@ -136,11 +140,11 @@
             z-index: 1000;
             overflow-y: auto;
         }
-        
+
         .report-form-panel.open {
             right: 0;
         }
-        
+
         @media (max-width: 768px) {
             .report-form-panel {
                 top: 0;
@@ -149,7 +153,7 @@
                 height: 100vh;
             }
         }
-        
+
         .overlay {
             display: none;
             position: fixed;
@@ -157,16 +161,16 @@
             background: rgba(0, 0, 0, 0.4);
             z-index: 999;
         }
-        
+
         .overlay.active {
             display: block;
         }
-        
+
         /* Améliorations UX */
         .smooth-transition {
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
-        
+
         .tab-button {
             padding: 12px 24px;
             border-radius: 8px;
@@ -175,49 +179,54 @@
             transition: all 0.2s ease;
             border: 2px solid transparent;
         }
-        
+
         .tab-button.active {
             background: #000;
             color: white;
         }
-        
+
         .tab-button:not(.active) {
             background: #f3f4f6;
             color: #6b7280;
         }
-        
+
         .tab-button:not(.active):hover {
             background: #e5e7eb;
             color: #374151;
         }
-        
+
         /* Style pour le bouton Import */
         #import-btn:disabled {
             cursor: not-allowed;
         }
-        
+
         #import-btn svg {
             animation: none;
         }
-        
+
         @keyframes spin {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
         }
-        
+
         #import-btn .animate-spin {
             animation: spin 1s linear infinite;
             display: inline-block;
         }
-        
+
         .tab-content {
             display: none;
         }
-        
+
         .tab-content.active {
             display: block;
         }
-        
+
         .fiche-card {
             background: white;
             border: 1px solid #e5e7eb;
@@ -227,33 +236,33 @@
             transition: all 0.2s ease;
             cursor: pointer;
         }
-        
+
         .fiche-card:hover {
             border-color: #0070F3;
             box-shadow: 0 4px 12px rgba(0, 112, 243, 0.1);
             transform: translateY(-2px);
         }
-        
+
         .fiche-card-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
             margin-bottom: 12px;
         }
-        
+
         .fiche-card-title {
             font-size: 18px;
             font-weight: 700;
             color: #1a1a1a;
         }
-        
+
         .fiche-card-content {
             color: #6b7280;
             line-height: 1.6;
             cursor: pointer;
             position: relative;
         }
-        
+
         .fiche-card-content::after {
             content: '✏️ Modifier';
             position: absolute;
@@ -268,11 +277,11 @@
             opacity: 0;
             transition: opacity 0.2s ease;
         }
-        
+
         .fiche-card:hover .fiche-card-content::after {
             opacity: 1;
         }
-        
+
         .btn-add-fiche {
             background: linear-gradient(135deg, #0070F3 0%, #7928CA 100%);
             color: white;
@@ -283,12 +292,12 @@
             cursor: pointer;
             transition: all 0.2s ease;
         }
-        
+
         .btn-add-fiche:hover {
             transform: translateY(-2px);
             box-shadow: 0 8px 16px rgba(0, 112, 243, 0.3);
         }
-        
+
         .btn-delete {
             background: #ef4444;
             color: white;
@@ -299,12 +308,12 @@
             font-size: 12px;
             transition: all 0.2s ease;
         }
-        
+
         .btn-delete:hover {
             background: #dc2626;
             transform: scale(1.05);
         }
-        
+
         .modal-fiche {
             display: none;
             position: fixed;
@@ -315,11 +324,11 @@
             justify-content: center;
             padding: 20px;
         }
-        
+
         .modal-fiche.active {
             display: flex;
         }
-        
+
         .modal-content {
             background: white;
             border-radius: 16px;
@@ -329,57 +338,58 @@
             max-height: 90vh;
             overflow-y: auto;
         }
-        
+
         .empty-state {
             text-align: center;
             padding: 60px 20px;
             color: #9ca3af;
         }
-        
+
         .empty-state-icon {
             font-size: 48px;
             margin-bottom: 16px;
         }
-        
+
         /* Améliorations animations */
         @keyframes fadeIn {
             from {
                 opacity: 0;
                 transform: translateY(10px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
             }
         }
-        
+
         .fiche-card {
             animation: fadeIn 0.3s ease-out;
         }
-        
+
         .intervention-item {
             animation: fadeIn 0.2s ease-out;
         }
-        
+
         /* Scrollbar personnalisée */
         .overflow-y-auto::-webkit-scrollbar {
             width: 8px;
         }
-        
+
         .overflow-y-auto::-webkit-scrollbar-track {
             background: #f1f1f1;
             border-radius: 4px;
         }
-        
+
         .overflow-y-auto::-webkit-scrollbar-thumb {
             background: #cbd5e0;
             border-radius: 4px;
         }
-        
+
         .overflow-y-auto::-webkit-scrollbar-thumb:hover {
             background: #a0aec0;
         }
-        
+
         /* Styles pour images dans fiches */
         .fiche-image {
             max-width: 100%;
@@ -388,18 +398,18 @@
             cursor: pointer;
             transition: transform 0.2s ease;
         }
-        
+
         .fiche-image:hover {
             transform: scale(1.02);
         }
-        
+
         .image-preview-container {
             display: flex;
             flex-wrap: wrap;
             gap: 12px;
             margin: 12px 0;
         }
-        
+
         .image-preview {
             position: relative;
             width: 120px;
@@ -408,13 +418,13 @@
             overflow: hidden;
             border: 2px solid #e5e7eb;
         }
-        
+
         .image-preview img {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
-        
+
         .image-preview-remove {
             position: absolute;
             top: 4px;
@@ -431,7 +441,7 @@
             align-items: center;
             justify-content: center;
         }
-        
+
         /* Vue calendrier hebdomadaire heure par heure - Optimisé sans scroll */
         .calendar-view {
             padding: 16px;
@@ -441,7 +451,7 @@
             flex-direction: column;
             background: #f8fafc;
         }
-        
+
         .calendar-header {
             display: flex;
             justify-content: space-between;
@@ -450,20 +460,20 @@
             flex-shrink: 0;
             padding: 0 4px;
         }
-        
+
         .calendar-header h2 {
             font-size: 20px;
             font-weight: 700;
             color: #1a1a1a;
             margin: 0;
         }
-        
+
         .calendar-header p {
             font-size: 12px;
             color: #6b7280;
             margin: 4px 0 0 0;
         }
-        
+
         .calendar-week-grid {
             display: grid;
             grid-template-columns: 50px repeat(7, 1fr);
@@ -474,9 +484,9 @@
             overflow: hidden;
             flex: 1;
             min-height: 0;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
         }
-        
+
         .calendar-hour-label {
             background: #f9fafb;
             padding: 2px 6px;
@@ -494,13 +504,13 @@
             height: calc((100vh - 280px) / 24);
             min-height: 20px;
         }
-        
+
         .calendar-day-column {
             background: white;
             display: flex;
             flex-direction: column;
         }
-        
+
         .calendar-day-header {
             background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
             padding: 10px 6px;
@@ -511,28 +521,28 @@
             position: sticky;
             top: 0;
             z-index: 5;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
         }
-        
+
         .calendar-day-header.today {
             background: linear-gradient(135deg, #0070F3 0%, #0051cc 100%);
             color: white;
             box-shadow: 0 2px 8px rgba(0, 112, 243, 0.3);
         }
-        
+
         .calendar-day-header .day-number {
             font-size: 16px;
             display: block;
             line-height: 1.2;
         }
-        
+
         .calendar-day-header .day-name {
             font-size: 10px;
             text-transform: uppercase;
             opacity: 0.9;
             letter-spacing: 0.5px;
         }
-        
+
         .calendar-hour-slot {
             height: calc((100vh - 280px) / 24);
             min-height: 24px;
@@ -547,26 +557,26 @@
             flex-direction: column;
             gap: 1px;
         }
-        
+
         .calendar-hour-slot:hover {
             background: #f0f9ff;
         }
-        
+
         .calendar-hour-slot.drag-over {
             background: #e0f2fe;
             border: 2px dashed #0070F3;
         }
-        
+
         .calendar-hour-slot.past {
             background: #fafafa;
             opacity: 0.7;
         }
-        
+
         .calendar-hour-slot.current-hour {
             background: #EBF4FF;
             border-bottom: 2px solid #0070F3;
         }
-        
+
         .calendar-intervention {
             background: #0070F3;
             color: white;
@@ -577,7 +587,7 @@
             cursor: pointer;
             position: relative;
             z-index: 2;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
             transition: all 0.2s;
             overflow: hidden;
             flex-shrink: 0;
@@ -587,40 +597,40 @@
             flex-direction: column;
             justify-content: center;
         }
-        
+
         .calendar-intervention:hover {
             transform: translateY(-2px) scale(1.02);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
             z-index: 10;
         }
-        
+
         .calendar-intervention.urgent {
             background: linear-gradient(135deg, #DC2626, #EF4444);
             border-left: 3px solid #991B1B;
         }
-        
+
         .calendar-intervention.rapide {
             background: linear-gradient(135deg, #F59E0B, #FBBF24);
             border-left: 3px solid #D97706;
         }
-        
+
         .calendar-intervention.standard {
             background: linear-gradient(135deg, #10B981, #34D399);
             border-left: 3px solid #059669;
         }
-        
+
         .calendar-intervention.dragging {
             opacity: 0.5;
             z-index: 100;
         }
-        
+
         .calendar-intervention .intv-time {
             font-weight: 700;
             font-size: 10px;
             margin-bottom: 2px;
             opacity: 0.95;
         }
-        
+
         .calendar-intervention .intv-site {
             font-weight: 600;
             white-space: nowrap;
@@ -629,13 +639,13 @@
             font-size: 10px;
             line-height: 1.2;
         }
-        
+
         .calendar-intervention .intv-ticket {
             font-size: 9px;
             opacity: 0.9;
             margin-top: 2px;
         }
-        
+
         .btn-week-nav {
             background: white;
             border: 1px solid #e5e7eb;
@@ -645,18 +655,18 @@
             font-weight: 600;
             transition: all 0.2s;
         }
-        
+
         .btn-week-nav:hover {
             background: #f9fafb;
             border-color: #0070F3;
         }
-        
+
         .week-range {
             font-size: 18px;
             font-weight: 700;
             color: #1a1a1a;
         }
-        
+
         .upload-area {
             border: 2px dashed #cbd5e0;
             border-radius: 8px;
@@ -666,21 +676,23 @@
             transition: all 0.2s;
             margin: 12px 0;
         }
-        
+
         .upload-area:hover {
             border-color: #0070F3;
             background: #f0f9ff;
         }
-        
+
         .upload-area.dragover {
             border-color: #0070F3;
             background: #e0f2fe;
         }
     </style>
 </head>
+
 <body>
     <!-- Authentification -->
-    <div id="auth-modal" class="fixed inset-0 bg-black bg-opacity-50 z-[10000] flex items-center justify-center" style="display: flex; pointer-events: auto;">
+    <div id="auth-modal" class="fixed inset-0 bg-black bg-opacity-50 z-[10000] flex items-center justify-center"
+        style="display: flex; pointer-events: auto;">
         <div class="bg-white rounded-2xl p-8 max-w-md w-full mx-4 relative z-[10001]" style="pointer-events: auto;">
             <div class="flex items-center gap-3 mb-6">
                 <img src="images/logo.png" alt="JCSM" class="w-12 h-12">
@@ -688,31 +700,25 @@
             </div>
             <form id="auth-form" class="space-y-4">
                 <div>
-                    <label for="region" class="block text-sm font-medium text-gray-700 mb-2">Région</label>
-                    <select id="region" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" style="pointer-events: auto !important; cursor: pointer; z-index: 10002; position: relative;">
-                        <option value="">Sélectionner une région</option>
-                        <option value="Admin">Admin (voir toutes les régions)</option>
-                        <option value="Île-de-France">Île-de-France</option>
-                        <option value="Auvergne-Rhône-Alpes">Auvergne-Rhône-Alpes</option>
-                        <option value="Provence-Alpes-Côte d'Azur">Provence-Alpes-Côte d'Azur</option>
-                        <option value="Nouvelle-Aquitaine">Nouvelle-Aquitaine</option>
-                        <option value="Occitanie">Occitanie</option>
-                        <option value="Hauts-de-France">Hauts-de-France</option>
-                        <option value="Grand Est">Grand Est</option>
-                        <option value="Pays de la Loire">Pays de la Loire</option>
-                        <option value="Normandie">Normandie</option>
-                        <option value="Bretagne">Bretagne</option>
-                        <option value="Bourgogne-Franche-Comté">Bourgogne-Franche-Comté</option>
-                        <option value="Centre-Val de Loire">Centre-Val de Loire</option>
-                        <option value="Corse">Corse</option>
+                    <label for="user-role" class="block text-sm font-medium text-gray-700 mb-2">Accès</label>
+                    <select id="user-role" required
+                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        style="pointer-events: auto !important; cursor: pointer; z-index: 10002; position: relative;">
+                        <option value="">Sélectionner votre accès</option>
+                        <option value="Technicien">Technicien</option>
+                        <option value="Admin">Administrateur</option>
                     </select>
                 </div>
-                <div id="password-field" style="display: none;">
+                <div id="password-field">
                     <label for="password" class="block text-sm font-medium text-gray-700 mb-2">Mot de passe</label>
-                    <input type="password" id="password" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Mot de passe admin">
+                    <input type="password" id="password" required
+                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        placeholder="Entrez le mot de passe">
                 </div>
                 <div id="auth-error" class="hidden text-red-600 text-sm"></div>
-                <button type="submit" class="w-full bg-black text-white py-3 rounded-lg font-medium hover:bg-gray-800 transition-colors">Continuer</button>
+                <button type="submit"
+                    class="w-full bg-black text-white py-3 rounded-lg font-medium hover:bg-gray-800 transition-colors">Se
+                    connecter</button>
             </form>
         </div>
     </div>
@@ -723,27 +729,32 @@
             <div class="flex justify-between items-center mb-4">
                 <div class="flex items-center gap-3">
                     <img src="images/logo.png" alt="JCSM" class="w-10 h-10">
-                <div>
-                    <div class="flex items-center gap-2">
+                    <div>
+                        <div class="flex items-center gap-2">
                             <h1 class="text-2xl font-bold">JCSM – Outils Techniques</h1>
-                        <span class="text-xs bg-gray-200 text-gray-600 px-2 py-1 rounded">INTERNE</span>
+                            <span class="text-xs bg-gray-200 text-gray-600 px-2 py-1 rounded">INTERNE</span>
+                        </div>
+                        <p class="text-sm text-gray-600 mt-1">
+                            <span id="tech-info">Région: <span id="tech-region">-</span></span>
+                            <button id="logout-btn" class="ml-4 text-xs text-blue-600 hover:underline">(Changer de
+                                région)</button>
+                        </p>
                     </div>
-                    <p class="text-sm text-gray-600 mt-1">
-                        <span id="tech-info">Région: <span id="tech-region">-</span></span>
-                        <button id="logout-btn" class="ml-4 text-xs text-blue-600 hover:underline">(Changer de région)</button>
-                    </p>
-                </div>
                 </div>
                 <div class="flex items-center gap-3">
-                    <button id="import-btn" class="px-4 py-2 rounded-lg bg-blue-600 text-white font-medium hover:bg-blue-700 transition-colors flex items-center gap-2" title="Actualiser les données">
+                    <button id="import-btn"
+                        class="px-4 py-2 rounded-lg bg-blue-600 text-white font-medium hover:bg-blue-700 transition-colors flex items-center gap-2"
+                        title="Actualiser les données">
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15">
+                            </path>
                         </svg>
                         <span id="import-btn-text">Actualiser</span>
                     </button>
                 </div>
             </div>
-            
+
             <!-- Navigation par onglets -->
             <div class="flex gap-2">
                 <button class="tab-button active" data-tab="interventions">
@@ -768,49 +779,59 @@
         <div id="tab-interventions" class="tab-content active">
             <div class="main-grid grid lg:grid-cols-[1.1fr_1.4fr] gap-4 p-4" style="height: calc(100vh - 180px);">
                 <!-- Liste des interventions (GAUCHE) -->
-            <div class="list-view bg-white rounded-xl shadow-sm overflow-hidden flex flex-col">
-                <div class="p-4 border-b border-gray-200">
-                            <div class="flex justify-between items-center mb-2">
-                                <div>
-                                    <h2 class="text-lg font-semibold" id="list-title">Mes interventions</h2>
-                    <p class="text-sm text-gray-600 mt-1" id="intervention-count">0 intervention(s)</p>
-                                </div>
-                                <div class="flex gap-2">
-                                    <button id="toggle-view-mode" class="px-3 py-1.5 text-xs bg-blue-100 text-blue-700 rounded-lg hover:bg-blue-200 transition-colors font-medium" title="Basculer entre toutes les interventions et les interventions en cours">
-                                        <span id="view-mode-text">📅 En cours</span>
-                                    </button>
-                                    <button id="toggle-past-interventions" class="px-3 py-1.5 text-xs bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition-colors font-medium">
-                                        📋 Passées
-                                    </button>
-                                </div>
+                <div class="list-view bg-white rounded-xl shadow-sm overflow-hidden flex flex-col">
+                    <div class="p-4 border-b border-gray-200">
+                        <div class="flex justify-between items-center mb-2">
+                            <div>
+                                <h2 class="text-lg font-semibold" id="list-title">Mes interventions</h2>
+                                <p class="text-sm text-gray-600 mt-1" id="intervention-count">0 intervention(s)</p>
                             </div>
-                </div>
-                <div class="overflow-y-auto flex-1" id="interventions-list">
-                    <!-- Les interventions seront injectées ici -->
-                </div>
+                            <div class="flex gap-2">
+                                <button id="toggle-view-mode"
+                                    class="px-3 py-1.5 text-xs bg-blue-100 text-blue-700 rounded-lg hover:bg-blue-200 transition-colors font-medium"
+                                    title="Basculer entre toutes les interventions et les interventions en cours">
+                                    <span id="view-mode-text">📅 En cours</span>
+                                </button>
+                                <button id="toggle-past-interventions"
+                                    class="px-3 py-1.5 text-xs bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition-colors font-medium">
+                                    📋 Passées
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="overflow-y-auto flex-1" id="interventions-list">
+                        <!-- Les interventions seront injectées ici -->
+                    </div>
                     <!-- Section interventions passées (masquée par défaut) -->
-                    <div id="past-interventions-section" class="hidden border-t border-gray-200 bg-gray-50 flex flex-col" style="max-height: 50%;">
+                    <div id="past-interventions-section"
+                        class="hidden border-t border-gray-200 bg-gray-50 flex flex-col" style="max-height: 50%;">
                         <div class="p-3 border-b border-gray-200 bg-gray-100">
                             <div class="flex justify-between items-center">
-                                <h3 class="text-sm font-semibold text-gray-700">Interventions passées (avec rapport)</h3>
-                                <button id="close-past-interventions" class="text-gray-500 hover:text-gray-700 text-xs">✕ Fermer</button>
+                                <h3 class="text-sm font-semibold text-gray-700">Interventions passées (avec rapport)
+                                </h3>
+                                <button id="close-past-interventions"
+                                    class="text-gray-500 hover:text-gray-700 text-xs">✕ Fermer</button>
                             </div>
                             <p class="text-xs text-gray-500 mt-1" id="past-intervention-count">0 intervention(s)</p>
                         </div>
                         <div class="overflow-y-auto flex-1" id="past-interventions-list">
                             <!-- Les interventions passées seront injectées ici -->
                         </div>
+                    </div>
                 </div>
-            </div>
 
                 <!-- Carte (DROITE) - Toujours affichée -->
                 <div class="map-view bg-white rounded-xl shadow-sm overflow-hidden relative">
                     <div id="map" style="width: 100%; height: 100%; min-height: 400px;"></div>
-                    <div id="no-coords-message" class="absolute inset-0 flex items-center justify-center bg-white bg-opacity-90 z-10 pointer-events-none">
-                        <p id="no-coords-text" class="text-gray-500 text-center p-4">Aucune position disponible pour les interventions de votre région.</p>
+                    <div id="no-coords-message"
+                        class="absolute inset-0 flex items-center justify-center bg-white bg-opacity-90 z-10 pointer-events-none">
+                        <p id="no-coords-text" class="text-gray-500 text-center p-4">Aucune position disponible pour les
+                            interventions de votre région.</p>
                     </div>
                     <!-- Légende des couleurs par région -->
-                    <div id="map-legend" class="absolute bottom-4 left-4 bg-white rounded-lg shadow-lg p-3 z-[1000] max-h-[200px] overflow-y-auto" style="display: none;">
+                    <div id="map-legend"
+                        class="absolute bottom-4 left-4 bg-white rounded-lg shadow-lg p-3 z-[1000] max-h-[200px] overflow-y-auto"
+                        style="display: none;">
                         <h4 class="text-xs font-semibold mb-2 text-gray-700">Légende - Régions</h4>
                         <div id="legend-content" class="text-xs space-y-1"></div>
                         <p class="text-xs text-gray-500 mt-2 pt-2 border-t border-gray-200">Bordure = Délai</p>
@@ -832,7 +853,8 @@
                             <button id="prev-week" class="btn-week-nav">← Semaine précédente</button>
                             <span id="week-range" class="week-range"></span>
                             <button id="next-week" class="btn-week-nav">Semaine suivante →</button>
-                            <button id="today-week" class="btn-week-nav" style="background: #0070F3; color: white; border-color: #0070F3;">Aujourd'hui</button>
+                            <button id="today-week" class="btn-week-nav"
+                                style="background: #0070F3; color: white; border-color: #0070F3;">Aujourd'hui</button>
                         </div>
                     </div>
                     <div id="calendar-container" class="flex-1 overflow-hidden">
@@ -850,28 +872,16 @@
                         <h2 class="text-2xl font-bold mb-2">Rapports d'Intervention</h2>
                         <p class="text-sm text-gray-600">Consultez tous les rapports d'intervention sauvegardés</p>
                     </div>
-                    
-                    <!-- Authentification pour accéder aux rapports -->
-                    <div id="rapports-auth" class="bg-white rounded-xl shadow-sm p-6 mb-6">
-                        <h3 class="text-lg font-semibold mb-4">Accès sécurisé</h3>
-                        <form id="rapports-auth-form" class="space-y-4">
-                            <div>
-                                <label for="rapports-password" class="block text-sm font-medium text-gray-700 mb-2">Mot de passe</label>
-                                <input type="password" id="rapports-password" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Entrez le mot de passe">
-                            </div>
-                            <div id="rapports-auth-error" class="hidden text-red-600 text-sm"></div>
-                            <button type="submit" class="w-full bg-black text-white py-3 rounded-lg font-medium hover:bg-gray-800 transition-colors">Accéder aux rapports</button>
-                        </form>
-                    </div>
-                    
-                    <!-- Liste des rapports (masquée par défaut) -->
-                    <div id="rapports-list-container" class="hidden">
+
+                    <!-- Liste des rapports (visible directement, plus besoin d'auth supplémentaire) -->
+                    <div id="rapports-list-container">
                         <div class="flex justify-between items-center mb-4">
                             <div>
                                 <h3 class="text-lg font-semibold">Tous les rapports</h3>
                                 <p class="text-sm text-gray-600" id="rapports-count">0 rapport(s)</p>
                             </div>
-                            <button id="refresh-rapports" class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors text-sm">
+                            <button id="refresh-rapports"
+                                class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors text-sm">
                                 🔄 Actualiser
                             </button>
                         </div>
@@ -890,13 +900,14 @@
                     <div class="flex justify-between items-center mb-6">
                         <div>
                             <h2 class="text-2xl font-bold">Fiches Méthodes</h2>
-                            <p class="text-sm text-gray-600 mt-1">Documents collaboratifs partagés - Ajoutez vos photos</p>
+                            <p class="text-sm text-gray-600 mt-1">Documents collaboratifs partagés - Ajoutez vos photos
+                            </p>
                         </div>
                         <button id="btn-add-fiche" class="btn-add-fiche smooth-transition">
                             ➕ Nouvelle Fiche
                         </button>
                     </div>
-                    
+
                     <div id="fiches-container" class="space-y-4">
                         <!-- Les fiches seront injectées ici -->
                     </div>
@@ -912,21 +923,27 @@
                 <h2 class="text-2xl font-bold" id="modal-fiche-title">Nouvelle Fiche Méthode</h2>
                 <button id="close-modal-fiche" class="text-gray-500 hover:text-gray-700">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M6 18L18 6M6 6l12 12" />
                     </svg>
                 </button>
             </div>
             <form id="fiche-form" class="space-y-4">
                 <div>
                     <label for="fiche-titre" class="block text-sm font-medium text-gray-700 mb-2">Titre</label>
-                    <input type="text" id="fiche-titre" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Ex: Réparation borne Schneider">
+                    <input type="text" id="fiche-titre" required
+                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        placeholder="Ex: Réparation borne Schneider">
                 </div>
                 <div>
                     <label for="fiche-contenu" class="block text-sm font-medium text-gray-700 mb-2">Contenu</label>
-                    <textarea id="fiche-contenu" rows="12" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 font-mono text-sm" placeholder="Écrivez le contenu de votre fiche méthode ici...
+                    <textarea id="fiche-contenu" rows="12" required
+                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 font-mono text-sm"
+                        placeholder="Écrivez le contenu de votre fiche méthode ici...
 
 Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhaitez."></textarea>
-                    <p class="text-xs text-gray-500 mt-1">Astuce: Utilisez des retours à la ligne pour structurer votre contenu</p>
+                    <p class="text-xs text-gray-500 mt-1">Astuce: Utilisez des retours à la ligne pour structurer votre
+                        contenu</p>
                 </div>
                 <div>
                     <label class="block text-sm font-medium text-gray-700 mb-2">Photos (optionnel)</label>
@@ -938,10 +955,12 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
                     <div id="image-preview-container" class="image-preview-container"></div>
                 </div>
                 <div class="flex gap-3">
-                    <button type="submit" class="flex-1 bg-black text-white py-3 rounded-lg font-medium hover:bg-gray-800 transition-colors">
+                    <button type="submit"
+                        class="flex-1 bg-black text-white py-3 rounded-lg font-medium hover:bg-gray-800 transition-colors">
                         Enregistrer
                     </button>
-                    <button type="button" id="cancel-fiche" class="px-6 py-3 border border-gray-300 rounded-lg font-medium hover:bg-gray-50 transition-colors">
+                    <button type="button" id="cancel-fiche"
+                        class="px-6 py-3 border border-gray-300 rounded-lg font-medium hover:bg-gray-50 transition-colors">
                         Annuler
                     </button>
                 </div>
@@ -959,73 +978,97 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
                 <h2 class="text-xl font-bold">Rapport d'intervention</h2>
                 <button id="close-form" class="text-gray-500 hover:text-gray-700">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M6 18L18 6M6 6l12 12" />
                     </svg>
                 </button>
             </div>
-            
+
             <div id="intervention-details" class="mb-6 p-4 bg-gray-50 rounded-lg">
                 <h3 class="font-semibold mb-2" id="form-site-name">-</h3>
                 <p class="text-sm text-gray-600" id="form-address">-</p>
                 <p class="text-sm text-gray-600 mt-1" id="form-ticket">Ticket: -</p>
             </div>
-            
+
             <form id="report-form" class="space-y-4">
                 <div>
-                    <label for="date-intervention" class="block text-sm font-medium text-gray-700 mb-2">Date d'intervention</label>
-                    <input type="date" id="date-intervention" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <label for="date-intervention" class="block text-sm font-medium text-gray-700 mb-2">Date
+                        d'intervention</label>
+                    <input type="date" id="date-intervention" required
+                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
                 </div>
-                
+
                 <div>
-                    <label for="heure-arrivee" class="block text-sm font-medium text-gray-700 mb-2">Heure d'arrivée</label>
-                    <input type="time" id="heure-arrivee" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <label for="heure-arrivee" class="block text-sm font-medium text-gray-700 mb-2">Heure
+                        d'arrivée</label>
+                    <input type="time" id="heure-arrivee" required
+                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
                 </div>
-                
+
                 <div>
-                    <label for="heure-depart" class="block text-sm font-medium text-gray-700 mb-2">Heure de départ</label>
-                    <input type="time" id="heure-depart" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <label for="heure-depart" class="block text-sm font-medium text-gray-700 mb-2">Heure de
+                        départ</label>
+                    <input type="time" id="heure-depart" required
+                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
                 </div>
-                
+
                 <div>
                     <label for="probleme" class="block text-sm font-medium text-gray-700 mb-2">Problème constaté</label>
-                    <textarea id="probleme" rows="4" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Décrivez le problème observé..."></textarea>
+                    <textarea id="probleme" rows="4" required
+                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        placeholder="Décrivez le problème observé..."></textarea>
                 </div>
-                
+
                 <div>
-                    <label for="action-realisee" class="block text-sm font-medium text-gray-700 mb-2">Action réalisée</label>
-                    <textarea id="action-realisee" rows="4" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Décrivez les actions réalisées..."></textarea>
+                    <label for="action-realisee" class="block text-sm font-medium text-gray-700 mb-2">Action
+                        réalisée</label>
+                    <textarea id="action-realisee" rows="4" required
+                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        placeholder="Décrivez les actions réalisées..."></textarea>
                 </div>
-                
+
                 <!-- Checklist des vérifications -->
                 <div class="bg-gray-50 rounded-lg p-4 border border-gray-200">
                     <label class="block text-sm font-semibold text-gray-700 mb-3">Vérifications effectuées</label>
                     <div class="space-y-3">
-                        <label class="flex items-center gap-3 cursor-pointer hover:bg-white p-2 rounded transition-colors">
-                            <input type="checkbox" id="check-tension" name="checklist" value="verification-tension" class="w-5 h-5 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
+                        <label
+                            class="flex items-center gap-3 cursor-pointer hover:bg-white p-2 rounded transition-colors">
+                            <input type="checkbox" id="check-tension" name="checklist" value="verification-tension"
+                                class="w-5 h-5 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
                             <span class="text-sm text-gray-700 font-medium">Vérification tension faite</span>
                         </label>
-                        <label class="flex items-center gap-3 cursor-pointer hover:bg-white p-2 rounded transition-colors">
-                            <input type="checkbox" id="check-serrage" name="checklist" value="serrage-cables" class="w-5 h-5 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
+                        <label
+                            class="flex items-center gap-3 cursor-pointer hover:bg-white p-2 rounded transition-colors">
+                            <input type="checkbox" id="check-serrage" name="checklist" value="serrage-cables"
+                                class="w-5 h-5 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
                             <span class="text-sm text-gray-700 font-medium">Serrage câbles : fait</span>
                         </label>
-                        <label class="flex items-center gap-3 cursor-pointer hover:bg-white p-2 rounded transition-colors">
-                            <input type="checkbox" id="check-connecteurs" name="checklist" value="verification-connecteurs" class="w-5 h-5 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
+                        <label
+                            class="flex items-center gap-3 cursor-pointer hover:bg-white p-2 rounded transition-colors">
+                            <input type="checkbox" id="check-connecteurs" name="checklist"
+                                value="verification-connecteurs"
+                                class="w-5 h-5 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
                             <span class="text-sm text-gray-700 font-medium">Vérification des connecteurs</span>
                         </label>
-                        <label class="flex items-center gap-3 cursor-pointer hover:bg-white p-2 rounded transition-colors">
-                            <input type="checkbox" id="check-sim" name="checklist" value="nettoyage-carte-sim" class="w-5 h-5 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
+                        <label
+                            class="flex items-center gap-3 cursor-pointer hover:bg-white p-2 rounded transition-colors">
+                            <input type="checkbox" id="check-sim" name="checklist" value="nettoyage-carte-sim"
+                                class="w-5 h-5 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
                             <span class="text-sm text-gray-700 font-medium">Nettoyage carte SIM</span>
                         </label>
-                        <label class="flex items-center gap-3 cursor-pointer hover:bg-white p-2 rounded transition-colors">
-                            <input type="checkbox" id="check-charge" name="checklist" value="test-charge" class="w-5 h-5 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
+                        <label
+                            class="flex items-center gap-3 cursor-pointer hover:bg-white p-2 rounded transition-colors">
+                            <input type="checkbox" id="check-charge" name="checklist" value="test-charge"
+                                class="w-5 h-5 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
                             <span class="text-sm text-gray-700 font-medium">Test de charge</span>
                         </label>
                     </div>
                 </div>
-                
+
                 <div>
                     <label for="statut" class="block text-sm font-medium text-gray-700 mb-2">Statut</label>
-                    <select id="statut" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <select id="statut" required
+                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
                         <option value="">Sélectionner un statut</option>
                         <option value="resolu">Résolu</option>
                         <option value="en-cours">En cours</option>
@@ -1033,25 +1076,36 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
                         <option value="necessite-suivi">Nécessite un suivi</option>
                     </select>
                 </div>
-                
+
                 <div>
-                    <label for="pieces-changees" class="block text-sm font-medium text-gray-700 mb-2">Pièces changées (optionnel)</label>
-                    <textarea id="pieces-changees" rows="2" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Liste des pièces changées..."></textarea>
+                    <label for="pieces-changees" class="block text-sm font-medium text-gray-700 mb-2">Pièces changées
+                        (optionnel)</label>
+                    <textarea id="pieces-changees" rows="2"
+                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        placeholder="Liste des pièces changées..."></textarea>
                 </div>
-                
+
                 <div>
-                    <label for="remarques" class="block text-sm font-medium text-gray-700 mb-2">Remarques (optionnel)</label>
-                    <textarea id="remarques" rows="3" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Remarques supplémentaires..."></textarea>
+                    <label for="remarques" class="block text-sm font-medium text-gray-700 mb-2">Remarques
+                        (optionnel)</label>
+                    <textarea id="remarques" rows="3"
+                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        placeholder="Remarques supplémentaires..."></textarea>
                 </div>
-                
+
                 <div>
-                    <label for="report-photos" class="block text-sm font-medium text-gray-700 mb-2">Photos (optionnel)</label>
-                    <input type="file" id="report-photos" multiple accept="image/*" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
-                    <p class="text-xs text-gray-500 mt-1">Vous pouvez sélectionner plusieurs photos. Elles seront envoyées sur Google Drive.</p>
+                    <label for="report-photos" class="block text-sm font-medium text-gray-700 mb-2">Photos
+                        (optionnel)</label>
+                    <input type="file" id="report-photos" multiple accept="image/*"
+                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <p class="text-xs text-gray-500 mt-1">Vous pouvez sélectionner plusieurs photos. Elles seront
+                        envoyées sur Google Drive.</p>
                     <div id="report-photos-preview" class="mt-3 grid grid-cols-3 gap-2"></div>
                 </div>
-                
-                <button type="submit" class="w-full bg-black text-white py-3 rounded-lg font-medium hover:bg-gray-800 transition-colors">Enregistrer le rapport</button>
+
+                <button type="submit"
+                    class="w-full bg-black text-white py-3 rounded-lg font-medium hover:bg-gray-800 transition-colors">Enregistrer
+                    le rapport</button>
             </form>
         </div>
     </div>
@@ -1066,15 +1120,15 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
         // Les deux vues (liste et carte) sont toujours affichées ensemble
         let showAllInterventions = false; // false = en cours (14 jours), true = toutes
         let technicien = null;
-        
+
         // S'assurer que window.loadSavedReports existe dès le début (stub pour éviter les erreurs)
         if (typeof window.loadSavedReports === 'undefined') {
-            window.loadSavedReports = function() {
+            window.loadSavedReports = function () {
                 console.warn('⚠️ loadSavedReports appelée avant d\'être complètement définie - attente...');
                 // La fonction sera redéfinie plus bas avec la vraie implémentation
             };
         }
-        
+
         // Fonction utilitaire pour accéder à localStorage de manière sécurisée
         function safeLocalStorageGet(key) {
             try {
@@ -1084,7 +1138,7 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
                 return null;
             }
         }
-        
+
         function safeLocalStorageSet(key, value) {
             try {
                 localStorage.setItem(key, value);
@@ -1094,7 +1148,7 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
                 return false;
             }
         }
-        
+
         function safeLocalStorageRemove(key) {
             try {
                 localStorage.removeItem(key);
@@ -1104,7 +1158,7 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
                 return false;
             }
         }
-        
+
         // Charger les rapports sauvegardés depuis localStorage et les appliquer aux interventions
         // Cette fonction préserve les rapports existants lors des actualisations
         // Définie tôt pour être accessible partout
@@ -1115,15 +1169,15 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
                     console.log('📋 Aucun rapport sauvegardé dans localStorage');
                     return;
                 }
-                
+
                 const rapports = JSON.parse(saved);
                 if (!Array.isArray(rapports)) {
                     console.warn('⚠️ Format de rapports invalide dans localStorage');
                     return;
                 }
-                
+
                 console.log(`📋 Chargement de ${rapports.length} rapport(s) sauvegardé(s)`);
-                
+
                 // Appliquer les rapports aux interventions correspondantes
                 // On préserve les rapports même si l'intervention n'est plus dans ALL_INTERVENTIONS
                 let appliedCount = 0;
@@ -1148,7 +1202,7 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
                         appliedCount++;
                     }
                 });
-                
+
                 if (appliedCount > 0) {
                     console.log(`✅ ${appliedCount} rapport(s) appliqué(s) aux interventions`);
                 }
@@ -1162,9 +1216,9 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
             // Toujours lire depuis localStorage pour être sûr d'avoir la dernière valeur
             const region = safeLocalStorageGet('tech_region');
             const isAdmin = safeLocalStorageGet('is_admin') === 'true';
-            
+
             console.log('🔐 Vérification de l\'authentification - Région:', region, 'Admin:', isAdmin);
-            
+
             if (!region) {
                 console.log('❌ Aucune région trouvée');
                 technicien = null; // Réinitialiser technicien
@@ -1187,7 +1241,7 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
                 }
                 return false;
             }
-            
+
             // Toujours mettre à jour technicien avec les valeurs de localStorage
             technicien = { region, isAdmin };
             const displayText = isAdmin ? 'Admin (Toutes les régions)' : region;
@@ -1195,7 +1249,7 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
             if (techRegionEl) {
                 techRegionEl.textContent = displayText;
             }
-            
+
             // Afficher/masquer l'onglet Rapports selon le statut admin
             const rapportsTabButton = document.getElementById('rapports-tab-button');
             if (rapportsTabButton) {
@@ -1205,7 +1259,7 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
                     rapportsTabButton.style.display = 'none';
                 }
             }
-            
+
             console.log('✅ Authentification réussie - Technicien:', technicien);
             return true;
         }
@@ -1213,17 +1267,17 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
         // Fonction pour initialiser les event listeners (appelée après le chargement du DOM)
         function initEventListeners() {
             console.log('🔧 Initialisation des event listeners...');
-            
+
             // Afficher/masquer le champ mot de passe selon la sélection
             const regionSelect = document.getElementById('region');
             if (regionSelect) {
                 console.log('✅ Select région trouvé');
-                regionSelect.addEventListener('change', function() {
+                regionSelect.addEventListener('change', function () {
                     console.log('📍 Région changée:', this.value);
                     const passwordField = document.getElementById('password-field');
                     const passwordInput = document.getElementById('password');
                     const errorDiv = document.getElementById('auth-error');
-                    
+
                     if (this.value === 'Admin') {
                         if (passwordField) passwordField.style.display = 'block';
                         if (passwordInput) passwordInput.required = true;
@@ -1237,7 +1291,7 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
                     }
                 });
             }
-            
+
             // S'assurer que le modal est initialisé correctement
             const authModal = document.getElementById('auth-modal');
             if (authModal) {
@@ -1258,77 +1312,69 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
             if (authForm) {
                 console.log('✅ Formulaire d\'authentification trouvé');
                 authForm.addEventListener('submit', (e) => {
-            e.preventDefault();
+                    e.preventDefault();
                     e.stopPropagation();
                     console.log('📝 Soumission du formulaire d\'authentification');
-                    
-                    const regionSelect = document.getElementById('region');
+
+                    const roleSelect = document.getElementById('user-role');
                     const passwordInput = document.getElementById('password');
                     const errorDiv = document.getElementById('auth-error');
-                    
-                    if (!regionSelect) {
-                        console.error('❌ Select région non trouvé');
+
+                    if (!roleSelect) {
+                        console.error('❌ Select rôle non trouvé');
                         return;
                     }
-                    
-                    const region = regionSelect.value;
+
+                    const role = roleSelect.value;
                     const password = passwordInput ? passwordInput.value : '';
-                    
-                    console.log('📍 Région sélectionnée:', region);
+
+                    console.log('👤 Rôle sélectionné:', role);
                     console.log('🔑 Mot de passe:', password ? '***' : '(vide)');
-                    
+
                     if (errorDiv) errorDiv.classList.add('hidden');
-                    
-                    if (!region || region === '') {
-                        console.error('❌ Aucune région sélectionnée');
+
+                    if (!role || role === '') {
+                        console.error('❌ Aucun rôle sélectionné');
                         if (errorDiv) {
-                            errorDiv.textContent = 'Veuillez sélectionner une région';
+                            errorDiv.textContent = 'Veuillez sélectionner votre accès';
                             errorDiv.classList.remove('hidden');
                         }
                         return;
                     }
-                    
-                    if (region === 'Admin') {
-                        if (password !== 'jcsm') {
-                            console.error('❌ Mot de passe incorrect');
-                            if (errorDiv) {
-                                errorDiv.textContent = 'Mot de passe incorrect';
-                                errorDiv.classList.remove('hidden');
-                            }
-                            return;
+
+                    // Vérifier le mot de passe (JCSM2025 pour tous)
+                    const CORRECT_PASSWORD = 'JCSM2025';
+                    if (password !== CORRECT_PASSWORD) {
+                        console.error('❌ Mot de passe incorrect');
+                        if (errorDiv) {
+                            errorDiv.textContent = 'Mot de passe incorrect';
+                            errorDiv.classList.remove('hidden');
                         }
-                        console.log('✅ Authentification Admin réussie');
-                        safeLocalStorageSet('tech_region', 'Admin');
-                        safeLocalStorageSet('is_admin', 'true');
-                        technicien = { region: 'Admin', isAdmin: true };
-                        const techRegionEl = document.getElementById('tech-region');
-                        if (techRegionEl) techRegionEl.textContent = 'Admin (Toutes les régions)';
-                    } else if (region) {
-                        console.log('✅ Authentification région réussie:', region);
-                        safeLocalStorageSet('tech_region', region);
-                        safeLocalStorageSet('is_admin', 'false');
-                        technicien = { region, isAdmin: false };
-                        const techRegionEl = document.getElementById('tech-region');
-                        if (techRegionEl) techRegionEl.textContent = region;
-                    } else {
-                        console.error('❌ Région invalide');
                         return;
                     }
-                    
-                    // Afficher/masquer l'onglet Rapports selon le statut admin
+
+                    const isAdmin = role === 'Admin';
+                    console.log('✅ Authentification réussie:', role);
+
+                    safeLocalStorageSet('tech_region', isAdmin ? 'Admin' : 'Technicien');
+                    safeLocalStorageSet('is_admin', isAdmin ? 'true' : 'false');
+                    safeLocalStorageSet('user_role', role);
+
+                    technicien = { region: isAdmin ? 'Admin' : 'Technicien', isAdmin: isAdmin };
+
+                    const techRegionEl = document.getElementById('tech-region');
+                    if (techRegionEl) techRegionEl.textContent = isAdmin ? 'Administrateur' : 'Technicien';
+
+                    // Afficher l'onglet Rapports pour tous les utilisateurs authentifiés
                     const rapportsTabButton = document.getElementById('rapports-tab-button');
                     if (rapportsTabButton) {
-                        if (technicien.isAdmin) {
-                            rapportsTabButton.style.display = 'block';
-                        } else {
-                            rapportsTabButton.style.display = 'none';
-                        }
+                        rapportsTabButton.style.display = 'block';
                     }
-                    
+
                     // Vérifier que la région est bien sauvegardée
                     const savedRegion = safeLocalStorageGet('tech_region');
                     console.log('💾 Région sauvegardée dans localStorage:', savedRegion);
-                    
+
                     if (!savedRegion) {
                         console.error('❌ ERREUR: La région n\'a pas été sauvegardée !');
                         if (errorDiv) {
@@ -1337,7 +1383,7 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
                         }
                         return;
                     }
-                    
+
                     // Masquer le modal proprement
                     const authModalEl = document.getElementById('auth-modal');
                     if (authModalEl) {
@@ -1345,15 +1391,15 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
                         authModalEl.style.display = 'none';
                         authModalEl.style.pointerEvents = 'none';
                     }
-                    
+
                     console.log('🚀 Initialisation de l\'application...');
-                    
+
                     // S'assurer que technicien est défini avant d'appeler initApp
                     if (!technicien) {
                         console.error('❌ ERREUR: technicien n\'est pas défini !');
                         return;
                     }
-                    
+
                     // Attendre un peu pour s'assurer que le modal est fermé et que localStorage est synchronisé
                     setTimeout(() => {
                         // Vérifier à nouveau avant d'appeler initApp
@@ -1411,7 +1457,7 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
                     return [];
                 }
             }
-            
+
             // Si admin, retourner toutes les interventions
             if (technicien.isAdmin || technicien.region === 'Admin') {
                 return ALL_INTERVENTIONS.sort((a, b) => {
@@ -1424,7 +1470,7 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
                     return new Date(dateB) - new Date(dateA);
                 });
             }
-            
+
             // Filtrer par région avec comparaison robuste
             const techRegion = (technicien.region || '').trim();
             const filtered = ALL_INTERVENTIONS.filter(intv => {
@@ -1432,7 +1478,7 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
                 // Correspondance exacte de la région (ignore les interventions sans région sauf si techRegion est vide)
                 return intvRegion === techRegion;
             });
-            
+
             console.log(`🔍 Filtrage par région "${techRegion}": ${filtered.length} intervention(s) sur ${ALL_INTERVENTIONS.length} total`);
             if (filtered.length === 0 && ALL_INTERVENTIONS.length > 0) {
                 console.warn('⚠️ Aucune intervention trouvée pour cette région. Vérifiez les valeurs de région dans les données.');
@@ -1440,7 +1486,7 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
                 const availableRegions = [...new Set(ALL_INTERVENTIONS.map(intv => (intv.region || '').trim()).filter(r => r))];
                 console.log('📋 Régions disponibles dans les données:', availableRegions);
             }
-            
+
             // Trier par dateProposee puis dateDemande (du plus récent au plus vieux)
             return filtered.sort((a, b) => {
                 const dateA = a.dateProposee || a.dateDemande || '';
@@ -1479,16 +1525,16 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
             }
             // Standard = J+5 = Vert
             if (delaisStr.includes('standard') || delaisStr === '5' || delaisStr === '5.0' || delaisStr.includes('j+5')) {
-            return '#10B981'; // Vert
+                return '#10B981'; // Vert
             }
             // Autre = J+2 = Orange
             return '#F59E0B'; // Orange
         }
-        
+
         // Obtenir la couleur du marker selon la région
         function getRegionColor(region) {
             if (!region) return '#6B7280'; // Gris par défaut
-            
+
             // Palette de couleurs distinctes pour les régions
             const regionColors = {
                 'Île-de-France': '#3B82F6',      // Bleu
@@ -1511,26 +1557,26 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
                 'Mayotte': '#818CF8',             // Indigo
                 'Admin': '#6366F1'                // Indigo foncé pour admin
             };
-            
+
             // Normaliser le nom de la région (trim et casse)
             const normalizedRegion = String(region).trim();
-            
+
             // Retourner la couleur si trouvée, sinon générer une couleur basée sur le hash
             if (regionColors[normalizedRegion]) {
                 return regionColors[normalizedRegion];
             }
-            
+
             // Générer une couleur unique basée sur le hash de la région
             let hash = 0;
             for (let i = 0; i < normalizedRegion.length; i++) {
                 hash = normalizedRegion.charCodeAt(i) + ((hash << 5) - hash);
             }
-            
+
             // Générer une couleur HSL avec saturation et luminosité fixes pour des couleurs vives
             const hue = Math.abs(hash) % 360;
             return `hsl(${hue}, 70%, 50%)`;
         }
-        
+
         // Obtenir le texte du délai à afficher
         function getDelaiText(delais) {
             if (!delais) return 'Standard (J+5)';
@@ -1548,22 +1594,22 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
         function renderInterventionsList() {
             const container = document.getElementById('interventions-list');
             let interventions = getFilteredInterventions();
-            
+
             // Si showAllInterventions est false, filtrer pour ne garder que les interventions en cours (14 jours)
             if (!showAllInterventions) {
                 // Calculer 7 jours avant et 7 jours après aujourd'hui
                 const today = new Date();
                 today.setHours(0, 0, 0, 0);
-                
+
                 const sevenDaysAgo = new Date(today);
                 sevenDaysAgo.setDate(today.getDate() - 7);
-                
+
                 const sevenDaysLater = new Date(today);
                 sevenDaysLater.setDate(today.getDate() + 7);
-                
+
                 const startStr = sevenDaysAgo.toISOString().split('T')[0];
                 const endStr = sevenDaysLater.toISOString().split('T')[0];
-                
+
                 // Filtrer pour ne garder que les interventions dans cette fenêtre de 14 jours
                 interventions = interventions.filter(intv => {
                     const intvDate = intv.dateProposee || intv.dateDemande || '';
@@ -1572,7 +1618,7 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
                 });
             }
             // Sinon, afficher toutes les interventions (pas de filtre)
-            
+
             // Mettre à jour le titre selon le mode
             const listTitle = document.getElementById('list-title');
             if (showAllInterventions) {
@@ -1580,14 +1626,14 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
             } else {
                 listTitle.textContent = technicien && technicien.isAdmin ? 'Interventions en cours' : 'Mes interventions en cours';
             }
-            
+
             document.getElementById('intervention-count').textContent = `${interventions.length} intervention(s)`;
-            
+
             if (interventions.length === 0) {
                 container.innerHTML = '<div class="p-8 text-center text-gray-500">Aucune intervention dans votre région.</div>';
                 return;
             }
-            
+
             // Grouper par date
             const grouped = {};
             interventions.forEach(intv => {
@@ -1595,7 +1641,7 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
                 if (!grouped[date]) grouped[date] = [];
                 grouped[date].push(intv);
             });
-            
+
             let html = '';
             Object.keys(grouped).sort().forEach(date => {
                 const dateObj = new Date(date);
@@ -1603,7 +1649,7 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
                 html += `<div class="px-4 py-2 bg-gray-50 border-b border-gray-200">
                     <h3 class="text-sm font-semibold text-gray-700">${dateStr}</h3>
                 </div>`;
-                
+
                 grouped[date].forEach(intv => {
                     const isSelected = intv.id === selectedInterventionId;
                     html += `
@@ -1633,9 +1679,9 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
                     `;
                 });
             });
-            
+
             container.innerHTML = html;
-            
+
             // Ajouter les event listeners
             container.querySelectorAll('.intervention-item').forEach(item => {
                 item.addEventListener('click', () => {
@@ -1649,41 +1695,41 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
         function renderPastInterventions() {
             const container = document.getElementById('past-interventions-list');
             let interventions = getFilteredInterventions();
-            
+
             // Calculer 7 jours avant aujourd'hui
             const today = new Date();
             today.setHours(0, 0, 0, 0);
-            
+
             const sevenDaysAgo = new Date(today);
             sevenDaysAgo.setDate(today.getDate() - 7);
             const sevenDaysAgoStr = sevenDaysAgo.toISOString().split('T')[0];
-            
+
             // Filtrer pour ne garder que celles > 7 jours
             interventions = interventions.filter(intv => {
                 const intvDate = intv.dateProposee || intv.dateDemande || '';
                 if (!intvDate) return false;
                 return intvDate < sevenDaysAgoStr;
             });
-            
+
             // Trier par date décroissante (plus récentes en premier)
             interventions.sort((a, b) => {
                 const dateA = a.dateProposee || a.dateDemande || '';
                 const dateB = b.dateProposee || b.dateDemande || '';
                 return dateB.localeCompare(dateA); // Décroissant
             });
-            
+
             document.getElementById('past-intervention-count').textContent = `${interventions.length} intervention(s)`;
-            
+
             if (interventions.length === 0) {
                 container.innerHTML = '<div class="p-8 text-center text-gray-500">Aucune intervention passée avec rapport.</div>';
                 return;
             }
-            
+
             let html = '';
             interventions.forEach(intv => {
                 const date = intv.dateProposee || intv.dateDemande || '';
                 const dateStr = date ? new Date(date).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' }) : 'Date inconnue';
-                
+
                 html += `
                     <div class="intervention-item px-4 py-3 border-b border-gray-200 bg-white hover:bg-gray-50" data-id="${intv.id}">
                         <div class="flex justify-between items-start mb-1">
@@ -1711,9 +1757,9 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
                     </div>
                 `;
             });
-            
+
             container.innerHTML = html;
-            
+
             // Ajouter les event listeners
             container.querySelectorAll('.intervention-item').forEach(item => {
                 item.addEventListener('click', () => {
@@ -1722,7 +1768,7 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
                 });
             });
         }
-        
+
         // Toggle mode d'affichage (toutes / en cours)
         const toggleViewModeBtn = document.getElementById('toggle-view-mode');
         const viewModeText = document.getElementById('view-mode-text');
@@ -1733,7 +1779,7 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
                     viewModeText.textContent = showAllInterventions ? '🌍 Toutes' : '📅 En cours';
                 }
                 if (toggleViewModeBtn) {
-                    toggleViewModeBtn.className = showAllInterventions 
+                    toggleViewModeBtn.className = showAllInterventions
                         ? 'px-3 py-1.5 text-xs bg-green-100 text-green-700 rounded-lg hover:bg-green-200 transition-colors font-medium'
                         : 'px-3 py-1.5 text-xs bg-blue-100 text-blue-700 rounded-lg hover:bg-blue-200 transition-colors font-medium';
                 }
@@ -1742,7 +1788,7 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
                 initMap();
             });
         }
-        
+
         // Gestionnaires pour les boutons d'interventions passées
         document.getElementById('toggle-past-interventions').addEventListener('click', () => {
             const section = document.getElementById('past-interventions-section');
@@ -1753,7 +1799,7 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
                 section.classList.add('hidden');
             }
         });
-        
+
         document.getElementById('close-past-interventions').addEventListener('click', () => {
             document.getElementById('past-interventions-section').classList.add('hidden');
         });
@@ -1761,22 +1807,22 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
         // Initialiser la carte (toujours affichée, même si vide)
         async function initMap() {
             let interventions = getFilteredInterventions();
-            
+
             // Si showAllInterventions est false, filtrer pour ne garder que les interventions en cours (14 jours)
             if (!showAllInterventions) {
                 // Calculer 7 jours avant et 7 jours après aujourd'hui
                 const today = new Date();
                 today.setHours(0, 0, 0, 0);
-                
+
                 const sevenDaysAgo = new Date(today);
                 sevenDaysAgo.setDate(today.getDate() - 7);
-                
+
                 const sevenDaysLater = new Date(today);
                 sevenDaysLater.setDate(today.getDate() + 7);
-                
+
                 const startStr = sevenDaysAgo.toISOString().split('T')[0];
                 const endStr = sevenDaysLater.toISOString().split('T')[0];
-                
+
                 // Filtrer pour ne garder que les interventions dans cette fenêtre de 14 jours
                 interventions = interventions.filter(intv => {
                     const intvDate = intv.dateProposee || intv.dateDemande || '';
@@ -1785,7 +1831,7 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
                 });
             }
             // Sinon, afficher toutes les interventions (pas de filtre)
-            
+
             // Matcher les coordonnées depuis la base de données des sites
             let matchedCount = 0;
             for (const intv of interventions) {
@@ -1801,7 +1847,7 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
             if (matchedCount > 0) {
                 console.log(`📍 ${matchedCount} intervention(s) matchée(s) avec la base de données des sites`);
             }
-            
+
             // Géocoder uniquement les interventions qui n'ont toujours pas de coordonnées (fallback)
             const toGeocode = interventions.filter(intv => (!intv.lat || !intv.lng) && intv.adresse);
             if (toGeocode.length > 0) {
@@ -1818,15 +1864,15 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
                     timestamp: new Date().toISOString()
                 }));
             }
-            
+
             // Filtrer maintenant pour ne garder que celles avec coordonnées
             interventions = interventions.filter(intv => intv.lat && intv.lng);
-            
+
             console.log(`🗺️ Carte: ${interventions.length} intervention(s) avec coordonnées sur ${getFilteredInterventions().length} total`);
-            
+
             // Toujours afficher la carte, même si vide
             document.getElementById('map').style.display = 'block';
-            
+
             // Initialiser la carte si elle n'existe pas encore
             if (!map) {
                 // Centrer sur la France par défaut
@@ -1835,17 +1881,17 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
                     zoom: 6,
                     scrollWheelZoom: true
                 });
-                
+
                 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
                     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
                     maxZoom: 19
                 }).addTo(map);
             }
-            
+
             // Supprimer les anciens markers
             markers.forEach(marker => map.removeLayer(marker));
             markers = [];
-            
+
             // Afficher un message si aucune intervention avec coordonnées
             if (interventions.length === 0) {
                 document.getElementById('no-coords-message').classList.remove('hidden');
@@ -1859,17 +1905,17 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
                 map.setView([46.6034, 1.8883], 6);
                 return;
             }
-            
+
             // Masquer le message si on a des interventions
             document.getElementById('no-coords-message').classList.add('hidden');
-            
+
             // Centrer sur les interventions
             const bounds = interventions.map(intv => [intv.lat, intv.lng]);
             const centerLat = bounds.reduce((sum, p) => sum + p[0], 0) / bounds.length;
             const centerLng = bounds.reduce((sum, p) => sum + p[1], 0) / bounds.length;
-            
+
             map.setView([centerLat, centerLng], bounds.length === 1 ? 14 : 6);
-            
+
             // Créer la légende des régions
             const regionsMap = new Map();
             interventions.forEach(intv => {
@@ -1879,7 +1925,7 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
                     }
                 }
             });
-            
+
             // Afficher la légende si on a plusieurs régions
             const legendDiv = document.getElementById('map-legend');
             const legendContent = document.getElementById('legend-content');
@@ -1898,14 +1944,14 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
             } else if (legendDiv) {
                 legendDiv.style.display = 'none';
             }
-            
+
             // Ajouter les markers avec couleur par région
             interventions.forEach(intv => {
                 // Couleur principale basée sur la région
                 const regionColor = getRegionColor(intv.region);
                 // Couleur de bordure basée sur les délais (pour garder l'info des délais)
                 const borderColor = getMarkerColor(intv.delais);
-                
+
                 const icon = L.divIcon({
                     className: 'custom-marker',
                     html: `<div style="
@@ -1920,9 +1966,9 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
                     iconSize: [20, 20],
                     iconAnchor: [10, 10]
                 });
-                
+
                 const marker = L.marker([intv.lat, intv.lng], { icon }).addTo(map);
-                
+
                 const popupDiv = document.createElement('div');
                 popupDiv.style.minWidth = '200px';
                 const popupRegionColor = getRegionColor(intv.region);
@@ -1943,22 +1989,22 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
                         Itinéraire
                     </a>
                 `;
-                
+
                 // Ajouter l'event listener au bouton
                 popupDiv.querySelector('.popup-open-btn').addEventListener('click', () => {
                     selectIntervention(intv.id);
                     marker.closePopup();
                 });
-                
+
                 marker.bindPopup(popupDiv);
-                
+
                 marker.on('click', () => {
                     selectIntervention(intv.id);
                 });
-                
+
                 markers.push(marker);
             });
-            
+
             // Ajuster la vue pour voir tous les markers
             if (bounds.length > 1) {
                 const group = new L.featureGroup(markers);
@@ -1967,15 +2013,15 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
         }
 
         // Sélectionner une intervention (fonction globale)
-        window.selectIntervention = function(id) {
+        window.selectIntervention = function (id) {
             selectedInterventionId = id;
             const intervention = ALL_INTERVENTIONS.find(intv => intv.id === id);
-            
+
             if (!intervention) return;
-            
+
             // Mettre à jour la liste
             renderInterventionsList();
-            
+
             // Centrer la carte sur le marker
             if (map && intervention.lat && intervention.lng) {
                 const marker = markers.find(m => {
@@ -1983,19 +2029,19 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
                     const lng = m.getLatLng().lng;
                     return Math.abs(lat - intervention.lat) < 0.001 && Math.abs(lng - intervention.lng) < 0.001;
                 });
-                
+
                 if (marker) {
                     map.setView([intervention.lat, intervention.lng], 14);
                     marker.openPopup();
                 }
             }
-            
+
             // Faire défiler vers l'élément dans la liste
             const listItem = document.querySelector(`[data-id="${id}"]`);
             if (listItem) {
                 listItem.scrollIntoView({ behavior: 'smooth', block: 'center' });
             }
-            
+
             // Ouvrir le formulaire
             openReportForm(intervention);
         };
@@ -2005,7 +2051,7 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
             document.getElementById('form-site-name').textContent = intervention.nomSite;
             document.getElementById('form-address').textContent = intervention.adresse;
             document.getElementById('form-ticket').textContent = `Ticket: ${intervention.ticket}`;
-            
+
             // Pré-remplir avec les données du rapport si disponible
             if (intervention.rapport) {
                 document.getElementById('date-intervention').value = intervention.rapport.dateIntervention || new Date().toISOString().split('T')[0];
@@ -2016,7 +2062,7 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
                 document.getElementById('statut').value = intervention.rapport.statut || '';
                 document.getElementById('pieces-changees').value = intervention.rapport.piecesChangees || '';
                 document.getElementById('remarques').value = intervention.rapport.remarques || '';
-                
+
                 // Pré-remplir les checkboxes de la checklist
                 if (intervention.rapport.checklist && Array.isArray(intervention.rapport.checklist)) {
                     intervention.rapport.checklist.forEach(checkValue => {
@@ -2031,7 +2077,7 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
                         checkbox.checked = false;
                     });
                 }
-                
+
                 // Afficher les photos existantes si disponibles
                 if (intervention.rapport.photos && intervention.rapport.photos.length > 0) {
                     const previewContainer = document.getElementById('report-photos-preview');
@@ -2049,8 +2095,8 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
                 // Réinitialiser le formulaire
                 document.getElementById('report-form').reset();
                 // Pré-remplir la date avec aujourd'hui
-            const today = new Date().toISOString().split('T')[0];
-            document.getElementById('date-intervention').value = today;
+                const today = new Date().toISOString().split('T')[0];
+                document.getElementById('date-intervention').value = today;
                 // Pré-remplir avec dateProposee si disponible
                 if (intervention.dateProposee) {
                     const dateProposee = new Date(intervention.dateProposee).toISOString().split('T')[0];
@@ -2064,19 +2110,19 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
                     checkbox.checked = false;
                 });
             }
-            
+
             // Gérer l'upload des photos
             const photoInput = document.getElementById('report-photos');
             if (photoInput) {
-                photoInput.onchange = function(e) {
+                photoInput.onchange = function (e) {
                     const files = Array.from(e.target.files);
                     const previewContainer = document.getElementById('report-photos-preview');
                     if (previewContainer) {
                         previewContainer.innerHTML = '';
-                        
+
                         files.forEach((file, index) => {
                             const reader = new FileReader();
-                            reader.onload = function(e) {
+                            reader.onload = function (e) {
                                 const img = document.createElement('img');
                                 img.src = e.target.result;
                                 img.className = 'w-full h-24 object-cover rounded border border-gray-300';
@@ -2088,7 +2134,7 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
                     }
                 };
             }
-            
+
             document.getElementById('report-form-panel').classList.add('open');
             document.getElementById('form-overlay').classList.add('active');
         }
@@ -2104,10 +2150,10 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
 
         // Configuration Google Sheets (définie tôt pour être accessible partout)
         const GOOGLE_SHEETS_API_URL = safeLocalStorageGet('sheets_api_url') || 'https://script.google.com/macros/s/AKfycbw0jracvOsxhALYvJUQTxd1chwq8Y5UGKgeDLjv2w4dpfomg8NLOGOHb44fdNVGMJ8c1g/exec';
-        
+
         // Configuration pour sauvegarder les rapports
         const SAVE_RAPPORT_API_URL = 'api/save-rapport.php';
-        
+
         // Variable globale pour les interventions chargées
         let isLoadingData = false;
 
@@ -2115,7 +2161,7 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
         async function saveReportToSheet(reportData, intervention) {
             let sheetSaved = false;
             let fileSaved = false;
-            
+
             // 1. Sauvegarder sur Google Sheets (mise à jour des colonnes P, Q, R)
             if (GOOGLE_SHEETS_API_URL) {
                 try {
@@ -2133,7 +2179,7 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
                             }
                         })
                     });
-                    
+
                     if (response.ok) {
                         const result = await response.json();
                         sheetSaved = result.success === true;
@@ -2142,7 +2188,7 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
                     console.error('Erreur lors de la sauvegarde sur Google Sheets:', error);
                 }
             }
-            
+
             // 2. Sauvegarder le rapport complet dans le dossier public
             if (SAVE_RAPPORT_API_URL) {
                 try {
@@ -2153,7 +2199,7 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
                         adresse: intervention.adresse,
                         interventionId: intervention.id
                     };
-                    
+
                     const response = await fetch(SAVE_RAPPORT_API_URL, {
                         method: 'POST',
                         headers: {
@@ -2161,7 +2207,7 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
                         },
                         body: JSON.stringify(rapportComplet)
                     });
-                    
+
                     if (response.ok) {
                         const result = await response.json();
                         fileSaved = result.success === true;
@@ -2173,7 +2219,7 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
                     console.error('Erreur lors de la sauvegarde du fichier rapport:', error);
                 }
             }
-            
+
             // Retourner true si au moins une sauvegarde a réussi
             return sheetSaved || fileSaved;
         }
@@ -2183,12 +2229,12 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
         // Soumettre le formulaire
         document.getElementById('report-form').addEventListener('submit', async (e) => {
             e.preventDefault();
-            
+
             // Récupérer les photos
             const photoInput = document.getElementById('report-photos');
             const photoFiles = Array.from(photoInput ? photoInput.files : []);
             const photos = [];
-            
+
             // Convertir les photos en base64 pour l'instant (on pourra les envoyer vers Google Drive plus tard)
             for (const file of photoFiles) {
                 try {
@@ -2207,14 +2253,14 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
                     console.error('Erreur lors de la conversion de la photo:', error);
                 }
             }
-            
+
             // Collecter les checkboxes de la checklist
             const checklist = [];
             const checkboxes = document.querySelectorAll('input[name="checklist"]:checked');
             checkboxes.forEach(checkbox => {
                 checklist.push(checkbox.value);
             });
-            
+
             const formData = {
                 interventionId: selectedInterventionId,
                 dateIntervention: document.getElementById('date-intervention').value,
@@ -2228,14 +2274,14 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
                 checklist: checklist, // Ajouter la checklist au rapport
                 photos: photos
             };
-            
+
             // Mettre à jour l'intervention avec le rapport (pour le calendrier)
             const intervention = ALL_INTERVENTIONS.find(intv => intv.id === selectedInterventionId);
             if (!intervention) {
                 alert('Erreur : intervention non trouvée');
                 return;
             }
-            
+
             if (!intervention.rapport) {
                 intervention.rapport = {};
             }
@@ -2245,15 +2291,15 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
                 dateModified: new Date().toISOString(),
                 photos: photos.length > 0 ? photos : (intervention.rapport?.photos || [])
             };
-            
+
             // Mettre à jour les flags fait/réussi/rapportFait
             intervention.fait = formData.statut === 'resolu' || formData.statut === 'en-cours';
             intervention.reussi = formData.statut === 'resolu';
             intervention.rapportFait = true;
-            
+
             // Sauvegarder sur Google Sheets
             const saved = await saveReportToSheet(formData, intervention);
-            
+
             // Sauvegarder dans localStorage pour persistance
             safeLocalStorageSet('rapports_interventions', JSON.stringify(
                 ALL_INTERVENTIONS.filter(intv => intv.rapport).map(intv => ({
@@ -2261,25 +2307,25 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
                     rapport: intv.rapport
                 }))
             ));
-            
+
             if (saved) {
                 alert('✅ Rapport enregistré sur Google Sheets ! Colonnes P, Q, R mises à jour.');
             } else {
                 alert('⚠️ Rapport enregistré localement. Erreur lors de la sauvegarde sur Google Sheets.');
             }
-            
+
             // Re-rendre la liste et le calendrier
             renderInterventionsList();
             const calendarTab = document.querySelector('[data-tab="calendrier"]');
             if (calendarTab && calendarTab.classList.contains('active')) {
                 renderCalendar();
             }
-            
+
             // Actualisation automatique après modification
             setTimeout(() => {
                 reloadDataFromAPI();
             }, 2000);
-            
+
             // Réinitialiser le formulaire (y compris les checkboxes)
             document.getElementById('report-form').reset();
             document.getElementById('report-photos-preview').innerHTML = '';
@@ -2294,21 +2340,21 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
 
         // Tableau global pour stocker les interventions (remplace MOCK_INTERVENTIONS)
         let ALL_INTERVENTIONS = [];
-        
+
         // Cache pour les interventions (affichage immédiat)
         let cachedInterventions = [];
         let lastLoadTime = null;
-        
+
         // ========== BASE DE DONNÉES DES COORDONNÉES DES SITES ==========
         // Cette base de données permet de matcher les sites par nom ou adresse
         // Format: { "nomSite ou adresse": { lat: 48.8566, lng: 2.3522 } }
         // Les coordonnées seront chargées depuis le script de géocodage
         const SITES_COORDINATES = {};
-        
+
         // Coordonnées préconfigurées (sera rempli par le script de géocodage)
         // Pour ajouter les coordonnées, exécutez geocode-all-sites.js et copiez le résultat ici
         const SITES_COORDINATES_PRECONFIGURED = {};
-        
+
         // Fonction pour ajouter plusieurs sites en une fois
         // Format attendu: [{ nomSite: "...", adresse: "...", lat: 48.xxx, lng: 2.xxx }, ...]
         function addSitesCoordinates(sitesArray) {
@@ -2316,7 +2362,7 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
                 console.error('❌ Les sites doivent être dans un tableau');
                 return;
             }
-            
+
             let added = 0;
             sitesArray.forEach(site => {
                 if (site.lat && site.lng) {
@@ -2332,16 +2378,16 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
                     }
                 }
             });
-            
+
             if (added > 0) {
                 saveSitesCoordinates();
                 console.log(`✅ ${added} entrée(s) ajoutée(s) à la base de données des sites`);
             }
         }
-        
+
         // Exposer la fonction globalement pour faciliter l'ajout depuis la console
         window.addSitesCoordinates = addSitesCoordinates;
-        
+
         // Fonction pour charger les coordonnées depuis localStorage ou préconfigurées
         function loadSitesCoordinates() {
             // D'abord charger les coordonnées préconfigurées
@@ -2349,7 +2395,7 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
                 Object.assign(SITES_COORDINATES, SITES_COORDINATES_PRECONFIGURED);
                 console.log(`📍 ${Object.keys(SITES_COORDINATES_PRECONFIGURED).length} sites préconfigurés chargés`);
             }
-            
+
             // Ensuite charger depuis localStorage (pour les ajouts manuels)
             try {
                 const saved = safeLocalStorageGet('sites_coordinates');
@@ -2362,7 +2408,7 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
                 console.error('Erreur lors du chargement des coordonnées:', error);
             }
         }
-        
+
         // Fonction pour sauvegarder les coordonnées
         function saveSitesCoordinates() {
             try {
@@ -2372,14 +2418,14 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
                 console.error('Erreur lors de la sauvegarde des coordonnées:', error);
             }
         }
-        
+
         // Fonction pour matcher une intervention à ses coordonnées
         function matchInterventionCoordinates(intervention) {
             // Si l'intervention a déjà des coordonnées, les garder
             if (intervention.lat && intervention.lng) {
                 return { lat: intervention.lat, lng: intervention.lng };
             }
-            
+
             // Chercher par nom de site (exact ou partiel)
             const nomSite = (intervention.nomSite || '').trim();
             if (nomSite) {
@@ -2387,16 +2433,16 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
                 if (SITES_COORDINATES[nomSite]) {
                     return SITES_COORDINATES[nomSite];
                 }
-                
+
                 // Chercher une correspondance partielle (le nom du site contient une clé)
                 for (const [key, coords] of Object.entries(SITES_COORDINATES)) {
-                    if (nomSite.toLowerCase().includes(key.toLowerCase()) || 
+                    if (nomSite.toLowerCase().includes(key.toLowerCase()) ||
                         key.toLowerCase().includes(nomSite.toLowerCase())) {
                         return coords;
                     }
                 }
             }
-            
+
             // Chercher par adresse (exact ou partiel)
             const adresse = (intervention.adresse || '').trim();
             if (adresse) {
@@ -2404,19 +2450,19 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
                 if (SITES_COORDINATES[adresse]) {
                     return SITES_COORDINATES[adresse];
                 }
-                
+
                 // Chercher une correspondance partielle
                 for (const [key, coords] of Object.entries(SITES_COORDINATES)) {
-                    if (adresse.toLowerCase().includes(key.toLowerCase()) || 
+                    if (adresse.toLowerCase().includes(key.toLowerCase()) ||
                         key.toLowerCase().includes(adresse.toLowerCase())) {
                         return coords;
                     }
                 }
             }
-            
+
             return null;
         }
-        
+
         // ========== CHARGEMENT GOOGLE SHEETS ==========
         async function loadInterventionsFromSheets(useCache = true) {
             // Afficher le cache immédiatement si disponible
@@ -2424,7 +2470,7 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
                 console.log(`📦 Utilisation du cache: ${cachedInterventions.length} interventions`);
                 return cachedInterventions;
             }
-            
+
             if (!GOOGLE_SHEETS_API_URL) {
                 console.log('❌ URL Google Sheets non configurée');
                 // Retourner le cache même si l'URL n'est pas configurée
@@ -2433,7 +2479,7 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
                 }
                 throw new Error('URL Google Sheets non configurée');
             }
-            
+
             try {
                 // Toujours synchroniser technicien avec localStorage pour éviter les bugs
                 const savedRegion = safeLocalStorageGet('tech_region');
@@ -2448,21 +2494,21 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
                     }
                     throw new Error('Technicien non défini, impossible de charger les interventions.');
                 }
-                
+
                 const region = technicien && technicien.region && technicien.region !== 'Admin' ? technicien.region : '';
-                const url = region ? 
-                    `${GOOGLE_SHEETS_API_URL}?region=${encodeURIComponent(region)}` : 
+                const url = region ?
+                    `${GOOGLE_SHEETS_API_URL}?region=${encodeURIComponent(region)}` :
                     GOOGLE_SHEETS_API_URL;
-                
+
                 console.log('🔄 Chargement depuis:', url);
-                
+
                 const response = await fetch(url, {
                     method: 'GET',
                     headers: {
                         'Accept': 'application/json'
                     }
                 });
-                
+
                 if (!response.ok) {
                     const errorText = await response.text();
                     console.error('❌ Erreur HTTP:', response.status, errorText);
@@ -2473,7 +2519,7 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
                     }
                     throw new Error(`Erreur HTTP ${response.status}: ${errorText.substring(0, 100)}`);
                 }
-                
+
                 const contentType = response.headers.get('content-type');
                 if (!contentType || !contentType.includes('application/json')) {
                     const text = await response.text();
@@ -2485,9 +2531,9 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
                     }
                     throw new Error('La réponse de l\'API n\'est pas au format JSON');
                 }
-                
+
                 const data = await response.json();
-                
+
                 if (!Array.isArray(data)) {
                     console.error('❌ Les données ne sont pas un tableau:', data);
                     // Si erreur, retourner le cache si disponible
@@ -2497,7 +2543,7 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
                     }
                     throw new Error('Les données reçues ne sont pas un tableau');
                 }
-                
+
                 // Normaliser les données pour correspondre au format attendu
                 const normalizedData = data.map((intv, index) => {
                     const normalized = {
@@ -2525,17 +2571,17 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
                         rapportFait: intv.rapportFait === true || intv.rapportFait === 'TRUE' || intv.rapportFait === 'OUI' || intv.rapportFait === 'Oui' || false,
                         rowIndex: intv.rowIndex || (index + 2) // Ligne dans le Sheet (ligne 1 = headers, donc index + 2)
                     };
-                    
+
                     // Matcher les coordonnées depuis la base de données des sites
                     const matchedCoords = matchInterventionCoordinates(normalized);
                     if (matchedCoords) {
                         normalized.lat = matchedCoords.lat;
                         normalized.lng = matchedCoords.lng;
                     }
-                    
+
                     return normalized;
                 });
-                
+
                 // Géocoder uniquement les adresses qui n'ont toujours pas de coordonnées (fallback)
                 // Les coordonnées géocodées avec succès seront automatiquement ajoutées à SITES_COORDINATES
                 // geocodeAddress vérifie automatiquement si c'est une nouvelle entrée (nom de site ou adresse différent)
@@ -2552,7 +2598,7 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
                         const nomSite = (intv.nomSite || '').trim();
                         const adresse = (intv.adresse || '').trim();
                         let added = false;
-                        
+
                         if (nomSite && !SITES_COORDINATES[nomSite]) {
                             SITES_COORDINATES[nomSite] = { lat: intv.lat, lng: intv.lng };
                             added = true;
@@ -2561,14 +2607,14 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
                             SITES_COORDINATES[adresse] = { lat: intv.lat, lng: intv.lng };
                             added = true;
                         }
-                        
+
                         if (added) {
                             saveSitesCoordinates();
                             console.log(`✅ Coordonnées depuis Google Sheets ajoutées à la base (nouvelle entrée): ${nomSite || adresse}`);
                         }
                     }
                 }
-                
+
                 // Mettre à jour le cache
                 cachedInterventions = normalizedData;
                 lastLoadTime = new Date();
@@ -2576,13 +2622,13 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
                     data: normalizedData,
                     timestamp: lastLoadTime.toISOString()
                 }));
-                
+
                 if (normalizedData.length === 0) {
                     console.log('ℹ️ Aucune intervention trouvée dans la réponse');
                 } else {
                     console.log(`✅ ${normalizedData.length} interventions chargées depuis Google Sheets`);
                 }
-                
+
                 return normalizedData;
             } catch (error) {
                 console.error('❌ Erreur lors du chargement depuis Google Sheets:', error);
@@ -2590,12 +2636,12 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
                 // En cas d'erreur, retourner le cache si disponible ET valide (pas de données mock)
                 if (cachedInterventions.length > 0) {
                     // Vérifier que le cache ne contient pas de données mock (vérifier les IDs mock)
-                    const hasMockData = cachedInterventions.some(intv => 
-                        intv.id === '1' || intv.id === '2' || intv.id === '3' || 
+                    const hasMockData = cachedInterventions.some(intv =>
+                        intv.id === '1' || intv.id === '2' || intv.id === '3' ||
                         intv.nomSite === 'Station Total - Paris 8ème' ||
                         intv.ticket === 'TICK-2024-001'
                     );
-                    
+
                     if (!hasMockData) {
                         console.log('📦 Retour au cache en cas d\'erreur réseau (cache valide)');
                         return cachedInterventions;
@@ -2609,14 +2655,14 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
                 throw error; // Re-lancer l'erreur pour qu'elle soit gérée en amont
             }
         }
-        
+
         // Fonction pour géocoder une adresse (uniquement si pas déjà géocodée)
         async function geocodeAddress(intervention) {
             if (!intervention.adresse) return false;
-            
+
             const nomSite = (intervention.nomSite || '').trim();
             const adresse = (intervention.adresse || '').trim();
-            
+
             // Vérifier d'abord si les coordonnées existent déjà dans SITES_COORDINATES
             const existingCoords = matchInterventionCoordinates(intervention);
             if (existingCoords) {
@@ -2639,7 +2685,7 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
                 }
                 return true; // Coordonnées déjà disponibles, pas besoin de géocoder
             }
-            
+
             // Si l'intervention a déjà des coordonnées, les sauvegarder et ne pas re-géocoder
             if (intervention.lat && intervention.lng) {
                 // Sauvegarder dans SITES_COORDINATES pour éviter de re-géocoder
@@ -2659,28 +2705,28 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
                 }
                 return true;
             }
-            
+
             try {
                 // Utiliser l'API Nominatim (OpenStreetMap) - gratuite et sans clé API
                 const encodedAddress = encodeURIComponent(intervention.adresse + ', France');
                 const geocodeUrl = `https://nominatim.openstreetmap.org/search?format=json&q=${encodedAddress}&limit=1`;
-                
+
                 const response = await fetch(geocodeUrl, {
                     headers: {
                         'User-Agent': 'JCSM-Interventions-App/1.0'
                     }
                 });
-                
+
                 if (response.ok) {
                     const data = await response.json();
                     if (data && data.length > 0) {
                         const lat = parseFloat(data[0].lat);
                         const lng = parseFloat(data[0].lon);
-                        
+
                         // Mettre à jour l'intervention
                         intervention.lat = lat;
                         intervention.lng = lng;
-                        
+
                         // IMPORTANT : Sauvegarder dans SITES_COORDINATES pour éviter de re-géocoder
                         // Ajouter même si le nom de site ou l'adresse est différent (nouvelle entrée)
                         let added = false;
@@ -2698,7 +2744,7 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
                                 added = true;
                             }
                         }
-                        
+
                         if (added) {
                             saveSitesCoordinates(); // Sauvegarder dans localStorage
                             console.log(`📍 Géocodage réussi et NOUVELLE entrée ajoutée à la base: ${nomSite || adresse}`);
@@ -2714,7 +2760,7 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
             }
             return false;
         }
-        
+
         // Formater les délais (1 = J+1, 2 = Standard, 5 = Urgent)
         function formatDelais(delais) {
             if (!delais && delais !== 0) return 'Standard';
@@ -2727,14 +2773,14 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
 
         // ========== CALENDRIER HEBDOMADAIRE HEURE PAR HEURE ==========
         let currentWeekStart = getMonday(new Date()); // Lundi de la semaine actuelle
-        
+
         function getMonday(date) {
             const d = new Date(date);
             const day = d.getDay();
             const diff = d.getDate() - day + (day === 0 ? -6 : 1); // Ajuster pour lundi
             return new Date(d.setDate(diff));
         }
-        
+
         function getWeekDays(startDate) {
             const days = [];
             for (let i = 0; i < 7; i++) {
@@ -2744,17 +2790,17 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
             }
             return days;
         }
-        
+
         function formatDateShort(date) {
             return date.toLocaleDateString('fr-FR', { day: 'numeric', month: 'short' });
         }
-        
+
         function formatWeekRange(startDate) {
             const endDate = new Date(startDate);
             endDate.setDate(startDate.getDate() + 6);
             return `${formatDateShort(startDate)} - ${formatDateShort(endDate)}`;
         }
-        
+
         function getInterventionHour(intervention) {
             // Priorité : heure du rapport, sinon heure par défaut (9h)
             if (intervention.rapport && intervention.rapport.heureArrivee) {
@@ -2768,7 +2814,7 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
             }
             return 9; // Par défaut 9h
         }
-        
+
         function getInterventionDate(intervention) {
             // Utiliser la date du rapport si disponible
             if (intervention.rapport && intervention.rapport.dateIntervention) {
@@ -2784,13 +2830,13 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
             const today = new Date().toISOString().split('T')[0];
             const now = new Date();
             const currentHour = now.getHours();
-            
+
             // Mettre à jour le header
             document.getElementById('week-range').textContent = formatWeekRange(currentWeekStart);
-            
+
             // Récupérer les interventions
             const interventions = getFilteredInterventions();
-            
+
             // Organiser les interventions par jour et heure
             const interventionsBySlot = {};
             weekDays.forEach((day, dayIndex) => {
@@ -2800,25 +2846,25 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
                     interventionsBySlot[dateKey][h] = [];
                 }
             });
-            
+
             interventions.forEach(intv => {
                 const intvDate = getInterventionDate(intv);
                 if (!intvDate) return;
-                
+
                 const dateKey = intvDate.split('T')[0];
                 const hour = getInterventionHour(intv);
-                
+
                 if (interventionsBySlot[dateKey] && interventionsBySlot[dateKey][hour]) {
                     interventionsBySlot[dateKey][hour].push(intv);
                 }
             });
-            
+
             // Générer le HTML
             let html = '<div class="calendar-week-grid">';
-            
+
             // Première colonne vide (pour les heures)
             html += '<div></div>';
-            
+
             // En-têtes des jours
             const dayNames = ['Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam', 'Dim'];
             weekDays.forEach((day, index) => {
@@ -2831,22 +2877,22 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
                     </div>
                 `;
             });
-            
+
             // Créer 24 lignes (heures 0-23)
             for (let hour = 0; hour < 24; hour++) {
                 // Label de l'heure
                 html += `<div class="calendar-hour-label">${String(hour).padStart(2, '0')}h</div>`;
-                
+
                 // Créer une case pour chaque jour
                 weekDays.forEach((day) => {
                     const dateKey = day.toISOString().split('T')[0];
                     const isToday = dateKey === today;
-                    const isPast = new Date(dateKey) < new Date(today) || 
-                                  (isToday && hour < currentHour);
+                    const isPast = new Date(dateKey) < new Date(today) ||
+                        (isToday && hour < currentHour);
                     const isCurrentHour = isToday && hour === currentHour;
-                    
+
                     const slotInterventions = interventionsBySlot[dateKey]?.[hour] || [];
-                    
+
                     html += `
                         <div class="calendar-hour-slot ${isPast ? 'past' : ''} ${isCurrentHour ? 'current-hour' : ''}" 
                              data-date="${dateKey}" 
@@ -2854,20 +2900,20 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
                              ondrop="handleDrop(event)" 
                              ondragover="handleDragOver(event)">
                     `;
-                    
+
                     slotInterventions.forEach(intv => {
                         const delaiClass = getDelaiClass(intv.delais);
-                        const eventClass = delaiClass.includes('urgent') ? 'urgent' : 
-                                         delaiClass.includes('rapide') ? 'rapide' : 'standard';
-                        
+                        const eventClass = delaiClass.includes('urgent') ? 'urgent' :
+                            delaiClass.includes('rapide') ? 'rapide' : 'standard';
+
                         const intvHour = getInterventionHour(intv);
                         const displayTime = String(intvHour).padStart(2, '0') + 'h';
-                        
+
                         // Nettoyer le nom du site pour l'affichage
                         const siteName = escapeHtml((intv.nomSite || 'Sans nom').substring(0, 22));
                         const ticket = escapeHtml(intv.ticket || 'N/A');
                         const fullTitle = `${escapeHtml(intv.nomSite || '')} - ${escapeHtml(intv.adresse || '')}`;
-                        
+
                         html += `
                             <div class="calendar-intervention ${eventClass}" 
                                  draggable="true"
@@ -2880,14 +2926,14 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
                             </div>
                         `;
                     });
-                    
+
                     html += '</div>';
                 });
             }
-            
+
             html += '</div>';
             container.innerHTML = html;
-            
+
             // Scroll automatique vers l'heure actuelle
             setTimeout(() => {
                 const currentHourSlot = container.querySelector('.current-hour');
@@ -2905,42 +2951,42 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
 
         // Drag & Drop
         let draggedInterventionId = null;
-        
-        window.handleDragStart = function(e, interventionId) {
+
+        window.handleDragStart = function (e, interventionId) {
             draggedInterventionId = interventionId;
             e.dataTransfer.effectAllowed = 'move';
             e.target.classList.add('dragging');
         };
-        
-        window.handleDragOver = function(e) {
+
+        window.handleDragOver = function (e) {
             e.preventDefault();
             e.dataTransfer.dropEffect = 'move';
             e.currentTarget.classList.add('drag-over');
         };
-        
+
         window.addEventListener('dragleave', (e) => {
             if (e.target.classList.contains('calendar-hour-slot')) {
                 e.target.classList.remove('drag-over');
             }
         });
-        
+
         window.addEventListener('dragend', () => {
             document.querySelectorAll('.drag-over').forEach(el => el.classList.remove('drag-over'));
             document.querySelectorAll('.dragging').forEach(el => el.classList.remove('dragging'));
         });
-        
-        window.handleDrop = async function(e) {
+
+        window.handleDrop = async function (e) {
             e.preventDefault();
             if (!draggedInterventionId) return;
-            
+
             const slot = e.currentTarget;
             const date = slot.dataset.date;
             const hour = parseInt(slot.dataset.hour);
-            
+
             // Trouver l'intervention
             const interventions = getFilteredInterventions();
             const intervention = interventions.find(intv => intv.id === draggedInterventionId);
-            
+
             if (intervention) {
                 // Mettre à jour l'intervention avec la nouvelle date/heure
                 if (!intervention.rapport) {
@@ -2949,18 +2995,18 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
                 intervention.rapport.dateIntervention = date;
                 intervention.rapport.heureArrivee = String(hour).padStart(2, '0') + ':00';
                 intervention.rapport.dateModified = new Date().toISOString();
-                
+
                 // Sauvegarder (dans localStorage pour l'instant, ou via API)
                 // TODO: Sauvegarder sur le serveur
-                
+
                 // Re-rendre le calendrier
                 renderCalendar();
-                
+
                 // Actualisation automatique après modification du calendrier
                 setTimeout(() => {
                     reloadDataFromAPI();
                 }, 2000);
-                
+
                 // Supprimer la classe dragging
                 document.querySelectorAll('.dragging').forEach(el => el.classList.remove('dragging'));
                 draggedInterventionId = null;
@@ -3012,7 +3058,7 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
             if (region) {
                 technicien = { region, isAdmin };
             }
-            
+
             // Vérifier l'authentification (affiche le modal si pas de région)
             const isAuthenticated = checkAuth();
             if (!isAuthenticated) {
@@ -3020,28 +3066,28 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
                 console.log('⏸️ En attente de sélection de région...');
                 return;
             }
-            
+
             // Vérifier à nouveau que technicien est bien défini
             if (!technicien) {
                 console.error('❌ Technicien non défini après checkAuth');
                 return;
             }
-            
+
             console.log('🚀 Initialisation de l\'application pour:', technicien.region, technicien.isAdmin ? '(Admin)' : '');
-            
+
             // Charger les coordonnées des sites
             loadSitesCoordinates();
-            
+
             // Charger le cache d'abord pour affichage immédiat (uniquement si valide, pas de données mock)
             const hasCache = loadCachedInterventions();
             if (hasCache && cachedInterventions.length > 0) {
                 // Vérifier que le cache ne contient pas de données mock
-                const hasMockData = cachedInterventions.some(intv => 
-                    intv.id === '1' || intv.id === '2' || intv.id === '3' || 
+                const hasMockData = cachedInterventions.some(intv =>
+                    intv.id === '1' || intv.id === '2' || intv.id === '3' ||
                     intv.nomSite === 'Station Total - Paris 8ème' ||
                     intv.ticket === 'TICK-2024-001'
                 );
-                
+
                 if (!hasMockData) {
                     ALL_INTERVENTIONS = cachedInterventions;
                     // Charger les rapports sauvegardés
@@ -3062,38 +3108,38 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
                     cachedInterventions = [];
                 }
             }
-            
+
             // Afficher un indicateur de chargement
             const loadingIndicator = document.createElement('div');
             loadingIndicator.id = 'loading-indicator';
             loadingIndicator.style.cssText = 'position: fixed; top: 100px; right: 20px; background: linear-gradient(135deg, #0070F3, #7928CA); color: white; padding: 12px 20px; border-radius: 8px; z-index: 10000; box-shadow: 0 4px 12px rgba(0,0,0,0.15); font-weight: 600;';
             loadingIndicator.innerHTML = '📥 Actualisation des interventions...';
             document.body.appendChild(loadingIndicator);
-            
+
             try {
                 // Charger les rapports sauvegardés
                 if (typeof window.loadSavedReports === 'function') {
                     window.loadSavedReports();
                 }
-                
+
                 // Charger les interventions depuis Google Sheets (sans utiliser le cache)
                 const interventions = await loadInterventionsFromSheets(false);
-                
+
                 if (interventions && interventions.length > 0) {
                     ALL_INTERVENTIONS = interventions;
                     // Recharger les rapports après chargement depuis Sheets
                     if (typeof window.loadSavedReports === 'function') {
                         window.loadSavedReports();
                     }
-                    
+
                     // Re-rendre les vues avec les nouvelles données
                     renderInterventionsList();
                     await initMap();
-                    
+
                     loadingIndicator.innerHTML = `✅ ${interventions.length} interventions actualisées`;
                     loadingIndicator.style.background = '#10B981';
                     setTimeout(() => loadingIndicator.remove(), 2000);
-                    
+
                     // Masquer l'indicateur de cache s'il existe
                     const cacheIndicator = document.getElementById('cache-indicator');
                     if (cacheIndicator) cacheIndicator.remove();
@@ -3103,7 +3149,7 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
                         ALL_INTERVENTIONS = cachedInterventions;
                         loadingIndicator.innerHTML = `📦 ${cachedInterventions.length} interventions (cache)`;
                         loadingIndicator.style.background = '#F59E0B';
-                        
+
                         // Re-rendre les vues avec le cache
                         renderInterventionsList();
                         await initMap();
@@ -3111,7 +3157,7 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
                         ALL_INTERVENTIONS = [];
                         loadingIndicator.innerHTML = '⚠️ Aucune intervention trouvée';
                         loadingIndicator.style.background = '#F59E0B';
-                        
+
                         // Re-rendre quand même pour afficher le message vide
                         renderInterventionsList();
                         await initMap();
@@ -3121,12 +3167,12 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
             } catch (error) {
                 console.error('Erreur lors de l\'initialisation:', error);
                 const errorMessage = error.message || 'Erreur inconnue';
-                
+
                 // Si l'erreur concerne loadSavedReports, essayer de la définir maintenant
                 if (error.message && error.message.includes('loadSavedReports')) {
                     console.warn('⚠️ Tentative de réparation: redéfinition de loadSavedReports');
                     if (typeof window.loadSavedReports !== 'function') {
-                        window.loadSavedReports = function() {
+                        window.loadSavedReports = function () {
                             try {
                                 const saved = safeLocalStorageGet('rapports_interventions');
                                 if (!saved) return;
@@ -3135,7 +3181,7 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
                                 rapports.forEach(rapportData => {
                                     const intervention = ALL_INTERVENTIONS.find(intv => intv.id === rapportData.id);
                                     if (intervention && rapportData.rapport) {
-                                        intervention.rapport = intervention.rapport ? {...intervention.rapport, ...rapportData.rapport} : rapportData.rapport;
+                                        intervention.rapport = intervention.rapport ? { ...intervention.rapport, ...rapportData.rapport } : rapportData.rapport;
                                     }
                                 });
                             } catch (e) {
@@ -3144,7 +3190,7 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
                         };
                     }
                 }
-                
+
                 // En cas d'erreur, utiliser le cache si disponible
                 if (cachedInterventions.length > 0) {
                     ALL_INTERVENTIONS = cachedInterventions;
@@ -3157,10 +3203,10 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
                 }
                 setTimeout(() => loadingIndicator.remove(), 5000);
             }
-            
+
             renderInterventionsList();
             await initMap();
-            
+
             // Démarrer l'actualisation automatique (toutes les heures)
             startAutoRefresh();
         }
@@ -3172,7 +3218,7 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
             if (autoRefreshInterval) {
                 clearInterval(autoRefreshInterval);
             }
-            
+
             // Actualiser toutes les heures (3600000 ms)
             autoRefreshInterval = setInterval(() => {
                 if (!isLoadingData && document.visibilityState === 'visible') {
@@ -3181,7 +3227,7 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
                 }
             }, 3600000); // 1 heure = 3600000 ms
         }
-        
+
         // Actualiser automatiquement quand la page redevient visible
         document.addEventListener('visibilitychange', () => {
             if (document.visibilityState === 'visible' && !isLoadingData) {
@@ -3196,39 +3242,39 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
                 console.log('Chargement déjà en cours...');
                 return;
             }
-            
+
             isLoadingData = true;
             const importBtn = document.getElementById('import-btn');
             const importBtnText = document.getElementById('import-btn-text');
             const originalText = importBtnText.textContent;
-            
+
             // Désactiver le bouton et afficher un indicateur
             importBtn.disabled = true;
             importBtn.style.opacity = '0.6';
             importBtnText.innerHTML = '<span class="animate-spin inline-block">⏳</span> Chargement...';
-            
+
             // Afficher un indicateur de chargement
             const loadingIndicator = document.createElement('div');
             loadingIndicator.id = 'import-loading-indicator';
             loadingIndicator.style.cssText = 'position: fixed; top: 100px; right: 20px; background: linear-gradient(135deg, #0070F3, #7928CA); color: white; padding: 12px 20px; border-radius: 8px; z-index: 10000; box-shadow: 0 4px 12px rgba(0,0,0,0.15); font-weight: 600;';
             loadingIndicator.innerHTML = '🔄 Rechargement depuis Google Sheets...';
             document.body.appendChild(loadingIndicator);
-            
+
             try {
                 // Sauvegarder les rapports existants AVANT de recharger (pour ne pas les perdre)
                 const existingReports = localStorage.getItem('rapports_interventions');
-                
+
                 // Charger les interventions depuis Google Sheets
                 const interventions = await loadInterventionsFromSheets();
-                
+
                 if (interventions && interventions.length > 0) {
                     ALL_INTERVENTIONS = interventions;
-                    
+
                     // Recharger les rapports sauvegardés (préserve les données existantes)
                     if (typeof window.loadSavedReports === 'function') {
                         window.loadSavedReports();
                     }
-                    
+
                     // Sauvegarder à nouveau pour s'assurer que tout est synchronisé
                     safeLocalStorageSet('rapports_interventions', JSON.stringify(
                         ALL_INTERVENTIONS.filter(intv => intv.rapport).map(intv => ({
@@ -3236,17 +3282,17 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
                             rapport: intv.rapport
                         }))
                     ));
-                    
+
                     // Re-rendre les vues
-            renderInterventionsList();
-            initMap();
-                    
+                    renderInterventionsList();
+                    initMap();
+
                     // Re-rendre le calendrier si on est sur cet onglet
                     const calendarTab = document.querySelector('[data-tab="calendrier"]');
                     if (calendarTab && calendarTab.classList.contains('active')) {
                         renderCalendar();
                     }
-                    
+
                     loadingIndicator.innerHTML = `✅ ${interventions.length} interventions rechargées`;
                     loadingIndicator.style.background = '#10B981';
                     setTimeout(() => loadingIndicator.remove(), 2000);
@@ -3262,7 +3308,7 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
                             }
                         });
                     }
-                    
+
                     ALL_INTERVENTIONS = ALL_INTERVENTIONS.length > 0 ? ALL_INTERVENTIONS : [];
                     loadingIndicator.innerHTML = '⚠️ Aucune nouvelle intervention trouvée';
                     loadingIndicator.style.background = '#F59E0B';
@@ -3290,17 +3336,17 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
 
         // ========== GESTION DES ONGLETS ==========
         document.querySelectorAll('.tab-button').forEach(button => {
-            button.addEventListener('click', function() {
+            button.addEventListener('click', function () {
                 const tabName = this.dataset.tab;
-                
+
                 // Mettre à jour les boutons
                 document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
                 this.classList.add('active');
-                
+
                 // Mettre à jour le contenu
                 document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
                 document.getElementById(`tab-${tabName}`).classList.add('active');
-                
+
                 // Afficher/masquer les boutons Liste/Carte selon l'onglet
                 const viewToggleButtons = document.getElementById('view-toggle-buttons');
                 if (tabName === 'interventions') {
@@ -3308,24 +3354,24 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
                 } else {
                     viewToggleButtons.style.display = 'none';
                 }
-                
+
                 // Réinitialiser la carte si nécessaire
                 if (tabName === 'interventions' && map) {
                     setTimeout(() => {
                         map.invalidateSize();
                     }, 100);
                 }
-                
+
                 // Charger les fiches si on passe sur cet onglet
                 if (tabName === 'fiches') {
                     renderFiches();
                 }
-                
+
                 // Charger le calendrier si on passe sur cet onglet
                 if (tabName === 'calendrier') {
                     renderCalendar();
                 }
-                
+
                 // Charger les rapports si on passe sur cet onglet
                 if (tabName === 'rapports') {
                     // Vérifier si l'utilisateur est déjà authentifié
@@ -3338,7 +3384,7 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
                         document.getElementById('rapports-list-container').classList.add('hidden');
                     }
                 }
-                
+
                 // Charger les rapports si on passe sur cet onglet
                 if (tabName === 'rapports') {
                     // Vérifier si l'utilisateur est déjà authentifié
@@ -3355,10 +3401,10 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
         // ========== GESTION DES FICHES MÉTHODES ==========
         let currentEditingFicheId = null;
         let currentImages = []; // Images en cours d'ajout
-        
+
         // Configuration Google Calendar (GOOGLE_SHEETS_API_URL est déjà définie plus haut)
         const GOOGLE_CALENDAR_SYNC_ENABLED = localStorage.getItem('calendar_sync_enabled') === 'true';
-        
+
         // Configuration serveur pour fiches collaboratives
         const API_FICHES_URL = 'api/fiches.php';
         const DRIVE_API_URL = localStorage.getItem('drive_api_url') || '';
@@ -3380,7 +3426,7 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
                     console.error('Erreur lors du chargement depuis Google Drive:', error);
                 }
             }
-            
+
             // Priorité 2 : Serveur PHP
             if (USE_SERVER_STORAGE && !USE_DRIVE_STORAGE) {
                 try {
@@ -3393,7 +3439,7 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
                     console.error('Erreur lors du chargement des fiches:', error);
                 }
             }
-            
+
             // Fallback : localStorage (local uniquement)
             const saved = localStorage.getItem('fiches_methodes');
             return saved ? JSON.parse(saved) : [];
@@ -3406,7 +3452,7 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
                 localStorage.setItem('fiches_methodes', JSON.stringify(fiches));
                 return true;
             }
-            
+
             try {
                 // Sauvegarder toutes les fiches (le serveur gère les modifications individuelles)
                 // En pratique, on ne sauvegarde qu'une fiche à la fois
@@ -3416,7 +3462,7 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
                 return false;
             }
         }
-        
+
         // Sauvegarder une seule fiche sur Google Drive, serveur PHP ou localStorage
         async function saveFiche(fiche) {
             // Priorité 1 : Google Drive
@@ -3432,7 +3478,7 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
                             fiche: fiche
                         })
                     });
-                    
+
                     if (response.ok) {
                         const result = await response.json();
                         return result.success === true;
@@ -3443,7 +3489,7 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
                     return false;
                 }
             }
-            
+
             // Priorité 2 : Serveur PHP (toujours essayer si configuré)
             if (USE_SERVER_STORAGE && !USE_DRIVE_STORAGE && API_FICHES_URL) {
                 try {
@@ -3454,7 +3500,7 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
                         },
                         body: JSON.stringify(fiche)
                     });
-                    
+
                     if (response.ok) {
                         const result = await response.json();
                         if (result.success === true) {
@@ -3468,7 +3514,7 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
                     // Continuer vers localStorage en cas d'erreur
                 }
             }
-            
+
             // Fallback : localStorage (toujours disponible)
             const fiches = await loadFiches();
             const index = fiches.findIndex(f => f.id === fiche.id);
@@ -3480,7 +3526,7 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
             localStorage.setItem('fiches_methodes', JSON.stringify(fiches));
             return true;
         }
-        
+
         // Supprimer une fiche sur Google Drive, serveur PHP ou localStorage
         async function deleteFicheServer(ficheId) {
             // Priorité 1 : Google Drive
@@ -3496,7 +3542,7 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
                             ficheId: ficheId
                         })
                     });
-                    
+
                     if (response.ok) {
                         const result = await response.json();
                         return result.success === true;
@@ -3507,21 +3553,21 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
                     return false;
                 }
             }
-            
+
             // Priorité 2 : Serveur PHP
             if (USE_SERVER_STORAGE && !USE_DRIVE_STORAGE) {
                 try {
                     const response = await fetch(`${API_FICHES_URL}?id=${encodeURIComponent(ficheId)}`, {
                         method: 'DELETE'
                     });
-                    
+
                     return response.ok;
                 } catch (error) {
                     console.error('Erreur lors de la suppression:', error);
                     return false;
                 }
             }
-            
+
             // Fallback : localStorage
             const fiches = await loadFiches();
             const filtered = fiches.filter(f => f.id !== ficheId);
@@ -3534,7 +3580,7 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
             const container = document.getElementById('fiches-container');
             const fiches = await loadFiches();
             const isAdmin = technicien && technicien.isAdmin;
-            
+
             if (fiches.length === 0) {
                 container.innerHTML = `
                     <div class="empty-state">
@@ -3548,7 +3594,7 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
                 `;
                 return;
             }
-            
+
             let html = '';
             fiches.forEach(fiche => {
                 // Gérer la date de création (peut être dateCreated, dateModified, ou absente)
@@ -3568,7 +3614,7 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
                 } catch (e) {
                     console.warn('Erreur de formatage de date pour fiche:', fiche.id, e);
                 }
-                
+
                 html += `
                     <div class="fiche-card smooth-transition">
                         <div class="fiche-card-header">
@@ -3590,7 +3636,7 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
                     </div>
                 `;
             });
-            
+
             container.innerHTML = html;
         }
 
@@ -3617,9 +3663,9 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
         async function openFiche(ficheId) {
             const fiches = await loadFiches();
             const fiche = fiches.find(f => f.id === ficheId);
-            
+
             if (!fiche) return;
-            
+
             currentEditingFicheId = ficheId;
             currentImages = JSON.parse(JSON.stringify(fiche.images || []));
             document.getElementById('modal-fiche-title').textContent = 'Modifier la fiche';
@@ -3628,35 +3674,35 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
             renderImagePreviews();
             document.getElementById('modal-fiche').classList.add('active');
         }
-        
+
         // Gestion de l'upload d'images
         const uploadArea = document.getElementById('upload-area');
         const imageUpload = document.getElementById('image-upload');
         const imagePreviewContainer = document.getElementById('image-preview-container');
-        
+
         uploadArea.addEventListener('click', () => imageUpload.click());
-        
+
         uploadArea.addEventListener('dragover', (e) => {
             e.preventDefault();
             uploadArea.classList.add('dragover');
         });
-        
+
         uploadArea.addEventListener('dragleave', () => {
             uploadArea.classList.remove('dragover');
         });
-        
+
         uploadArea.addEventListener('drop', (e) => {
             e.preventDefault();
             uploadArea.classList.remove('dragover');
             const files = Array.from(e.dataTransfer.files).filter(f => f.type.startsWith('image/'));
             handleImageFiles(files);
         });
-        
+
         imageUpload.addEventListener('change', (e) => {
             const files = Array.from(e.target.files).filter(f => f.type.startsWith('image/'));
             handleImageFiles(files);
         });
-        
+
         function handleImageFiles(files) {
             files.forEach(file => {
                 const reader = new FileReader();
@@ -3671,7 +3717,7 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
                 reader.readAsDataURL(file);
             });
         }
-        
+
         function renderImagePreviews() {
             imagePreviewContainer.innerHTML = '';
             currentImages.forEach((img, index) => {
@@ -3684,23 +3730,23 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
                 imagePreviewContainer.appendChild(div);
             });
         }
-        
-        window.removeImage = function(index) {
+
+        window.removeImage = function (index) {
             currentImages.splice(index, 1);
             renderImagePreviews();
         };
-        
+
         // ========== GESTION DES RAPPORTS D'INTERVENTION ==========
         const RAPPORTS_PASSWORD = 'Management?240898';
         const RAPPORTS_API_URL = 'api/list-rapports.php';
-        
+
         // Fonction d'échappement HTML
         function escapeHtml(text) {
             const div = document.createElement('div');
             div.textContent = text;
             return div.innerHTML;
         }
-        
+
         // Authentification pour accéder aux rapports
         const rapportsAuthForm = document.getElementById('rapports-auth-form');
         if (rapportsAuthForm) {
@@ -3708,9 +3754,9 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
                 e.preventDefault();
                 const password = document.getElementById('rapports-password').value;
                 const errorDiv = document.getElementById('rapports-auth-error');
-                
+
                 errorDiv.classList.add('hidden');
-                
+
                 if (password === RAPPORTS_PASSWORD) {
                     localStorage.setItem('rapports_authenticated', 'true');
                     document.getElementById('rapports-auth').classList.add('hidden');
@@ -3722,20 +3768,20 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
                 }
             });
         }
-        
+
         // Charger la liste des rapports
         async function loadRapports() {
             const container = document.getElementById('rapports-list');
             if (!container) return;
-            
+
             container.innerHTML = '<div class="text-center py-8"><div class="animate-spin inline-block w-6 h-6 border-2 border-blue-600 border-t-transparent rounded-full"></div><p class="mt-2 text-gray-600">Chargement des rapports...</p></div>';
-            
+
             try {
                 const response = await fetch(RAPPORTS_API_URL);
                 if (!response.ok) {
                     throw new Error(`HTTP ${response.status}`);
                 }
-                
+
                 // Vérifier que la réponse est bien du JSON
                 const contentType = response.headers.get('content-type');
                 if (!contentType || !contentType.includes('application/json')) {
@@ -3743,45 +3789,45 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
                     console.error('❌ Réponse non-JSON reçue:', text.substring(0, 200));
                     throw new Error('La réponse du serveur n\'est pas au format JSON. Vérifiez que l\'API fonctionne correctement.');
                 }
-                
+
                 const data = await response.json();
-                
+
                 // Gérer la nouvelle structure avec success et rapports
                 const rapports = data.rapports || (Array.isArray(data) ? data : []);
-                
+
                 if (!Array.isArray(rapports)) {
                     throw new Error('Format de données invalide');
                 }
-                
+
                 const countEl = document.getElementById('rapports-count');
                 if (countEl) {
                     countEl.textContent = `${rapports.length} rapport(s)`;
                 }
-                
+
                 if (rapports.length === 0) {
                     container.innerHTML = '<div class="text-center py-12 text-gray-500"><p>Aucun rapport disponible.</p></div>';
                     return;
                 }
-                
+
                 // Trier par date décroissante (plus récents en premier)
                 rapports.sort((a, b) => {
                     const dateA = a.dateCreation || a.filename || '';
                     const dateB = b.dateCreation || b.filename || '';
                     return dateB.localeCompare(dateA);
                 });
-                
+
                 let html = '';
                 rapports.forEach(rapport => {
-                    const dateStr = rapport.dateCreation 
-                        ? new Date(rapport.dateCreation).toLocaleDateString('fr-FR', { 
-                            day: 'numeric', 
-                            month: 'long', 
+                    const dateStr = rapport.dateCreation
+                        ? new Date(rapport.dateCreation).toLocaleDateString('fr-FR', {
+                            day: 'numeric',
+                            month: 'long',
                             year: 'numeric',
                             hour: '2-digit',
                             minute: '2-digit'
                         })
                         : 'Date inconnue';
-                    
+
                     html += `
                         <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6 hover:shadow-md transition-shadow">
                             <div class="flex justify-between items-start mb-4">
@@ -3822,14 +3868,14 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
                         </div>
                     `;
                 });
-                
+
                 container.innerHTML = html;
             } catch (error) {
                 console.error('Erreur lors du chargement des rapports:', error);
                 container.innerHTML = `<div class="text-center py-12 text-red-600"><p>❌ Erreur lors du chargement: ${error.message}</p></div>`;
             }
         }
-        
+
         // Bouton actualiser les rapports
         const refreshRapportsBtn = document.getElementById('refresh-rapports');
         if (refreshRapportsBtn) {
@@ -3839,11 +3885,11 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
         }
 
         // Supprimer une fiche
-        window.deleteFiche = async function(ficheId) {
+        window.deleteFiche = async function (ficheId) {
             if (!confirm('Êtes-vous sûr de vouloir supprimer cette fiche méthode ?')) {
                 return;
             }
-            
+
             const success = await deleteFicheServer(ficheId);
             if (success) {
                 await renderFiches();
@@ -3887,17 +3933,17 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
         // Soumettre le formulaire de fiche
         document.getElementById('fiche-form').addEventListener('submit', async (e) => {
             e.preventDefault();
-            
+
             const titre = document.getElementById('fiche-titre').value.trim();
             const contenu = document.getElementById('fiche-contenu').value.trim();
-            
+
             if (!titre || !contenu) {
                 alert('Veuillez remplir tous les champs');
                 return;
             }
-            
+
             const wasEditing = !!currentEditingFicheId;
-            
+
             if (currentEditingFicheId) {
                 // Modifier une fiche existante
                 const fiches = await loadFiches();
@@ -3907,7 +3953,7 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
                     existingFiche.contenu = contenu;
                     existingFiche.images = currentImages;
                     existingFiche.dateModified = new Date().toISOString();
-                    
+
                     const success = await saveFiche(existingFiche);
                     if (!success) {
                         alert('Erreur lors de la sauvegarde');
@@ -3921,19 +3967,19 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
                     contenu: contenu,
                     images: currentImages
                 };
-                
+
                 const success = await saveFiche(nouvelleFiche);
                 if (!success) {
                     alert('Erreur lors de la création de la fiche');
                     return;
                 }
             }
-            
+
             await renderFiches();
             document.getElementById('modal-fiche').classList.remove('active');
             currentEditingFicheId = null;
             currentImages = [];
-            
+
             // Message de confirmation
             const message = wasEditing ? 'Fiche modifiée avec succès !' : 'Fiche créée avec succès !';
             alert(message);
@@ -3944,15 +3990,15 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
             console.log('🚀 Démarrage de l\'application...');
             // Initialiser les event listeners d'abord
             initEventListeners();
-            
+
             // Puis initialiser l'application
-        if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', initApp);
-        } else {
-            initApp();
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', initApp);
+            } else {
+                initApp();
             }
         }
-        
+
         // Démarrer immédiatement si le DOM est déjà chargé, sinon attendre
         console.log('📄 État du DOM:', document.readyState);
         if (document.readyState === 'loading') {
@@ -3965,4 +4011,5 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
     </script>
     <script src="animations.js" defer></script>
 </body>
+
 </html>
