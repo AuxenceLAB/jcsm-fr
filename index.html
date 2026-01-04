@@ -1,0 +1,1746 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <base target="_self">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JCSM – Pilotage, installation & maintenance IRVE pour CPO, EMSP et exploitants</title>
+    <meta name="description" content="Dans l'IRVE depuis 2018, JCSM pilote, installe et maintient vos infrastructures de recharge (IRVE) : accompagnement des CPO, EMSP, exploitants et grands comptes sur toute la chaîne, de l’étude à l’exploitation.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://jcsm.fr/">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://jcsm.fr/">
+    <meta property="og:title" content="JCSM – Pilotage, installation & maintenance IRVE pour CPO, EMSP et exploitants">
+    <meta property="og:description" content="Dans l'IRVE depuis 2018, JCSM accompagne CPO, EMSP, exploitants et grands comptes sur le pilotage, l’installation, l’exploitation et la maintenance de leurs infrastructures de recharge.">
+    <meta property="og:image" content="https://jcsm.fr/images/logo.png">
+    <meta property="og:locale" content="fr_FR">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://jcsm.fr/">
+    <meta name="twitter:title" content="JCSM – Pilotage, installation & maintenance IRVE pour CPO, EMSP et exploitants">
+    <meta name="twitter:description" content="Dans l'IRVE depuis 2018, JCSM pilote, installe et maintient vos infrastructures de recharge (IRVE) avec un haut niveau d’exigence technique.">
+    <meta name="twitter:image" content="https://jcsm.fr/images/logo.png">
+    
+    <!-- Schema.org -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "JCSM",
+      "url": "https://jcsm.fr",
+      "logo": "https://jcsm.fr/images/logo.png",
+      "description": "Dans l'IRVE depuis 2018. Maîtrise complète de la chaîne IRVE : conception, installation, exploitation, sécurisation et support.",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "60, rue François 1er",
+        "addressLocality": "Paris",
+        "postalCode": "75008",
+        "addressCountry": "FR"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "contact@jcsm.fr",
+        "contactType": "customer service"
+      },
+      "sameAs": [
+        "https://www.linkedin.com/company/jcsmelec/"
+      ],
+      "foundingDate": "2018",
+      "areaServed": "FR",
+      "serviceType": "IRVE Services"
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "Accompagnement complet IRVE",
+      "provider": {
+        "@type": "Organization",
+        "name": "JCSM"
+      },
+      "serviceType": "Conception, installation, exploitation, sécurisation et support d'infrastructures de recharge",
+      "areaServed": "FR",
+      "url": "https://jcsm.fr",
+      "description": "Service complet IRVE couvrant la chaîne de valeur : pilotage de projets, installation, mise en service et maintenance, sécurisation et support technique 24/7."
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Qui est responsable de la conformité IRVE de mon installation ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "La responsabilité est partagée entre le maître d'ouvrage, l'installateur et l'exploitant. JCSM vous aide à clarifier les rôles de chacun, à vérifier la conformité documentaire (schémas, PV de réception, Consuel) et à reprendre les points critiques avant mise en exploitation."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Intervenez-vous uniquement sur les bornes que vous avez installées ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Non. Nous intervenons sur des parcs existants, multi-installateurs et multi-fabricants, pour remettre à niveau, diagnostiquer et structurer l'exploitation. L'objectif est de fiabiliser votre patrimoine IRVE, quel que soit l'historique des projets."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Dans quels délais pouvez-vous intervenir sur site ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Les délais dépendent de la criticité et de la localisation, mais nous structurons nos contrats pour garantir des temps d'intervention engagés, avec diagnostic à distance en amont et préparation des pièces avant déplacement."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Travaillez-vous avec toutes les marques de bornes ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Oui, nous intervenons sur un large panel de fabricants AC et DC et nous indiquons clairement les marques que nous maîtrisons dans nos offres. L'approche reste toujours transparente sur le périmètre exact de prise en charge."
+          }
+        }
+      ]
+    }
+    </script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link rel="icon" type="image/png" href="images/logo.png">
+
+    <style>
+        * {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #FAFAFA;
+            color: #1a1a1a;
+        }
+        
+        /* Amélioration des contrastes pour accessibilité WCAG AA */
+        .text-gray-600 {
+            color: #4b5563; /* Contraste amélioré */
+        }
+        
+        .text-gray-500 {
+            color: #6b7280; /* Contraste amélioré */
+        }
+        
+        /* Empêcher tout débordement horizontal */
+        html, body { 
+            overflow-x: hidden !important;
+            max-width: 100vw !important;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            position: relative;
+        }
+        
+        main, section, article, header, footer, nav, div {
+            max-width: 100%;
+            box-sizing: border-box;
+        }
+        
+        section {
+            overflow-x: hidden;
+            width: 100%;
+        }
+        
+        /* S'assurer que tous les conteneurs sont centrés */
+        .max-w-7xl, .max-w-6xl, .max-w-5xl, .max-w-4xl, .max-w-3xl, .max-w-2xl, .max-w-xl {
+            margin-left: auto !important;
+            margin-right: auto !important;
+            padding-left: 1.5rem;
+            padding-right: 1.5rem;
+            box-sizing: border-box;
+            max-width: 100%;
+        }
+        
+        @media (max-width: 640px) {
+            .max-w-7xl, .max-w-6xl, .max-w-5xl, .max-w-4xl, .max-w-3xl, .max-w-2xl, .max-w-xl {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+        }
+        
+        /* Optimisation images pour mobile */
+        @media (max-width: 768px) {
+            img {
+                max-width: 100%;
+                height: auto;
+                display: block;
+            }
+            
+            .section-appear img {
+                display: block !important;
+            }
+            
+            /* Ajustement padding sections sur mobile */
+            section {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+            
+            /* Espacement réduit entre éléments sur mobile */
+            .grid {
+                gap: 1.5rem;
+            }
+        }
+        
+        .preloader {
+            position: fixed; 
+            inset: 0;
+            background: #FAFAFA;
+            display: flex; 
+            align-items: center; 
+            justify-content: center;
+            z-index: 10000;
+            transition: opacity 0.3s ease;
+        }
+        
+        .preloader.hide {
+            opacity: 0;
+            pointer-events: none;
+        }
+        
+        .glass-nav {
+            background: rgba(250, 250, 250, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #0070F3 0%, #7928CA 50%, #0070F3 100%);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradient-shift 3s ease infinite;
+            position: relative;
+        }
+        
+        @keyframes gradient-shift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
+        /* Effet de brillance sur le gradient text */
+        .gradient-text::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            animation: shine 3s infinite;
+        }
+        
+        @keyframes shine {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+        
+        /* Compteur animé */
+        .counter {
+            display: inline-block;
+        }
+        
+        /* Effet de lumière premium sur les boutons */
+        .btn-primary {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            background: linear-gradient(135deg, #000 0%, #1a1a1a 100%);
+            color: #fff;
+        }
+        
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.6s;
+        }
+        
+        .btn-primary:hover::before {
+            left: 100%;
+        }
+        
+        .btn-primary::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, transparent 70%);
+            transform: translate(-50%, -50%);
+            transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1), height 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            pointer-events: none;
+        }
+        
+        .btn-primary:hover::after {
+            width: 300px;
+            height: 300px;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 16px 32px -8px rgba(0, 0, 0, 0.35), 0 0 20px rgba(59, 130, 246, 0.2);
+        }
+        
+        /* Animation premium au scroll avec effet de profondeur */
+        .section-appear {
+            opacity: 0;
+            transform: translateY(35px) scale(0.97);
+            transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1), transform 0.7s cubic-bezier(0.4, 0, 0.2, 1), filter 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+            will-change: opacity, transform, filter;
+            filter: blur(3px);
+        }
+        
+        .section-appear.visible {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+            filter: blur(0);
+        }
+        
+        /* Glow effect premium sur les cartes au hover */
+        .card-hover {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+        }
+        
+        .card-hover::before {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1));
+            border-radius: inherit;
+            opacity: 0;
+            transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: -1;
+            filter: blur(12px);
+        }
+        
+        .card-hover:hover::before {
+            opacity: 1;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.2), 0 0 30px rgba(59, 130, 246, 0.15);
+        }
+        
+        /* Particules premium animées en arrière-plan */
+        .particles-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.04;
+            overflow: hidden;
+        }
+        
+        .particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: linear-gradient(135deg, #0070F3, #7928CA);
+            border-radius: 50%;
+            animation: float 20s infinite ease-in-out;
+            will-change: transform, opacity;
+            box-shadow: 0 0 6px rgba(59, 130, 246, 0.5);
+        }
+        
+        @keyframes float {
+            0%, 100% { 
+                transform: translate(0, 0) scale(1);
+                opacity: 0.4;
+            }
+            25% { 
+                transform: translate(100px, -100px) scale(1.2);
+                opacity: 0.8;
+            }
+            50% { 
+                transform: translate(-50px, -200px) scale(0.8);
+                opacity: 0.6;
+            }
+            75% { 
+                transform: translate(-150px, -50px) scale(1.1);
+                opacity: 0.7;
+            }
+        }
+        
+        /* Transition de page smooth */
+        body {
+            opacity: 0;
+            transition: opacity 0.3s ease-in;
+        }
+        
+        body.loaded {
+            opacity: 1;
+        }
+        
+        /* Smooth page transitions */
+        a[href$=".html"] {
+            transition: all 0.2s ease;
+        }
+        
+        .card-hover {
+            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            will-change: transform, box-shadow;
+        }
+        
+        .card-hover::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0) 0%, rgba(139, 92, 246, 0) 100%);
+            border-radius: inherit;
+            opacity: 0;
+            transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            z-index: 0;
+        }
+        
+        .card-hover::after {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1));
+            border-radius: inherit;
+            opacity: 0;
+            transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            z-index: -1;
+            filter: blur(12px);
+        }
+        
+        .card-hover:hover::before {
+            opacity: 0.08;
+        }
+        
+        .card-hover:hover::after {
+            opacity: 0.6;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-12px) scale(1.02);
+            box-shadow: 0 40px 80px -16px rgba(0, 0, 0, 0.2);
+        }
+        
+        .card-hover > * {
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* Flèches entre les étapes de service (flow en 5 temps) */
+        .service-step {
+            position: relative;
+            overflow: visible; /* permet à la flèche de dépasser la carte */
+        }
+        
+        /* Flèches entre les 5 services (desktop) */
+        .service-step::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            right: -24px;
+            width: 68px;
+            height: 3px;
+            background: linear-gradient(90deg, #0070F3, #7928CA);
+            transform: translateY(-50%);
+            opacity: 0.3;
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .service-step:hover::after {
+            opacity: 0.8;
+            transform: translate(4px, -50%);
+        }
+        
+        .service-step:last-child::after {
+            display: none;
+        }
+        
+        /* Sur mobile, flèches verticales entre les cartes */
+        @media (max-width: 1024px) {
+            .service-step::after {
+                right: 50%;
+                top: auto;
+                bottom: -18px;
+                width: 4px;
+                height: 32px;
+                transform: translateX(50%);
+            }
+            
+            .service-step:hover::after {
+                transform: translate(50%, 4px);
+            }
+        }
+        
+        .btn-primary {
+            background: #000;
+            color: #fff;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: left 0.5s;
+        }
+        
+        .btn-primary:hover::before {
+            left: 100%;
+        }
+        
+        .btn-primary:hover {
+            background: #1a1a1a;
+            transform: translateY(-2px) scale(1.02);
+            box-shadow: 0 16px 32px -8px rgba(0, 0, 0, 0.35);
+        }
+        
+        .btn-secondary {
+            border: 1.5px solid #E5E5E5;
+            color: #000;
+            background: #fff;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        
+        .btn-secondary:hover {
+            border-color: #000;
+            background: #000;
+            color: #fff;
+            transform: translateY(-2px) scale(1.02);
+            box-shadow: 0 12px 24px -8px rgba(0, 0, 0, 0.2);
+        }
+        
+        .nav-link-active {
+            position: relative;
+            color: #0070F3 !important;
+            font-weight: 700;
+        }
+        
+        .nav-link-active::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #0070F3, #7928CA);
+            border-radius: 2px;
+            animation: slideIn 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        
+        @keyframes slideIn {
+            from {
+                transform: scaleX(0);
+                opacity: 0;
+            }
+            to {
+                transform: scaleX(1);
+                opacity: 1;
+            }
+        }
+        
+        /* Amélioration des liens de navigation */
+        nav a:not(.btn-primary):not(.nav-link-active) {
+            position: relative;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        
+        nav a:not(.btn-primary):not(.nav-link-active)::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #0070F3, #7928CA);
+            border-radius: 2px;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            transform: translateX(-50%);
+        }
+        
+        nav a:not(.btn-primary):not(.nav-link-active):hover::after {
+            width: 80%;
+        }
+        
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: #000;
+            color: #fff;
+            padding: 8px 16px;
+            text-decoration: none;
+            z-index: 10001;
+            border-radius: 0 0 4px 0;
+            font-weight: 600;
+        }
+        
+        .skip-link:focus {
+            top: 0;
+        }
+        
+        .scroll-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, #000 0%, #1a1a1a 100%);
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15), 0 0 20px rgba(59, 130, 246, 0.1);
+            cursor: pointer;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .scroll-top svg {
+            margin: 0 auto;
+            display: block;
+            width: 24px;
+            height: 24px;
+            flex-shrink: 0;
+        }
+        
+        
+        @media (max-width: 768px) {
+            .scroll-top {
+                bottom: 1.5rem;
+                right: 1.5rem;
+                width: 44px;
+                height: 44px;
+            }
+            .scroll-top svg {
+                width: 20px;
+                height: 20px;
+            }
+        }
+        
+        .scroll-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .scroll-top {
+            background: linear-gradient(135deg, #000 0%, #1a1a1a 100%);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15), 0 0 20px rgba(59, 130, 246, 0.1);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .scroll-top:hover {
+            background: linear-gradient(135deg, #1a1a1a 0%, #000 100%);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.25), 0 0 30px rgba(59, 130, 246, 0.2);
+            transform: translateY(-6px) scale(1.05);
+        }
+        
+        /* Stagger animation pour les éléments enfants */
+        .section-appear.visible:nth-child(1) { transition-delay: 0.1s; }
+        .section-appear.visible:nth-child(2) { transition-delay: 0.2s; }
+        .section-appear.visible:nth-child(3) { transition-delay: 0.3s; }
+        .section-appear.visible:nth-child(4) { transition-delay: 0.4s; }
+        .section-appear.visible:nth-child(5) { transition-delay: 0.5s; }
+        
+        /* Bandeau logos : défilement continu sur une seule ligne + swipe possible sur PC et mobile */
+        .logo-marquee {
+            position: relative;
+            overflow-x: auto;
+            overflow-y: hidden;
+            user-select: none;
+            padding: 16px 0;
+            width: 100%;
+            max-width: 100%;
+            box-sizing: border-box;
+            mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+            -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none; /* Firefox : cache la barre */
+        }
+        .logo-marquee::-webkit-scrollbar {
+            display: none; /* Chrome / Safari : cache la barre */
+        }
+        .logo-marquee-track {
+            display: flex;
+            flex-wrap: nowrap;
+            gap: 2rem;
+            width: max-content;
+            will-change: transform;
+            box-sizing: border-box;
+        }
+        
+        .logo-item {
+            flex-shrink: 0;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            will-change: transform;
+            box-sizing: border-box;
+            margin: 0;
+        }
+        
+        .logo-item::before {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.15), rgba(139, 92, 246, 0.15));
+            border-radius: inherit;
+            opacity: 0;
+            transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: -1;
+            filter: blur(8px);
+        }
+        
+        .logo-item:hover::before {
+            opacity: 1;
+        }
+        
+        .logo-item:hover {
+            transform: scale(1.02) rotate(0.2deg);
+            z-index: 10;
+            box-shadow: 0 16px 32px -10px rgba(0, 0, 0, 0.2), 0 0 20px rgba(59, 130, 246, 0.2);
+        }
+        
+        .logo-item img {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            filter: grayscale(0.2);
+            display: block;
+            width: auto;
+        }
+        
+        .logo-item:hover img {
+            filter: grayscale(0) brightness(1.1);
+            transform: scale(1.02);
+        }
+        
+        /* Sur mobile : on autorise le swipe horizontal naturel en plus de l'auto-défilement JS */
+        @media (max-width: 768px) {
+            .logo-marquee {
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+        }
+        
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 100%;
+            max-width: 400px;
+            height: 100vh;
+            background: rgba(250, 250, 250, 0.98);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            transition: right 0.3s ease;
+            box-shadow: -4px 0 24px rgba(0, 0, 0, 0.1);
+        }
+        
+        .mobile-menu.open {
+            right: 0;
+        }
+        
+        .mobile-menu-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+        }
+        
+        .mobile-menu-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+        }
+        
+        
+        /* Parallax effect pour l'image hero */
+        .parallax-image {
+            transition: transform 0.1s ease-out;
+            will-change: transform;
+        }
+        
+        /* Animations premium pour toutes les images au hover */
+        img.image-hover,
+        .image-hover {
+            position: relative;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            will-change: transform, box-shadow, filter;
+            overflow: hidden;
+        }
+        
+        .image-hover::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.15) 0%, rgba(139, 92, 246, 0.15) 100%);
+            border-radius: inherit;
+            opacity: 0;
+            transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 1;
+            pointer-events: none;
+        }
+        
+        .image-hover::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, transparent 70%);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1), height 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            pointer-events: none;
+            z-index: 2;
+        }
+        
+        .image-hover:hover::before {
+            opacity: 1;
+        }
+        
+        .image-hover:hover::after {
+            width: 400px;
+            height: 400px;
+        }
+        
+        .image-hover:hover {
+            transform: scale(1.06) translateY(-6px) rotate(1deg);
+            box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.35), 0 0 50px rgba(59, 130, 246, 0.2);
+            filter: brightness(1.08) contrast(1.05);
+        }
+        
+        img.image-hover {
+            z-index: 0;
+        }
+        
+        /* Effets premium supplémentaires */
+        .glass-nav {
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            background: rgba(255, 255, 255, 0.85);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        /* Amélioration des ombres et profondeur */
+        .card-hover {
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-12px) scale(1.02);
+            box-shadow: 0 40px 80px -15px rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(0, 0, 0, 0.02);
+            filter: brightness(1.05);
+        }
+        
+        /* Effet de brillance subtil sur les boutons */
+        .btn-primary {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+        
+        .btn-primary:hover::before {
+            left: 100%;
+        }
+        
+        /* Amélioration des transitions de texte */
+        .gradient-text {
+            background: linear-gradient(135deg, #0070F3 0%, #7928CA 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            transition: all 0.3s ease;
+        }
+        
+        /* Effet de profondeur sur les sections */
+        section {
+            position: relative;
+        }
+        
+        section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.05), transparent);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        section:hover::before {
+            opacity: 1;
+        }
+        
+        /* Effet de brillance premium sur les sections */
+        section::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.04), transparent);
+            transition: left 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        section:hover::after {
+            left: 100%;
+        }
+        
+        @media (max-width: 1024px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body class="text-gray-900">
+    <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+    
+    <div class="preloader" id="preloader">
+        <div class="flex flex-col items-center justify-center">
+            <img src="images/logo.png" alt="JCSM" width="80" height="80" class="animate-pulse">
+            <div class="mt-4 flex space-x-2">
+                <div class="w-2 h-2 bg-blue-600 rounded-full animate-bounce" style="animation-delay: 0s"></div>
+                <div class="w-2 h-2 bg-blue-600 rounded-full animate-bounce" style="animation-delay: 0.1s"></div>
+                <div class="w-2 h-2 bg-blue-600 rounded-full animate-bounce" style="animation-delay: 0.2s"></div>
+            </div>
+        </div>
+    </div>
+    
+    
+    <div class="mobile-menu-overlay" id="mobile-menu-overlay"></div>
+    <nav class="mobile-menu" id="mobile-menu">
+        <div class="p-8">
+            <div class="flex justify-between items-center mb-12">
+                <span class="text-xl font-semibold">Menu</span>
+                <button class="text-gray-600 hover:text-gray-900" id="mobile-menu-close" aria-label="Fermer le menu de navigation">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+                </button>
+    </div>
+            <div class="flex flex-col space-y-6">
+                <a href="index.html" class="text-base text-blue-600 font-bold">Accueil</a>
+                <a href="pilotage-projets.html" class="text-base text-gray-600 hover:text-gray-900 transition-colors">Pilotage de projets</a>
+                <a href="installation-conformite.html" class="text-base text-gray-600 hover:text-gray-900 transition-colors">Installation</a>
+                <a href="exploitation.html" class="text-base text-gray-600 hover:text-gray-900 transition-colors">Exploitation</a>
+                <a href="securisation-installations.html" class="text-base text-gray-600 hover:text-gray-900 transition-colors">Sécurisation</a>
+                <a href="centre-appel.html" class="text-base text-gray-600 hover:text-gray-900 transition-colors">Support</a>
+                <a href="a-propos.html" class="text-base text-gray-600 hover:text-gray-900 transition-colors">À propos</a>
+                <a href="index.html#contact" class="btn-primary px-6 py-3 rounded-lg text-base font-medium inline-block text-center mt-4">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+        <!-- Barre de progression de scroll -->
+        <div id="scroll-progress" class="fixed top-0 left-0 h-1 bg-gradient-to-r from-blue-500 to-purple-600 z-[60] transition-all duration-150" style="width: 0%;"></div>
+        
+        <nav class="fixed w-full z-50 glass-nav" role="navigation" aria-label="Navigation principale">
+        <div class="max-w-7xl mx-auto px-6 py-4">
+                <div class="flex justify-between items-center">
+                <a href="index.html" class="flex items-center space-x-3 group">
+                    <img src="images/logo.png" alt="JCSM" class="w-9 h-9 transition-transform group-hover:scale-105 duration-300" width="36" height="36">
+                    <span class="text-xl font-bold tracking-tight">JCSM</span>
+                </a>
+                <div class="hidden lg:flex items-center space-x-10">
+                    <a href="index.html" class="text-base font-bold nav-link-active transition-all duration-300">Accueil</a>
+                    <a href="pilotage-projets.html" class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300 hover:scale-105">Pilotage de projets</a>
+                    <a href="installation-conformite.html" class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300 hover:scale-105">Installation</a>
+                    <a href="exploitation.html" class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300 hover:scale-105">Exploitation</a>
+                    <a href="securisation-installations.html" class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300 hover:scale-105">Sécurisation</a>
+                    <a href="centre-appel.html" class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300 hover:scale-105">Support</a>
+                    <a href="a-propos.html" class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300 hover:scale-105">À propos</a>
+                    <a href="index.html#contact" class="btn-primary px-7 py-2.5 rounded-xl text-base font-medium shadow-lg hover:shadow-xl">Contact</a>
+                    </div>
+                <button class="mobile-menu-btn text-gray-600 hover:text-gray-900" id="mobile-menu-btn" aria-label="Ouvrir le menu de navigation" aria-expanded="false">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+                    </button>
+                </div>
+            </div>
+        </nav>
+
+    <!-- Particules subtiles en arrière-plan -->
+    <div class="particles-bg" id="particles-bg"></div>
+    
+    <main id="main-content" role="main">
+        <!-- Hero -->
+        <section class="pt-[calc(5rem+0.75rem)] pb-6 px-4 sm:px-6 min-h-[calc(100vh-5rem)] flex items-center">
+            <div class="max-w-7xl mx-auto w-full">
+                <div class="grid lg:grid-cols-2 gap-5 sm:gap-7 lg:gap-10 items-center">
+                    <div class="space-y-4 sm:space-y-5 md:space-y-6 order-1 lg:order-1">
+                        <div class="inline-flex items-center space-x-2 bg-gray-100 rounded-full px-3 py-1.5 sm:px-4 sm:py-2 section-appear">
+                            <span class="text-[10px] sm:text-xs font-semibold text-gray-600 uppercase tracking-wide">Dans l'IRVE depuis 2018</span>
+                            </div>
+                        <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight tracking-tight section-appear">
+                            Maîtrise Complète des Infrastructures de Recharge de Véhicule <span class="gradient-text">Électrique</span>
+                            </h1>
+                        <p class="text-sm sm:text-base md:text-lg text-gray-600 leading-snug section-appear">
+                            De la conception à l'exploitation, une expertise intégrale et éprouvée pour garantir la performance et la pérennité de vos infrastructures de recharge électrique.
+                        </p>
+                        <div class="flex flex-wrap gap-2 sm:gap-3 section-appear">
+                            <a href="index.html#contact" class="btn-primary px-4 py-2 sm:px-6 sm:py-3 rounded-xl font-medium text-xs sm:text-sm">
+                                Démarrer mon projet
+                            </a>
+                            <a href="#services" class="btn-secondary px-4 py-2 sm:px-6 sm:py-3 rounded-xl font-medium text-xs sm:text-sm">
+                                    Nos services
+                                </a>
+                            </div>
+                        <div class="inline-flex items-center space-x-2 bg-black text-white text-[10px] sm:text-xs font-semibold uppercase tracking-wide rounded-full px-3 py-1.5 sm:px-4 sm:py-2 section-appear">
+                            <span>1500+ interventions terrain</span>
+                            <span class="w-1 h-1 rounded-full bg-white/40"></span>
+                            <span>100+ projets DC menés</span>
+                        </div>
+                            </div>
+                    <div class="section-appear order-2 lg:order-2 mb-4 lg:mb-0">
+                        <div class="relative w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg mx-auto overflow-hidden rounded-2xl">
+                            <img id="hero-image" src="images/index.jpg" alt="Borne de recharge électrique IRVE professionnelle installée par JCSM" class="w-full h-auto max-h-[200px] sm:max-h-[300px] md:max-h-[400px] lg:max-h-[500px] object-cover rounded-2xl image-hover shadow-2xl parallax-image" width="1200" height="800" loading="lazy" fetchpriority="high">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        <!-- Services -->
+        <section id="services" class="py-20 px-6 bg-white">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center mb-20 section-appear">
+                    <div class="inline-flex items-center space-x-2 bg-gray-100 rounded-full px-4 py-2 mb-6">
+                        <span class="text-xs font-semibold text-gray-600 uppercase tracking-wide">Nos Services</span>
+                    </div>
+                    <h2 class="text-5xl md:text-6xl font-bold tracking-tight mb-6">
+                            L'intégralité de votre projet gérée en 5 étapes clés.
+                        </h2>
+                    <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                        Notre expertise s'articule autour de 5 domaines d'intervention structurés pour couvrir chaque phase de votre besoin.
+                        </p>
+                    </div>
+                    
+                <div class="grid md:grid-cols-2 lg:grid-cols-5 gap-6">
+                    <a href="pilotage-projets.html" class="card-hover service-step bg-white border border-gray-200 rounded-2xl p-8 section-appear group relative">
+                        <div class="absolute inset-0 bg-gradient-to-br from-blue-50/0 to-purple-50/0 group-hover:from-blue-50/50 group-hover:to-purple-50/50 transition-all duration-500"></div>
+                        <div class="relative z-10">
+                            <div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center text-white font-bold text-lg mb-6 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-lg group-hover:shadow-xl">1</div>
+                            <h3 class="text-xl font-bold mb-3 group-hover:text-blue-600 transition-colors">Pilotage</h3>
+                            <p class="text-gray-600 leading-relaxed text-sm mb-4">Structuration et pilotage de projets IRVE</p>
+                            <span class="text-xs font-semibold text-gray-900 inline-flex items-center group-hover:translate-x-2 group-hover:text-blue-600 transition-all">
+                                        Découvrir →
+                                    </span>
+                                </div>
+                            </a>
+                            
+                    <a href="installation-conformite.html" class="card-hover service-step bg-white border border-gray-200 rounded-2xl p-8 section-appear group relative">
+                        <div class="absolute inset-0 bg-gradient-to-br from-blue-50/0 to-purple-50/0 group-hover:from-blue-50/50 group-hover:to-purple-50/50 transition-all duration-500"></div>
+                        <div class="relative z-10">
+                            <div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center text-white font-bold text-lg mb-6 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-lg group-hover:shadow-xl">2</div>
+                            <h3 class="text-xl font-bold mb-3 group-hover:text-blue-600 transition-colors">Installation</h3>
+                            <p class="text-gray-600 leading-relaxed text-sm mb-4">Installation neuve et remise en conformité</p>
+                            <span class="text-xs font-semibold text-gray-900 inline-flex items-center group-hover:translate-x-2 group-hover:text-blue-600 transition-all">
+                                        Découvrir →
+                                    </span>
+                                </div>
+                            </a>
+                            
+                    <a href="exploitation.html" class="card-hover service-step bg-white border border-gray-200 rounded-2xl p-8 section-appear group relative">
+                        <div class="absolute inset-0 bg-gradient-to-br from-blue-50/0 to-purple-50/0 group-hover:from-blue-50/50 group-hover:to-purple-50/50 transition-all duration-500"></div>
+                        <div class="relative z-10">
+                            <div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center text-white font-bold text-lg mb-6 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-lg group-hover:shadow-xl">3</div>
+                            <h3 class="text-xl font-bold mb-3 group-hover:text-blue-600 transition-colors">Exploitation</h3>
+                            <p class="text-gray-600 leading-relaxed text-sm mb-4">Mise en service et maintenance</p>
+                            <span class="text-xs font-semibold text-gray-900 inline-flex items-center group-hover:translate-x-2 group-hover:text-blue-600 transition-all">
+                                        Découvrir →
+                                    </span>
+                                </div>
+                            </a>
+                            
+                    <a href="securisation-installations.html" class="card-hover service-step bg-white border border-gray-200 rounded-2xl p-8 section-appear group relative">
+                        <div class="absolute inset-0 bg-gradient-to-br from-blue-50/0 to-purple-50/0 group-hover:from-blue-50/50 group-hover:to-purple-50/50 transition-all duration-500"></div>
+                        <div class="relative z-10">
+                            <div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center text-white font-bold text-lg mb-6 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-lg group-hover:shadow-xl">4</div>
+                            <h3 class="text-xl font-bold mb-3 group-hover:text-blue-600 transition-colors">Sécurisation</h3>
+                            <p class="text-gray-600 leading-relaxed text-sm mb-4">Protection et surveillance des installations</p>
+                            <span class="text-xs font-semibold text-gray-900 inline-flex items-center group-hover:translate-x-2 group-hover:text-blue-600 transition-all">
+                                        Découvrir →
+                                    </span>
+                                </div>
+                            </a>
+                            
+                    <a href="centre-appel.html" class="card-hover service-step bg-white border border-gray-200 rounded-2xl p-8 section-appear group relative">
+                        <div class="absolute inset-0 bg-gradient-to-br from-blue-50/0 to-purple-50/0 group-hover:from-blue-50/50 group-hover:to-purple-50/50 transition-all duration-500"></div>
+                        <div class="relative z-10">
+                            <div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center text-white font-bold text-lg mb-6 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-lg group-hover:shadow-xl">5</div>
+                            <h3 class="text-xl font-bold mb-3 group-hover:text-blue-600 transition-colors">Support</h3>
+                            <p class="text-gray-600 leading-relaxed text-sm mb-4">Assistance technique 24/7 multicanal</p>
+                            <span class="text-xs font-semibold text-gray-900 inline-flex items-center group-hover:translate-x-2 group-hover:text-blue-600 transition-all">
+                                        Découvrir →
+                                    </span>
+                                </div>
+                        </a>
+                    </div>
+                </div>
+            </section>
+            
+        <!-- Stats -->
+        <section class="py-20 px-6">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center mb-16 section-appear">
+                    <h2 class="text-5xl md:text-6xl font-bold tracking-tight mb-4">
+                            Notre Crédibilité en Chiffres
+                        </h2>
+                    <p class="text-xl text-gray-600">La preuve de notre expertise sur le terrain.</p>
+                    </div>
+                <div class="grid md:grid-cols-4 gap-12 text-center">
+                    <div class="section-appear">
+                        <div class="text-6xl font-bold mb-3">2018</div>
+                        <p class="text-sm text-gray-600 font-semibold uppercase tracking-wide">Expert depuis</p>
+                            </div>
+                    <div class="section-appear">
+                        <div class="text-6xl font-bold mb-3"><span class="counter" data-target="1500">0</span><span class="text-4xl text-gray-400 font-bold">+</span></div>
+                        <p class="text-sm text-gray-600 font-semibold uppercase tracking-wide">Interventions réussies</p>
+                        </div>
+                    <div class="section-appear">
+                        <div class="text-6xl font-bold mb-3"><span class="counter" data-target="100">0</span><span class="text-4xl text-gray-400">+</span></div>
+                        <p class="text-sm text-gray-600 font-semibold uppercase tracking-wide">Projets DC menés</p>
+                            </div>
+                    <div class="section-appear">
+                                <div class="flex items-center justify-center gap-2 mb-3">
+                            <span class="text-6xl font-bold">24</span>
+                            <span class="text-4xl text-gray-400">/7</span>
+                                </div>
+                        <p class="text-sm text-gray-600 font-semibold uppercase tracking-wide">Support technique</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+        <!-- Partners -->
+        <section class="py-20 px-6 bg-white" style="overflow: hidden;">
+            <div class="max-w-7xl mx-auto mb-20 section-appear">
+                <h2 class="text-5xl md:text-6xl font-bold tracking-tight mb-4 text-center">
+                            Ils nous font confiance
+                        </h2>
+                <p class="text-xl text-gray-600 text-center">Des partenaires de référence dans le secteur IRVE</p>
+                    </div>
+            
+            <div class="logo-marquee section-appear" style="width: 100%; max-width: 100%; box-sizing: border-box;">
+                <div class="logo-marquee-track">
+                    <div class="logo-item flex items-center justify-center bg-white border-2 border-gray-200 rounded-xl px-12 py-8 min-w-[200px] hover:border-blue-500 hover:shadow-xl">
+                        <img src="images/SPIE.jpg" alt="SPIE" class="h-16 w-auto opacity-90 hover:opacity-100 transition-all">
+                                </div>
+                    <div class="logo-item flex items-center justify-center bg-white border-2 border-gray-200 rounded-xl px-12 py-8 min-w-[200px] hover:border-blue-500 hover:shadow-xl">
+                        <img src="images/equans.png" alt="Equans" class="h-16 w-auto opacity-90 hover:opacity-100 transition-all">
+                            </div>
+                    <div class="logo-item flex items-center justify-center bg-white border-2 border-gray-200 rounded-xl px-12 py-8 min-w-[200px] hover:border-blue-500 hover:shadow-xl">
+                        <img src="images/powerdot.png" alt="Powerdot" class="h-16 w-auto opacity-90 hover:opacity-100 transition-all">
+                                </div>
+                    <div class="logo-item flex items-center justify-center bg-white border-2 border-gray-200 rounded-xl px-12 py-8 min-w-[200px] hover:border-blue-500 hover:shadow-xl">
+                        <img src="images/freshmile.png" alt="Freshmile" class="h-16 w-auto opacity-90 hover:opacity-100 transition-all">
+                            </div>
+                    <div class="logo-item flex items-center justify-center bg-white border-2 border-gray-200 rounded-xl px-12 py-8 min-w-[200px] hover:border-blue-500 hover:shadow-xl">
+                        <img src="images/becable.png" alt="Be Cable" class="h-16 w-auto opacity-90 hover:opacity-100 transition-all">
+                                </div>
+                    <div class="logo-item flex items-center justify-center bg-white border-2 border-gray-200 rounded-xl px-12 py-8 min-w-[200px] hover:border-blue-500 hover:shadow-xl">
+                        <img src="images/perpignan.png" alt="Perpignan" class="h-16 w-auto opacity-90 hover:opacity-100 transition-all">
+                            </div>
+                    <div class="logo-item flex items-center justify-center bg-white border-2 border-gray-200 rounded-xl px-12 py-8 min-w-[200px] hover:border-blue-500 hover:shadow-xl">
+                        <img src="images/basicfit.png" alt="Basic Fit" class="h-16 w-auto opacity-90 hover:opacity-100 transition-all">
+                                </div>
+                    <div class="logo-item flex items-center justify-center bg-white border-2 border-gray-200 rounded-xl px-12 py-8 min-w-[200px] hover:border-blue-500 hover:shadow-xl">
+                        <img src="images/bouygues.png" alt="Bouygues" class="h-16 w-auto opacity-90 hover:opacity-100 transition-all">
+                            </div>
+                    <div class="logo-item flex items-center justify-center bg-white border-2 border-gray-200 rounded-xl px-12 py-8 min-w-[200px] hover:border-blue-500 hover:shadow-xl">
+                        <img src="images/carplug.svg" alt="Carplug" class="h-16 w-auto opacity-90 hover:opacity-100 transition-all">
+                                </div>
+                    <div class="logo-item flex items-center justify-center bg-white border-2 border-gray-200 rounded-xl px-12 py-8 min-w-[200px] hover:border-blue-500 hover:shadow-xl">
+                        <img src="images/legrand.png" alt="Legrand" class="h-16 w-auto opacity-90 hover:opacity-100 transition-all">
+                            </div>
+                    <!-- duplication pour défilement continu -->
+                    <div class="logo-item flex items-center justify-center bg-white border-2 border-gray-200 rounded-xl px-12 py-8 min-w-[200px] hover:border-blue-500 hover:shadow-xl">
+                        <img src="images/SPIE.jpg" alt="SPIE" class="h-16 w-auto opacity-90 hover:opacity-100 transition-all">
+                                </div>
+                    <div class="logo-item flex items-center justify-center bg-white border-2 border-gray-200 rounded-xl px-12 py-8 min-w-[200px] hover:border-blue-500 hover:shadow-xl">
+                        <img src="images/equans.png" alt="Equans" class="h-16 w-auto opacity-90 hover:opacity-100 transition-all">
+                            </div>
+                    <div class="logo-item flex items-center justify-center bg-white border-2 border-gray-200 rounded-xl px-12 py-8 min-w-[200px] hover:border-blue-500 hover:shadow-xl">
+                        <img src="images/powerdot.png" alt="Powerdot" class="h-16 w-auto opacity-90 hover:opacity-100 transition-all">
+                        </div>
+                    <div class="logo-item flex items-center justify-center bg-white border-2 border-gray-200 rounded-xl px-12 py-8 min-w-[200px] hover:border-blue-500 hover:shadow-xl">
+                        <img src="images/freshmile.png" alt="Freshmile" class="h-16 w-auto opacity-90 hover:opacity-100 transition-all">
+                    </div>
+                    <div class="logo-item flex items-center justify-center bg-white border-2 border-gray-200 rounded-xl px-12 py-8 min-w-[200px] hover:border-blue-500 hover:shadow-xl">
+                        <img src="images/becable.png" alt="Be Cable" class="h-16 w-auto opacity-90 hover:opacity-100 transition-all">
+                </div>
+                    <div class="logo-item flex items-center justify-center bg-white border-2 border-gray-200 rounded-xl px-12 py-8 min-w-[200px] hover:border-blue-500 hover:shadow-xl">
+                        <img src="images/perpignan.png" alt="Perpignan" class="h-16 w-auto opacity-90 hover:opacity-100 transition-all">
+                    </div>
+                    <div class="logo-item flex items-center justify-center bg-white border-2 border-gray-200 rounded-xl px-12 py-8 min-w-[200px] hover:border-blue-500 hover:shadow-xl">
+                        <img src="images/basicfit.png" alt="Basic Fit" class="h-16 w-auto opacity-90 hover:opacity-100 transition-all">
+                        </div>
+                    <div class="logo-item flex items-center justify-center bg-white border-2 border-gray-200 rounded-xl px-12 py-8 min-w-[200px] hover:border-blue-500 hover:shadow-xl">
+                        <img src="images/bouygues.png" alt="Bouygues" class="h-16 w-auto opacity-90 hover:opacity-100 transition-all">
+                    </div>
+                    <div class="logo-item flex items-center justify-center bg-white border-2 border-gray-200 rounded-xl px-12 py-8 min-w-[200px] hover:border-blue-500 hover:shadow-xl">
+                        <img src="images/carplug.svg" alt="Carplug" class="h-16 w-auto opacity-90 hover:opacity-100 transition-all">
+                        </div>
+                    <div class="logo-item flex items-center justify-center bg-white border-2 border-gray-200 rounded-xl px-12 py-8 min-w-[200px] hover:border-blue-500 hover:shadow-xl">
+                        <img src="images/legrand.png" alt="Legrand" class="h-16 w-auto opacity-90 hover:opacity-100 transition-all">
+                                </div>
+                            </div>
+                                </div>
+            </section>
+
+
+        <!-- FAQ -->
+        <section class="py-20 px-6 bg-white border-t border-gray-200">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center mb-12 section-appear">
+                    <h2 class="text-4xl md:text-5xl font-bold tracking-tight mb-4">
+                        Questions fréquentes par domaine
+                    </h2>
+                    <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                        Une sélection de questions clés sur chaque étape : pilotage, installation, exploitation, sécurisation et support.
+                    </p>
+                                </div>
+                <div class="space-y-6 max-w-4xl mx-auto">
+                    <!-- Pilotage -->
+                    <details class="bg-gray-50 border border-gray-200 rounded-2xl p-6 section-appear">
+                        <summary class="font-semibold text-gray-900 cursor-pointer flex items-center justify-between">
+                            <span>Pilotage de projets</span>
+                            <span class="ml-4 text-gray-400 text-sm">+</span>
+                        </summary>
+                        <div class="mt-4 space-y-3 text-gray-600 leading-relaxed text-sm">
+                            <p><strong>À quel moment faites-vous intervenir JCSM&nbsp;?</strong><br>Idéalement dès la phase de cadrage : définition du besoin, choix techniques, jalons. Mais nous reprenons aussi des projets déjà engagés pour sécuriser planning, budget et conformité, avec un retour d’expérience issu de dizaines de projets DC.</p>
+                            <p><strong>Pouvez-vous proposer vos installateurs partenaires&nbsp;?</strong><br>Oui, lorsque c’est pertinent nous pouvons proposer des installateurs partenaires triés sur le volet. Le travail commun permet souvent de réduire l’enveloppe globale du projet tout en gardant un haut niveau de qualité et de conformité.</p>
+                            <p><strong>Intervenez-vous sur des portefeuilles multi‑sites&nbsp;?</strong><br>Oui, nous structurons le pilotage sur plusieurs sites (retail, tertiaire, flottes…) avec une vision consolidée : priorisation des déploiements, suivi des budgets et homogénéisation des standards IRVE.</p>
+                            </div>
+                    </details>
+                    <!-- Installation -->
+                    <details class="bg-gray-50 border border-gray-200 rounded-2xl p-6 section-appear">
+                        <summary class="font-semibold text-gray-900 cursor-pointer flex items-center justify-between">
+                            <span>Installation & conformité</span>
+                            <span class="ml-4 text-gray-400 text-sm">+</span>
+                        </summary>
+                        <div class="mt-4 space-y-3 text-gray-600 leading-relaxed text-sm">
+                            <p><strong>Que vérifiez-vous avant la mise en service&nbsp;?</strong><br>Schémas, protections, sections de câbles, sélectivité, paramètres bornes, conformité NF C 15‑100 et UTE C15‑722, mais aussi cohérence avec vos standards internes, votre politique de sécurité et les recommandations fabricants.</p>
+                            <p><strong>Pouvez-vous reprendre une installation déjà en place&nbsp;?</strong><br>Oui, via un audit de conformité et une remise à niveau ciblée : corrections prioritaires, plan de mise en conformité, documentation à jour et signalement transparent des non‑conformités résiduelles (neuves ou en remise en conformité).</p>
+                            <p><strong>Travaillez-vous avec nos bureaux de contrôle et Enedis&nbsp;?</strong><br>Oui, nous coordonnons l’ensemble des échanges techniques et documentaires avec vos bureaux de contrôle et les interlocuteurs réseau pour fluidifier les validations et mises en service.</p>
+                                </div>
+                    </details>
+                    <!-- Exploitation -->
+                    <details class="bg-gray-50 border border-gray-200 rounded-2xl p-6 section-appear">
+                        <summary class="font-semibold text-gray-900 cursor-pointer flex items-center justify-between">
+                            <span>Exploitation & maintenance</span>
+                            <span class="ml-4 text-gray-400 text-sm">+</span>
+                        </summary>
+                        <div class="mt-4 space-y-3 text-gray-600 leading-relaxed text-sm">
+                            <p><strong>Dans quels délais pouvez-vous intervenir&nbsp;?</strong><br>Les délais dépendent de la criticité et de la localisation, mais nous structurons nos contrats avec des temps d’intervention engagés et un diagnostic à distance systématique en amont.</p>
+                            <p><strong>Faites-vous de l’analyse prédictive&nbsp;?</strong><br>Nous analysons les historiques d’incidents, les non‑conformités et les motifs d’appel pour anticiper les pannes récurrentes, prioriser les actions terrain et réduire les indisponibilités sur l’ensemble de votre parc.</p>
+                            <p><strong>Pouvez-vous reprendre un parc déjà en exploitation&nbsp;?</strong><br>Oui, nous auditons l’existant (multi‑fournisseurs, multi‑installateurs), identifions les points faibles et mettons en place une stratégie de remise à niveau progressive sans interrompre l’exploitation.</p>
+                            </div>
+                    </details>
+                    <!-- Sécurisation -->
+                    <details class="bg-gray-50 border border-gray-200 rounded-2xl p-6 section-appear">
+                        <summary class="font-semibold text-gray-900 cursor-pointer flex items-center justify-between">
+                            <span>Sécurisation des installations</span>
+                            <span class="ml-4 text-gray-400 text-sm">+</span>
+                        </summary>
+                        <div class="mt-4 space-y-3 text-gray-600 leading-relaxed text-sm">
+                            <p><strong>À partir de quand est-il pertinent de sécuriser un site&nbsp;?</strong><br>Dès qu’il y a un risque business significatif : site isolé, flux important, historique de vandalisme ou de vols de câbles.</p>
+                            <p><strong>Quels types d’incidents traitez-vous le plus souvent&nbsp;?</strong><br>Vandalisme, vols de câbles, dégradations de coffrets, sabotages légers, mais aussi défauts de sécurisation initiale. L’objectif est de réduire durablement les incidents et leurs impacts financiers.</p>
+                            <p><strong>Travaillez-vous avec nos prestataires sécurité existants&nbsp;?</strong><br>Oui, nous intégrons la couche IRVE dans vos dispositifs (vidéo, alarmes, gardiennage) pour que les incidents sur bornes soient traités comme les autres actifs critiques.</p>
+                        </div>
+                    </details>
+                    <!-- Support -->
+                    <details class="bg-gray-50 border border-gray-200 rounded-2xl p-6 section-appear">
+                        <summary class="font-semibold text-gray-900 cursor-pointer flex items-center justify-between">
+                            <span>Support & utilisateurs finaux</span>
+                            <span class="ml-4 text-gray-400 text-sm">+</span>
+                        </summary>
+                        <div class="mt-4 space-y-3 text-gray-600 leading-relaxed text-sm">
+                            <p><strong>Intervenez-vous en marque blanche&nbsp;?</strong><br>Oui, nous opérons en marque blanche pour vos réseaux, avec scripts adaptés à votre ton et vos process, afin que l’utilisateur final soit toujours en confiance.</p>
+                            <p><strong>Proposez-vous de l’IA seule, IA + humain ou 100&nbsp;% humain&nbsp;?</strong><br>Nous adaptons le dispositif à vos enjeux : IA alimentée par une base de connaissances IRVE pour les demandes simples, IA + humain pour accélérer le diagnostic, ou 100&nbsp;% humain pour les contextes sensibles, tout en respectant vos standards de qualité.</p>
+                            <p><strong>Comment réduisez-vous le volume d’appels&nbsp;?</strong><br>En traitant la cause technique : analyse des motifs d’appel, correction des problèmes récurrents sur le terrain et amélioration des parcours utilisateur (signalétique, instructions, paramétrage bornes). Les indicateurs (DMR, taux d’abandon, volume mensuel) sont suivis pour mesurer les gains.</p>
+                        </div>
+                    </details>
+                    </div>
+                </div>
+            </section>
+
+        <!-- Contact / Appel à l'action -->
+        <section id="contact" class="py-20 px-6 bg-white">
+                    <div class="max-w-3xl mx-auto">
+                <div class="text-center mb-12 section-appear">
+                    <h2 class="text-5xl md:text-6xl font-bold tracking-tight mb-6">
+                        Prêt(e) à concrétiser votre projet IRVE ?
+                        </h2>
+                    <p class="text-xl text-gray-600">
+                        Notre équipe est à votre écoute pour concevoir la solution la plus adaptée à vos besoins spécifiques.
+                        </p>
+                        </div>
+                <div class="bg-white border border-gray-200 rounded-2xl p-10 md:p-12 section-appear">
+                    <form action="https://formspree.io/f/xyzpgqga" method="POST" class="space-y-6" id="contactForm" novalidate>
+                        <div id="formMessage" class="hidden p-4 rounded-xl mb-6 text-center font-medium"></div>
+                                <div class="grid md:grid-cols-2 gap-6">
+                                    <div>
+                                <input type="text" name="nom" id="nom" placeholder="Nom" aria-label="Votre nom" aria-required="true" class="w-full px-5 py-4 border border-gray-200 rounded-xl focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all" required>
+                                <span class="error-message hidden text-red-600 text-sm mt-1 block"></span>
+                                </div>
+                                    <div>
+                                <input type="email" name="email" id="email" placeholder="Email" aria-label="Votre adresse email" aria-required="true" class="w-full px-5 py-4 border border-gray-200 rounded-xl focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all" required>
+                                <span class="error-message hidden text-red-600 text-sm mt-1 block"></span>
+                                    </div>
+                                </div>
+                                <div>
+                            <textarea name="message" id="message" placeholder="Message" rows="5" aria-label="Votre message" aria-required="true" class="w-full px-5 py-4 border border-gray-200 rounded-xl focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all" required></textarea>
+                            <span class="error-message hidden text-red-600 text-sm mt-1 block"></span>
+                                </div>
+                                <div class="flex items-start">
+                            <input type="checkbox" name="rgpd-consent" id="rgpd" class="mt-1 mr-3 w-4 h-4" aria-required="true" required>
+                            <label for="rgpd" class="text-sm text-gray-600">
+                                J'accepte la <a href="confidentialite.html" class="text-gray-900 underline hover:text-blue-600 transition-colors">politique de confidentialité</a>
+                                    </label>
+                                </div>
+                        <button type="submit" class="btn-primary w-full py-4 rounded-xl font-medium text-lg" aria-label="Contacter un expert IRVE JCSM">
+                            <span class="submit-text">Contacter un expert</span>
+                            <span class="submit-loading hidden">Envoi en cours...</span>
+                        </button>
+                            </form>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+    <footer class="border-t border-gray-200 py-20 px-6" role="contentinfo" aria-label="Pied de page">
+        <div class="max-w-7xl mx-auto">
+                <div class="grid md:grid-cols-4 gap-12 mb-12">
+                <div>
+                        <div class="flex items-center space-x-2 mb-6">
+                        <img src="images/logo.png" alt="JCSM" class="w-8 h-8" width="32" height="32">
+                        <span class="text-lg font-semibold">JCSM</span>
+                        </div>
+                    <p class="text-sm text-gray-600 mb-4 font-medium">Dans l'IRVE depuis 2018</p>
+                    <p class="text-sm text-gray-600">60, rue François 1er<br>75008 Paris</p>
+                    <p class="mt-4 text-sm"><a href="mailto:contact@jcsm.fr" class="text-gray-900 font-medium hover:underline">contact@jcsm.fr</a></p>
+                    </div>
+                    <div>
+                    <h3 class="text-sm font-semibold mb-4 uppercase tracking-wide">Services</h3>
+                        <ul class="space-y-3">
+                        <li><a href="pilotage-projets.html" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Pilotage</a></li>
+                        <li><a href="installation-conformite.html" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Installation</a></li>
+                        <li><a href="exploitation.html" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Exploitation</a></li>
+                        <li><a href="securisation-installations.html" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Sécurisation</a></li>
+                        <li><a href="centre-appel.html" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Support</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                    <h3 class="text-sm font-semibold mb-4 uppercase tracking-wide">Entreprise</h3>
+                        <ul class="space-y-3">
+                        <li><a href="a-propos.html" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">À propos</a></li>
+                        <li><a href="index.html#contact" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Contact</a></li>
+                        <li><a href="mentions-legales.html" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Mentions légales</a></li>
+                        <li><a href="confidentialite.html" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Confidentialité</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                    <h3 class="text-sm font-semibold mb-4 uppercase tracking-wide">Suivez-nous</h3>
+                    <a href="https://www.linkedin.com/company/jcsmelec/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-sm text-gray-600 hover:text-gray-900 transition-colors group">
+                        <svg class="w-5 h-5 mr-2 group-hover:scale-110 transition-transform" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                            </svg>
+                        <span class="font-medium">LinkedIn</span>
+                        </a>
+                    </div>
+                </div>
+            <div class="pt-8 border-t border-gray-200 text-center">
+                <p class="text-sm text-gray-500">© 2025 JCSM. Tous droits réservés.</p>
+                </div>
+            </div>
+        </footer>
+
+    <button class="scroll-top" id="scrollTop" aria-label="Retour en haut de la page">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"/>
+        </svg>
+    </button>
+
+    <script>
+    // Initialisation du body (transition smooth)
+    document.body.classList.add('loaded');
+    
+    // Création des particules subtiles optimisées
+    function createParticles() {
+        const particlesBg = document.getElementById('particles-bg');
+        if (!particlesBg) return;
+        
+        // Particules premium pour effet visuel
+        const particleCount = 25;
+        for (let i = 0; i < particleCount; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.top = Math.random() * 100 + '%';
+            particle.style.animationDelay = Math.random() * 25 + 's';
+            particle.style.animationDuration = (20 + Math.random() * 10) + 's';
+            particlesBg.appendChild(particle);
+        }
+    }
+    
+    // Transitions de page smooth avec effet premium
+    document.querySelectorAll('a[href$=".html"]').forEach(link => {
+        link.addEventListener('click', function(e) {
+            if (this.hostname === window.location.hostname && !this.getAttribute('target')) {
+                document.body.style.transition = 'opacity 0.3s ease-out, transform 0.3s ease-out';
+                document.body.style.opacity = '0';
+                document.body.style.transform = 'scale(0.98)';
+                setTimeout(() => {
+                    window.location.href = this.href;
+                }, 300);
+            }
+        });
+    });
+    
+    // Preloader
+    window.addEventListener('load', function() {
+        createParticles();
+        const preloader = document.getElementById('preloader');
+        setTimeout(() => preloader.classList.add('hide'), 100);
+    });
+
+    // Mobile menu
+    const btn = document.getElementById('mobile-menu-btn');
+    const menu = document.getElementById('mobile-menu');
+    const close = document.getElementById('mobile-menu-close');
+    const overlay = document.getElementById('mobile-menu-overlay');
+    
+    btn?.addEventListener('click', () => {
+        menu.classList.add('open');
+        overlay.classList.add('active');
+    });
+    
+    [close, overlay].forEach(el => {
+        el?.addEventListener('click', () => {
+            menu.classList.remove('open');
+            overlay.classList.remove('active');
+        });
+    });
+
+    // Scroll animations
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.section-appear').forEach(el => observer.observe(el));
+
+    // Smooth scroll
+         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+            const href = this.getAttribute('href');
+            if (href === '#') return;
+                e.preventDefault();
+            const target = document.querySelector(href);
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                });
+            });
+
+    // Barre de progression de scroll
+    const scrollProgress = document.getElementById('scroll-progress');
+    window.addEventListener('scroll', () => {
+        const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrolled = (window.pageYOffset / windowHeight) * 100;
+        scrollProgress.style.width = scrolled + '%';
+    });
+    
+    // Scroll to top button
+    const scrollTopBtn = document.getElementById('scrollTop');
+    window.addEventListener('scroll', () => {
+        if (window.pageYOffset > 300) {
+            scrollTopBtn.classList.add('visible');
+        } else {
+            scrollTopBtn.classList.remove('visible');
+        }
+    });
+    scrollTopBtn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+    
+    // Défilement continu premium des logos "Ils nous font confiance"
+    (function initLogoMarquee() {
+        const marquee = document.querySelector('.logo-marquee');
+        const track = document.querySelector('.logo-marquee-track');
+        if (!marquee || !track) return;
+
+        let offset = 0;
+        let lastTime = null;
+        const baseSpeed = 40; // pixels par seconde sur desktop
+
+        function step(timestamp) {
+            if (!lastTime) lastTime = timestamp;
+            const delta = (timestamp - lastTime) / 1000; // en secondes
+            lastTime = timestamp;
+
+            // Ajuste légèrement la vitesse sur mobile (un peu plus rapide)
+            const isMobile = window.matchMedia('(max-width: 768px)').matches;
+            const speed = isMobile ? baseSpeed * 1.2 : baseSpeed;
+
+            const trackWidth = track.scrollWidth / 2; // on a 2 séries consécutives
+            offset -= speed * delta;
+            if (Math.abs(offset) >= trackWidth) {
+                offset = 0;
+            }
+            track.style.transform = `translateX(${offset}px)`;
+
+            requestAnimationFrame(step);
+        }
+
+        // Laisse le swipe possible sur mobile (overflow-x déjà géré en CSS media query)
+        requestAnimationFrame(step);
+    })();
+    
+    // Compteurs animés pour les statistiques
+    function animateCounter(element, target, duration = 2000) {
+        let start = 0;
+        const increment = target / (duration / 16);
+        const timer = setInterval(() => {
+            start += increment;
+            if (start >= target) {
+                element.textContent = target;
+                clearInterval(timer);
+            } else {
+                element.textContent = Math.floor(start);
+            }
+        }, 16);
+    }
+    
+    // Observer pour déclencher les compteurs quand la section est visible
+    const statsObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const counters = entry.target.querySelectorAll('.counter');
+            counters.forEach(counter => {
+                    const target = parseInt(counter.getAttribute('data-target'));
+                    if (target && counter.textContent === '0') {
+                        animateCounter(counter, target);
+                    }
+                });
+                statsObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.5 });
+    
+    // Trouver la section des stats (section qui contient "Notre Crédibilité en Chiffres")
+    const allSections = document.querySelectorAll('section');
+    allSections.forEach(section => {
+        const heading = section.querySelector('h2');
+        if (heading && heading.textContent.includes('Crédibilité')) {
+            statsObserver.observe(section);
+        }
+    });
+    
+    // Parallax effect pour l'image hero
+    const heroImage = document.getElementById('hero-image');
+            if (heroImage) {
+        let ticking = false;
+        const handleScroll = () => {
+            if (!ticking) {
+                window.requestAnimationFrame(() => {
+                    const scrolled = window.pageYOffset;
+                    const parallaxSpeed = 0.3; // Vitesse du parallax (ajustable)
+                    const maxTranslate = 30; // Maximum de translation en pixels
+                    const translateY = Math.min(scrolled * parallaxSpeed, maxTranslate);
+                    heroImage.style.transform = `translateY(${translateY}px)`;
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        };
+        window.addEventListener('scroll', handleScroll, { passive: true });
+    }
+    
+    
+    // Service Worker registration
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('/sw.js')
+                .then((registration) => console.log('SW registered'))
+                .catch((error) => console.log('SW registration failed'));
+        });
+    }
+    
+    // Lazy loading images
+    if ('loading' in HTMLImageElement.prototype) {
+        const images = document.querySelectorAll('img[data-src]');
+        images.forEach(img => {
+            img.src = img.dataset.src;
+                    });
+                } else {
+        const script = document.createElement('script');
+        script.src = 'https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js';
+        document.body.appendChild(script);
+    }
+    
+    // Form validation and error messages
+    const form = document.getElementById('contactForm');
+    const formMessage = document.getElementById('formMessage');
+    
+    form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                let isValid = true;
+        const submitBtn = form.querySelector('button[type="submit"]');
+        const submitText = submitBtn.querySelector('.submit-text');
+        const submitLoading = submitBtn.querySelector('.submit-loading');
+        
+        // Reset previous errors
+        form.querySelectorAll('.error-message').forEach(el => {
+            el.classList.add('hidden');
+            el.textContent = '';
+        });
+        form.querySelectorAll('input, textarea').forEach(el => {
+            el.classList.remove('border-red-500');
+        });
+        
+        // Validate name
+                const nom = document.getElementById('nom');
+        if (!nom.value.trim() || nom.value.length < 2) {
+            showError(nom, 'Le nom doit contenir au moins 2 caractères');
+                    isValid = false;
+                }
+                
+        // Validate email
+        const email = document.getElementById('email');
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!email.value.trim() || !emailRegex.test(email.value)) {
+            showError(email, 'Veuillez entrer une adresse email valide');
+                    isValid = false;
+                }
+                
+        // Validate message
+        const message = document.getElementById('message');
+        if (!message.value.trim() || message.value.length < 10) {
+            showError(message, 'Le message doit contenir au moins 10 caractères');
+                    isValid = false;
+                }
+                
+        // Validate RGPD
+        const rgpd = document.getElementById('rgpd');
+        if (!rgpd.checked) {
+            showError(rgpd, 'Vous devez accepter la politique de confidentialité');
+                    isValid = false;
+                }
+                
+        if (isValid) {
+            submitText.classList.add('hidden');
+            submitLoading.classList.remove('hidden');
+            submitBtn.disabled = true;
+            
+            // Submit form
+            const formData = new FormData(form);
+            fetch(form.action, {
+                        method: 'POST',
+                        body: formData,
+                headers: { 'Accept': 'application/json' }
+            })
+            .then(response => {
+                    if (response.ok) {
+                    showSuccess('Message envoyé avec succès. Un expert JCSM vous répond sous 12 heures ouvrées.');
+                    form.reset();
+                    } else {
+                    showError(null, 'Une erreur est survenue. Veuillez réessayer.');
+                }
+            })
+            .catch(() => {
+                showError(null, 'Une erreur est survenue. Veuillez réessayer.');
+            })
+            .finally(() => {
+                submitText.classList.remove('hidden');
+                submitLoading.classList.add('hidden');
+                submitBtn.disabled = false;
+            });
+        }
+    });
+    
+    function showError(field, message) {
+        if (field) {
+                field.classList.add('border-red-500');
+            const errorSpan = field.parentElement.querySelector('.error-message');
+            if (errorSpan) {
+                errorSpan.textContent = message;
+                errorSpan.classList.remove('hidden');
+            }
+        } else {
+            formMessage.textContent = message;
+            formMessage.className = 'p-4 rounded-xl mb-6 text-center font-medium bg-red-50 text-red-700 border border-red-200';
+            formMessage.classList.remove('hidden');
+        }
+    }
+    
+    function showSuccess(message) {
+        formMessage.textContent = message;
+        formMessage.className = 'p-4 rounded-xl mb-6 text-center font-medium bg-green-50 text-green-700 border border-green-200';
+        formMessage.classList.remove('hidden');
+        setTimeout(() => formMessage.classList.add('hidden'), 5000);
+    }
+    </script>
+</body>
+</html>
