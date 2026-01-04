@@ -400,15 +400,10 @@ function getFilteredInterventions() {
 
     let filtered = ALL_INTERVENTIONS;
 
-    // Filtre Admin vs Région
-    if (!technicien.isAdmin && technicien.region !== 'Admin') {
-        const userRegion = (technicien.region || '').toLowerCase();
-        filtered = filtered.filter(i => {
-            const iRegion = (i.region || '').toLowerCase();
-            const iTech = (i.technicien || '').toLowerCase();
-            return iRegion.includes(userRegion) || iTech.includes(userRegion);
-        });
-    }
+    // Filtre Admin vs Région : DESACTIVÉ (Demande user: "pas d'histoire de région")
+    // if (!technicien.isAdmin && technicien.region !== 'Admin') {
+    //    ...
+    // }
 
     // Search Filter
     const searchInput = document.getElementById('search-input');
@@ -547,15 +542,25 @@ function initEventListeners() {
 
 function handleAuthSubmit(e) {
     e.preventDefault();
-    const role = document.getElementById('user-role').value;
+    // const role = document.getElementById('user-role').value; // Removed
     const pass = document.getElementById('password').value;
 
-    const isAdmin = role === 'Admin';
+    if (!pass) {
+        showToast('Veuillez entrer un mot de passe', 'error');
+        return;
+    }
 
-    // Different passwords for different roles
-    const validPassword = isAdmin ? 'JCSM2025' : 'technicien';
+    let role = '';
+    let isAdmin = false;
 
-    if (pass !== validPassword) {
+    // Password-based Logic
+    if (pass === 'JCSM2025') {
+        role = 'Admin';
+        isAdmin = true;
+    } else if (pass === 'technicien') {
+        role = 'Technicien';
+        isAdmin = false;
+    } else {
         showToast('Mot de passe incorrect', 'error');
         return;
     }
@@ -563,12 +568,13 @@ function handleAuthSubmit(e) {
     // Success!
     if (window.triggerConfetti) window.triggerConfetti();
 
+    // Store auth data
     localStorage.setItem('tech_region', isAdmin ? 'Admin' : 'Technicien');
     localStorage.setItem('is_admin', isAdmin);
     localStorage.setItem('user_role', role);
 
     document.getElementById('auth-modal').style.display = 'none';
-    showToast('Connexion réussie ✓', 'success');
+    showToast(`Connexion réussie (${role}) ✓`, 'success');
 
     // Recharger app
     location.reload();
