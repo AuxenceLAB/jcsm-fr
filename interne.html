@@ -1520,11 +1520,1490 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <!-- Application Logic -->
-    <script src="js/utils.js?v=3"></script>
-    <script src="js/map.js?v=3"></script>
-    <script src="js/dashboard.js?v=3"></script>
-    <script src="js/fiches.js?v=3"></script>
-    <script src="js/app.js?v=3"></script>
+    <!-- Application Logic (Compiled) -->
+    <script>
+        /** UTILS.JS */
+        /**
+     * JCSM Internal Portal - Utilities
+     * Version 2.0 (Modular)
+     */
+
+        // ==========================================
+        // TOAST NOTIFICATIONS (Remplacement alert)
+        // ==========================================
+
+        /**
+         * Affiche une notification non-bloquante (Toast)
+         * @param {string} message - Le message à afficher
+         * @param {string} type - 'success', 'error', 'info', 'warning'
+         * @param {number} duration - Durée en ms (défaut 3000)
+         */
+        function showToast(message, type = 'info', duration = 3000) {
+            // Créer le conteneur s'il n'existe pas
+            let container = document.getElementById('toast-container');
+            if (!container) {
+                container = document.createElement('div');
+                container.id = 'toast-container';
+                container.className = 'fixed top-4 right-4 z-[99999] flex flex-col gap-2';
+                document.body.appendChild(container); // Utiliser body pour être sûr d'être au dessus
+            }
+
+            // Config couleurs/icones
+            const configs = {
+                success: { bg: 'bg-green-500', icon: '✅' },
+                error: { bg: 'bg-red-500', icon: '❌' },
+                warning: { bg: 'bg-orange-500', icon: '⚠️' },
+                info: { bg: 'bg-blue-500', icon: 'ℹ️' }
+            };
+            const config = configs[type] || configs.info;
+
+            // Créer le toast
+            const toast = document.createElement('div');
+            toast.className = `${config.bg} text-white px-4 py-3 rounded-lg shadow-lg flex items-center gap-3 min-w-[300px] transform transition-all duration-300 translate-x-full opacity-0`;
+            toast.innerHTML = `
+        <span class="text-xl">${config.icon}</span>
+        <div class="flex-1 text-sm font-medium">${message}</div>
+    `;
+
+            // Ajouter au DOM
+            container.appendChild(toast);
+
+            // Animation Entrée
+            requestAnimationFrame(() => {
+                toast.classList.remove('translate-x-full', 'opacity-0');
+            });
+
+            // Animation Sortie & Suppression
+            setTimeout(() => {
+                toast.classList.add('translate-x-full', 'opacity-0');
+                setTimeout(() => {
+                    toast.remove();
+                    if (container.children.length === 0) {
+                        container.remove();
+                    }
+                }, 300);
+            }, duration);
+        }
+
+        // ==========================================
+        // LOCAL STORAGE HELPERS
+        // ==========================================
+
+        function safeLocalStorageSet(key, value) {
+            try {
+                localStorage.setItem(key, value);
+                return true;
+            } catch (e) {
+                console.error('LocalStorage error:', e);
+                showToast("Erreur de sauvegarde locale (Stockage plein ?)", 'error');
+                return false;
+            }
+        }
+
+        function safeLocalStorageGet(key) {
+            try {
+                return localStorage.getItem(key);
+            } catch (e) {
+                return null;
+            }
+        }
+
+        // ==========================================
+        // DATE FORMATTERS
+        // ==========================================
+
+        function formatDateFr(dateString) {
+            if (!dateString) return '';
+            const date = new Date(dateString);
+            return new Intl.DateTimeFormat('fr-FR', {
+                day: '2-digit', month: '2-digit', year: 'numeric'
+            }).format(date);
+        }
+
+        function formatTimeFr(timeString) {
+            if (!timeString) return '';
+            return timeString; // Déjà souvent au bon format HH:MM
+        }
+
+        // ==========================================
+        // EXPORTS GLOBALS (Pour compatibilité)
+        // ==========================================
+        window.showToast = showToast;
+        window.safeLocalStorageSet = safeLocalStorageSet;
+        window.safeLocalStorageGet = safeLocalStorageGet;
+        window.formatDateFr = formatDateFr;
+
+        // ==========================================
+        // OFFLINE INDICATOR (UX Premium)
+        // ==========================================
+        function initOfflineIndicator() {
+            window.addEventListener('online', () => {
+                showToast("Connexion rétablie ! 🚀", 'success');
+                document.body.classList.remove('offline-mode');
+            });
+
+            window.addEventListener('offline', () => {
+                showToast("Vous êtes hors ligne. Mode dégradé activé. 📡", 'warning', 5000);
+                document.body.classList.add('offline-mode');
+            });
+
+            if (!navigator.onLine) {
+                document.body.classList.add('offline-mode');
+            }
+        }
+
+        // Auto-init si chargé
+        initOfflineIndicator();
+    </script>
+
+    <script>
+        /** MAP.JS */
+        /**
+     * JCSM Internal Portal - Map Module
+     * Gère l'affichage de la carte Leaflet, les marqueurs, et le filtrage géographique.
+     */
+
+        let map = null;
+        let markers = [];
+        // Les deux vues (liste et carte) sont toujours affichées ensemble
+        let showAllInterventions = false; // false = en cours (14 jours), true = toutes
+
+        // ==========================================
+        // INITIALISATION CARTE
+        // ==========================================
+
+        async function initMap() {
+            let interventions = getFilteredInterventions(); // Fonction globale définie dans app.js ou utils.js (à migrer)
+
+            // Si showAllInterventions est false, filtrer pour ne garder que les interventions en cours (14 jours)
+            if (!showAllInterventions) {
+                const today = new Date();
+                today.setHours(0, 0, 0, 0);
+
+                const sevenDaysAgo = new Date(today);
+                sevenDaysAgo.setDate(today.getDate() - 7);
+
+                const sevenDaysLater = new Date(today);
+                sevenDaysLater.setDate(today.getDate() + 7);
+
+                const startStr = sevenDaysAgo.toISOString().split('T')[0];
+                const endStr = sevenDaysLater.toISOString().split('T')[0];
+
+                interventions = interventions.filter(intv => {
+                    const intvDate = intv.dateProposee || intv.dateDemande || '';
+                    if (!intvDate) return false;
+                    return intvDate >= startStr && intvDate <= endStr;
+                });
+            }
+
+            // Matcher les coordonnées depuis la base de données des sites
+            let matchedCount = 0;
+            for (const intv of interventions) {
+                if (!intv.lat || !intv.lng) {
+                    const matchedCoords = matchInterventionCoordinates(intv);
+                    if (matchedCoords) {
+                        intv.lat = matchedCoords.lat;
+                        intv.lng = matchedCoords.lng;
+                        matchedCount++;
+                    }
+                }
+            }
+
+            // Filtrer les interventions avec coordonnées pour la carte
+            const locations = interventions.filter(i => i.lat && i.lng);
+            const noCoordsCount = interventions.length - locations.length;
+
+            // UI Feedback pour les sans coordonnées
+            const noCoordsMsg = document.getElementById('no-coords-message');
+            const noCoordsText = document.getElementById('no-coords-text');
+
+            if (locations.length === 0) {
+                if (noCoordsMsg && noCoordsText) {
+                    noCoordsMsg.classList.remove('hidden');
+                    noCoordsText.textContent = interventions.length > 0
+                        ? `${interventions.length} intervention(s) listée(s) mais sans coordonnées GPS.`
+                        : "Aucune intervention à afficher.";
+                }
+            } else {
+                if (noCoordsMsg) noCoordsMsg.classList.add('hidden');
+            }
+
+            // Initialiser Leaflet si pas fait
+            if (!map) {
+                map = L.map('map', {
+                    zoomControl: false // On déplace le zoom
+                }).setView([46.603354, 1.888334], 6); // Centre France
+
+                L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+                    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+                    subdomains: 'abcd',
+                    maxZoom: 19
+                }).addTo(map);
+
+                L.control.zoom({
+                    position: 'bottomright'
+                }).addTo(map);
+            }
+
+            // Nettoyer marqueurs existants
+            markers.forEach(m => map.removeLayer(m));
+            markers = [];
+
+            // Créer les icones
+            const createIcon = (color, isUrgent, isDone) => {
+                // SVG personnalisé pour un look premium
+                const pulseClass = isUrgent && !isDone ? 'pulse-ring' : '';
+                const opacity = isDone ? '0.6' : '1';
+
+                return L.divIcon({
+                    className: 'custom-marker',
+                    html: `
+                <div class="marker-container ${isDone ? 'marker-done' : ''}" style="opacity: ${opacity}">
+                    ${!isDone && isUrgent ? '<div class="marker-pulse"></div>' : ''}
+                    <div class="marker-pin" style="background-color: ${color}; box-shadow: 0 2px 5px ${color}80;"></div>
+                    <div class="marker-core"></div>
+                </div>
+            `,
+                    iconSize: [24, 24],
+                    iconAnchor: [12, 12],
+                    popupAnchor: [0, -12]
+                });
+            };
+
+            // Ajouter les marqueurs
+            const bounds = L.latLngBounds();
+
+            locations.forEach(loc => {
+                // Couleur selon région ou urgence
+                // Ici on privilégie l'urgence ou le statut
+                let color = '#3B82F6'; // Bleu standard
+
+                if (loc.rapportFait) color = '#10B981'; // Vert (Fait)
+                else if (String(loc.delais || '').toLowerCase().includes('urgent')) color = '#EF4444'; // Rouge (Urgent)
+                else if (String(loc.delais || '').toLowerCase().includes('rapide')) color = '#F59E0B'; // Orange
+                else color = getRegionColor(loc.region); // Fallback région
+
+                const marker = L.marker([loc.lat, loc.lng], {
+                    icon: createIcon(color, String(loc.delais || '').toLowerCase().includes('urgent'), loc.rapportFait)
+                })
+                    .bindPopup(`
+            <div class="text-sm font-sans">
+                <div class="font-bold text-gray-900 mb-1">${loc.nomSite}</div>
+                <div class="text-gray-600 mb-2">${loc.adresse}</div>
+                <div class="flex gap-2">
+                    <span class="px-2 py-0.5 rounded text-xs font-medium ${loc.rapportFait ? 'bg-green-100 text-green-800' : 'bg-blue-100 text-blue-800'}">
+                        ${loc.rapportFait ? 'Terminé' : 'À faire'}
+                    </span>
+                    <button onclick="selectIntervention('${loc.id}')" class="text-blue-600 hover:underline text-xs font-medium">
+                        Voir détails
+                    </button>
+                </div>
+            </div>
+        `)
+                    .addTo(map);
+
+                markers.push(marker);
+                bounds.extend([loc.lat, loc.lng]);
+            });
+
+            // Ajuster le zoom pour tout voir
+            if (locations.length > 0) {
+                map.fitBounds(bounds, { padding: [50, 50] });
+            }
+        }
+
+        // Helper pour les couleurs régions (Copie de la logique existante)
+        function getRegionColor(region) {
+            if (!region) return '#6B7280';
+            const regionColors = {
+                'Île-de-France': '#3B82F6',
+                'Auvergne-Rhône-Alpes': '#10B981',
+                'Nouvelle-Aquitaine': '#F59E0B',
+                'Occitanie': '#8B5CF6',
+                'Provence-Alpes-Côte d\'Azur': '#EC4899',
+                'Grand Est': '#EF4444',
+                'Hauts-de-France': '#14B8A6',
+                'Normandie': '#F97316',
+                'Bretagne': '#06B6D4',
+                'Pays de la Loire': '#84CC16',
+                'Bourgogne-Franche-Comté': '#A855F7',
+                'Centre-Val de Loire': '#22C55E',
+                'Corse': '#F43F5E',
+                'La Réunion': '#0EA5E9',
+                'Martinique': '#A3E635',
+                'Guadeloupe': '#FB7185',
+                'Guyane': '#34D399',
+                'Mayotte': '#818CF8',
+                'Admin': '#6366F1'
+            };
+            const normalized = String(region).trim();
+            if (regionColors[normalized]) return regionColors[normalized];
+
+            // Hash fallback
+            let hash = 0;
+            for (let i = 0; i < normalized.length; i++) {
+                hash = normalized.charCodeAt(i) + ((hash << 5) - hash);
+            }
+            const hue = Math.abs(hash) % 360;
+            return `hsl(${hue}, 70%, 50%)`;
+        }
+
+        // Fonction de matching coordonnées (Doit avoir accès à SITES_DB global)
+        function matchInterventionCoordinates(intervention) {
+            if (!typeof SITES_DB === 'undefined' || !SITES_DB) return null;
+
+            // Normalisation
+            const normalize = str => String(str || '').toLowerCase().replace(/[^a-z0-9]/g, '');
+            const searchNom = normalize(intervention.nomSite);
+            const searchCP = normalize(intervention.cp || '');
+
+            // 1. Match exact nom
+            let match = SITES_DB.find(site => normalize(site.nom) === searchNom);
+
+            // 2. Match partiel nom + CP
+            if (!match && searchCP) {
+                match = SITES_DB.find(site => normalize(site.nom).includes(searchNom) && normalize(site.cp) === searchCP);
+            }
+
+            if (match) {
+                return { lat: parseFloat(match.lat), lng: parseFloat(match.lng) };
+            }
+            return null;
+        }
+
+        // Exposer globalement pour compatibilité
+        window.initMap = initMap;
+        window.map = map;
+        window.getRegionColor = getRegionColor;
+    </script>
+
+    <script>
+        /** DASHBOARD.JS */
+        /**
+     * JCSM Internal Portal - Dashboard Module
+     * Gère l'affichage des graphiques (Chart.js) et le calcul des KPIs.
+     */
+
+        let charts = {};
+
+        // ==========================================
+        // DASHBOARD LOGIC
+        // ==========================================
+
+        function updateDashboard() {
+            // Vérification accès Admin (technicien est global pour l'instant)
+            if (!technicien || !technicien.isAdmin) {
+                const btn = document.getElementById('dashboard-tab-button');
+                if (btn) btn.style.display = 'none';
+                return;
+            }
+
+            const btn = document.getElementById('dashboard-tab-button');
+            if (btn) btn.style.display = 'flex';
+
+            // KPIs
+            // ALL_INTERVENTIONS est global (defini dans app.js)
+            const total = ALL_INTERVENTIONS.length;
+            const done = ALL_INTERVENTIONS.filter(i => i.rapportFait).length;
+            const todo = total - done;
+            const success = ALL_INTERVENTIONS.filter(i => i.reussi).length;
+            const successRate = done > 0 ? Math.round((success / done) * 100) : 0;
+
+            const elTotal = document.getElementById('kpi-total');
+            if (elTotal) elTotal.textContent = total;
+
+            const elDone = document.getElementById('kpi-done');
+            if (elDone) elDone.textContent = done;
+
+            const elTodo = document.getElementById('kpi-todo');
+            if (elTodo) elTodo.textContent = todo;
+
+            const elSuccess = document.getElementById('kpi-success-rate');
+            if (elSuccess) elSuccess.textContent = successRate + '%';
+
+            // Data Prep
+            const regions = {};
+            const months = {};
+            const delays = { 'J+1': 0, 'Standard': 0, 'Urgent': 0 };
+
+            ALL_INTERVENTIONS.forEach(i => {
+                // Regions
+                if (i.region) regions[i.region] = (regions[i.region] || 0) + 1;
+
+                // Delays - Normalisation sommaire
+                const del = String(i.delais || '').toLowerCase();
+                if (del.includes('urgent') || del === '1') delays['Urgent']++;
+                else if (del.includes('standard') || del === '5') delays['Standard']++;
+                else if (del.includes('1')) delays['J+1']++;
+                else delays['Standard']++; // Fallback
+
+                // History (Date demande)
+                if (i.dateDemande) {
+                    const date = new Date(i.dateDemande);
+                    if (!isNaN(date.getTime())) {
+                        const key = date.toLocaleString('fr-FR', { month: 'short', year: '2-digit' }); // janv. 24
+                        months[key] = (months[key] || 0) + 1;
+                    }
+                }
+            });
+
+            // 1. Chart Progress (Doughnut)
+            renderChart('chart-progress', 'doughnut', {
+                labels: ['Réalisé', 'À faire'],
+                datasets: [{
+                    data: [done, todo],
+                    backgroundColor: ['#10B981', '#E5E7EB'],
+                    borderWidth: 0
+                }]
+            });
+
+            // 2. Chart Regions (Bar)
+            renderChart('chart-regions', 'bar', {
+                labels: Object.keys(regions),
+                datasets: [{
+                    label: 'Interventions',
+                    data: Object.values(regions),
+                    backgroundColor: '#3B82F6',
+                    borderRadius: 4
+                }]
+            });
+
+            // 3. Chart History (Line)
+            // Sort months chronologically isn't trivial just with 'janv. 24', keeping simple for now
+            // In a real app, use timestamps as keys and format labels later.
+            renderChart('chart-history', 'line', {
+                labels: Object.keys(months),
+                datasets: [{
+                    label: 'Nouvelles Demandes',
+                    data: Object.values(months),
+                    borderColor: '#8B5CF6',
+                    tension: 0.4,
+                    fill: true,
+                    backgroundColor: 'rgba(139, 92, 246, 0.1)'
+                }]
+            });
+
+            // 4. Chart Delays (Pie)
+            renderChart('chart-delays', 'pie', {
+                labels: Object.keys(delays),
+                datasets: [{
+                    data: Object.values(delays),
+                    backgroundColor: ['#F59E0B', '#3B82F6', '#EF4444'],
+                    borderWidth: 0
+                }]
+            });
+        }
+
+        function renderChart(id, type, data) {
+            const ctx = document.getElementById(id);
+            if (!ctx) return;
+
+            if (charts[id]) {
+                charts[id].destroy();
+                delete charts[id];
+            }
+
+            // Chart global object from Chart.js CDN
+            if (typeof Chart === 'undefined') {
+                console.warn('Chart.js not loaded');
+                return;
+            }
+
+            charts[id] = new Chart(ctx, {
+                type: type,
+                data: data,
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: {
+                                usePointStyle: true,
+                                boxWidth: 8
+                            }
+                        } // Added missing closing brace for legend object
+                    },
+                    scales: type === 'bar' || type === 'line' ? {
+                        y: {
+                            beginAtZero: true,
+                            grid: {
+                                borderDash: [2, 4]
+                            }
+                        },
+                        x: {
+                            grid: {
+                                display: false
+                            }
+                        }
+                    } : {} // No scales for pie/doughnut
+                }
+            });
+        }
+
+        // Check admin access helper (duplicate in app.js, should utilize shared state)
+        function checkAdminAccess() {
+            return technicien && technicien.isAdmin;
+        }
+
+        // Expose global
+        window.updateDashboard = updateDashboard;
+    </script>
+
+    <script>
+        /** FICHES.JS */
+        /**
+     * JCSM Internal Portal - Fiches Méthodes
+     * Gère l'affichage, la création et le stockage local des fiches méthodes.
+     */
+
+        let ALL_FICHES = [];
+
+        // Données par défaut si le localStorage est vide
+        const DEFAULT_FICHES = [
+            {
+                id: 'f1',
+                titre: 'Procédure Installation Borne IRVE',
+                categorie: 'Installation',
+                auteur: 'JCSM Tech',
+                date: '2024-01-01',
+                description: 'Étapes standard pour la pose et le raccordement d\'une borne 22kW.',
+                image: 'https://images.unsplash.com/photo-1669223789304-7a13bd5ce81e?q=80&w=600&auto=format&fit=crop'
+            },
+            {
+                id: 'f2',
+                titre: 'Remplacement Connecteur T2',
+                categorie: 'Maintenance',
+                auteur: 'JCSM Tech',
+                date: '2024-02-15',
+                description: 'Guide sécurité pour le changement de prise T2 endommagée.',
+                image: 'https://images.unsplash.com/photo-1544724569-5f546fd6dd2d?q=80&w=600&auto=format&fit=crop'
+            }
+        ];
+
+        function initFiches() {
+            loadFiches();
+            renderFiches();
+            initFichesListeners();
+        }
+
+        function loadFiches() {
+            try {
+                const stored = localStorage.getItem('fiches_v1');
+                if (stored) {
+                    ALL_FICHES = JSON.parse(stored);
+                } else {
+                    ALL_FICHES = [...DEFAULT_FICHES];
+                    saveFiches(); // Initialiser le storage
+                }
+            } catch (e) {
+                console.warn('Erreur chargement fiches:', e);
+                ALL_FICHES = [...DEFAULT_FICHES];
+            }
+        }
+
+        function saveFiches() {
+            try {
+                localStorage.setItem('fiches_v1', JSON.stringify(ALL_FICHES));
+            } catch (e) {
+                console.warn('Erreur sauvegarde fiches:', e);
+                alert('Espace de stockage plein ou erreur locale.');
+            }
+        }
+
+        function renderFiches() {
+            const container = document.getElementById('fiches-container');
+            if (!container) return;
+
+            container.innerHTML = '';
+
+            if (ALL_FICHES.length === 0) {
+                container.innerHTML = `<div class="text-center text-gray-400 p-8">Aucune fiche disponible.</div>`;
+                return;
+            }
+
+            ALL_FICHES.forEach(fiche => {
+                const card = document.createElement('div');
+                card.className = 'bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition-shadow flex flex-col md:flex-row';
+
+                // Image placeholder si pas d'image
+                const imgUrl = fiche.image || 'https://via.placeholder.com/150?text=JCSM';
+
+                card.innerHTML = `
+            <div class="md:w-1/4 h-48 md:h-auto bg-gray-200 relative">
+                <img src="${imgUrl}" alt="${fiche.titre}" class="absolute inset-0 w-full h-full object-cover">
+            </div>
+            <div class="p-6 flex-1 flex flex-col justify-between">
+                <div>
+                    <div class="flex justify-between items-start mb-2">
+                        <span class="px-2 py-1 bg-blue-100 text-blue-700 text-xs font-semibold rounded uppercase tracking-wide">${fiche.categorie || 'Général'}</span>
+                        <span class="text-xs text-gray-500">${fiche.date || '-'}</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">${fiche.titre}</h3>
+                    <p class="text-gray-600 line-clamp-2 mb-4">${fiche.description || 'Pas de description.'}</p>
+                </div>
+                <div class="flex items-center justify-between mt-4 pt-4 border-t border-gray-50">
+                    <span class="text-sm text-gray-500 flex items-center gap-2">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+                        ${fiche.auteur || 'Anonyme'}
+                    </span>
+                    <button onclick="alert('Fonctionnalité de visualisation complète à venir')" class="text-blue-600 hover:text-blue-800 font-medium text-sm">Lire la fiche →</button>
+                </div>
+            </div>
+        `;
+                container.appendChild(card);
+            });
+        }
+
+        function initFichesListeners() {
+            // Bouton "+"
+            const btnAdd = document.getElementById('btn-add-fiche');
+            const modal = document.getElementById('modal-fiche');
+            const btnClose = document.getElementById('close-modal-fiche');
+            const form = document.getElementById('fiche-form');
+
+            if (btnAdd && modal) {
+                btnAdd.addEventListener('click', () => {
+                    modal.style.display = 'flex';
+                });
+            }
+
+            if (btnClose && modal) {
+                btnClose.addEventListener('click', () => {
+                    modal.style.display = 'none';
+                });
+            }
+
+            // Gestion soumission formulaire
+            if (form) {
+                form.addEventListener('submit', (e) => {
+                    e.preventDefault();
+
+                    const titre = document.getElementById('fiche-titre').value;
+                    const cat = document.getElementById('fiche-categorie') ? document.getElementById('fiche-categorie').value : 'Divers';
+                    const desc = document.getElementById('fiche-contenu') ? document.getElementById('fiche-contenu').value : '';
+
+                    // Création nouvelle fiche
+                    const newFiche = {
+                        id: 'f_' + Date.now(),
+                        titre: titre,
+                        categorie: cat,
+                        auteur: (localStorage.getItem('tech_region') === 'Admin' ? 'Admin' : 'Technicien'),
+                        date: new Date().toLocaleDateString('fr-FR'),
+                        description: desc,
+                        image: 'https://images.unsplash.com/photo-1581092921461-eab62e97a780?q=80&w=600&auto=format&fit=crop' // Image générique par défaut
+                    };
+
+                    ALL_FICHES.unshift(newFiche); // Ajouter au début
+                    saveFiches();
+                    renderFiches();
+
+                    // Reset & Close
+                    form.reset();
+                    modal.style.display = 'none';
+                    if (window.showToast) showToast('Fiche créée avec succès', 'success');
+                });
+            }
+        }
+
+        // Expose to global scope for app.js initialization
+        window.initFiches = initFiches;
+    </script>
+
+    <script>
+        /** APP.JS */
+        /**
+     * JCSM Internal Portal - App Module
+     * Logique principale: Auth, Gestion des données, UI Globale, Formulaires
+     */
+
+        // ==========================================
+        // VARIABLES GLOBALES
+        // ==========================================
+        let ALL_INTERVENTIONS = [];
+        let cachedInterventions = [];
+        let technicien = null;
+        let selectedInterventionId = null;
+
+        // URL de l'API Google Sheets (Google Apps Script)
+        const GOOGLE_SHEETS_API_URL = 'https://script.google.com/macros/s/AKfycbw0jracvOsxhALYvJUQTxd1chwq8Y5UGKgeDLjv2w4dpfomg8NLOGOHb44fdNVGMJ8c1g/exec'; // API Locale Persistante
+        // Note: Dans le fichier original, l'URL n'était pas visiblement définie dans les extraits, 
+        // on va supposer qu'elle est définie ou on va utiliser la logique existante de fetch.
+        // Correction: On va utiliser l'URL qui était dans le code original si on la trouve, sinon on met un placeholder à remplacer.
+
+        // ==========================================
+        // INITIALISATION
+        // ==========================================
+
+        async function startApp() {
+            // console.log('🚀 Démarrage de l\'application JCSM...');
+
+            // 1. Initialiser les utilitaires UI
+            initTabs();
+            if (window.initFiches) window.initFiches(); // Init Fiches Méthodes
+
+            // 2. Vérifier Auth
+            if (!checkAuth()) {
+                // console.log('🔒 Non authentifié, attente de connexion...');
+                return;
+            }
+
+            // 3. Charger les données
+            await initData();
+
+            // 4. Initialiser la carte (Map Module)
+            if (window.initMap) {
+                await window.initMap();
+            }
+
+            // 5. Initialiser les listeners globaux
+            initEventListeners();
+
+            // 6. Charger les brouillons
+            checkDrafts();
+
+            // 7. WOW Features pour techniciens
+            initKeyboardShortcuts();
+            initDashboardAnimations();
+
+            // 8. Auto Refresh
+            initAutoRefresh();
+        }
+
+        // ==========================================
+        // KEYBOARD SHORTCUTS (WOW Feature)
+        // ==========================================
+        function initKeyboardShortcuts() {
+            document.addEventListener('keydown', (e) => {
+                // Ignore if typing in input
+                if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+
+                // Ctrl/Cmd + N = New intervention modal
+                if ((e.ctrlKey || e.metaKey) && e.key === 'n') {
+                    e.preventDefault();
+                    const newBtn = document.querySelector('[data-action="new-intervention"]');
+                    if (newBtn) newBtn.click();
+                    showToast('🆕 Nouvelle intervention', 'info', 1500);
+                }
+
+                // Ctrl/Cmd + F = Focus search
+                if ((e.ctrlKey || e.metaKey) && e.key === 'f') {
+                    e.preventDefault();
+                    const search = document.getElementById('search-input');
+                    if (search) {
+                        search.focus();
+                        search.select();
+                    }
+                }
+
+                // Escape = Close modals
+                if (e.key === 'Escape') {
+                    document.querySelectorAll('.modal, [id$="-modal"]').forEach(m => {
+                        if (m.style.display !== 'none') m.style.display = 'none';
+                    });
+                }
+
+                // 1-5 = Quick tab switch
+                if (e.key >= '1' && e.key <= '5' && !e.ctrlKey && !e.metaKey) {
+                    const tabs = document.querySelectorAll('.tab-button');
+                    const index = parseInt(e.key) - 1;
+                    if (tabs[index]) tabs[index].click();
+                }
+            });
+
+            // console.log('⌨️ Raccourcis clavier activés: Ctrl+N, Ctrl+F, Esc, 1-5');
+        }
+
+        // ==========================================
+        // DASHBOARD ANIMATIONS (WOW Feature)
+        // ==========================================
+        function initDashboardAnimations() {
+            // Add pulse animation to stat cards when values change
+            const statCards = document.querySelectorAll('.stat-card, [data-stat]');
+
+            statCards.forEach(card => {
+                // Add initial entrance animation
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+
+                setTimeout(() => {
+                    card.style.transition = 'all 0.5s cubic-bezier(0.16, 1, 0.3, 1)';
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, parseInt(card.dataset.delay || 0));
+
+                // Add hover micro-interaction
+                card.addEventListener('mouseenter', () => {
+                    card.style.transform = 'translateY(-4px) scale(1.02)';
+                });
+                card.addEventListener('mouseleave', () => {
+                    card.style.transform = 'translateY(0) scale(1)';
+                });
+            });
+
+            // Intervention item micro-interactions
+            const style = document.createElement('style');
+            style.textContent = `
+        .intervention-item {
+            transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+        }
+        .intervention-item:hover {
+            transform: translateX(8px) !important;
+            box-shadow: -4px 0 0 #0070F3, 0 4px 12px rgba(0,0,0,0.08) !important;
+        }
+        .intervention-item.selected {
+            animation: selectPulse 0.3s ease-out;
+        }
+        @keyframes selectPulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+            100% { transform: scale(1); }
+        }
+        .stat-card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(0,112,243,0.05), transparent);
+            opacity: 0;
+            transition: opacity 0.3s;
+            pointer-events: none;
+            border-radius: inherit;
+        }
+        .stat-card:hover::after {
+            opacity: 1;
+        }
+    `;
+            document.head.appendChild(style);
+        }
+
+        async function initData() {
+            try {
+                // Tenter de charger depuis le cache d'abord (PWA)
+                const cached = localStorage.getItem('jcsm_interventions_cache');
+                if (cached) {
+                    const data = JSON.parse(cached);
+                    // Vérifier si le cache est récent (< 1h)
+                    const cacheTime = localStorage.getItem('jcsm_cache_time');
+                    const isRecent = cacheTime && (Date.now() - parseInt(cacheTime) < 3600000);
+
+                    if (isRecent) {
+                        // console.log('📦 Chargement depuis le cache local');
+                        processData(data);
+                        // Charger le réseau en arrière-plan pour mise à jour
+                        // Utiliser l'URL définie globalement ou celle par défaut
+                        const url = (typeof GOOGLE_SHEETS_API_URL !== 'undefined') ?
+                            GOOGLE_SHEETS_API_URL :
+                            'https://script.google.com/macros/s/AKfycbw0jracvOsxhALYvJUQTxd1chwq8Y5UGKgeDLjv2w4dpfomg8NLOGOHb44fdNVGMJ8c1g/exec';
+
+                        // console.log('Chargement des données depuis:', url);
+
+                        fetch(url)
+                            .then(response => {
+                                if (!response.ok) throw new Error('Erreur réseau');
+                                return response.json();
+                            })
+                            .then(networkData => {
+                                // console.log('🔄 Données réseau chargées en arrière-plan.');
+                                processData(networkData); // Mettre à jour le cache et l'UI avec les dernières données
+                            })
+                            .catch(e => console.error('Erreur de chargement réseau en arrière-plan:', e));
+                        return;
+                    }
+                }
+
+                // Sinon charger depuis le réseau
+                await fetchData();
+            } catch (e) {
+                console.error('Erreur init data:', e);
+                showToast('Erreur de chargement des données', 'error');
+            }
+        }
+
+        async function fetchData() {
+            const loadingIndicator = document.getElementById('loading-indicator');
+
+            // Afficher le Skeleton au lieu du loader texte basique si possible
+            renderSkeleton();
+            if (loadingIndicator && !document.getElementById('interventions-list').children.length) {
+                loadingIndicator.classList.remove('hidden');
+            }
+
+            try {
+                // console.log("🔄 Chargement des données...");
+
+                let url = GOOGLE_SHEETS_API_URL;
+                // On récupère tout et on filtre après pour la sécurité "client-side" (si API limitées)
+
+                const response = await fetch(url);
+                if (!response.ok) throw new Error('Erreur réseau');
+
+                let data = await response.json();
+
+                // FILTRAGE STRICT CÔTÉ CLIENT (Securité UX)
+                // Si c'est un technicien, on ne garde que ce qui le concerne
+                if (technicien && !technicien.isAdmin) {
+                    // console.log(`🔒 Filtrage pour technicien: ${technicien.region}`);
+                    // Adaptez 'Technicien' ou 'Region' selon vos colonnes exactes dans le Sheet
+                    // Ici on suppose une colonne 'Technicien' ou 'Region'
+                    data = data.filter(item => {
+                        const techName = (item.Technicien || item.technicien || '').toLowerCase();
+                        const region = (item.Region || item.region || '').toLowerCase();
+                        const userRegion = (technicien.region || '').toLowerCase();
+
+                        // Logique : soit ça matche la région, soit le nom (simplifié ici à région pour l'exemple)
+                        return techName.includes(userRegion) || region.includes(userRegion);
+                    });
+                }
+
+                processData(data);
+
+                showToast('Données actualisées', 'success', 1000);
+
+            } catch (e) {
+                console.error('Erreur fetch:', e);
+                showToast('Erreur chargement (Mode hors ligne)', 'warning');
+
+                // Fallback cache si échec réseau
+                const cached = localStorage.getItem('jcsm_interventions_cache');
+                if (cached) {
+                    // console.log('⚠️ Utilisation du cache');
+                    processData(JSON.parse(cached));
+                }
+            } finally {
+                if (loadingIndicator) loadingIndicator.classList.add('hidden');
+            }
+        }
+
+        function processData(data) {
+            if (!data) return;
+            ALL_INTERVENTIONS = data;
+
+            // Sauvegarder en cache
+            localStorage.setItem('jcsm_interventions_cache', JSON.stringify(data));
+            localStorage.setItem('jcsm_cache_time', Date.now());
+
+            // Mettre à jour UI
+            renderInterventionsList();
+            if (window.updateDashboard) window.updateDashboard();
+        }
+
+        function fetchDataInBackground() {
+            // ... Logique similaire à fetchData mais silencieuse
+        }
+
+        // ==========================================
+        // AUTHENTIFICATION
+        // ==========================================
+
+        function checkAuth(suppressModal = false) {
+            const region = localStorage.getItem('tech_region');
+            const isAdmin = localStorage.getItem('is_admin') === 'true';
+
+            if (!region) {
+                technicien = null;
+                if (!suppressModal) showAuthModal();
+                return false;
+            }
+
+            technicien = { region, isAdmin };
+            updateUserInterface(technicien);
+            return true;
+        }
+
+        function showAuthModal() {
+            const modal = document.getElementById('auth-modal');
+            if (modal) {
+                modal.style.display = 'flex';
+                modal.style.pointerEvents = 'auto';
+            }
+        }
+
+        function updateUserInterface(user) {
+            const regionEl = document.getElementById('tech-region');
+            if (regionEl) regionEl.textContent = user.isAdmin ? 'Administrateur' : user.region;
+
+            const adminTab = document.getElementById('dashboard-tab-button');
+            if (adminTab) adminTab.style.display = user.isAdmin ? 'flex' : 'none';
+
+            const reportsTab = document.getElementById('rapports-tab-button'); // Si existe
+            if (reportsTab) reportsTab.style.display = 'flex'; // Toujours afficher pour auth
+        }
+
+        // ==========================================
+        // GESTION DES LISTES (UI)
+        // ==========================================
+
+        // ==========================================
+        // GESTION DES LISTES (UI)
+        // ==========================================
+
+        function applyFilters() {
+            // Re-render list with current filters
+            renderInterventionsList();
+
+            // Update map if it exists
+            if (window.initMap) {
+                // initMap re-calls getFilteredInterventions internally
+                window.initMap();
+            }
+        }
+
+        function renderInterventionsList() {
+            const container = document.getElementById('interventions-list');
+            if (!container) return;
+
+            container.innerHTML = '';
+
+            const interventions = getFilteredInterventions();
+
+            // Update count if element exists
+            const countEl = document.getElementById('intervention-count');
+            if (countEl) countEl.textContent = interventions.length;
+
+            if (interventions.length === 0) {
+                container.innerHTML = `
+            <div class="flex flex-col items-center justify-center h-64 text-gray-400">
+                <svg class="w-12 h-12 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                <p>Aucune intervention trouvée</p>
+            </div>`;
+                return;
+            }
+
+            interventions.forEach(item => {
+                // Determine status badge style
+                let statusBadge = '';
+                const delais = String(item.delais || '').toLowerCase();
+
+                if (delais.includes('urgent') || delais === '1') {
+                    statusBadge = '<span class="delai-badge delai-urgent">URGENT</span>';
+                } else if (delais.includes('standard') || delais === '5') {
+                    statusBadge = '<span class="delai-badge delai-standard">Standard</span>';
+                } else {
+                    statusBadge = '<span class="delai-badge delai-rapide">J+1</span>';
+                }
+
+                // Status Check
+                if (item.rapportFait) {
+                    statusBadge = '<span class="delai-badge" style="background:#D1FAE5; color:#065F46;">Terminé</span>';
+                }
+
+                const div = document.createElement('div');
+                div.className = `intervention-item p-4 border-b border-gray-100 hover:bg-gray-50 cursor-pointer transition-colors ${selectedInterventionId === item.id ? 'bg-blue-50 border-l-4 border-l-blue-500' : ''}`;
+                div.onclick = () => selectIntervention(item.id);
+
+                div.innerHTML = `
+            <div class="flex justify-between items-start mb-1">
+                <span class="font-bold text-gray-900 line-clamp-1">#${item.ticket}</span>
+                ${statusBadge}
+            </div>
+            <div class="text-sm font-medium text-gray-800 mb-1 line-clamp-1">${item.nomSite}</div>
+            <div class="text-xs text-gray-500 flex items-center gap-1 mb-1">
+                <svg class="w-3 h-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                <span class="truncate">${item.adresse}</span>
+            </div>
+            <div class="text-xs text-gray-400">
+                ${item.dateProposee || item.dateDemande || ''}
+            </div>
+        `;
+
+                container.appendChild(div);
+            });
+        }
+
+        function getFilteredInterventions() {
+            if (!technicien) return [];
+
+            let filtered = ALL_INTERVENTIONS;
+
+            // Filtre Admin vs Région : DESACTIVÉ (Demande user: "pas d'histoire de région")
+            // if (!technicien.isAdmin && technicien.region !== 'Admin') {
+            //    ...
+            // }
+
+            // Search Filter
+            const searchInput = document.getElementById('search-input');
+            if (searchInput && searchInput.value) {
+                const term = searchInput.value.toLowerCase();
+                filtered = filtered.filter(i =>
+                    String(i.ticket || '').toLowerCase().includes(term) ||
+                    String(i.nomSite || '').toLowerCase().includes(term) ||
+                    String(i.adresse || '').toLowerCase().includes(term)
+                );
+            }
+
+            // Status Filter
+            const statusFilter = document.getElementById('status-filter');
+            if (statusFilter && statusFilter.value !== 'all') {
+                const val = statusFilter.value;
+                if (val === 'todo') {
+                    filtered = filtered.filter(i => !i.rapportFait);
+                } else if (val === 'done') {
+                    filtered = filtered.filter(i => i.rapportFait);
+                }
+            }
+
+            // Tri par date (plus récent en premier)
+            return filtered.sort((a, b) => {
+                // Fallback date logic
+                const dateA = new Date(a.dateIntervention || a.dateProposee || a.dateDemande || 0);
+                const dateB = new Date(b.dateIntervention || b.dateProposee || b.dateDemande || 0);
+                return dateB - dateA;
+            });
+        }
+
+        // ==========================================
+        // SELECTION & DETAILS
+        // ==========================================
+
+        function selectIntervention(id) {
+            selectedInterventionId = id;
+
+            // Refresh list to show selection state
+            renderInterventionsList();
+
+            const item = ALL_INTERVENTIONS.find(i => i.id === id);
+            if (item) {
+                showInterventionDetails(item);
+
+                // Center map if available
+                if (window.map && item.lat && item.lng) {
+                    window.map.setView([item.lat, item.lng], 16);
+                    // Open associated popup if possible
+                    // We would need to reference markers map, but simplifying here
+                }
+
+                // Mobile view switch
+                if (window.innerWidth < 1024) {
+                    // Logic to switch to map view or details view on mobile
+                    // For now, assuming map view is where details might also be shown or user manually switches
+                }
+            }
+        }
+
+        function showInterventionDetails(item) {
+            const detailsPanel = document.getElementById('details-panel');
+            if (!detailsPanel) return;
+
+            detailsPanel.classList.remove('hidden');
+
+            // Fill static details
+            setText('detail-ticket', item.ticket);
+            setText('detail-site', item.nomSite);
+            setText('detail-adresse', item.adresse);
+            setText('detail-desc', item.descriptionProbleme || 'Aucune description disponible.');
+            setText('detail-date', item.dateProposee || item.dateDemande || '-');
+            setText('detail-technicien', item.technicien || '-');
+
+            // Dynamic Fields (Form)
+            // Pre-fill form if report already exists? 
+            // Usually reports are separate actions.
+            // Ensure form is reset or clear for new action
+
+            // Setup Report Form context
+            const reportForm = document.getElementById('report-form');
+            if (reportForm) {
+                // Pre-fill ticket info in form header
+                setText('form-ticket', `Ticket: ${item.ticket}`);
+                setText('form-site-name', item.nomSite);
+                setText('form-address', item.adresse);
+
+                // If editing an existing report (if we support that):
+                // (Logic omitted for simplicity, treating as new report entry)
+            }
+        }
+
+        function setText(id, text) {
+            const el = document.getElementById(id);
+            if (el) el.textContent = text || '-';
+        }
+
+        // Make selectIntervention global for map onclick
+        window.selectIntervention = selectIntervention;
+
+        // ==========================================
+        // INTERACTION FORMULAIRE
+        // ==========================================
+
+        function initEventListeners() {
+            // Auth Form
+            const authForm = document.getElementById('auth-form');
+            if (authForm) {
+                authForm.addEventListener('submit', handleAuthSubmit);
+            }
+
+            // Logout
+            const logoutBtn = document.getElementById('logout-btn');
+            if (logoutBtn) {
+                logoutBtn.addEventListener('click', handleLogout);
+            }
+
+            // Tabs
+            initTabsListeners();
+
+            // Search & Filter Listeners
+            const searchInput = document.getElementById('search-input');
+            if (searchInput) {
+                searchInput.addEventListener('input', applyFilters);
+            }
+
+            const statusFilter = document.getElementById('status-filter');
+            if (statusFilter) {
+                statusFilter.addEventListener('change', applyFilters);
+            }
+
+            // Quick Actions & Dictée (Productivity)
+            initProductivityFeatures();
+        }
+
+        function handleAuthSubmit(e) {
+            e.preventDefault();
+            // const role = document.getElementById('user-role').value; // Removed
+            const pass = document.getElementById('password').value;
+
+            if (!pass) {
+                showToast('Veuillez entrer un mot de passe', 'error');
+                return;
+            }
+
+            let role = '';
+            let isAdmin = false;
+
+            // Password-based Logic
+            if (pass === 'JCSM2025') {
+                role = 'Admin';
+                isAdmin = true;
+            } else if (pass === 'technicien') {
+                role = 'Technicien';
+                isAdmin = false;
+            } else {
+                showToast('Mot de passe incorrect', 'error');
+                return;
+            }
+
+            // Success!
+            if (window.triggerConfetti) window.triggerConfetti();
+
+            // Store auth data
+            localStorage.setItem('tech_region', isAdmin ? 'Admin' : 'Technicien');
+            localStorage.setItem('is_admin', isAdmin);
+            localStorage.setItem('user_role', role);
+
+            document.getElementById('auth-modal').style.display = 'none';
+            showToast(`Connexion réussie (${role}) ✓`, 'success');
+
+            // Recharger app
+            location.reload();
+        }
+
+        function handleLogout() {
+            localStorage.removeItem('tech_region');
+            localStorage.removeItem('is_admin');
+            localStorage.removeItem('user_role');
+            location.reload();
+        }
+
+        // ==========================================
+        // TABS & NAVIGATION
+        // ==========================================
+
+        function initTabsListeners() {
+            document.querySelectorAll('.tab-button').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const tabId = btn.getAttribute('data-tab');
+                    switchTab(tabId);
+                });
+            });
+        }
+
+        function switchTab(tabId) {
+            // UI Update Buttons
+            document.querySelectorAll('.tab-button').forEach(b => {
+                b.classList.remove('active', 'text-blue-600', 'border-b-2', 'border-blue-600');
+                b.classList.add('text-gray-500');
+            });
+            const activeBtn = document.querySelector(`[data-tab="${tabId}"]`);
+            if (activeBtn) activeBtn.classList.add('active', 'text-blue-600', 'border-b-2', 'border-blue-600');
+
+            // UI Update Content
+            document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+            const content = document.getElementById(`tab-${tabId}`);
+            if (content) content.classList.add('active');
+
+            // Special Actions
+            if (tabId === 'map' && window.map) {
+                setTimeout(() => window.map.invalidateSize(), 100);
+            } else if (tabId === 'dashboard' && window.updateDashboard) {
+                window.updateDashboard();
+            }
+        }
+
+        // ==========================================
+        // PRODUCTIVITÉ (VOIX & ACTIONS)
+        // ==========================================
+
+        // ==========================================
+        // AUTO-REFRESH
+        // ==========================================
+        function initAutoRefresh() {
+            // Actualisation automatique toutes les 60 minutes (3600000 ms)
+            const REFRESH_INTERVAL = 3600000;
+
+            setInterval(() => {
+                // console.log('⏰ Auto-refresh des données...');
+                fetchData();
+            }, REFRESH_INTERVAL);
+
+            // Listener sur bouton actualiser
+            const refreshBtn = document.getElementById('import-btn');
+            if (refreshBtn) {
+                refreshBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    // Animation spin
+                    const icon = refreshBtn.querySelector('svg');
+                    if (icon) icon.classList.add('animate-spin');
+
+                    fetchData().then(() => {
+                        if (icon) icon.classList.remove('animate-spin');
+                    });
+                });
+            }
+        }
+
+        // ==========================================
+        // PRODUCTIVITÉ (VOIX & ACTIONS)
+        // ==========================================
+
+        function initProductivityFeatures() {
+            // Chips
+            document.querySelectorAll('.quick-action-chip').forEach(chip => {
+                chip.addEventListener('click', function () {
+                    const textToAdd = this.getAttribute('data-text');
+                    const textarea = document.getElementById('action-realisee');
+                    if (textarea) {
+                        textarea.value += (textarea.value ? '\n- ' : '- ') + textToAdd;
+                        showToast('Action ajoutée', 'info', 1000);
+                    }
+                });
+            });
+        }
+
+        // Voice
+        if ('webkitSpeechRecognition' in window || 'SpeechRecognition' in window) {
+            const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+            document.querySelectorAll('.mic-btn').forEach(btn => {
+                const recognition = new SpeechRecognition();
+                recognition.lang = 'fr-FR';
+
+                btn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    recognition.start();
+                    btn.classList.add('text-red-500', 'animate-pulse');
+                });
+
+                recognition.onresult = (event) => {
+                    const text = event.results[0][0].transcript;
+                    const targetId = btn.getAttribute('data-target');
+                    const input = document.getElementById(targetId);
+                    if (input) input.value += (input.value ? ' ' : '') + text;
+                };
+
+                recognition.onend = () => {
+                    btn.classList.remove('text-red-500', 'animate-pulse');
+                    showToast('Dictée terminée', 'success');
+                };
+            });
+        }
+
+        // ==========================================
+        // HELPERS UI
+        // ==========================================
+
+        function renderSkeleton() {
+            const list = document.getElementById('interventions-list');
+            if (!list) return;
+
+            let html = '';
+            for (let i = 0; i < 5; i++) {
+                html += `
+            <div class="skeleton-card">
+                <div class="flex justify-between items-start mb-2">
+                    <div class="skeleton skeleton-title"></div>
+                    <div class="skeleton skeleton-text" style="width: 20px;"></div>
+                </div>
+                <div class="skeleton skeleton-text"></div>
+                <div class="skeleton skeleton-text" style="width: 40%;"></div>
+            </div>
+        `;
+            }
+            list.innerHTML = html;
+        }
+
+        // ==========================================
+        // EXPORT CSV (Admin)
+        // ==========================================
+        // Fonctionnalité déplacée ici pour centraliser les events
+        const btnExportCsv = document.getElementById('btn-export-csv');
+        if (btnExportCsv) {
+            btnExportCsv.addEventListener('click', function () {
+                if (!confirm("Voulez-vous exporter l'ensemble des interventions en CSV ?")) return;
+
+                if (localStorage.getItem('user_role') !== 'Admin') {
+                    showToast("Fonctionnalité réservée aux administrateurs.", "error");
+                    return;
+                }
+
+                if (typeof ALL_INTERVENTIONS !== 'undefined' && ALL_INTERVENTIONS.length > 0) {
+                    exportToCSV(ALL_INTERVENTIONS);
+                    showToast("Export CSV généré !", "success");
+                } else {
+                    showToast("Aucune donnée à exporter.", "warning");
+                }
+            });
+        }
+
+        function exportToCSV(data) {
+            const headers = ['Ticket', 'Date', 'Site', 'Adresse', 'Technicien', 'Statut', 'Problème', 'Action Réalisée', 'Lat', 'Lng'];
+            const csvRows = [headers.join(';')];
+
+            for (const row of data) {
+                const clean = (text) => text ? text.toString().replace(/;/g, ',').replace(/\n/g, ' ').trim() : '';
+                const values = [
+                    clean(row.ticket),
+                    clean(row.dateIntervention),
+                    clean(row.nomSite),
+                    clean(row.adresse),
+                    clean(row.tech),
+                    clean(row.statut),
+                    clean(row.probleme),
+                    clean(row.actionRealisee),
+                    clean(row.lat),
+                    clean(row.lng)
+                ];
+                csvRows.push(values.join(';'));
+            }
+
+            const csvString = '\uFEFF' + csvRows.join('\n');
+            const blob = new Blob([csvString], { type: 'text/csv;charset=utf-8;' });
+            const url = URL.createObjectURL(blob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = 'jcsm_export_' + new Date().toISOString().slice(0, 10) + '.csv';
+            link.click();
+        }
+
+        // ==========================================
+        // AUTO-START
+        // ==========================================
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', startApp);
+        } else {
+            startApp();
+        }
+
+        // Exposer pour les autres modules
+        window.ALL_INTERVENTIONS = ALL_INTERVENTIONS;
+        // Note: Comme ce sont des modules scripts (non ES6 modules pour l'instant), les vars globales sont partagées.
+    </script>
 </body>
 
 </html>
