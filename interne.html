@@ -17,6 +17,28 @@
         rel="stylesheet">
 
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        gray: {
+                            900: '#111827',
+                            800: '#1F2937',
+                            700: '#374151',
+                        }
+                    }
+                }
+            }
+        }
+        // Check local storage for theme
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+    </script>
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" type="image/png" href="images/logo.png">
 
@@ -51,12 +73,92 @@
             box-sizing: border-box;
         }
 
+        /* Dark Mode Overrides */
+        .dark body {
+            background-color: #111827;
+            color: #F3F4F6;
+        }
+
+        .dark .bg-white {
+            background-color: #1F2937 !important;
+        }
+
+        .dark .text-gray-900 {
+            color: #F9FAFB !important;
+        }
+
+        .dark .text-gray-600,
+        .dark .text-gray-700 {
+            color: #D1D5DB !important;
+        }
+
+        .dark .text-gray-500 {
+            color: #9CA3AF !important;
+        }
+
+        .dark .bg-gray-50 {
+            background-color: #374151 !important;
+        }
+
+        .dark .border-gray-200,
+        .dark .border-gray-300 {
+            border-color: #4B5563 !important;
+        }
+
+        .dark input,
+        .dark textarea,
+        .dark select {
+            background-color: #374151;
+            border-color: #4B5563;
+            color: white;
+        }
+
+        .dark .tab-button:not(.active) {
+            color: #9CA3AF;
+        }
+
+        .dark .tab-button:hover:not(.active) {
+            color: #F3F4F6;
+        }
+
+        /* Map specific dark mode handling - invert filter */
+        .dark .leaflet-layer,
+        .dark .leaflet-control-zoom-in,
+        .dark .leaflet-control-zoom-out,
+        .dark .leaflet-control-attribution {
+            filter: invert(100%) hue-rotate(180deg) brightness(95%) contrast(90%);
+        }
+
+        /* Calendar Dark Mode */
+        .dark .calendar-day-header {
+            background: #1F2937;
+            border-bottom-color: #4B5563;
+            color: #E5E7EB;
+        }
+
+        .dark .calendar-hour-label {
+            background: #111827;
+            border-right-color: #4B5563;
+            color: #9CA3AF;
+        }
+
+        .dark .calendar-day-column {
+            background: #111827;
+        }
+
+        .dark .calendar-hour-slot {
+            background: #111827;
+            border-bottom-color: #374151;
+        }
+
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: #FAFAFA;
-            color: #1a1a1a;
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background-color: #f3f4f6;
             margin: 0;
             padding: 0;
+            overflow: hidden;
+            /* Empêcher le scroll sur le body principal */
+            height: 100vh;
         }
 
         #map {
@@ -754,7 +856,15 @@
                         </div>
                         <p class="text-sm text-gray-600 mt-1">
                             <span id="tech-info">Région: <span id="tech-region">-</span></span>
-                            <button id="logout-btn" class="ml-4 text-xs text-blue-600 hover:underline">(Changer de
+                            <button id="theme-toggle"
+                                class="mr-3 p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+                                aria-label="Toggle Dark Mode">
+                                <span id="theme-icon-light" class="hidden">🌞</span>
+                                <span id="theme-icon-dark">🌙</span>
+                            </button>
+                            <button id="logout-btn"
+                                class="ml-4 text-xs text-blue-600 hover:underline active:text-blue-800 transition-colors dark:text-blue-400 dark:hover:text-blue-300">(Changer
+                                de
                                 région)</button>
                         </p>
                     </div>
@@ -800,7 +910,18 @@
         <div id="tab-dashboard" class="tab-content" style="display: none;">
             <div class="p-6 overflow-y-auto h-full bg-gray-50">
                 <div class="max-w-7xl mx-auto">
-                    <h2 class="text-2xl font-bold mb-6">Tableau de Bord Pilote</h2>
+                    <div class="flex justify-between items-center mb-6">
+                        <h2 class="text-2xl font-bold">Tableau de Bord Pilote</h2>
+                        <button id="btn-export-csv"
+                            class="px-4 py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg transition-colors flex items-center gap-2 text-sm shadow-md">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z">
+                                </path>
+                            </svg>
+                            Exporter CSV
+                        </button>
+                    </div>
 
                     <!-- KPIs -->
                     <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
@@ -1155,18 +1276,64 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
                 </div>
 
                 <div>
-                    <label for="probleme" class="block text-sm font-medium text-gray-700 mb-2">Problème constaté</label>
+                    <label for="probleme"
+                        class="block text-sm font-medium text-gray-700 mb-2 flex justify-between items-center">
+                        Problème constaté
+                        <button type="button" class="text-gray-400 hover:text-blue-600 transition-colors mic-btn"
+                            data-target="probleme" title="Dictée vocale">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z">
+                                </path>
+                            </svg>
+                        </button>
+                    </label>
                     <textarea id="probleme" rows="4" required
                         class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                         placeholder="Décrivez le problème observé..."></textarea>
                 </div>
 
                 <div>
-                    <label for="action-realisee" class="block text-sm font-medium text-gray-700 mb-2">Action
-                        réalisée</label>
+                    <label for="action-realisee"
+                        class="block text-sm font-medium text-gray-700 mb-2 flex justify-between items-center">
+                        Action réalisée
+                        <button type="button" class="text-gray-400 hover:text-blue-600 transition-colors mic-btn"
+                            data-target="action-realisee" title="Dictée vocale">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z">
+                                </path>
+                            </svg>
+                        </button>
+                    </label>
                     <textarea id="action-realisee" rows="4" required
                         class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                         placeholder="Décrivez les actions réalisées..."></textarea>
+
+                    <!-- Actions Rapides (Chips) -->
+                    <div class="mt-2 flex flex-wrap gap-2">
+                        <button type="button"
+                            class="quick-action-chip px-3 py-1 bg-gray-100 hover:bg-gray-200 text-gray-700 text-xs rounded-full transition-colors border border-gray-200"
+                            data-text="Vérification sim">Vérification SIM</button>
+                        <button type="button"
+                            class="quick-action-chip px-3 py-1 bg-gray-100 hover:bg-gray-200 text-gray-700 text-xs rounded-full transition-colors border border-gray-200"
+                            data-text="Vérification tension">Vérification tension</button>
+                        <button type="button"
+                            class="quick-action-chip px-3 py-1 bg-gray-100 hover:bg-gray-200 text-gray-700 text-xs rounded-full transition-colors border border-gray-200"
+                            data-text="Serrage des câbles">Serrage des câbles</button>
+                        <button type="button"
+                            class="quick-action-chip px-3 py-1 bg-gray-100 hover:bg-gray-200 text-gray-700 text-xs rounded-full transition-colors border border-gray-200"
+                            data-text="Nettoyage borne">Nettoyage borne</button>
+                        <button type="button"
+                            class="quick-action-chip px-3 py-1 bg-gray-100 hover:bg-gray-200 text-gray-700 text-xs rounded-full transition-colors border border-gray-200"
+                            data-text="Mise à jour firmware">Mise à jour firmware</button>
+                        <button type="button"
+                            class="quick-action-chip px-3 py-1 bg-gray-100 hover:bg-gray-200 text-gray-700 text-xs rounded-full transition-colors border border-gray-200"
+                            data-text="Test de charge">Test de charge</button>
+                        <button type="button"
+                            class="quick-action-chip px-3 py-1 bg-gray-100 hover:bg-gray-200 text-gray-700 text-xs rounded-full transition-colors border border-gray-200"
+                            data-text="Redémarrage électrique">Redémarrage électrique</button>
+                    </div>
                 </div>
 
                 <!-- Checklist des vérifications -->
@@ -4624,36 +4791,152 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
                 });
             }
 
-            // Tab Switching Logic
+            // ==========================================
+            // LOGIQUE MODE SOMBRE
+            // ==========================================
+            const themeToggleBtn = document.getElementById('theme-toggle');
+            const themeIconLight = document.getElementById('theme-icon-light');
+            const themeIconDark = document.getElementById('theme-icon-dark');
+
+            // Set initial icon based on current theme
+            if (document.documentElement.classList.contains('dark')) {
+                themeIconLight.classList.remove('hidden');
+                themeIconDark.classList.add('hidden');
+            } else {
+                themeIconLight.classList.add('hidden');
+                themeIconDark.classList.remove('hidden');
+            }
+
+            themeToggleBtn.addEventListener('click', function () {
+                // Toggle icons
+                themeIconLight.classList.toggle('hidden');
+                themeIconDark.classList.toggle('hidden');
+
+                // Toggle mode
+                if (localStorage.getItem('color-theme')) {
+                    if (localStorage.getItem('color-theme') === 'light') {
+                        document.documentElement.classList.add('dark');
+                        localStorage.setItem('color-theme', 'dark');
+                    } else {
+                        document.documentElement.classList.remove('dark');
+                        localStorage.setItem('color-theme', 'light');
+                    }
+                } else {
+                    if (document.documentElement.classList.contains('dark')) {
+                        document.documentElement.classList.remove('dark');
+                        localStorage.setItem('color-theme', 'light');
+                    } else {
+                        document.documentElement.classList.add('dark');
+                        localStorage.setItem('color-theme', 'dark');
+                    }
+                }
+            });
+
+            // ==========================================
+            // LOGIQUE EXPORT CSV (ADMIN)
+            // ==========================================
+            const btnExportCsv = document.getElementById('btn-export-csv');
+            if (btnExportCsv) {
+                btnExportCsv.addEventListener('click', function () {
+                    const confirmExport = confirm("Voulez-vous exporter l'ensemble des interventions en CSV ?");
+                    if (!confirmExport) return;
+
+                    // Si pas admin, on bloque
+                    if (localStorage.getItem('user_role') !== 'Admin') {
+                        alert("Fonctionnalité réservée aux administrateurs.");
+                        return;
+                    }
+
+                    // On utilise les données globales ALL_INTERVENTIONS chargées dans le dashboard
+                    // Si elles ne sont pas chargées, on tente de les récupérer (cas edge)
+                    // Pour simplifier, on suppose que updateDashboard() a été appelé ou que ALL_INTERVENTIONS est dispo
+                    // Mais ALL_INTERVENTIONS est défini globalement.
+
+                    if (!typeof ALL_INTERVENTIONS !== 'undefined' && ALL_INTERVENTIONS.length > 0) {
+                        exportToCSV(ALL_INTERVENTIONS);
+                    } else {
+                        alert("Aucune donnée à exporter ou données non chargées.");
+                    }
+                });
+            }
+
+            function exportToCSV(data) {
+                // Header du CSV
+                const headers = ['Ticket', 'Date', 'Site', 'Adresse', 'Technicien', 'Statut', 'Problème', 'Action Réalisée', 'Lat', 'Lng'];
+
+                // Contenu
+                const csvRows = [];
+                csvRows.push(headers.join(';'));
+
+                for (const row of data) {
+                    // Nettoyage des champs pour éviter les cassures du CSV
+                    const clean = (text) => {
+                        if (!text) return '';
+                        return text.toString().replace(/;/g, ',').replace(/\n/g, ' ').trim();
+                    };
+
+                    const values = [
+                        clean(row.ticket),
+                        clean(row.dateIntervention),
+                        clean(row.nomSite),
+                        clean(row.adresse),
+                        clean(row.tech),
+                        clean(row.statut),
+                        clean(row.probleme),
+                        clean(row.actionRealisee),
+                        clean(row.lat),
+                        clean(row.lng)
+                    ];
+                    csvRows.push(values.join(';'));
+                }
+
+                // Création du Blob
+                const csvString = '\uFEFF' + csvRows.join('\n'); // BOM pour Excel
+                const blob = new Blob([csvString], { type: 'text/csv;charset=utf-8;' });
+                const url = URL.createObjectURL(blob);
+
+                // Lien de téléchargement
+                const link = document.createElement('a');
+                link.setAttribute('href', url);
+                link.setAttribute('download', 'interventions_jcsm_' + new Date().toISOString().slice(0, 10) + '.csv');
+                link.style.visibility = 'hidden';
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+            }
             document.querySelectorAll('.tab-button').forEach(btn => {
                 btn.addEventListener('click', () => {
-                    // Update buttons
-                    document.querySelectorAll('.tab-button').forEach(b => b.classList.remove('active'));
-                    btn.classList.add('active');
-
-                    // Update content
                     const tabId = btn.getAttribute('data-tab');
+
+                    // 1. Update Buttons
+                    document.querySelectorAll('.tab-button').forEach(b => {
+                        b.classList.remove('active', 'text-blue-600', 'border-b-2', 'border-blue-600');
+                        b.classList.add('text-gray-500', 'hover:text-gray-700');
+                    });
+                    btn.classList.add('active', 'text-blue-600', 'border-b-2', 'border-blue-600');
+                    btn.classList.remove('text-gray-500', 'hover:text-gray-700');
+
+                    // 2. Show Content
                     document.querySelectorAll('.tab-content').forEach(content => {
-                        content.style.display = 'none';
                         content.classList.remove('active');
                     });
+                    document.getElementById(`tab-${tabId}`).classList.add('active');
 
-                    const activeContent = document.getElementById('tab-' + tabId);
-                    if (activeContent) {
-                        activeContent.style.display = tabId === 'dashboard' || tabId === 'interventions' ? 'block' : 'flex';
-                        // Special case for our layout:
-                        if (tabId === 'interventions') {
-                            activeContent.style.display = 'block'; // Or whatever it was
-                            // Trigger map resize
-                            if (map) map.invalidateSize();
-                        } else if (tabId === 'dashboard') {
-                            activeContent.style.display = 'block';
+                    // 3. Special actions
+                    if (tabId === 'map') {
+                        setTimeout(() => {
+                            map.invalidateSize();
+                        }, 100);
+                    } else if (tabId === 'fiches') {
+                        loadFiches();
+                    } else if (tabId === 'dashboard') {
+                        if (checkAdminAccess()) {
+                            updateDashboard();
                         } else {
-                            activeContent.style.display = 'flex'; // For calendar/contacts
-                            // If reports tab container, it uses flex
-                            if (tabId === 'rapports') {
-                                document.getElementById('rapports-list-container').style.display = 'block'; // This is actually inside tab-rapports
-                            }
+                            // Si pas admin, rediriger vers map ou afficher message
+                            alert("Accès réservé aux administrateurs.");
+                            // Re-select map tab visually
+                            document.querySelector('[data-tab="map"]').click();
                         }
                     }
                 });
