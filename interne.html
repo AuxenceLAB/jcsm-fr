@@ -26,6 +26,24 @@
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
         integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- PWA Service Worker -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                    .then(registration => {
+                        console.log('SW enregistré:', registration.scope);
+                    })
+                    .catch(error => {
+                        console.error('SW échec:', error);
+                    });
+            });
+        }
+    </script>
+
     <style>
         * {
             -webkit-font-smoothing: antialiased;
@@ -757,6 +775,9 @@
 
             <!-- Navigation par onglets -->
             <div class="flex gap-2">
+                <button class="tab-button" data-tab="dashboard" id="dashboard-tab-button" style="display: none;">
+                    📊 Pilote
+                </button>
                 <button class="tab-button active" data-tab="interventions">
                     🔧 Interventions
                 </button>
@@ -774,7 +795,103 @@
     </header>
 
     <!-- Main Content -->
-    <main class="max-w-[1920px] mx-auto">
+    <main class="flex-1 flex flex-col min-h-0 relative">
+        <!-- Onglet Dashboard (Nouveau) -->
+        <div id="tab-dashboard" class="tab-content" style="display: none;">
+            <div class="p-6 overflow-y-auto h-full bg-gray-50">
+                <div class="max-w-7xl mx-auto">
+                    <h2 class="text-2xl font-bold mb-6">Tableau de Bord Pilote</h2>
+
+                    <!-- KPIs -->
+                    <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+                        <div
+                            class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 relative overflow-hidden group">
+                            <div class="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity">
+                                <svg class="w-24 h-24" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z" />
+                                    <path fill-rule="evenodd"
+                                        d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 4a1 1 0 000 2h.01a1 1 0 100-2H7zm3 0a1 1 0 000 2h3a1 1 0 100-2h-3zm-3 4a1 1 0 100 2h.01a1 1 0 100-2H7zm3 0a1 1 0 100 2h3a1 1 0 100-2h-3z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <h3 class="text-gray-500 font-medium text-sm mb-1 uppercase tracking-wide">Total
+                                Interventions</h3>
+                            <p class="text-3xl font-bold text-gray-900" id="kpi-total">-</p>
+                        </div>
+                        <div
+                            class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 relative overflow-hidden group">
+                            <div class="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity">
+                                <svg class="w-24 h-24 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <h3 class="text-green-600 font-medium text-sm mb-1 uppercase tracking-wide">Réalisées</h3>
+                            <p class="text-3xl font-bold text-gray-900" id="kpi-done">-</p>
+                        </div>
+                        <div
+                            class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 relative overflow-hidden group">
+                            <div class="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity">
+                                <svg class="w-24 h-24 text-red-600" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <h3 class="text-red-600 font-medium text-sm mb-1 uppercase tracking-wide">À Faire</h3>
+                            <p class="text-3xl font-bold text-gray-900" id="kpi-todo">-</p>
+                        </div>
+                        <div
+                            class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 relative overflow-hidden group">
+                            <div class="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity">
+                                <svg class="w-24 h-24 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <h3 class="text-blue-600 font-medium text-sm mb-1 uppercase tracking-wide">Taux de Réussite
+                            </h3>
+                            <p class="text-3xl font-bold text-gray-900" id="kpi-success-rate">-</p>
+                        </div>
+                    </div>
+
+                    <!-- Charts Row 1 -->
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+                        <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+                            <h3 class="text-lg font-bold mb-4 text-gray-800">Progression Globale</h3>
+                            <div class="h-[300px] w-full">
+                                <canvas id="chart-status"></canvas>
+                            </div>
+                        </div>
+                        <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+                            <h3 class="text-lg font-bold mb-4 text-gray-800">Répartition par Région</h3>
+                            <div class="h-[300px] w-full">
+                                <canvas id="chart-regions"></canvas>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Charts Row 2 -->
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                        <div class="lg:col-span-2 bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+                            <h3 class="text-lg font-bold mb-4 text-gray-800">Interventions par Mois</h3>
+                            <div class="h-[300px] w-full">
+                                <canvas id="chart-history"></canvas>
+                            </div>
+                        </div>
+                        <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+                            <h3 class="text-lg font-bold mb-4 text-gray-800">Délais d'Intervention</h3>
+                            <div class="h-[300px] w-full flex items-center justify-center">
+                                <canvas id="chart-delays"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-- Onglet Interventions -->
         <div id="tab-interventions" class="tab-content active">
             <div class="main-grid grid lg:grid-cols-[1.1fr_1.4fr] gap-4 p-4" style="height: calc(100vh - 180px);">
@@ -2254,28 +2371,103 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
                 }
             }
 
-            // Gérer l'upload des photos
+            // Gérer l'upload des photos avec compression
             const photoInput = document.getElementById('report-photos');
             if (photoInput) {
-                photoInput.onchange = function (e) {
+                photoInput.onchange = async function (e) {
                     const files = Array.from(e.target.files);
                     const previewContainer = document.getElementById('report-photos-preview');
                     if (previewContainer) {
                         previewContainer.innerHTML = '';
 
-                        files.forEach((file, index) => {
-                            const reader = new FileReader();
-                            reader.onload = function (e) {
+                        // Feedback de chargement
+                        const loadingMsg = document.createElement('div');
+                        loadingMsg.className = 'col-span-3 text-center text-sm text-gray-500 py-2';
+                        loadingMsg.innerHTML = '<span>⚡ Compression des images en cours...</span>';
+                        previewContainer.appendChild(loadingMsg);
+
+                        const compressedFiles = [];
+
+                        for (let i = 0; i < files.length; i++) {
+                            try {
+                                const compressedDataUrl = await compressImage(files[i]);
+                                compressedFiles.push(compressedDataUrl);
+
+                                // Afficher l'aperçu
+                                const imgWrapper = document.createElement('div');
+                                imgWrapper.className = 'relative group';
+
                                 const img = document.createElement('img');
-                                img.src = e.target.result;
+                                img.src = compressedDataUrl;
                                 img.className = 'w-full h-24 object-cover rounded border border-gray-300';
-                                img.alt = `Photo ${index + 1}`;
-                                previewContainer.appendChild(img);
-                            };
-                            reader.readAsDataURL(file);
-                        });
+                                img.alt = `Photo ${i + 1}`;
+
+                                // Badge de taille
+                                const originalSize = (files[i].size / 1024 / 1024).toFixed(2);
+                                const newSize = (Math.round((compressedDataUrl.length * 3 / 4) / 1024) / 1024).toFixed(2);
+                                const badge = document.createElement('span');
+                                badge.className = 'absolute bottom-1 right-1 bg-black bg-opacity-70 text-white text-[10px] px-1 rounded';
+                                badge.textContent = `${originalSize}Mo -> ${newSize}Mo`;
+
+                                imgWrapper.appendChild(img);
+                                imgWrapper.appendChild(badge);
+                                previewContainer.appendChild(imgWrapper);
+                            } catch (error) {
+                                console.error('Erreur compression:', error);
+                            }
+                        }
+
+                        // Supprimer le message de chargement
+                        if (loadingMsg.parentNode) loadingMsg.remove();
+
+                        // Sauvegarder les données compressées dans un attribut pour l'envoi
+                        photoInput.dataset.compressedImages = JSON.stringify(compressedFiles);
                     }
                 };
+            }
+
+            // Fonction de compression d'image
+            function compressImage(file) {
+                return new Promise((resolve, reject) => {
+                    const maxWidth = 1920;
+                    const maxHeight = 1920;
+                    const quality = 0.7;
+                    const reader = new FileReader();
+                    reader.readAsDataURL(file);
+                    reader.onload = event => {
+                        const img = new Image();
+                        img.src = event.target.result;
+                        img.onload = () => {
+                            let width = img.width;
+                            let height = img.height;
+
+                            // Calcul des nouvelles dimensions
+                            if (width > height) {
+                                if (width > maxWidth) {
+                                    height = Math.round(height *= maxWidth / width);
+                                    width = maxWidth;
+                                }
+                            } else {
+                                if (height > maxHeight) {
+                                    width = Math.round(width *= maxHeight / height);
+                                    height = maxHeight;
+                                }
+                            }
+
+                            const canvas = document.createElement('canvas');
+                            canvas.width = width;
+                            canvas.height = height;
+                            const ctx = canvas.getContext('2d');
+                            ctx.drawImage(img, 0, 0, width, height);
+
+                            // Compression
+                            const dataUrl = canvas.toDataURL('image/jpeg', quality);
+                            resolve(dataUrl);
+                        };
+                        img.onerror = error => reject(error);
+                    };
+                    reader.onerror = error => reject(error);
+                });
             }
 
             document.getElementById('report-form-panel').classList.add('open');
@@ -4180,6 +4372,16 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
                 formData.checklist.push(cb.value);
             });
 
+            // Récupérer les photos compressées si disponibles
+            const photoInput = document.getElementById('report-photos');
+            if (photoInput && photoInput.dataset.compressedImages) {
+                try {
+                    formData.photos = JSON.parse(photoInput.dataset.compressedImages);
+                } catch (e) {
+                    console.error('Erreur parsing photos compressées', e);
+                }
+            }
+
             return formData;
         }
 
@@ -4266,26 +4468,204 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
         function hidePreview() {
             previewModal.classList.add('hidden');
             previewModal.classList.remove('flex');
-        }
+            if (closePreview) closePreview.addEventListener('click', hidePreview);
+            if (editFromPreview) editFromPreview.addEventListener('click', hidePreview);
 
-        if (closePreview) closePreview.addEventListener('click', hidePreview);
-        if (editFromPreview) editFromPreview.addEventListener('click', hidePreview);
+            if (confirmPublish) {
+                confirmPublish.addEventListener('click', () => {
+                    // Simuler le submit du form
+                    const form = document.getElementById('report-form');
+                    if (form) {
+                        const submitEvent = new Event('submit', { cancelable: true });
+                        form.dispatchEvent(submitEvent);
+                        hidePreview();
 
-        if (confirmPublish) {
-            confirmPublish.addEventListener('click', () => {
-                // Simuler le submit du form
-                const form = document.getElementById('report-form');
-                if (form) {
-                    const submitEvent = new Event('submit', { cancelable: true });
-                    form.dispatchEvent(submitEvent);
-                    hidePreview();
-
-                    // Supprimer le brouillon après publication réussie
-                    if (selectedInterventionId) {
-                        safeLocalStorageRemove(`draft_report_${selectedInterventionId}`);
+                        // Supprimer le brouillon après publication réussie
+                        if (selectedInterventionId) {
+                            safeLocalStorageRemove(`draft_report_${selectedInterventionId}`);
+                        }
                     }
+                });
+            }
+            // ==========================================
+            // DASHBOARD LOGIC
+            // ==========================================
+            let charts = {};
+
+            function updateDashboard() {
+                if (!technicien || !technicien.isAdmin) {
+                    document.getElementById('dashboard-tab-button').style.display = 'none';
+                    return;
                 }
+
+                document.getElementById('dashboard-tab-button').style.display = 'flex';
+
+                // KPIs
+                const total = ALL_INTERVENTIONS.length;
+                const done = ALL_INTERVENTIONS.filter(i => i.rapportFait).length;
+                const todo = total - done;
+                const success = ALL_INTERVENTIONS.filter(i => i.reussi).length;
+                const successRate = done > 0 ? Math.round((success / done) * 100) : 0;
+
+                document.getElementById('kpi-total').textContent = total;
+                document.getElementById('kpi-done').textContent = done;
+                document.getElementById('kpi-todo').textContent = todo;
+                document.getElementById('kpi-success-rate').textContent = successRate + '%';
+
+                // Data Prep
+                const regions = {};
+                const months = {};
+                const delays = { 'J+1': 0, 'Standard': 0, 'Urgent': 0 };
+
+                ALL_INTERVENTIONS.forEach(i => {
+                    // Regions
+                    if (i.region) regions[i.region] = (regions[i.region] || 0) + 1;
+
+                    // Delays
+                    if (i.delais && delays[i.delais] !== undefined) delays[i.delais]++;
+                    else if (i.delais === 'J+1') delays['J+1']++;
+                    else if (i.delais === 'Urgent') delays['Urgent']++;
+                    else delays['Standard']++; // Fallback
+
+                    // History (Date demande)
+                    if (i.dateDemande) {
+                        const date = new Date(i.dateDemande);
+                        const key = date.toLocaleString('fr-FR', { month: 'short', year: '2-digit' }); // janv. 24
+                        months[key] = (months[key] || 0) + 1;
+                    }
+                });
+
+                // 1. Chart Status (Doughnut)
+                renderChart('chart-status', 'doughnut', {
+                    labels: ['Terminées', 'À Faire'],
+                    datasets: [{
+                        data: [done, todo],
+                        backgroundColor: ['#10B981', '#EF4444'],
+                        borderWidth: 0
+                    }]
+                });
+
+                // 2. Chart Regions (Bar)
+                renderChart('chart-regions', 'bar', {
+                    labels: Object.keys(regions),
+                    datasets: [{
+                        label: 'Interventions',
+                        data: Object.values(regions),
+                        backgroundColor: '#3B82F6',
+                        borderRadius: 4
+                    }]
+                });
+
+                // 3. Chart History (Line)
+                // Sort months chronologically (hacky but works for recent/simple)
+                // Better: use real dates and sort keys
+                const sortedMonthKeys = Object.keys(months).reverse(); // Assuming input is reverse chronological or random
+                // Actually, let's just use what we have, assume order is rough
+                renderChart('chart-history', 'line', {
+                    labels: Object.keys(months),
+                    datasets: [{
+                        label: 'Nouvelles Demandes',
+                        data: Object.values(months),
+                        borderColor: '#8B5CF6',
+                        tension: 0.4,
+                        fill: true,
+                        backgroundColor: 'rgba(139, 92, 246, 0.1)'
+                    }]
+                });
+
+                // 4. Chart Delays (Pie)
+                renderChart('chart-delays', 'pie', {
+                    labels: Object.keys(delays),
+                    datasets: [{
+                        data: Object.values(delays),
+                        backgroundColor: ['#F59E0B', '#3B82F6', '#EF4444'],
+                        borderWidth: 0
+                    }]
+                });
+            }
+
+            function renderChart(id, type, data) {
+                const ctx = document.getElementById(id);
+                if (!ctx) return;
+
+                if (charts[id]) {
+                    charts[id].destroy();
+                }
+
+                charts[id] = new Chart(ctx, {
+                    type: type,
+                    data: data,
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: {
+                                position: 'bottom',
+                                labels: {
+                                    usePointStyle: true,
+                                    boxWidth: 8
+                                }
+                            }
+                        },
+                        scales: type === 'bar' || type === 'line' ? {
+                            y: {
+                                beginAtZero: true,
+                                grid: {
+                                    borderDash: [2, 4]
+                                }
+                            },
+                            x: {
+                                grid: {
+                                    display: false
+                                }
+                            }
+                        } : {}
+                    }
+                });
+            }
+
+            // Tab Switching Logic
+            document.querySelectorAll('.tab-button').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // Update buttons
+                    document.querySelectorAll('.tab-button').forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+
+                    // Update content
+                    const tabId = btn.getAttribute('data-tab');
+                    document.querySelectorAll('.tab-content').forEach(content => {
+                        content.style.display = 'none';
+                        content.classList.remove('active');
+                    });
+
+                    const activeContent = document.getElementById('tab-' + tabId);
+                    if (activeContent) {
+                        activeContent.style.display = tabId === 'dashboard' || tabId === 'interventions' ? 'block' : 'flex';
+                        // Special case for our layout:
+                        if (tabId === 'interventions') {
+                            activeContent.style.display = 'block'; // Or whatever it was
+                            // Trigger map resize
+                            if (map) map.invalidateSize();
+                        } else if (tabId === 'dashboard') {
+                            activeContent.style.display = 'block';
+                        } else {
+                            activeContent.style.display = 'flex'; // For calendar/contacts
+                            // If reports tab container, it uses flex
+                            if (tabId === 'rapports') {
+                                document.getElementById('rapports-list-container').style.display = 'block'; // This is actually inside tab-rapports
+                            }
+                        }
+                    }
+                });
             });
+
+            // Hook into existing load function
+            const originalRenderList = window.renderInterventionsList;
+            window.renderInterventionsList = function () {
+                if (originalRenderList) originalRenderList();
+                updateDashboard();
+            };
+
         }
     </script>
     <script src="animations.js" defer></script>

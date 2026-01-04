@@ -1,6 +1,19 @@
 <?php
 header('Content-Type: application/json');
-header('Access-Control-Allow-Origin: *');
+
+// Sécurité améliorée : CORS restreint
+$allowedOrigins = [
+    'https://jcsm.fr',
+    'https://www.jcsm.fr',
+    'http://localhost:3000',
+    'null'
+];
+
+$origin = isset($_SERVER['HTTP_ORIGIN']) ? $_SERVER['HTTP_ORIGIN'] : '';
+if (in_array($origin, $allowedOrigins)) {
+    header("Access-Control-Allow-Origin: $origin");
+}
+
 header('Access-Control-Allow-Methods: GET, OPTIONS');
 header('Access-Control-Allow-Headers: Content-Type');
 
@@ -36,23 +49,23 @@ $files = glob($rapportsDir . 'Rapport_*.json');
 foreach ($files as $file) {
     $content = file_get_contents($file);
     $data = json_decode($content, true);
-    
+
     if ($data && is_array($data)) {
         // Extraire le nom du fichier
         $filename = basename($file);
         $baseUrl = 'https://jcsm.fr/rapports/';
-        
+
         // Construire les URLs des différents formats
         $jsonUrl = $baseUrl . rawurlencode($filename);
         $htmlUrl = $baseUrl . rawurlencode(str_replace('.json', '.html', $filename));
         $docxUrl = $baseUrl . rawurlencode(str_replace('.json', '.docx', $filename));
         $rtfUrl = $baseUrl . rawurlencode(str_replace('.json', '.rtf', $filename));
-        
+
         // Vérifier quels fichiers existent réellement
         $htmlFile = str_replace('.json', '.html', $file);
         $docxFile = str_replace('.json', '.docx', $file);
         $rtfFile = str_replace('.json', '.rtf', $file);
-        
+
         $rapport = [
             'filename' => $filename,
             'ticket' => $data['ticket'] ?? '',
@@ -71,13 +84,13 @@ foreach ($files as $file) {
             'htmlUrl' => file_exists($htmlFile) ? $htmlUrl : null,
             'docxUrl' => file_exists($docxFile) ? $docxUrl : (file_exists($rtfFile) ? $rtfUrl : null)
         ];
-        
+
         $rapports[] = $rapport;
     }
 }
 
 // Trier par date de création décroissante
-usort($rapports, function($a, $b) {
+usort($rapports, function ($a, $b) {
     $dateA = $a['dateCreation'] ?? '';
     $dateB = $b['dateCreation'] ?? '';
     return strcmp($dateB, $dateA);
