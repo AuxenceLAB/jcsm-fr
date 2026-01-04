@@ -26,6 +26,7 @@ async function startApp() {
 
     // 1. Initialiser les utilitaires UI
     initTabs();
+    if (window.initFiches) window.initFiches(); // Init Fiches Méthodes
 
     // 2. Vérifier Auth
     if (!checkAuth()) {
