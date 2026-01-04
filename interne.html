@@ -42,6 +42,77 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" type="image/png" href="images/logo.png">
 
+    <!-- Premium Styles (Glassmorphism & Animations) -->
+    <style>
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+
+        /* Glassmorphism Utilities */
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .dark .glass-panel {
+            background: rgba(30, 41, 59, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        /* Animations */
+        @keyframes fadeInScale {
+            from {
+                opacity: 0;
+                transform: scale(0.98);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .animate-entry {
+            animation: fadeInScale 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        /* Card Hover Effects */
+        .hover-card {
+            transition: all 0.3s ease;
+        }
+
+        .hover-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Gradient Text */
+        .text-gradient {
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-image: linear-gradient(to right, #2563eb, #7c3aed);
+        }
+    </style>
+
     <!-- Page Transition Script -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
@@ -2107,8 +2178,17 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
                 localStorage.setItem('fiches_v1', JSON.stringify(ALL_FICHES));
             } catch (e) {
                 console.warn('Erreur sauvegarde fiches:', e);
-                alert('Espace de stockage plein ou erreur locale.');
+                window.showToast('Espace de stockage plein ou erreur locale.', 'error');
             }
+        }
+
+        function deleteFiche(id) {
+            if (!confirm('Êtes-vous sûr de vouloir supprimer cette fiche ?')) return;
+
+            ALL_FICHES = ALL_FICHES.filter(f => f.id !== id);
+            saveFiches();
+            renderFiches();
+            window.showToast('Fiche supprimée.', 'warning');
         }
 
         function renderFiches() {
@@ -2118,36 +2198,46 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
             container.innerHTML = '';
 
             if (ALL_FICHES.length === 0) {
-                container.innerHTML = `<div class="text-center text-gray-400 p-8">Aucune fiche disponible.</div>`;
+                container.innerHTML = `<div class="text-center text-gray-400 p-8 glass-panel rounded-xl">Aucune fiche disponible. Commencez par en créer une !</div>`;
                 return;
             }
 
-            ALL_FICHES.forEach(fiche => {
+            ALL_FICHES.forEach((fiche, index) => {
                 const card = document.createElement('div');
-                card.className = 'bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition-shadow flex flex-col md:flex-row';
+                card.style.animationDelay = `${index * 50}ms`;
+                card.className = 'glass-panel rounded-xl overflow-hidden hover-card flex flex-col md:flex-row mb-4 animate-entry';
 
                 // Image placeholder si pas d'image
                 const imgUrl = fiche.image || 'https://via.placeholder.com/150?text=JCSM';
 
                 card.innerHTML = `
-            <div class="md:w-1/4 h-48 md:h-auto bg-gray-200 relative">
-                <img src="${imgUrl}" alt="${fiche.titre}" class="absolute inset-0 w-full h-full object-cover">
+            <div class="md:w-1/4 h-48 md:h-auto bg-gray-200 relative group">
+                <img src="${imgUrl}" alt="${fiche.titre}" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
             </div>
             <div class="p-6 flex-1 flex flex-col justify-between">
                 <div>
                     <div class="flex justify-between items-start mb-2">
-                        <span class="px-2 py-1 bg-blue-100 text-blue-700 text-xs font-semibold rounded uppercase tracking-wide">${fiche.categorie || 'Général'}</span>
-                        <span class="text-xs text-gray-500">${fiche.date || '-'}</span>
+                        <span class="px-2 py-1 bg-blue-50 text-blue-600 border border-blue-100 text-xs font-semibold rounded-md uppercase tracking-wide">${fiche.categorie || 'Général'}</span>
+                        <span class="text-xs text-gray-400 font-mono">${fiche.date || '-'}</span>
                     </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-2">${fiche.titre}</h3>
-                    <p class="text-gray-600 line-clamp-2 mb-4">${fiche.description || 'Pas de description.'}</p>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2 leading-tight">${fiche.titre}</h3>
+                    <p class="text-gray-600 line-clamp-2 mb-4 text-sm leading-relaxed">${fiche.description || 'Pas de description.'}</p>
                 </div>
-                <div class="flex items-center justify-between mt-4 pt-4 border-t border-gray-50">
-                    <span class="text-sm text-gray-500 flex items-center gap-2">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+                <div class="flex items-center justify-between mt-4 pt-4 border-t border-gray-100">
+                    <span class="text-sm text-gray-500 flex items-center gap-2 font-medium">
+                        <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
                         ${fiche.auteur || 'Anonyme'}
                     </span>
-                    <button onclick="alert('Fonctionnalité de visualisation complète à venir')" class="text-blue-600 hover:text-blue-800 font-medium text-sm">Lire la fiche →</button>
+                    <div class="flex gap-3">
+                        <button onclick="deleteFiche('${fiche.id}')" class="text-gray-400 hover:text-red-500 transition-colors p-1" title="Supprimer">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
+                        </button>
+                        <button onclick="alert('Fonctionnalité de visualisation complète à venir')" class="text-blue-600 hover:text-blue-800 font-medium text-sm flex items-center gap-1 group">
+                            Lire la fiche 
+                            <span class="transform transition-transform group-hover:translate-x-1">→</span>
+                        </button>
+                    </div>
                 </div>
             </div>
         `;
@@ -2161,18 +2251,24 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
             const modal = document.getElementById('modal-fiche');
             const btnClose = document.getElementById('close-modal-fiche');
             const form = document.getElementById('fiche-form');
+            const btnCancel = document.getElementById('cancel-fiche');
 
             if (btnAdd && modal) {
                 btnAdd.addEventListener('click', () => {
                     modal.style.display = 'flex';
+                    // Animation entrée modal
+                    requestAnimationFrame(() => {
+                        modal.classList.add('active'); // Suppose CSS handles opacity transition on inner content if present
+                    });
                 });
             }
 
-            if (btnClose && modal) {
-                btnClose.addEventListener('click', () => {
-                    modal.style.display = 'none';
-                });
-            }
+            const closeModal = () => {
+                if (modal) modal.style.display = 'none';
+            };
+
+            if (btnClose) btnClose.addEventListener('click', closeModal);
+            if (btnCancel) btnCancel.addEventListener('click', closeModal);
 
             // Gestion soumission formulaire
             if (form) {
@@ -2200,7 +2296,7 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
 
                     // Reset & Close
                     form.reset();
-                    modal.style.display = 'none';
+                    closeModal();
                     if (window.showToast) showToast('Fiche créée avec succès', 'success');
                 });
             }
@@ -2208,6 +2304,7 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
 
         // Expose to global scope for app.js initialization
         window.initFiches = initFiches;
+        window.deleteFiche = deleteFiche; // Important!
     </script>
 
     <script>
