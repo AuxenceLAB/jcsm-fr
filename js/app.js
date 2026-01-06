@@ -13,7 +13,7 @@ let selectedInterventionId = null;
 
 // URL de l'API Google Sheets (Google Apps Script)
 // À REMPLACER PAR VOTRE URL DE DÉPLOIEMENT
-const GOOGLE_SHEETS_API_URL = 'https://script.google.com/macros/s/VOTRE_SCRIPT_ID_ICI/exec';
+const GOOGLE_SHEETS_API_URL = 'https://script.google.com/macros/s/AKfycbzZxvFsy4yb1gsAdL70zhhMJCdZN-fGUZY4qHct3wMergx6hNX2qTOB0nH86ohBgEjmqA/exec';
 // Note: Dans le fichier original, l'URL n'était pas visiblement définie dans les extraits.
 // Correction: On utilise un placeholder à remplacer après déploiement.
 
