@@ -12,10 +12,10 @@ let technicien = null;
 let selectedInterventionId = null;
 
 // URL de l'API Google Sheets (Google Apps Script)
-const GOOGLE_SHEETS_API_URL = 'https://script.google.com/macros/s/AKfycbw0jracvOsxhALYvJUQTxd1chwq8Y5UGKgeDLjv2w4dpfomg8NLOGOHb44fdNVGMJ8c1g/exec'; // API Locale Persistante
-// Note: Dans le fichier original, l'URL n'était pas visiblement définie dans les extraits, 
-// on va supposer qu'elle est définie ou on va utiliser la logique existante de fetch.
-// Correction: On va utiliser l'URL qui était dans le code original si on la trouve, sinon on met un placeholder à remplacer.
+// À REMPLACER PAR VOTRE URL DE DÉPLOIEMENT
+const GOOGLE_SHEETS_API_URL = 'https://script.google.com/macros/s/VOTRE_SCRIPT_ID_ICI/exec';
+// Note: Dans le fichier original, l'URL n'était pas visiblement définie dans les extraits.
+// Correction: On utilise un placeholder à remplacer après déploiement.
 
 // ==========================================
 // INITIALISATION

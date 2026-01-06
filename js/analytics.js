@@ -41,9 +41,9 @@ const JCSMAnalytics = {
         };
 
         // In detailed mock mode: log to console with style
-        console.groupCollapsed(`%c📡 Analytics: ${name}`, 'color: #0070F3; font-weight: bold;');
-        console.log('Payload:', payload);
-        console.groupEnd();
+        // console.groupCollapsed(`%c📡 Analytics: ${name}`, 'color: #0070F3; font-weight: bold;');
+        // console.log('Payload:', payload);
+        // console.groupEnd();
 
         // Store locally for demo purposes (simulating batch send)
         const stored = JSON.parse(localStorage.getItem('jcsm_analytics_queue') || '[]');
