@@ -313,40 +313,53 @@ function initPageTransitions() {
         document.body.classList.add('loaded');
     }, 50);
 
-    document.querySelectorAll('a[href$=".html"], a[href^="/"], a[href^="./"]').forEach(link => {
+    // Target all internal links that don't have an extension (or have .html)
+    document.querySelectorAll('a').forEach(link => {
         link.addEventListener('click', function (e) {
             let href = this.getAttribute('href');
+            if (!href) return;
 
-            // Check if it's a same-origin link and not opening in new tab
-            if (this.hostname === window.location.hostname &&
-                !this.getAttribute('target') &&
-                !href.startsWith('#') &&
-                !href.startsWith('mailto:') &&
-                !href.startsWith('tel:')) {
+            // Skip absolute external links, anchors, and protocols
+            const isExternal = href.startsWith('http') && !href.includes(window.location.hostname);
+            const isSpecial = href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('tel:');
+            const isNewTab = this.getAttribute('target') === '_blank';
 
-                // LOCAL FALLBACK LOGIC
-                const isLocal = window.location.hostname === 'localhost' ||
-                    window.location.hostname === '127.0.0.1' ||
-                    window.location.protocol === 'file:';
+            if (isExternal || isSpecial || isNewTab) return;
 
-                if (isLocal && !href.endsWith('.html') && href !== '/' && !href.includes('.') && !href.startsWith('#')) {
-                    // Normalize href (remove leading slash if present for relative local files)
-                    let cleanPath = href.startsWith('/') ? href.substring(1) : href;
-                    if (cleanPath) {
-                        href = cleanPath + '.html';
-                        console.log(`JCSM Local Redirect: ${cleanPath} -> ${href}`);
-                    }
+            // LOCAL FALLBACK LOGIC
+            const isLocal = window.location.hostname === 'localhost' ||
+                window.location.hostname === '127.0.0.1' ||
+                window.location.protocol === 'file:';
+
+            // Check if it's a "clean" internal link (no dot in the last segment)
+            const pathParts = href.split('/');
+            const lastPart = pathParts[pathParts.length - 1];
+            const isCleanLink = lastPart && !lastPart.includes('.') && !lastPart.startsWith('#');
+
+            if (isLocal && isCleanLink && href !== '/') {
+                // If it's a local file or local server, we force .html
+                // We keep relative paths relative, and absolute paths absolute
+                let newHref = href.endsWith('/') ? href.slice(0, -1) : href;
+                newHref += '.html';
+
+                // If the link starts with '/', on file:// it would go to root. 
+                // We fix it to be relative if path is file://
+                if (window.location.protocol === 'file:' && newHref.startsWith('/')) {
+                    newHref = newHref.substring(1);
                 }
 
-                e.preventDefault();
-                document.body.style.transition = 'opacity 0.3s ease-out, transform 0.3s ease-out';
-                document.body.style.opacity = '0';
-
-                const targetHref = href;
-                setTimeout(() => {
-                    window.location.href = targetHref;
-                }, 300);
+                href = newHref;
+                console.log(`JCSM Local Redirect: ${this.getAttribute('href')} -> ${href}`);
             }
+
+            e.preventDefault();
+            document.body.style.transition = 'opacity 0.3s ease-out, transform 0.3s ease-out';
+            document.body.style.opacity = '0';
+
+            const targetHref = href;
+            setTimeout(() => {
+                window.location.href = targetHref;
+            }, 300);
         });
     });
 }
