@@ -71,29 +71,54 @@
             if (!this.container) return;
             this.track = this.container.querySelector('.logo-marquee-track');
             if (!this.track) return;
-            this.speed = 0.4; // Slightly slower for more "pro" feel
+
+            this.speed = 0.5; // Slightly faster but smooth
             this.position = 0;
             this.isPaused = false;
+            this.lastTimestamp = 0;
+
             this.init();
         }
+
         init() {
-            // Triple clone for extra safety on wide screens
-            const children = Array.from(this.track.children);
-            for (let i = 0; i < 2; i++) {
-                children.forEach(item => this.track.appendChild(item.cloneNode(true)));
-            }
+            // Duplicate content for seamless loop
+            const items = Array.from(this.track.children);
+            // We clone twice to ensure coverage on even the widest screens
+            items.forEach(item => this.track.appendChild(item.cloneNode(true)));
+            items.forEach(item => this.track.appendChild(item.cloneNode(true)));
+
+            // Robust hover detection
             this.container.addEventListener('mouseenter', () => this.isPaused = true);
             this.container.addEventListener('mouseleave', () => this.isPaused = false);
-            this.animate();
+
+            // Recalculate dimensions on window resize
+            window.addEventListener('resize', () => {
+                this.position = 0; // Reset to avoid rounding glitches
+            });
+
+            requestAnimationFrame((t) => this.animate(t));
         }
-        animate() {
+
+        animate(timestamp) {
+            if (!this.lastTimestamp) this.lastTimestamp = timestamp;
+            const delta = (timestamp - this.lastTimestamp) / 16; // Normalized to ~60fps
+            this.lastTimestamp = timestamp;
+
             if (!this.isPaused) {
-                this.position -= this.speed;
-                const totalWidth = this.track.scrollWidth / 3;
-                if (Math.abs(this.position) >= totalWidth) this.position = 0;
-                this.track.style.transform = `translateX(${this.position}px)`;
+                this.position -= this.speed * (delta || 1);
+
+                // Content width is 1/3 of total track width due to triple clones
+                const contentWidth = this.track.scrollWidth / 3;
+
+                if (Math.abs(this.position) >= contentWidth) {
+                    this.position = 0;
+                }
+
+                // Use translate3d for GPU acceleration
+                this.track.style.transform = `translate3d(${this.position}px, 0, 0)`;
             }
-            requestAnimationFrame(this.animate.bind(this));
+
+            requestAnimationFrame((t) => this.animate(t));
         }
     }
 

@@ -19,6 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initLogoMarquee();
     initStatsCounters();
     initParallax();
+    initLocalUrlFallback();
 });
 
 // ==========================================
@@ -759,3 +760,46 @@ function initLiveFormFeedback() {
     document.head.appendChild(style);
 })();
 
+// ==========================================
+// LOCAL URL FALLBACK (Dev Mode)
+// ==========================================
+function initLocalUrlFallback() {
+    const isLocal = window.location.hostname === 'localhost' ||
+        window.location.hostname === '127.0.0.1' ||
+        window.location.protocol === 'file:';
+
+    if (!isLocal) return;
+
+    console.log('JCSM: Local mode detected. Enabling URL fallback for clean links.');
+
+    document.addEventListener('click', (e) => {
+        const link = e.target.closest('a');
+        if (!link) return;
+
+        const href = link.getAttribute('href');
+        if (!href) return;
+
+        // Skip absolute URLs, anchors, mailto, tel, and already .html
+        if (href.startsWith('http') ||
+            href.startsWith('#') ||
+            href.startsWith('mailto:') ||
+            href.startsWith('tel:') ||
+            href.endsWith('.html') ||
+            href === '/') {
+            return;
+        }
+
+        // It's a clean internal link (e.g. /pilotage-projets)
+        // Check if we need to append .html for local testing
+        // Only if it's not a directory and doesn't have a dot
+        const pathParts = href.split('/');
+        const lastPart = pathParts[pathParts.length - 1];
+
+        if (lastPart && !lastPart.includes('.')) {
+            e.preventDefault();
+            const newHref = href + '.html';
+            console.log(`JCSM Fallback: ${href} -> ${newHref}`);
+            window.location.href = newHref;
+        }
+    }, true); // Use capture to intercept before other handlers
+}
