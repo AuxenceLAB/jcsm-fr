@@ -2883,7 +2883,7 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
         function handleAuthSubmit(e) {
             e.preventDefault();
             // const role = document.getElementById('user-role').value; // Removed
-            const pass = document.getElementById('password').value;
+            const pass = document.getElementById('password').value.trim();
 
             if (!pass) {
                 showToast('Veuillez entrer un mot de passe', 'error');
@@ -2893,11 +2893,11 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
             let role = '';
             let isAdmin = false;
 
-            // Password-based Logic
+            // Password-based Logic (Trimmed for robustess)
             if (pass === 'Jcsm2026') {
                 role = 'Admin';
                 isAdmin = true;
-            } else if (pass === 'technicien') {
+            } else if (pass.toLowerCase() === 'technicien') {
                 role = 'Technicien';
                 isAdmin = false;
             } else {

@@ -1,31 +1,36 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <base target="_self">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sécurisation des Installations IRVE | JCSM</title>
-    <meta name="description" content="Protection et sécurisation de vos installations IRVE : anti-vandalisme, vidéosurveillance, alarmes connectées et intervention rapide.">
+    <meta name="description"
+        content="Protection et sécurisation de vos installations IRVE : anti-vandalisme, vidéosurveillance, alarmes connectées et intervention rapide.">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://jcsm.fr/securisation-installations.html">
-    
+
     <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://jcsm.fr/securisation-installations.html">
     <meta property="og:title" content="Sécurisation des Installations IRVE | JCSM">
-    <meta property="og:description" content="Protection et sécurisation de vos installations IRVE : anti-vandalisme, vidéosurveillance, alarmes connectées et intervention rapide.">
+    <meta property="og:description"
+        content="Protection et sécurisation de vos installations IRVE : anti-vandalisme, vidéosurveillance, alarmes connectées et intervention rapide.">
     <meta property="og:image" content="https://jcsm.fr/images/vandalisme.jpg">
-    
+
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Sécurisation des Installations IRVE | JCSM">
-    <meta name="twitter:description" content="Protection et sécurisation de vos installations IRVE : anti-vandalisme, vidéosurveillance.">
+    <meta name="twitter:description"
+        content="Protection et sécurisation de vos installations IRVE : anti-vandalisme, vidéosurveillance.">
     <meta name="twitter:image" content="https://jcsm.fr/images/vandalisme.jpg">
-    
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -46,11 +51,12 @@
     <link rel="apple-touch-icon" href="images/logo.png">
     <meta name="apple-mobile-web-app-capable" content="yes">
 
-    
+
 </head>
+
 <body class="text-gray-900">
     <a href="#main-content" class="skip-link">Aller au contenu principal</a>
-    
+
     <div class="preloader" id="preloader">
         <div class="flex flex-col items-center justify-center">
             <img src="images/logo.png" alt="JCSM" width="80" height="80" class="animate-pulse">
@@ -61,92 +67,129 @@
             </div>
         </div>
     </div>
-    
+
     <div class="mobile-menu-overlay" id="mobile-menu-overlay"></div>
     <nav class="mobile-menu" id="mobile-menu">
         <div class="p-8">
             <div class="flex justify-between items-center mb-12">
                 <span class="text-xl font-semibold">Menu</span>
                 <button class="text-gray-600 hover:text-gray-900" id="mobile-menu-close">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M6 18L18 6M6 6l12 12" />
+                    </svg>
                 </button>
             </div>
             <div class="flex flex-col space-y-6">
                 <a href="index.html" class="text-base text-gray-600 hover:text-gray-900 transition-colors">Accueil</a>
-                <a href="pilotage-projets.html" class="text-base text-gray-600 hover:text-gray-900 transition-colors">Pilotage de projets</a>
-                <a href="installation-conformite.html" class="text-base text-gray-600 hover:text-gray-900 transition-colors">Installation</a>
-                <a href="exploitation.html" class="text-base text-gray-600 hover:text-gray-900 transition-colors">Exploitation</a>
+                <a href="pilotage-projets.html"
+                    class="text-base text-gray-600 hover:text-gray-900 transition-colors">Pilotage de projets</a>
+                <a href="installation-conformite.html"
+                    class="text-base text-gray-600 hover:text-gray-900 transition-colors">Installation</a>
+                <a href="exploitation.html"
+                    class="text-base text-gray-600 hover:text-gray-900 transition-colors">Exploitation</a>
                 <a href="securisation-installations.html" class="text-base text-blue-600 font-bold">Sécurisation</a>
-                <a href="centre-appel.html" class="text-base text-gray-600 hover:text-gray-900 transition-colors">Support</a>
-                <a href="a-propos.html" class="text-base text-gray-600 hover:text-gray-900 transition-colors">À propos</a>
-                <a href="index.html#contact" class="btn-primary px-6 py-3 rounded-lg text-base font-medium inline-block text-center mt-4">Contact</a>
+                <a href="centre-appel.html"
+                    class="text-base text-gray-600 hover:text-gray-900 transition-colors">Support</a>
+                <a href="a-propos.html" class="text-base text-gray-600 hover:text-gray-900 transition-colors">À
+                    propos</a>
+                <a href="index.html#contact"
+                    class="btn-primary px-6 py-3 rounded-lg text-base font-medium inline-block text-center mt-4">Contact</a>
             </div>
         </div>
     </nav>
 
-        <!-- Barre de progression de scroll -->
-        <div id="scroll-progress" class="fixed top-0 left-0 h-1 bg-gradient-to-r from-blue-500 to-purple-600 z-[60] transition-all duration-150" style="width: 0%;"></div>
-        
-        <nav class="fixed w-full z-50 glass-nav" role="navigation" aria-label="Navigation principale">
+    <!-- Barre de progression de scroll -->
+    <div id="scroll-progress"
+        class="fixed top-0 left-0 h-1 bg-gradient-to-r from-blue-500 to-purple-600 z-[60] transition-all duration-150"
+        style="width: 0%;"></div>
+
+    <nav class="fixed w-full z-50 glass-nav" role="navigation" aria-label="Navigation principale">
         <div class="max-w-7xl mx-auto px-6 py-4">
-                <div class="flex justify-between items-center">
-                <a href="index.html" class="flex items-center space-x-3 group">
-                    <img src="images/logo.png" alt="JCSM" class="w-9 h-9 transition-transform group-hover:scale-105 duration-300" width="36" height="36">
+            <div class="flex justify-between items-center">
+                <a href="/" class="flex items-center space-x-3 group">
+                    <img src="images/logo.png" alt="JCSM"
+                        class="w-9 h-9 transition-transform group-hover:scale-105 duration-300" width="36" height="36">
                     <span class="text-xl font-bold tracking-tight">JCSM</span>
                 </a>
                 <div class="hidden lg:flex items-center space-x-10">
-                    <a href="index.html" class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300 hover:scale-105">Accueil</a>
-                    <a href="pilotage-projets.html" class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300 hover:scale-105">Pilotage de projets</a>
-                    <a href="installation-conformite.html" class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300 hover:scale-105">Installation</a>
-                    <a href="exploitation.html" class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300 hover:scale-105">Exploitation</a>
-                    <a href="securisation-installations.html" class="text-base font-bold nav-link-active transition-all duration-300">Sécurisation</a>
-                    <a href="centre-appel.html" class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300 hover:scale-105">Support</a>
-                    <a href="a-propos.html" class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300 hover:scale-105">À propos</a>
-                    <a href="index.html#contact" class="btn-primary px-7 py-2.5 rounded-xl text-base font-medium shadow-lg hover:shadow-xl">Contact</a>
-                    </div>
-                <button class="mobile-menu-btn text-gray-600 hover:text-gray-900" id="mobile-menu-btn" aria-label="Ouvrir le menu de navigation" aria-expanded="false">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
-                    </button>
+                    <a href="/"
+                        class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300 hover:scale-105">Accueil</a>
+                    <a href="pilotage-projets"
+                        class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300 hover:scale-105">Pilotage
+                        de projets</a>
+                    <a href="installation-conformite"
+                        class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300 hover:scale-105">Installation</a>
+                    <a href="exploitation"
+                        class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300 hover:scale-105">Exploitation</a>
+                    <a href="securisation-installations"
+                        class="text-base font-bold nav-link-active transition-all duration-300">Sécurisation</a>
+                    <a href="centre-appel"
+                        class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300 hover:scale-105">Support</a>
+                    <a href="a-propos"
+                        class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300 hover:scale-105">À
+                        propos</a>
+                    <a href="/#contact"
+                        class="btn-primary px-7 py-2.5 rounded-xl text-base font-medium shadow-lg hover:shadow-xl">Contact</a>
                 </div>
+                <button class="mobile-menu-btn text-gray-600 hover:text-gray-900" id="mobile-menu-btn"
+                    aria-label="Ouvrir le menu de navigation" aria-expanded="false">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
             </div>
-        </nav>
+        </div>
+    </nav>
 
     <!-- Particules subtiles en arrière-plan -->
     <div class="particles-bg" id="particles-bg"></div>
-    
+
     <main id="main-content" role="main">
         <!-- Hero -->
         <section class="pt-[calc(5rem+0.75rem)] pb-6 px-4 sm:px-6 min-h-[calc(100vh-5rem)] flex items-center">
             <div class="max-w-7xl mx-auto w-full">
-                    <div class="grid lg:grid-cols-2 gap-5 sm:gap-7 lg:gap-10 items-center">
+                <div class="grid lg:grid-cols-2 gap-5 sm:gap-7 lg:gap-10 items-center">
                     <div class="space-y-4 sm:space-y-5 md:space-y-6 order-1 lg:order-1">
-                        <div class="inline-flex items-center space-x-2 bg-gray-100 rounded-full px-3 py-1.5 sm:px-4 sm:py-2 section-appear">
-                            <span class="text-[10px] sm:text-xs font-semibold text-gray-600 uppercase tracking-wide">Sécurisation des Installations</span>
+                        <div
+                            class="inline-flex items-center space-x-2 bg-gray-100 rounded-full px-3 py-1.5 sm:px-4 sm:py-2 section-appear">
+                            <span
+                                class="text-[10px] sm:text-xs font-semibold text-gray-600 uppercase tracking-wide">Sécurisation
+                                des Installations</span>
                         </div>
-                        <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight tracking-tight section-appear">
+                        <h1
+                            class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight tracking-tight section-appear">
                             Protection <span class="gradient-text">maximale</span>
-                            </h1>
+                        </h1>
                         <p class="text-sm sm:text-base md:text-lg text-gray-600 leading-snug section-appear">
-                            Sécurisez vos infrastructures IRVE contre le vandalisme et le vol. Vidéosurveillance, alarmes connectées et intervention rapide 24/7.
+                            Sécurisez vos infrastructures IRVE contre le vandalisme et le vol. Vidéosurveillance,
+                            alarmes connectées et intervention rapide 24/7.
                         </p>
                         <div class="flex flex-wrap gap-2 sm:gap-3 section-appear">
-                            <a href="index.html#contact" class="btn-primary px-4 py-2 sm:px-6 sm:py-3 rounded-xl font-medium text-xs sm:text-sm">
+                            <a href="/#contact"
+                                class="btn-primary px-4 py-2 sm:px-6 sm:py-3 rounded-xl font-medium text-xs sm:text-sm">
                                 Sécuriser mon installation
                             </a>
-                            <a href="#solutions" class="btn-secondary px-4 py-2 sm:px-6 sm:py-3 rounded-xl font-medium text-xs sm:text-sm">
+                            <a href="#solutions"
+                                class="btn-secondary px-4 py-2 sm:px-6 sm:py-3 rounded-xl font-medium text-xs sm:text-sm">
                                 Nos solutions
                             </a>
-                            </div>
                         </div>
+                    </div>
                     <div class="section-appear order-2 lg:order-2 mb-4 lg:mb-0">
-                        <div class="relative w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg mx-auto overflow-hidden rounded-2xl">
-                            <img id="hero-image" src="images/vandalisme.jpg" alt="Sécurisation d'installations IRVE contre vandalisme et vol - Solutions JCSM" class="w-full h-auto max-h-[200px] sm:max-h-[300px] md:max-h-[400px] lg:max-h-[500px] object-cover rounded-2xl image-hover shadow-2xl parallax-image" width="1200" height="800" loading="lazy">
-                        </div>
+                        <div
+                            class="relative w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg mx-auto overflow-hidden rounded-2xl">
+                            <img id="hero-image" src="images/vandalisme.jpg"
+                                alt="Sécurisation d'installations IRVE contre vandalisme et vol - Solutions JCSM"
+                                class="w-full h-auto max-h-[200px] sm:max-h-[300px] md:max-h-[400px] lg:max-h-[500px] object-cover rounded-2xl image-hover shadow-2xl parallax-image"
+                                width="1200" height="800" loading="lazy">
                         </div>
                     </div>
                 </div>
-            </section>
-            
+            </div>
+        </section>
+
         <!-- Threats -->
         <section class="py-20 px-6 bg-white">
             <div class="max-w-7xl mx-auto">
@@ -155,29 +198,37 @@
                         Les Risques Critiques pour Vos Installations
                     </h2>
                     <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                        Vandalismes, vols de câbles et dégradations : protégez vos investissements contre les menaces qui paralysent votre infrastructure et génèrent des pertes financières.
+                        Vandalismes, vols de câbles et dégradations : protégez vos investissements contre les menaces
+                        qui paralysent votre infrastructure et génèrent des pertes financières.
                     </p>
                 </div>
-                
+
                 <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
                     <div class="card-hover bg-white border border-gray-200 rounded-2xl overflow-hidden section-appear">
-                        <img src="images/vandalisme1.jpeg" alt="Vandalisme sur installation IRVE - Dégradations volontaires sur borne de recharge" class="w-full h-64 sm:h-80 md:h-96 object-cover" loading="lazy">
+                        <img src="images/vandalisme1.jpeg"
+                            alt="Vandalisme sur installation IRVE - Dégradations volontaires sur borne de recharge"
+                            class="w-full h-64 sm:h-80 md:h-96 object-cover" loading="lazy">
                         <div class="p-8">
                             <h3 class="text-2xl font-bold mb-3">Vandalisme</h3>
-                            <p class="text-gray-600 leading-relaxed">Dégradations volontaires, graffitis et destructions qui immobilisent vos bornes et génèrent des coûts de réparation élevés.</p>
+                            <p class="text-gray-600 leading-relaxed">Dégradations volontaires, graffitis et destructions
+                                qui immobilisent vos bornes et génèrent des coûts de réparation élevés.</p>
                         </div>
-                         </div>
-                    
+                    </div>
+
                     <div class="card-hover bg-white border border-gray-200 rounded-2xl overflow-hidden section-appear">
-                        <img src="images/coupe.png" alt="Vol de câbles sur installation IRVE - Câbles en cuivre sectionnés" class="w-full h-64 sm:h-80 md:h-96 object-cover" loading="lazy">
+                        <img src="images/coupe.png"
+                            alt="Vol de câbles sur installation IRVE - Câbles en cuivre sectionnés"
+                            class="w-full h-64 sm:h-80 md:h-96 object-cover" loading="lazy">
                         <div class="p-8">
                             <h3 class="text-2xl font-bold mb-3">Vol de Câbles</h3>
-                            <p class="text-gray-600 leading-relaxed">Vols de câbles en cuivre et composants électroniques qui paralysent l'infrastructure et nécessitent des interventions coûteuses.</p>
+                            <p class="text-gray-600 leading-relaxed">Vols de câbles en cuivre et composants
+                                électroniques qui paralysent l'infrastructure et nécessitent des interventions
+                                coûteuses.</p>
                         </div>
-                         </div>
                     </div>
                 </div>
-            </section>
+            </div>
+        </section>
 
         <!-- Solutions -->
         <section id="solutions" class="py-20 px-6">
@@ -185,152 +236,245 @@
                 <div class="text-center mb-20 section-appear">
                     <h2 class="text-5xl md:text-6xl font-bold tracking-tight mb-6">
                         Nos Solutions de Sécurisation Avancées
-                        </h2>
+                    </h2>
                     <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                        Une protection technique complète, intelligente et connectée, adaptée à votre niveau de risque pour garantir la continuité de service de vos installations.
+                        Une protection technique complète, intelligente et connectée, adaptée à votre niveau de risque
+                        pour garantir la continuité de service de vos installations.
                     </p>
                 </div>
-                
+
                 <div class="space-y-8">
                     <!-- Solution 1 -->
                     <div class="card-hover bg-white border border-gray-200 rounded-2xl overflow-hidden section-appear">
                         <div class="grid lg:grid-cols-2 gap-0">
                             <div class="h-64 sm:h-80 md:h-96 lg:h-auto overflow-hidden">
-                                <img src="images/camera.png" alt="Vidéosurveillance intelligente IRVE - Caméras haute définition avec détection de mouvement" class="w-full h-full object-cover" loading="lazy">
+                                <img src="images/camera.png"
+                                    alt="Vidéosurveillance intelligente IRVE - Caméras haute définition avec détection de mouvement"
+                                    class="w-full h-full object-cover" loading="lazy">
                             </div>
                             <div class="p-10 lg:p-12 flex flex-col justify-center">
-                                <div class="w-14 h-14 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center text-white mb-6">
-                                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+                                <div
+                                    class="w-14 h-14 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center text-white mb-6">
+                                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                                    </svg>
                                 </div>
                                 <h3 class="text-3xl font-bold mb-4">Vidéosurveillance Intelligente</h3>
-                                <p class="text-gray-600 leading-relaxed mb-6 text-lg">Caméras haute définition avec vision nocturne et détection de mouvement intelligente.</p>
+                                <p class="text-gray-600 leading-relaxed mb-6 text-lg">Caméras haute définition avec
+                                    vision nocturne et détection de mouvement intelligente.</p>
                                 <ul class="space-y-3 text-gray-600">
                                     <li class="flex items-start">
-                                        <svg class="w-5 h-5 mr-3 text-green-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                                        <svg class="w-5 h-5 mr-3 text-green-600 flex-shrink-0 mt-0.5" fill="none"
+                                            stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M5 13l4 4L19 7" />
+                                        </svg>
                                         <span>Enregistrement cloud sécurisé 24/7</span>
                                     </li>
                                     <li class="flex items-start">
-                                        <svg class="w-5 h-5 mr-3 text-green-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                                        <svg class="w-5 h-5 mr-3 text-green-600 flex-shrink-0 mt-0.5" fill="none"
+                                            stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M5 13l4 4L19 7" />
+                                        </svg>
                                         <span>Alertes temps réel sur intrusion</span>
                                     </li>
                                     <li class="flex items-start">
-                                        <svg class="w-5 h-5 mr-3 text-green-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                                        <svg class="w-5 h-5 mr-3 text-green-600 flex-shrink-0 mt-0.5" fill="none"
+                                            stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M5 13l4 4L19 7" />
+                                        </svg>
                                         <span>Accès à distance depuis smartphone</span>
                                     </li>
                                     <li class="flex items-start">
-                                        <svg class="w-5 h-5 mr-3 text-green-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                                        <svg class="w-5 h-5 mr-3 text-green-600 flex-shrink-0 mt-0.5" fill="none"
+                                            stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M5 13l4 4L19 7" />
+                                        </svg>
                                         <span>Analyse comportementale IA</span>
                                     </li>
                                 </ul>
                             </div>
                         </div>
                     </div>
-                    
+
                     <!-- Solution 2 -->
                     <div class="card-hover bg-white border border-gray-200 rounded-2xl overflow-hidden section-appear">
                         <div class="grid lg:grid-cols-2 gap-0">
                             <div class="h-64 sm:h-80 md:h-96 lg:h-auto overflow-hidden lg:order-2">
-                                <img src="images/alarmecam.jpeg" alt="Alarmes connectées IRVE - Système d'alarme intelligent avec notification instantanée" class="w-full h-full object-cover" loading="lazy">
+                                <img src="images/alarmecam.jpeg"
+                                    alt="Alarmes connectées IRVE - Système d'alarme intelligent avec notification instantanée"
+                                    class="w-full h-full object-cover" loading="lazy">
                             </div>
                             <div class="p-10 lg:p-12 flex flex-col justify-center lg:order-1">
-                                <div class="w-14 h-14 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center text-white mb-6">
-                                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/></svg>
+                                <div
+                                    class="w-14 h-14 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center text-white mb-6">
+                                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+                                    </svg>
                                 </div>
                                 <h3 class="text-3xl font-bold mb-4">Alarmes Connectées</h3>
-                                <p class="text-gray-600 leading-relaxed mb-6 text-lg">Système d'alarme intelligent avec notification instantanée et intervention automatique.</p>
+                                <p class="text-gray-600 leading-relaxed mb-6 text-lg">Système d'alarme intelligent avec
+                                    notification instantanée et intervention automatique.</p>
                                 <ul class="space-y-3 text-gray-600">
                                     <li class="flex items-start">
-                                        <svg class="w-5 h-5 mr-3 text-green-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                                        <svg class="w-5 h-5 mr-3 text-green-600 flex-shrink-0 mt-0.5" fill="none"
+                                            stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M5 13l4 4L19 7" />
+                                        </svg>
                                         <span>Détecteurs de mouvement périmétrique</span>
                                     </li>
                                     <li class="flex items-start">
-                                        <svg class="w-5 h-5 mr-3 text-green-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                                        <svg class="w-5 h-5 mr-3 text-green-600 flex-shrink-0 mt-0.5" fill="none"
+                                            stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M5 13l4 4L19 7" />
+                                        </svg>
                                         <span>Sirène dissuasive et projecteurs LED</span>
                                     </li>
                                     <li class="flex items-start">
-                                        <svg class="w-5 h-5 mr-3 text-green-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                                        <svg class="w-5 h-5 mr-3 text-green-600 flex-shrink-0 mt-0.5" fill="none"
+                                            stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M5 13l4 4L19 7" />
+                                        </svg>
                                         <span>Alertes SMS/Email multiples destinataires</span>
                                     </li>
                                     <li class="flex items-start">
-                                        <svg class="w-5 h-5 mr-3 text-green-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                                        <svg class="w-5 h-5 mr-3 text-green-600 flex-shrink-0 mt-0.5" fill="none"
+                                            stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M5 13l4 4L19 7" />
+                                        </svg>
                                         <span>Liaison automatique forces de l'ordre</span>
                                     </li>
                                 </ul>
                             </div>
                         </div>
                     </div>
-                    
+
                     <!-- Solution 3 -->
                     <div class="card-hover bg-white border border-gray-200 rounded-2xl overflow-hidden section-appear">
                         <div class="grid lg:grid-cols-2 gap-0">
                             <div class="h-64 sm:h-80 md:h-96 lg:h-auto overflow-hidden">
-                                <img src="images/protection.jpg" alt="Protection physique renforcée IRVE - Caissons anti-vandalisme et serrures haute sécurité" class="w-full h-full object-cover" loading="lazy">
+                                <img src="images/protection.jpg"
+                                    alt="Protection physique renforcée IRVE - Caissons anti-vandalisme et serrures haute sécurité"
+                                    class="w-full h-full object-cover" loading="lazy">
                             </div>
                             <div class="p-10 lg:p-12 flex flex-col justify-center">
-                                <div class="w-14 h-14 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center text-white mb-6">
-                                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                                <div
+                                    class="w-14 h-14 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center text-white mb-6">
+                                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                                    </svg>
                                 </div>
                                 <h3 class="text-3xl font-bold mb-4">Protection Physique Renforcée</h3>
-                                <p class="text-gray-600 leading-relaxed mb-6 text-lg">Blindages et protections mécaniques anti-effraction pour vos équipements.</p>
+                                <p class="text-gray-600 leading-relaxed mb-6 text-lg">Blindages et protections
+                                    mécaniques anti-effraction pour vos équipements.</p>
                                 <ul class="space-y-3 text-gray-600">
                                     <li class="flex items-start">
-                                        <svg class="w-5 h-5 mr-3 text-green-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                                        <svg class="w-5 h-5 mr-3 text-green-600 flex-shrink-0 mt-0.5" fill="none"
+                                            stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M5 13l4 4L19 7" />
+                                        </svg>
                                         <span>Caissons renforcés anti-vandalisme</span>
                                     </li>
                                     <li class="flex items-start">
-                                        <svg class="w-5 h-5 mr-3 text-green-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                                        <svg class="w-5 h-5 mr-3 text-green-600 flex-shrink-0 mt-0.5" fill="none"
+                                            stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M5 13l4 4L19 7" />
+                                        </svg>
                                         <span>Câbles blindés anti-coupure</span>
                                     </li>
                                     <li class="flex items-start">
-                                        <svg class="w-5 h-5 mr-3 text-green-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                                        <svg class="w-5 h-5 mr-3 text-green-600 flex-shrink-0 mt-0.5" fill="none"
+                                            stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M5 13l4 4L19 7" />
+                                        </svg>
                                         <span>Serrures haute sécurité</span>
                                     </li>
                                     <li class="flex items-start">
-                                        <svg class="w-5 h-5 mr-3 text-green-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                                        <svg class="w-5 h-5 mr-3 text-green-600 flex-shrink-0 mt-0.5" fill="none"
+                                            stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M5 13l4 4L19 7" />
+                                        </svg>
                                         <span>Ancrages béton ultra-résistants</span>
                                     </li>
                                 </ul>
                             </div>
                         </div>
                     </div>
-                    
+
                     <!-- Solution 4 -->
                     <div class="card-hover bg-white border border-gray-200 rounded-2xl overflow-hidden section-appear">
                         <div class="grid lg:grid-cols-2 gap-0">
                             <div class="h-40 sm:h-48 lg:h-auto overflow-hidden lg:order-2">
-                                <img src="images/maintenance.jpeg" alt="Intervention rapide 24/7 IRVE - Technicien certifié JCSM en intervention d'urgence" class="w-full h-full object-cover" loading="lazy">
+                                <img src="images/maintenance.jpeg"
+                                    alt="Intervention rapide 24/7 IRVE - Technicien certifié JCSM en intervention d'urgence"
+                                    class="w-full h-full object-cover" loading="lazy">
                             </div>
                             <div class="p-10 lg:p-12 flex flex-col justify-center lg:order-1">
-                                <div class="w-14 h-14 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center text-white mb-6">
-                                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                                <div
+                                    class="w-14 h-14 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center text-white mb-6">
+                                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M13 10V3L4 14h7v7l9-11h-7z" />
+                                    </svg>
                                 </div>
                                 <h3 class="text-3xl font-bold mb-4">Intervention Rapide 24/7</h3>
-                                <p class="text-gray-600 leading-relaxed mb-6 text-lg">Service de télésurveillance et intervention sécurisée en cas d'alerte.</p>
+                                <p class="text-gray-600 leading-relaxed mb-6 text-lg">Service de télésurveillance et
+                                    intervention sécurisée en cas d'alerte.</p>
                                 <ul class="space-y-3 text-gray-600">
                                     <li class="flex items-start">
-                                        <svg class="w-5 h-5 mr-3 text-green-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                                        <svg class="w-5 h-5 mr-3 text-green-600 flex-shrink-0 mt-0.5" fill="none"
+                                            stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M5 13l4 4L19 7" />
+                                        </svg>
                                         <span>Centre de télésurveillance 24/7</span>
                                     </li>
                                     <li class="flex items-start">
-                                        <svg class="w-5 h-5 mr-3 text-green-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                                        <svg class="w-5 h-5 mr-3 text-green-600 flex-shrink-0 mt-0.5" fill="none"
+                                            stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M5 13l4 4L19 7" />
+                                        </svg>
                                         <span>Levée de doute vidéo instantanée</span>
                                     </li>
                                     <li class="flex items-start">
-                                        <svg class="w-5 h-5 mr-3 text-green-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                                        <svg class="w-5 h-5 mr-3 text-green-600 flex-shrink-0 mt-0.5" fill="none"
+                                            stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M5 13l4 4L19 7" />
+                                        </svg>
                                         <span>Intervention agents de sécurité &lt; 15 min</span>
                                     </li>
                                     <li class="flex items-start">
-                                        <svg class="w-5 h-5 mr-3 text-green-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                                        <svg class="w-5 h-5 mr-3 text-green-600 flex-shrink-0 mt-0.5" fill="none"
+                                            stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M5 13l4 4L19 7" />
+                                        </svg>
                                         <span>Rapport détaillé post-incident</span>
                                     </li>
                                 </ul>
                             </div>
-                            </div>
                         </div>
                     </div>
                 </div>
-            </section>
-            
+            </div>
+        </section>
+
         <!-- CTA -->
         <section class="py-20 px-6 bg-white">
             <div class="max-w-4xl mx-auto text-center section-appear">
@@ -338,70 +482,93 @@
                     Sécurisez Vos Installations Maintenant
                 </h2>
                 <p class="text-xl text-gray-600 mb-10 leading-relaxed max-w-3xl mx-auto">
-                    Bénéficiez d'un audit de vulnérabilité gratuit et découvrez comment protéger efficacement votre infrastructure contre les risques critiques.
+                    Bénéficiez d'un audit de vulnérabilité gratuit et découvrez comment protéger efficacement votre
+                    infrastructure contre les risques critiques.
                 </p>
-                <a href="index.html#contact" class="btn-primary px-10 py-5 rounded-xl font-medium text-lg inline-block hover:scale-105 transition-transform">
+                <a href="/#contact"
+                    class="btn-primary px-10 py-5 rounded-xl font-medium text-lg inline-block hover:scale-105 transition-transform">
                     Demander un Audit Gratuit
                 </a>
-                </div>
-            </section>
-        </main>
+            </div>
+        </section>
+    </main>
 
     <footer class="border-t border-gray-200 py-20 px-6" role="contentinfo" aria-label="Pied de page">
         <div class="max-w-7xl mx-auto">
-                <div class="grid md:grid-cols-4 gap-12 mb-12">
+            <div class="grid md:grid-cols-4 gap-12 mb-12">
                 <div>
                     <div class="flex items-center space-x-2 mb-6">
                         <img src="images/logo.png" alt="JCSM" class="w-8 h-8" width="32" height="32">
                         <span class="text-lg font-semibold">JCSM</span>
-                        </div>
-                    <p class="text-sm text-gray-600 mb-4 font-medium">Dans l'IRVE depuis 2018</p>
-                        <p class="text-sm text-gray-600">60, rue François 1er<br>75008 Paris</p>
-                    <p class="mt-4 text-sm"><a href="mailto:contact@jcsm.fr" class="text-gray-900 font-medium hover:underline">contact@jcsm.fr</a></p>
                     </div>
-                    <div>
+                    <p class="text-sm text-gray-600 mb-4 font-medium">Dans l'IRVE depuis 2018</p>
+                    <p class="text-sm text-gray-600">60, rue François 1er<br>75008 Paris</p>
+                    <p class="mt-4 text-sm"><a href="mailto:contact@jcsm.fr"
+                            class="text-gray-900 font-medium hover:underline">contact@jcsm.fr</a></p>
+                </div>
+                <div>
                     <h3 class="text-sm font-semibold mb-4 uppercase tracking-wide">Services</h3>
                     <ul class="space-y-3">
-                        <li><a href="pilotage-projets.html" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Pilotage</a></li>
-                        <li><a href="installation-conformite.html" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Installation</a></li>
-                        <li><a href="exploitation.html" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Exploitation</a></li>
-                        <li><a href="securisation-installations.html" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Sécurisation</a></li>
-                        <li><a href="centre-appel.html" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Support</a></li>
-                        </ul>
-                    </div>
-                    <div>
+                        <li><a href="pilotage-projets"
+                                class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Pilotage</a></li>
+                        <li><a href="installation-conformite"
+                                class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Installation</a>
+                        </li>
+                        <li><a href="exploitation"
+                                class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Exploitation</a>
+                        </li>
+                        <li><a href="securisation-installations"
+                                class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Sécurisation</a>
+                        </li>
+                        <li><a href="centre-appel"
+                                class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Support</a></li>
+                    </ul>
+                </div>
+                <div>
                     <h3 class="text-sm font-semibold mb-4 uppercase tracking-wide">Entreprise</h3>
                     <ul class="space-y-3">
-                        <li><a href="a-propos.html" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">À propos</a></li>
-                        <li><a href="index.html#contact" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Contact</a></li>
-                        <li><a href="mentions-legales.html" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Mentions légales</a></li>
-                        <li><a href="confidentialite.html" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Confidentialité</a></li>
-                        </ul>
-                    </div>
-                    <div>
-                    <h3 class="text-sm font-semibold mb-4 uppercase tracking-wide">Suivez-nous</h3>
-                    <a href="https://www.linkedin.com/company/jcsmelec/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-sm text-gray-600 hover:text-gray-900 transition-colors group">
-                            <svg class="w-5 h-5 mr-2 group-hover:scale-110 transition-transform" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                            </svg>
-                        <span class="font-medium">LinkedIn</span>
-                        </a>
-                    </div>
+                        <li><a href="a-propos" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">À
+                                propos</a></li>
+                        <li><a href="/#contact"
+                                class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Contact</a></li>
+                        <li><a href="mentions-legales.html"
+                                class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Mentions légales</a>
+                        </li>
+                        <li><a href="confidentialite.html"
+                                class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Confidentialité</a>
+                        </li>
+                    </ul>
                 </div>
-                <div class="pt-8 border-t border-gray-200 text-center">
-                <p class="text-sm text-gray-500">© 2025 JCSM. Tous droits réservés.</p>
+                <div>
+                    <h3 class="text-sm font-semibold mb-4 uppercase tracking-wide">Suivez-nous</h3>
+                    <a href="https://www.linkedin.com/company/jcsmelec/" target="_blank" rel="noopener noreferrer"
+                        class="inline-flex items-center text-sm text-gray-600 hover:text-gray-900 transition-colors group">
+                        <svg class="w-5 h-5 mr-2 group-hover:scale-110 transition-transform" fill="currentColor"
+                            viewBox="0 0 24 24">
+                            <path
+                                d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                        </svg>
+                        <span class="font-medium">LinkedIn</span>
+                    </a>
                 </div>
             </div>
-        </footer>
+            <div class="pt-8 border-t border-gray-200 text-center">
+                <p class="text-sm text-gray-500">© 2025 JCSM. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
 
-    
-    
+
+
 
     <script src="js/utils.js"></script>
     <script src="js/public.js"></script>
     <script src="js/analytics.js" defer></script>
     <script src="js/wow-effects.js"></script>
-    
-    <script src="animations.js" defer></script>
+    <script>
+        const heroImg = document.getElementById('hero-image');
+        if (heroImg) heroImg.setAttribute('fetchpriority', 'high');
+    </script>
 </body>
+
 </html>

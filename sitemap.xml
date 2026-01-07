@@ -2,61 +2,61 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://jcsm.fr/</loc>
-    <lastmod>2025-01-04</lastmod>
+    <lastmod>2025-01-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://jcsm.fr/pilotage-projets.html</loc>
-    <lastmod>2025-01-04</lastmod>
+    <loc>https://jcsm.fr/pilotage-projets</loc>
+    <lastmod>2025-01-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://jcsm.fr/installation-conformite.html</loc>
-    <lastmod>2025-01-04</lastmod>
+    <loc>https://jcsm.fr/installation-conformite</loc>
+    <lastmod>2025-01-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://jcsm.fr/exploitation.html</loc>
-    <lastmod>2025-01-04</lastmod>
+    <loc>https://jcsm.fr/exploitation</loc>
+    <lastmod>2025-01-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://jcsm.fr/securisation-installations.html</loc>
-    <lastmod>2025-01-04</lastmod>
+    <loc>https://jcsm.fr/securisation-installations</loc>
+    <lastmod>2025-01-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://jcsm.fr/centre-appel.html</loc>
-    <lastmod>2025-01-04</lastmod>
+    <loc>https://jcsm.fr/centre-appel</loc>
+    <lastmod>2025-01-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://jcsm.fr/a-propos.html</loc>
-    <lastmod>2025-01-04</lastmod>
+    <loc>https://jcsm.fr/a-propos</loc>
+    <lastmod>2025-01-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://jcsm.fr/mentions-legales.html</loc>
-    <lastmod>2025-01-04</lastmod>
+    <loc>https://jcsm.fr/mentions-legales</loc>
+    <lastmod>2025-01-07</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://jcsm.fr/confidentialite.html</loc>
-    <lastmod>2025-01-04</lastmod>
+    <loc>https://jcsm.fr/confidentialite</loc>
+    <lastmod>2025-01-07</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://jcsm.fr/cgv.html</loc>
-    <lastmod>2025-01-04</lastmod>
+    <loc>https://jcsm.fr/cgv</loc>
+    <lastmod>2025-01-07</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
