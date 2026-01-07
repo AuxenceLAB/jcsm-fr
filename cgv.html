@@ -1,261 +1,331 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" class="js-enabled">
 
 <head>
     <base target="_self">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JCSM - Conditions Générales de Vente</title>
-    <meta name="description" content="Conditions Générales de Vente de JCSM, spécialiste du support technique IRVE.">
+    <title>Conditions Générales de Vente | JCSM</title>
+    <meta name="description" content="Conditions Générales de Vente de JCSM.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://jcsm.fr/cgv.html">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="icon" type="image/png" href="images/logo.png">
-    <link rel="manifest" href="manifest.json">
-    <link rel="stylesheet" href="styles.css">
 
+    <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
+            darkMode: 'class',
             theme: {
                 extend: {
                     colors: {
-                        primary: "#0f172a",
-                        secondary: "#1e293b",
-                        accent: "#3b82f6",
-                        premium: "#BCC6CC"
-                    },
-                    fontFamily: {
-                        'luxury': ['Playfair Display', 'serif'],
-                        'modern': ['Inter', 'sans-serif']
+                        primary: '#0070F3',
+                        secondary: '#7928CA',
                     }
                 }
             }
         }
     </script>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/png" href="images/logo.png">
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="images/logo.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
 </head>
 
-<body class="gradient-bg text-white font-modern">
-    <!-- Navigation -->
-    <nav class="fixed w-full z-50 glass-effect">
-        <div class="container mx-auto px-6 py-4">
+<body class="text-gray-900">
+    <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+
+    <div class="mobile-menu-overlay" id="mobile-menu-overlay"></div>
+    <nav class="mobile-menu" id="mobile-menu">
+        <div class="p-8">
+            <div class="flex justify-between items-center mb-12">
+                <span class="text-xl font-semibold">Menu</span>
+                <button class="text-gray-600 hover:text-gray-900" id="mobile-menu-close">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+            <div class="flex flex-col space-y-6">
+                <a href="index.html" class="text-base text-gray-600 hover:text-gray-900 transition-colors">Accueil</a>
+                <a href="pilotage-projets.html"
+                    class="text-base text-gray-600 hover:text-gray-900 transition-colors">Pilotage de projets</a>
+                <a href="installation-conformite.html"
+                    class="text-base text-gray-600 hover:text-gray-900 transition-colors">Installation</a>
+                <a href="exploitation.html"
+                    class="text-base text-gray-600 hover:text-gray-900 transition-colors">Exploitation</a>
+                <a href="securisation-installations.html"
+                    class="text-base text-gray-600 hover:text-gray-900 transition-colors">Sécurisation</a>
+                <a href="centre-appel.html"
+                    class="text-base text-gray-600 hover:text-gray-900 transition-colors">Support</a>
+                <a href="a-propos.html" class="text-base text-gray-600 hover:text-gray-900 transition-colors">À
+                    propos</a>
+                <a href="index.html#contact"
+                    class="btn-primary px-6 py-3 rounded-lg text-base font-medium inline-block text-center mt-4">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Barre de progression de scroll -->
+    <div id="scroll-progress"
+        class="fixed top-0 left-0 h-1 bg-gradient-to-r from-blue-500 to-purple-600 z-[60] transition-all duration-150"
+        style="width: 0%;"></div>
+
+    <nav class="fixed w-full z-50 glass-nav" role="navigation" aria-label="Navigation principale">
+        <div class="max-w-7xl mx-auto px-6 py-4">
             <div class="flex justify-between items-center">
                 <a href="index.html" class="flex items-center space-x-3 group">
-                    <img src="images/logo.png" alt="JCSM"
-                        class="w-9 h-9 transition-transform group-hover:scale-105 duration-300" width="36" height="36">
+                    <img src="images/logo.png" alt="Logo JCSM"
+                        class="w-9 h-9 transition-transform group-hover:scale-105 duration-300" loading="lazy"
+                        width="36" height="36">
                     <span class="text-xl font-bold tracking-tight">JCSM</span>
                 </a>
                 <div class="hidden lg:flex items-center space-x-10">
                     <a href="index.html"
                         class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300 hover:scale-105">Accueil</a>
                     <a href="pilotage-projets.html"
-                        class="text-base text-gray-600 hover:text-gray-900 transition-colors font-medium hover:scale-105 active:scale-95 duration-200">Pilotage
+                        class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300 hover:scale-105">Pilotage
                         de projets</a>
                     <a href="installation-conformite.html"
-                        class="text-base text-gray-600 hover:text-gray-900 transition-colors font-medium hover:scale-105 active:scale-95 duration-200">Installation</a>
+                        class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300 hover:scale-105">Installation</a>
                     <a href="exploitation.html"
-                        class="text-base text-gray-600 hover:text-gray-900 transition-colors font-medium hover:scale-105 active:scale-95 duration-200">Exploitation</a>
+                        class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300 hover:scale-105">Exploitation</a>
                     <a href="securisation-installations.html"
-                        class="text-base text-gray-600 hover:text-gray-900 transition-colors font-medium hover:scale-105 active:scale-95 duration-200">Sécurisation</a>
+                        class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300 hover:scale-105">Sécurisation</a>
                     <a href="centre-appel.html"
-                        class="text-base text-gray-600 hover:text-gray-900 transition-colors font-medium hover:scale-105 active:scale-95 duration-200">Support</a>
+                        class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300 hover:scale-105">Support</a>
                     <a href="a-propos.html"
-                        class="text-base text-gray-600 hover:text-gray-900 transition-colors font-medium hover:scale-105 active:scale-95 duration-200">À
+                        class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300 hover:scale-105">À
                         propos</a>
-                    <a href="index.html#contact" data-magnetic
+                    <a href="index.html#contact"
                         class="btn-primary px-7 py-2.5 rounded-xl text-base font-medium shadow-lg hover:shadow-xl">Contact</a>
                 </div>
+                <button class="mobile-menu-btn text-gray-600 hover:text-gray-900" id="mobile-menu-btn"
+                    aria-label="Ouvrir le menu de navigation" aria-expanded="false">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
             </div>
         </div>
     </nav>
 
-    <!-- Main Content -->
-    <main class="pt-24 pb-12">
-        <div class="container mx-auto px-6 max-w-4xl">
-            <div class="glass-effect p-8 rounded-2xl">
-                <h1 class="text-4xl font-luxury font-bold mb-8">Conditions Générales de Vente</h1>
+    <div class="particles-bg" id="particles-bg"></div>
 
-                <div class="space-y-8 text-premium">
-                    <section>
-                        <h2 class="text-2xl font-bold text-white mb-4">Article 1 - Objet</h2>
-                        <p>Les présentes conditions générales de vente (CGV) régissent les relations contractuelles
-                            entre JCSM et ses clients dans le cadre de la fourniture de services de support technique
-                            IRVE, incluant le support client 24/7 et les interventions sur site.</p>
-                    </section>
+    <main id="main-content" class="pt-32 pb-20 px-6">
+        <div class="max-w-4xl mx-auto bg-white rounded-2xl shadow-xl p-8 md:p-12 border border-gray-100 section-appear">
+            <h1 class="text-4xl md:text-5xl font-bold mb-12 text-center tracking-tight">Conditions Générales de Vente
+            </h1>
 
-                    <section>
-                        <h2 class="text-2xl font-bold text-white mb-4">Article 2 - Acceptation des conditions</h2>
-                        <p>Toute commande de services implique l'acceptation pleine et entière des présentes CGV. Le
-                            client reconnaît avoir pris connaissance des présentes CGV et les accepter sans réserve.</p>
-                    </section>
+            <div class="space-y-10 text-gray-600">
+                <section>
+                    <h2 class="text-2xl font-bold text-gray-900 mb-4">Article 1 - Objet</h2>
+                    <p class="leading-relaxed">Les présentes conditions générales de vente (CGV) régissent les relations
+                        contractuelles
+                        entre JCSM et ses clients dans le cadre de la fourniture de services de support technique
+                        IRVE, incluant le support client 24/7 et les interventions sur site.</p>
+                </section>
 
-                    <section>
-                        <h2 class="text-2xl font-bold text-white mb-4">Article 3 - Services proposés</h2>
-                        <div class="space-y-4">
-                            <h3 class="text-xl font-semibold text-white">3.1 Support client IRVE</h3>
-                            <ul class="list-disc list-inside space-y-2 ml-4">
+                <section>
+                    <h2 class="text-2xl font-bold text-gray-900 mb-4">Article 2 - Acceptation des conditions</h2>
+                    <p class="leading-relaxed">Toute commande de services implique l'acceptation pleine et entière des
+                        présentes CGV. Le
+                        client reconnaît avoir pris connaissance des présentes CGV et les accepter sans réserve.</p>
+                </section>
+
+                <section>
+                    <h2 class="text-2xl font-bold text-gray-900 mb-4">Article 3 - Services proposés</h2>
+                    <div class="space-y-6">
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-900 mb-2">3.1 Support client IRVE</h3>
+                            <ul class="list-disc list-inside space-y-1 ml-4 text-gray-600">
                                 <li>Prise en charge des appels et emails en marque blanche</li>
                                 <li>Diagnostic niveau 1 et 2</li>
                                 <li>Escalade automatique vers maintenance</li>
                                 <li>Suivi qualité et rapports détaillés</li>
                             </ul>
+                        </div>
 
-                            <h3 class="text-xl font-semibold text-white">3.2 Interventions sur site</h3>
-                            <ul class="list-disc list-inside space-y-2 ml-4">
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-900 mb-2">3.2 Interventions sur site</h3>
+                            <ul class="list-disc list-inside space-y-1 ml-4 text-gray-600">
                                 <li>Mise en service AC/DC</li>
                                 <li>Maintenance préventive et curative</li>
                                 <li>Vérification de conformité</li>
                                 <li>Rapport d'intervention détaillé</li>
                             </ul>
                         </div>
-                    </section>
-
-                    <section>
-                        <h2 class="text-2xl font-bold text-white mb-4">Article 4 - Commandes</h2>
-                        <p>Les commandes peuvent être passées par téléphone au 07 56 96 27 58 ou par email à
-                            contact@jcsm.fr. Toute commande fait l'objet d'un accusé de réception et d'une confirmation
-                            écrite précisant les modalités d'exécution.</p>
-                    </section>
-
-                    <section>
-                        <h2 class="text-2xl font-bold text-white mb-4">Article 5 - Prix et facturation</h2>
-                        <p>Les prix sont exprimés en euros hors taxes. Ils s'entendent départ de nos locaux. Les prix
-                            peuvent être révisés à tout moment mais les services commandés sont facturés sur la base des
-                            tarifs en vigueur au moment de la commande.</p>
-                        <p>La facturation intervient selon les modalités convenues contractuellement. Les factures sont
-                            payables à réception, sauf conditions particulières convenues par écrit.</p>
-                    </section>
-
-                    <section>
-                        <h2 class="text-2xl font-bold text-white mb-4">Article 6 - Délais d'intervention</h2>
-                        <p>Les délais d'intervention sont donnés à titre indicatif. JCSM s'engage à respecter les délais
-                            convenus, notamment :</p>
-                        <ul class="list-disc list-inside space-y-2 ml-4">
-                            <li>Support client : disponibilité 24/7</li>
-                            <li>Interventions d'urgence : 4h maximum</li>
-                            <li>Interventions programmées : selon planning convenu</li>
-                        </ul>
-                    </section>
-
-                    <section>
-                        <h2 class="text-2xl font-bold text-white mb-4">Article 7 - Obligations du client</h2>
-                        <p>Le client s'engage à :</p>
-                        <ul class="list-disc list-inside space-y-2 ml-4">
-                            <li>Fournir toutes les informations nécessaires à la bonne exécution des services</li>
-                            <li>Permettre l'accès aux installations dans les conditions de sécurité requises</li>
-                            <li>Respecter les délais de paiement convenus</li>
-                            <li>Signaler tout dysfonctionnement dans les meilleurs délais</li>
-                        </ul>
-                    </section>
-
-                    <section>
-                        <h2 class="text-2xl font-bold text-white mb-4">Article 8 - Garanties et responsabilité</h2>
-                        <p>JCSM garantit la conformité de ses services aux spécifications convenues. La responsabilité
-                            de JCSM est limitée au montant des services facturés. JCSM ne saurait être tenue responsable
-                            des dommages indirects ou immatériels.</p>
-                    </section>
-
-                    <section>
-                        <h2 class="text-2xl font-bold text-white mb-4">Article 9 - Force majeure</h2>
-                        <p>JCSM ne saurait être tenue responsable de l'inexécution de ses obligations du fait
-                            d'événements de force majeure tels que définis par la jurisprudence française.</p>
-                    </section>
-
-                    <section>
-                        <h2 class="text-2xl font-bold text-white mb-4">Article 10 - Confidentialité</h2>
-                        <p>JCSM s'engage à préserver la confidentialité de toutes les informations qui lui sont
-                            communiquées dans le cadre de l'exécution des services. Cette obligation de confidentialité
-                            demeure après la fin du contrat.</p>
-                    </section>
-
-                    <section>
-                        <h2 class="text-2xl font-bold text-white mb-4">Article 11 - Résiliation</h2>
-                        <p>Le contrat peut être résilié par l'une ou l'autre des parties moyennant un préavis de 30
-                            jours, sauf cas de force majeure ou de manquement grave aux obligations contractuelles.</p>
-                    </section>
-
-                    <section>
-                        <h2 class="text-2xl font-bold text-white mb-4">Article 12 - Droit applicable et juridiction</h2>
-                        <p>Les présentes CGV sont soumises au droit français. En cas de litige, et après tentative de
-                            résolution amiable, les tribunaux français seront seuls compétents.</p>
-                    </section>
-
-                    <section>
-                        <h2 class="text-2xl font-bold text-white mb-4">Article 13 - Modification des CGV</h2>
-                        <p>JCSM se réserve le droit de modifier les présentes CGV à tout moment. Les nouvelles
-                            conditions seront applicables dès leur mise en ligne sur le site internet.</p>
-                    </section>
-
-                    <div class="mt-8 p-4 bg-blue-900/20 rounded-lg">
-                        <p class="text-sm"><strong>Date de dernière mise à jour :</strong> Janvier 2025</p>
                     </div>
+                </section>
+
+                <section>
+                    <h2 class="text-2xl font-bold text-gray-900 mb-4">Article 4 - Commandes</h2>
+                    <p class="leading-relaxed">Les commandes peuvent être passées par téléphone au 07 56 96 27 58 ou par
+                        email à
+                        contact@jcsm.fr. Toute commande fait l'objet d'un accusé de réception et d'une confirmation
+                        écrite précisant les modalités d'exécution.</p>
+                </section>
+
+                <section>
+                    <h2 class="text-2xl font-bold text-gray-900 mb-4">Article 5 - Prix et facturation</h2>
+                    <p class="mb-2 leading-relaxed">Les prix sont exprimés en euros hors taxes. Ils s'entendent départ
+                        de nos locaux. Les prix
+                        peuvent être révisés à tout moment mais les services commandés sont facturés sur la base des
+                        tarifs en vigueur au moment de la commande.</p>
+                    <p class="leading-relaxed">La facturation intervient selon les modalités convenues
+                        contractuellement. Les factures sont
+                        payables à réception, sauf conditions particulières convenues par écrit.</p>
+                </section>
+
+                <section>
+                    <h2 class="text-2xl font-bold text-gray-900 mb-4">Article 6 - Délais d'intervention</h2>
+                    <p class="mb-2 leading-relaxed">Les délais d'intervention sont donnés à titre indicatif. JCSM
+                        s'engage à respecter les délais
+                        convenus, notamment :</p>
+                    <ul class="list-disc list-inside space-y-1 ml-4 text-gray-600">
+                        <li>Support client : disponibilité 24/7</li>
+                        <li>Interventions d'urgence : 4h maximum</li>
+                        <li>Interventions programmées : selon planning convenu</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2 class="text-2xl font-bold text-gray-900 mb-4">Article 7 - Obligations du client</h2>
+                    <p class="mb-2 leading-relaxed">Le client s'engage à :</p>
+                    <ul class="list-disc list-inside space-y-1 ml-4 text-gray-600">
+                        <li>Fournir toutes les informations nécessaires à la bonne exécution des services</li>
+                        <li>Permettre l'accès aux installations dans les conditions de sécurité requises</li>
+                        <li>Respecter les délais de paiement convenus</li>
+                        <li>Signaler tout dysfonctionnement dans les meilleurs délais</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2 class="text-2xl font-bold text-gray-900 mb-4">Article 8 - Garanties et responsabilité</h2>
+                    <p class="leading-relaxed">JCSM garantit la conformité de ses services aux spécifications convenues.
+                        La responsabilité
+                        de JCSM est limitée au montant des services facturés. JCSM ne saurait être tenue responsable
+                        des dommages indirects ou immatériels.</p>
+                </section>
+
+                <section>
+                    <h2 class="text-2xl font-bold text-gray-900 mb-4">Article 9 - Force majeure</h2>
+                    <p class="leading-relaxed">JCSM ne saurait être tenue responsable de l'inexécution de ses
+                        obligations du fait
+                        d'événements de force majeure tels que définis par la jurisprudence française.</p>
+                </section>
+
+                <section>
+                    <h2 class="text-2xl font-bold text-gray-900 mb-4">Article 10 - Confidentialité</h2>
+                    <p class="leading-relaxed">JCSM s'engage à préserver la confidentialité de toutes les informations
+                        qui lui sont
+                        communiquées dans le cadre de l'exécution des services. Cette obligation de confidentialité
+                        demeure après la fin du contrat.</p>
+                </section>
+
+                <section>
+                    <h2 class="text-2xl font-bold text-gray-900 mb-4">Article 11 - Résiliation</h2>
+                    <p class="leading-relaxed">Le contrat peut être résilié par l'une ou l'autre des parties moyennant
+                        un préavis de 30
+                        jours, sauf cas de force majeure ou de manquement grave aux obligations contractuelles.</p>
+                </section>
+
+                <section>
+                    <h2 class="text-2xl font-bold text-gray-900 mb-4">Article 12 - Droit applicable et juridiction</h2>
+                    <p class="leading-relaxed">Les présentes CGV sont soumises au droit français. En cas de litige, et
+                        après tentative de
+                        résolution amiable, les tribunaux français seront seuls compétents.</p>
+                </section>
+
+                <section>
+                    <h2 class="text-2xl font-bold text-gray-900 mb-4">Article 13 - Modification des CGV</h2>
+                    <p class="leading-relaxed">JCSM se réserve le droit de modifier les présentes CGV à tout moment. Les
+                        nouvelles
+                        conditions seront applicables dès leur mise en ligne sur le site internet.</p>
+                </section>
+
+                <div class="mt-12 p-6 bg-gray-50 rounded-xl border border-gray-100">
+                    <p class="text-sm font-medium text-gray-500">Dernière mise à jour : Janvier 2025</p>
                 </div>
             </div>
         </div>
     </main>
 
-    <!-- Footer -->
-    <footer class="bg-slate-900 py-12">
-        <div class="container mx-auto px-6">
-            <div class="grid md:grid-cols-4 gap-8">
+    <footer class="border-t border-gray-200 py-20 px-6" role="contentinfo" aria-label="Pied de page">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid md:grid-cols-4 gap-12 mb-12">
                 <div>
-                    <div class="flex items-center space-x-3 mb-4">
-                        <div
-                            class="w-10 h-10 bg-gradient-to-r from-blue-500 to-blue-600 rounded-lg flex items-center justify-center">
-                            <span class="text-white font-bold text-xl">J</span>
-                        </div>
-                        <span class="text-2xl font-luxury font-bold">JCSM</span>
+                    <div class="flex items-center space-x-2 mb-6">
+                        <img src="images/logo.png" alt="Logo JCSM" class="w-8 h-8" loading="lazy" width="32"
+                            height="32">
+                        <span class="text-lg font-semibold">JCSM</span>
                     </div>
-                    <p class="text-premium">Support technique IRVE premium</p>
+                    <p class="text-sm text-gray-600 mb-4 font-medium">Dans l'IRVE depuis 2018</p>
+                    <p class="text-sm text-gray-600">60, rue François 1er<br>75008 Paris</p>
+                    <p class="mt-4 text-sm"><a href="mailto:contact@jcsm.fr"
+                            class="text-gray-900 font-medium hover:underline">contact@jcsm.fr</a></p>
                 </div>
-
                 <div>
-                    <h4 class="font-semibold mb-4">Services</h4>
-                    <ul class="space-y-2 text-premium">
-                        <li><a href="centre-appel.html" class="hover:text-blue-400">Support Client</a></li>
-                        <li><a href="interne.html" class="hover:text-blue-400">Interventions</a></li>
+                    <h3 class="text-sm font-semibold mb-4 uppercase tracking-wide">Services</h3>
+                    <ul class="space-y-3">
+                        <li><a href="pilotage-projets.html"
+                                class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Pilotage</a></li>
+                        <li><a href="installation-conformite.html"
+                                class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Installation</a>
+                        </li>
+                        <li><a href="exploitation.html"
+                                class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Exploitation</a>
+                        </li>
+                        <li><a href="securisation-installations.html"
+                                class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Sécurisation</a>
+                        </li>
+                        <li><a href="centre-appel.html"
+                                class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Support</a></li>
                     </ul>
                 </div>
-
                 <div>
-                    <h4 class="font-semibold mb-4">Contact</h4>
-                    <ul class="space-y-2 text-premium">
-                        <li>07 56 96 27 58</li>
-                        <li>contact@jcsm.fr</li>
+                    <h3 class="text-sm font-semibold mb-4 uppercase tracking-wide">Entreprise</h3>
+                    <ul class="space-y-3">
+                        <li><a href="a-propos.html"
+                                class="text-sm text-gray-600 hover:text-gray-900 transition-colors">À propos</a></li>
+                        <li><a href="index.html#contact"
+                                class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Contact</a></li>
+                        <li><a href="mentions-legales.html"
+                                class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Mentions légales</a>
+                        </li>
+                        <li><a href="confidentialite.html"
+                                class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Confidentialité</a>
+                        </li>
                     </ul>
                 </div>
-
                 <div>
-                    <h4 class="font-semibold mb-4">Légal</h4>
-                    <ul class="space-y-2 text-premium">
-                        <li><a href="mentions-legales.html" class="hover:text-blue-400">Mentions légales</a></li>
-                        <li><a href="cgv.html" class="text-white font-semibold">CGV</a></li>
-                        <li><a href="confidentialite.html" class="hover:text-blue-400">Confidentialité</a></li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="border-t border-white/10 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
-                <p class="text-premium">© 2025 JCSM SAS - Tous droits réservés.</p>
-                <div class="flex space-x-4 mt-4 md:mt-0">
-                    <a href="#" class="text-premium hover:text-blue-400">
-                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                    <h3 class="text-sm font-semibold mb-4 uppercase tracking-wide">Suivez-nous</h3>
+                    <a href="https://www.linkedin.com/company/jcsmelec/" target="_blank" rel="noopener noreferrer"
+                        class="inline-flex items-center text-sm text-gray-600 hover:text-gray-900 transition-colors group">
+                        <svg class="w-5 h-5 mr-2 group-hover:scale-110 transition-transform" fill="currentColor"
+                            viewBox="0 0 24 24">
                             <path
                                 d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
                         </svg>
+                        <span class="font-medium">LinkedIn</span>
                     </a>
                 </div>
+            </div>
+            <div class="pt-8 border-t border-gray-200 text-center">
+                <p class="text-sm text-gray-500">© 2025 JCSM SAS - Tous droits réservés.</p>
             </div>
         </div>
     </footer>
 
-
     <script src="js/utils.js"></script>
     <script src="js/public.js"></script>
     <script src="js/wow-effects.js"></script>
-    <!-- Service Worker Registration -->
     <script>
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
