@@ -19,7 +19,6 @@ document.addEventListener('DOMContentLoaded', () => {
     initLogoMarquee();
     initStatsCounters();
     initParallax();
-    initLocalUrlFallback();
 });
 
 // ==========================================
@@ -314,22 +313,38 @@ function initPageTransitions() {
         document.body.classList.add('loaded');
     }, 50);
 
-    document.querySelectorAll('a[href$=".html"], a[href^="/"]').forEach(link => {
+    document.querySelectorAll('a[href$=".html"], a[href^="/"], a[href^="./"]').forEach(link => {
         link.addEventListener('click', function (e) {
+            let href = this.getAttribute('href');
+
             // Check if it's a same-origin link and not opening in new tab
             if (this.hostname === window.location.hostname &&
                 !this.getAttribute('target') &&
-                !this.getAttribute('href').startsWith('#') &&
-                !this.getAttribute('href').startsWith('mailto:') &&
-                !this.getAttribute('href').startsWith('tel:')) {
+                !href.startsWith('#') &&
+                !href.startsWith('mailto:') &&
+                !href.startsWith('tel:')) {
+
+                // LOCAL FALLBACK LOGIC
+                const isLocal = window.location.hostname === 'localhost' ||
+                    window.location.hostname === '127.0.0.1' ||
+                    window.location.protocol === 'file:';
+
+                if (isLocal && !href.endsWith('.html') && href !== '/' && !href.includes('.') && !href.startsWith('#')) {
+                    // Normalize href (remove leading slash if present for relative local files)
+                    let cleanPath = href.startsWith('/') ? href.substring(1) : href;
+                    if (cleanPath) {
+                        href = cleanPath + '.html';
+                        console.log(`JCSM Local Redirect: ${cleanPath} -> ${href}`);
+                    }
+                }
 
                 e.preventDefault();
                 document.body.style.transition = 'opacity 0.3s ease-out, transform 0.3s ease-out';
                 document.body.style.opacity = '0';
 
-                const href = this.getAttribute('href');
+                const targetHref = href;
                 setTimeout(() => {
-                    window.location.href = href;
+                    window.location.href = targetHref;
                 }, 300);
             }
         });
@@ -759,47 +774,3 @@ function initLiveFormFeedback() {
     `;
     document.head.appendChild(style);
 })();
-
-// ==========================================
-// LOCAL URL FALLBACK (Dev Mode)
-// ==========================================
-function initLocalUrlFallback() {
-    const isLocal = window.location.hostname === 'localhost' ||
-        window.location.hostname === '127.0.0.1' ||
-        window.location.protocol === 'file:';
-
-    if (!isLocal) return;
-
-    console.log('JCSM: Local mode detected. Enabling URL fallback for clean links.');
-
-    document.addEventListener('click', (e) => {
-        const link = e.target.closest('a');
-        if (!link) return;
-
-        const href = link.getAttribute('href');
-        if (!href) return;
-
-        // Skip absolute URLs, anchors, mailto, tel, and already .html
-        if (href.startsWith('http') ||
-            href.startsWith('#') ||
-            href.startsWith('mailto:') ||
-            href.startsWith('tel:') ||
-            href.endsWith('.html') ||
-            href === '/') {
-            return;
-        }
-
-        // It's a clean internal link (e.g. /pilotage-projets)
-        // Check if we need to append .html for local testing
-        // Only if it's not a directory and doesn't have a dot
-        const pathParts = href.split('/');
-        const lastPart = pathParts[pathParts.length - 1];
-
-        if (lastPart && !lastPart.includes('.')) {
-            e.preventDefault();
-            const newHref = href + '.html';
-            console.log(`JCSM Fallback: ${href} -> ${newHref}`);
-            window.location.href = newHref;
-        }
-    }, true); // Use capture to intercept before other handlers
-}
