@@ -5,7 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JCSM Admin - Analytics</title>
+    <meta name="robots" content="noindex, nofollow">
     <link rel="icon" type="image/png" href="images/logo.png">
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="images/logo.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
@@ -248,6 +252,15 @@
             if (type === 'form_start') return 'bg-yellow-100 text-yellow-700';
             if (type === 'form_submit') return 'bg-green-100 text-green-700';
             return 'bg-gray-100 text-gray-700';
+        }
+    </script>
+    <!-- Service Worker Registration -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                    .catch((error) => console.log('SW registration failed'));
+            });
         }
     </script>
 </body>

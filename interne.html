@@ -41,6 +41,9 @@
     </script>
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" type="image/png" href="images/logo.png">
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="images/logo.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
 
     <!-- Premium Styles (Glassmorphism & Animations) -->
     <style>
@@ -102,6 +105,16 @@
         .hover-card:hover {
             transform: translateY(-4px);
             box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Page Transition Root */
+        body {
+            opacity: 0;
+            transition: opacity 0.6s ease-in-out;
+        }
+
+        body.loaded {
+            opacity: 1;
         }
 
         /* Gradient Text */
