@@ -19,6 +19,9 @@
     </noscript>
 
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" type="image/png" href="images/logo.png">
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="images/logo.png">
     <script>
         tailwind.config = {
             darkMode: 'class',
@@ -186,6 +189,15 @@
     <script src="js/utils.js"></script>
     <script src="js/public.js"></script>
     <script src="js/wow-effects.js"></script>
+    <!-- Service Worker Registration -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                    .catch((error) => console.log('SW registration failed'));
+            });
+        }
+    </script>
 </body>
 
 </html>

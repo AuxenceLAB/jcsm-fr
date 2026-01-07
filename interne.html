@@ -891,8 +891,7 @@
 
 <body>
     <!-- Authentification -->
-    <div id="auth-modal" class="fixed inset-0 bg-black bg-opacity-50 z-[10000] flex items-center justify-center"
-        style="display: flex; pointer-events: auto;">
+    <div id="auth-modal" class="fixed inset-0 bg-black bg-opacity-50 z-[10000] flex items-center justify-center hidden">
         <div class="bg-white rounded-2xl p-8 max-w-md w-full mx-4 relative z-[10001]" style="pointer-events: auto;">
             <div class="flex items-center gap-3 mb-6">
                 <img src="images/logo.png" alt="JCSM" class="w-12 h-12">
@@ -2614,6 +2613,10 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
                 return false;
             }
 
+            // Hide modal if authenticated
+            const modal = document.getElementById('auth-modal');
+            if (modal) modal.classList.add('hidden');
+
             technicien = { region, isAdmin };
             updateUserInterface(technicien);
             return true;
@@ -2622,8 +2625,8 @@ Vous pouvez utiliser plusieurs lignes et formater le texte comme vous le souhait
         function showAuthModal() {
             const modal = document.getElementById('auth-modal');
             if (modal) {
-                modal.style.display = 'flex';
-                modal.style.pointerEvents = 'auto';
+                modal.classList.remove('hidden');
+                modal.style.display = 'flex'; // Ensure flex layout works
             }
         }
 

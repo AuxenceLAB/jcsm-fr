@@ -157,6 +157,15 @@
             starsContainer.appendChild(star);
         }
     </script>
+    <!-- Service Worker Registration -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                    .catch((error) => console.log('SW registration failed'));
+            });
+        }
+    </script>
 </body>
 
 </html>
