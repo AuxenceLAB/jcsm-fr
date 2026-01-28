@@ -68,6 +68,10 @@
     <link rel="apple-touch-icon" href="images/logo.png">
     <meta name="apple-mobile-web-app-capable" content="yes">
 
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 
 </head>
 
@@ -443,6 +447,61 @@
             </div>
         </section>
 
+        <!-- Couverture Nationale -->
+        <section class="py-20 px-6">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center mb-16 section-appear">
+                    <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-6">Installation IRVE partout en France</h2>
+                    <p class="text-xl text-gray-600 max-w-3xl mx-auto">Nos installateurs certifiés Qualifelec interviennent dans toutes les régions pour vos projets de bornes de recharge.</p>
+                </div>
+                <div class="section-appear">
+                    <div id="map" class="shadow-lg"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Zones d'intervention par région -->
+        <section class="py-20 px-6 bg-gray-50">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center mb-16 section-appear">
+                    <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-6">Installation de bornes IRVE par région</h2>
+                    <p class="text-xl text-gray-600 max-w-3xl mx-auto">Installation certifiée et remise en conformité de vos infrastructures de recharge électrique dans toute la France.</p>
+                </div>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 section-appear">
+                    <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 hover:shadow-lg transition-shadow">
+                        <h3 class="text-xl font-bold mb-4 text-blue-600">Île-de-France</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">Paris (75), Hauts-de-Seine (92), Seine-Saint-Denis (93), Val-de-Marne (94), Yvelines (78), Essonne (91), Val-d'Oise (95), Seine-et-Marne (77)</p>
+                        <a href="zones/ile-de-france.html" class="text-blue-600 text-sm font-medium mt-3 inline-block hover:underline">En savoir plus</a>
+                    </div>
+                    <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 hover:shadow-lg transition-shadow">
+                        <h3 class="text-xl font-bold mb-4 text-green-600">Auvergne-Rhône-Alpes</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">Rhône (69), Isère (38), Loire (42), Haute-Savoie (74), Puy-de-Dôme (63), Ain (01), Drôme (26), Savoie (73), Ardèche (07), Allier (03), Cantal (15), Haute-Loire (43)</p>
+                        <a href="zones/auvergne-rhone-alpes.html" class="text-blue-600 text-sm font-medium mt-3 inline-block hover:underline">En savoir plus</a>
+                    </div>
+                    <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 hover:shadow-lg transition-shadow">
+                        <h3 class="text-xl font-bold mb-4 text-orange-600">Nouvelle-Aquitaine</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">Gironde (33), Charente-Maritime (17), Pyrénées-Atlantiques (64), Vienne (86), Haute-Vienne (87), Dordogne (24), Lot-et-Garonne (47), Landes (40), Charente (16), Deux-Sèvres (79), Corrèze (19), Creuse (23)</p>
+                        <a href="zones/nouvelle-aquitaine.html" class="text-blue-600 text-sm font-medium mt-3 inline-block hover:underline">En savoir plus</a>
+                    </div>
+                    <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 hover:shadow-lg transition-shadow">
+                        <h3 class="text-xl font-bold mb-4 text-purple-600">Occitanie</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">Haute-Garonne (31), Hérault (34), Gard (30), Pyrénées-Orientales (66), Aude (11), Tarn (81), Aveyron (12), Lot (46), Tarn-et-Garonne (82), Gers (32), Hautes-Pyrénées (65), Ariège (09), Lozère (48)</p>
+                        <a href="zones/occitanie.html" class="text-blue-600 text-sm font-medium mt-3 inline-block hover:underline">En savoir plus</a>
+                    </div>
+                    <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 hover:shadow-lg transition-shadow">
+                        <h3 class="text-xl font-bold mb-4 text-pink-600">Provence-Alpes-Côte d'Azur</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">Bouches-du-Rhône (13), Var (83), Alpes-Maritimes (06), Vaucluse (84), Hautes-Alpes (05), Alpes-de-Haute-Provence (04)</p>
+                        <a href="zones/paca.html" class="text-blue-600 text-sm font-medium mt-3 inline-block hover:underline">En savoir plus</a>
+                    </div>
+                    <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 hover:shadow-lg transition-shadow">
+                        <h3 class="text-xl font-bold mb-4 text-red-600">Hauts-de-France</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">Nord (59), Pas-de-Calais (62), Somme (80), Oise (60), Aisne (02)</p>
+                        <a href="zones/hauts-de-france.html" class="text-blue-600 text-sm font-medium mt-3 inline-block hover:underline">En savoir plus</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- CTA -->
         <section class="py-20 px-6">
             <div class="max-w-4xl mx-auto text-center section-appear">
@@ -533,11 +592,89 @@
 
 
 
+    <style>
+        #map {
+            height: 550px;
+            width: 100%;
+            border-radius: 1rem;
+            z-index: 1;
+        }
+        .custom-marker { background: transparent !important; border: none !important; }
+        .marker-wrapper { position: relative; width: 44px; height: 56px; display: flex; flex-direction: column; align-items: center; }
+        .marker-pin { width: 36px; height: 36px; border-radius: 50% 50% 50% 0; background: linear-gradient(135deg, #2563EB, #7C3AED); transform: rotate(-45deg); border: 3px solid white; box-shadow: 0 4px 14px rgba(37,99,235,0.5); position: relative; animation: bounce-marker 2s ease-in-out infinite; transition: all 0.3s ease; }
+        .marker-pin::after { content: ''; width: 12px; height: 12px; border-radius: 50%; background: white; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); }
+        .marker-pulse { position: absolute; top: 12px; left: 50%; transform: translateX(-50%); width: 40px; height: 40px; border-radius: 50%; background: rgba(37,99,235,0.25); animation: pulse-ring 2s ease-out infinite; }
+        .marker-label { margin-top: 2px; font-size: 10px; font-weight: 700; color: #1e3a8a; text-shadow: 0 0 3px white, 0 0 3px white, 0 0 3px white, 0 0 3px white; white-space: nowrap; letter-spacing: 0.02em; }
+        @keyframes bounce-marker { 0%, 100% { transform: rotate(-45deg) translateY(0); } 50% { transform: rotate(-45deg) translateY(-4px); } }
+        @keyframes pulse-ring { 0% { transform: translateX(-50%) scale(0.5); opacity: 1; } 100% { transform: translateX(-50%) scale(2.2); opacity: 0; } }
+        .marker-wrapper:hover .marker-pin { transform: rotate(-45deg) scale(1.2); background: linear-gradient(135deg, #1D4ED8, #6D28D9); box-shadow: 0 6px 20px rgba(37,99,235,0.6); }
+        .leaflet-popup-content-wrapper { border-radius: 12px !important; box-shadow: 0 10px 30px rgba(0,0,0,0.15) !important; padding: 0 !important; }
+        .leaflet-popup-content { margin: 0 !important; min-width: 180px; }
+        .popup-content { padding: 14px 18px; }
+        .popup-content h3 { font-size: 15px; font-weight: 700; color: #1e293b; margin-bottom: 4px; }
+        .popup-content p { font-size: 12px; color: #64748b; margin: 0; }
+        .popup-content .popup-badge { display: inline-block; margin-top: 6px; padding: 2px 8px; background: linear-gradient(135deg, #2563EB, #7C3AED); color: white; border-radius: 20px; font-size: 10px; font-weight: 600; }
+    </style>
+
     <script src="js/config.js"></script>
     <script src="js/utils.js"></script>
     <script src="js/public.js"></script>
     <script src="js/analytics.js" defer></script>
     <script src="js/wow-effects.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const mapContainer = document.getElementById('map');
+            if (!mapContainer || typeof L === 'undefined') return;
+
+            const map = L.map('map', { zoomControl: false, scrollWheelZoom: false }).setView([46.603354, 1.888334], 6);
+            L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+                attribution: '&copy; OpenStreetMap &copy; CARTO', subdomains: 'abcd', maxZoom: 19
+            }).addTo(map);
+            L.control.zoom({ position: 'bottomright' }).addTo(map);
+
+            const cities = [
+                { name: 'Paris', lat: 48.8566, lng: 2.3522 },
+                { name: 'Lyon', lat: 45.7640, lng: 4.8357 },
+                { name: 'Marseille', lat: 43.2965, lng: 5.3698 },
+                { name: 'Toulouse', lat: 43.6047, lng: 1.4442 },
+                { name: 'Nice', lat: 43.7102, lng: 7.2620 },
+                { name: 'Nantes', lat: 47.2184, lng: -1.5536 },
+                { name: 'Montpellier', lat: 43.6110, lng: 3.8767 },
+                { name: 'Strasbourg', lat: 48.5734, lng: 7.7521 },
+                { name: 'Bordeaux', lat: 44.8378, lng: -0.5792 },
+                { name: 'Lille', lat: 50.6292, lng: 3.0573 },
+                { name: 'Rennes', lat: 48.1173, lng: -1.6778 },
+                { name: 'Reims', lat: 49.2583, lng: 4.0317 },
+                { name: 'Toulon', lat: 43.1242, lng: 5.9280 },
+                { name: 'Grenoble', lat: 45.1885, lng: 5.7245 },
+                { name: 'Dijon', lat: 47.3220, lng: 5.0415 },
+                { name: 'Angers', lat: 47.4784, lng: -0.5632 },
+                { name: 'Nîmes', lat: 43.8367, lng: 4.3601 },
+                { name: 'Clermont-Fd', lat: 45.7772, lng: 3.0870 },
+                { name: 'Tours', lat: 47.3941, lng: 0.6848 },
+                { name: 'Metz', lat: 49.1193, lng: 6.1757 },
+                { name: 'Perpignan', lat: 42.6986, lng: 2.8956 },
+                { name: 'Orléans', lat: 47.9029, lng: 1.9039 },
+                { name: 'Rouen', lat: 49.4432, lng: 1.0999 },
+                { name: 'Caen', lat: 49.1829, lng: -0.3707 },
+                { name: 'Nancy', lat: 48.6921, lng: 6.1844 },
+                { name: 'Avignon', lat: 43.9493, lng: 4.8055 }
+            ];
+
+            cities.forEach(city => {
+                const icon = L.divIcon({
+                    className: 'custom-marker',
+                    html: `<div class="marker-wrapper"><div class="marker-pulse"></div><div class="marker-pin"></div><div class="marker-label">${city.name}</div></div>`,
+                    iconSize: [44, 56], iconAnchor: [22, 36], popupAnchor: [0, -30]
+                });
+                L.marker([city.lat, city.lng], { icon })
+                    .bindPopup(`<div class="popup-content"><h3>${city.name}</h3><p>Zone d'intervention JCSM</p><span class="popup-badge">Installation & Conformité</span></div>`)
+                    .addTo(map);
+            });
+        });
+    </script>
+
     <!-- Service Worker Registration -->
     <script>
         if ('serviceWorker' in navigator) {
