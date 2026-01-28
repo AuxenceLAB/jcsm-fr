@@ -489,7 +489,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // ---- FORM VALIDATION WITH VISUAL FEEDBACK ----
 function initFormValidation() {
-    const forms = document.querySelectorAll('form');
+    const forms = document.querySelectorAll('form:not(#contactForm)');
 
     forms.forEach(form => {
         const inputs = form.querySelectorAll('input, textarea, select');
@@ -577,7 +577,7 @@ function validateInput(input) {
 
 // ---- BUTTON LOADING STATES ----
 function initButtonLoadingStates() {
-    document.querySelectorAll('form').forEach(form => {
+    document.querySelectorAll('form:not(#contactForm)').forEach(form => {
         form.addEventListener('submit', function (e) {
             const submitBtn = form.querySelector('[type="submit"], button:not([type="button"])');
             if (submitBtn && !submitBtn.classList.contains('loading')) {

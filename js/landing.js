@@ -20,8 +20,6 @@ function initContactForm() {
         e.preventDefault();
         let isValid = true;
         const submitBtn = form.querySelector('button[type="submit"]');
-        const submitText = submitBtn.querySelector('.submit-text');
-        const submitLoading = submitBtn.querySelector('.submit-loading');
 
         // Reset previous errors
         form.querySelectorAll('.error-message').forEach(el => {
@@ -62,8 +60,10 @@ function initContactForm() {
         }
 
         if (isValid) {
-            submitText.classList.add('hidden');
-            submitLoading.classList.remove('hidden');
+            const submitText = submitBtn.querySelector('.submit-text');
+            const submitLoading = submitBtn.querySelector('.submit-loading');
+            if (submitText) submitText.classList.add('hidden');
+            if (submitLoading) submitLoading.classList.remove('hidden');
             submitBtn.disabled = true;
 
             // Submit form
@@ -85,8 +85,8 @@ function initContactForm() {
                     showError(null, 'Une erreur est survenue. Veuillez réessayer.', formMessage);
                 })
                 .finally(() => {
-                    submitText.classList.remove('hidden');
-                    submitLoading.classList.add('hidden');
+                    if (submitText) submitText.classList.remove('hidden');
+                    if (submitLoading) submitLoading.classList.add('hidden');
                     submitBtn.disabled = false;
                 });
         }
