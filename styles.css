@@ -2293,33 +2293,8 @@ a:not(.btn-primary):not(.btn-secondary):hover {
 }
 
 /* ============================================
-   DARK MODE IMPROVEMENTS
+   DARK MODE (Désactivé - mode clair forcé)
    ============================================ */
-
-@media (prefers-color-scheme: dark) {
-    :root {
-        --color-bg: #0f172a;
-        --color-text-primary: #f1f5f9;
-        --color-text-secondary: #cbd5e1;
-        --color-text-muted: #94a3b8;
-    }
-
-    .dark body,
-    body.dark {
-        background: var(--color-bg);
-        color: var(--color-text-primary);
-    }
-
-    .dark .card-hover,
-    .dark .card-premium {
-        background: #1e293b;
-        border-color: #334155;
-    }
-
-    .dark .text-gray-600 {
-        color: #94a3b8 !important;
-    }
-}
 
 /* ============================================
    FORM IMPROVEMENTS
