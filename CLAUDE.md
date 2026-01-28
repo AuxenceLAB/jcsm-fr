@@ -71,11 +71,69 @@ Edit HTML/CSS/JS files directly. Changes are live on the Apache server. Cache-bu
 
 After CSS/JS changes, bump the cache version in `sw.js` (line 2: `CACHE_VERSION`) to invalidate old caches.
 
+## Authentication
+
+Two roles with SHA-256 hashed passwords in `js/config.js`:
+
+| Role | Access | Passwords |
+|------|--------|-----------|
+| **Admin** | Full dashboard, all regions, user management | `JCSM2025` / `JCSMADMIN` |
+| **Technician** | Filtered by region, interventions only | `technicien` / `JCSM` |
+
+- Auth check: `checkAuth()` in `app.js` reads `jcsm_auth_session` from localStorage
+- Session duration: 8 hours, stored as `{ role, timestamp, hash }`
+- Login page: `interne.html` shows login form, redirects to dashboard on success
+
+## Regional Pages (`zones/`)
+
+Six pages linked from the main site for local SEO:
+- `auvergne-rhone-alpes.html`, `hauts-de-france.html`, `ile-de-france.html`, `nouvelle-aquitaine.html`, `occitanie.html`, `paca.html`
+- Same HTML structure as root pages but with `../images/` paths for assets
+- Each includes zone-specific content, nav, and footer
+
+## Contact Form (Important Gotcha)
+
+The contact form (`#contactForm` in `index.html`) uses **Formspree** (`https://formspree.io/f/xyzpgqga`) and is handled exclusively by `js/landing.js`.
+
+**`public.js` explicitly excludes `#contactForm`** from `initFormValidation()` and `initButtonLoadingStates()` to avoid handler conflicts. If adding a new form, this exclusion only applies to `#contactForm`.
+
+The submit button uses `.submit-text` / `.submit-loading` spans for loading state.
+
+## Cache Configuration (`.htaccess`)
+
+| Type | Duration |
+|------|----------|
+| Images (jpg, png, svg, webp) | 1 month |
+| Fonts (woff, woff2) | 1 year |
+| CSS / JS | 1 week |
+| JSON / XML | 1 day |
+| HTML | 1 hour |
+| PHP | No cache (must-revalidate) |
+
+## Google Sheets Integration
+
+The internal portal fetches intervention data from Google Sheets via a chain:
+1. `js/app.js` calls `api/proxy-sheets.php`
+2. `proxy-sheets.php` forwards to a **Google Apps Script** web app (deployed as URL)
+3. The Apps Script reads/writes a Google Sheet and returns JSON
+4. Fallback: if Sheets API fails → local `api/interventions.json`
+5. Fallback: if local API fails → localStorage cached data
+6. Fallback: if no cache → offline mode
+
+The Google Apps Script source is in `scripts/google_apps_script.js`. It must be deployed as a Google Apps Script web app with "Anyone" access.
+
+## Security Headers (`.htaccess`)
+
+Configured headers: `X-Frame-Options: SAMEORIGIN`, `X-Content-Type-Options: nosniff`, `HSTS` (1 year), `Cross-Origin-Opener-Policy`, `Cross-Origin-Resource-Policy`, `Permissions-Policy` (blocks geolocation, microphone, camera, payment).
+
+Protected files: `.env`, `*.json`, `*.sql`, `*.sh`, `.git/`, backups. Directory listing disabled.
+
 ## Key Conventions
 
 - **Language**: All UI text is in French. Code comments mix French and English.
-- **Auth passwords** are SHA-256 hashed in `js/config.js`. Two roles: Admin and Technician.
+- **Dark mode**: Disabled. Light mode is forced (`public.js` removes `.dark` class, CSS dark media query removed).
 - **Images** are in `images/`. Partner logos use `mix-blend-mode: multiply` for transparent appearance on white backgrounds.
 - **New pages** should copy the HTML structure from an existing page (preloader, nav, content sections, footer, script tags).
 - **Animation accessibility**: `wow-effects.js` respects `prefers-reduced-motion`.
 - **API CORS**: Restricted to `jcsm.fr`, `www.jcsm.fr`, `localhost:3000`.
+- **Formspree**: Contact form endpoint. If emails stop arriving, check the Formspree dashboard.
