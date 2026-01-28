@@ -10,7 +10,14 @@
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     // Skip all effects if reduced motion is preferred
-    if (prefersReducedMotion) return;
+    if (prefersReducedMotion) {
+        // Ensure content is still visible
+        document.querySelectorAll('.section-appear, .reveal, .will-reveal').forEach(el => {
+            el.style.opacity = '1';
+            el.style.transform = 'none';
+        });
+        return;
+    }
 
     // ==========================================
     // PREMIUM CLASSES
@@ -72,7 +79,7 @@
             this.track = this.container.querySelector('.logo-marquee-track');
             if (!this.track) return;
 
-            this.speed = 0.5; // Slightly faster but smooth
+            this.speed = 1.2; // Faster scroll
             this.position = 0;
             this.isPaused = false;
             this.lastTimestamp = 0;
@@ -359,6 +366,193 @@
     }
 
     // ==========================================
+    // SPOTLIGHT EFFECT ON CARDS
+    // ==========================================
+    function initSpotlightEffect() {
+        const spotlightElements = document.querySelectorAll('.card-hover, .card-premium, .spotlight');
+
+        spotlightElements.forEach(el => {
+            el.addEventListener('mousemove', (e) => {
+                const rect = el.getBoundingClientRect();
+                const x = ((e.clientX - rect.left) / rect.width) * 100;
+                const y = ((e.clientY - rect.top) / rect.height) * 100;
+                el.style.setProperty('--mouse-x', x + '%');
+                el.style.setProperty('--mouse-y', y + '%');
+            });
+        });
+    }
+
+    // ==========================================
+    // LIQUID BUTTON EFFECT
+    // ==========================================
+    function initLiquidButtons() {
+        const buttons = document.querySelectorAll('.btn-primary, .btn-secondary, .btn-liquid');
+
+        buttons.forEach(btn => {
+            btn.addEventListener('mousemove', (e) => {
+                const rect = btn.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                btn.style.setProperty('--x', x + 'px');
+                btn.style.setProperty('--y', y + 'px');
+            });
+        });
+    }
+
+    // ==========================================
+    // MORPHING BACKGROUND BLOBS
+    // ==========================================
+    function initMorphingBlobs() {
+        const sections = document.querySelectorAll('section');
+
+        sections.forEach((section, index) => {
+            if (index % 2 === 0) return; // Only add to alternate sections
+
+            const blob = document.createElement('div');
+            blob.className = 'morph-blob';
+            blob.style.cssText = `
+                position: absolute;
+                width: 400px;
+                height: 400px;
+                background: linear-gradient(135deg, rgba(0, 112, 243, 0.08), rgba(121, 40, 202, 0.08));
+                border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+                animation: morphBlobAnim ${8 + index}s ease-in-out infinite;
+                filter: blur(80px);
+                pointer-events: none;
+                z-index: 0;
+                top: ${Math.random() * 50}%;
+                ${index % 4 === 1 ? 'left: -10%;' : 'right: -10%;'}
+            `;
+            section.style.position = 'relative';
+            section.style.overflow = 'hidden';
+            section.insertBefore(blob, section.firstChild);
+        });
+    }
+
+    // ==========================================
+    // STAGGER REVEAL FOR GRIDS (Disabled - caused white flash)
+    // ==========================================
+    function initStaggerReveal() {
+        // Disabled to prevent white flash on page load
+    }
+
+    // ==========================================
+    // ENHANCED NUMBER ANIMATION
+    // ==========================================
+    function initEnhancedCounters() {
+        const counters = document.querySelectorAll('.counter');
+
+        counters.forEach(counter => {
+            counter.classList.add('counter-glow');
+        });
+    }
+
+    // ==========================================
+    // RIPPLE CLICK EFFECT
+    // ==========================================
+    function initRippleEffect() {
+        const clickables = document.querySelectorAll('.btn-primary, .btn-secondary, .card-hover');
+
+        clickables.forEach(el => {
+            el.addEventListener('click', function(e) {
+                const ripple = document.createElement('span');
+                const rect = this.getBoundingClientRect();
+                const size = Math.max(rect.width, rect.height);
+                const x = e.clientX - rect.left - size / 2;
+                const y = e.clientY - rect.top - size / 2;
+
+                ripple.style.cssText = `
+                    position: absolute;
+                    width: ${size}px;
+                    height: ${size}px;
+                    left: ${x}px;
+                    top: ${y}px;
+                    background: radial-gradient(circle, rgba(255,255,255,0.4) 0%, transparent 70%);
+                    border-radius: 50%;
+                    transform: scale(0);
+                    animation: rippleEffect 0.6s ease-out forwards;
+                    pointer-events: none;
+                `;
+
+                this.style.position = 'relative';
+                this.style.overflow = 'hidden';
+                this.appendChild(ripple);
+
+                setTimeout(() => ripple.remove(), 600);
+            });
+        });
+    }
+
+    // ==========================================
+    // SMOOTH REVEAL ON SCROLL (ENHANCED)
+    // ==========================================
+    function initSmoothScrollReveal() {
+        const revealElements = document.querySelectorAll('h2, h3, p, .card-hover, img:not([loading])');
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0) scale(1)';
+                    entry.target.style.filter = 'blur(0)';
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+        revealElements.forEach((el, i) => {
+            if (!el.closest('.section-appear') && !el.classList.contains('revealed')) {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(20px) scale(0.98)';
+                el.style.filter = 'blur(2px)';
+                el.style.transition = `all 0.8s cubic-bezier(0.16, 1, 0.3, 1) ${(i % 5) * 0.05}s`;
+                observer.observe(el);
+            }
+        });
+    }
+
+    // ==========================================
+    // HOVER SOUND FEEDBACK (SUBTLE)
+    // ==========================================
+    function initHoverFeedback() {
+        const interactives = document.querySelectorAll('.btn-primary, .btn-secondary, .card-hover, nav a');
+
+        interactives.forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                el.style.transition = 'all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1)';
+            });
+
+            el.addEventListener('mouseleave', () => {
+                el.style.transition = 'all 0.5s cubic-bezier(0.16, 1, 0.3, 1)';
+            });
+        });
+    }
+
+    // ==========================================
+    // ANIMATED GRADIENT BORDERS
+    // ==========================================
+    function initGradientBorders() {
+        const cards = document.querySelectorAll('.service-step, .card-hover');
+
+        cards.forEach(card => {
+            card.classList.add('glow-border');
+        });
+    }
+
+    // Initialize all new effects
+    if (isDesktop) {
+        initSpotlightEffect();
+        initLiquidButtons();
+        initMorphingBlobs();
+    }
+
+    initStaggerReveal();
+    initEnhancedCounters();
+    initRippleEffect();
+    initHoverFeedback();
+    initGradientBorders();
+
+    // ==========================================
     // STYLES INJECTION
     // ==========================================
     const style = document.createElement('style');
@@ -366,21 +560,95 @@
         .will-reveal { opacity: 0; transform: translateY(20px); transition: all 1s cubic-bezier(0.16, 1, 0.3, 1); }
         .revealed { opacity: 1; transform: translateY(0); }
         .reveal-clip { transition: clip-path 1.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 1.4s ease; }
-        
+
         .cursor-glow { mix-blend-mode: screen; filter: blur(40px); }
-        
+
         [data-magnetic] { display: inline-block; will-change: transform; }
-        
-        .card-hover, .card-premium { 
-            transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s ease; 
+
+        .card-hover, .card-premium {
+            transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s ease;
             will-change: transform;
         }
 
         @keyframes rippleEffect {
             to { transform: scale(4); opacity: 0; }
         }
-        
+
+        @keyframes staggerIn {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes morphBlobAnim {
+            0%, 100% {
+                border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+                transform: rotate(0deg) scale(1);
+            }
+            25% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
+            50% {
+                border-radius: 50% 60% 30% 60% / 30% 40% 70% 50%;
+                transform: rotate(180deg) scale(1.1);
+            }
+            75% { border-radius: 40% 30% 60% 50% / 60% 50% 30% 40%; }
+        }
+
         #scroll-progress { transition: width 0.1s linear; }
+
+        /* Enhanced gradient glow for cards */
+        .glow-border {
+            position: relative;
+        }
+
+        .glow-border::before {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            background: linear-gradient(45deg, #2563EB, #7928CA, #FF0080, #00DFD8, #2563EB);
+            background-size: 300% 300%;
+            border-radius: inherit;
+            animation: glowRotate 4s linear infinite;
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            filter: blur(12px);
+        }
+
+        .glow-border:hover::before {
+            opacity: 0.6;
+        }
+
+        @keyframes glowRotate {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Counter glow effect */
+        .counter-glow {
+            text-shadow: 0 0 30px rgba(0, 112, 243, 0.3), 0 0 60px rgba(121, 40, 202, 0.15);
+        }
+
+        /* Spotlight gradient */
+        .spotlight::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(
+                circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+                rgba(255, 255, 255, 0.1) 0%,
+                transparent 50%
+            );
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+            border-radius: inherit;
+        }
+
+        .spotlight:hover::before {
+            opacity: 1;
+        }
     `;
     document.head.appendChild(style);
 

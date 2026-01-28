@@ -1,0 +1,13 @@
+{
+    "name": "jcsm/rapports-api",
+    "description": "API pour la sauvegarde des rapports d'intervention",
+    "require": {
+        "phpoffice/phpword": "^1.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "JCSM\\": "src/"
+        }
+    }
+}
+

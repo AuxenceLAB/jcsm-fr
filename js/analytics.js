@@ -25,7 +25,9 @@ const JCSMAnalytics = {
     getSessionId() {
         let sid = sessionStorage.getItem('jcsm_sid');
         if (!sid) {
-            sid = 'sess_' + Math.random().toString(36).substr(2, 9);
+            const array = new Uint32Array(2);
+            crypto.getRandomValues(array);
+            sid = 'sess_' + Array.from(array, x => x.toString(36)).join('').substring(0, 9);
             sessionStorage.setItem('jcsm_sid', sid);
         }
         return sid;
@@ -41,7 +43,7 @@ const JCSMAnalytics = {
         };
 
         // In detailed mock mode: log to console with style
-        // console.groupCollapsed(`%c📡 Analytics: ${name}`, 'color: #0070F3; font-weight: bold;');
+        // console.groupCollapsed(`%c📡 Analytics: ${name}`, 'color: #2563EB; font-weight: bold;');
         // console.log('Payload:', payload);
         // console.groupEnd();
 

@@ -2,7 +2,6 @@
 <html lang="fr">
 
 <head>
-    <base target="_self">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pilotage de Projets IRVE | JCSM</title>
@@ -18,6 +17,9 @@
     <meta property="og:description"
         content="Assistance à maîtrise d'ouvrage IRVE : pilotage de projets clé en main, planification, coordination et suivi budgétaire.">
     <meta property="og:image" content="https://jcsm.fr/images/amo.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:locale" content="fr_FR">
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
@@ -37,8 +39,8 @@
             theme: {
                 extend: {
                     colors: {
-                        primary: '#0070F3',
-                        secondary: '#7928CA',
+                        primary: '#2563EB',
+                        secondary: '#1D4ED8',
                     }
                 }
             }
@@ -82,13 +84,13 @@
             </div>
             <div class="flex flex-col space-y-6">
                 <a href="index.html" class="text-base text-gray-600 hover:text-gray-900 transition-colors">Accueil</a>
-                <a href="pilotage-projets.html" class="block py-4 border-b border-white/10">Pilotage de projets</a>
-                <a href="installation-conformite.html" class="block py-4 border-b border-white/10">Installation</a>
-                <a href="exploitation.html" class="block py-4 border-b border-white/10">Exploitation</a>
-                <a href="securisation-installations.html" class="block py-4 border-b border-white/10">Sécurisation</a>
-                <a href="centre-appel.html" class="block py-4 border-b border-white/10">Support</a>
-                <a href="a-propos.html" class="block py-4 border-b border-white/10">À propos</a>
-                <a href="index.html#contact" class="block py-4 text-blue-400 font-bold">Contact</a>
+                <a href="pilotage-projets.html" class="text-base text-blue-600 font-bold">Pilotage de projets</a>
+                <a href="installation-conformite.html" class="text-base text-gray-600 hover:text-gray-900 transition-colors">Installation</a>
+                <a href="exploitation.html" class="text-base text-gray-600 hover:text-gray-900 transition-colors">Exploitation</a>
+                <a href="securisation-installations.html" class="text-base text-gray-600 hover:text-gray-900 transition-colors">Sécurisation</a>
+                <a href="centre-appel.html" class="text-base text-gray-600 hover:text-gray-900 transition-colors">Support</a>
+                <a href="a-propos.html" class="text-base text-gray-600 hover:text-gray-900 transition-colors">À propos</a>
+                <a href="index.html#contact" class="btn-primary px-6 py-3 rounded-lg text-base font-medium inline-block text-center mt-4">Contact</a>
             </div>
         </div>
     </nav>
@@ -154,7 +156,7 @@
                         </div>
                         <h1
                             class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight tracking-tight section-appear">
-                            Assistance à maîtrise d'ouvrage <span class="gradient-text">IRVE</span>
+                            Assistance à maîtrise d'ouvrage <span class="text-blue-600">IRVE</span>
                         </h1>
                         <p class="text-sm sm:text-base md:text-lg text-gray-600 leading-snug section-appear">
                             Pilotage complet de vos projets de recharge électrique, de la planification à la mise en
@@ -172,11 +174,10 @@
                         </div>
                     </div>
                     <div class="section-appear order-2 lg:order-2 mb-4 lg:mb-0">
-                        <div
-                            class="relative w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg mx-auto overflow-hidden rounded-2xl">
+                        <div class="hero-image-container relative w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg mx-auto">
                             <img id="hero-image" src="images/amo.png" fetchpriority="high"
                                 alt="Assistance à maîtrise d'ouvrage IRVE - Pilotage de projets de recharge électrique par JCSM"
-                                class="w-full h-auto max-h-[200px] sm:max-h-[300px] md:max-h-[400px] lg:max-h-[500px] object-cover rounded-2xl image-hover shadow-2xl parallax-image"
+                                class="w-full h-auto object-contain"
                                 width="1200" height="800">
                         </div>
                     </div>
@@ -188,7 +189,7 @@
         <section id="services" class="py-20 px-6 bg-white">
             <div class="max-w-7xl mx-auto">
                 <div class="text-center mb-20 section-appear">
-                    <h2 class="text-5xl md:text-6xl font-bold tracking-tight mb-6">
+                    <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-6">
                         Assistance à maîtrise d’ouvrage IRVE – Pilotage de projets par JCSM
                     </h2>
                     <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
@@ -205,7 +206,7 @@
                         </div>
                         <div class="relative z-10">
                             <div
-                                class="w-14 h-14 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center text-white mb-8 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-lg group-hover:shadow-xl">
+                                class="w-14 h-14 bg-blue-600 rounded-xl flex items-center justify-center text-white mb-8 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-lg group-hover:shadow-xl">
                                 <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                         d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
@@ -220,7 +221,7 @@
 
                     <div class="card-hover bg-white border border-gray-200 rounded-2xl p-10 section-appear">
                         <div
-                            class="w-14 h-14 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center text-white mb-8">
+                            class="w-14 h-14 bg-blue-600 rounded-xl flex items-center justify-center text-white mb-8">
                             <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
@@ -233,7 +234,7 @@
 
                     <div class="card-hover bg-white border border-gray-200 rounded-2xl p-10 section-appear">
                         <div
-                            class="w-14 h-14 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center text-white mb-8">
+                            class="w-14 h-14 bg-blue-600 rounded-xl flex items-center justify-center text-white mb-8">
                             <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
@@ -246,7 +247,7 @@
 
                     <div class="card-hover bg-white border border-gray-200 rounded-2xl p-10 section-appear">
                         <div
-                            class="w-14 h-14 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center text-white mb-8">
+                            class="w-14 h-14 bg-blue-600 rounded-xl flex items-center justify-center text-white mb-8">
                             <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
@@ -259,7 +260,7 @@
 
                     <div class="card-hover bg-white border border-gray-200 rounded-2xl p-10 section-appear">
                         <div
-                            class="w-14 h-14 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center text-white mb-8">
+                            class="w-14 h-14 bg-blue-600 rounded-xl flex items-center justify-center text-white mb-8">
                             <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -272,7 +273,7 @@
 
                     <div class="card-hover bg-white border border-gray-200 rounded-2xl p-10 section-appear">
                         <div
-                            class="w-14 h-14 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center text-white mb-8">
+                            class="w-14 h-14 bg-blue-600 rounded-xl flex items-center justify-center text-white mb-8">
                             <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -290,7 +291,7 @@
         <section class="py-20 px-6">
             <div class="max-w-7xl mx-auto">
                 <div class="text-center mb-20 section-appear">
-                    <h2 class="text-5xl md:text-6xl font-bold tracking-tight mb-6">
+                    <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-6">
                         Notre méthodologie
                     </h2>
                     <p class="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -358,7 +359,7 @@
         <section class="py-20 px-6 bg-white">
             <div class="max-w-7xl mx-auto">
                 <div class="text-center mb-16 section-appear">
-                    <h2 class="text-5xl md:text-6xl font-bold tracking-tight mb-4">
+                    <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-4">
                         Résultats prouvés
                     </h2>
                 </div>
@@ -387,7 +388,7 @@
         <!-- CTA -->
         <section class="py-20 px-6">
             <div class="max-w-4xl mx-auto text-center section-appear">
-                <h2 class="text-5xl md:text-6xl font-bold tracking-tight mb-6">
+                <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-6">
                     Prêt à Lancer Votre Projet IRVE ?
                 </h2>
                 <p class="text-xl text-gray-600 mb-10 leading-relaxed max-w-3xl mx-auto">
@@ -420,21 +421,15 @@
                     <h3 class="text-sm font-semibold mb-4 uppercase tracking-wide">Services</h3>
                     <ul class="space-y-3">
                         <li><a href="pilotage-projets.html"
-                                class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Pilotage de
-                                projets</a></li>
+                                class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Pilotage</a></li>
                         <li><a href="installation-conformite.html"
-                                class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Installation &
-                                Conformité</a></li>
+                                class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Installation</a></li>
                         <li><a href="exploitation.html"
-                                class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Exploitation &
-                                Maintenance</a></li>
+                                class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Exploitation</a></li>
                         <li><a href="securisation-installations.html"
-                                class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Sécurisation</a>
-                        </li>
+                                class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Sécurisation</a></li>
                         <li><a href="centre-appel.html"
-                                class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Support
-                                technique</a>
-                        </li>
+                                class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Support</a></li>
                     </ul>
                 </div>
                 <div>
@@ -443,6 +438,8 @@
                         <li><a href="a-propos.html"
                                 class="text-sm text-gray-600 hover:text-gray-900 transition-colors">À
                                 propos</a></li>
+                        <li><a href="carrieres.html"
+                                class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Carrières</a></li>
                         <li><a href="index.html#contact"
                                 class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Contact</a></li>
                         <li><a href="mentions-legales.html"
@@ -451,10 +448,11 @@
                         <li><a href="confidentialite.html"
                                 class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Confidentialité</a>
                         </li>
+                    </ul>
                 </div>
                 <div>
                     <h3 class="text-sm font-semibold mb-4 uppercase tracking-wide">Suivez-nous</h3>
-                    <a href="https://www.linkedin.com/company/jcsmelec/" target="_blank" rel="noopener noreferrer"
+                    <a href="https://www.linkedin.com/company/jcsm-elec/" target="_blank" rel="noopener noreferrer"
                         class="inline-flex items-center text-sm text-gray-600 hover:text-gray-900 transition-colors group">
                         <svg class="w-5 h-5 mr-2 group-hover:scale-110 transition-transform" fill="currentColor"
                             viewBox="0 0 24 24">
@@ -474,6 +472,7 @@
 
 
 
+    <script src="js/config.js"></script>
     <script src="js/utils.js"></script>
     <script src="js/public.js"></script>
     <script src="js/analytics.js" defer></script>

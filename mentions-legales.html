@@ -2,7 +2,6 @@
 <html lang="fr">
 
 <head>
-    <base target="_self">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mentions Légales | JCSM - IRVE depuis 2018</title>
@@ -28,8 +27,8 @@
             theme: {
                 extend: {
                     colors: {
-                        primary: '#0070F3',
-                        secondary: '#7928CA',
+                        primary: '#2563EB',
+                        secondary: '#1D4ED8',
                     }
                 }
             }
@@ -42,19 +41,18 @@
 
 <body>
     <nav class="fixed w-full z-50 glass-nav" role="navigation" aria-label="Navigation principale">
-        <div class="container mx-auto px-6 py-4">
+        <div class="max-w-7xl mx-auto px-6 py-4">
             <div class="flex justify-between items-center">
                 <a href="index.html" class="flex items-center space-x-3 group">
-                    <img src="images/logo.png" alt="JCSM"
-                        class="w-9 h-9 transition-transform group-hover:scale-105 duration-300" width="36" height="36">
+                    <img src="images/logo.png" alt="Logo JCSM"
+                        class="w-9 h-9 transition-transform group-hover:scale-105 duration-300" loading="lazy" width="36" height="36">
                     <span class="text-xl font-bold tracking-tight">JCSM</span>
                 </a>
                 <div class="hidden lg:flex items-center space-x-10">
                     <a href="index.html"
                         class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300 hover:scale-105">Accueil</a>
                     <a href="pilotage-projets.html"
-                        class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300 hover:scale-105">Pilotage
-                        de projets</a>
+                        class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300 hover:scale-105">Pilotage de projets</a>
                     <a href="installation-conformite.html"
                         class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300 hover:scale-105">Installation</a>
                     <a href="exploitation.html"
@@ -64,10 +62,9 @@
                     <a href="centre-appel.html"
                         class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300 hover:scale-105">Support</a>
                     <a href="a-propos.html"
-                        class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300 hover:scale-105">À
-                        propos</a>
+                        class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300 hover:scale-105">À propos</a>
                     <a href="index.html#contact"
-                        class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300 hover:scale-105">Contact</a>
+                        class="btn-primary px-7 py-2.5 rounded-xl text-base font-medium shadow-lg hover:shadow-xl">Contact</a>
                 </div>
             </div>
         </div>
@@ -170,23 +167,32 @@
         </div>
     </main>
 
-    <footer class="footer-gradient py-12">
-        <div class="container mx-auto px-6">
-            <div class="text-center">
-                <p class="text-sm text-gray-600 mb-4">© 2025 JCSM SAS - Dans l'IRVE depuis 2018. Tous droits réservés.
-                </p>
-                <div class="flex justify-center space-x-6 text-sm">
-                    <a href="mentions-legales.html" class="text-gray-600 hover:text-gray-900 transition-colors">Mentions
-                        légales</a>
-                    <a href="confidentialite.html" class="text-gray-600 hover:text-gray-900 transition-colors">Politique
-                        de confidentialité</a>
-                    <a href="index.html#contact" class="text-gray-600 hover:text-gray-900 transition-colors">Contact</a>
+    <footer class="border-t border-gray-100 py-16 px-6 bg-white" role="contentinfo">
+        <div class="max-w-5xl mx-auto">
+            <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-10 mb-12">
+                <div>
+                    <div class="flex items-center space-x-3 mb-3">
+                        <img src="images/logo.png" alt="JCSM" class="w-8 h-8" width="32" height="32">
+                        <span class="text-xl font-semibold text-gray-900">JCSM</span>
+                    </div>
+                    <p class="text-sm text-gray-500 max-w-xs">Expert IRVE depuis 2018. Pilotage, installation et maintenance d'infrastructures de recharge.</p>
                 </div>
+                <div class="flex flex-wrap gap-x-10 gap-y-4 text-sm">
+                    <a href="a-propos.html" class="text-gray-500 hover:text-gray-900 transition-colors">À propos</a>
+                    <a href="carrieres.html" class="text-gray-500 hover:text-gray-900 transition-colors">Carrières</a>
+                    <a href="mentions-legales.html" class="text-gray-500 hover:text-gray-900 transition-colors">Mentions légales</a>
+                    <a href="https://www.linkedin.com/company/jcsm-elec/" target="_blank" rel="noopener noreferrer" class="text-gray-500 hover:text-gray-900 transition-colors">LinkedIn</a>
+                </div>
+            </div>
+            <div class="pt-8 border-t border-gray-100 flex flex-col md:flex-row md:items-center md:justify-between gap-4 text-xs text-gray-400">
+                <span>© 2025 JCSM SAS — 60 rue François 1er, 75008 Paris</span>
+                <a href="mailto:contact@jcsm.fr" class="hover:text-gray-600 transition-colors">contact@jcsm.fr</a>
             </div>
         </div>
     </footer>
 
 
+    <script src="js/config.js"></script>
     <script src="js/utils.js"></script>
     <script src="js/public.js"></script>
     <script src="js/wow-effects.js"></script>

@@ -16,10 +16,33 @@ document.addEventListener('DOMContentLoaded', () => {
     initCookieConsent();
     initMagneticButtons();
     initScrollProgress();
-    initLogoMarquee();
+    // initLogoMarquee(); // Désactivé - géré par wow-effects.js LogoMarquee class
     initStatsCounters();
     initParallax();
+    initSpotlightCards();
+    initSmoothHoverTransitions();
+    initFAQAccessibility();
+    initAccessibilityEnhancements();
+    initToastNotifications();
 });
+
+// ==========================================
+// FAQ ACCESSIBILITY
+// ==========================================
+function initFAQAccessibility() {
+    const details = document.querySelectorAll('details');
+    details.forEach(detail => {
+        const summary = detail.querySelector('summary');
+        if (summary) {
+            // Update aria-expanded on toggle
+            detail.addEventListener('toggle', () => {
+                summary.setAttribute('aria-expanded', detail.open);
+            });
+            // Set initial state
+            summary.setAttribute('aria-expanded', detail.open);
+        }
+    });
+}
 
 // ==========================================
 // LAZY LOADING
@@ -450,6 +473,40 @@ function initParallax() {
 }
 
 // ==========================================
+// SPOTLIGHT CARDS
+// ==========================================
+function initSpotlightCards() {
+    const cards = document.querySelectorAll('.card-hover, .card-premium, .spotlight, .service-step');
+
+    cards.forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = ((e.clientX - rect.left) / rect.width) * 100;
+            const y = ((e.clientY - rect.top) / rect.height) * 100;
+            card.style.setProperty('--mouse-x', x + '%');
+            card.style.setProperty('--mouse-y', y + '%');
+        });
+    });
+}
+
+// ==========================================
+// SMOOTH HOVER TRANSITIONS
+// ==========================================
+function initSmoothHoverTransitions() {
+    const elements = document.querySelectorAll('.btn-primary, .btn-secondary, .card-hover, a, button');
+
+    elements.forEach(el => {
+        el.addEventListener('mouseenter', () => {
+            el.style.transition = 'all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1)';
+        });
+
+        el.addEventListener('mouseleave', () => {
+            el.style.transition = 'all 0.5s cubic-bezier(0.16, 1, 0.3, 1)';
+        });
+    });
+}
+
+// ==========================================
 // PROFESSIONAL FEATURES
 // ==========================================
 
@@ -711,7 +768,7 @@ function initLiveFormFeedback() {
         input:focus, textarea:focus, select:focus, button:focus-visible {
             outline: none;
             box-shadow: 0 0 0 3px rgba(0, 112, 243, 0.2);
-            border-color: #0070F3;
+            border-color: #2563EB;
         }
 
         /* Button Loading */
@@ -752,9 +809,168 @@ function initLiveFormFeedback() {
 
         /* Selection */
         ::selection {
-            background: #0070F3;
+            background: #2563EB;
             color: white;
         }
     `;
     document.head.appendChild(style);
+})();
+
+// ==========================================
+// ACCESSIBILITY ENHANCEMENTS
+// ==========================================
+function initAccessibilityEnhancements() {
+    // Announce page changes for screen readers
+    const announcer = document.createElement('div');
+    announcer.setAttribute('aria-live', 'polite');
+    announcer.setAttribute('aria-atomic', 'true');
+    announcer.className = 'sr-only';
+    announcer.style.cssText = 'position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0;';
+    document.body.appendChild(announcer);
+    window.announceToScreenReader = (message) => {
+        announcer.textContent = '';
+        setTimeout(() => { announcer.textContent = message; }, 100);
+    };
+
+    // Add ARIA labels to buttons without text
+    document.querySelectorAll('button:not([aria-label])').forEach(btn => {
+        if (!btn.textContent.trim() && !btn.querySelector('span')) {
+            const svg = btn.querySelector('svg');
+            if (svg) {
+                const title = svg.querySelector('title');
+                if (title) btn.setAttribute('aria-label', title.textContent);
+            }
+        }
+    });
+
+    // Ensure links open in new tab have warning
+    document.querySelectorAll('a[target="_blank"]').forEach(link => {
+        if (!link.querySelector('.sr-only') && !link.getAttribute('aria-label')?.includes('nouvel onglet')) {
+            const srSpan = document.createElement('span');
+            srSpan.className = 'sr-only';
+            srSpan.textContent = ' (ouvre dans un nouvel onglet)';
+            link.appendChild(srSpan);
+        }
+    });
+
+    // Add role="img" to decorative SVGs
+    document.querySelectorAll('svg:not([role])').forEach(svg => {
+        if (!svg.closest('button') && !svg.closest('a')) {
+            svg.setAttribute('role', 'img');
+            svg.setAttribute('aria-hidden', 'true');
+        }
+    });
+
+    // Focus management for modals
+    document.querySelectorAll('[role="dialog"], .modal').forEach(modal => {
+        modal.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                modal.style.display = 'none';
+                const trigger = document.querySelector('[data-modal-trigger]');
+                if (trigger) trigger.focus();
+            }
+        });
+    });
+}
+
+// ==========================================
+// TOAST NOTIFICATIONS
+// ==========================================
+function initToastNotifications() {
+    // Create toast container
+    if (!document.getElementById('toast-container')) {
+        const container = document.createElement('div');
+        container.id = 'toast-container';
+        container.setAttribute('aria-live', 'polite');
+        container.setAttribute('aria-atomic', 'true');
+        container.style.cssText = `
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            z-index: 10000;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            pointer-events: none;
+        `;
+        document.body.appendChild(container);
+    }
+
+    // Global toast function
+    window.showToast = window.showToast || function(message, type = 'info', duration = 3000) {
+        const container = document.getElementById('toast-container');
+        if (!container) return;
+
+        const toast = document.createElement('div');
+        toast.className = 'toast-notification';
+        toast.setAttribute('role', 'alert');
+
+        const colors = {
+            success: { bg: '#10b981', icon: 'M5 13l4 4L19 7' },
+            error: { bg: '#ef4444', icon: 'M6 18L18 6M6 6l12 12' },
+            warning: { bg: '#f59e0b', icon: 'M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z' },
+            info: { bg: '#2563EB', icon: 'M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z' }
+        };
+
+        const config = colors[type] || colors.info;
+
+        toast.style.cssText = `
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 16px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px -5px rgba(0,0,0,0.15);
+            border-left: 4px solid ${config.bg};
+            pointer-events: auto;
+            transform: translateX(120%);
+            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            max-width: 320px;
+        `;
+
+        toast.innerHTML = `
+            <svg class="w-5 h-5 flex-shrink-0" style="color: ${config.bg}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="${config.icon}"></path>
+            </svg>
+            <span style="color: #374151; font-size: 14px; font-weight: 500;">${message}</span>
+        `;
+
+        container.appendChild(toast);
+
+        // Animate in
+        requestAnimationFrame(() => {
+            toast.style.transform = 'translateX(0)';
+        });
+
+        // Remove after duration
+        setTimeout(() => {
+            toast.style.transform = 'translateX(120%)';
+            setTimeout(() => toast.remove(), 300);
+        }, duration);
+    };
+}
+
+// ==========================================
+// SCREEN READER ONLY CLASS
+// ==========================================
+(function addSrOnlyStyle() {
+    if (!document.querySelector('style[data-sr-only]')) {
+        const style = document.createElement('style');
+        style.setAttribute('data-sr-only', 'true');
+        style.textContent = `
+            .sr-only {
+                position: absolute;
+                width: 1px;
+                height: 1px;
+                padding: 0;
+                margin: -1px;
+                overflow: hidden;
+                clip: rect(0, 0, 0, 0);
+                white-space: nowrap;
+                border: 0;
+            }
+        `;
+        document.head.appendChild(style);
+    }
 })();

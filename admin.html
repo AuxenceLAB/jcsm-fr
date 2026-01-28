@@ -12,6 +12,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/config.js"></script>
 
     <style>
         .login-overlay {
@@ -134,16 +135,50 @@
             showDashboard();
         }
 
-        loginForm.addEventListener('submit', (e) => {
+        loginForm.addEventListener('submit', async (e) => {
             e.preventDefault();
             const pass = document.getElementById('password').value;
-            if (pass === 'JCSM2025' || pass === 'admin') {
-                sessionStorage.setItem('admin_auth', 'true');
-                showDashboard();
-            } else {
-                alert('Mot de passe incorrect');
+            const submitBtn = loginForm.querySelector('button[type="submit"]');
+
+            if (!pass) {
+                showError('Veuillez entrer un mot de passe');
+                return;
+            }
+
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Vérification...';
+
+            try {
+                // Hash le mot de passe avant comparaison
+                const hash = await hashPassword(pass);
+
+                // Vérification avec les hash stockés
+                if (hash === JCSM_CONFIG.auth.adminHash || pass === 'JCSM2025') {
+                    createSession('Admin', true);
+                    sessionStorage.setItem('admin_auth', 'true');
+                    showDashboard();
+                } else {
+                    showError('Mot de passe incorrect');
+                }
+            } catch (err) {
+                showError('Erreur de vérification');
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Entrer';
             }
         });
+
+        function showError(msg) {
+            const existing = document.querySelector('.error-msg');
+            if (existing) existing.remove();
+
+            const error = document.createElement('p');
+            error.className = 'error-msg text-red-500 text-sm mt-2';
+            error.textContent = msg;
+            loginForm.appendChild(error);
+
+            setTimeout(() => error.remove(), 3000);
+        }
 
         function showDashboard() {
             loginScreen.style.display = 'none';
@@ -196,7 +231,7 @@
                     datasets: [{
                         label: 'Vues de page',
                         data: Object.values(hours),
-                        borderColor: '#0070F3',
+                        borderColor: '#2563EB',
                         tension: 0.4,
                         fill: true,
                         backgroundColor: 'rgba(0, 112, 243, 0.1)'
@@ -221,7 +256,7 @@
                     datasets: [{
                         label: 'Vues',
                         data: Object.values(pages),
-                        backgroundColor: ['#0070F3', '#7928CA', '#FF0080', '#000000']
+                        backgroundColor: ['#2563EB', '#7928CA', '#FF0080', '#000000']
                     }]
                 },
                 options: { responsive: true }

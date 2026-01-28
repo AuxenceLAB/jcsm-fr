@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Disallow: /mentions-legales.html
+Disallow: /confidentialite.html
+Disallow: /cgv.html
+Disallow: /interne.html
+
+Sitemap: https://jcsm.fr/sitemap.xml

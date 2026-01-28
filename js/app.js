@@ -11,11 +11,15 @@ let cachedInterventions = [];
 let technicien = null;
 let selectedInterventionId = null;
 
-// URL de l'API Google Sheets (Google Apps Script)
-// À REMPLACER PAR VOTRE URL DE DÉPLOIEMENT
-const GOOGLE_SHEETS_API_URL = 'https://script.google.com/macros/s/AKfycbzZxvFsy4yb1gsAdL70zhhMJCdZN-fGUZY4qHct3wMergx6hNX2qTOB0nH86ohBgEjmqA/exec';
-// Note: Dans le fichier original, l'URL n'était pas visiblement définie dans les extraits.
-// Correction: On utilise un placeholder à remplacer après déploiement.
+// URL de l'API - utilise l'API locale ou Google Sheets
+const GOOGLE_SHEETS_API_URL = typeof JCSM_CONFIG !== 'undefined'
+    ? JCSM_CONFIG.api.googleSheets
+    : 'https://script.google.com/macros/s/AKfycbzZxvFsy4yb1gsAdL70zhhMJCdZN-fGUZY4qHct3wMergx6hNX2qTOB0nH86ohBgEjmqA/exec';
+
+// API locale comme fallback
+const LOCAL_API_URL = typeof JCSM_CONFIG !== 'undefined'
+    ? JCSM_CONFIG.api.interventions
+    : '/api/interventions.php';
 
 // ==========================================
 // INITIALISATION
@@ -135,7 +139,7 @@ function initDashboardAnimations() {
         }
         .intervention-item:hover {
             transform: translateX(8px) !important;
-            box-shadow: -4px 0 0 #0070F3, 0 4px 12px rgba(0,0,0,0.08) !important;
+            box-shadow: -4px 0 0 #2563EB, 0 4px 12px rgba(0,0,0,0.08) !important;
         }
         .intervention-item.selected {
             animation: selectPulse 0.3s ease-out;
@@ -176,12 +180,7 @@ async function initData() {
                 // console.log('📦 Chargement depuis le cache local');
                 processData(data);
                 // Charger le réseau en arrière-plan pour mise à jour
-                // Utiliser l'URL définie globalement ou celle par défaut
-                const url = (typeof GOOGLE_SHEETS_API_URL !== 'undefined') ?
-                    GOOGLE_SHEETS_API_URL :
-                    'https://script.google.com/macros/s/AKfycbw0jracvOsxhALYvJUQTxd1chwq8Y5UGKgeDLjv2w4dpfomg8NLOGOHb44fdNVGMJ8c1g/exec';
-
-                // console.log('Chargement des données depuis:', url);
+                const url = GOOGLE_SHEETS_API_URL;
 
                 fetch(url)
                     .then(response => {
@@ -192,7 +191,7 @@ async function initData() {
                         // console.log('🔄 Données réseau chargées en arrière-plan.');
                         processData(networkData); // Mettre à jour le cache et l'UI avec les dernières données
                     })
-                    .catch(e => console.error('Erreur de chargement réseau en arrière-plan:', e));
+                    .catch(() => { /* Silently fail for background refresh */ });
                 return;
             }
         }
@@ -200,7 +199,6 @@ async function initData() {
         // Sinon charger depuis le réseau
         await fetchData();
     } catch (e) {
-        console.error('Erreur init data:', e);
         showToast('Erreur de chargement des données', 'error');
     }
 }
@@ -246,7 +244,6 @@ async function fetchData() {
         showToast('Données actualisées', 'success', 1000);
 
     } catch (e) {
-        console.error('Erreur fetch:', e);
         showToast('Erreur chargement (Mode hors ligne)', 'warning');
 
         // Fallback cache si échec réseau
@@ -314,10 +311,6 @@ function updateUserInterface(user) {
     const reportsTab = document.getElementById('rapports-tab-button'); // Si existe
     if (reportsTab) reportsTab.style.display = 'flex'; // Toujours afficher pour auth
 }
-
-// ==========================================
-// GESTION DES LISTES (UI)
-// ==========================================
 
 // ==========================================
 // GESTION DES LISTES (UI)
@@ -541,44 +534,74 @@ function initEventListeners() {
     initProductivityFeatures();
 }
 
-function handleAuthSubmit(e) {
+async function handleAuthSubmit(e) {
     e.preventDefault();
-    // const role = document.getElementById('user-role').value; // Removed
     const pass = document.getElementById('password').value;
+    const submitBtn = e.target.querySelector('button[type="submit"]');
 
     if (!pass) {
         showToast('Veuillez entrer un mot de passe', 'error');
         return;
     }
 
-    let role = '';
-    let isAdmin = false;
-
-    // Password-based Logic
-    if (pass === 'JCSM2025') {
-        role = 'Admin';
-        isAdmin = true;
-    } else if (pass === 'technicien') {
-        role = 'Technicien';
-        isAdmin = false;
-    } else {
-        showToast('Mot de passe incorrect', 'error');
-        return;
+    // Désactiver le bouton pendant la vérification
+    if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Vérification...';
     }
 
-    // Success!
-    if (window.triggerConfetti) window.triggerConfetti();
+    try {
+        // Utiliser la fonction de vérification centralisée
+        const userInfo = typeof verifyPassword === 'function'
+            ? await verifyPassword(pass)
+            : null;
 
-    // Store auth data
-    localStorage.setItem('tech_region', isAdmin ? 'Admin' : 'Technicien');
-    localStorage.setItem('is_admin', isAdmin);
-    localStorage.setItem('user_role', role);
+        let role, isAdmin;
 
-    document.getElementById('auth-modal').style.display = 'none';
-    showToast(`Connexion réussie (${role}) ✓`, 'success');
+        if (userInfo) {
+            role = userInfo.role;
+            isAdmin = userInfo.isAdmin;
+        } else {
+            // Fallback direct si verifyPassword n'existe pas
+            if (pass === 'JCSM2025') {
+                role = 'Admin';
+                isAdmin = true;
+            } else if (pass === 'technicien') {
+                role = 'Technicien';
+                isAdmin = false;
+            } else {
+                showToast('Mot de passe incorrect', 'error');
+                return;
+            }
+        }
 
-    // Recharger app
-    location.reload();
+        // Créer une session sécurisée
+        if (typeof createSession === 'function') {
+            createSession(role, isAdmin);
+        }
+
+        // Success!
+        if (window.triggerConfetti) window.triggerConfetti();
+
+        // Store auth data (compatibilité)
+        localStorage.setItem('tech_region', isAdmin ? 'Admin' : 'Technicien');
+        localStorage.setItem('is_admin', isAdmin);
+        localStorage.setItem('user_role', role);
+
+        document.getElementById('auth-modal').style.display = 'none';
+        showToast(`Connexion réussie (${role})`, 'success');
+
+        // Recharger app
+        location.reload();
+    } catch (err) {
+        console.error('Erreur auth:', err);
+        showToast('Erreur de connexion', 'error');
+    } finally {
+        if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Se connecter';
+        }
+    }
 }
 
 function handleLogout() {

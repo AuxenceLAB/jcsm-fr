@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrières | JCSM - Rejoignez l'Aventure IRVE</title>
+    <meta name="description"
+        content="Rejoignez JCSM et participez à la révolution de la mobilité électrique. Découvrez nos offres d'emploi et notre culture d'entreprise.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://jcsm.fr/carrieres.html">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://jcsm.fr/carrieres.html">
+    <meta property="og:title" content="Carrières | JCSM - Rejoignez l'Aventure IRVE">
+    <meta property="og:description" content="Rejoignez JCSM et participez à la révolution de la mobilité électrique.">
+    <meta property="og:image" content="https://jcsm.fr/images/jcsmtesla.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:locale" content="fr_FR">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Carrières | JCSM - Rejoignez l'Aventure IRVE">
+    <meta name="twitter:description" content="Rejoignez JCSM et participez à la révolution de la mobilité électrique.">
+    <meta name="twitter:image" content="https://jcsm.fr/images/jcsmtesla.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2563EB',
+                        secondary: '#1D4ED8',
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/png" href="images/logo.png">
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="images/logo.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+</head>
+
+<body class="text-gray-900">
+    <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+
+    <div class="preloader" id="preloader">
+        <div class="flex flex-col items-center justify-center relative">
+            <div class="absolute inset-0 flex items-center justify-center">
+                <div class="w-32 h-32 rounded-full border-4 border-transparent border-t-blue-500 border-r-purple-500 animate-spin" style="animation-duration: 1.5s;"></div>
+            </div>
+            <img src="images/logo.png" alt="JCSM" width="60" height="60" class="relative z-10">
+        </div>
+    </div>
+
+    <div class="mobile-menu-overlay" id="mobile-menu-overlay"></div>
+    <nav class="mobile-menu" id="mobile-menu">
+        <div class="p-8">
+            <div class="flex justify-between items-center mb-12">
+                <span class="text-xl font-semibold">Menu</span>
+                <button class="text-gray-600 hover:text-gray-900" id="mobile-menu-close" aria-label="Fermer le menu de navigation">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+            <div class="flex flex-col space-y-6">
+                <a href="index.html" class="text-base text-gray-600 hover:text-gray-900 transition-colors">Accueil</a>
+                <a href="pilotage-projets.html" class="text-base text-gray-600 hover:text-gray-900 transition-colors">Pilotage de projets</a>
+                <a href="installation-conformite.html" class="text-base text-gray-600 hover:text-gray-900 transition-colors">Installation</a>
+                <a href="exploitation.html" class="text-base text-gray-600 hover:text-gray-900 transition-colors">Exploitation</a>
+                <a href="securisation-installations.html" class="text-base text-gray-600 hover:text-gray-900 transition-colors">Sécurisation</a>
+                <a href="centre-appel.html" class="text-base text-gray-600 hover:text-gray-900 transition-colors">Support</a>
+                <a href="a-propos.html" class="text-base text-gray-600 hover:text-gray-900 transition-colors">À propos</a>
+                <a href="carrieres.html" class="text-base text-blue-600 font-bold">Carrières</a>
+                <a href="index.html#contact" class="btn-primary px-6 py-3 rounded-lg text-base font-medium inline-block text-center mt-4">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Barre de progression de scroll -->
+    <div id="scroll-progress" class="fixed top-0 left-0 h-1 bg-gradient-to-r from-blue-500 to-purple-600 z-[60] transition-all duration-150" style="width: 0%;"></div>
+
+    <nav class="fixed w-full z-50 glass-nav" role="navigation" aria-label="Navigation principale">
+        <div class="max-w-7xl mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <a href="index.html" class="flex items-center space-x-3 group">
+                    <img src="images/logo.png" alt="Logo JCSM" class="w-9 h-9 transition-transform group-hover:scale-105 duration-300" loading="lazy" width="36" height="36">
+                    <span class="text-xl font-bold tracking-tight">JCSM</span>
+                </a>
+                <div class="hidden lg:flex items-center space-x-10">
+                    <a href="index.html" class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300 hover:scale-105">Accueil</a>
+                    <a href="pilotage-projets.html" class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300 hover:scale-105">Pilotage de projets</a>
+                    <a href="installation-conformite.html" class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300 hover:scale-105">Installation</a>
+                    <a href="exploitation.html" class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300 hover:scale-105">Exploitation</a>
+                    <a href="securisation-installations.html" class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300 hover:scale-105">Sécurisation</a>
+                    <a href="centre-appel.html" class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300 hover:scale-105">Support</a>
+                    <a href="a-propos.html" class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300 hover:scale-105">À propos</a>
+                    <a href="index.html#contact" class="btn-primary px-7 py-2.5 rounded-xl text-base font-medium shadow-lg hover:shadow-xl">Contact</a>
+                </div>
+                <button class="mobile-menu-btn text-gray-600 hover:text-gray-900" id="mobile-menu-btn" aria-label="Ouvrir le menu de navigation" aria-expanded="false">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="particles-bg" id="particles-bg"></div>
+
+    <main id="main-content" role="main">
+        <!-- Hero -->
+        <section class="pt-32 pb-16 px-6 min-h-[60vh] flex items-center relative overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-purple-50"></div>
+            <div class="absolute top-20 right-10 w-72 h-72 bg-blue-200 rounded-full filter blur-3xl opacity-30 animate-pulse"></div>
+            <div class="absolute bottom-20 left-10 w-96 h-96 bg-purple-200 rounded-full filter blur-3xl opacity-30 animate-pulse" style="animation-delay: 1s;"></div>
+
+            <div class="max-w-5xl mx-auto text-center relative z-10">
+                <div class="inline-flex items-center space-x-2 bg-gray-100 text-gray-700 rounded-full px-4 py-2 mb-6 section-appear">
+                    <span class="relative flex h-2 w-2">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
+                    </span>
+                    <span class="text-xs font-semibold uppercase tracking-wide">Nous recrutons activement</span>
+                </div>
+                <h1 class="text-4xl sm:text-3xl md:text-4xl lg:text-7xl font-bold leading-tight tracking-tight mb-6 section-appear">
+                    Construisez l'avenir de la <span class="text-gradient-animate">mobilité électrique</span>
+                </h1>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto mb-8 section-appear">
+                    Rejoignez une équipe d'experts passionnés qui façonne l'infrastructure de recharge de demain. JCSM grandit et cherche ses futurs talents.
+                </p>
+                <div class="flex flex-wrap gap-4 justify-center section-appear">
+                    <a href="#offres" class="btn-primary btn-liquid shine-effect px-8 py-4 rounded-xl font-medium text-lg">
+                        Voir les offres
+                    </a>
+                    <a href="#culture" class="btn-secondary px-8 py-4 rounded-xl font-medium text-lg">
+                        Notre culture
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Chiffres clés -->
+        <section class="py-16 px-6 bg-white">
+            <div class="max-w-5xl mx-auto">
+                <div class="grid md:grid-cols-4 gap-8 text-center stagger-reveal">
+                    <div class="section-appear">
+                        <div class="text-5xl font-bold mb-2 text-gradient-animate">2018</div>
+                        <p class="text-gray-600">Création</p>
+                    </div>
+                    <div class="section-appear">
+                        <div class="text-5xl font-bold mb-2 text-gradient-animate">+200%</div>
+                        <p class="text-gray-600">Croissance 2024</p>
+                    </div>
+                    <div class="section-appear">
+                        <div class="text-5xl font-bold mb-2 text-gradient-animate">France</div>
+                        <p class="text-gray-600">Couverture nationale</p>
+                    </div>
+                    <div class="section-appear">
+                        <div class="text-5xl font-bold mb-2 text-gradient-animate">SAS</div>
+                        <p class="text-gray-600">Passage en 2026</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pourquoi nous rejoindre -->
+        <section id="culture" class="py-24 px-6 bg-gray-50">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center mb-16 section-appear">
+                    <h2 class="text-4xl md:text-5xl font-bold tracking-tight mb-4">
+                        Pourquoi rejoindre JCSM ?
+                    </h2>
+                    <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                        Plus qu'un emploi, une aventure entrepreneuriale dans un secteur en pleine explosion.
+                    </p>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-8 stagger-reveal">
+                    <div class="card-hover bg-white border border-gray-200 rounded-2xl p-8 section-appear spotlight">
+                        <div class="w-14 h-14 bg-blue-100 rounded-2xl flex items-center justify-center mb-6">
+                            <svg class="w-7 h-7 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Secteur en croissance</h3>
+                        <p class="text-gray-600">Le marché IRVE explose. Participez à une transformation majeure de la mobilité avec des perspectives d'évolution exceptionnelles.</p>
+                    </div>
+
+                    <div class="card-hover bg-white border border-gray-200 rounded-2xl p-8 section-appear spotlight">
+                        <div class="w-14 h-14 bg-green-100 rounded-2xl flex items-center justify-center mb-6">
+                            <svg class="w-7 h-7 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Expertise technique</h3>
+                        <p class="text-gray-600">Travaillez sur des technologies de pointe : bornes DC haute puissance, supervision, diagnostics avancés, IA de support.</p>
+                    </div>
+
+                    <div class="card-hover bg-white border border-gray-200 rounded-2xl p-8 section-appear spotlight">
+                        <div class="w-14 h-14 bg-purple-100 rounded-2xl flex items-center justify-center mb-6">
+                            <svg class="w-7 h-7 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Équipe à taille humaine</h3>
+                        <p class="text-gray-600">Structure agile où chaque voix compte. Impact direct sur les décisions, responsabilités élargies, évolution rapide.</p>
+                    </div>
+
+                    <div class="card-hover bg-white border border-gray-200 rounded-2xl p-8 section-appear spotlight">
+                        <div class="w-14 h-14 bg-orange-100 rounded-2xl flex items-center justify-center mb-6">
+                            <svg class="w-7 h-7 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Couverture nationale</h3>
+                        <p class="text-gray-600">Intervenez sur des projets variés partout en France. Grands comptes, collectivités, retailers... diversité garantie.</p>
+                    </div>
+
+                    <div class="card-hover bg-white border border-gray-200 rounded-2xl p-8 section-appear spotlight">
+                        <div class="w-14 h-14 bg-teal-100 rounded-2xl flex items-center justify-center mb-6">
+                            <svg class="w-7 h-7 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Package attractif</h3>
+                        <p class="text-gray-600">Rémunération compétitive, véhicule de service, formations certifiantes, mutuelle premium, primes sur objectifs.</p>
+                    </div>
+
+                    <div class="card-hover bg-white border border-gray-200 rounded-2xl p-8 section-appear spotlight">
+                        <div class="w-14 h-14 bg-red-100 rounded-2xl flex items-center justify-center mb-6">
+                            <svg class="w-7 h-7 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Impact environnemental</h3>
+                        <p class="text-gray-600">Contribuez concrètement à la transition énergétique. Chaque borne installée, c'est du CO2 évité.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Offres d'emploi -->
+        <section id="offres" class="py-24 px-6 bg-white">
+            <div class="max-w-4xl mx-auto">
+                <div class="text-center section-appear">
+                    <div class="inline-flex items-center space-x-2 bg-blue-100 text-blue-800 rounded-full px-4 py-2 mb-6">
+                        <span class="text-xs font-semibold uppercase tracking-wide">Recrutement</span>
+                    </div>
+                    <h2 class="text-4xl md:text-5xl font-bold tracking-tight mb-4">
+                        Nos offres d'emploi
+                    </h2>
+                    <p class="text-xl text-gray-600 mb-10">
+                        Retrouvez toutes nos opportunités sur LinkedIn.
+                    </p>
+                    <a href="https://www.linkedin.com/company/jcsm-elec/jobs/" target="_blank" rel="noopener noreferrer" class="btn-primary px-8 py-4 rounded-xl font-medium text-lg inline-flex items-center gap-3 hover:scale-105 transition-transform">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                        Voir les offres sur LinkedIn
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Final -->
+        <section class="py-24 px-6 bg-gray-900 text-white">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6 section-appear">
+                    Prêt à rejoindre l'aventure ?
+                </h2>
+                <p class="text-xl text-gray-400 mb-8 section-appear">
+                    Suivez-nous sur LinkedIn pour ne manquer aucune opportunité et découvrir la vie chez JCSM.
+                </p>
+                <div class="flex flex-wrap gap-4 justify-center section-appear">
+                    <a href="https://www.linkedin.com/company/jcsm-elec/jobs/" target="_blank" rel="noopener noreferrer" class="btn-primary bg-white text-gray-900 hover:bg-gray-100 px-8 py-4 rounded-xl font-medium text-lg inline-flex items-center gap-2">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                        Voir les offres
+                    </a>
+                    <a href="https://www.linkedin.com/company/jcsm-elec/" target="_blank" rel="noopener noreferrer" class="border border-white/30 hover:bg-white/10 px-8 py-4 rounded-xl font-medium text-lg transition-colors flex items-center gap-2">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                        Suivre JCSM
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="border-t border-gray-200 py-20 px-6" role="contentinfo" aria-label="Pied de page">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid md:grid-cols-4 gap-12 mb-12">
+                <div>
+                    <div class="flex items-center space-x-2 mb-6">
+                        <img src="images/logo.png" alt="Logo JCSM" class="w-8 h-8" loading="lazy" width="32" height="32">
+                        <span class="text-lg font-semibold">JCSM</span>
+                    </div>
+                    <p class="text-sm text-gray-600 mb-4 font-medium">Dans l'IRVE depuis 2018</p>
+                    <p class="text-sm text-gray-600">60, rue François 1er<br>75008 Paris</p>
+                    <p class="mt-4 text-sm"><a href="mailto:contact@jcsm.fr" class="text-gray-900 font-medium hover:underline">contact@jcsm.fr</a></p>
+                </div>
+                <div>
+                    <h3 class="text-sm font-semibold mb-4 uppercase tracking-wide">Services</h3>
+                    <ul class="space-y-3">
+                        <li><a href="pilotage-projets.html" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Pilotage</a></li>
+                        <li><a href="installation-conformite.html" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Installation</a></li>
+                        <li><a href="exploitation.html" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Exploitation</a></li>
+                        <li><a href="securisation-installations.html" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Sécurisation</a></li>
+                        <li><a href="centre-appel.html" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Support</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-sm font-semibold mb-4 uppercase tracking-wide">Entreprise</h3>
+                    <ul class="space-y-3">
+                        <li><a href="a-propos.html" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">À propos</a></li>
+                        <li><a href="carrieres.html" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Carrières</a></li>
+                        <li><a href="index.html#contact" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Contact</a></li>
+                        <li><a href="mentions-legales.html" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Mentions légales</a></li>
+                        <li><a href="confidentialite.html" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Confidentialité</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-sm font-semibold mb-4 uppercase tracking-wide">Suivez-nous</h3>
+                    <a href="https://www.linkedin.com/company/jcsm-elec/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-sm text-gray-600 hover:text-gray-900 transition-colors group">
+                        <svg class="w-5 h-5 mr-2 group-hover:scale-110 transition-transform" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                        </svg>
+                        <span class="font-medium">LinkedIn</span>
+                    </a>
+                </div>
+            </div>
+            <div class="pt-8 border-t border-gray-200 text-center">
+                <p class="text-sm text-gray-500">© 2025 JCSM SAS - Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <button class="scroll-top glow-border" id="scrollTop" aria-label="Retour en haut de la page">
+        <svg class="w-6 h-6 float-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+        </svg>
+    </button>
+
+    <script src="js/config.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/public.js"></script>
+    <script src="js/analytics.js" defer></script>
+    <script src="js/wow-effects.js"></script>
+    <!-- Service Worker Registration -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                    .catch((error) => console.log('SW registration failed'));
+            });
+        }
+    </script>
+</body>
+</html>
