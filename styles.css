@@ -1993,8 +1993,7 @@ input:-webkit-autofill:focus {
 
 /* Contain paint for performance */
 .card-hover,
-.card-premium,
-.logo-item {
+.card-premium {
   contain: layout style;
 }
 
@@ -2295,6 +2294,25 @@ a:not(.btn-primary):not(.btn-secondary):hover {
 /* ============================================
    DARK MODE (Désactivé - mode clair forcé)
    ============================================ */
+
+/* ============================================
+   LOGOS TRANSPARENCE (fond blanc invisible)
+   ============================================ */
+.logo-item {
+    background: transparent !important;
+}
+
+.logo-item img {
+    mix-blend-mode: multiply !important;
+    background: transparent !important;
+}
+
+nav img[src*="logo"],
+.preloader img[src*="logo"],
+footer img[src*="logo"] {
+    mix-blend-mode: multiply !important;
+    background: transparent !important;
+}
 
 /* ============================================
    FORM IMPROVEMENTS
