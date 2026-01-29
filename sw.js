@@ -1,7 +1,7 @@
-// JCSM Service Worker - Enhanced PWA Support v6
-const CACHE_NAME = 'jcsm-v6';
-const STATIC_CACHE = 'jcsm-static-v6';
-const DYNAMIC_CACHE = 'jcsm-dynamic-v6';
+// JCSM Service Worker - Enhanced PWA Support v7
+const CACHE_NAME = 'jcsm-v7';
+const STATIC_CACHE = 'jcsm-static-v7';
+const DYNAMIC_CACHE = 'jcsm-dynamic-v7';
 
 // Assets to cache on install
 const STATIC_ASSETS = [
@@ -27,6 +27,8 @@ const STATIC_ASSETS = [
     '/confidentialite.html',
     '/cgv.html',
     '/js/landing.js',
+    '/interne.html',
+    '/js/app.js',
     '/zones/ile-de-france.html',
     '/zones/paca.html',
     '/zones/occitanie.html',

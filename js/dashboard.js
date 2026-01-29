@@ -22,6 +22,7 @@ function updateDashboard() {
 
     // KPIs
     // ALL_INTERVENTIONS est global (defini dans app.js)
+    if (typeof ALL_INTERVENTIONS === 'undefined' || !ALL_INTERVENTIONS) return;
     const total = ALL_INTERVENTIONS.length;
     const done = ALL_INTERVENTIONS.filter(i => i.rapportFait).length;
     const todo = total - done;

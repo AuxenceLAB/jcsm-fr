@@ -98,7 +98,7 @@ async function verifyPassword(password) {
             return { role: data.role, isAdmin: data.isAdmin, token: data.token };
         }
     } catch (e) {
-        console.error('Erreur vérification mot de passe:', e);
+        // Auth verification failed silently
     }
     return null;
 }

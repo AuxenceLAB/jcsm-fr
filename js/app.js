@@ -370,18 +370,25 @@ function renderInterventionsList() {
         div.className = `intervention-item p-4 border-b border-gray-100 hover:bg-gray-50 cursor-pointer transition-colors ${selectedInterventionId === item.id ? 'bg-blue-50 border-l-4 border-l-blue-500' : ''}`;
         div.onclick = () => selectIntervention(item.id);
 
+        // Sanitize user data to prevent XSS
+        const esc = (str) => {
+            const d = document.createElement('div');
+            d.textContent = str || '';
+            return d.innerHTML;
+        };
+
         div.innerHTML = `
             <div class="flex justify-between items-start mb-1">
-                <span class="font-bold text-gray-900 line-clamp-1">#${item.ticket}</span>
+                <span class="font-bold text-gray-900 line-clamp-1">#${esc(item.ticket)}</span>
                 ${statusBadge}
             </div>
-            <div class="text-sm font-medium text-gray-800 mb-1 line-clamp-1">${item.nomSite}</div>
+            <div class="text-sm font-medium text-gray-800 mb-1 line-clamp-1">${esc(item.nomSite)}</div>
             <div class="text-xs text-gray-500 flex items-center gap-1 mb-1">
-                <svg class="w-3 h-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-                <span class="truncate">${item.adresse}</span>
+                <svg class="w-3 h-3 flex-shrink-0" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                <span class="truncate">${esc(item.adresse)}</span>
             </div>
             <div class="text-xs text-gray-400">
-                ${item.dateProposee || item.dateDemande || ''}
+                ${esc(item.dateProposee || item.dateDemande || '')}
             </div>
         `;
 
@@ -647,10 +654,12 @@ function initAutoRefresh() {
     // Actualisation automatique toutes les 60 minutes (3600000 ms)
     const REFRESH_INTERVAL = 3600000;
 
-    setInterval(() => {
-        // console.log('⏰ Auto-refresh des données...');
+    const refreshInterval = setInterval(() => {
         fetchData();
     }, REFRESH_INTERVAL);
+
+    // Cleanup on page unload
+    window.addEventListener('beforeunload', () => clearInterval(refreshInterval));
 
     // Listener sur bouton actualiser
     const refreshBtn = document.getElementById('import-btn');
@@ -709,6 +718,13 @@ if ('webkitSpeechRecognition' in window || 'SpeechRecognition' in window) {
         recognition.onend = () => {
             btn.classList.remove('text-red-500', 'animate-pulse');
             showToast('Dictée terminée', 'success');
+        };
+
+        recognition.onerror = (event) => {
+            btn.classList.remove('text-red-500', 'animate-pulse');
+            if (event.error !== 'aborted') {
+                showToast('Erreur de reconnaissance vocale', 'error');
+            }
         };
     });
 }

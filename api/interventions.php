@@ -3,6 +3,9 @@
  * API pour les Interventions - Stockage local JSON (Mode "Données Réelles")
  * Remplace l'API Google Sheets pour une utilisation sans dépendance externe immédiate.
  */
+error_reporting(E_ALL);
+ini_set('display_errors', '0');
+ini_set('log_errors', '1');
 
 header('Content-Type: application/json; charset=utf-8');
 

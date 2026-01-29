@@ -190,7 +190,7 @@ function getRegionColor(region) {
 
 // Fonction de matching coordonnées (Doit avoir accès à SITES_DB global)
 function matchInterventionCoordinates(intervention) {
-    if (!typeof SITES_DB === 'undefined' || !SITES_DB) return null;
+    if (typeof SITES_DB === 'undefined' || !SITES_DB) return null;
 
     // Normalisation
     const normalize = str => String(str || '').toLowerCase().replace(/[^a-z0-9]/g, '');

@@ -155,7 +155,7 @@ function initScrollToTop() {
             });
             ticking = true;
         }
-    });
+    }, { passive: true });
 
     scrollTopBtn.addEventListener('click', () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -651,7 +651,7 @@ function initKeyboardNavigation() {
     if (mobileMenu) {
         mobileMenu.addEventListener('keydown', (e) => {
             if (e.key === 'Tab' && mobileMenu.classList.contains('open')) {
-                const focusable = mobileMenu.querySelectorAll('a, button');
+                const focusable = mobileMenu.querySelectorAll('a, button, input, textarea, select, [tabindex]:not([tabindex="-1"])');
                 const first = focusable[0];
                 const last = focusable[focusable.length - 1];
 

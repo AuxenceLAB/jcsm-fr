@@ -4,8 +4,23 @@
  * Token-based authentication with HMAC-SHA256 signed tokens.
  */
 
-// Secret key for signing tokens — change this in production
-define('AUTH_SECRET', 'jcsm-secret-key-2026-change-me');
+// Suppress errors in production
+error_reporting(E_ALL);
+ini_set('display_errors', '0');
+ini_set('log_errors', '1');
+
+// Secret key — loaded from environment or .env file, fallback to default
+$envSecret = getenv('JCSM_AUTH_SECRET');
+if (!$envSecret && file_exists(__DIR__ . '/../.env')) {
+    $envLines = file(__DIR__ . '/../.env', FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+    foreach ($envLines as $line) {
+        if (strpos($line, 'JCSM_AUTH_SECRET=') === 0) {
+            $envSecret = substr($line, strlen('JCSM_AUTH_SECRET='));
+            break;
+        }
+    }
+}
+define('AUTH_SECRET', $envSecret ?: 'jcsm-secret-key-2026-change-me');
 define('TOKEN_EXPIRY', 8 * 3600); // 8 hours
 
 // User credentials: SHA-256 hash => role info
@@ -46,7 +61,9 @@ function verifyToken(string $token) {
     $expected = hash_hmac('sha256', $payloadB64, AUTH_SECRET);
     if (!hash_equals($expected, $signature)) return false;
 
-    $payload = json_decode(base64_decode($payloadB64), true);
+    $decoded = base64_decode($payloadB64, true);
+    if ($decoded === false) return false;
+    $payload = json_decode($decoded, true);
     if (!$payload) return false;
 
     // Check expiry

@@ -53,7 +53,7 @@ function saveFiches() {
         localStorage.setItem('fiches_v1', JSON.stringify(ALL_FICHES));
     } catch (e) {
         // Erreur sauvegarde fiches
-        alert('Espace de stockage plein ou erreur locale.');
+        if (typeof showToast === 'function') showToast('Espace de stockage plein ou erreur locale.', 'error');
     }
 }
 
@@ -93,7 +93,7 @@ function renderFiches() {
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
                         ${fiche.auteur || 'Anonyme'}
                     </span>
-                    <button onclick="alert('Fonctionnalité de visualisation complète à venir')" class="text-blue-600 hover:text-blue-800 font-medium text-sm">Lire la fiche →</button>
+                    <button onclick="if(typeof showToast==='function')showToast('Fonctionnalité de visualisation complète à venir','info')" class="text-blue-600 hover:text-blue-800 font-medium text-sm">Lire la fiche →</button>
                 </div>
             </div>
         `;

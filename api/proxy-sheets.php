@@ -4,6 +4,9 @@
  * Ce proxy masque l'URL réelle de l'API côté serveur
  * et ajoute une couche de sécurité (rate limiting, CORS)
  */
+error_reporting(E_ALL);
+ini_set('display_errors', '0');
+ini_set('log_errors', '1');
 
 // Configuration CORS
 header('Content-Type: application/json; charset=utf-8');
