@@ -2385,5 +2385,19 @@ select:focus {
 }
 
 /* ============================================
+   Brand Logos
+   ============================================ */
+.brand-logo {
+    mix-blend-mode: multiply;
+    filter: grayscale(100%);
+    opacity: 0.7;
+    transition: filter 0.3s ease, opacity 0.3s ease;
+}
+.brand-logo:hover {
+    filter: grayscale(0%);
+    opacity: 1;
+}
+
+/* ============================================
    END OF STYLES
    ============================================ */

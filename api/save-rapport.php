@@ -5,25 +5,16 @@ if (file_exists(__DIR__ . '/vendor/autoload.php')) {
 }
 
 header('Content-Type: application/json');
+require_once __DIR__ . '/auth.php';
 
-// Sécurité améliorée : CORS restreint
-$allowedOrigins = [
-    'https://jcsm.fr',
-    'https://www.jcsm.fr',
-    'http://localhost:3000', // Pour le dev local si besoin
-    'null' // Pour les tests en local file://
-];
-
-$origin = isset($_SERVER['HTTP_ORIGIN']) ? $_SERVER['HTTP_ORIGIN'] : '';
+// CORS restreint
+$allowedOrigins = ['https://jcsm.fr', 'https://www.jcsm.fr'];
+$origin = $_SERVER['HTTP_ORIGIN'] ?? '';
 if (in_array($origin, $allowedOrigins)) {
     header("Access-Control-Allow-Origin: $origin");
-} else {
-    // Par défaut bloquer ou laisser * temporairement si nécessaire, mais ici on sécurise
-    // header("Access-Control-Allow-Origin: https://jcsm.fr"); 
 }
-
 header('Access-Control-Allow-Methods: POST, OPTIONS');
-header('Access-Control-Allow-Headers: Content-Type');
+header('Access-Control-Allow-Headers: Content-Type, Authorization');
 
 // Gérer les requêtes OPTIONS (preflight)
 if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
@@ -38,6 +29,9 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     exit;
 }
 
+// Authentification requise
+requireAuth();
+
 // Lire les données JSON
 $input = file_get_contents('php://input');
 $data = json_decode($input, true);
@@ -45,6 +39,13 @@ $data = json_decode($input, true);
 if (!$data) {
     http_response_code(400);
     echo json_encode(['success' => false, 'error' => 'Données JSON invalides']);
+    exit;
+}
+
+// Valider le format de date d'intervention
+if (isset($data['dateIntervention']) && !preg_match('/^\d{4}-\d{2}-\d{2}$/', $data['dateIntervention'])) {
+    http_response_code(400);
+    echo json_encode(['success' => false, 'error' => 'Format de date invalide (attendu: YYYY-MM-DD)']);
     exit;
 }
 

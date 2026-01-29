@@ -6,23 +6,16 @@
 
 header('Content-Type: application/json; charset=utf-8');
 
-// Sécurité améliorée : CORS restreint
-$allowedOrigins = [
-    'https://jcsm.fr',
-    'https://www.jcsm.fr',
-    'http://localhost:3000',
-    'file://', // Autoriser pour tests locaux si nécessaire, mais attention en prod
-    'null'
-];
+require_once __DIR__ . '/auth.php';
 
-$origin = isset($_SERVER['HTTP_ORIGIN']) ? $_SERVER['HTTP_ORIGIN'] : '';
-// En local file:// l'origin est souvent null
-if (in_array($origin, $allowedOrigins) || $origin === 'null' || !$origin) {
-    header("Access-Control-Allow-Origin: *"); // Permissif pour le dev local sans serveur
+// CORS restreint
+$allowedOrigins = ['https://jcsm.fr', 'https://www.jcsm.fr'];
+$origin = $_SERVER['HTTP_ORIGIN'] ?? '';
+if (in_array($origin, $allowedOrigins)) {
+    header("Access-Control-Allow-Origin: $origin");
 }
-
 header('Access-Control-Allow-Methods: GET, POST, OPTIONS');
-header('Access-Control-Allow-Headers: Content-Type');
+header('Access-Control-Allow-Headers: Content-Type, Authorization');
 
 // Gérer les requêtes OPTIONS (CORS preflight)
 if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
@@ -102,8 +95,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     exit;
 }
 
-// POST: Ajouter ou modifier une intervention
+// POST: Ajouter ou modifier une intervention (authentification requise)
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    requireAuth();
+
     $input = json_decode(file_get_contents('php://input'), true);
 
     if (!$input) {

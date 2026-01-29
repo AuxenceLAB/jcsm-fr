@@ -182,7 +182,7 @@ async function initData() {
                 // Charger le réseau en arrière-plan pour mise à jour
                 const url = GOOGLE_SHEETS_API_URL;
 
-                fetch(url)
+                fetch(url, { headers: typeof getAuthHeaders === 'function' ? getAuthHeaders() : {} })
                     .then(response => {
                         if (!response.ok) throw new Error('Erreur réseau');
                         return response.json();
@@ -218,7 +218,7 @@ async function fetchData() {
         let url = GOOGLE_SHEETS_API_URL;
         // On récupère tout et on filtre après pour la sécurité "client-side" (si API limitées)
 
-        const response = await fetch(url);
+        const response = await fetch(url, { headers: typeof getAuthHeaders === 'function' ? getAuthHeaders() : {} });
         if (!response.ok) throw new Error('Erreur réseau');
 
         let data = await response.json();
@@ -556,27 +556,18 @@ async function handleAuthSubmit(e) {
             ? await verifyPassword(pass)
             : null;
 
-        let role, isAdmin;
-
-        if (userInfo) {
-            role = userInfo.role;
-            isAdmin = userInfo.isAdmin;
-        } else {
-            // Fallback: hash et comparer manuellement si verifyPassword n'existe pas
-            const hash = await hashPassword(pass);
-            const hashInfo = JCSM_CONFIG.auth.hashes[hash];
-            if (hashInfo) {
-                role = hashInfo.role;
-                isAdmin = hashInfo.isAdmin;
-            } else {
-                showToast('Mot de passe incorrect', 'error');
-                return;
-            }
+        if (!userInfo) {
+            showToast('Mot de passe incorrect', 'error');
+            return;
         }
 
-        // Créer une session sécurisée
+        const role = userInfo.role;
+        const isAdmin = userInfo.isAdmin;
+        const serverToken = userInfo.token;
+
+        // Créer une session sécurisée avec le token serveur
         if (typeof createSession === 'function') {
-            createSession(role, isAdmin);
+            createSession(role, isAdmin, serverToken);
         }
 
         // Success!

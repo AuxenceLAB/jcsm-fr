@@ -56,6 +56,22 @@
             "description": "Nos services d'exploitation"
         }
     ],
+    "screenshots": [
+        {
+            "src": "/images/index.webp",
+            "sizes": "1280x720",
+            "type": "image/webp",
+            "form_factor": "wide",
+            "label": "Page d'accueil JCSM - Infrastructure IRVE"
+        },
+        {
+            "src": "/images/bornes.webp",
+            "sizes": "720x1280",
+            "type": "image/webp",
+            "form_factor": "narrow",
+            "label": "Bornes de recharge IRVE"
+        }
+    ],
     "related_applications": [],
     "prefer_related_applications": false
 }

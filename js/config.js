@@ -12,6 +12,7 @@ const JCSM_CONFIG = {
         googleSheets: 'https://script.google.com/macros/s/AKfycbzZxvFsy4yb1gsAdL70zhhMJCdZN-fGUZY4qHct3wMergx6hNX2qTOB0nH86ohBgEjmqA/exec',
 
         // API locales PHP
+        loginEndpoint: '/api/login.php',
         interventions: '/api/interventions.php',
         fiches: '/api/fiches.php',
         rapports: '/api/save-rapport.php',
@@ -30,21 +31,12 @@ const JCSM_CONFIG = {
     // Authentification sécurisée
     // ==========================================
     auth: {
-        // Hash SHA-256 des mots de passe
-        // Pour générer: hashPassword('VotreMotDePasse').then(console.log)
-        hashes: {
-            'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3': { role: 'Admin', isAdmin: true },
-            '8bb0cf6eb9b17d0f7d22b456f121257dc1254e1f01665370476383ea776df414': { role: 'Technicien', isAdmin: false },
-            'c6ba91b90d922e159893f46c387e5dc1b3dc5c101a5a4522f03b987177a24a91': { role: 'admin', isAdmin: true },
-            '77b2eebd6e5e6c4eb4b4f4c39c3c0e8c4c0c4f9c4b9c4b9c4b9c4b9c4b9c4b9c': { role: 'tech', isAdmin: false }
-        },
+        // Server-side authentication endpoint
+        loginEndpoint: '/api/login.php',
 
         // Clé de session
         sessionKey: 'jcsm_auth_session',
         sessionDuration: 8 * 60 * 60 * 1000, // 8 heures
-
-        // Fallback désactivé en production
-        fallback: {}
     },
 
     // ==========================================
@@ -89,22 +81,42 @@ async function hashPassword(password) {
 }
 
 /**
- * Vérifie un mot de passe contre la configuration
+ * Vérifie un mot de passe via l'API serveur
  * @param {string} password - Mot de passe en clair
- * @returns {Promise<object|null>} Infos utilisateur ou null si invalide
+ * @returns {Promise<object|null>} Infos utilisateur { role, isAdmin, token } ou null si invalide
  */
 async function verifyPassword(password) {
-    // Vérifier par hash
     try {
-        const hash = await hashPassword(password);
-        if (JCSM_CONFIG.auth.hashes[hash]) {
-            return JCSM_CONFIG.auth.hashes[hash];
+        const response = await fetch(JCSM_CONFIG.api.loginEndpoint || '/api/login.php', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ password })
+        });
+        if (!response.ok) return null;
+        const data = await response.json();
+        if (data.success && data.token) {
+            return { role: data.role, isAdmin: data.isAdmin, token: data.token };
         }
     } catch (e) {
-        // Erreur vérification hash
+        console.error('Erreur vérification mot de passe:', e);
     }
-
     return null;
+}
+
+/**
+ * Retourne les headers d'authentification pour les appels API protégés
+ * @returns {object} Headers avec Authorization Bearer
+ */
+function getAuthHeaders() {
+    const session = localStorage.getItem(JCSM_CONFIG.auth.sessionKey);
+    if (!session) return {};
+    try {
+        const data = JSON.parse(session);
+        if (data.token) {
+            return { 'Authorization': 'Bearer ' + data.token };
+        }
+    } catch (e) {}
+    return {};
 }
 
 /**
@@ -137,13 +149,13 @@ function isSessionValid() {
  * @param {boolean} isAdmin - Est administrateur
  * @returns {object} Données de session
  */
-function createSession(role, isAdmin) {
+function createSession(role, isAdmin, serverToken) {
     const session = {
         role: role,
         isAdmin: isAdmin,
         created: Date.now(),
         expires: Date.now() + JCSM_CONFIG.auth.sessionDuration,
-        token: crypto.randomUUID ? crypto.randomUUID() : Math.random().toString(36).substring(2) + Date.now().toString(36)
+        token: serverToken || (crypto.randomUUID ? crypto.randomUUID() : Math.random().toString(36).substring(2) + Date.now().toString(36))
     };
 
     localStorage.setItem(JCSM_CONFIG.auth.sessionKey, JSON.stringify(session));
@@ -209,6 +221,7 @@ window.verifyPassword = verifyPassword;
 window.isSessionValid = isSessionValid;
 window.createSession = createSession;
 window.destroySession = destroySession;
+window.getAuthHeaders = getAuthHeaders;
 
 // Style pour les toasts
 if (!document.querySelector('#jcsm-toast-styles')) {

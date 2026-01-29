@@ -80,7 +80,7 @@
 
     <div class="preloader" id="preloader">
         <div class="flex flex-col items-center justify-center">
-            <img src="images/logo.png" alt="JCSM" width="80" height="80" class="animate-pulse">
+            <picture><source srcset="<img src="images/logo.webp" type="image/webp"><picture><source srcset="images/logo.webp" type="image/webp"><img src="images/logo.png" alt="JCSM" width="80" height="80" class="animate-pulse"></picture></picture>
             <div class="mt-4 flex space-x-2">
                 <div class="w-2 h-2 bg-blue-600 rounded-full animate-bounce" style="animation-delay: 0s"></div>
                 <div class="w-2 h-2 bg-blue-600 rounded-full animate-bounce" style="animation-delay: 0.1s"></div>
@@ -95,7 +95,7 @@
             <div class="flex justify-between items-center mb-12">
                 <span class="text-xl font-semibold">Menu</span>
                 <button class="text-gray-600 hover:text-gray-900" id="mobile-menu-close" aria-label="Fermer le menu de navigation">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg class="w-6 h-6" fill="none" aria-hidden="true" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M6 18L18 6M6 6l12 12" />
                     </svg>
@@ -129,9 +129,9 @@
         <div class="max-w-7xl mx-auto px-6 py-4">
             <div class="flex justify-between items-center">
                 <a href="index.html" class="flex items-center space-x-3 group">
-                    <img src="images/logo.png" alt="Logo JCSM - Expert en Installation et Conformité IRVE"
+                    <picture><source srcset="images/logo.webp" type="image/webp"><img src="images/logo.png" alt="Logo JCSM - Expert en Installation et Conformité IRVE"
                         class="w-9 h-9 transition-transform group-hover:scale-105 duration-300" loading="lazy"
-                        width="36" height="36">
+                        width="36" height="36"></picture>
                     <span class="text-xl font-bold tracking-tight">JCSM</span>
                 </a>
                 <div class="hidden lg:flex items-center space-x-10">
@@ -155,7 +155,7 @@
                         class="btn-primary px-7 py-2.5 rounded-xl text-base font-medium shadow-lg hover:shadow-xl">Contact</a>
                 </div>
                 <button class="mobile-menu-btn text-gray-600 hover:text-gray-900" id="mobile-menu-btn"
-                    aria-label="Ouvrir le menu de navigation" aria-expanded="false">
+                    aria-label="Ouvrir le menu de navigation" aria-expanded="false" aria-controls="mobile-menu">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M4 6h16M4 12h16M4 18h16" />
@@ -231,8 +231,8 @@
                     <div class="card-hover bg-white border border-gray-200 rounded-2xl overflow-hidden section-appear">
                         <picture>
                             <source srcset="images/bornes.webp" type="image/webp">
-                            <img src="images/bornes.png" alt="Parc de bornes de recharge IRVE"
-                                class="w-full h-56 object-contain bg-gray-50" loading="lazy">
+                            <picture><source srcset="images/bornes.webp" type="image/webp"><img src="images/bornes.png" alt="Parc de bornes de recharge IRVE"
+                                class="w-full h-56 object-contain bg-gray-50" loading="lazy"></picture>
                         </picture>
                         <div class="p-4 text-center">
                             <span class="text-sm font-medium text-gray-700">Parc multi-bornes</span>
@@ -307,9 +307,9 @@
                         <div class="h-64 sm:h-72 overflow-hidden">
                             <picture>
                                 <source srcset="images/remiseconfo.webp" type="image/webp">
-                                <img src="images/remiseconfo.png" alt="Remise en conformité d'une installation IRVE"
+                                <picture><source srcset="images/remiseconfo.webp" type="image/webp"><img src="images/remiseconfo.png" alt="Remise en conformité d'une installation IRVE"
                                     class="w-full h-full object-cover object-center" loading="lazy" width="600"
-                                    height="400">
+                                    height="400"></picture>
                             </picture>
                         </div>
                         <div class="p-10">
@@ -363,77 +363,77 @@
                 <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
                     <div
                         class="card-hover bg-white border border-gray-200 rounded-xl p-6 flex items-center justify-center section-appear">
-                        <img src="images/alfen.png" alt="Logo Alfen - Bornes de recharge intelligentes"
-                            class="h-12 w-auto brand-logo" loading="lazy" width="120" height="48">
+                        <picture><source srcset="images/alfen.webp" type="image/webp"><img src="images/alfen.png" alt="Logo Alfen - Bornes de recharge intelligentes"
+                            class="h-12 w-auto brand-logo" loading="lazy" width="120" height="48"></picture>
                     </div>
                     <div
                         class="card-hover bg-white border border-gray-200 rounded-xl p-6 flex items-center justify-center section-appear">
-                        <img src="images/schneider.png" alt="Logo Schneider Electric - Solutions IRVE"
-                            class="h-12 w-auto brand-logo" loading="lazy" width="120" height="48">
+                        <picture><source srcset="images/schneider.webp" type="image/webp"><img src="images/schneider.png" alt="Logo Schneider Electric - Solutions IRVE"
+                            class="h-12 w-auto brand-logo" loading="lazy" width="120" height="48"></picture>
                     </div>
                     <div
                         class="card-hover bg-white border border-gray-200 rounded-xl p-6 flex items-center justify-center section-appear">
-                        <img src="images/delta.png" alt="Delta" class="h-12 w-auto brand-logo" width="128" height="48" loading="lazy">
+                        <picture><source srcset="<img src="images/delta.webp" type="image/webp"><picture><source srcset="images/delta.webp" type="image/webp"><img src="images/delta.png" alt="Delta" class="h-12 w-auto brand-logo" width="128" height="48" loading="lazy"></picture></picture>
                     </div>
                     <div
                         class="card-hover bg-white border border-gray-200 rounded-xl p-6 flex items-center justify-center section-appear">
-                        <img src="images/autel.png" alt="Autel" class="h-12 w-auto brand-logo" width="128" height="48" loading="lazy">
+                        <picture><source srcset="<img src="images/autel.webp" type="image/webp"><picture><source srcset="images/autel.webp" type="image/webp"><img src="images/autel.png" alt="Autel" class="h-12 w-auto brand-logo" width="128" height="48" loading="lazy"></picture></picture>
                     </div>
                     <div
                         class="card-hover bg-white border border-gray-200 rounded-xl p-6 flex items-center justify-center section-appear">
-                        <img src="images/eko.png" alt="EKO" class="h-12 w-auto brand-logo" width="128" height="48" loading="lazy">
+                        <picture><source srcset="<img src="images/eko.webp" type="image/webp"><picture><source srcset="images/eko.webp" type="image/webp"><img src="images/eko.png" alt="EKO" class="h-12 w-auto brand-logo" width="128" height="48" loading="lazy"></picture></picture>
                     </div>
                     <div
                         class="card-hover bg-white border border-gray-200 rounded-xl p-6 flex items-center justify-center section-appear">
-                        <img src="images/alpi.png" alt="Alpitronic" class="h-12 w-auto brand-logo" width="128" height="48" loading="lazy">
+                        <picture><source srcset="<img src="images/alpi.webp" type="image/webp"><picture><source srcset="images/alpi.webp" type="image/webp"><img src="images/alpi.png" alt="Alpitronic" class="h-12 w-auto brand-logo" width="128" height="48" loading="lazy"></picture></picture>
                     </div>
                     <div
                         class="card-hover bg-white border border-gray-200 rounded-xl p-6 flex items-center justify-center section-appear">
-                        <img src="images/icharging.png" alt="iCharging" class="h-12 w-auto brand-logo" width="128" height="48" loading="lazy">
+                        <picture><source srcset="<img src="images/icharging.webp" type="image/webp"><picture><source srcset="images/icharging.webp" type="image/webp"><img src="images/icharging.png" alt="iCharging" class="h-12 w-auto brand-logo" width="128" height="48" loading="lazy"></picture></picture>
                     </div>
                     <div
                         class="card-hover bg-white border border-gray-200 rounded-xl p-6 flex items-center justify-center section-appear">
-                        <img src="images/ies.png" alt="IES" class="h-12 w-auto brand-logo" width="128" height="48" loading="lazy">
+                        <picture><source srcset="<img src="images/ies.webp" type="image/webp"><picture><source srcset="images/ies.webp" type="image/webp"><img src="images/ies.png" alt="IES" class="h-12 w-auto brand-logo" width="128" height="48" loading="lazy"></picture></picture>
                     </div>
                     <div
                         class="card-hover bg-white border border-gray-200 rounded-xl p-6 flex items-center justify-center section-appear">
-                        <img src="images/ingeteam.png" alt="Ingeteam" class="h-12 w-auto brand-logo" width="128" height="48" loading="lazy">
+                        <picture><source srcset="<img src="images/ingeteam.webp" type="image/webp"><picture><source srcset="images/ingeteam.webp" type="image/webp"><img src="images/ingeteam.png" alt="Ingeteam" class="h-12 w-auto brand-logo" width="128" height="48" loading="lazy"></picture></picture>
                     </div>
                     <div
                         class="card-hover bg-white border border-gray-200 rounded-xl p-6 flex items-center justify-center section-appear">
-                        <img src="images/circontrol.png" alt="Circontrol" class="h-12 w-auto brand-logo" width="128" height="48" loading="lazy">
+                        <picture><source srcset="<img src="images/circontrol.webp" type="image/webp"><picture><source srcset="images/circontrol.webp" type="image/webp"><img src="images/circontrol.png" alt="Circontrol" class="h-12 w-auto brand-logo" width="128" height="48" loading="lazy"></picture></picture>
                     </div>
                     <div
                         class="card-hover bg-white border border-gray-200 rounded-xl p-6 flex items-center justify-center section-appear">
-                        <img src="images/evbox.png" alt="EVBox" class="h-12 w-auto brand-logo" width="128" height="48" loading="lazy">
+                        <picture><source srcset="<img src="images/evbox.webp" type="image/webp"><picture><source srcset="images/evbox.webp" type="image/webp"><img src="images/evbox.png" alt="EVBox" class="h-12 w-auto brand-logo" width="128" height="48" loading="lazy"></picture></picture>
                     </div>
                     <div
                         class="card-hover bg-white border border-gray-200 rounded-xl p-6 flex items-center justify-center section-appear">
-                        <img src="images/abb.png" alt="ABB" class="h-12 w-auto brand-logo" width="128" height="48" loading="lazy">
+                        <picture><source srcset="<img src="images/abb.webp" type="image/webp"><picture><source srcset="images/abb.webp" type="image/webp"><img src="images/abb.png" alt="ABB" class="h-12 w-auto brand-logo" width="128" height="48" loading="lazy"></picture></picture>
                     </div>
                     <div
                         class="card-hover bg-white border border-gray-200 rounded-xl p-6 flex items-center justify-center section-appear">
-                        <img src="images/kempower.png" alt="Kempower" class="h-12 w-auto brand-logo" width="128" height="48" loading="lazy">
+                        <picture><source srcset="<img src="images/kempower.webp" type="image/webp"><picture><source srcset="images/kempower.webp" type="image/webp"><img src="images/kempower.png" alt="Kempower" class="h-12 w-auto brand-logo" width="128" height="48" loading="lazy"></picture></picture>
                     </div>
                     <div
                         class="card-hover bg-white border border-gray-200 rounded-xl p-6 flex items-center justify-center section-appear">
-                        <img src="images/dbt.png" alt="DBT" class="h-12 w-auto brand-logo" width="128" height="48" loading="lazy">
+                        <picture><source srcset="<img src="images/dbt.webp" type="image/webp"><picture><source srcset="images/dbt.webp" type="image/webp"><img src="images/dbt.png" alt="DBT" class="h-12 w-auto brand-logo" width="128" height="48" loading="lazy"></picture></picture>
                     </div>
                     <div
                         class="card-hover bg-white border border-gray-200 rounded-xl p-6 flex items-center justify-center section-appear">
-                        <img src="images/hager.png" alt="Hager" class="h-12 w-auto brand-logo" width="128" height="48" loading="lazy">
+                        <picture><source srcset="<img src="images/hager.webp" type="image/webp"><picture><source srcset="images/hager.webp" type="image/webp"><img src="images/hager.png" alt="Hager" class="h-12 w-auto brand-logo" width="128" height="48" loading="lazy"></picture></picture>
                     </div>
                     <div
                         class="card-hover bg-white border border-gray-200 rounded-xl p-6 flex items-center justify-center section-appear">
-                        <img src="images/anyos.png" alt="Anyos" class="h-12 w-auto brand-logo" width="128" height="48" loading="lazy">
+                        <picture><source srcset="<img src="images/anyos.webp" type="image/webp"><picture><source srcset="images/anyos.webp" type="image/webp"><img src="images/anyos.png" alt="Anyos" class="h-12 w-auto brand-logo" width="128" height="48" loading="lazy"></picture></picture>
                     </div>
                     <div
                         class="card-hover bg-white border border-gray-200 rounded-xl p-6 flex items-center justify-center section-appear">
-                        <img src="images/siemens.png" alt="Siemens" class="h-12 w-auto brand-logo" width="128" height="48" loading="lazy">
+                        <picture><source srcset="<img src="images/siemens.webp" type="image/webp"><picture><source srcset="images/siemens.webp" type="image/webp"><img src="images/siemens.png" alt="Siemens" class="h-12 w-auto brand-logo" width="128" height="48" loading="lazy"></picture></picture>
                     </div>
                     <div
                         class="card-hover bg-white border border-gray-200 rounded-xl p-6 flex items-center justify-center section-appear">
-                        <img src="images/wallbox.png" alt="Wallbox" class="h-12 w-auto brand-logo" width="128" height="48" loading="lazy">
+                        <picture><source srcset="<img src="images/wallbox.webp" type="image/webp"><picture><source srcset="images/wallbox.webp" type="image/webp"><img src="images/wallbox.png" alt="Wallbox" class="h-12 w-auto brand-logo" width="128" height="48" loading="lazy"></picture></picture>
                     </div>
                 </div>
             </div>
@@ -451,7 +451,7 @@
                     <div class="card-hover bg-white border border-gray-200 rounded-2xl p-8 section-appear">
                         <div class="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-16">
                             <div class="flex items-center justify-center">
-                                <img src="images/qualifelec.png" alt="Qualifelec IRVE" class="h-24 w-auto" width="96" height="96" loading="lazy">
+                                <picture><source srcset="<img src="images/qualifelec.webp" type="image/webp"><picture><source srcset="images/qualifelec.webp" type="image/webp"><img src="images/qualifelec.png" alt="Qualifelec IRVE" class="h-24 w-auto" width="96" height="96" loading="lazy"></picture></picture>
                             </div>
                             <div class="text-center">
                                 <div class="text-6xl font-bold mb-2">150<span class="text-4xl text-gray-400">+</span>
@@ -543,8 +543,8 @@
             <div class="grid md:grid-cols-4 gap-12 mb-12">
                 <div>
                     <div class="flex items-center space-x-2 mb-6">
-                        <img src="images/logo.png" alt="Logo JCSM" class="w-8 h-8" loading="lazy" width="32"
-                            height="32">
+                        <picture><source srcset="images/logo.webp" type="image/webp"><img src="images/logo.png" alt="Logo JCSM" class="w-8 h-8" loading="lazy" width="32"
+                            height="32"></picture>
                         <span class="text-lg font-semibold">JCSM</span>
                     </div>
                     <p class="text-sm text-gray-600 mb-4 font-medium">Dans l'IRVE depuis 2018</p>

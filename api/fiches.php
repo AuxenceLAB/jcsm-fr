@@ -9,22 +9,16 @@
  */
 
 header('Content-Type: application/json; charset=utf-8');
+require_once __DIR__ . '/auth.php';
 
-// Sécurité améliorée : CORS restreint
-$allowedOrigins = [
-    'https://jcsm.fr',
-    'https://www.jcsm.fr',
-    'http://localhost:3000',
-    'null'
-];
-
-$origin = isset($_SERVER['HTTP_ORIGIN']) ? $_SERVER['HTTP_ORIGIN'] : '';
+// CORS restreint
+$allowedOrigins = ['https://jcsm.fr', 'https://www.jcsm.fr'];
+$origin = $_SERVER['HTTP_ORIGIN'] ?? '';
 if (in_array($origin, $allowedOrigins)) {
     header("Access-Control-Allow-Origin: $origin");
 }
-
 header('Access-Control-Allow-Methods: GET, POST, DELETE, OPTIONS');
-header('Access-Control-Allow-Headers: Content-Type');
+header('Access-Control-Allow-Headers: Content-Type, Authorization');
 
 // Gérer les requêtes OPTIONS (CORS preflight)
 if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
@@ -71,13 +65,32 @@ function saveFiches($file, $fiches)
 // Sauvegarder une image depuis base64
 function saveImage($base64Data, $imageId, $imagesDir)
 {
-    // Décoder le base64
+    // Limite de taille : 5 MB en base64
+    if (strlen($base64Data) > 5 * 1024 * 1024 * 1.37) {
+        return null;
+    }
+
+    // Valider le type MIME
+    $allowedTypes = ['png', 'jpg', 'jpeg', 'gif', 'webp'];
     if (preg_match('/^data:image\/(\w+);base64,/', $base64Data, $matches)) {
         $imageType = $matches[1];
-        $imageData = base64_decode(substr($base64Data, strpos($base64Data, ',') + 1));
+        if (!in_array(strtolower($imageType), $allowedTypes)) {
+            return null;
+        }
 
-        $filename = $imageId . '.' . $imageType;
+        $imageData = base64_decode(substr($base64Data, strpos($base64Data, ',') + 1));
+        if ($imageData === false) return null;
+
+        // Sanitize imageId to prevent path traversal
+        $safeId = preg_replace('/[^a-zA-Z0-9_-]/', '', $imageId);
+        $filename = $safeId . '.' . $imageType;
         $filepath = $imagesDir . $filename;
+
+        // Verify the resolved path is within imagesDir
+        $realDir = realpath($imagesDir);
+        if ($realDir === false) return null;
+        $realPath = realpath(dirname($filepath));
+        if ($realPath === false || strpos($realPath, $realDir) !== 0) return null;
 
         if (file_put_contents($filepath, $imageData)) {
             return 'api/images_fiches/' . $filename;
@@ -112,8 +125,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     exit;
 }
 
-// POST : Créer ou modifier une fiche
+// POST : Créer ou modifier une fiche (authentification requise)
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    requireAuth();
     $input = json_decode(file_get_contents('php://input'), true);
 
     if (!$input) {
@@ -170,8 +184,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     exit;
 }
 
-// DELETE : Supprimer une fiche
+// DELETE : Supprimer une fiche (authentification requise)
 if ($_SERVER['REQUEST_METHOD'] === 'DELETE') {
+    requireAuth();
     $ficheId = $_GET['id'] ?? null;
 
     if (!$ficheId) {
@@ -183,16 +198,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'DELETE') {
     $fiches = loadFiches($storageFile);
     $initialCount = count($fiches);
 
-    // Supprimer les images associées
+    // Supprimer les images associées (avec vérification de chemin)
     $fiche = array_filter($fiches, fn($f) => $f['id'] === $ficheId);
     if (!empty($fiche)) {
         $fiche = reset($fiche);
         if (isset($fiche['images'])) {
+            $realImagesDir = realpath($imagesDir);
             foreach ($fiche['images'] as $img) {
                 if (isset($img['data']) && str_contains($img['data'], 'api/images_fiches/')) {
                     $imagePath = __DIR__ . '/' . str_replace('https://' . $_SERVER['HTTP_HOST'] . '/api/', '', $img['data']);
-                    if (file_exists($imagePath)) {
-                        @unlink($imagePath);
+                    $realImagePath = realpath($imagePath);
+                    // Only delete if the file is inside the images directory
+                    if ($realImagePath && $realImagesDir && strpos($realImagePath, $realImagesDir) === 0 && file_exists($realImagePath)) {
+                        @unlink($realImagePath);
                     }
                 }
             }

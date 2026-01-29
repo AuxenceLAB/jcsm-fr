@@ -49,7 +49,30 @@
     <link rel="apple-touch-icon" href="images/logo.png">
     <meta name="apple-mobile-web-app-capable" content="yes">
 
-
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "JCSM SAS",
+        "url": "https://jcsm.fr",
+        "logo": "https://jcsm.fr/images/logo.png",
+        "foundingDate": "2018",
+        "description": "Expert IRVE depuis 2018 : pilotage, installation, maintenance et support 24/7 d'infrastructures de recharge de véhicules électriques.",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "60 rue François 1er",
+            "addressLocality": "Paris",
+            "postalCode": "75008",
+            "addressCountry": "FR"
+        },
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+33756962758",
+            "contactType": "customer service",
+            "availableLanguage": "French"
+        }
+    }
+    </script>
 </head>
 
 <body class="text-gray-900">
@@ -72,7 +95,7 @@
             <div class="flex justify-between items-center mb-12">
                 <span class="text-xl font-semibold">Menu</span>
                 <button class="text-gray-600 hover:text-gray-900" id="mobile-menu-close" aria-label="Fermer le menu de navigation">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg class="w-6 h-6" fill="none" aria-hidden="true" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M6 18L18 6M6 6l12 12" />
                     </svg>
@@ -131,7 +154,7 @@
                         class="btn-primary px-7 py-2.5 rounded-xl text-base font-medium shadow-lg hover:shadow-xl">Contact</a>
                 </div>
                 <button class="mobile-menu-btn text-gray-600 hover:text-gray-900" id="mobile-menu-btn"
-                    aria-label="Ouvrir le menu de navigation" aria-expanded="false">
+                    aria-label="Ouvrir le menu de navigation" aria-expanded="false" aria-controls="mobile-menu">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M4 6h16M4 12h16M4 18h16" />

@@ -8,19 +8,11 @@
 // Configuration CORS
 header('Content-Type: application/json; charset=utf-8');
 
-$allowedOrigins = [
-    'https://jcsm.fr',
-    'https://www.jcsm.fr',
-    'http://localhost',
-    'http://127.0.0.1',
-    'null' // Pour tests locaux
-];
-
+$allowedOrigins = ['https://jcsm.fr', 'https://www.jcsm.fr'];
 $origin = $_SERVER['HTTP_ORIGIN'] ?? '';
-if (in_array($origin, $allowedOrigins) || empty($origin)) {
-    header('Access-Control-Allow-Origin: ' . ($origin ?: '*'));
+if (in_array($origin, $allowedOrigins)) {
+    header("Access-Control-Allow-Origin: $origin");
 }
-
 header('Access-Control-Allow-Methods: GET, POST, OPTIONS');
 header('Access-Control-Allow-Headers: Content-Type, Authorization');
 header('Access-Control-Max-Age: 86400');
@@ -42,24 +34,30 @@ $GOOGLE_SHEETS_URLS = [
 $context = $_GET['context'] ?? 'terrain';
 $GOOGLE_SHEETS_URL = $GOOGLE_SHEETS_URLS[$context] ?? $GOOGLE_SHEETS_URLS['terrain'];
 
-// Rate limiting simple
-session_start();
+// Rate limiting par IP (fichier temp)
 $rateLimit = 100; // requêtes par minute
 $ratePeriod = 60; // secondes
-
-if (!isset($_SESSION['rate_limit_count'])) {
-    $_SESSION['rate_limit_count'] = 0;
-    $_SESSION['rate_limit_time'] = time();
+$rateLimitDir = sys_get_temp_dir() . '/jcsm_rate/';
+if (!is_dir($rateLimitDir)) {
+    @mkdir($rateLimitDir, 0755, true);
 }
 
-if (time() - $_SESSION['rate_limit_time'] > $ratePeriod) {
-    $_SESSION['rate_limit_count'] = 0;
-    $_SESSION['rate_limit_time'] = time();
+$ip = $_SERVER['REMOTE_ADDR'] ?? 'unknown';
+$rateLimitFile = $rateLimitDir . md5($ip) . '.json';
+
+$rateData = null;
+if (file_exists($rateLimitFile)) {
+    $rateData = json_decode(file_get_contents($rateLimitFile), true);
 }
 
-$_SESSION['rate_limit_count']++;
+if ($rateData && time() - $rateData['start'] < $ratePeriod) {
+    $rateData['count']++;
+} else {
+    $rateData = ['count' => 1, 'start' => time()];
+}
+file_put_contents($rateLimitFile, json_encode($rateData));
 
-if ($_SESSION['rate_limit_count'] > $rateLimit) {
+if ($rateData['count'] > $rateLimit) {
     http_response_code(429);
     echo json_encode(['error' => 'Trop de requêtes. Réessayez dans quelques secondes.']);
     exit;

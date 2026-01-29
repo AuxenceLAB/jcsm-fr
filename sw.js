@@ -1,7 +1,7 @@
-// JCSM Service Worker - Enhanced PWA Support v5
-const CACHE_NAME = 'jcsm-v5';
-const STATIC_CACHE = 'jcsm-static-v5';
-const DYNAMIC_CACHE = 'jcsm-dynamic-v5';
+// JCSM Service Worker - Enhanced PWA Support v6
+const CACHE_NAME = 'jcsm-v6';
+const STATIC_CACHE = 'jcsm-static-v6';
+const DYNAMIC_CACHE = 'jcsm-dynamic-v6';
 
 // Assets to cache on install
 const STATIC_ASSETS = [
@@ -26,6 +26,7 @@ const STATIC_ASSETS = [
     '/mentions-legales.html',
     '/confidentialite.html',
     '/cgv.html',
+    '/js/landing.js',
     '/zones/ile-de-france.html',
     '/zones/paca.html',
     '/zones/occitanie.html',
@@ -75,7 +76,7 @@ self.addEventListener('fetch', (event) => {
                     caches.open(DYNAMIC_CACHE).then(cache => cache.put(request, clone));
                     return response;
                 })
-                .catch(() => caches.match(request).then(cached => cached || caches.match('/index.html')))
+                .catch(() => caches.match(request).then(cached => cached || caches.match('/offline.html')))
         );
         return;
     }
