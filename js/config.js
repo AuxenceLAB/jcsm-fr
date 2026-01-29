@@ -33,13 +33,9 @@ const JCSM_CONFIG = {
         // Hash SHA-256 des mots de passe
         // Pour générer: hashPassword('VotreMotDePasse').then(console.log)
         hashes: {
-            // JCSM2025 (admin app.js)
             'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3': { role: 'Admin', isAdmin: true },
-            // technicien (technicien app.js)
             '8bb0cf6eb9b17d0f7d22b456f121257dc1254e1f01665370476383ea776df414': { role: 'Technicien', isAdmin: false },
-            // JCSMADMIN (admin interne.html)
             'c6ba91b90d922e159893f46c387e5dc1b3dc5c101a5a4522f03b987177a24a91': { role: 'admin', isAdmin: true },
-            // JCSM (tech interne.html)
             '77b2eebd6e5e6c4eb4b4f4c39c3c0e8c4c0c4f9c4b9c4b9c4b9c4b9c4b9c4b9c': { role: 'tech', isAdmin: false }
         },
 
@@ -47,13 +43,8 @@ const JCSM_CONFIG = {
         sessionKey: 'jcsm_auth_session',
         sessionDuration: 8 * 60 * 60 * 1000, // 8 heures
 
-        // Mots de passe en clair (fallback - à retirer en production)
-        fallback: {
-            'JCSM2025': { role: 'Admin', isAdmin: true },
-            'technicien': { role: 'Technicien', isAdmin: false },
-            'JCSMADMIN': { role: 'admin', isAdmin: true },
-            'JCSM': { role: 'tech', isAdmin: false }
-        }
+        // Fallback désactivé en production
+        fallback: {}
     },
 
     // ==========================================
@@ -103,11 +94,6 @@ async function hashPassword(password) {
  * @returns {Promise<object|null>} Infos utilisateur ou null si invalide
  */
 async function verifyPassword(password) {
-    // Vérifier d'abord le fallback (mots de passe en clair)
-    if (JCSM_CONFIG.auth.fallback[password]) {
-        return JCSM_CONFIG.auth.fallback[password];
-    }
-
     // Vérifier par hash
     try {
         const hash = await hashPassword(password);
@@ -115,7 +101,7 @@ async function verifyPassword(password) {
             return JCSM_CONFIG.auth.hashes[hash];
         }
     } catch (e) {
-        console.error('Erreur vérification hash:', e);
+        // Erreur vérification hash
     }
 
     return null;
@@ -241,4 +227,4 @@ if (!document.querySelector('#jcsm-toast-styles')) {
     document.head.appendChild(style);
 }
 
-console.log('JCSM Config v' + JCSM_CONFIG.version + ' chargé');
+// Config loaded

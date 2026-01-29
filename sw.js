@@ -1,7 +1,7 @@
-// JCSM Service Worker - Enhanced PWA Support v3
-const CACHE_NAME = 'jcsm-v3';
-const STATIC_CACHE = 'jcsm-static-v3';
-const DYNAMIC_CACHE = 'jcsm-dynamic-v3';
+// JCSM Service Worker - Enhanced PWA Support v5
+const CACHE_NAME = 'jcsm-v5';
+const STATIC_CACHE = 'jcsm-static-v5';
+const DYNAMIC_CACHE = 'jcsm-dynamic-v5';
 
 // Assets to cache on install
 const STATIC_ASSETS = [
@@ -15,7 +15,23 @@ const STATIC_ASSETS = [
     '/js/analytics.js',
     '/images/logo.png',
     '/manifest.json',
-    '/offline.html'
+    '/offline.html',
+    '/exploitation.html',
+    '/installation-conformite.html',
+    '/pilotage-projets.html',
+    '/a-propos.html',
+    '/securisation-installations.html',
+    '/centre-appel.html',
+    '/carrieres.html',
+    '/mentions-legales.html',
+    '/confidentialite.html',
+    '/cgv.html',
+    '/zones/ile-de-france.html',
+    '/zones/paca.html',
+    '/zones/occitanie.html',
+    '/zones/auvergne-rhone-alpes.html',
+    '/zones/hauts-de-france.html',
+    '/zones/nouvelle-aquitaine.html'
 ];
 
 // Install event - cache static assets

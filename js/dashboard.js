@@ -124,7 +124,7 @@ function renderChart(id, type, data) {
 
     // Chart global object from Chart.js CDN
     if (typeof Chart === 'undefined') {
-        console.warn('Chart.js not loaded');
+        // Chart.js not loaded
         return;
     }
 

@@ -594,7 +594,7 @@ async function handleAuthSubmit(e) {
         // Recharger app
         location.reload();
     } catch (err) {
-        console.error('Erreur auth:', err);
+        // Erreur auth
         showToast('Erreur de connexion', 'error');
     } finally {
         if (submitBtn) {

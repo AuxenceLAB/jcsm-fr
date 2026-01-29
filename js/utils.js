@@ -69,7 +69,7 @@ function safeLocalStorageSet(key, value) {
         localStorage.setItem(key, value);
         return true;
     } catch (e) {
-        console.error('LocalStorage error:', e);
+        // LocalStorage error
         showToast("Erreur de sauvegarde locale (Stockage plein ?)", 'error');
         return false;
     }

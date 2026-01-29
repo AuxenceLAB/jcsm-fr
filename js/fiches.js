@@ -43,7 +43,7 @@ function loadFiches() {
             saveFiches(); // Initialiser le storage
         }
     } catch (e) {
-        console.warn('Erreur chargement fiches:', e);
+        // Erreur chargement fiches
         ALL_FICHES = [...DEFAULT_FICHES];
     }
 }
@@ -52,7 +52,7 @@ function saveFiches() {
     try {
         localStorage.setItem('fiches_v1', JSON.stringify(ALL_FICHES));
     } catch (e) {
-        console.warn('Erreur sauvegarde fiches:', e);
+        // Erreur sauvegarde fiches
         alert('Espace de stockage plein ou erreur locale.');
     }
 }

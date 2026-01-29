@@ -94,7 +94,7 @@
         <div class="p-8">
             <div class="flex justify-between items-center mb-12">
                 <span class="text-xl font-semibold">Menu</span>
-                <button class="text-gray-600 hover:text-gray-900" id="mobile-menu-close">
+                <button class="text-gray-600 hover:text-gray-900" id="mobile-menu-close" aria-label="Fermer le menu de navigation">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M6 18L18 6M6 6l12 12" />
@@ -201,10 +201,13 @@
                     </div>
                     <div class="section-appear order-2 lg:order-2 mb-4 lg:mb-0">
                         <div class="hero-image-container relative w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg mx-auto">
-                            <img id="hero-image" src="images/camera.png" fetchpriority="high"
-                                alt="Sécurisation d'installations IRVE contre vandalisme et vol - Solutions JCSM"
-                                class="w-full h-auto object-contain"
-                                width="1200" height="800">
+                            <picture>
+                                <source srcset="images/camera.webp" type="image/webp">
+                                <img id="hero-image" src="images/camera.png" fetchpriority="high"
+                                    alt="Sécurisation d'installations IRVE contre vandalisme et vol - Solutions JCSM"
+                                    class="w-full h-auto object-contain"
+                                    width="1200" height="800">
+                            </picture>
                         </div>
                     </div>
                 </div>
@@ -226,9 +229,12 @@
 
                 <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
                     <div class="card-hover bg-white border border-gray-200 rounded-2xl overflow-hidden section-appear">
-                        <img src="images/vandalisme1.jpeg"
-                            alt="Vandalisme sur installation IRVE"
-                            class="w-full h-48 object-cover" loading="lazy">
+                        <picture>
+                            <source srcset="images/vandalisme1.webp" type="image/webp">
+                            <img src="images/vandalisme1.jpeg"
+                                alt="Vandalisme sur installation IRVE"
+                                class="w-full h-48 object-cover" loading="lazy">
+                        </picture>
                         <div class="p-6">
                             <h3 class="text-lg font-bold mb-2">Vandalisme</h3>
                             <p class="text-gray-600 text-sm">Dégradations volontaires et destructions.</p>
@@ -236,9 +242,12 @@
                     </div>
 
                     <div class="card-hover bg-white border border-gray-200 rounded-2xl overflow-hidden section-appear">
-                        <img src="images/cablecoupe.jpg"
-                            alt="Câble IRVE sectionné - Vol de cuivre"
-                            class="w-full h-48 object-cover" loading="lazy">
+                        <picture>
+                            <source srcset="images/cablecoupe.webp" type="image/webp">
+                            <img src="images/cablecoupe.jpg"
+                                alt="Câble IRVE sectionné - Vol de cuivre"
+                                class="w-full h-48 object-cover" loading="lazy">
+                        </picture>
                         <div class="p-6">
                             <h3 class="text-lg font-bold mb-2">Câbles Coupés</h3>
                             <p class="text-gray-600 text-sm">Vol de câbles cuivre sectionnés.</p>
@@ -246,9 +255,12 @@
                     </div>
 
                     <div class="card-hover bg-white border border-gray-200 rounded-2xl overflow-hidden section-appear">
-                        <img src="images/cable.jpg"
-                            alt="Câble de recharge IRVE - Protection nécessaire"
-                            class="w-full h-48 object-cover" loading="lazy">
+                        <picture>
+                            <source srcset="images/cable.webp" type="image/webp">
+                            <img src="images/cable.jpg"
+                                alt="Câble de recharge IRVE - Protection nécessaire"
+                                class="w-full h-48 object-cover" loading="lazy">
+                        </picture>
                         <div class="p-6">
                             <h3 class="text-lg font-bold mb-2">Vol de Câbles</h3>
                             <p class="text-gray-600 text-sm">Câbles de recharge volés ou endommagés.</p>
@@ -256,9 +268,12 @@
                     </div>
 
                     <div class="card-hover bg-white border border-gray-200 rounded-2xl overflow-hidden section-appear">
-                        <img src="images/coupe.png"
-                            alt="Installation IRVE vandalisée"
-                            class="w-full h-48 object-cover" loading="lazy">
+                        <picture>
+                            <source srcset="images/coupe.webp" type="image/webp">
+                            <img src="images/coupe.png"
+                                alt="Installation IRVE vandalisée"
+                                class="w-full h-48 object-cover" loading="lazy">
+                        </picture>
                         <div class="p-6">
                             <h3 class="text-lg font-bold mb-2">Dégradations</h3>
                             <p class="text-gray-600 text-sm">Composants électroniques endommagés.</p>
@@ -286,9 +301,12 @@
                     <div class="card-hover bg-white border border-gray-200 rounded-2xl overflow-hidden section-appear">
                         <div class="grid lg:grid-cols-2 gap-0">
                             <div class="h-64 sm:h-80 md:h-96 lg:h-auto overflow-hidden">
-                                <img src="images/camera.jpg"
-                                    alt="Vidéosurveillance intelligente IRVE - Caméras haute définition avec détection de mouvement"
-                                    class="w-full h-full object-cover" loading="lazy" width="800" height="600">
+                                <picture>
+                                    <source srcset="images/camera.webp" type="image/webp">
+                                    <img src="images/camera.jpg"
+                                        alt="Vidéosurveillance intelligente IRVE - Caméras haute définition avec détection de mouvement"
+                                        class="w-full h-full object-cover" loading="lazy" width="800" height="600">
+                                </picture>
                             </div>
                             <div class="p-10 lg:p-12 flex flex-col justify-center">
                                 <div
@@ -343,9 +361,12 @@
                     <div class="card-hover bg-white border border-gray-200 rounded-2xl overflow-hidden section-appear">
                         <div class="grid lg:grid-cols-2 gap-0">
                             <div class="h-64 sm:h-80 md:h-96 lg:h-auto overflow-hidden lg:order-2">
-                                <img src="images/alarme.jpg"
-                                    alt="Alarmes connectées IRVE - Système d'alarme intelligent avec notification instantanée"
-                                    class="w-full h-full object-cover" loading="lazy" width="800" height="600">
+                                <picture>
+                                    <source srcset="images/alarme.webp" type="image/webp">
+                                    <img src="images/alarme.jpg"
+                                        alt="Alarmes connectées IRVE - Système d'alarme intelligent avec notification instantanée"
+                                        class="w-full h-full object-cover" loading="lazy" width="800" height="600">
+                                </picture>
                             </div>
                             <div class="p-10 lg:p-12 flex flex-col justify-center lg:order-1">
                                 <div
@@ -400,9 +421,12 @@
                     <div class="card-hover bg-white border border-gray-200 rounded-2xl overflow-hidden section-appear">
                         <div class="grid lg:grid-cols-2 gap-0">
                             <div class="h-64 sm:h-80 md:h-96 lg:h-auto overflow-hidden">
-                                <img src="images/protection.jpg"
-                                    alt="Protection physique renforcée IRVE - Caissons anti-vandalisme et serrures haute sécurité"
-                                    class="w-full h-full object-cover" loading="lazy" width="800" height="600">
+                                <picture>
+                                    <source srcset="images/protection.webp" type="image/webp">
+                                    <img src="images/protection.jpg"
+                                        alt="Protection physique renforcée IRVE - Caissons anti-vandalisme et serrures haute sécurité"
+                                        class="w-full h-full object-cover" loading="lazy" width="800" height="600">
+                                </picture>
                             </div>
                             <div class="p-10 lg:p-12 flex flex-col justify-center">
                                 <div
@@ -457,9 +481,12 @@
                     <div class="card-hover bg-white border border-gray-200 rounded-2xl overflow-hidden section-appear">
                         <div class="grid lg:grid-cols-2 gap-0">
                             <div class="h-40 sm:h-48 lg:h-auto overflow-hidden lg:order-2">
-                                <img src="images/maintenance.jpeg"
-                                    alt="Intervention rapide 24/7 IRVE - Technicien certifié JCSM en intervention d'urgence"
-                                    class="w-full h-full object-cover" loading="lazy" width="800" height="600">
+                                <picture>
+                                    <source srcset="images/maintenance.webp" type="image/webp">
+                                    <img src="images/maintenance.jpeg"
+                                        alt="Intervention rapide 24/7 IRVE - Technicien certifié JCSM en intervention d'urgence"
+                                        class="w-full h-full object-cover" loading="lazy" width="800" height="600">
+                                </picture>
                             </div>
                             <div class="p-10 lg:p-12 flex flex-col justify-center lg:order-1">
                                 <div
@@ -650,7 +677,7 @@
                 </div>
             </div>
             <div class="pt-8 border-t border-gray-200 text-center">
-                <p class="text-sm text-gray-500">© 2025 JCSM SAS - Tous droits réservés.</p>
+                <p class="text-sm text-gray-500">© 2026 JCSM SAS - Tous droits réservés.</p>
             </div>
         </div>
     </footer>
@@ -683,10 +710,10 @@
     </style>
 
     <script src="js/config.js"></script>
-    <script src="js/utils.js"></script>
-    <script src="js/public.js"></script>
+    <script src="js/utils.js" defer></script>
+    <script src="js/public.js" defer></script>
     <script src="js/analytics.js" defer></script>
-    <script src="js/wow-effects.js"></script>
+    <script src="js/wow-effects.js" defer></script>
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {

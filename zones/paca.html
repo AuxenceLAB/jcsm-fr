@@ -17,6 +17,11 @@
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:locale" content="fr_FR">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://jcsm.fr/zones/paca.html">
+    <meta name="twitter:title" content="IRVE Provence-Alpes-Côte d'Azur | Expert Bornes de Recharge Marseille | JCSM">
+    <meta name="twitter:description" content="Installation et maintenance de bornes de recharge en Provence-Alpes-Côte d'Azur. Intervention rapide sur Paris et toute la région.">
+    <meta name="twitter:image" content="https://jcsm.fr/images/index.jpg">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -68,6 +73,27 @@
     <script src="../js/config.js"></script>
 </head>
 <body class="text-gray-900 bg-white">
+    <div class="mobile-menu-overlay" id="mobile-menu-overlay"></div>
+    <nav class="mobile-menu" id="mobile-menu">
+        <div class="p-8">
+            <div class="flex justify-between items-center mb-12">
+                <span class="text-xl font-semibold">Menu</span>
+                <button class="text-gray-600 hover:text-gray-900" id="mobile-menu-close" aria-label="Fermer le menu de navigation">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+            <div class="flex flex-col space-y-6">
+                <a href="../index.html" class="text-base text-gray-600 hover:text-gray-900 transition-colors">Accueil</a>
+                <a href="../pilotage-projets.html" class="text-base text-gray-600 hover:text-gray-900 transition-colors">Pilotage de projets</a>
+                <a href="../installation-conformite.html" class="text-base text-gray-600 hover:text-gray-900 transition-colors">Installation</a>
+                <a href="../exploitation.html" class="text-base text-gray-600 hover:text-gray-900 transition-colors">Exploitation</a>
+                <a href="../a-propos.html" class="text-base text-gray-600 hover:text-gray-900 transition-colors">À propos</a>
+                <a href="../index.html#contact" class="bg-blue-600 text-white px-6 py-3 rounded-lg text-base font-medium inline-block text-center mt-4">Contact</a>
+            </div>
+        </div>
+    </nav>
     <!-- Navigation -->
     <nav class="fixed w-full z-50 bg-white/95 backdrop-blur-md border-b border-gray-100">
         <div class="max-w-7xl mx-auto px-6 py-4">
@@ -84,6 +110,11 @@
                     <a href="../a-propos.html" class="text-sm font-medium text-gray-600 hover:text-blue-600">À propos</a>
                     <a href="../index.html#contact" class="bg-blue-600 text-white px-6 py-2.5 rounded-lg text-sm font-medium hover:bg-blue-700">Contact</a>
                 </div>
+                <button class="lg:hidden text-gray-600 hover:text-gray-900" id="mobile-menu-btn" aria-label="Ouvrir le menu">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
             </div>
         </div>
     </nav>
@@ -241,7 +272,7 @@
             <div class="grid md:grid-cols-4 gap-8 mb-8">
                 <div>
                     <div class="flex items-center gap-2 mb-4">
-                        <img src="../images/logo.png" alt="JCSM" class="w-8 h-8">
+                        <img src="../images/logo.png" alt="JCSM" class="w-8 h-8" loading="lazy">
                         <span class="font-bold">JCSM</span>
                     </div>
                     <p class="text-gray-400 text-sm">Expert IRVE depuis 2018</p>
@@ -271,9 +302,21 @@
                 </div>
             </div>
             <div class="pt-8 border-t border-gray-800 text-center text-sm text-gray-500">
-                <p>© 2025 JCSM SAS - Tous droits réservés | <a href="../mentions-legales.html" class="hover:text-white">Mentions légales</a></p>
+                <p>© 2026 JCSM SAS - Tous droits réservés | <a href="../mentions-legales.html" class="hover:text-white">Mentions légales</a></p>
             </div>
         </div>
     </footer>
+    <script src="../js/utils.js" defer></script>
+    <script src="../js/public.js" defer></script>
+    <script src="../js/analytics.js" defer></script>
+    <script src="../js/wow-effects.js" defer></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                    .catch((error) => console.log('SW registration failed'));
+            });
+        }
+    </script>
 </body>
 </html>
