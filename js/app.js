@@ -562,13 +562,12 @@ async function handleAuthSubmit(e) {
             role = userInfo.role;
             isAdmin = userInfo.isAdmin;
         } else {
-            // Fallback direct si verifyPassword n'existe pas
-            if (pass === 'JCSM2025') {
-                role = 'Admin';
-                isAdmin = true;
-            } else if (pass === 'technicien') {
-                role = 'Technicien';
-                isAdmin = false;
+            // Fallback: hash et comparer manuellement si verifyPassword n'existe pas
+            const hash = await hashPassword(pass);
+            const hashInfo = JCSM_CONFIG.auth.hashes[hash];
+            if (hashInfo) {
+                role = hashInfo.role;
+                isAdmin = hashInfo.isAdmin;
             } else {
                 showToast('Mot de passe incorrect', 'error');
                 return;

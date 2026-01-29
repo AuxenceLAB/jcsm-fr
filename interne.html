@@ -888,8 +888,7 @@ const WEBHOOK = typeof JCSM_CONFIG !== 'undefined' ? JCSM_CONFIG.api.webhooks.ra
 const WEBHOOK_PAY = typeof JCSM_CONFIG !== 'undefined' ? JCSM_CONFIG.api.webhooks.paiement : 'https://n8n.jcsm.fr/webhook/paiement';
 const WEBHOOK_SMS = typeof JCSM_CONFIG !== 'undefined' ? JCSM_CONFIG.api.webhooks.sms : 'https://n8n.jcsm.fr/webhook/sms';
 const WEBHOOK_NOTIFY = typeof JCSM_CONFIG !== 'undefined' ? JCSM_CONFIG.api.webhooks.notification : 'https://n8n.jcsm.fr/webhook/notification';
-// Authentification via config.js (sécurisée)
-const PWD = { tech: 'JCSM', admin: 'JCSMADMIN' }; // Fallback - vérification par hash préférée
+// Authentification par hash uniquement (via config.js verifyPassword / JCSM_CONFIG.auth.hashes)
 const SYNC_INTERVAL = typeof JCSM_CONFIG !== 'undefined' ? JCSM_CONFIG.refresh.interval : 60 * 60 * 1000;
 
 // Gestion des techniciens
@@ -1135,14 +1134,17 @@ $('auth-form').onsubmit = async e => {
 
         if (userInfo) {
             S.user = { role: userInfo.role, name: userInfo.isAdmin ? 'Admin' : 'Technicien' };
-        } else if (p === PWD.admin) {
-            S.user = { role: 'admin', name: 'Admin' };
-        } else if (p === PWD.tech) {
-            S.user = { role: 'tech', name: 'Technicien' };
         } else {
-            toast('Code incorrect', 'error');
-            vibrate(100);
-            return;
+            // Fallback: hash et comparer manuellement si verifyPassword n'existe pas
+            const hash = typeof hashPassword === 'function' ? await hashPassword(p) : null;
+            const hashInfo = hash && typeof JCSM_CONFIG !== 'undefined' ? JCSM_CONFIG.auth.hashes[hash] : null;
+            if (hashInfo) {
+                S.user = { role: hashInfo.isAdmin ? 'admin' : 'tech', name: hashInfo.isAdmin ? 'Admin' : 'Technicien' };
+            } else {
+                toast('Code incorrect', 'error');
+                vibrate(100);
+                return;
+            }
         }
 
         // Créer session sécurisée si disponible

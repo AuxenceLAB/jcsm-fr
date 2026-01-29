@@ -212,7 +212,7 @@ Options -Indexes
 # FileETag enabled for better caching
 
 # Protect sensitive files
-<FilesMatch "\.(htaccess|htpasswd|ini|log|sh|sql|env|git|bak|config|dist|fla|inc|psd|swp|md)$">
+<FilesMatch "\.(htaccess|htpasswd|ini|log|sh|sql|env|git|bak|config|conf|dist|fla|inc|psd|swp|md)$">
     <IfModule mod_authz_core.c>
         Require all denied
     </IfModule>
@@ -226,7 +226,7 @@ Options -Indexes
 </FilesMatch>
 
 # Block access to backup and source files
-<FilesMatch "(\.(bak|config|dist|fla|inc|ini|log|psd|sh|sql|swp)|~)$">
+<FilesMatch "(\.(bak|config|conf|dist|fla|inc|ini|log|psd|sh|sql|swp)|~)$">
     <IfModule mod_authz_core.c>
         Require all denied
     </IfModule>
