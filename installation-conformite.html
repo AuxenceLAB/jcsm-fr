@@ -612,20 +612,57 @@
             z-index: 1;
         }
         .custom-marker { background: transparent !important; border: none !important; }
-        .marker-wrapper { position: relative; width: 44px; height: 56px; display: flex; flex-direction: column; align-items: center; }
-        .marker-pin { width: 36px; height: 36px; border-radius: 50% 50% 50% 0; background: linear-gradient(135deg, #2563EB, #7C3AED); transform: rotate(-45deg); border: 3px solid white; box-shadow: 0 4px 14px rgba(37,99,235,0.5); position: relative; animation: bounce-marker 2s ease-in-out infinite; transition: all 0.3s ease; }
-        .marker-pin::after { content: ''; width: 12px; height: 12px; border-radius: 50%; background: white; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); }
-        .marker-pulse { position: absolute; top: 12px; left: 50%; transform: translateX(-50%); width: 40px; height: 40px; border-radius: 50%; background: rgba(37,99,235,0.25); animation: pulse-ring 2s ease-out infinite; }
-        .marker-label { margin-top: 2px; font-size: 10px; font-weight: 700; color: #1e3a8a; text-shadow: 0 0 3px white, 0 0 3px white, 0 0 3px white, 0 0 3px white; white-space: nowrap; letter-spacing: 0.02em; }
-        @keyframes bounce-marker { 0%, 100% { transform: rotate(-45deg) translateY(0); } 50% { transform: rotate(-45deg) translateY(-4px); } }
-        @keyframes pulse-ring { 0% { transform: translateX(-50%) scale(0.5); opacity: 1; } 100% { transform: translateX(-50%) scale(2.2); opacity: 0; } }
-        .marker-wrapper:hover .marker-pin { transform: rotate(-45deg) scale(1.2); background: linear-gradient(135deg, #1D4ED8, #6D28D9); box-shadow: 0 6px 20px rgba(37,99,235,0.6); }
-        .leaflet-popup-content-wrapper { border-radius: 12px !important; box-shadow: 0 10px 30px rgba(0,0,0,0.15) !important; padding: 0 !important; }
+        .marker-wrapper {
+            position: relative;
+            width: 32px;
+            height: 42px;
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            filter: drop-shadow(0 3px 6px rgba(37,99,235,0.4));
+            transition: filter 0.25s ease;
+        }
+        .marker-pin {
+            width: 32px;
+            height: 32px;
+            border-radius: 50% 50% 50% 0;
+            background: linear-gradient(145deg, #3B82F6, #1D4ED8);
+            transform: rotate(-45deg);
+            border: 3px solid #fff;
+            position: relative;
+            transition: all 0.25s cubic-bezier(.4,0,.2,1);
+        }
+        .marker-pin::after {
+            content: '';
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #fff;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .marker-shadow {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 16px;
+            height: 6px;
+            border-radius: 50%;
+            background: rgba(0,0,0,0.18);
+            filter: blur(2px);
+        }
+        .marker-wrapper:hover { filter: drop-shadow(0 4px 10px rgba(37,99,235,0.55)); }
+        .marker-wrapper:hover .marker-pin { transform: rotate(-45deg) scale(1.12); background: linear-gradient(145deg, #2563EB, #1E40AF); }
+        .leaflet-popup-content-wrapper { border-radius: 14px !important; box-shadow: 0 8px 30px rgba(0,0,0,0.12) !important; padding: 0 !important; border: 1px solid rgba(0,0,0,0.06) !important; }
         .leaflet-popup-content { margin: 0 !important; min-width: 180px; }
-        .popup-content { padding: 14px 18px; }
+        .leaflet-popup-tip { box-shadow: none !important; }
+        .popup-content { padding: 16px 20px; }
         .popup-content h3 { font-size: 15px; font-weight: 700; color: #1e293b; margin-bottom: 4px; }
         .popup-content p { font-size: 12px; color: #64748b; margin: 0; }
-        .popup-content .popup-badge { display: inline-block; margin-top: 6px; padding: 2px 8px; background: linear-gradient(135deg, #2563EB, #7C3AED); color: white; border-radius: 20px; font-size: 10px; font-weight: 600; }
+        .popup-content .popup-badge { display: inline-block; margin-top: 8px; padding: 3px 10px; background: #EFF6FF; color: #2563EB; border-radius: 8px; font-size: 11px; font-weight: 600; }
     </style>
 
     <script src="js/config.js"></script>
@@ -681,8 +718,8 @@
             cities.forEach(city => {
                 const icon = L.divIcon({
                     className: 'custom-marker',
-                    html: `<div class="marker-wrapper"><div class="marker-pulse"></div><div class="marker-pin"></div><div class="marker-label">${city.name}</div></div>`,
-                    iconSize: [44, 56], iconAnchor: [22, 36], popupAnchor: [0, -30]
+                    html: `<div class="marker-wrapper"><div class="marker-pin"></div><div class="marker-shadow"></div></div>`,
+                    iconSize: [32, 42], iconAnchor: [16, 42], popupAnchor: [0, -38]
                 });
                 L.marker([city.lat, city.lng], { icon })
                     .bindPopup(`<div class="popup-content"><h3>${city.name}</h3><p>Zone d'intervention JCSM</p><span class="popup-badge">Installation & Conformité</span></div>`)
