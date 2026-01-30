@@ -35,10 +35,17 @@ function showToast(message, type = 'info', duration = 3000) {
     // Créer le toast
     const toast = document.createElement('div');
     toast.className = `${config.bg} text-white px-4 py-3 rounded-lg shadow-lg flex items-center gap-3 min-w-[300px] transform transition-all duration-300 translate-x-full opacity-0`;
-    toast.innerHTML = `
-        <span class="text-xl">${config.icon}</span>
-        <div class="flex-1 text-sm font-medium">${message}</div>
-    `;
+    toast.setAttribute('role', 'alert');
+    toast.setAttribute('aria-live', 'assertive');
+    const iconSpan = document.createElement('span');
+    iconSpan.className = 'text-xl';
+    iconSpan.setAttribute('aria-hidden', 'true');
+    iconSpan.textContent = config.icon;
+    const msgDiv = document.createElement('div');
+    msgDiv.className = 'flex-1 text-sm font-medium';
+    msgDiv.textContent = message;
+    toast.appendChild(iconSpan);
+    toast.appendChild(msgDiv);
 
     // Ajouter au DOM
     container.appendChild(toast);
@@ -59,6 +66,23 @@ function showToast(message, type = 'info', duration = 3000) {
         }, 300);
     }, duration);
 }
+
+// ==========================================
+// HTML ESCAPE (Prévention XSS)
+// ==========================================
+
+/**
+ * Échappe les caractères HTML dangereux
+ * @param {*} str - Valeur à échapper
+ * @returns {string} Chaîne échappée
+ */
+function escapeHtml(str) {
+    if (str == null) return '';
+    const d = document.createElement('div');
+    d.textContent = String(str);
+    return d.innerHTML;
+}
+window.escapeHtml = escapeHtml;
 
 // ==========================================
 // LOCAL STORAGE HELPERS
@@ -90,6 +114,7 @@ function safeLocalStorageGet(key) {
 function formatDateFr(dateString) {
     if (!dateString) return '';
     const date = new Date(dateString);
+    if (isNaN(date.getTime())) return '';
     return new Intl.DateTimeFormat('fr-FR', {
         day: '2-digit', month: '2-digit', year: 'numeric'
     }).format(date);

@@ -1,12 +1,8 @@
 # Sécurité API
 Options -Indexes
 
-# Permettre les requêtes depuis le domaine
-<IfModule mod_headers.c>
-    Header set Access-Control-Allow-Origin "*"
-    Header set Access-Control-Allow-Methods "GET, POST, DELETE, OPTIONS"
-    Header set Access-Control-Allow-Headers "Content-Type"
-</IfModule>
+# CORS géré individuellement par chaque fichier PHP
+# Ne pas définir Access-Control-Allow-Origin ici (doublon dangereux)
 
 # Protéger le fichier JSON
 <Files "fiches_methodes.json">

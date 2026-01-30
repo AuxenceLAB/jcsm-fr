@@ -38,6 +38,13 @@ if (!is_dir($rateLimitDir)) {
     @mkdir($rateLimitDir, 0755, true);
 }
 
+// Cleanup stale rate-limit files (older than 10 minutes) — runs ~5% of requests
+if (mt_rand(1, 20) === 1) {
+    foreach (glob($rateLimitDir . '*.json') as $f) {
+        if (filemtime($f) < time() - 600) @unlink($f);
+    }
+}
+
 $ip = $_SERVER['REMOTE_ADDR'] ?? 'unknown';
 $rateLimitFile = $rateLimitDir . md5($ip) . '.json';
 $maxAttempts = 10;

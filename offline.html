@@ -112,12 +112,16 @@
         <div class="status" id="status">Hors ligne</div>
     </div>
 
+    <noscript><p style="text-align:center;color:#6B7280;margin-top:1rem;">Activez JavaScript pour détecter automatiquement le retour en ligne.</p></noscript>
     <script>
         // Auto-detect when back online
         window.addEventListener('online', () => {
-            document.getElementById('status').textContent = 'Connexion rétablie !';
-            document.getElementById('status').classList.add('online');
-            setTimeout(() => location.reload(), 1000);
+            const status = document.getElementById('status');
+            if (status) {
+                status.textContent = 'Connexion rétablie !';
+                status.classList.add('online');
+            }
+            setTimeout(() => location.reload(), 1500);
         });
     </script>
     <!-- Service Worker Registration -->
@@ -125,7 +129,7 @@
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
                 navigator.serviceWorker.register('/sw.js')
-                    .catch((error) => console.log('SW registration failed'));
+                    .catch((error) => console.error('SW registration failed:', error));
             });
         }
     </script>

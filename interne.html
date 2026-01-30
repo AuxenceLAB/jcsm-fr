@@ -13,6 +13,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css"/>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css"/>
+    <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js"></script>
     <script src="js/config.js"></script>
     <style>
         :root {
@@ -126,8 +130,8 @@
         .cd-soon { background: var(--amber-light); color: #92400e; }
         .cd-ok { background: var(--green-light); color: #15803d; }
         
-        .timer { background: linear-gradient(135deg, var(--primary), var(--purple)); padding: 24px; border-radius: var(--radius); text-align: center; margin-bottom: 20px; box-shadow: var(--shadow-lg); }
-        .timer-display { font-size: 48px; font-weight: 900; font-family: 'SF Mono', monospace; letter-spacing: 2px; color: #fff; }
+        .timer { background: linear-gradient(135deg, var(--primary), var(--purple)); padding: 16px; border-radius: var(--radius); text-align: center; margin-bottom: 16px; box-shadow: var(--shadow-lg); }
+        .timer-display { font-size: 36px; font-weight: 900; font-family: 'SF Mono', monospace; letter-spacing: 2px; color: #fff; }
         .timer-controls { display: flex; gap: 12px; justify-content: center; margin-top: 16px; }
         .timer.running { animation: glow 2s infinite; }
         
@@ -140,7 +144,14 @@
         .intv.late { border-color: rgba(239,68,68,.3); background: linear-gradient(135deg, #fff 0%, #fef2f2 100%); }
         .intv.today::before { background: var(--amber); }
         
-        .quick-actions { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 20px; }
+        .group-header { font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 1.5px; padding: 12px 0 6px; display: flex; align-items: center; gap: 8px; }
+        .group-header .dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+        .group-header .count { font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 10px; background: var(--bg3); color: var(--muted); }
+        .progress-bar-wrap { background: var(--bg3); border-radius: 8px; height: 6px; margin-bottom: 16px; overflow: hidden; }
+        .progress-bar-fill { height: 100%; border-radius: 8px; background: linear-gradient(90deg, var(--green), var(--primary)); transition: width .5s ease; }
+        .progress-summary { display: flex; justify-content: space-between; font-size: 12px; color: var(--muted); margin-bottom: 6px; font-weight: 600; }
+
+        .quick-actions { display: grid; grid-template-columns: repeat(auto-fill, minmax(80px, 1fr)); gap: 10px; margin-bottom: 16px; }
         .quick-action { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 16px 8px; text-align: center; cursor: pointer; transition: all .2s; box-shadow: var(--shadow); }
         .quick-action:hover { box-shadow: var(--shadow-lg); transform: translateY(-2px); }
         .quick-action:active { transform: scale(.95); }
@@ -165,7 +176,7 @@
         .photo-cat-title { font-size: 14px; font-weight: 700; display: flex; align-items: center; gap: 10px; color: var(--text); }
         .photo-cat-title .count { background: var(--green); color: #fff; padding: 4px 10px; border-radius: 8px; font-size: 12px; }
         .photo-cat-title .required-badge { background: var(--amber); color: #fff; padding: 4px 8px; border-radius: 6px; font-size: 10px; }
-        .photo-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+        .photo-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(80px, 1fr)); gap: 10px; }
         .photo-item { position: relative; aspect-ratio: 1; border-radius: 10px; overflow: hidden; box-shadow: var(--shadow); }
         .photo-item img { width: 100%; height: 100%; object-fit: cover; }
         .photo-item .delete { position: absolute; top: 6px; right: 6px; width: 26px; height: 26px; background: var(--red); border: none; border-radius: 50%; color: #fff; cursor: pointer; font-size: 16px; font-weight: bold; display: flex; align-items: center; justify-content: center; box-shadow: var(--shadow); }
@@ -203,7 +214,8 @@
         .nav { display: flex; background: var(--card); border-top: 1px solid var(--border); position: fixed; bottom: 0; left: 0; right: 0; z-index: 100; padding: 8px 8px calc(8px + env(safe-area-inset-bottom)); box-shadow: 0 -4px 20px rgba(0,0,0,.08); }
         .nav-item { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 4px; padding: 8px 4px; border-radius: 12px; color: var(--muted); font-size: 10px; font-weight: 700; cursor: pointer; transition: all .15s; position: relative; }
         .nav-item:active { transform: scale(.95); }
-        .nav-item.active { color: var(--primary); background: var(--primary-light); }
+        .nav-item.active { color: var(--primary); background: var(--primary-light); transition: all .2s ease; }
+        .nav-item.active::after { content: ''; position: absolute; bottom: 2px; left: 50%; transform: translateX(-50%); width: 20px; height: 3px; background: var(--primary); border-radius: 2px; }
         .nav-item span { font-size: 24px; }
         .nav-item .nav-badge { position: absolute; top: 4px; right: 50%; transform: translateX(14px); background: var(--red); color: #fff; font-size: 10px; padding: 2px 6px; border-radius: 6px; font-weight: 800; }
         
@@ -243,7 +255,7 @@
         .pull-indicator.visible { transform: translateX(-50%) translateY(0); }
         
         .hidden { display: none !important; }
-        .container { padding: 20px; padding-bottom: 120px; max-width: 600px; margin: 0 auto; }
+        .container { padding: 20px; padding-bottom: 100px; max-width: 600px; margin: 0 auto; }
         .section-title { font-size: 13px; font-weight: 800; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 16px; display: flex; align-items: center; gap: 10px; }
         .divider { height: 1px; background: var(--border); margin: 24px 0; }
         
@@ -347,7 +359,7 @@
         .progress-fill { height: 100%; background: linear-gradient(90deg, var(--primary), var(--green)); border-radius: 3px; transition: width .5s ease-out; }
 
         /* Floating action button */
-        .fab { position: fixed; bottom: 100px; right: 20px; width: 60px; height: 60px; background: linear-gradient(135deg, var(--primary), var(--purple)); border-radius: 50%; box-shadow: var(--shadow-lg); display: flex; align-items: center; justify-content: center; font-size: 28px; color: #fff; cursor: pointer; z-index: 90; transition: all .2s; border: none; }
+        .fab { position: fixed; bottom: calc(70px + env(safe-area-inset-bottom, 0px)); right: 20px; width: 56px; height: 56px; background: linear-gradient(135deg, var(--primary), var(--purple)); border-radius: 50%; box-shadow: var(--shadow-lg); display: flex; align-items: center; justify-content: center; font-size: 28px; color: #fff; cursor: pointer; z-index: 90; transition: all .2s; border: none; }
         .fab:hover { transform: scale(1.1); }
         .fab:active { transform: scale(.95); }
 
@@ -368,6 +380,77 @@
         .skeleton-line { height: 16px; background: linear-gradient(90deg, var(--bg3) 25%, var(--bg) 50%, var(--bg3) 75%); background-size: 200% 100%; animation: shimmer 1.5s infinite; border-radius: 4px; margin-bottom: 12px; }
         .skeleton-line.short { width: 60%; }
         .skeleton-line.medium { width: 80%; }
+
+        /* Mobile-first touch targets (48px minimum) */
+        .btn, .nav-item, .quick-action, .check-item, .filter-tab, .search-filter, .status-opt, .photo-add {
+            min-height: 48px;
+        }
+        input, select, textarea {
+            font-size: 16px; /* Prevents iOS auto-zoom */
+            min-height: 48px;
+        }
+        .nav {
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            background: rgba(255,255,255,.85);
+            padding-bottom: calc(8px + env(safe-area-inset-bottom));
+        }
+        [data-theme="dark"] .nav {
+            background: rgba(30,41,59,.85);
+        }
+        @media (prefers-color-scheme: dark) {
+            .nav { background: rgba(30,41,59,.85); }
+        }
+
+        /* Slide animations for swipe navigation */
+        @keyframes slideEnterLeft { from { transform: translateX(-100%); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+        @keyframes slideEnterRight { from { transform: translateX(100%); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+        .slide-enter-left { animation: slideEnterLeft .25s ease-out; }
+        .slide-enter-right { animation: slideEnterRight .25s ease-out; }
+
+        /* Report wizard full-screen overlay */
+        .wizard-overlay {
+            position: fixed; inset: 0; background: var(--bg); z-index: 250;
+            display: flex; flex-direction: column;
+            opacity: 0; pointer-events: none; transition: opacity .25s;
+        }
+        .wizard-overlay.active { opacity: 1; pointer-events: auto; }
+        .wizard-header {
+            background: var(--card); border-bottom: 1px solid var(--border);
+            padding: 16px 20px; display: flex; align-items: center; justify-content: space-between;
+            box-shadow: var(--shadow); position: sticky; top: 0; z-index: 10;
+        }
+        .wizard-progress { height: 4px; background: var(--bg3); }
+        .wizard-progress-fill { height: 100%; background: linear-gradient(90deg, var(--primary), var(--green)); transition: width .3s ease; border-radius: 0 2px 2px 0; }
+        .wizard-body { flex: 1; overflow-y: auto; padding: 20px; padding-bottom: 120px; }
+        .wizard-step { display: none; }
+        .wizard-step.active { display: block; animation: fadeIn .3s ease-out; }
+        .wizard-footer {
+            position: fixed; bottom: 0; left: 0; right: 0;
+            background: var(--card); border-top: 1px solid var(--border);
+            padding: 12px 20px calc(12px + env(safe-area-inset-bottom));
+            display: flex; gap: 12px; box-shadow: 0 -4px 20px rgba(0,0,0,.08); z-index: 10;
+        }
+        .wizard-footer .btn { flex: 1; }
+        .wizard-dots { display: flex; gap: 6px; justify-content: center; padding: 12px 0; }
+        .wizard-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--border); transition: all .2s; }
+        .wizard-dot.active { background: var(--primary); width: 24px; border-radius: 4px; }
+        .wizard-dot.done { background: var(--green); }
+
+        /* Signature canvas */
+        .signature-pad {
+            border: 2px solid var(--border); border-radius: 14px;
+            background: #fff; touch-action: none; cursor: crosshair;
+            width: 100%; height: 200px;
+        }
+        .signature-pad.drawing { border-color: var(--primary); }
+
+        /* Sync indicator improvements */
+        .sync-indicator { display: inline-flex; align-items: center; gap: 6px; }
+        .sync-count { background: var(--amber); color: #fff; font-size: 10px; padding: 2px 6px; border-radius: 8px; font-weight: 800; }
+
+        /* Draft indicator */
+        .draft-badge { background: var(--amber-light); color: #b45309; padding: 6px 12px; border-radius: 8px; font-size: 12px; font-weight: 700; }
     </style>
 </head>
 <body>
@@ -440,22 +523,22 @@
     </header>
 
     <!-- Stats Tech -->
-    <div id="stats-tech" style="background:var(--card);padding:16px 20px;border-bottom:1px solid var(--border);overflow-x:auto;box-shadow:var(--shadow)">
+    <div id="stats-tech" style="background:var(--card);padding:16px 20px;border-bottom:1px solid var(--border);overflow-x:auto;box-shadow:var(--shadow)" role="toolbar" aria-label="Filtres interventions">
         <div style="display:flex;gap:12px;min-width:max-content">
-            <div onclick="setFilter('late')" style="background:var(--red-light);padding:16px 24px;border-radius:14px;min-width:90px;text-align:center;cursor:pointer;border:2px solid transparent;transition:all .15s" class="stat-card" data-f="late">
-                <p id="s-late" style="font-size:32px;font-weight:900;color:var(--red)">-</p>
+            <div onclick="setFilter('late')" role="button" tabindex="0" aria-label="Filtrer les interventions en retard" style="background:var(--red-light);padding:16px 24px;border-radius:14px;min-width:90px;text-align:center;cursor:pointer;border:2px solid transparent;transition:all .15s" class="stat-card" data-f="late">
+                <p id="s-late" style="font-size:32px;font-weight:900;color:var(--red)" aria-live="polite">-</p>
                 <p style="font-size:11px;color:var(--red);font-weight:600">🔥 Retard</p>
             </div>
-            <div onclick="setFilter('today')" style="background:var(--amber-light);padding:16px 24px;border-radius:14px;min-width:90px;text-align:center;cursor:pointer;border:2px solid transparent;transition:all .15s" class="stat-card" data-f="today">
-                <p id="s-today" style="font-size:32px;font-weight:900;color:#b45309">-</p>
+            <div onclick="setFilter('today')" role="button" tabindex="0" aria-label="Filtrer les interventions du jour" style="background:var(--amber-light);padding:16px 24px;border-radius:14px;min-width:90px;text-align:center;cursor:pointer;border:2px solid transparent;transition:all .15s" class="stat-card" data-f="today">
+                <p id="s-today" style="font-size:32px;font-weight:900;color:#b45309" aria-live="polite">-</p>
                 <p style="font-size:11px;color:#b45309;font-weight:600">📅 Aujourd'hui</p>
             </div>
-            <div onclick="setFilter('pending')" style="background:var(--primary-light);padding:16px 24px;border-radius:14px;min-width:90px;text-align:center;cursor:pointer;border:2px solid transparent;transition:all .15s" class="stat-card" data-f="pending">
-                <p id="s-pending" style="font-size:32px;font-weight:900;color:var(--primary)">-</p>
+            <div onclick="setFilter('pending')" role="button" tabindex="0" aria-label="Filtrer les interventions à faire" style="background:var(--primary-light);padding:16px 24px;border-radius:14px;min-width:90px;text-align:center;cursor:pointer;border:2px solid transparent;transition:all .15s" class="stat-card" data-f="pending">
+                <p id="s-pending" style="font-size:32px;font-weight:900;color:var(--primary)" aria-live="polite">-</p>
                 <p style="font-size:11px;color:var(--primary-dark);font-weight:600">⏳ À faire</p>
             </div>
-            <div onclick="setFilter('all')" style="background:var(--green-light);padding:16px 24px;border-radius:14px;min-width:90px;text-align:center;cursor:pointer;border:2px solid transparent;transition:all .15s" class="stat-card" data-f="all">
-                <p id="s-done" style="font-size:32px;font-weight:900;color:var(--green)">-</p>
+            <div onclick="setFilter('all')" role="button" tabindex="0" aria-label="Voir toutes les interventions" style="background:var(--green-light);padding:16px 24px;border-radius:14px;min-width:90px;text-align:center;cursor:pointer;border:2px solid transparent;transition:all .15s" class="stat-card" data-f="all">
+                <p id="s-done" style="font-size:32px;font-weight:900;color:var(--green)" aria-live="polite">-</p>
                 <p style="font-size:11px;color:#15803d;font-weight:600">✅ Terminées</p>
             </div>
         </div>
@@ -470,13 +553,13 @@
             </div>
             <button class="btn btn-ghost btn-icon" onclick="toggleSearchFilters()" id="filter-btn" title="Filtres">⚙️</button>
         </div>
-        <div id="search-filters" class="search-filters hidden">
-            <span class="search-filter active" data-brand="">Toutes marques</span>
-            <span class="search-filter" data-brand="Alfen">Alfen</span>
-            <span class="search-filter" data-brand="Delta">Delta</span>
-            <span class="search-filter" data-brand="Kempower">Kempower</span>
-            <span class="search-filter" data-brand="Starcharge">Starcharge</span>
-            <span class="search-filter" data-brand="Ekoenergetyka">Ekoenergetyka</span>
+        <div id="search-filters" class="search-filters hidden" role="toolbar" aria-label="Filtres marques">
+            <span class="search-filter active" role="button" tabindex="0" data-brand="">Toutes marques</span>
+            <span class="search-filter" role="button" tabindex="0" data-brand="Alfen">Alfen</span>
+            <span class="search-filter" role="button" tabindex="0" data-brand="Delta">Delta</span>
+            <span class="search-filter" role="button" tabindex="0" data-brand="Kempower">Kempower</span>
+            <span class="search-filter" role="button" tabindex="0" data-brand="Starcharge">Starcharge</span>
+            <span class="search-filter" role="button" tabindex="0" data-brand="Ekoenergetyka">Ekoenergetyka</span>
         </div>
         <div id="list-stats" style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;font-size:13px;color:var(--muted)">
             <span id="result-count">0 intervention(s)</span>
@@ -486,8 +569,15 @@
     </div>
 
     <div id="view-detail" class="view container hidden">
-        <button class="btn btn-ghost" onclick="showView('list')" style="width:100%;margin-bottom:20px">← Retour</button>
-        
+        <div style="display:flex;gap:12px;align-items:center;margin-bottom:20px">
+            <button class="btn btn-ghost btn-icon" onclick="showView('list')" style="width:44px;height:44px;flex-shrink:0">←</button>
+            <div style="flex:1;min-width:0">
+                <h3 id="d-header-site" style="font-weight:900;font-size:16px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:var(--text)">-</h3>
+                <p id="d-header-ticket" style="font-size:12px;color:var(--muted);font-family:monospace">#-</p>
+            </div>
+            <span id="d-header-distance" class="distance-badge hidden">-</span>
+        </div>
+
         <div class="timer" id="timer-card">
             <div class="timer-display" id="timer-display">00:00:00</div>
             <p style="font-size:13px;opacity:.9;margin-top:8px;color:#fff">Temps d'intervention</p>
@@ -497,15 +587,15 @@
             </div>
         </div>
         
-        <div class="quick-actions">
-            <div class="quick-action" onclick="openMaps()"><span>🗺️</span><p>Itinéraire</p></div>
-            <div class="quick-action" onclick="callPowerdot()"><span>📞</span><p>Powerdot</p></div>
-            <div class="quick-action" onclick="showChecklist()"><span>✅</span><p>Checklist</p></div>
-            <div class="quick-action" onclick="showPhotos()"><span>📷</span><p>Photos</p></div>
+        <div class="quick-actions" role="toolbar" aria-label="Actions rapides">
+            <div class="quick-action" role="button" tabindex="0" aria-label="Ouvrir l'itinéraire" onclick="openMaps()"><span>🗺️</span><p>Itinéraire</p></div>
+            <div class="quick-action" role="button" tabindex="0" aria-label="Appeler Powerdot" onclick="callPowerdot()"><span>📞</span><p>Powerdot</p></div>
+            <div class="quick-action" role="button" tabindex="0" aria-label="Ouvrir la checklist" onclick="showChecklist()"><span>✅</span><p>Checklist</p></div>
+            <div class="quick-action" role="button" tabindex="0" aria-label="Gérer les photos" onclick="showPhotos()"><span>📷</span><p>Photos</p></div>
         </div>
         <div class="quick-actions" style="grid-template-columns: repeat(2, 1fr);margin-bottom:20px">
-            <div class="quick-action" onclick="openAssignModal()"><span>👷</span><p>Assigner tech</p></div>
-            <div class="quick-action" onclick="openSMSModal()"><span>📱</span><p>Envoyer SMS</p></div>
+            <div class="quick-action" role="button" tabindex="0" aria-label="Assigner un technicien" onclick="openAssignModal()"><span>👷</span><p>Assigner tech</p></div>
+            <div class="quick-action" role="button" tabindex="0" aria-label="Envoyer un SMS" onclick="openSMSModal()"><span>📱</span><p>Envoyer SMS</p></div>
         </div>
         
         <div class="card" style="padding:24px;margin-bottom:20px">
@@ -616,10 +706,18 @@
 
     <div id="view-calendar" class="view container hidden">
         <div class="card" style="padding:24px">
-            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:24px">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px">
                 <button id="cal-prev" class="btn btn-ghost btn-icon" style="width:44px;height:44px">←</button>
-                <h2 id="cal-title" style="font-weight:900;font-size:18px;color:var(--text)">-</h2>
+                <div style="text-align:center">
+                    <h2 id="cal-title" style="font-weight:900;font-size:18px;color:var(--text)">-</h2>
+                    <button id="cal-today-btn" onclick="calGoToday()" style="background:none;border:none;color:var(--primary);font-size:12px;font-weight:700;cursor:pointer;padding:4px 8px">Aujourd'hui</button>
+                </div>
                 <button id="cal-next" class="btn btn-ghost btn-icon" style="width:44px;height:44px">→</button>
+            </div>
+            <div style="display:flex;gap:12px;margin-bottom:16px;font-size:11px;font-weight:600;justify-content:center">
+                <span style="display:flex;align-items:center;gap:4px"><span style="width:10px;height:10px;border-radius:3px;background:var(--red);display:inline-block"></span>Retard</span>
+                <span style="display:flex;align-items:center;gap:4px"><span style="width:10px;height:10px;border-radius:3px;background:var(--primary);display:inline-block"></span>À faire</span>
+                <span style="display:flex;align-items:center;gap:4px"><span style="width:10px;height:10px;border-radius:3px;background:var(--green);display:inline-block"></span>Terminées</span>
             </div>
             <div style="display:grid;grid-template-columns:repeat(7,1fr);gap:1px;background:var(--border);border-radius:14px;overflow:hidden;font-size:12px;margin-bottom:1px">
                 <div style="background:var(--bg3);padding:12px;text-align:center;font-weight:800;color:var(--muted)">L</div>
@@ -635,7 +733,19 @@
     </div>
 
     <div id="view-map" class="view hidden" style="height:calc(100dvh - 200px);padding:20px;padding-bottom:120px">
-        <div class="card" style="height:100%;overflow:hidden"><div id="map"></div></div>
+        <div style="display:flex;gap:8px;margin-bottom:12px;overflow-x:auto">
+            <span class="search-filter active" data-map-filter="all" onclick="setMapFilter('all')">Toutes</span>
+            <span class="search-filter" data-map-filter="late" onclick="setMapFilter('late')">🔥 Retard</span>
+            <span class="search-filter" data-map-filter="pending" onclick="setMapFilter('pending')">⏳ À faire</span>
+        </div>
+        <div class="card" style="height:calc(100% - 48px);overflow:hidden;position:relative">
+            <div id="map"></div>
+            <div id="map-legend" style="position:absolute;bottom:12px;left:12px;background:var(--card);border-radius:10px;padding:10px 14px;z-index:500;box-shadow:var(--shadow);font-size:11px;font-weight:600;display:flex;gap:12px">
+                <span style="display:flex;align-items:center;gap:4px"><span style="width:10px;height:10px;border-radius:50%;background:var(--red);display:inline-block"></span>Retard</span>
+                <span style="display:flex;align-items:center;gap:4px"><span style="width:10px;height:10px;border-radius:50%;background:var(--amber);display:inline-block"></span>À faire</span>
+                <span style="display:flex;align-items:center;gap:4px"><span style="width:10px;height:10px;border-radius:50%;background:var(--primary);display:inline-block;border:2px solid #fff;box-shadow:0 0 4px rgba(14,165,233,.5)"></span>Moi</span>
+            </div>
+        </div>
     </div>
 
     <!-- VIEWS ADMIN -->
@@ -676,12 +786,18 @@
             </div>
         </div>
         
+        <div class="section-title">📈 Tendances</div>
+        <div class="card" style="padding:16px;margin-bottom:20px">
+            <canvas id="admin-chart" height="180"></canvas>
+        </div>
+
         <div style="display:flex;gap:12px;margin-bottom:20px">
             <button class="btn btn-ghost" style="flex:1" onclick="openTechniciensModal()">👷 Gérer techniciens</button>
             <button class="btn btn-danger" style="flex:1" onclick="sendBulkReminders()">🔥 Rappels retard</button>
         </div>
 
         <div class="section-title">👷 Par technicien</div>
+        <input type="text" id="admin-tech-search" placeholder="Rechercher un technicien..." style="width:100%;padding:10px 14px;border:1px solid var(--border);border-radius:10px;margin-bottom:14px;background:var(--bg);color:var(--text);font-size:14px" oninput="filterTechList(this.value)">
         <div id="tech-list"></div>
     </div>
 
@@ -719,6 +835,12 @@
             </div>
         </div>
 
+        <div class="section-title">📊 Répartition</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px">
+            <div class="card" style="padding:16px"><canvas id="stats-doughnut" height="180"></canvas></div>
+            <div class="card" style="padding:16px"><canvas id="stats-brands" height="180"></canvas></div>
+        </div>
+
         <div class="section-title">🏭 Par marque</div>
         <div id="stats-by-brand" class="card" style="padding:16px"></div>
 
@@ -746,14 +868,16 @@
     <!-- Nav Admin -->
     <nav class="nav hidden" id="nav-admin">
         <div class="nav-item active" data-v="admin"><span>💰</span>Finance</div>
-        <div class="nav-item" data-v="list"><span>📋</span>Interventions</div>
+        <div class="nav-item" data-v="list"><span>📋</span>Interventions<span class="nav-badge hidden" id="nav-badge-late-admin">0</span></div>
+        <div class="nav-item" data-v="stats"><span>📊</span>Stats</div>
+        <div class="nav-item" data-v="calendar"><span>📅</span>Calendrier</div>
         <div class="nav-item" data-v="map"><span>🗺️</span>Carte</div>
         <div class="nav-item" onclick="logout()"><span>🚪</span>Sortir</div>
     </nav>
 </div>
 
 <!-- MODALS -->
-<div class="modal-overlay" id="modal-checklist">
+<div class="modal-overlay" id="modal-checklist" role="dialog" aria-modal="true" aria-label="Checklist intervention">
     <div class="modal">
         <div class="modal-handle"></div>
         <h3 style="font-weight:900;font-size:20px;margin-bottom:24px;color:var(--text)">✅ Checklist</h3>
@@ -762,7 +886,7 @@
     </div>
 </div>
 
-<div class="modal-overlay" id="modal-photos">
+<div class="modal-overlay" id="modal-photos" role="dialog" aria-modal="true" aria-label="Photos intervention">
     <div class="modal">
         <div class="modal-handle"></div>
         <h3 style="font-weight:900;font-size:20px;margin-bottom:24px;color:var(--text)">📷 Photos</h3>
@@ -771,7 +895,7 @@
     </div>
 </div>
 
-<div class="modal-overlay" id="modal-payment">
+<div class="modal-overlay" id="modal-payment" role="dialog" aria-modal="true" aria-label="Enregistrer paiement">
     <div class="modal">
         <div class="modal-handle"></div>
         <h3 style="font-weight:900;font-size:20px;margin-bottom:24px;color:var(--text)">💳 Enregistrer paiement</h3>
@@ -798,7 +922,7 @@
 <input type="file" id="photo-input" accept="image/*" capture="environment" multiple class="hidden">
 
 <!-- Modal Assignation Technicien -->
-<div class="modal-overlay" id="modal-assign">
+<div class="modal-overlay" id="modal-assign" role="dialog" aria-modal="true" aria-label="Assigner technicien">
     <div class="modal">
         <div class="modal-handle"></div>
         <h3 style="font-weight:900;font-size:20px;margin-bottom:24px;color:var(--text)">👷 Assigner un technicien</h3>
@@ -837,7 +961,7 @@
 </div>
 
 <!-- Modal Gestion Techniciens -->
-<div class="modal-overlay" id="modal-techniciens">
+<div class="modal-overlay" id="modal-techniciens" role="dialog" aria-modal="true" aria-label="Gestion techniciens">
     <div class="modal">
         <div class="modal-handle"></div>
         <h3 style="font-weight:900;font-size:20px;margin-bottom:24px;color:var(--text)">👷 Gestion techniciens</h3>
@@ -855,7 +979,7 @@
 </div>
 
 <!-- Modal SMS Direct -->
-<div class="modal-overlay" id="modal-sms">
+<div class="modal-overlay" id="modal-sms" role="dialog" aria-modal="true" aria-label="Envoyer SMS">
     <div class="modal">
         <div class="modal-handle"></div>
         <h3 style="font-weight:900;font-size:20px;margin-bottom:24px;color:var(--text)">📱 Envoyer SMS</h3>
@@ -880,6 +1004,105 @@
 <div class="photo-viewer" id="photo-viewer" onclick="closePhotoViewer()">
     <img id="photo-viewer-img" src="" alt="Photo">
     <button class="close" onclick="closePhotoViewer()">×</button>
+</div>
+
+<!-- Report Wizard Full-Screen -->
+<div class="wizard-overlay" id="report-wizard">
+    <div class="wizard-header">
+        <button class="btn btn-ghost btn-icon" onclick="closeWizard()" style="width:44px;height:44px;flex-shrink:0">×</button>
+        <div style="text-align:center;flex:1">
+            <div style="font-weight:900;font-size:16px;color:var(--text)" id="wizard-title">Rapport</div>
+            <div style="font-size:12px;color:var(--muted)" id="wizard-subtitle">Étape 1/5</div>
+        </div>
+        <span id="wizard-draft-badge" class="draft-badge hidden">Brouillon</span>
+    </div>
+    <div class="wizard-progress"><div class="wizard-progress-fill" id="wizard-progress" style="width:20%"></div></div>
+    <div class="wizard-dots" id="wizard-dots">
+        <div class="wizard-dot active"></div>
+        <div class="wizard-dot"></div>
+        <div class="wizard-dot"></div>
+        <div class="wizard-dot"></div>
+        <div class="wizard-dot"></div>
+    </div>
+    <div class="wizard-body" id="wizard-body">
+        <!-- Step 1: Horaires -->
+        <div class="wizard-step active" data-step="0">
+            <h3 style="font-weight:900;font-size:20px;margin-bottom:20px;color:var(--text)">⏰ Horaires</h3>
+            <div class="timer" id="wiz-timer-card">
+                <div class="timer-display" id="wiz-timer-display">00:00:00</div>
+                <p style="font-size:13px;opacity:.9;margin-top:8px;color:#fff">Temps d'intervention</p>
+                <div class="timer-controls">
+                    <button class="btn btn-ghost btn-sm" id="wiz-timer-start" onclick="timerStart()" style="background:rgba(255,255,255,.2);color:#fff;border:none">▶️ Démarrer</button>
+                    <button class="btn btn-ghost btn-sm hidden" id="wiz-timer-stop" onclick="timerStop()" style="background:rgba(255,255,255,.2);color:#fff;border:none">⏹️ Arrêter</button>
+                </div>
+            </div>
+            <div style="margin-bottom:20px">
+                <label>📅 Date</label>
+                <input type="date" id="wiz-date" required>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:20px">
+                <div><label>🕐 Arrivée</label><input type="time" id="wiz-start" required></div>
+                <div><label>🕐 Départ</label><input type="time" id="wiz-end" required></div>
+            </div>
+        </div>
+
+        <!-- Step 2: Checklist -->
+        <div class="wizard-step" data-step="1">
+            <h3 style="font-weight:900;font-size:20px;margin-bottom:20px;color:var(--text)">✅ Checklist</h3>
+            <div class="checklist" id="wiz-checklist-items"></div>
+        </div>
+
+        <!-- Step 3: Photos -->
+        <div class="wizard-step" data-step="2">
+            <h3 style="font-weight:900;font-size:20px;margin-bottom:20px;color:var(--text)">📷 Photos</h3>
+            <div id="wiz-photo-sections"></div>
+            <input type="file" id="wiz-photo-camera" accept="image/*" capture="environment" class="hidden">
+            <input type="file" id="wiz-photo-gallery" accept="image/*" multiple class="hidden">
+        </div>
+
+        <!-- Step 4: Observations -->
+        <div class="wizard-step" data-step="3">
+            <h3 style="font-weight:900;font-size:20px;margin-bottom:20px;color:var(--text)">🔧 Observations</h3>
+            <div style="margin-bottom:20px">
+                <label>💡 Suggestions rapides</label>
+                <div id="wiz-chips" style="display:flex;flex-wrap:wrap;gap:10px"></div>
+            </div>
+            <div>
+                <label>📝 Détails</label>
+                <textarea id="wiz-obs" rows="6" placeholder="Observations détaillées..."></textarea>
+            </div>
+        </div>
+
+        <!-- Step 5: Finalisation -->
+        <div class="wizard-step" data-step="4">
+            <h3 style="font-weight:900;font-size:20px;margin-bottom:20px;color:var(--text)">📊 Finalisation</h3>
+            <div style="margin-bottom:24px">
+                <label>Résultat</label>
+                <div class="status-grid">
+                    <div class="status-opt" data-v="resolved" onclick="wizPickStatus(this)">
+                        <span>✅</span>
+                        <p style="color:var(--green)">Résolu</p>
+                    </div>
+                    <div class="status-opt" data-v="followup" onclick="wizPickStatus(this)">
+                        <span>⏳</span>
+                        <p style="color:var(--amber)">Suivi requis</p>
+                    </div>
+                </div>
+            </div>
+            <div style="margin-bottom:24px">
+                <label>✍️ Signature</label>
+                <canvas class="signature-pad" id="signature-canvas" width="600" height="200"></canvas>
+                <div style="display:flex;gap:12px;margin-top:12px">
+                    <button class="btn btn-ghost btn-sm" onclick="clearSignature()" style="flex:1">Effacer</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="wizard-footer">
+        <button class="btn btn-ghost" id="wiz-prev" onclick="wizPrev()" style="display:none">← Précédent</button>
+        <button class="btn btn-primary" id="wiz-next" onclick="wizNext()">Suivant →</button>
+        <button class="btn btn-success hidden" id="wiz-submit" onclick="wizSubmit()">✅ Envoyer le rapport</button>
+    </div>
 </div>
 
 <script>
@@ -941,6 +1164,7 @@ let S = {
 
 const $ = id => document.getElementById(id);
 const $$ = sel => document.querySelectorAll(sel);
+const esc = s => { if (s == null) return ''; const d = document.createElement('div'); d.textContent = String(s); return d.innerHTML; };
 const toast = (m, t = 'info') => { const el = document.createElement('div'); el.className = 'toast toast-' + t; el.innerHTML = m; $('toasts').appendChild(el); setTimeout(() => el.remove(), 3500); };
 const iso = d => (d ? new Date(d) : new Date()).toISOString().split('T')[0];
 const vibrate = (ms = 10) => navigator.vibrate?.(ms);
@@ -1136,11 +1360,17 @@ $('auth-form').onsubmit = async e => {
         if (userInfo) {
             S.user = { role: userInfo.role, name: userInfo.isAdmin ? 'Admin' : 'Technicien' };
         } else {
-            // Fallback: hash et comparer manuellement si verifyPassword n'existe pas
+            // Fallback client-side: hash et comparer manuellement (fonctionne sans serveur PHP)
             const hash = typeof hashPassword === 'function' ? await hashPassword(p) : null;
-            const hashInfo = hash && typeof JCSM_CONFIG !== 'undefined' ? JCSM_CONFIG.auth.hashes[hash] : null;
+            const CLIENT_HASHES = {
+                'f0e30e24a243ef1fc96806b679b14b23d0b15b5c99f664a59c24384bfa36d898': { role: 'admin', isAdmin: true },
+                '6decc588f359f0058a1695322f82ac83215cec4276940897a8648a909e4000c4': { role: 'admin', isAdmin: true },
+                '526830a02277a03ab1c5eef93a9c6e22ae02e2ae977d8d69604ba212cb3d9507': { role: 'tech', isAdmin: false },
+                'f4574919cd21d4f4113aa9da4e174ed2a12da4bc5db0232c41a1bdd839fd6ace': { role: 'tech', isAdmin: false }
+            };
+            const hashInfo = hash ? CLIENT_HASHES[hash] : null;
             if (hashInfo) {
-                S.user = { role: hashInfo.isAdmin ? 'admin' : 'tech', name: hashInfo.isAdmin ? 'Admin' : 'Technicien' };
+                S.user = { role: hashInfo.role, name: hashInfo.isAdmin ? 'Admin' : 'Technicien' };
             } else {
                 toast('Code incorrect', 'error');
                 vibrate(100);
@@ -1186,7 +1416,10 @@ function init() {
 
 function logout() { if (confirm('Déconnexion ?')) { localStorage.removeItem('jcsm_user'); location.reload(); } }
 
+let _isLoading = false;
 async function loadData(force = false) {
+    if (_isLoading) return;
+    _isLoading = true;
     try {
         setSyncStatus('syncing', 'Sync...');
         const cache = localStorage.getItem('jcsm_data'), cacheTime = localStorage.getItem('jcsm_data_time');
@@ -1218,6 +1451,8 @@ async function loadData(force = false) {
         console.error(e); setSyncStatus('offline', 'Hors ligne');
         const cache = localStorage.getItem('jcsm_data');
         if (cache) { const d = JSON.parse(cache); S.data = d.data || []; S.techs = d.techs || {}; render(); }
+    } finally {
+        _isLoading = false;
     }
 }
 
@@ -1235,18 +1470,14 @@ function render() {
     updateNavBadge();
 }
 
-function renderStats() {
-    const done = S.data.filter(i => i.done || i.report).length;
-    const late = S.data.filter(i => i.isLate && !i.done && !i.report).length;
-    const today = S.data.filter(i => { if (!i.date || i.done || i.report) return false; return new Date(i.date).toDateString() === new Date().toDateString(); }).length;
-    $('s-pending').textContent = S.data.length - done; $('s-late').textContent = late; $('s-today').textContent = today; $('s-done').textContent = done;
-    $$('.stat-card').forEach(c => { c.style.borderColor = c.dataset.f === S.filter ? 'var(--primary)' : 'transparent'; });
-}
+// renderStats defined below (single definition)
 
 function updateNavBadge() {
     const late = S.data.filter(i => i.isLate && !i.done && !i.report).length;
     const badge = $('nav-badge-late');
-    if (late > 0) { badge.textContent = late; badge.classList.remove('hidden'); } else { badge.classList.add('hidden'); }
+    if (badge) { if (late > 0) { badge.textContent = late; badge.classList.remove('hidden'); } else { badge.classList.add('hidden'); } }
+    const badgeAdmin = $('nav-badge-late-admin');
+    if (badgeAdmin) { if (late > 0) { badgeAdmin.textContent = late; badgeAdmin.classList.remove('hidden'); } else { badgeAdmin.classList.add('hidden'); } }
 }
 
 function setFilter(f) { S.filter = f; vibrate(); render(); }
@@ -1281,30 +1512,65 @@ function renderList() {
         return;
     }
 
-    $('list').innerHTML = list.map((i, idx) => {
-        const done = i.done || i.report, isToday = i.date && new Date(i.date).toDateString() === new Date().toDateString();
-        const techBadge = i.techAssigned ? `<span class="badge badge-purple">👷 ${i.techAssigned}</span>` : '<span class="badge badge-amber">Non assigné</span>';
+    // Group interventions
+    const today = new Date().toDateString();
+    const groups = { late: [], today: [], upcoming: [], done: [] };
+    list.forEach(i => {
+        const done = i.done || i.report;
+        const isToday = i.date && new Date(i.date).toDateString() === today;
+        if (done) groups.done.push(i);
+        else if (i.isLate) groups.late.push(i);
+        else if (isToday) groups.today.push(i);
+        else groups.upcoming.push(i);
+    });
+
+    const totalCount = list.length;
+    const doneCount = groups.done.length;
+    const pct = totalCount > 0 ? Math.round(doneCount / totalCount * 100) : 0;
+
+    let html = `<div class="progress-summary"><span>${doneCount}/${totalCount} terminées</span><span>${pct}%</span></div>`;
+    html += `<div class="progress-bar-wrap"><div class="progress-bar-fill" style="width:${pct}%"></div></div>`;
+
+    const renderCard = (i, idx) => {
+        const done = i.done || i.report, isToday = i.date && new Date(i.date).toDateString() === today;
+        const techBadge = i.techAssigned ? `<span class="badge badge-purple">👷 ${esc(i.techAssigned)}</span>` : '<span class="badge badge-amber">Non assigné</span>';
         const priorityClass = !done && i.isLate && Math.abs(i.daysLeft) > 2 ? 'priority-high' : '';
-        return `<div class="intv fade-in ${done ? 'done' : ''} ${i.isLate && !done ? 'late' : ''} ${isToday && !done ? 'today' : ''} ${priorityClass}" style="animation-delay:${Math.min(idx * 20, 200)}ms" onclick="selectIntv('${i.id}')">
+        return `<div class="intv fade-in ${done ? 'done' : ''} ${i.isLate && !done ? 'late' : ''} ${isToday && !done ? 'today' : ''} ${priorityClass}" style="animation-delay:${Math.min(idx * 20, 200)}ms" onclick="selectIntv('${esc(i.id)}')">
             <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:14px">
                 <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
-                    <span style="font-family:monospace;font-size:13px;color:var(--muted);background:var(--bg3);padding:6px 10px;border-radius:8px">${i.ticket || '-'}</span>
+                    <span style="font-family:monospace;font-size:13px;color:var(--muted);background:var(--bg3);padding:6px 10px;border-radius:8px">${esc(i.ticket) || '-'}</span>
                     ${done ? '<span class="badge badge-green">✅</span>' : cdHTML(i.daysLeft)}
                     ${!done ? techBadge : ''}
                 </div>
-                ${!done ? `<button onclick="event.stopPropagation();quickAssign('${i.id}')" style="background:var(--primary-light);color:var(--primary);border:none;padding:8px 12px;border-radius:8px;cursor:pointer;font-size:12px;font-weight:700" title="Assigner">👷</button>` : ''}
+                ${!done ? `<button onclick="event.stopPropagation();quickAssign('${esc(i.id)}')" style="background:var(--primary-light);color:var(--primary);border:none;padding:8px 12px;border-radius:8px;cursor:pointer;font-size:12px;font-weight:700" title="Assigner">👷</button>` : ''}
             </div>
-            <h4 style="font-weight:900;font-size:18px;margin-bottom:8px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--text)">${i.site || '-'}</h4>
-            <p style="font-size:14px;color:var(--muted);margin-bottom:14px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${i.address || '-'}</p>
+            <h4 style="font-weight:900;font-size:18px;margin-bottom:8px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--text)">${esc(i.site) || '-'}</h4>
+            <p style="font-size:14px;color:var(--muted);margin-bottom:14px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${esc(i.address) || '-'}</p>
             <div style="display:flex;justify-content:space-between;font-size:13px;color:var(--muted);align-items:center">
-                <span>📅 ${i.dateFmt || '-'}</span>
+                <span>📅 ${esc(i.dateFmt) || '-'}</span>
                 <span style="display:flex;gap:12px;align-items:center">
-                    <span class="badge" style="background:var(--bg3);color:var(--text);padding:4px 10px">${i.brand || '-'}</span>
-                    <span style="font-family:monospace;font-weight:800;background:var(--primary-light);color:var(--primary-dark);padding:4px 10px;border-radius:6px">${i.dept || '-'}</span>
+                    <span class="badge" style="background:var(--bg3);color:var(--text);padding:4px 10px">${esc(i.brand) || '-'}</span>
+                    <span style="font-family:monospace;font-weight:800;background:var(--primary-light);color:var(--primary-dark);padding:4px 10px;border-radius:6px">${esc(i.dept) || '-'}</span>
                 </span>
             </div>
         </div>`;
-    }).join('');
+    };
+
+    let cardIdx = 0;
+    const sections = [
+        { key: 'late', label: 'En retard', color: 'var(--red)' },
+        { key: 'today', label: "Aujourd'hui", color: 'var(--amber)' },
+        { key: 'upcoming', label: 'À venir', color: 'var(--primary)' },
+        { key: 'done', label: 'Terminées', color: 'var(--green)' }
+    ];
+    sections.forEach(({ key, label, color }) => {
+        const items = groups[key];
+        if (!items.length) return;
+        html += `<div class="group-header"><span class="dot" style="background:${color}"></span>${label}<span class="count">${items.length}</span></div>`;
+        html += items.map(i => renderCard(i, cardIdx++)).join('');
+    });
+
+    $('list').innerHTML = html;
 }
 
 // Quick assign from list
@@ -1331,17 +1597,18 @@ function renderAdmin() {
     const techEntries = Object.entries(byTech).sort((a, b) => b[1].total - a[1].total);
     if (!techEntries.length) { $('tech-list').innerHTML = `<div style="padding:40px;text-align:center;color:var(--muted)"><p style="font-size:48px;margin-bottom:16px;opacity:.3">👷</p><p>Aucune intervention sur cette période</p></div>`; return; }
     $('tech-list').innerHTML = techEntries.map(([name, data]) => `
-        <div class="tech-card fade-in" data-tech="${name}">
+        <div class="tech-card fade-in" data-tech="${esc(name)}">
             <div class="tech-header" onclick="toggleTechCard(this)">
-                <div class="tech-name"><div class="avatar">${name.charAt(0).toUpperCase()}</div><div><div style="font-weight:800;font-size:16px">${name}</div><div style="font-size:12px;color:var(--muted)">${data.interventions.length} intervention${data.interventions.length > 1 ? 's' : ''}</div></div></div>
+                <div class="tech-name"><div class="avatar">${esc(name.charAt(0).toUpperCase())}</div><div><div style="font-weight:800;font-size:16px">${esc(name)}</div><div style="font-size:12px;color:var(--muted)">${data.interventions.length} intervention${data.interventions.length > 1 ? 's' : ''}</div></div></div>
                 <div class="tech-stats"><div class="tech-amount">${fmtMoney(data.total)}</div>${data.unpaid > 0 ? `<div class="tech-count" style="color:var(--amber)">⏳ ${fmtMoney(data.unpaid)} à payer</div>` : '<div class="tech-count" style="color:var(--green)">✅ Tout payé</div>'}</div>
             </div>
             <div class="tech-details">
-                ${data.interventions.map(i => `<div class="tech-row"><span class="status-dot ${i.isPaid ? 'paid' : 'unpaid'}"></span><span class="date">${i.dateFmt || '-'}</span><span class="site">${i.site || '-'}</span><span class="amount ${i.isPaid ? '' : 'unpaid'}">${fmtMoney(i.montant)}</span></div>`).join('')}
-                ${data.unpaid > 0 ? `<button class="pay-btn" onclick="openPayment('${name}', ${data.unpaid})">💳 Payer ${fmtMoney(data.unpaid)}</button>` : ''}
+                ${data.interventions.map(i => `<div class="tech-row"><span class="status-dot ${i.isPaid ? 'paid' : 'unpaid'}"></span><span class="date">${esc(i.dateFmt) || '-'}</span><span class="site">${esc(i.site) || '-'}</span><span class="amount ${i.isPaid ? '' : 'unpaid'}">${fmtMoney(i.montant)}</span></div>`).join('')}
+                ${data.unpaid > 0 ? `<button class="pay-btn" onclick="openPayment('${esc(name)}', ${data.unpaid})">💳 Payer ${fmtMoney(data.unpaid)}</button>` : ''}
             </div>
         </div>
     `).join('');
+    renderAdminChart();
 }
 
 window.toggleTechCard = el => { vibrate(); el.closest('.tech-card').classList.toggle('expanded'); };
@@ -1378,8 +1645,19 @@ window.selectIntv = id => {
         $('tech-card').classList.add('hidden');
         S.currentTechPhone = null;
     }
+    // Detail header
+    if ($('d-header-site')) $('d-header-site').textContent = i.site || '-';
+    if ($('d-header-ticket')) $('d-header-ticket').textContent = '#' + (i.ticket || '-');
+    // Distance badge
+    const distBadge = $('d-header-distance');
+    if (distBadge && S.userLocation && i.address) {
+        distBadge.classList.add('hidden');
+        fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(i.address + ', France')}&limit=1`)
+            .then(r => r.json()).then(d => { if (d.length) { const km = calculateDistance(S.userLocation.lat, S.userLocation.lng, parseFloat(d[0].lat), parseFloat(d[0].lon)); distBadge.textContent = km < 1 ? `${Math.round(km * 1000)}m` : `${Math.round(km)} km`; distBadge.classList.remove('hidden'); } }).catch(() => {});
+    } else if (distBadge) { distBadge.classList.add('hidden'); }
+
     $('f-date').value = iso(i.date || new Date()); const now = new Date(); $('f-start').value = String(now.getHours()).padStart(2, '0') + ':00'; $('f-end').value = String(now.getHours() + 1).padStart(2, '0') + ':00';
-    $('f-obs').value = ''; S.photos = { borne: [], site: [], nc: [], avap: [] }; S.status = null; S.checklist = {}; S.timerElapsed = 0; S.timerStart = null; updateTimerDisplay();
+    $('f-obs').value = ''; S.photos = { borne: [], site: [], nc: [], avap: [] }; S.status = null; S.checklist = {}; S.timerElapsed = 0; S.timerStart = null; clearInterval(S.timerInterval); updateTimerDisplay(); restoreTimerState();
     $$('.status-opt').forEach(o => o.classList.remove('selected')); genChips(); updatePhotosSummary(); showView('detail');
 };
 
@@ -1395,9 +1673,12 @@ function genChips() {
 
 window.addChip = c => { vibrate(); $('f-obs').value += ($('f-obs').value ? '\n' : '') + c; };
 
-window.timerStart = () => { vibrate(); S.timerStart = Date.now() - S.timerElapsed; S.timerInterval = setInterval(updateTimerDisplay, 1000); $('timer-start').classList.add('hidden'); $('timer-stop').classList.remove('hidden'); $('timer-card').classList.add('running'); const now = new Date(); $('f-start').value = String(now.getHours()).padStart(2, '0') + ':' + String(now.getMinutes()).padStart(2, '0'); };
-window.timerStop = () => { vibrate(); clearInterval(S.timerInterval); S.timerElapsed = Date.now() - S.timerStart; $('timer-start').classList.remove('hidden'); $('timer-stop').classList.add('hidden'); $('timer-card').classList.remove('running'); const now = new Date(); $('f-end').value = String(now.getHours()).padStart(2, '0') + ':' + String(now.getMinutes()).padStart(2, '0'); };
-function updateTimerDisplay() { const elapsed = S.timerStart ? Date.now() - S.timerStart : S.timerElapsed; const s = Math.floor(elapsed / 1000); $('timer-display').textContent = `${String(Math.floor(s / 3600)).padStart(2, '0')}:${String(Math.floor((s % 3600) / 60)).padStart(2, '0')}:${String(s % 60).padStart(2, '0')}`; }
+function saveTimerState() { localStorage.setItem('jcsm_timer', JSON.stringify({ start: S.timerStart, elapsed: S.timerElapsed, intv: S.sel?.id || null })); }
+function restoreTimerState() { try { const t = JSON.parse(localStorage.getItem('jcsm_timer') || 'null'); if (t && t.intv === S.sel?.id && t.start) { S.timerStart = t.start; S.timerElapsed = t.elapsed || 0; S.timerInterval = setInterval(updateTimerDisplay, 1000); $('timer-start').classList.add('hidden'); $('timer-stop').classList.remove('hidden'); $('timer-card').classList.add('running'); updateTimerDisplay(); } } catch (e) {} }
+function clearTimerState() { localStorage.removeItem('jcsm_timer'); }
+window.timerStart = () => { vibrate(); S.timerStart = Date.now() - S.timerElapsed; S.timerInterval = setInterval(updateTimerDisplay, 1000); $('timer-start').classList.add('hidden'); $('timer-stop').classList.remove('hidden'); $('timer-card').classList.add('running'); const now = new Date(); $('f-start').value = String(now.getHours()).padStart(2, '0') + ':' + String(now.getMinutes()).padStart(2, '0'); saveTimerState(); };
+window.timerStop = () => { vibrate(); clearInterval(S.timerInterval); S.timerElapsed = Date.now() - S.timerStart; S.timerStart = null; $('timer-start').classList.remove('hidden'); $('timer-stop').classList.add('hidden'); $('timer-card').classList.remove('running'); const now = new Date(); $('f-end').value = String(now.getHours()).padStart(2, '0') + ':' + String(now.getMinutes()).padStart(2, '0'); clearTimerState(); };
+function updateTimerDisplay() { const elapsed = S.timerStart ? Date.now() - S.timerStart : S.timerElapsed; const s = Math.floor(elapsed / 1000); $('timer-display').textContent = `${String(Math.floor(s / 3600)).padStart(2, '0')}:${String(Math.floor((s % 3600) / 60)).padStart(2, '0')}:${String(s % 60).padStart(2, '0')}`; if (S.timerStart) saveTimerState(); }
 
 window.openMaps = () => { vibrate(); const a = S.sel?.address || S.sel?.site; if (a) window.open('https://www.google.com/maps/search/' + encodeURIComponent(a), '_blank'); };
 window.callPowerdot = () => { vibrate(); window.location.href = 'tel:0756962758'; };
@@ -1408,12 +1689,12 @@ function renderChecklist() { const keys = getKeys(S.sel?.brand); let items = [..
 window.toggleCheck = id => { vibrate(); S.checklist[id] = !S.checklist[id]; renderChecklist(); };
 
 window.showPhotos = () => { vibrate(); renderPhotoModal(); openModal('photos'); };
-function renderPhotoModal() { $('photo-sections').innerHTML = PHOTO_CATS.map(cat => { const photos = S.photos[cat.id], hasPhotos = photos.length > 0; return `<div class="photo-cat ${hasPhotos ? 'has-photos' : ''} ${cat.required ? 'required' : ''}"><div class="photo-cat-header"><div class="photo-cat-title">${cat.icon} ${cat.title}${hasPhotos ? `<span class="count">${photos.length}</span>` : ''}${cat.required && !hasPhotos ? '<span class="required-badge">Requis</span>' : ''}</div></div><div class="photo-grid">${photos.map(p => `<div class="photo-item"><img src="${p.data}" data-photo-id="${p.id}" data-cat="${cat.id}"><button class="delete" onclick="event.stopPropagation();removePhoto('${cat.id}', '${p.id}')">×</button></div>`).join('')}<div class="photo-add" onclick="addPhoto('${cat.id}')">+<span>Ajouter</span></div></div></div>`; }).join('');
-    // Add click handlers for photo viewing
-    $$('.photo-item img[data-photo-id]').forEach(img => {
-        img.onclick = () => viewPhoto(img.src);
-    });
-}
+function renderPhotoModal() { $('photo-sections').innerHTML = PHOTO_CATS.map(cat => { const photos = S.photos[cat.id], hasPhotos = photos.length > 0; return `<div class="photo-cat ${hasPhotos ? 'has-photos' : ''} ${cat.required ? 'required' : ''}"><div class="photo-cat-header"><div class="photo-cat-title">${cat.icon} ${esc(cat.title)}${hasPhotos ? `<span class="count">${photos.length}</span>` : ''}${cat.required && !hasPhotos ? '<span class="required-badge">Requis</span>' : ''}</div></div><div class="photo-grid">${photos.map(p => `<div class="photo-item"><img src="${p.data}" data-photo-id="${esc(p.id)}" data-cat="${esc(cat.id)}"><button class="delete" onclick="event.stopPropagation();removePhoto('${esc(cat.id)}', '${esc(p.id)}')">×</button></div>`).join('')}<div class="photo-add" onclick="addPhoto('${esc(cat.id)}')">+<span>Ajouter</span></div></div></div>`; }).join(''); }
+// Event delegation for photo viewing (no per-element onclick leak)
+$('photo-sections')?.addEventListener('click', e => {
+    const img = e.target.closest('.photo-item img[data-photo-id]');
+    if (img) { e.stopPropagation(); viewPhoto(img.src); }
+});
 window.addPhoto = cat => { vibrate(); S.currentPhotoCat = cat; $('photo-input').click(); };
 // Compression d'image pour réduire la taille
 function compressImage(file, maxWidth = 1200, quality = 0.8) {
@@ -1438,14 +1719,16 @@ function compressImage(file, maxWidth = 1200, quality = 0.8) {
 $('photo-input').onchange = async e => {
     const cat = S.currentPhotoCat;
     if (!cat) return;
+    const files = Array.from(e.target.files);
+    if (!files.length) return;
     toast('📷 Traitement...', 'info');
-    for (const f of Array.from(e.target.files)) {
+    for (const f of files) {
         const compressed = await compressImage(f);
         S.photos[cat].push({ id: Date.now() + '' + Math.random(), data: compressed });
-        renderPhotoModal();
-        updatePhotosSummary();
     }
-    toast('✅ Photo(s) ajoutée(s)', 'success');
+    renderPhotoModal();
+    updatePhotosSummary();
+    toast(`✅ ${files.length} photo${files.length > 1 ? 's' : ''} ajoutée${files.length > 1 ? 's' : ''}`, 'success');
     e.target.value = '';
 };
 window.removePhoto = (cat, id) => { vibrate(); S.photos[cat] = S.photos[cat].filter(p => p.id !== id); renderPhotoModal(); updatePhotosSummary(); };
@@ -1455,21 +1738,47 @@ function updatePhotosSummary() { const total = Object.values(S.photos).flat().le
 
 window.pickStatus = el => { vibrate(); $$('.status-opt').forEach(o => o.classList.remove('selected')); S.status = el.dataset.v; el.classList.add('selected'); if (S.status === 'followup') el.classList.add('followup'); };
 
+let _isSubmitting = false;
 $('form').onsubmit = async e => {
-    e.preventDefault(); if (!S.status) { toast('❌ Sélectionnez un résultat', 'error'); vibrate(100); return; }
+    e.preventDefault();
+    if (_isSubmitting) return;
+    if (!S.status) { toast('❌ Sélectionnez un résultat', 'error'); vibrate(100); return; }
     const missingPhotos = PHOTO_CATS.filter(c => c.required && S.photos[c.id].length === 0);
     if (missingPhotos.length) { toast(`❌ Photos manquantes`, 'error'); vibrate(100); return; }
+    const submitBtn = e.target.querySelector('button[type="submit"]');
+    _isSubmitting = true;
+    if (submitBtn) { submitBtn.disabled = true; submitBtn.innerHTML = '<span class="spinner" style="width:18px;height:18px;border-width:2px"></span> Envoi...'; }
     const i = S.sel, tech = i.techAssigned || i.techSuggested?.name || S.user.name, tarif = i.techSuggested?.tarif || 80;
     const report = { ticket: i.ticket, site: i.site, address: i.address, row: i.row, date: $('f-date').value, timeStart: $('f-start').value, timeEnd: $('f-end').value, duration: S.timerElapsed > 0 ? Math.round(S.timerElapsed / 60000) : null, comments: $('f-obs').value || 'RAS', status: S.status, photos: Object.values(S.photos).flat().map(p => p.data), photoCategories: { borne: S.photos.borne.length, site: S.photos.site.length, nc: S.photos.nc.length, avap: S.photos.avap.length }, technicien: tech, montant: tarif, dept: i.dept, brand: i.brand };
     toast('📤 Envoi...', 'info');
-    try { await fetch(WEBHOOK, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(report) }); i.done = true; i.report = 'sent'; toast('✅ Rapport envoyé!', 'success'); vibrate([50, 50, 50]); showView('list'); render(); }
-    catch (err) { console.error(err); const pending = JSON.parse(localStorage.getItem('jcsm_pending') || '[]'); pending.push(report); localStorage.setItem('jcsm_pending', JSON.stringify(pending)); toast('💾 Sauvegardé', 'info'); }
+    try { await fetch(WEBHOOK, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(report) }); i.done = true; i.report = 'sent'; clearTimerState(); toast('✅ Rapport envoyé!', 'success'); vibrate([50, 50, 50]); showView('list'); render(); }
+    catch (err) { console.error(err); const pending = JSON.parse(localStorage.getItem('jcsm_pending') || '[]'); pending.push(report); localStorage.setItem('jcsm_pending', JSON.stringify(pending)); toast('💾 Sauvegardé hors ligne', 'info'); }
+    finally { _isSubmitting = false; if (submitBtn) { submitBtn.disabled = false; submitBtn.innerHTML = '✅ Envoyer'; } }
 };
 
-function openModal(id) { $('modal-' + id).classList.add('active'); document.body.style.overflow = 'hidden'; }
-function closeModal(id) { vibrate(); $('modal-' + id).classList.remove('active'); document.body.style.overflow = ''; }
+function openModal(id) {
+    // Close any open modal first
+    $$('.modal-overlay.active').forEach(m => { const mid = m.id.replace('modal-', ''); if (mid !== id) { m.classList.remove('active'); const modal = m.querySelector('.modal'); if (modal) modal.style.transform = ''; } });
+    $('modal-' + id).classList.add('active'); document.body.style.overflow = 'hidden';
+}
+function closeModal(id) { vibrate(); const overlay = $('modal-' + id); if (!overlay) return; const modal = overlay.querySelector('.modal'); if (modal) modal.style.transform = ''; overlay.classList.remove('active'); document.body.style.overflow = ''; }
 window.closeModal = closeModal;
-$$('.modal-overlay').forEach(m => { m.onclick = e => { if (e.target === m) closeModal(m.id.replace('modal-', '')); }; });
+// Tap backdrop to close + swipe-down-to-close
+$$('.modal-overlay').forEach(m => {
+    m.onclick = e => { if (e.target === m) closeModal(m.id.replace('modal-', '')); };
+    const modal = m.querySelector('.modal');
+    if (!modal) return;
+    let startY = 0, currentY = 0, dragging = false;
+    const handle = modal.querySelector('.modal-handle');
+    const onStart = e => { const t = e.touches ? e.touches[0] : e; startY = t.clientY; currentY = 0; dragging = true; };
+    const onMove = e => { if (!dragging) return; const t = e.touches ? e.touches[0] : e; currentY = t.clientY - startY; if (currentY < 0) currentY = 0; modal.style.transform = `translateY(${currentY}px)`; modal.style.transition = 'none'; };
+    const onEnd = () => { if (!dragging) return; dragging = false; modal.style.transition = ''; if (currentY > 120) { closeModal(m.id.replace('modal-', '')); } else { modal.style.transform = ''; } currentY = 0; };
+    if (handle) { handle.addEventListener('touchstart', onStart, { passive: true }); handle.addEventListener('mousedown', onStart); }
+    modal.addEventListener('touchmove', onMove, { passive: true });
+    modal.addEventListener('mousemove', onMove);
+    document.addEventListener('touchend', onEnd);
+    document.addEventListener('mouseup', onEnd);
+});
 
 function renderCal() {
     const y = S.calDate.getFullYear(), m = S.calDate.getMonth();
@@ -1481,37 +1790,60 @@ function renderCal() {
     let html = ''; for (let i = 0; i < start; i++) html += '<div style="background:var(--bg);padding:10px;min-height:80px"></div>';
     for (let day = 1; day <= last.getDate(); day++) {
         const isToday = today.getDate() === day && today.getMonth() === m && today.getFullYear() === y;
-        const items = byDate[day] || [], late = items.filter(i => i.isLate && !i.done && !i.report).length, pending = items.filter(i => !i.done && !i.report && !i.isLate).length;
-        html += `<div onclick="calDay(${y},${m},${day})" style="background:var(--card);padding:10px;min-height:80px;cursor:pointer;${isToday ? 'box-shadow:inset 0 0 0 2px var(--primary);' : ''}"><div style="font-weight:900;font-size:15px;margin-bottom:6px;${isToday ? 'color:var(--primary);' : 'color:var(--text);'}">${day}</div>${late ? `<div style="background:var(--red);color:#fff;padding:3px 8px;border-radius:6px;font-size:11px;font-weight:800;margin-bottom:4px">🔥 ${late}</div>` : ''}${pending ? `<div style="background:var(--primary);color:#fff;padding:3px 8px;border-radius:6px;font-size:11px;font-weight:700">${pending}</div>` : ''}</div>`;
+        const items = byDate[day] || [], late = items.filter(i => i.isLate && !i.done && !i.report).length, pending = items.filter(i => !i.done && !i.report && !i.isLate).length, done = items.filter(i => i.done || i.report).length;
+        html += `<div onclick="calDay(${y},${m},${day})" style="background:var(--card);padding:10px;min-height:80px;cursor:pointer;transition:background .15s;${isToday ? 'box-shadow:inset 0 0 0 2px var(--primary);' : ''}" onmouseover="this.style.background='var(--bg3)'" onmouseout="this.style.background='var(--card)'"><div style="font-weight:900;font-size:15px;margin-bottom:6px;${isToday ? 'color:var(--primary);' : 'color:var(--text);'}">${day}</div>${late ? `<div style="background:var(--red);color:#fff;padding:3px 8px;border-radius:6px;font-size:11px;font-weight:800;margin-bottom:4px">🔥 ${late}</div>` : ''}${pending ? `<div style="background:var(--primary);color:#fff;padding:3px 8px;border-radius:6px;font-size:11px;font-weight:700;margin-bottom:4px">${pending}</div>` : ''}${done ? `<div style="background:var(--green);color:#fff;padding:3px 8px;border-radius:6px;font-size:11px;font-weight:700">✓ ${done}</div>` : ''}</div>`;
     }
     $('cal-grid').innerHTML = html;
 }
 window.calDay = (y, m, d) => { vibrate(); const items = S.data.filter(i => i.date && new Date(i.date).getDate() === d && new Date(i.date).getMonth() === m && new Date(i.date).getFullYear() === y); if (items.length) selectIntv(items[0].id); };
+window.calGoToday = () => { vibrate(); S.calDate = new Date(); renderCal(); };
 $('cal-prev')?.addEventListener('click', () => { vibrate(); S.calDate.setMonth(S.calDate.getMonth() - 1); renderCal(); });
 $('cal-next')?.addEventListener('click', () => { vibrate(); S.calDate.setMonth(S.calDate.getMonth() + 1); renderCal(); });
 
+let _mapFilter = 'all', _clusterGroup = null, _userMarker = null;
+window.setMapFilter = (f) => {
+    vibrate(); _mapFilter = f;
+    $$('[data-map-filter]').forEach(el => el.classList.toggle('active', el.dataset.mapFilter === f));
+    renderMapMarkers();
+};
 function initMap() {
     if (S.map) return;
     S.map = L.map('map').setView([46.603354, 1.888334], 6);
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { attribution: '© OSM', maxZoom: 19 }).addTo(S.map);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { attribution: '&copy; OSM', maxZoom: 19 }).addTo(S.map);
+    _clusterGroup = L.markerClusterGroup({ maxClusterRadius: 40, spiderfyOnMaxZoom: true });
+    S.map.addLayer(_clusterGroup);
+    // User location marker
+    if (S.userLocation) {
+        const userIcon = L.divIcon({ html: '<div style="width:16px;height:16px;background:var(--primary);border-radius:50%;border:3px solid #fff;box-shadow:0 0 8px rgba(14,165,233,.5)"></div>', className: '', iconSize: [16, 16], iconAnchor: [8, 8] });
+        _userMarker = L.marker([S.userLocation.lat, S.userLocation.lng], { icon: userIcon, zIndexOffset: 1000 }).addTo(S.map);
+        _userMarker.bindPopup('<div style="padding:8px;font-weight:700;text-align:center">📍 Ma position</div>');
+    }
     renderMapMarkers();
 }
 async function renderMapMarkers() {
-    if (!S.map) return; S.markers.forEach(m => S.map.removeLayer(m)); S.markers = [];
-    for (const i of S.data.filter(x => !x.done && !x.report && x.address)) {
+    if (!S.map || !_clusterGroup) return;
+    _clusterGroup.clearLayers(); S.markers = [];
+    const items = S.data.filter(x => {
+        if (x.done || x.report || !x.address) return false;
+        if (_mapFilter === 'late') return x.isLate;
+        if (_mapFilter === 'pending') return !x.isLate;
+        return true;
+    });
+    for (const i of items) {
         try {
             const res = await fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(i.address + ', France')}&limit=1`);
             const data = await res.json();
             if (data.length) {
                 const icon = L.divIcon({ html: `<div style="width:24px;height:24px;background:${i.isLate ? 'var(--red)' : 'var(--amber)'};border-radius:50%;border:3px solid #fff;box-shadow:0 2px 10px rgba(0,0,0,.2)"></div>`, className: '', iconSize: [24, 24], iconAnchor: [12, 12] });
-                const marker = L.marker([parseFloat(data[0].lat), parseFloat(data[0].lon)], { icon }).addTo(S.map);
-                marker.bindPopup(`<div style="padding:12px;min-width:180px"><h4 style="font-weight:900;margin-bottom:6px;color:var(--text)">${i.site}</h4><p style="font-size:12px;color:var(--muted);margin-bottom:12px">${i.address}</p><button onclick="selectIntv('${i.id}')" style="background:var(--primary);color:#fff;border:none;padding:10px 16px;border-radius:10px;width:100%;cursor:pointer;font-weight:700">Voir</button></div>`);
+                const marker = L.marker([parseFloat(data[0].lat), parseFloat(data[0].lon)], { icon });
+                marker.bindPopup(`<div style="padding:12px;min-width:180px"><h4 style="font-weight:900;margin-bottom:6px;color:var(--text)">${esc(i.site)}</h4><p style="font-size:12px;color:var(--muted);margin-bottom:4px">${esc(i.address)}</p><p style="font-size:11px;margin-bottom:12px">${i.isLate ? '<span style="color:var(--red);font-weight:700">🔥 En retard</span>' : '<span style="color:var(--amber);font-weight:700">⏳ À faire</span>'} ${i.techAssigned ? '| 👷 ' + esc(i.techAssigned) : ''}</p><button onclick="selectIntv('${esc(i.id)}')" style="background:var(--primary);color:#fff;border:none;padding:10px 16px;border-radius:10px;width:100%;cursor:pointer;font-weight:700">Voir détail</button></div>`);
+                _clusterGroup.addLayer(marker);
                 S.markers.push(marker);
             }
             await new Promise(r => setTimeout(r, 200));
         } catch (e) {}
     }
-    if (S.markers.length) S.map.fitBounds(L.featureGroup(S.markers).getBounds().pad(0.1));
+    if (S.markers.length) S.map.fitBounds(_clusterGroup.getBounds().pad(0.1));
 }
 
 function showView(v) {
@@ -1522,6 +1854,11 @@ function showView(v) {
     if (v === 'list') renderList();
     if (v === 'admin') renderAdmin();
     if (v === 'stats') renderStats();
+    // Show stats-tech bar when admin views list
+    const statsTech = $('stats-tech');
+    if (statsTech && S.user?.role === 'admin') {
+        statsTech.classList.toggle('hidden', v !== 'list');
+    }
     // Show/hide FAB based on view
     const fab = $('fab');
     const fabMenu = $('fab-menu');
@@ -1554,8 +1891,8 @@ function renderTechMgmtList() {
     $('tech-mgmt-list').innerHTML = techs.map(t => `
         <div style="background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px;margin-bottom:12px;display:flex;justify-content:space-between;align-items:center">
             <div>
-                <p style="font-weight:700;color:var(--text)">${t.name}</p>
-                <p style="font-size:12px;color:var(--muted)">📞 ${t.phone} | 📍 ${t.zone} | 💰 ${t.tarif}€</p>
+                <p style="font-weight:700;color:var(--text)">${esc(t.name)}</p>
+                <p style="font-size:12px;color:var(--muted)">📞 ${esc(t.phone)} | 📍 ${esc(t.zone)} | 💰 ${esc(t.tarif)}€</p>
             </div>
             <button onclick="deleteTechnicien(${t.id})" style="background:var(--red-light);color:var(--red);border:none;padding:8px 12px;border-radius:8px;cursor:pointer;font-weight:700">×</button>
         </div>
@@ -1821,7 +2158,14 @@ function renderStats() {
     const today = S.data.filter(i => { if (!i.date || i.done || i.report) return false; return new Date(i.date).toDateString() === new Date().toDateString(); }).length;
     const percent = total ? Math.round((done / total) * 100) : 0;
 
-    // Update stats only if elements exist
+    // Update stat bar counters (tech header)
+    if ($('s-pending')) $('s-pending').textContent = total - done;
+    if ($('s-late')) $('s-late').textContent = late;
+    if ($('s-today')) $('s-today').textContent = today;
+    if ($('s-done')) $('s-done').textContent = done;
+    $$('.stat-card').forEach(c => { c.style.borderColor = c.dataset.f === S.filter ? 'var(--primary)' : 'transparent'; });
+
+    // Update stats view if elements exist
     if ($('stat-total')) $('stat-total').textContent = total;
     if ($('stat-done')) $('stat-done').textContent = done;
     if ($('stat-late')) $('stat-late').textContent = late;
@@ -1843,7 +2187,7 @@ function renderStats() {
     const brandEntries = Object.entries(byBrand).sort((a, b) => b[1].total - a[1].total);
     $('stats-by-brand').innerHTML = brandEntries.slice(0, 5).map(([brand, data]) => `
         <div style="display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid var(--border)">
-            <span style="font-weight:600;color:var(--text)">${brand}</span>
+            <span style="font-weight:600;color:var(--text)">${esc(brand)}</span>
             <div style="display:flex;gap:12px;align-items:center">
                 <span style="font-size:12px;color:var(--muted)">${data.done}/${data.total}</span>
                 <div style="width:60px;height:6px;background:var(--bg3);border-radius:3px;overflow:hidden">
@@ -1864,14 +2208,126 @@ function renderStats() {
     const deptEntries = Object.entries(byDept).sort((a, b) => b[1].total - a[1].total);
     $('stats-by-dept').innerHTML = deptEntries.slice(0, 8).map(([dept, data]) => `
         <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid var(--border)">
-            <span style="font-weight:700;font-family:monospace;background:var(--primary-light);color:var(--primary-dark);padding:4px 10px;border-radius:6px">${dept}</span>
+            <span style="font-weight:700;font-family:monospace;background:var(--primary-light);color:var(--primary-dark);padding:4px 10px;border-radius:6px">${esc(dept)}</span>
             <div style="display:flex;gap:12px;align-items:center">
                 <span style="font-size:13px;color:var(--text);font-weight:600">${data.total} intv</span>
                 ${data.late ? `<span style="font-size:12px;color:var(--red);font-weight:700">${data.late} retard</span>` : ''}
             </div>
         </div>
     `).join('') || '<p style="color:var(--muted);text-align:center;padding:16px">Aucune donnée</p>';
+
+    renderStatsCharts();
 }
+
+// ==========================================
+// Chart.js rendering
+// ==========================================
+let _adminChart = null, _statsDoughnut = null, _statsBrands = null;
+
+function renderAdminChart() {
+    if (typeof Chart === 'undefined' || !$('admin-chart')) return;
+    const weeks = {};
+    const now = new Date();
+    for (let w = 7; w >= 0; w--) {
+        const d = new Date(now); d.setDate(d.getDate() - w * 7);
+        const key = d.toISOString().slice(0, 10).replace(/-\d{2}$/, '-S' + Math.ceil(d.getDate() / 7));
+        const label = `S${Math.ceil(d.getDate() / 7)} ${d.toLocaleDateString('fr-FR', { month: 'short' })}`;
+        weeks[label] = { done: 0, total: 0, start: new Date(d.setDate(d.getDate() - d.getDay() + 1)), end: new Date(d.setDate(d.getDate() + 6)) };
+    }
+    S.data.forEach(i => {
+        if (!i.date) return;
+        const d = new Date(i.date);
+        Object.entries(weeks).forEach(([label, w]) => {
+            if (d >= w.start && d <= w.end) {
+                w.total++;
+                if (i.done || i.report) w.done++;
+            }
+        });
+    });
+    const labels = Object.keys(weeks);
+    const totals = labels.map(l => weeks[l].total);
+    const dones = labels.map(l => weeks[l].done);
+
+    if (_adminChart) _adminChart.destroy();
+    _adminChart = new Chart($('admin-chart'), {
+        type: 'bar',
+        data: {
+            labels,
+            datasets: [
+                { label: 'Total', data: totals, backgroundColor: 'rgba(14,165,233,0.3)', borderColor: '#0ea5e9', borderWidth: 2, borderRadius: 6 },
+                { label: 'Terminées', data: dones, backgroundColor: 'rgba(34,197,94,0.3)', borderColor: '#22c55e', borderWidth: 2, borderRadius: 6 }
+            ]
+        },
+        options: {
+            responsive: true, maintainAspectRatio: false,
+            plugins: { legend: { position: 'bottom', labels: { boxWidth: 12, padding: 16, font: { size: 11, weight: 600 } } } },
+            scales: { y: { beginAtZero: true, ticks: { stepSize: 1, font: { size: 11 } }, grid: { color: 'rgba(0,0,0,0.05)' } }, x: { ticks: { font: { size: 10 } }, grid: { display: false } } }
+        }
+    });
+}
+
+function renderStatsCharts() {
+    if (typeof Chart === 'undefined') return;
+    const total = S.data.length;
+    const done = S.data.filter(i => i.done || i.report).length;
+    const late = S.data.filter(i => i.isLate && !i.done && !i.report).length;
+    const pending = total - done - late;
+
+    // Doughnut
+    if ($('stats-doughnut')) {
+        if (_statsDoughnut) _statsDoughnut.destroy();
+        _statsDoughnut = new Chart($('stats-doughnut'), {
+            type: 'doughnut',
+            data: {
+                labels: ['Terminées', 'En retard', 'À faire'],
+                datasets: [{ data: [done, late, pending], backgroundColor: ['#22c55e', '#ef4444', '#0ea5e9'], borderWidth: 0 }]
+            },
+            options: {
+                responsive: true, maintainAspectRatio: false, cutout: '65%',
+                plugins: { legend: { position: 'bottom', labels: { boxWidth: 10, padding: 10, font: { size: 10, weight: 600 } } } }
+            }
+        });
+    }
+
+    // Horizontal bar - top brands
+    if ($('stats-brands')) {
+        const byBrand = {};
+        S.data.forEach(i => { const b = i.brand || 'N/A'; byBrand[b] = (byBrand[b] || 0) + 1; });
+        const sorted = Object.entries(byBrand).sort((a, b) => b[1] - a[1]).slice(0, 6);
+        if (_statsBrands) _statsBrands.destroy();
+        _statsBrands = new Chart($('stats-brands'), {
+            type: 'bar',
+            data: {
+                labels: sorted.map(e => e[0]),
+                datasets: [{ data: sorted.map(e => e[1]), backgroundColor: '#0ea5e9', borderRadius: 4 }]
+            },
+            options: {
+                indexAxis: 'y', responsive: true, maintainAspectRatio: false,
+                plugins: { legend: { display: false } },
+                scales: { x: { beginAtZero: true, ticks: { stepSize: 1, font: { size: 10 } }, grid: { color: 'rgba(0,0,0,0.05)' } }, y: { ticks: { font: { size: 10, weight: 600 } }, grid: { display: false } } }
+            }
+        });
+    }
+}
+
+// Tech search filter for admin view
+function filterTechList(q) {
+    q = q.toLowerCase();
+    let visible = 0;
+    $$('#tech-list .tech-card').forEach(card => {
+        const name = card.getAttribute('data-tech') || '';
+        const show = name.toLowerCase().includes(q);
+        card.style.display = show ? '' : 'none';
+        if (show) visible++;
+    });
+    let emptyEl = $('tech-list-empty');
+    if (!visible && q) {
+        if (!emptyEl) { emptyEl = document.createElement('div'); emptyEl.id = 'tech-list-empty'; emptyEl.style.cssText = 'padding:32px;text-align:center;color:var(--muted);font-size:14px'; $('tech-list').appendChild(emptyEl); }
+        emptyEl.textContent = 'Aucun technicien trouvé';
+        emptyEl.style.display = '';
+    } else if (emptyEl) { emptyEl.style.display = 'none'; }
+}
+window.filterTechList = filterTechList;
 
 // Keyboard shortcuts
 document.addEventListener('keydown', e => {
@@ -1885,7 +2341,531 @@ document.addEventListener('keydown', e => {
         e.preventDefault();
         $('search')?.focus();
     }
+    // Enter/Space activates role="button" elements
+    if ((e.key === 'Enter' || e.key === ' ') && e.target.getAttribute('role') === 'button') {
+        e.preventDefault();
+        e.target.click();
+    }
 });
+
+// ==========================================
+// REPORT WIZARD (Phase 3)
+// ==========================================
+let wizStep = 0;
+const WIZ_STEPS = 5;
+let wizStatus = null;
+let wizDraftTimer = null;
+
+function openWizard() {
+    vibrate();
+    const i = S.sel;
+    if (!i) return;
+    wizStep = 0;
+    wizStatus = null;
+    // Sync fields from detail view
+    $('wiz-date').value = $('f-date').value;
+    $('wiz-start').value = $('f-start').value;
+    $('wiz-end').value = $('f-end').value;
+    $('wiz-obs').value = $('f-obs').value || '';
+    // Reset wizard status options
+    $$('#report-wizard .status-opt').forEach(o => o.classList.remove('selected', 'followup'));
+    // Render checklist
+    renderWizChecklist();
+    // Render photo sections with split buttons
+    renderWizPhotos();
+    // Render observation chips
+    genWizChips();
+    // Restore draft if available
+    restoreWizDraft();
+    // Show wizard
+    $('report-wizard').classList.add('active');
+    document.body.style.overflow = 'hidden';
+    updateWizUI();
+    // Start auto-save draft
+    wizDraftTimer = setInterval(saveWizDraft, 30000);
+    // Clear signature
+    clearSignature();
+}
+window.openWizard = openWizard;
+
+function closeWizard() {
+    vibrate();
+    saveWizDraft();
+    if (wizDraftTimer) { clearInterval(wizDraftTimer); wizDraftTimer = null; }
+    $('report-wizard').classList.remove('active');
+    document.body.style.overflow = '';
+}
+window.closeWizard = closeWizard;
+
+function updateWizUI() {
+    // Progress
+    $('wizard-progress').style.width = ((wizStep + 1) / WIZ_STEPS * 100) + '%';
+    $('wizard-subtitle').textContent = `Étape ${wizStep + 1}/${WIZ_STEPS}`;
+    const titles = ['Horaires', 'Checklist', 'Photos', 'Observations', 'Finalisation'];
+    $('wizard-title').textContent = titles[wizStep] || 'Rapport';
+    // Steps visibility
+    $$('#report-wizard .wizard-step').forEach((el, idx) => {
+        el.classList.toggle('active', idx === wizStep);
+    });
+    // Dots
+    $$('#wizard-dots .wizard-dot').forEach((d, idx) => {
+        d.classList.toggle('active', idx === wizStep);
+        d.classList.toggle('done', idx < wizStep);
+    });
+    // Buttons
+    $('wiz-prev').style.display = wizStep > 0 ? '' : 'none';
+    $('wiz-next').classList.toggle('hidden', wizStep === WIZ_STEPS - 1);
+    $('wiz-submit').classList.toggle('hidden', wizStep !== WIZ_STEPS - 1);
+}
+
+function wizNext() { vibrate(); if (wizStep < WIZ_STEPS - 1) { wizStep++; updateWizUI(); $('wizard-body').scrollTop = 0; } }
+function wizPrev() { vibrate(); if (wizStep > 0) { wizStep--; updateWizUI(); $('wizard-body').scrollTop = 0; } }
+window.wizNext = wizNext;
+window.wizPrev = wizPrev;
+
+function wizPickStatus(el) {
+    vibrate();
+    $$('#report-wizard .status-opt').forEach(o => o.classList.remove('selected', 'followup'));
+    wizStatus = el.dataset.v;
+    el.classList.add('selected');
+    if (wizStatus === 'followup') el.classList.add('followup');
+}
+window.wizPickStatus = wizPickStatus;
+
+function renderWizChecklist() {
+    const keys = getKeys(S.sel?.brand);
+    let items = [...CHECKLIST];
+    if (keys.length) items[2].sub = `Clés: ${keys.join(', ')}`;
+    $('wiz-checklist-items').innerHTML = items.map(item =>
+        `<div class="check-item ${S.checklist[item.id] ? 'checked' : ''}" onclick="toggleCheck('${item.id}');renderWizChecklist()">
+            <div class="check-box"></div>
+            <div class="check-label">${item.text}<small>${item.sub}</small></div>
+        </div>`
+    ).join('');
+}
+
+function genWizChips() {
+    const p = S.sel?.problem?.toLowerCase() || '';
+    let chips = ['✅ RAS', '✅ Terre OK', '✅ Serrage OK', '✅ Test charge OK'];
+    if (p.includes('disjonc') || p.includes('ir ')) chips.push('⚙️ Ir réglé');
+    if (p.includes('hors ligne') || p.includes('offline') || p.includes('comm')) chips.push('📶 SIM OK', '🔄 Reboot fait');
+    if (p.includes('session') || p.includes('échec') || p.includes('charge')) chips.push('🔌 Câble OK', '⚡ Tensions OK');
+    if (p.includes('écran')) chips.push('🖥️ Écran OK');
+    $('wiz-chips').innerHTML = chips.map(c =>
+        `<span onclick="addWizChip('${c}')" style="background:var(--card);padding:12px 16px;border-radius:12px;font-size:14px;font-weight:600;cursor:pointer;border:2px solid var(--border);color:var(--text);transition:all .15s;min-height:48px;display:inline-flex;align-items:center" onmouseover="this.style.borderColor='var(--primary)'" onmouseout="this.style.borderColor='var(--border)'">${c}</span>`
+    ).join('');
+}
+window.addWizChip = c => { vibrate(); $('wiz-obs').value += ($('wiz-obs').value ? '\n' : '') + c; };
+
+// ==========================================
+// PHOTO CAMERA/GALLERY SPLIT (Phase 5)
+// ==========================================
+function renderWizPhotos() {
+    $('wiz-photo-sections').innerHTML = PHOTO_CATS.map(cat => {
+        const photos = S.photos[cat.id], hasPhotos = photos.length > 0;
+        return `<div class="photo-cat ${hasPhotos ? 'has-photos' : ''} ${cat.required ? 'required' : ''}">
+            <div class="photo-cat-header">
+                <div class="photo-cat-title">${cat.icon} ${esc(cat.title)}${hasPhotos ? `<span class="count">${photos.length}</span>` : ''}${cat.required && !hasPhotos ? '<span class="required-badge">Requis</span>' : ''}</div>
+            </div>
+            <div class="photo-grid">
+                ${photos.map(p => `<div class="photo-item"><img src="${p.data}" onclick="viewPhoto(this.src)"><button class="delete" onclick="event.stopPropagation();removePhoto('${esc(cat.id)}','${esc(p.id)}');renderWizPhotos()">×</button></div>`).join('')}
+                <div class="photo-add" onclick="wizAddCamera('${esc(cat.id)}')" style="min-height:48px">📸<span>Camera</span></div>
+                <div class="photo-add" onclick="wizAddGallery('${esc(cat.id)}')" style="min-height:48px">🖼️<span>Galerie</span></div>
+            </div>
+        </div>`;
+    }).join('');
+}
+
+window.wizAddCamera = cat => { vibrate(); S.currentPhotoCat = cat; $('wiz-photo-camera').click(); };
+window.wizAddGallery = cat => { vibrate(); S.currentPhotoCat = cat; $('wiz-photo-gallery').click(); };
+
+function compressImageEnhanced(file, maxWidth = 1200, maxSizeKB = 500) {
+    return new Promise((resolve) => {
+        const reader = new FileReader();
+        reader.onload = e => {
+            const img = new Image();
+            img.onload = () => {
+                const canvas = document.createElement('canvas');
+                let { width, height } = img;
+                if (width > maxWidth) { height = (height * maxWidth) / width; width = maxWidth; }
+                canvas.width = width; canvas.height = height;
+                const ctx = canvas.getContext('2d');
+                ctx.drawImage(img, 0, 0, width, height);
+                let quality = 0.8;
+                let result = canvas.toDataURL('image/jpeg', quality);
+                // Reduce quality until under maxSizeKB
+                while (result.length > maxSizeKB * 1370 && quality > 0.3) {
+                    quality -= 0.1;
+                    result = canvas.toDataURL('image/jpeg', quality);
+                }
+                resolve(result);
+            };
+            img.src = e.target.result;
+        };
+        reader.readAsDataURL(file);
+    });
+}
+
+async function handleWizPhotoInput(e) {
+    const cat = S.currentPhotoCat;
+    if (!cat) return;
+    const files = Array.from(e.target.files);
+    if (!files.length) return;
+    toast('📷 Traitement...', 'info');
+    for (const f of files) {
+        const compressed = await compressImageEnhanced(f);
+        S.photos[cat].push({ id: Date.now() + '' + Math.random(), data: compressed });
+    }
+    renderWizPhotos();
+    updatePhotosSummary();
+    toast(`✅ ${files.length} photo${files.length > 1 ? 's' : ''} ajoutée${files.length > 1 ? 's' : ''}`, 'success');
+    e.target.value = '';
+}
+$('wiz-photo-camera')?.addEventListener('change', handleWizPhotoInput);
+$('wiz-photo-gallery')?.addEventListener('change', handleWizPhotoInput);
+
+// ==========================================
+// SIGNATURE CANVAS (Phase 4)
+// ==========================================
+let sigCanvas, sigCtx, sigDrawing = false;
+
+function initSignature() {
+    sigCanvas = $('signature-canvas');
+    if (!sigCanvas) return;
+    sigCtx = sigCanvas.getContext('2d');
+    // Scale canvas for high DPI
+    const rect = sigCanvas.getBoundingClientRect();
+    const dpr = window.devicePixelRatio || 1;
+    sigCanvas.width = rect.width * dpr;
+    sigCanvas.height = rect.height * dpr;
+    sigCtx.scale(dpr, dpr);
+    sigCtx.strokeStyle = '#1e293b';
+    sigCtx.lineWidth = 2.5;
+    sigCtx.lineCap = 'round';
+    sigCtx.lineJoin = 'round';
+
+    const getPos = e => {
+        const t = e.touches ? e.touches[0] : e;
+        const r = sigCanvas.getBoundingClientRect();
+        return { x: t.clientX - r.left, y: t.clientY - r.top };
+    };
+
+    sigCanvas.addEventListener('touchstart', e => {
+        e.preventDefault();
+        sigDrawing = true;
+        sigCanvas.classList.add('drawing');
+        const p = getPos(e);
+        sigCtx.beginPath();
+        sigCtx.moveTo(p.x, p.y);
+    }, { passive: false });
+
+    sigCanvas.addEventListener('touchmove', e => {
+        if (!sigDrawing) return;
+        e.preventDefault();
+        const p = getPos(e);
+        sigCtx.lineTo(p.x, p.y);
+        sigCtx.stroke();
+    }, { passive: false });
+
+    sigCanvas.addEventListener('touchend', () => {
+        sigDrawing = false;
+        sigCanvas.classList.remove('drawing');
+    });
+
+    // Mouse fallback
+    sigCanvas.addEventListener('mousedown', e => {
+        sigDrawing = true;
+        sigCanvas.classList.add('drawing');
+        const p = getPos(e);
+        sigCtx.beginPath();
+        sigCtx.moveTo(p.x, p.y);
+    });
+    sigCanvas.addEventListener('mousemove', e => {
+        if (!sigDrawing) return;
+        const p = getPos(e);
+        sigCtx.lineTo(p.x, p.y);
+        sigCtx.stroke();
+    });
+    sigCanvas.addEventListener('mouseup', () => { sigDrawing = false; sigCanvas.classList.remove('drawing'); });
+    sigCanvas.addEventListener('mouseleave', () => { sigDrawing = false; sigCanvas.classList.remove('drawing'); });
+}
+
+function clearSignature() {
+    if (!sigCanvas || !sigCtx) initSignature();
+    if (sigCtx) {
+        sigCtx.clearRect(0, 0, sigCanvas.width, sigCanvas.height);
+    }
+}
+window.clearSignature = clearSignature;
+
+function getSignatureData() {
+    if (!sigCanvas) return null;
+    // Check if canvas is blank
+    const blank = document.createElement('canvas');
+    blank.width = sigCanvas.width;
+    blank.height = sigCanvas.height;
+    if (sigCanvas.toDataURL() === blank.toDataURL()) return null;
+    return sigCanvas.toDataURL('image/png');
+}
+
+// Init signature when wizard step 5 is shown
+const wizBodyObserver = new MutationObserver(() => {
+    if ($('report-wizard')?.classList.contains('active') && wizStep === 4) {
+        setTimeout(initSignature, 100);
+    }
+});
+if ($('report-wizard')) wizBodyObserver.observe($('report-wizard'), { attributes: true });
+
+// ==========================================
+// WIZARD DRAFT AUTO-SAVE (Phase 6)
+// ==========================================
+function saveWizDraft() {
+    if (!S.sel) return;
+    const draft = {
+        interventionId: S.sel.id,
+        date: $('wiz-date')?.value,
+        start: $('wiz-start')?.value,
+        end: $('wiz-end')?.value,
+        obs: $('wiz-obs')?.value,
+        status: wizStatus,
+        step: wizStep,
+        photos: S.photos,
+        checklist: S.checklist,
+        savedAt: Date.now()
+    };
+    localStorage.setItem('jcsm_wiz_draft_' + S.sel.id, JSON.stringify(draft));
+    $('wizard-draft-badge')?.classList.remove('hidden');
+}
+
+function restoreWizDraft() {
+    if (!S.sel) return;
+    try {
+        const raw = localStorage.getItem('jcsm_wiz_draft_' + S.sel.id);
+        if (!raw) return;
+        const draft = JSON.parse(raw);
+        // Only restore if saved within 24 hours
+        if (Date.now() - draft.savedAt > 24 * 60 * 60 * 1000) {
+            localStorage.removeItem('jcsm_wiz_draft_' + S.sel.id);
+            return;
+        }
+        if (draft.date) $('wiz-date').value = draft.date;
+        if (draft.start) $('wiz-start').value = draft.start;
+        if (draft.end) $('wiz-end').value = draft.end;
+        if (draft.obs) $('wiz-obs').value = draft.obs;
+        if (draft.status) wizStatus = draft.status;
+        if (draft.photos) S.photos = draft.photos;
+        if (draft.checklist) S.checklist = draft.checklist;
+        if (typeof draft.step === 'number') wizStep = draft.step;
+        $('wizard-draft-badge')?.classList.remove('hidden');
+        toast('📝 Brouillon restauré', 'info');
+    } catch (e) {}
+}
+
+function clearWizDraft() {
+    if (S.sel) localStorage.removeItem('jcsm_wiz_draft_' + S.sel.id);
+    $('wizard-draft-badge')?.classList.add('hidden');
+}
+
+// ==========================================
+// OFFLINE SYNC QUEUE (Phase 6)
+// ==========================================
+function enqueueSync(type, data) {
+    const queue = JSON.parse(localStorage.getItem('jcsm_sync_queue') || '[]');
+    queue.push({ type, data, timestamp: Date.now(), id: Date.now() + '' + Math.random() });
+    localStorage.setItem('jcsm_sync_queue', JSON.stringify(queue));
+    updateSyncIndicator();
+}
+
+function updateSyncIndicator() {
+    const queue = JSON.parse(localStorage.getItem('jcsm_sync_queue') || '[]');
+    const dot = $('sync-dot');
+    const text = $('sync-text');
+    if (queue.length > 0) {
+        if (dot) { dot.className = 'sync-dot'; dot.classList.add(S.isOnline ? 'syncing' : 'offline'); }
+        if (text) text.textContent = `${queue.length} en attente`;
+    } else {
+        if (dot) { dot.className = 'sync-dot online'; }
+        if (text) text.textContent = S.isOnline ? 'À jour' : 'Hors ligne';
+    }
+}
+
+async function processSyncQueue() {
+    const queue = JSON.parse(localStorage.getItem('jcsm_sync_queue') || '[]');
+    if (!queue.length || !S.isOnline) return;
+    const remaining = [];
+    for (const item of queue) {
+        try {
+            if (item.type === 'rapport-webhook') {
+                await fetch(WEBHOOK, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(item.data) });
+            } else if (item.type === 'rapport-api') {
+                const headers = { 'Content-Type': 'application/json', ...getAuthHeaders() };
+                await fetch('/api/save-rapport.php', { method: 'POST', headers, body: JSON.stringify(item.data) });
+            }
+        } catch (e) {
+            remaining.push(item);
+        }
+    }
+    localStorage.setItem('jcsm_sync_queue', JSON.stringify(remaining));
+    updateSyncIndicator();
+    if (remaining.length < queue.length) {
+        toast(`✅ ${queue.length - remaining.length} élément(s) synchronisé(s)`, 'success');
+    }
+}
+
+window.addEventListener('online', () => { S.isOnline = true; updateSyncIndicator(); setTimeout(processSyncQueue, 2000); });
+window.addEventListener('offline', () => { S.isOnline = false; updateSyncIndicator(); });
+
+// ==========================================
+// WIZARD SUBMIT with double save (Phase 8)
+// ==========================================
+let _wizSubmitting = false;
+async function wizSubmit() {
+    if (_wizSubmitting) return;
+    if (!wizStatus) { toast('❌ Sélectionnez un résultat', 'error'); vibrate(100); return; }
+    const missingPhotos = PHOTO_CATS.filter(c => c.required && S.photos[c.id].length === 0);
+    if (missingPhotos.length) { toast('❌ Photos manquantes', 'error'); vibrate(100); return; }
+
+    _wizSubmitting = true;
+    const submitBtn = $('wiz-submit');
+    if (submitBtn) { submitBtn.disabled = true; submitBtn.innerHTML = '<span class="spinner" style="width:18px;height:18px;border-width:2px"></span> Envoi...'; }
+
+    const i = S.sel;
+    const tech = i.techAssigned || i.techSuggested?.name || S.user.name;
+    const tarif = i.techSuggested?.tarif || 80;
+    const signature = getSignatureData();
+
+    const report = {
+        ticket: i.ticket, site: i.site, address: i.address, row: i.row,
+        date: $('wiz-date').value, timeStart: $('wiz-start').value, timeEnd: $('wiz-end').value,
+        duration: S.timerElapsed > 0 ? Math.round(S.timerElapsed / 60000) : null,
+        comments: $('wiz-obs').value || 'RAS', status: wizStatus,
+        photos: Object.values(S.photos).flat().map(p => p.data),
+        photoCategories: { borne: S.photos.borne.length, site: S.photos.site.length, nc: S.photos.nc.length, avap: S.photos.avap.length },
+        technicien: tech, montant: tarif, dept: i.dept, brand: i.brand,
+        signature: signature
+    };
+
+    // Also prepare API payload
+    const apiReport = {
+        ticket: i.ticket, nomSite: i.site, adresse: i.address,
+        dateIntervention: $('wiz-date').value,
+        heureArrivee: $('wiz-start').value, heureDepart: $('wiz-end').value,
+        probleme: i.problem || '', actionRealisee: $('wiz-obs').value || 'RAS',
+        statut: wizStatus, piecesChangees: '', remarques: '',
+        interventionId: i.id, photos: Object.values(S.photos).flat().map(p => p.data),
+        signature: signature
+    };
+
+    toast('📤 Envoi...', 'info');
+
+    let webhookOk = false, apiOk = false;
+
+    // POST to webhook
+    try {
+        await fetch(WEBHOOK, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(report) });
+        webhookOk = true;
+    } catch (e) {
+        enqueueSync('rapport-webhook', report);
+    }
+
+    // POST to PHP API
+    try {
+        const headers = { 'Content-Type': 'application/json', ...getAuthHeaders() };
+        await fetch('/api/save-rapport.php', { method: 'POST', headers, body: JSON.stringify(apiReport) });
+        apiOk = true;
+    } catch (e) {
+        enqueueSync('rapport-api', apiReport);
+    }
+
+    if (webhookOk || apiOk) {
+        i.done = true; i.report = 'sent';
+        clearTimerState();
+        clearWizDraft();
+        toast('✅ Rapport envoyé!', 'success');
+        vibrate([50, 50, 50]);
+        closeWizard();
+        showView('list');
+        render();
+    } else {
+        toast('💾 Sauvegardé hors ligne', 'info');
+        clearWizDraft();
+        closeWizard();
+    }
+
+    _wizSubmitting = false;
+    if (submitBtn) { submitBtn.disabled = false; submitBtn.innerHTML = '✅ Envoyer le rapport'; }
+}
+window.wizSubmit = wizSubmit;
+
+// Also update the original form submit to double-save
+const origForm = $('form');
+if (origForm) {
+    const origSubmitHandler = origForm.onsubmit;
+    origForm.onsubmit = async e => {
+        e.preventDefault();
+        // Open wizard instead of submitting directly
+        openWizard();
+    };
+}
+
+// ==========================================
+// SWIPE NAVIGATION (Phase 7)
+// ==========================================
+const SWIPE_VIEWS = ['list', 'stats', 'calendar', 'map'];
+let swipeStartX = 0, swipeStartY = 0, swiping = false;
+
+document.addEventListener('touchstart', e => {
+    // Don't swipe in modals, wizard, or detail view
+    if ($('report-wizard')?.classList.contains('active')) return;
+    if (document.querySelector('.modal-overlay.active')) return;
+    const currentView = SWIPE_VIEWS.find(v => !$('view-' + v)?.classList.contains('hidden'));
+    if (!currentView) return;
+    swipeStartX = e.touches[0].clientX;
+    swipeStartY = e.touches[0].clientY;
+    swiping = true;
+}, { passive: true });
+
+document.addEventListener('touchend', e => {
+    if (!swiping) return;
+    swiping = false;
+    const dx = e.changedTouches[0].clientX - swipeStartX;
+    const dy = e.changedTouches[0].clientY - swipeStartY;
+    // Must be primarily horizontal and exceed threshold
+    if (Math.abs(dx) < 80 || Math.abs(dx) < Math.abs(dy) * 1.5) return;
+
+    const currentView = SWIPE_VIEWS.find(v => !$('view-' + v)?.classList.contains('hidden'));
+    if (!currentView) return;
+    const idx = SWIPE_VIEWS.indexOf(currentView);
+    if (idx === -1) return;
+
+    let nextIdx;
+    if (dx < 0 && idx < SWIPE_VIEWS.length - 1) {
+        nextIdx = idx + 1; // Swipe left = next view
+    } else if (dx > 0 && idx > 0) {
+        nextIdx = idx - 1; // Swipe right = prev view
+    } else return;
+
+    const nextView = SWIPE_VIEWS[nextIdx];
+    const direction = dx < 0 ? 'slide-enter-right' : 'slide-enter-left';
+    showView(nextView);
+    const el = $('view-' + nextView);
+    if (el) {
+        el.classList.add(direction);
+        setTimeout(() => el.classList.remove(direction), 300);
+    }
+    vibrate();
+}, { passive: true });
+
+// ==========================================
+// Add "Rapport" button to open wizard from detail view
+// ==========================================
+// Intercept the existing rapport button to open wizard
+const detailSubmitBtn = document.querySelector('#form button[type="submit"]');
+if (detailSubmitBtn) {
+    detailSubmitBtn.textContent = '📝 Ouvrir le Rapport Wizard';
+    detailSubmitBtn.type = 'button';
+    detailSubmitBtn.onclick = () => openWizard();
+}
 
 // Service Worker registration for PWA
 if ('serviceWorker' in navigator) {
@@ -1894,6 +2874,7 @@ if ('serviceWorker' in navigator) {
 
 // Initialize app
 initTheme();
+updateSyncIndicator();
 checkAuth();
 </script>
 </body>

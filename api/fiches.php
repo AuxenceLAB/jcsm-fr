@@ -26,9 +26,12 @@ header('Access-Control-Allow-Headers: Content-Type, Authorization');
 
 // Gérer les requêtes OPTIONS (CORS preflight)
 if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
-    http_response_code(200);
+    http_response_code(204);
     exit;
 }
+
+// Hôte du site (évite l'injection Host header)
+define('SITE_HOST', 'jcsm.fr');
 
 // Fichier de stockage (JSON)
 $storageFile = __DIR__ . '/fiches_methodes.json';
@@ -103,8 +106,9 @@ function saveImage($base64Data, $imageId, $imagesDir)
     return null;
 }
 
-// GET : Récupérer toutes les fiches
+// GET : Récupérer toutes les fiches (authentification requise)
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+    requireAuth();
     $fiches = loadFiches($storageFile);
 
     // Convertir les chemins d'images en URLs complètes si nécessaire
@@ -118,7 +122,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
                 ) {
                     // Sinon, on convertit le chemin relatif en URL
                     if (str_starts_with($img['data'], 'api/images_fiches/')) {
-                        $img['data'] = 'https://' . $_SERVER['HTTP_HOST'] . '/' . $img['data'];
+                        $img['data'] = 'https://' . SITE_HOST . '/' . $img['data'];
                     }
                 }
             }
@@ -149,7 +153,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if (str_starts_with($img['data'], 'data:image/')) {
                 $imagePath = saveImage($img['data'], $img['id'], $imagesDir);
                 if ($imagePath) {
-                    $img['data'] = 'https://' . $_SERVER['HTTP_HOST'] . '/' . $imagePath;
+                    $img['data'] = 'https://' . SITE_HOST . '/' . $imagePath;
                 }
             }
         }
@@ -210,7 +214,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'DELETE') {
             $realImagesDir = realpath($imagesDir);
             foreach ($fiche['images'] as $img) {
                 if (isset($img['data']) && str_contains($img['data'], 'api/images_fiches/')) {
-                    $imagePath = __DIR__ . '/' . str_replace('https://' . $_SERVER['HTTP_HOST'] . '/api/', '', $img['data']);
+                    $imagePath = __DIR__ . '/' . str_replace('https://' . SITE_HOST . '/api/', '', $img['data']);
                     $realImagePath = realpath($imagePath);
                     // Only delete if the file is inside the images directory
                     if ($realImagePath && $realImagesDir && strpos($realImagePath, $realImagesDir) === 0 && file_exists($realImagePath)) {

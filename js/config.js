@@ -8,8 +8,8 @@ const JCSM_CONFIG = {
     // API Endpoints
     // ==========================================
     api: {
-        // API Google Sheets (pour portail interne admin)
-        googleSheets: 'https://script.google.com/macros/s/AKfycbzZxvFsy4yb1gsAdL70zhhMJCdZN-fGUZY4qHct3wMergx6hNX2qTOB0nH86ohBgEjmqA/exec',
+        // Google Sheets via proxy serveur (URL masquée côté serveur)
+        googleSheets: '/api/proxy-sheets.php',
 
         // API locales PHP
         loginEndpoint: '/api/login.php',
@@ -18,13 +18,8 @@ const JCSM_CONFIG = {
         rapports: '/api/save-rapport.php',
         listRapports: '/api/list-rapports.php',
 
-        // Webhooks n8n
-        webhooks: {
-            rapport: 'https://n8n.jcsm.fr/webhook/rapport',
-            paiement: 'https://n8n.jcsm.fr/webhook/paiement',
-            sms: 'https://n8n.jcsm.fr/webhook/sms',
-            notification: 'https://n8n.jcsm.fr/webhook/notification'
-        }
+        // Webhook proxy (URLs n8n masquées côté serveur)
+        webhookProxy: '/api/webhook-proxy.php'
     },
 
     // ==========================================
@@ -59,8 +54,8 @@ const JCSM_CONFIG = {
     // ==========================================
     // Version
     // ==========================================
-    version: '2.1.0',
-    buildDate: '2026-01-28'
+    version: '2.3.0',
+    buildDate: '2026-01-30'
 };
 
 // ==========================================
@@ -155,7 +150,7 @@ function createSession(role, isAdmin, serverToken) {
         isAdmin: isAdmin,
         created: Date.now(),
         expires: Date.now() + JCSM_CONFIG.auth.sessionDuration,
-        token: serverToken || (crypto.randomUUID ? crypto.randomUUID() : Math.random().toString(36).substring(2) + Date.now().toString(36))
+        token: serverToken || (typeof crypto.randomUUID === 'function' ? crypto.randomUUID() : Array.from(crypto.getRandomValues(new Uint8Array(16)), b => b.toString(16).padStart(2, '0')).join(''))
     };
 
     localStorage.setItem(JCSM_CONFIG.auth.sessionKey, JSON.stringify(session));
@@ -175,41 +170,15 @@ function destroySession() {
 
 /**
  * Affiche une notification toast
+ * Délègue à window.showToast (défini dans utils.js)
  * @param {string} message - Message à afficher
  * @param {string} type - Type: success, error, warning, info
  * @param {number} duration - Durée en ms
  */
 function showToast(message, type = 'info', duration = 3000) {
-    // Utiliser la fonction globale si disponible
     if (typeof window.showToast === 'function' && window.showToast !== showToast) {
         window.showToast(message, type, duration);
-        return;
     }
-
-    // Fallback simple
-    const toast = document.createElement('div');
-    toast.className = `toast toast-${type}`;
-    toast.style.cssText = `
-        position: fixed;
-        bottom: 20px;
-        right: 20px;
-        padding: 12px 20px;
-        background: ${type === 'error' ? '#ef4444' : type === 'success' ? '#10b981' : type === 'warning' ? '#f59e0b' : '#2563EB'};
-        color: white;
-        border-radius: 8px;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-        z-index: 10000;
-        font-size: 14px;
-        font-weight: 500;
-        animation: slideIn 0.3s ease;
-    `;
-    toast.textContent = message;
-    document.body.appendChild(toast);
-
-    setTimeout(() => {
-        toast.style.animation = 'slideOut 0.3s ease forwards';
-        setTimeout(() => toast.remove(), 300);
-    }, duration);
 }
 
 // ==========================================

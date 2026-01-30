@@ -48,7 +48,7 @@ function updateDashboard() {
 
     ALL_INTERVENTIONS.forEach(i => {
         // Regions
-        if (i.region) regions[i.region] = (regions[i.region] || 0) + 1;
+        if (i.region && typeof i.region === 'string') regions[i.region] = (regions[i.region] || 0) + 1;
 
         // Delays - Normalisation sommaire
         const del = String(i.delais || '').toLowerCase();
@@ -57,12 +57,12 @@ function updateDashboard() {
         else if (del.includes('1')) delays['J+1']++;
         else delays['Standard']++; // Fallback
 
-        // History (Date demande)
+        // History (Date demande) — clé ISO pour tri chronologique
         if (i.dateDemande) {
             const date = new Date(i.dateDemande);
             if (!isNaN(date.getTime())) {
-                const key = date.toLocaleString('fr-FR', { month: 'short', year: '2-digit' }); // janv. 24
-                months[key] = (months[key] || 0) + 1;
+                const isoKey = date.toISOString().slice(0, 7); // "2024-01"
+                months[isoKey] = (months[isoKey] || 0) + 1;
             }
         }
     });
@@ -88,14 +88,18 @@ function updateDashboard() {
         }]
     });
 
-    // 3. Chart History (Line)
-    // Sort months chronologically isn't trivial just with 'janv. 24', keeping simple for now
-    // In a real app, use timestamps as keys and format labels later.
+    // 3. Chart History (Line) — tri chronologique par clé ISO
+    const sortedMonthKeys = Object.keys(months).sort();
+    const monthLabels = sortedMonthKeys.map(k => {
+        const [y, m] = k.split('-');
+        const d = new Date(parseInt(y), parseInt(m) - 1);
+        return d.toLocaleString('fr-FR', { month: 'short', year: '2-digit' });
+    });
     renderChart('chart-history', 'line', {
-        labels: Object.keys(months),
+        labels: monthLabels,
         datasets: [{
             label: 'Nouvelles Demandes',
-            data: Object.values(months),
+            data: sortedMonthKeys.map(k => months[k]),
             borderColor: '#8B5CF6',
             tension: 0.4,
             fill: true,
@@ -159,11 +163,6 @@ function renderChart(id, type, data) {
             } : {} // No scales for pie/doughnut
         }
     });
-}
-
-// Check admin access helper (duplicate in app.js, should utilize shared state)
-function checkAdminAccess() {
-    return technicien && technicien.isAdmin;
 }
 
 // Expose global

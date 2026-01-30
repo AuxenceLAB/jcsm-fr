@@ -28,6 +28,7 @@ function initContactForm() {
         });
         form.querySelectorAll('input, textarea').forEach(el => {
             el.classList.remove('border-red-500');
+            el.removeAttribute('aria-invalid');
         });
 
         // Validate name
@@ -39,7 +40,7 @@ function initContactForm() {
 
         // Validate email
         const email = document.getElementById('email');
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        const emailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)+$/;
         if (!email.value.trim() || !emailRegex.test(email.value)) {
             showError(email, 'Veuillez entrer une adresse email valide', formMessage);
             isValid = false;
@@ -66,12 +67,15 @@ function initContactForm() {
             if (submitLoading) submitLoading.classList.remove('hidden');
             submitBtn.disabled = true;
 
-            // Submit form
+            // Submit form with timeout
             const formData = new FormData(form);
+            const controller = new AbortController();
+            const timeout = setTimeout(() => controller.abort(), 15000);
             fetch(form.action, {
                 method: 'POST',
                 body: formData,
-                headers: { 'Accept': 'application/json' }
+                headers: { 'Accept': 'application/json' },
+                signal: controller.signal
             })
                 .then(response => {
                     if (response.ok) {
@@ -81,10 +85,14 @@ function initContactForm() {
                         showError(null, 'Une erreur est survenue. Veuillez réessayer.', formMessage);
                     }
                 })
-                .catch(() => {
-                    showError(null, 'Une erreur est survenue. Veuillez réessayer.', formMessage);
+                .catch((err) => {
+                    const msg = err.name === 'AbortError'
+                        ? 'Le serveur ne répond pas. Veuillez réessayer.'
+                        : 'Une erreur est survenue. Veuillez réessayer.';
+                    showError(null, msg, formMessage);
                 })
                 .finally(() => {
+                    clearTimeout(timeout);
                     if (submitText) submitText.classList.remove('hidden');
                     if (submitLoading) submitLoading.classList.add('hidden');
                     submitBtn.disabled = false;
@@ -96,6 +104,7 @@ function initContactForm() {
 function showError(field, message, formMessage) {
     if (field) {
         field.classList.add('border-red-500');
+        field.setAttribute('aria-invalid', 'true');
         const errorSpan = field.parentElement.querySelector('.error-message');
         if (errorSpan) {
             errorSpan.textContent = message;

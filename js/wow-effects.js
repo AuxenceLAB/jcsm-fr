@@ -108,24 +108,23 @@
 
         animate(timestamp) {
             if (!this.lastTimestamp) this.lastTimestamp = timestamp;
-            const delta = (timestamp - this.lastTimestamp) / 16; // Normalized to ~60fps
+            const delta = (timestamp - this.lastTimestamp) / 16;
             this.lastTimestamp = timestamp;
 
-            if (!this.isPaused) {
+            if (!this.isPaused && !document.hidden) {
                 this.position -= this.speed * (delta || 1);
-
-                // Content width is 1/3 of total track width due to triple clones
                 const contentWidth = this.track.scrollWidth / 3;
-
                 if (Math.abs(this.position) >= contentWidth) {
                     this.position = 0;
                 }
-
-                // Use translate3d for GPU acceleration
                 this.track.style.transform = `translate3d(${this.position}px, 0, 0)`;
             }
 
-            requestAnimationFrame((t) => this.animate(t));
+            this._rafId = requestAnimationFrame((t) => this.animate(t));
+        }
+
+        destroy() {
+            if (this._rafId) cancelAnimationFrame(this._rafId);
         }
     }
 
@@ -259,13 +258,15 @@
             mouseX = e.clientX;
             mouseY = e.clientY;
             if (glow.style.opacity === '0') glow.style.opacity = '1';
-        });
+        }, { passive: true });
 
         function animate() {
-            glowX += (mouseX - glowX) * 0.08;
-            glowY += (mouseY - glowY) * 0.08;
-            glow.style.left = glowX + 'px';
-            glow.style.top = glowY + 'px';
+            if (!document.hidden) {
+                glowX += (mouseX - glowX) * 0.08;
+                glowY += (mouseY - glowY) * 0.08;
+                glow.style.left = glowX + 'px';
+                glow.style.top = glowY + 'px';
+            }
             requestAnimationFrame(animate);
         }
         animate();
@@ -351,9 +352,9 @@
     // ==========================================
     function initParallaxElements() {
         const parallaxes = document.querySelectorAll('[data-parallax]');
+        if (!parallaxes.length) return;
 
         window.addEventListener('scroll', () => {
-            const scrollY = window.pageYOffset;
             parallaxes.forEach(el => {
                 const speed = parseFloat(el.dataset.speed) || 0.1;
                 const rect = el.getBoundingClientRect();
@@ -555,7 +556,9 @@
     // ==========================================
     // STYLES INJECTION
     // ==========================================
+    if (document.getElementById('jcsm-wow-styles')) return;
     const style = document.createElement('style');
+    style.id = 'jcsm-wow-styles';
     style.textContent = `
         .will-reveal { opacity: 0; transform: translateY(20px); transition: all 1s cubic-bezier(0.16, 1, 0.3, 1); }
         .revealed { opacity: 1; transform: translateY(0); }

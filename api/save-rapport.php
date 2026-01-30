@@ -22,7 +22,7 @@ header('Access-Control-Allow-Headers: Content-Type, Authorization');
 
 // Gérer les requêtes OPTIONS (preflight)
 if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
-    http_response_code(200);
+    http_response_code(204);
     exit;
 }
 
@@ -35,6 +35,14 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 
 // Authentification requise
 requireAuth();
+
+// Limit input size (10 MB max)
+$contentLength = isset($_SERVER['CONTENT_LENGTH']) ? (int) $_SERVER['CONTENT_LENGTH'] : 0;
+if ($contentLength > 10 * 1024 * 1024) {
+    http_response_code(413);
+    echo json_encode(['success' => false, 'error' => 'Payload trop volumineux (max 10 MB)']);
+    exit;
+}
 
 // Lire les données JSON
 $input = file_get_contents('php://input');
@@ -89,7 +97,8 @@ $rapportData = [
     'remarques' => $data['remarques'] ?? '',
     'dateCreation' => date('Y-m-d H:i:s'),
     'interventionId' => $data['interventionId'] ?? '',
-    'photos' => $data['photos'] ?? []
+    'photos' => $data['photos'] ?? [],
+    'signature' => $data['signature'] ?? null
 ];
 
 // Sauvegarder le fichier JSON
@@ -167,8 +176,8 @@ function generateHTML($data)
     if (!empty($data['photos']) && is_array($data['photos'])) {
         $photosHtml = '<div class="section"><h2 class="section-title">Photos</h2><div class="photos-grid">';
         foreach ($data['photos'] as $photo) {
-            // Si c'est du base64, on l'affiche directement
-            if (strpos($photo, 'data:image') === 0) {
+            // Only allow base64 data URIs with valid image types (no external URLs)
+            if (is_string($photo) && preg_match('/^data:image\/(jpeg|png|gif|webp);base64,[A-Za-z0-9+\/=]+$/', $photo)) {
                 $photosHtml .= '<div class="photo-item"><img src="' . $photo . '" alt="Photo intervention"></div>';
             }
         }
@@ -216,19 +225,52 @@ function generateHTML($data)
 </head>
 <body>
     <div class="header">
-    <div class="section">
-        <p class="label">Action réalisée:</p>
-        <p class="value">' . nl2br(htmlspecialchars($data['actionRealisee'])) . '</p>
+        <div class="logo-container">
+            <img src="' . htmlspecialchars($logoPath) . '" alt="JCSM Logo">
+        </div>
+        <div class="doc-title">
+            <h1>Rapport d\'Intervention</h1>
+            <p>Ticket : ' . htmlspecialchars($data['ticket']) . '</p>
+        </div>
     </div>
-    
-    <div class="section">
-        <p><span class="label">Statut:</span> <span class="value">' . htmlspecialchars($data['statut']) . '</span></p>
-        ' . (!empty($data['piecesChangees']) ? '<p class="label">Pièces changées:</p><p class="value">' . nl2br(htmlspecialchars($data['piecesChangees'])) . '</p>' : '') . '
-        ' . (!empty($data['remarques']) ? '<p class="label">Remarques:</p><p class="value">' . nl2br(htmlspecialchars($data['remarques'])) . '</p>' : '') . '
+
+    <div class="grid-2">
+        <div class="info-box">
+            <h3>Informations Site</h3>
+            <div class="info-row"><span class="info-label">Site</span><span class="info-value">' . htmlspecialchars($data['nomSite']) . '</span></div>
+            <div class="info-row"><span class="info-label">Adresse</span><span class="info-value">' . htmlspecialchars($data['adresse']) . '</span></div>
+        </div>
+        <div class="info-box">
+            <h3>Détails Intervention</h3>
+            <div class="info-row"><span class="info-label">Date</span><span class="info-value">' . $date . '</span></div>
+            <div class="info-row"><span class="info-label">Arrivée</span><span class="info-value">' . htmlspecialchars($data['heureArrivee']) . '</span></div>
+            <div class="info-row"><span class="info-label">Départ</span><span class="info-value">' . htmlspecialchars($data['heureDepart']) . '</span></div>
+        </div>
     </div>
-    
-    <div class="section" style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #ddd; font-size: 12px; color: #666;">
-        <p>Rapport généré le ' . date('d/m/Y à H:i') . '</p>
+
+    <div class="section">
+        <h2 class="section-title">Problème constaté</h2>
+        <div class="content-box">' . nl2br(htmlspecialchars($data['probleme'])) . '</div>
+    </div>
+
+    <div class="section">
+        <h2 class="section-title">Action réalisée</h2>
+        <div class="content-box">' . nl2br(htmlspecialchars($data['actionRealisee'])) . '</div>
+    </div>
+
+    <div class="section">
+        <h2 class="section-title">Résultat</h2>
+        <div class="content-box">
+            <p><strong>Statut :</strong> <span class="status-badge status-success">' . htmlspecialchars($data['statut']) . '</span></p>
+            ' . (!empty($data['piecesChangees']) ? '<p style="margin-top:12px"><strong>Pièces changées :</strong></p><p>' . nl2br(htmlspecialchars($data['piecesChangees'])) . '</p>' : '') . '
+            ' . (!empty($data['remarques']) ? '<p style="margin-top:12px"><strong>Remarques :</strong></p><p>' . nl2br(htmlspecialchars($data['remarques'])) . '</p>' : '') . '
+        </div>
+    </div>
+
+    ' . $photosHtml . '
+
+    <div class="footer">
+        <p>JCSM — Rapport généré le ' . date('d/m/Y à H:i') . '</p>
     </div>
 </body>
 </html>';
@@ -331,7 +373,7 @@ function generateDOCX($data, $outputPath)
     $htmlPath = str_replace('.docx', '.html', $outputPath);
     if (file_exists($htmlPath) && shell_exec('which pandoc')) {
         $command = sprintf(
-            'pandoc "%s" -o "%s" -f html -t docx 2>&1',
+            'pandoc %s -o %s -f html -t docx 2>&1',
             escapeshellarg($htmlPath),
             escapeshellarg($outputPath)
         );

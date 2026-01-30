@@ -1,5 +1,9 @@
 /**
- * JCSM Internal Portal - App Module
+ * @deprecated Ce fichier n'est plus chargé par aucune page.
+ * Le portail interne (interne.html) utilise son script inline.
+ * Conservé comme référence — ne pas modifier.
+ *
+ * JCSM Internal Portal - App Module (Legacy)
  * Logique principale: Auth, Gestion des données, UI Globale, Formulaires
  */
 
@@ -131,8 +135,10 @@ function initDashboardAnimations() {
         });
     });
 
-    // Intervention item micro-interactions
+    // Intervention item micro-interactions (éviter doublons)
+    if (document.getElementById('jcsm-dashboard-styles')) return;
     const style = document.createElement('style');
+    style.id = 'jcsm-dashboard-styles';
     style.textContent = `
         .intervention-item {
             transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
@@ -188,8 +194,10 @@ async function initData() {
                         return response.json();
                     })
                     .then(networkData => {
-                        // console.log('🔄 Données réseau chargées en arrière-plan.');
-                        processData(networkData); // Mettre à jour le cache et l'UI avec les dernières données
+                        // Ne re-render que si les données réseau diffèrent du cache
+                        if (JSON.stringify(networkData) !== JSON.stringify(ALL_INTERVENTIONS)) {
+                            processData(networkData);
+                        }
                     })
                     .catch(() => { /* Silently fail for background refresh */ });
                 return;
@@ -249,8 +257,18 @@ async function fetchData() {
         // Fallback cache si échec réseau
         const cached = localStorage.getItem('jcsm_interventions_cache');
         if (cached) {
-            // console.log('⚠️ Utilisation du cache');
             processData(JSON.parse(cached));
+        } else {
+            // Aucun cache disponible et réseau KO
+            showToast('Aucune donnée disponible hors ligne', 'error', 5000);
+            const container = document.getElementById('interventions-list');
+            if (container) {
+                container.innerHTML = `
+                    <div class="flex flex-col items-center justify-center h-64 text-gray-400">
+                        <svg class="w-12 h-12 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636a9 9 0 11-12.728 0M12 9v4m0 4h.01"></path></svg>
+                        <p>Mode hors ligne — aucune donnée en cache</p>
+                    </div>`;
+            }
         }
     } finally {
         if (loadingIndicator) loadingIndicator.classList.add('hidden');
@@ -370,12 +388,8 @@ function renderInterventionsList() {
         div.className = `intervention-item p-4 border-b border-gray-100 hover:bg-gray-50 cursor-pointer transition-colors ${selectedInterventionId === item.id ? 'bg-blue-50 border-l-4 border-l-blue-500' : ''}`;
         div.onclick = () => selectIntervention(item.id);
 
-        // Sanitize user data to prevent XSS
-        const esc = (str) => {
-            const d = document.createElement('div');
-            d.textContent = str || '';
-            return d.innerHTML;
-        };
+        // Sanitize user data to prevent XSS — utilise la fonction centralisée
+        const esc = typeof window.escapeHtml === 'function' ? window.escapeHtml : (s => { const d = document.createElement('div'); d.textContent = s || ''; return d.innerHTML; });
 
         div.innerHTML = `
             <div class="flex justify-between items-start mb-1">
@@ -602,9 +616,12 @@ async function handleAuthSubmit(e) {
 }
 
 function handleLogout() {
+    if (typeof destroySession === 'function') destroySession();
     localStorage.removeItem('tech_region');
     localStorage.removeItem('is_admin');
     localStorage.removeItem('user_role');
+    localStorage.removeItem('jcsm_interventions_cache');
+    localStorage.removeItem('jcsm_cache_time');
     location.reload();
 }
 

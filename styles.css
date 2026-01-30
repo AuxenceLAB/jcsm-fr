@@ -424,7 +424,7 @@ body {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  animation: rotateGradient 5s ease infinite;
+  animation: rotateGradient 5s ease 1 forwards;
 }
 
 /* Premium button with ripple */
@@ -1504,7 +1504,6 @@ nav a:not(.btn-primary):not(.nav-link-active):hover::after {
   background: #1D4ED8;
   background-size: 300% 300%;
   border-radius: inherit;
-  animation: glowRotate 4s linear infinite;
   z-index: -1;
   opacity: 0;
   transition: opacity 0.4s ease;
@@ -1513,6 +1512,7 @@ nav a:not(.btn-primary):not(.nav-link-active):hover::after {
 
 .glow-border:hover::before {
   opacity: 0.7;
+  animation: glowRotate 4s linear 1 forwards;
 }
 
 @keyframes glowRotate {

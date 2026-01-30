@@ -5,6 +5,11 @@
 
 let ALL_FICHES = [];
 
+// HTML escape — utilise la fonction centralisée de utils.js, fallback local
+const escF = typeof window.escapeHtml === 'function'
+    ? window.escapeHtml
+    : (s => { if (s == null) return ''; const d = document.createElement('div'); d.textContent = String(s); return d.innerHTML; });
+
 // Données par défaut si le localStorage est vide
 const DEFAULT_FICHES = [
     {
@@ -77,26 +82,29 @@ function renderFiches() {
 
         card.innerHTML = `
             <div class="md:w-1/4 h-48 md:h-auto bg-gray-200 relative">
-                <img src="${imgUrl}" alt="${fiche.titre}" class="absolute inset-0 w-full h-full object-cover">
+                <img src="${escF(imgUrl)}" alt="${escF(fiche.titre)}" class="absolute inset-0 w-full h-full object-cover">
             </div>
             <div class="p-6 flex-1 flex flex-col justify-between">
                 <div>
                     <div class="flex justify-between items-start mb-2">
-                        <span class="px-2 py-1 bg-blue-100 text-blue-700 text-xs font-semibold rounded uppercase tracking-wide">${fiche.categorie || 'Général'}</span>
-                        <span class="text-xs text-gray-500">${fiche.date || '-'}</span>
+                        <span class="px-2 py-1 bg-blue-100 text-blue-700 text-xs font-semibold rounded uppercase tracking-wide">${escF(fiche.categorie || 'Général')}</span>
+                        <span class="text-xs text-gray-500">${escF(fiche.date || '-')}</span>
                     </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-2">${fiche.titre}</h3>
-                    <p class="text-gray-600 line-clamp-2 mb-4">${fiche.description || 'Pas de description.'}</p>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">${escF(fiche.titre)}</h3>
+                    <p class="text-gray-600 line-clamp-2 mb-4">${escF(fiche.description || 'Pas de description.')}</p>
                 </div>
                 <div class="flex items-center justify-between mt-4 pt-4 border-t border-gray-50">
                     <span class="text-sm text-gray-500 flex items-center gap-2">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
-                        ${fiche.auteur || 'Anonyme'}
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+                        ${escF(fiche.auteur || 'Anonyme')}
                     </span>
-                    <button onclick="if(typeof showToast==='function')showToast('Fonctionnalité de visualisation complète à venir','info')" class="text-blue-600 hover:text-blue-800 font-medium text-sm">Lire la fiche →</button>
+                    <button class="btn-lire-fiche text-blue-600 hover:text-blue-800 font-medium text-sm">Lire la fiche →</button>
                 </div>
             </div>
         `;
+        card.querySelector('.btn-lire-fiche')?.addEventListener('click', () => {
+            if (typeof showToast === 'function') showToast('Fonctionnalité de visualisation complète à venir', 'info');
+        });
         container.appendChild(card);
     });
 }
@@ -107,6 +115,13 @@ function initFichesListeners() {
     const modal = document.getElementById('modal-fiche');
     const btnClose = document.getElementById('close-modal-fiche');
     const form = document.getElementById('fiche-form');
+
+    // ARIA for modal
+    if (modal) {
+        modal.setAttribute('role', 'dialog');
+        modal.setAttribute('aria-modal', 'true');
+        modal.setAttribute('aria-label', 'Nouvelle fiche méthode');
+    }
 
     if (btnAdd && modal) {
         btnAdd.addEventListener('click', () => {
@@ -125,9 +140,19 @@ function initFichesListeners() {
         form.addEventListener('submit', (e) => {
             e.preventDefault();
 
-            const titre = document.getElementById('fiche-titre').value;
-            const cat = document.getElementById('fiche-categorie') ? document.getElementById('fiche-categorie').value : 'Divers';
-            const desc = document.getElementById('fiche-contenu') ? document.getElementById('fiche-contenu').value : '';
+            const titre = (document.getElementById('fiche-titre').value || '').trim();
+            const cat = document.getElementById('fiche-categorie') ? document.getElementById('fiche-categorie').value.trim() : 'Divers';
+            const desc = document.getElementById('fiche-contenu') ? document.getElementById('fiche-contenu').value.trim() : '';
+
+            // Validate required fields
+            if (!titre || titre.length < 2) {
+                if (typeof showToast === 'function') showToast('Le titre doit contenir au moins 2 caractères', 'warning');
+                return;
+            }
+            if (titre.length > 200) {
+                if (typeof showToast === 'function') showToast('Le titre ne doit pas dépasser 200 caractères', 'warning');
+                return;
+            }
 
             // Création nouvelle fiche
             const newFiche = {

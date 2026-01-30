@@ -42,22 +42,20 @@ const JCSMAnalytics = {
             data: data
         };
 
-        // In detailed mock mode: log to console with style
-        // console.groupCollapsed(`%c📡 Analytics: ${name}`, 'color: #2563EB; font-weight: bold;');
-        // console.log('Payload:', payload);
-        // console.groupEnd();
+        // Analytics event tracked silently
 
         // Store locally for demo purposes (simulating batch send)
-        const stored = JSON.parse(localStorage.getItem('jcsm_analytics_queue') || '[]');
+        let stored;
+        try { stored = JSON.parse(localStorage.getItem('jcsm_analytics_queue') || '[]'); } catch (e) { stored = []; }
         stored.push(payload);
-        localStorage.setItem('jcsm_analytics_queue', JSON.stringify(stored.slice(-50))); // Keep last 50
+        try { localStorage.setItem('jcsm_analytics_queue', JSON.stringify(stored.slice(-50))); } catch (e) { /* quota exceeded */ }
     },
 
     trackPageview() {
         this.pushEvent('page_view', {
             referrer: document.referrer,
             screen: `${window.screen.width}x${window.screen.height}`,
-            agent: navigator.userAgent
+            agent: (navigator.userAgent || '').substring(0, 255)
         });
     },
 

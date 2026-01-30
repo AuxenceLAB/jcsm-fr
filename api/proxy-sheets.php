@@ -26,6 +26,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     exit;
 }
 
+require_once __DIR__ . '/auth.php';
+requireAuth();
+
 // URL réelle de l'API Google Sheets
 // Deux URLs différentes selon le contexte (admin vs terrain)
 $GOOGLE_SHEETS_URLS = [
@@ -33,9 +36,12 @@ $GOOGLE_SHEETS_URLS = [
     'terrain' => 'https://script.google.com/macros/s/AKfycbw7fOwNestEOFzvpiYmQYOEaTfmYNQLJuAOSJ_FAJgC3ScUC-aTS8jUFMEcg-n41UhCNw/exec'
 ];
 
-// Déterminer quelle URL utiliser (par défaut: terrain)
+// Déterminer quelle URL utiliser (par défaut: terrain, whitelist stricte)
 $context = $_GET['context'] ?? 'terrain';
-$GOOGLE_SHEETS_URL = $GOOGLE_SHEETS_URLS[$context] ?? $GOOGLE_SHEETS_URLS['terrain'];
+if (!isset($GOOGLE_SHEETS_URLS[$context])) {
+    $context = 'terrain';
+}
+$GOOGLE_SHEETS_URL = $GOOGLE_SHEETS_URLS[$context];
 
 // Rate limiting par IP (fichier temp)
 $rateLimit = 100; // requêtes par minute
@@ -43,6 +49,13 @@ $ratePeriod = 60; // secondes
 $rateLimitDir = sys_get_temp_dir() . '/jcsm_rate/';
 if (!is_dir($rateLimitDir)) {
     @mkdir($rateLimitDir, 0755, true);
+}
+
+// Cleanup stale rate-limit files (older than 5 minutes) — runs ~1% of requests
+if (mt_rand(1, 100) === 1) {
+    foreach (glob($rateLimitDir . '*.json') as $f) {
+        if (filemtime($f) < time() - 300) @unlink($f);
+    }
 }
 
 $ip = $_SERVER['REMOTE_ADDR'] ?? 'unknown';
@@ -70,9 +83,9 @@ if ($rateData['count'] > $rateLimit) {
 try {
     $ch = curl_init();
 
-    // Construire l'URL avec les paramètres GET (sauf 'context')
-    $params = $_GET;
-    unset($params['context']);
+    // Construire l'URL avec les paramètres GET autorisés uniquement
+    $allowedParams = ['action', 'region', 'id', 'sheet'];
+    $params = array_intersect_key($_GET, array_flip($allowedParams));
     $url = $GOOGLE_SHEETS_URL;
     if (!empty($params)) {
         $url .= '?' . http_build_query($params);

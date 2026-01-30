@@ -8,12 +8,18 @@ let markers = [];
 // Les deux vues (liste et carte) sont toujours affichées ensemble
 let showAllInterventions = false; // false = en cours (14 jours), true = toutes
 
+// HTML escape — utilise la fonction centralisée de utils.js, fallback local
+const escMap = typeof window.escapeHtml === 'function'
+    ? window.escapeHtml
+    : (s => { if (s == null) return ''; const d = document.createElement('div'); d.textContent = String(s); return d.innerHTML; });
+
 // ==========================================
 // INITIALISATION CARTE
 // ==========================================
 
 async function initMap() {
-    let interventions = getFilteredInterventions(); // Fonction globale définie dans app.js ou utils.js (à migrer)
+    if (typeof getFilteredInterventions !== 'function') return;
+    let interventions = getFilteredInterventions();
 
     // Si showAllInterventions est false, filtrer pour ne garder que les interventions en cours (14 jours)
     if (!showAllInterventions) {
@@ -114,8 +120,14 @@ async function initMap() {
     const bounds = L.latLngBounds();
 
     locations.forEach(loc => {
+        // Validate coordinates
+        const lat = parseFloat(loc.lat);
+        const lng = parseFloat(loc.lng);
+        if (isNaN(lat) || isNaN(lng) || lat < -90 || lat > 90 || lng < -180 || lng > 180) return;
+        // Exclure Null Island (coordonnées par défaut 0,0)
+        if (lat === 0 && lng === 0) return;
+
         // Couleur selon région ou urgence
-        // Ici on privilégie l'urgence ou le statut
         let color = '#3B82F6'; // Bleu standard
 
         if (loc.rapportFait) color = '#10B981'; // Vert (Fait)
@@ -123,18 +135,18 @@ async function initMap() {
         else if (String(loc.delais || '').toLowerCase().includes('rapide')) color = '#F59E0B'; // Orange
         else color = getRegionColor(loc.region); // Fallback région
 
-        const marker = L.marker([loc.lat, loc.lng], {
+        const marker = L.marker([lat, lng], {
             icon: createIcon(color, String(loc.delais || '').toLowerCase().includes('urgent'), loc.rapportFait)
         })
             .bindPopup(`
             <div class="text-sm font-sans">
-                <div class="font-bold text-gray-900 mb-1">${loc.nomSite}</div>
-                <div class="text-gray-600 mb-2">${loc.adresse}</div>
+                <div class="font-bold text-gray-900 mb-1">${escMap(loc.nomSite)}</div>
+                <div class="text-gray-600 mb-2">${escMap(loc.adresse)}</div>
                 <div class="flex gap-2">
                     <span class="px-2 py-0.5 rounded text-xs font-medium ${loc.rapportFait ? 'bg-green-100 text-green-800' : 'bg-blue-100 text-blue-800'}">
                         ${loc.rapportFait ? 'Terminé' : 'À faire'}
                     </span>
-                    <button onclick="selectIntervention('${loc.id}')" class="text-blue-600 hover:underline text-xs font-medium">
+                    <button data-select-id="${escMap(loc.id)}" class="text-blue-600 hover:underline text-xs font-medium">
                         Voir détails
                     </button>
                 </div>
@@ -142,12 +154,20 @@ async function initMap() {
         `)
             .addTo(map);
 
+        // Event delegation for popup buttons
+        marker.on('popupopen', () => {
+            const btn = marker.getPopup().getElement()?.querySelector('[data-select-id]');
+            if (btn) btn.addEventListener('click', () => {
+                if (typeof selectIntervention === 'function') selectIntervention(loc.id);
+            });
+        });
+
         markers.push(marker);
-        bounds.extend([loc.lat, loc.lng]);
+        bounds.extend([lat, lng]);
     });
 
     // Ajuster le zoom pour tout voir
-    if (locations.length > 0) {
+    if (markers.length > 0 && bounds.isValid()) {
         map.fitBounds(bounds, { padding: [50, 50] });
     }
 }
@@ -213,5 +233,5 @@ function matchInterventionCoordinates(intervention) {
 
 // Exposer globalement pour compatibilité
 window.initMap = initMap;
-window.map = map;
+Object.defineProperty(window, 'map', { get: () => map, configurable: true });
 window.getRegionColor = getRegionColor;

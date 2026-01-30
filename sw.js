@@ -1,7 +1,8 @@
-// JCSM Service Worker - Enhanced PWA Support v7
-const CACHE_NAME = 'jcsm-v7';
-const STATIC_CACHE = 'jcsm-static-v7';
-const DYNAMIC_CACHE = 'jcsm-dynamic-v7';
+// JCSM Service Worker - Enhanced PWA Support v10
+const CACHE_NAME = 'jcsm-v12';
+const STATIC_CACHE = 'jcsm-static-v12';
+const DYNAMIC_CACHE = 'jcsm-dynamic-v12';
+const API_CACHE = 'jcsm-api-v12';
 
 // Assets to cache on install
 const STATIC_ASSETS = [
@@ -51,14 +52,14 @@ self.addEventListener('activate', (event) => {
     event.waitUntil(
         caches.keys().then(keys => {
             return Promise.all(
-                keys.filter(key => key !== STATIC_CACHE && key !== DYNAMIC_CACHE)
+                keys.filter(key => key !== STATIC_CACHE && key !== DYNAMIC_CACHE && key !== API_CACHE)
                     .map(key => caches.delete(key))
             );
         }).then(() => self.clients.claim())
     );
 });
 
-// Fetch event - stale-while-revalidate for HTML, cache-first for assets
+// Fetch event - stale-while-revalidate for HTML, cache-first for assets, network-first for API
 self.addEventListener('fetch', (event) => {
     const { request } = event;
     const url = new URL(request.url);
@@ -66,8 +67,33 @@ self.addEventListener('fetch', (event) => {
     // Skip non-GET requests
     if (request.method !== 'GET') return;
 
-    // Skip external requests
-    if (url.origin !== location.origin) return;
+    // Skip external requests (except Google Apps Script for API)
+    if (url.origin !== location.origin && !url.href.includes('script.google.com')) return;
+
+    // API requests - network first, cache fallback for offline
+    if (url.pathname.startsWith('/api/') || url.href.includes('script.google.com')) {
+        event.respondWith(
+            fetch(request)
+                .then(response => {
+                    // Cache successful API GET responses
+                    if (response.ok) {
+                        const clone = response.clone();
+                        caches.open(API_CACHE).then(cache => cache.put(request, clone));
+                    }
+                    return response;
+                })
+                .catch(() => {
+                    // Fallback to cached API response when offline
+                    return caches.match(request).then(cached => {
+                        if (cached) return cached;
+                        return new Response(JSON.stringify({ error: 'offline', message: 'Mode hors ligne' }), {
+                            headers: { 'Content-Type': 'application/json' }
+                        });
+                    });
+                })
+        );
+        return;
+    }
 
     // HTML pages - network first, fallback to cache
     if (request.headers.get('accept')?.includes('text/html')) {

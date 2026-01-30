@@ -111,6 +111,8 @@ function initCookieConsent() {
 // MAGNETIC BUTTONS
 // ==========================================
 function initMagneticButtons() {
+    // Skip if wow-effects.js already handles magnetic elements
+    if (document.getElementById('jcsm-wow-styles')) return;
     const buttons = document.querySelectorAll('.btn-primary, .btn-secondary, [data-magnetic]');
     if (window.innerWidth > 1024) { // Only on desktop
         buttons.forEach(btn => {
@@ -187,8 +189,10 @@ function initScrollProgress() {
 function initParticles() {
     const particlesBg = document.getElementById('particles-bg');
     if (!particlesBg) return;
+    // Prevent duplicate particles on re-init
+    if (particlesBg.children.length > 0) return;
 
-    const particleCount = 20; // Reduced for performance
+    const particleCount = window.innerWidth < 768 ? 8 : 20;
     const fragment = document.createDocumentFragment();
 
     for (let i = 0; i < particleCount; i++) {
@@ -331,26 +335,24 @@ function initPageTransitions() {
 function initStatsCounters() {
     const animateCounter = (element, target) => {
         const duration = 2000;
-        const frameDuration = 1000 / 60;
-        const totalFrames = Math.round(duration / frameDuration);
         const easeOutQuad = t => t * (2 - t);
+        let start = null;
 
-        let frame = 0;
+        function step(timestamp) {
+            if (!start) start = timestamp;
+            const elapsed = timestamp - start;
+            const progress = Math.min(elapsed / duration, 1);
+            const current = Math.round(target * easeOutQuad(progress));
 
-        const counter = setInterval(() => {
-            frame++;
-            const progress = easeOutQuad(frame / totalFrames);
-            const current = Math.round(target * progress);
+            element.textContent = current;
 
-            if (parseInt(element.textContent) !== current) {
-                element.textContent = current;
+            if (progress < 1) {
+                requestAnimationFrame(step);
+            } else {
+                element.textContent = target;
             }
-
-            if (frame === totalFrames) {
-                clearInterval(counter);
-                element.textContent = target; // Ensure exact final value
-            }
-        }, frameDuration);
+        }
+        requestAnimationFrame(step);
     };
 
     const statsObserver = new IntersectionObserver((entries) => {
@@ -360,6 +362,7 @@ function initStatsCounters() {
                 counters.forEach(counter => {
                     const target = parseInt(counter.dataset.target);
                     if (!isNaN(target) && counter.textContent === '0') {
+                        counter.setAttribute('aria-label', target.toString());
                         animateCounter(counter, target);
                     }
                 });
@@ -443,6 +446,8 @@ function initParallax() {
 // SPOTLIGHT CARDS
 // ==========================================
 function initSpotlightCards() {
+    // Skip if wow-effects.js already handles spotlight
+    if (document.getElementById('jcsm-wow-styles')) return;
     const cards = document.querySelectorAll('.card-hover, .card-premium, .spotlight, .service-step');
 
     cards.forEach(card => {
@@ -460,6 +465,8 @@ function initSpotlightCards() {
 // SMOOTH HOVER TRANSITIONS
 // ==========================================
 function initSmoothHoverTransitions() {
+    // Skip if wow-effects.js already handles hover feedback
+    if (document.getElementById('jcsm-wow-styles')) return;
     const elements = document.querySelectorAll('.btn-primary, .btn-secondary, .card-hover, a, button');
 
     elements.forEach(el => {
@@ -554,8 +561,9 @@ function validateInput(input) {
 
     // Check phone format (French)
     else if (input.type === 'tel' && value) {
-        const phoneRegex = /^(?:(?:\+|00)33|0)\s*[1-9](?:[\s.-]*\d{2}){4}$/;
-        if (!phoneRegex.test(value.replace(/\s/g, ''))) {
+        const cleaned = value.replace(/[\s.\-]/g, '');
+        const phoneRegex = /^(?:(?:\+|00)33[1-9]\d{8}|0[1-9]\d{8})$/;
+        if (!phoneRegex.test(cleaned)) {
             isValid = false;
             errorMsg = 'Numéro invalide';
         }
@@ -718,7 +726,9 @@ function initLiveFormFeedback() {
 
 // ---- INJECT PROFESSIONAL STYLES ----
 (function injectProfessionalStyles() {
+    if (document.getElementById('jcsm-pro-styles')) return;
     const style = document.createElement('style');
+    style.id = 'jcsm-pro-styles';
     style.textContent = `
         /* Input States */
         .input-error {
@@ -896,12 +906,23 @@ function initToastNotifications() {
             max-width: 320px;
         `;
 
-        toast.innerHTML = `
-            <svg class="w-5 h-5 flex-shrink-0" style="color: ${config.bg}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="${config.icon}"></path>
-            </svg>
-            <span style="color: #374151; font-size: 14px; font-weight: 500;">${message}</span>
-        `;
+        const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+        svg.setAttribute('class', 'w-5 h-5 flex-shrink-0');
+        svg.setAttribute('style', 'color: ' + config.bg);
+        svg.setAttribute('fill', 'none');
+        svg.setAttribute('stroke', 'currentColor');
+        svg.setAttribute('viewBox', '0 0 24 24');
+        const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+        path.setAttribute('stroke-linecap', 'round');
+        path.setAttribute('stroke-linejoin', 'round');
+        path.setAttribute('stroke-width', '2');
+        path.setAttribute('d', config.icon);
+        svg.appendChild(path);
+        const span = document.createElement('span');
+        span.style.cssText = 'color: #374151; font-size: 14px; font-weight: 500;';
+        span.textContent = message;
+        toast.appendChild(svg);
+        toast.appendChild(span);
 
         container.appendChild(toast);
 

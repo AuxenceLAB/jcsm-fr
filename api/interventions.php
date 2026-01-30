@@ -22,7 +22,7 @@ header('Access-Control-Allow-Headers: Content-Type, Authorization');
 
 // Gérer les requêtes OPTIONS (CORS preflight)
 if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
-    http_response_code(200);
+    http_response_code(204);
     exit;
 }
 
@@ -80,8 +80,9 @@ function saveData($file, $data)
 
 // --- ROUTER ---
 
-// GET: Récupérer les interventions
+// GET: Récupérer les interventions (authentification requise)
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+    requireAuth();
     $data = loadData($storageFile);
 
     // Filtrage optionnel par région (si passé en paramètre ?region=PACA)
@@ -111,7 +112,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     $data = loadData($storageFile);
-    $action = $input['action'] ?? 'save'; // save, update_status, delete
+    $action = $input['action'] ?? 'save';
+
+    // Validate action
+    if (!in_array($action, ['save', 'delete'], true)) {
+        http_response_code(400);
+        echo json_encode(['error' => 'Action non reconnue: ' . htmlspecialchars($action)]);
+        exit;
+    }
 
     if ($action === 'save') {
         // Logique de sauvegarde / mise à jour
@@ -127,6 +135,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     break;
                 }
             }
+            unset($item); // Break reference after foreach
             if (!$found) {
                 // Création avec ID spécifié (rare) ou erreur ? On ajoute.
                 $data[] = $input['data'];
@@ -134,7 +143,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         } else {
             // Création nouveau
             $newItem = $input['data'];
-            $newItem['id'] = 'intv-' . time() . rand(100, 999);
+            $newItem['id'] = 'intv-' . time() . '-' . bin2hex(random_bytes(4));
             // Ajout en tête de liste
             array_unshift($data, $newItem);
         }
