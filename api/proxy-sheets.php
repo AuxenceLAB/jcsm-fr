@@ -29,12 +29,31 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
 require_once __DIR__ . '/auth.php';
 requireAuth();
 
-// URL réelle de l'API Google Sheets
-// Deux URLs différentes selon le contexte (admin vs terrain)
+// URL réelle de l'API Google Sheets (chargées depuis .env)
+function loadEnvVar($key) {
+    $val = getenv($key);
+    if ($val) return $val;
+    $envFile = __DIR__ . '/../.env';
+    if (file_exists($envFile)) {
+        foreach (file($envFile, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES) as $line) {
+            if (strpos($line, $key . '=') === 0) {
+                return substr($line, strlen($key) + 1);
+            }
+        }
+    }
+    return null;
+}
+
 $GOOGLE_SHEETS_URLS = [
-    'admin' => 'https://script.google.com/macros/s/AKfycbzZxvFsy4yb1gsAdL70zhhMJCdZN-fGUZY4qHct3wMergx6hNX2qTOB0nH86ohBgEjmqA/exec',
-    'terrain' => 'https://script.google.com/macros/s/AKfycbw7fOwNestEOFzvpiYmQYOEaTfmYNQLJuAOSJ_FAJgC3ScUC-aTS8jUFMEcg-n41UhCNw/exec'
+    'admin' => loadEnvVar('GOOGLE_SHEETS_ADMIN_URL'),
+    'terrain' => loadEnvVar('GOOGLE_SHEETS_TERRAIN_URL')
 ];
+
+if (!$GOOGLE_SHEETS_URLS['admin'] || !$GOOGLE_SHEETS_URLS['terrain']) {
+    http_response_code(500);
+    echo json_encode(['error' => 'Configuration Google Sheets incomplète']);
+    exit;
+}
 
 // Déterminer quelle URL utiliser (par défaut: terrain, whitelist stricte)
 $context = $_GET['context'] ?? 'terrain';

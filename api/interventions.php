@@ -143,7 +143,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         } else {
             // Création nouveau
             $newItem = $input['data'];
-            $newItem['id'] = 'intv-' . time() . '-' . bin2hex(random_bytes(4));
+            $newItem['id'] = 'intv-' . bin2hex(random_bytes(16));
             // Ajout en tête de liste
             array_unshift($data, $newItem);
         }

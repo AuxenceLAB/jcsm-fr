@@ -16,15 +16,14 @@ JCSM is a static website for an electric vehicle charging infrastructure (IRVE) 
 - **Internal portal**: `interne.html` — password-protected dashboard for technicians. Auth via server-side HMAC-SHA256 token (`api/login.php`), sessions stored in localStorage (8h TTL).
 - **Regional pages**: `zones/*.html` — zone-specific landing pages with skip-link, `id="main-content"` on `<main>`, and LocalBusiness schema (HQ address Paris 75008 + regional `areaServed`).
 - **CSS**: `styles.css` — custom design system with CSS variables defined in `:root`. Tailwind utilities used alongside custom classes. Dark mode is disabled (light mode forced).
-- **PWA**: `manifest.json` + `sw.js` (cache v21). Strategies: network-first for HTML/API, cache-first for assets.
+- **PWA**: `manifest.json` + `sw.js` (cache v24). Strategies: network-first for HTML/API, cache-first for assets.
 
 ### JavaScript Modules (`js/`)
 
 | File | Role |
 |------|------|
-| `config.js` | API endpoints (all server-side proxied), auth helpers (session CRUD, Bearer token headers), cache TTLs. Version 2.10.0. |
+| `config.js` | API endpoints (all server-side proxied), auth helpers (session CRUD, Bearer token headers), cache TTLs. Version 2.13.0. |
 | `public.js` | All public page effects: mobile menu, particles (8 on mobile, 20 desktop), scroll animations, cookie consent, magnetic buttons, form validation, toast notifications (XSS-safe via `textContent`), rAF counters with `aria-label`. Skips magnetic/spotlight/hover if `wow-effects.js` is loaded. |
-| `app.js` | **Deprecated** — no longer loaded by any page. Legacy internal portal code kept for reference only. Not in SW cache. |
 | `wow-effects.js` | Premium animation classes: AnimatedCounter, ScrollProgress, LogoMarquee, TextSplit, ParallaxSection. Respects `prefers-reduced-motion`. Style injection with `id="jcsm-wow-styles"` dedup guard. |
 | `map.js` | Leaflet map integration with geocoded intervention markers. Uses centralized `window.escapeHtml()`. Filters Null Island (0,0) coordinates. |
 | `analytics.js` | Privacy-first analytics (no cookies, localStorage-based) |
@@ -81,9 +80,9 @@ Edit HTML/CSS/JS files directly. Changes are live on the nginx server. Cache-bus
 
 ### Service Worker
 
-After CSS/JS changes, bump the cache version in `sw.js` (lines 2-4: `STATIC_CACHE`, `DYNAMIC_CACHE`, `API_CACHE`) to invalidate old caches. Current version: **v21**.
+After CSS/JS changes, bump the cache version in `sw.js` (lines 2-4: `STATIC_CACHE`, `DYNAMIC_CACHE`, `API_CACHE`) to invalidate old caches. Current version: **v24**.
 
-Also bump `version` in `js/config.js`. Current: **2.10.0**.
+Also bump `version` in `js/config.js`. Current: **2.13.0**.
 
 ## Authentication
 
@@ -165,7 +164,7 @@ Protected files (nginx `deny all`): dotfiles, `.env`, `*.sql`, `*.sh`, `*.log`, 
 
 ### XSS Prevention
 
-- Centralized `window.escapeHtml()` in `utils.js` — used by `map.js`, `fiches.js`, `app.js`
+- Centralized `window.escapeHtml()` in `utils.js` — used by `map.js`, `fiches.js`, `interne.html`
 - Toast notifications use `textContent` (not `innerHTML`) in both `utils.js` and `public.js`
 - PHP APIs use `htmlspecialchars()` for HTML output, `json_encode()` for JSON
 

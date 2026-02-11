@@ -14,7 +14,6 @@ Disallow: /api/
 Disallow: /*.json$
 
 # Disallow admin assets
-Disallow: /js/app.js
 Disallow: /js/map.js
 
 # Allow CSS and JS for rendering

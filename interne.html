@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css"/>
     <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js" integrity="sha384-eXVCORTRlv4FUUgS/xmOyr66XBVraen8ATNLMESp92FKXLAMiKkerixTiBvXriZr" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js" integrity="sha384-jb8JQMbMoBUzgWatfe6COACi2ljcDdZQ2OxczGA3bGNeWe+6DChMTBJemed7ZnvJ" crossorigin="anonymous"></script>
-    <script src="js/config.js?v=23"></script>
+    <script src="js/config.js?v=24"></script>
     <style>
         :root {
             --bg: #f8fafc;
@@ -1595,7 +1595,7 @@ window.selectIntv = id => {
     $('d-cd').innerHTML = cdHTML(i.daysLeft); $('d-sla').textContent = 'SLA ' + (i.sla || '-') + 'j';
     $('d-brand').textContent = i.brand || '-'; $('d-dept').textContent = i.dept || '-'; $('d-problem').textContent = i.problem || '-';
     const keys = getKeys(i.brand);
-    if (keys.length) { $('keys-card').classList.remove('hidden'); $('keys-list').innerHTML = keys.map(k => `<span class="info-chip">🔑 ${k}</span>`).join(''); } else { $('keys-card').classList.add('hidden'); }
+    if (keys.length) { $('keys-card').classList.remove('hidden'); $('keys-list').innerHTML = keys.map(k => `<span class="info-chip">🔑 ${esc(k)}</span>`).join(''); } else { $('keys-card').classList.add('hidden'); }
 
     // Afficher le technicien assigné
     const techAssigned = i.techAssigned || i.techSuggested?.name;
@@ -1648,7 +1648,7 @@ function getSmartChips(problem) {
 }
 function genChips() {
     const chips = getSmartChips(S.sel?.problem);
-    $('chips').innerHTML = chips.map(c => `<span onclick="addChip('${c}')" style="background:var(--card);padding:12px 16px;border-radius:12px;font-size:14px;font-weight:600;cursor:pointer;border:2px solid var(--border);color:var(--text);transition:all .15s" onmouseover="this.style.borderColor='var(--primary)'" onmouseout="this.style.borderColor='var(--border)'">${c}</span>`).join('');
+    $('chips').innerHTML = chips.map(c => `<span onclick="addChip('${esc(c).replace(/'/g, "&#39;")}')" style="background:var(--card);padding:12px 16px;border-radius:12px;font-size:14px;font-weight:600;cursor:pointer;border:2px solid var(--border);color:var(--text);transition:all .15s" onmouseover="this.style.borderColor='var(--primary)'" onmouseout="this.style.borderColor='var(--border)'">${esc(c)}</span>`).join('');
 }
 
 window.addChip = c => { vibrate(); $('f-obs').value += ($('f-obs').value ? '\n' : '') + c; checkSubmitReady(); };
@@ -1707,9 +1707,9 @@ window.siteDepart = () => {
 function updateSiteButtons() {
     const arrBtn = $('btn-arrive'), depBtn = $('btn-depart');
     if (!arrBtn || !depBtn) return;
-    if (S.siteArrival) { arrBtn.innerHTML = '✅ Arrivé à ' + S.siteArrival; arrBtn.classList.add('done'); }
+    if (S.siteArrival) { arrBtn.innerHTML = '✅ Arrivé à ' + esc(S.siteArrival); arrBtn.classList.add('done'); }
     else { arrBtn.innerHTML = '📍 Arrivé sur site'; arrBtn.classList.remove('done'); }
-    if (S.siteDeparture) { depBtn.innerHTML = '🚗 Parti à ' + S.siteDeparture; depBtn.classList.add('done'); }
+    if (S.siteDeparture) { depBtn.innerHTML = '🚗 Parti à ' + esc(S.siteDeparture); depBtn.classList.add('done'); }
     else { depBtn.innerHTML = '🚗 Départ'; depBtn.classList.remove('done'); }
 }
 
@@ -1718,7 +1718,7 @@ window.callPowerdot = () => { vibrate(); window.location.href = 'tel:0756962758'
 window.callTechnicien = () => { vibrate(); if (S.currentTechPhone) window.location.href = 'tel:' + S.currentTechPhone; else toast('❌ Pas de numéro', 'error'); };
 
 window.showChecklist = () => { vibrate(); renderChecklist(); openModal('checklist'); };
-function renderChecklist() { const keys = getKeys(S.sel?.brand); let items = [...CHECKLIST]; if (keys.length) items[2].sub = `Clés: ${keys.join(', ')}`; $('checklist-items').innerHTML = items.map(item => `<div class="check-item ${S.checklist[item.id] ? 'checked' : ''}" onclick="toggleCheck('${item.id}')"><div class="check-box"></div><div class="check-label">${item.text}<small>${item.sub}</small></div></div>`).join(''); }
+function renderChecklist() { const keys = getKeys(S.sel?.brand); let items = [...CHECKLIST]; if (keys.length) items[2].sub = `Clés: ${keys.join(', ')}`; $('checklist-items').innerHTML = items.map(item => `<div class="check-item ${S.checklist[item.id] ? 'checked' : ''}" onclick="toggleCheck('${esc(item.id).replace(/'/g, "&#39;")}')" ><div class="check-box"></div><div class="check-label">${esc(item.text)}<small>${esc(item.sub)}</small></div></div>`).join(''); }
 window.toggleCheck = id => { vibrate(); S.checklist[id] = !S.checklist[id]; renderChecklist(); };
 
 window.showPhotos = () => { vibrate(); renderPhotoModal(); openModal('photos'); };
@@ -2058,7 +2058,7 @@ window.openAssignModal = () => {
             const zones = (t.zone || '').split(',').map(z => z.trim());
             const isSuggested = zones.includes(dept);
             if (isSuggested && !suggested) suggested = t;
-            return `<option value="${t.id}" ${isSuggested ? 'style="font-weight:bold"' : ''}>${t.name}${isSuggested ? ' ★ (zone ' + dept + ')' : ''}</option>`;
+            return `<option value="${t.id}" ${isSuggested ? 'style="font-weight:bold"' : ''}>${esc(t.name)}${isSuggested ? ' ★ (zone ' + esc(dept) + ')' : ''}</option>`;
         }).join('');
 
     if (suggested) $('assign-tech').value = suggested.id;
@@ -2141,7 +2141,7 @@ window.openSMSModal = () => {
     vibrate();
     const techs = TECHNICIENS.filter(t => t.active !== false);
     $('sms-dest').innerHTML = '<option value="">-- Sélectionner --</option>' +
-        techs.map(t => `<option value="${t.phone}" data-name="${t.name}">${t.name} (${t.phone})</option>`).join('');
+        techs.map(t => `<option value="${esc(t.phone)}" data-name="${esc(t.name)}">${esc(t.name)} (${esc(t.phone)})</option>`).join('');
 
     // Pré-remplir le message si une intervention est sélectionnée
     if (S.sel) {
@@ -2767,9 +2767,9 @@ function renderWizChecklist() {
     let items = [...CHECKLIST];
     if (keys.length) items[2].sub = `Clés: ${keys.join(', ')}`;
     $('wiz-checklist-items').innerHTML = items.map(item =>
-        `<div class="check-item ${S.checklist[item.id] ? 'checked' : ''}" onclick="toggleCheck('${item.id}');renderWizChecklist()">
+        `<div class="check-item ${S.checklist[item.id] ? 'checked' : ''}" onclick="toggleCheck('${esc(item.id).replace(/'/g, "&#39;")}');renderWizChecklist()">
             <div class="check-box"></div>
-            <div class="check-label">${item.text}<small>${item.sub}</small></div>
+            <div class="check-label">${esc(item.text)}<small>${esc(item.sub)}</small></div>
         </div>`
     ).join('');
 }
@@ -2777,7 +2777,7 @@ function renderWizChecklist() {
 function genWizChips() {
     const chips = getSmartChips(S.sel?.problem);
     $('wiz-chips').innerHTML = chips.map(c =>
-        `<span onclick="addWizChip('${c}')" style="background:var(--card);padding:12px 16px;border-radius:12px;font-size:14px;font-weight:600;cursor:pointer;border:2px solid var(--border);color:var(--text);transition:all .15s;min-height:48px;display:inline-flex;align-items:center" onmouseover="this.style.borderColor='var(--primary)'" onmouseout="this.style.borderColor='var(--border)'">${c}</span>`
+        `<span onclick="addWizChip('${esc(c).replace(/'/g, "&#39;")}')" style="background:var(--card);padding:12px 16px;border-radius:12px;font-size:14px;font-weight:600;cursor:pointer;border:2px solid var(--border);color:var(--text);transition:all .15s;min-height:48px;display:inline-flex;align-items:center" onmouseover="this.style.borderColor='var(--primary)'" onmouseout="this.style.borderColor='var(--border)'">${esc(c)}</span>`
     ).join('');
 }
 window.addWizChip = c => { vibrate(); $('wiz-obs').value += ($('wiz-obs').value ? '\n' : '') + c; };

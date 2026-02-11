@@ -21,7 +21,7 @@ function updateDashboard() {
     if (btn) btn.style.display = 'flex';
 
     // KPIs
-    // ALL_INTERVENTIONS est global (defini dans app.js)
+    // ALL_INTERVENTIONS est global (defini dans interne.html)
     if (typeof ALL_INTERVENTIONS === 'undefined' || !ALL_INTERVENTIONS) return;
     const total = ALL_INTERVENTIONS.length;
     const done = ALL_INTERVENTIONS.filter(i => i.rapportFait).length;

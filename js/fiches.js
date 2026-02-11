@@ -177,5 +177,5 @@ function initFichesListeners() {
     }
 }
 
-// Expose to global scope for app.js initialization
+// Expose to global scope
 window.initFiches = initFiches;

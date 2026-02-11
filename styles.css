@@ -2089,6 +2089,14 @@ select:focus {
     outline: none;
 }
 
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.3);
+    outline: 2px solid var(--color-primary);
+    outline-offset: 1px;
+}
+
 /* Error/success states — body prefix (0,1,1) beats input:focus (0,1,1) by source order */
 body .input-error {
     border-color: var(--color-error);

@@ -85,7 +85,7 @@ function saveImage($base64Data, $imageId, $imagesDir)
             return null;
         }
 
-        $imageData = base64_decode(substr($base64Data, strpos($base64Data, ',') + 1));
+        $imageData = base64_decode(substr($base64Data, strpos($base64Data, ',') + 1), true);
         if ($imageData === false) return null;
 
         // Sanitize imageId to prevent path traversal
@@ -173,7 +173,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     } else {
         // Création d'une nouvelle fiche
         $nouvelleFiche = [
-            'id' => 'fiche-' . time() . '-' . bin2hex(random_bytes(4)),
+            'id' => 'fiche-' . bin2hex(random_bytes(16)),
             'titre' => $input['titre'] ?? '',
             'contenu' => $input['contenu'] ?? '',
             'images' => $input['images'] ?? [],
