@@ -78,18 +78,6 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://jcsm.fr/mentions-legales</loc>
-    <lastmod>2026-02-11</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>https://jcsm.fr/confidentialite</loc>
-    <lastmod>2026-02-11</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-  </url>
-  <url>
     <loc>https://jcsm.fr/cgv</loc>
     <lastmod>2026-02-11</lastmod>
     <changefreq>yearly</changefreq>
