@@ -4,9 +4,22 @@ Options -Indexes
 # CORS géré individuellement par chaque fichier PHP
 # Ne pas définir Access-Control-Allow-Origin ici (doublon dangereux)
 
-# Protéger le fichier JSON
+# Protéger les fichiers JSON (accès direct interdit)
 <Files "fiches_methodes.json">
     Order Allow,Deny
     Deny from all
 </Files>
+
+<Files "interventions.json">
+    Order Allow,Deny
+    Deny from all
+</Files>
+
+# Bloquer l'accès direct aux rapports HTML/JSON
+<FilesMatch "\.(json|html)$">
+    <If "%{REQUEST_URI} =~ m#/rapports/#">
+        Order Allow,Deny
+        Deny from all
+    </If>
+</FilesMatch>
 

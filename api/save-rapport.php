@@ -18,7 +18,7 @@ if (in_array($origin, $allowedOrigins)) {
     header("Access-Control-Allow-Origin: $origin");
 }
 header('Access-Control-Allow-Methods: POST, OPTIONS');
-header('Access-Control-Allow-Headers: Content-Type, Authorization');
+header('Access-Control-Allow-Headers: Content-Type, Authorization, X-Requested-With');
 
 // Gérer les requêtes OPTIONS (preflight)
 if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
@@ -131,7 +131,7 @@ if (file_put_contents($filepath, json_encode($rapportData, JSON_PRETTY_PRINT | J
 
     $headers = 'From: noreply@jcsm.fr' . "\r\n" .
         'Reply-To: support@jcsm.fr' . "\r\n" .
-        'X-Mailer: PHP/' . phpversion();
+        'X-Mailer: JCSM/1.0';
 
     // Tenter l'envoi
     mail($to, $subject, $message, $headers);

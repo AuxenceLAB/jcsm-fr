@@ -15,10 +15,10 @@ let cachedInterventions = [];
 let technicien = null;
 let selectedInterventionId = null;
 
-// URL de l'API - utilise l'API locale ou Google Sheets
+// URL de l'API - toujours via proxy serveur (URL Google masquée côté serveur)
 const GOOGLE_SHEETS_API_URL = typeof JCSM_CONFIG !== 'undefined'
     ? JCSM_CONFIG.api.googleSheets
-    : 'https://script.google.com/macros/s/AKfycbzZxvFsy4yb1gsAdL70zhhMJCdZN-fGUZY4qHct3wMergx6hNX2qTOB0nH86ohBgEjmqA/exec';
+    : '/api/proxy-sheets.php';
 
 // API locale comme fallback
 const LOCAL_API_URL = typeof JCSM_CONFIG !== 'undefined'
@@ -140,12 +140,12 @@ function initDashboardAnimations() {
     const style = document.createElement('style');
     style.id = 'jcsm-dashboard-styles';
     style.textContent = `
-        .intervention-item {
-            transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+        body .intervention-item {
+            transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
         }
-        .intervention-item:hover {
-            transform: translateX(8px) !important;
-            box-shadow: -4px 0 0 #2563EB, 0 4px 12px rgba(0,0,0,0.08) !important;
+        body .intervention-item:hover {
+            transform: translateX(8px);
+            box-shadow: -4px 0 0 #2563EB, 0 4px 12px rgba(0,0,0,0.08);
         }
         .intervention-item.selected {
             animation: selectPulse 0.3s ease-out;

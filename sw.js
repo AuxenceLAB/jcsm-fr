@@ -1,8 +1,7 @@
-// JCSM Service Worker - Enhanced PWA Support v14
-const CACHE_NAME = 'jcsm-v14';
-const STATIC_CACHE = 'jcsm-static-v14';
-const DYNAMIC_CACHE = 'jcsm-dynamic-v14';
-const API_CACHE = 'jcsm-api-v14';
+// JCSM Service Worker - Enhanced PWA Support v23
+const STATIC_CACHE = 'jcsm-static-v23';
+const DYNAMIC_CACHE = 'jcsm-dynamic-v23';
+const API_CACHE = 'jcsm-api-v23';
 
 // Assets to cache on install
 const STATIC_ASSETS = [
@@ -17,6 +16,7 @@ const STATIC_ASSETS = [
     '/images/logo.png',
     '/manifest.json',
     '/offline.html',
+    '/404.html',
     '/exploitation.html',
     '/installation-conformite.html',
     '/pilotage-projets.html',
@@ -29,13 +29,14 @@ const STATIC_ASSETS = [
     '/cgv.html',
     '/js/landing.js',
     '/interne.html',
-    '/js/app.js',
     '/zones/ile-de-france.html',
     '/zones/paca.html',
     '/zones/occitanie.html',
     '/zones/auvergne-rhone-alpes.html',
     '/zones/hauts-de-france.html',
-    '/zones/nouvelle-aquitaine.html'
+    '/zones/nouvelle-aquitaine.html',
+    '/zones/belgique.html',
+    '/contact.html'
 ];
 
 // Install event - cache static assets
@@ -67,11 +68,11 @@ self.addEventListener('fetch', (event) => {
     // Skip non-GET requests
     if (request.method !== 'GET') return;
 
-    // Skip external requests (except Google Apps Script for API)
-    if (url.origin !== location.origin && !url.href.includes('script.google.com')) return;
+    // Skip external requests
+    if (url.origin !== location.origin) return;
 
     // API requests - network first, cache fallback for offline
-    if (url.pathname.startsWith('/api/') || url.href.includes('script.google.com')) {
+    if (url.pathname.startsWith('/api/')) {
         event.respondWith(
             fetch(request)
                 .then(response => {

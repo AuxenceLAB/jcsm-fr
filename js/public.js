@@ -88,22 +88,34 @@ function initCookieConsent() {
     `;
 
     document.body.appendChild(banner);
+    const scrollBtn = document.getElementById('scrollTop');
+
+    // Push scroll-to-top button above cookie banner
+    function shiftScrollBtn(up) {
+        if (!scrollBtn) return;
+        scrollBtn.style.bottom = up ? 'calc(12rem + env(safe-area-inset-bottom, 0px))' : '';
+    }
 
     // Animate in
     setTimeout(() => {
         banner.classList.remove('translate-y-full', 'opacity-0');
+        shiftScrollBtn(true);
     }, 1000);
+
+    function dismissBanner() {
+        banner.classList.add('translate-y-full', 'opacity-0');
+        shiftScrollBtn(false);
+        setTimeout(() => banner.remove(), 500);
+    }
 
     document.getElementById('acceptCookies')?.addEventListener('click', () => {
         localStorage.setItem('cookieConsent', 'true');
-        banner.classList.add('translate-y-full', 'opacity-0');
-        setTimeout(() => banner.remove(), 500);
+        dismissBanner();
     });
 
     document.getElementById('declineCookies')?.addEventListener('click', () => {
-        localStorage.setItem('cookieConsent', 'false'); // Or specific logic
-        banner.classList.add('translate-y-full', 'opacity-0');
-        setTimeout(() => banner.remove(), 500);
+        localStorage.setItem('cookieConsent', 'false');
+        dismissBanner();
     });
 }
 
@@ -179,7 +191,7 @@ function initScrollProgress() {
             });
             ticking = true;
         }
-    });
+    }, { passive: true });
 }
 
 
@@ -229,6 +241,11 @@ function initMobileMenu() {
     const menu = document.getElementById('mobile-menu');
     const close = document.getElementById('mobile-menu-close');
     const overlay = document.getElementById('mobile-menu-overlay');
+
+    // Reset state on page load (prevents stale overflow:hidden after refresh)
+    if (menu) menu.classList.remove('open');
+    if (overlay) overlay.classList.remove('active');
+    document.body.style.overflow = '';
 
     if (btn && menu && overlay) {
         btn.addEventListener('click', () => {
@@ -306,6 +323,15 @@ function initPageTransitions() {
     setTimeout(() => {
         document.body.classList.add('loaded');
     }, 50);
+
+    // Fix bfcache blank page: restore opacity when returning via back/forward button
+    window.addEventListener('pageshow', (e) => {
+        if (e.persisted) {
+            document.body.style.opacity = '';
+            document.body.style.transition = '';
+            document.body.classList.add('loaded');
+        }
+    });
 
     document.querySelectorAll('a[href$=".html"], a[href^="/"], a[href^="./"]').forEach(link => {
         link.addEventListener('click', function (e) {
@@ -730,15 +756,15 @@ function initLiveFormFeedback() {
     const style = document.createElement('style');
     style.id = 'jcsm-pro-styles';
     style.textContent = `
-        /* Input States */
-        .input-error {
-            border-color: #ef4444 !important;
-            box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1) !important;
+        /* Input States — body prefix for specificity */
+        body .input-error {
+            border-color: #ef4444;
+            box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
         }
-        
-        .input-success {
-            border-color: #10b981 !important;
-            box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1) !important;
+
+        body .input-success {
+            border-color: #10b981;
+            box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
         }
 
         /* Focus Ring */
@@ -771,11 +797,11 @@ function initLiveFormFeedback() {
             }
         }
 
-        /* Print Styles */
+        /* Print Styles — body prefix for specificity */
         @media print {
-            .preloader, nav, .particles-bg, .scroll-top, #scroll-progress, .cookie-banner { display: none !important; }
-            body { background: white !important; }
-            a { color: inherit !important; text-decoration: underline; }
+            body .preloader, body nav, body .particles-bg, body .scroll-top, body #scroll-progress, body .cookie-banner { display: none; }
+            body { background: white; }
+            body a { color: inherit; text-decoration: underline; }
         }
 
         /* High Contrast Mode Support */

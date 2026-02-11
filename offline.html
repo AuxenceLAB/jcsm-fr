@@ -3,10 +3,11 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Hors ligne | JCSM</title>
     <meta name="description" content="Vous êtes actuellement hors ligne. Reconnectez-vous pour accéder à JCSM.">
     <meta name="robots" content="noindex, nofollow">
+    <meta property="og:site_name" content="JCSM - Infrastructure de Recharge">
     <link rel="icon" type="image/png" href="images/logo.png">
     <link rel="manifest" href="manifest.json">
     <style>
@@ -21,9 +22,27 @@
             background: linear-gradient(135deg, #FAFAFA 0%, #E5E7EB 100%);
             min-height: 100vh;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
             padding: 20px;
+        }
+
+        .skip-link {
+            position: absolute;
+            top: -100px;
+            left: 0;
+            background: #2563EB;
+            color: #fff;
+            padding: 8px 16px;
+            z-index: 100;
+            font-size: 14px;
+            text-decoration: none;
+            border-radius: 0 0 8px 0;
+        }
+
+        .skip-link:focus {
+            top: 0;
         }
 
         .container {
@@ -82,6 +101,11 @@
             box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
         }
 
+        .btn:focus-visible {
+            outline: 3px solid #2563EB;
+            outline-offset: 2px;
+        }
+
         .status {
             margin-top: 24px;
             padding: 12px;
@@ -95,22 +119,41 @@
             background: rgba(16, 185, 129, 0.1);
             color: #059669;
         }
+
+        footer {
+            margin-top: 32px;
+            text-align: center;
+        }
     </style>
 </head>
 
 <body>
-    <div class="container">
-        <div class="icon">
-            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="M18.364 5.636a9 9 0 010 12.728m0 0l-2.829-2.829m2.829 2.829L21 21M15.536 8.464a5 5 0 010 7.072m0 0l-2.829-2.829m-4.243 2.829a4.978 4.978 0 01-1.414-2.83m-1.414 5.658a9 9 0 01-2.167-9.238m7.824 2.167a1 1 0 111.414 1.414m-1.414-1.414L3 3m8.293 8.293l1.414 1.414" />
-            </svg>
+    <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+
+    <main id="main-content">
+        <div class="container">
+            <div class="icon" aria-hidden="true">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M18.364 5.636a9 9 0 010 12.728m0 0l-2.829-2.829m2.829 2.829L21 21M15.536 8.464a5 5 0 010 7.072m0 0l-2.829-2.829m-4.243 2.829a4.978 4.978 0 01-1.414-2.83m-1.414 5.658a9 9 0 01-2.167-9.238m7.824 2.167a1 1 0 111.414 1.414m-1.414-1.414L3 3m8.293 8.293l1.414 1.414" />
+                </svg>
+            </div>
+            <h1>Vous êtes hors ligne</h1>
+            <p>Pas de connexion internet. Vérifiez votre réseau et réessayez.</p>
+            <a href="index.html" class="btn" onclick="location.reload()">Réessayer</a>
+            <div class="status" id="status" role="status" aria-live="polite">Hors ligne</div>
         </div>
-        <h1>Vous êtes hors ligne</h1>
-        <p>Pas de connexion internet. Vérifiez votre réseau et réessayez.</p>
-        <a href="index.html" class="btn" onclick="location.reload()">Réessayer</a>
-        <div class="status" id="status">Hors ligne</div>
-    </div>
+    </main>
+
+    <footer role="contentinfo" aria-label="Pied de page">
+        <p style="font-size:12px;color:#9CA3AF;">© 2026 JCSM SAS</p>
+    </footer>
+
+    <button class="scroll-top glow-border" id="scrollTop" aria-label="Retour en haut de la page">
+        <svg class="w-6 h-6 float-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+        </svg>
+    </button>
 
     <noscript><p style="text-align:center;color:#6B7280;margin-top:1rem;">Activez JavaScript pour détecter automatiquement le retour en ligne.</p></noscript>
     <script>
@@ -129,7 +172,7 @@
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
                 navigator.serviceWorker.register('/sw.js')
-                    .catch((error) => console.error('SW registration failed:', error));
+                    .catch(() => {});
             });
         }
     </script>

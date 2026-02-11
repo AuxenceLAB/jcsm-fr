@@ -18,7 +18,7 @@ if (in_array($origin, $allowedOrigins)) {
     header("Access-Control-Allow-Origin: $origin");
 }
 header('Access-Control-Allow-Methods: POST, OPTIONS');
-header('Access-Control-Allow-Headers: Content-Type, Authorization');
+header('Access-Control-Allow-Headers: Content-Type, Authorization, X-Requested-With');
 
 if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     http_response_code(204);
@@ -81,7 +81,8 @@ try {
     curl_close($ch);
 
     if ($error) {
-        throw new Exception('Erreur de connexion webhook: ' . $error);
+        error_log('Webhook curl error: ' . $error);
+        throw new Exception('Erreur de connexion webhook');
     }
 
     http_response_code($httpCode ?: 200);
@@ -89,5 +90,6 @@ try {
 
 } catch (Exception $e) {
     http_response_code(500);
-    echo json_encode(['error' => 'Erreur webhook', 'message' => $e->getMessage()]);
+    error_log('Webhook exception: ' . $e->getMessage());
+    echo json_encode(['error' => 'Erreur webhook']);
 }

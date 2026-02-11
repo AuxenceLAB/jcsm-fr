@@ -4,9 +4,9 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-JCSM is a static website for an electric vehicle charging infrastructure (IRVE) company. It includes a public marketing site, an internal technician portal (`interne.html`), and a PHP API layer. No build step — HTML/CSS/JS served directly by Apache.
+JCSM is a static website for an electric vehicle charging infrastructure (IRVE) company. It includes a public marketing site, an internal technician portal (`interne.html`), and a PHP API layer. No build step — HTML/CSS/JS served directly by nginx.
 
-**Stack**: Vanilla JS (ES6+), Tailwind CSS (CDN), PHP 7.4+, Google Sheets integration, Leaflet.js maps, PWA (Service Worker).
+**Stack**: Vanilla JS (ES6+), Tailwind CSS (CDN), PHP 8.4 (FPM), Google Sheets integration, Leaflet.js maps, PWA (Service Worker).
 
 ## Architecture
 
@@ -15,16 +15,16 @@ JCSM is a static website for an electric vehicle charging infrastructure (IRVE) 
 - **Public pages**: All HTML files at root. Pages share the same structure (preloader → nav → content → footer). Tailwind loaded via CDN with inline config in each HTML page.
 - **Internal portal**: `interne.html` — password-protected dashboard for technicians. Auth via server-side HMAC-SHA256 token (`api/login.php`), sessions stored in localStorage (8h TTL).
 - **Regional pages**: `zones/*.html` — zone-specific landing pages with skip-link, `id="main-content"` on `<main>`, and LocalBusiness schema (HQ address Paris 75008 + regional `areaServed`).
-- **CSS**: `styles.css` — custom design system with 90+ CSS variables defined in `:root`. Tailwind utilities used alongside custom classes. Dark mode is disabled (light mode forced).
-- **PWA**: `manifest.json` + `sw.js` (cache v12). Strategies: network-first for HTML/API, cache-first for assets.
+- **CSS**: `styles.css` — custom design system with CSS variables defined in `:root`. Tailwind utilities used alongside custom classes. Dark mode is disabled (light mode forced).
+- **PWA**: `manifest.json` + `sw.js` (cache v21). Strategies: network-first for HTML/API, cache-first for assets.
 
 ### JavaScript Modules (`js/`)
 
 | File | Role |
 |------|------|
-| `config.js` | API endpoints (all server-side proxied), auth helpers (session CRUD, Bearer token headers), cache TTLs. Version 2.3.0. |
+| `config.js` | API endpoints (all server-side proxied), auth helpers (session CRUD, Bearer token headers), cache TTLs. Version 2.10.0. |
 | `public.js` | All public page effects: mobile menu, particles (8 on mobile, 20 desktop), scroll animations, cookie consent, magnetic buttons, form validation, toast notifications (XSS-safe via `textContent`), rAF counters with `aria-label`. Skips magnetic/spotlight/hover if `wow-effects.js` is loaded. |
-| `app.js` | Internal portal (legacy reference): auth check, data fetch (proxy-sheets → localStorage cache → offline), interventions list, report generation. Race-condition-safe (JSON compare before re-render). |
+| `app.js` | **Deprecated** — no longer loaded by any page. Legacy internal portal code kept for reference only. Not in SW cache. |
 | `wow-effects.js` | Premium animation classes: AnimatedCounter, ScrollProgress, LogoMarquee, TextSplit, ParallaxSection. Respects `prefers-reduced-motion`. Style injection with `id="jcsm-wow-styles"` dedup guard. |
 | `map.js` | Leaflet map integration with geocoded intervention markers. Uses centralized `window.escapeHtml()`. Filters Null Island (0,0) coordinates. |
 | `analytics.js` | Privacy-first analytics (no cookies, localStorage-based) |
@@ -58,16 +58,20 @@ Config loads → check auth (Bearer token) → fetch data via `proxy-sheets.php`
 
 ### No build system
 
-Edit HTML/CSS/JS files directly. Changes are live on the Apache server. Cache-bust by hard-refreshing (Ctrl+Shift+R).
+Edit HTML/CSS/JS files directly. Changes are live on the nginx server. Cache-bust by hard-refreshing (Ctrl+Shift+R).
 
 ### Deployment
 
-- Apache with `mod_rewrite`, `mod_headers`, `mod_deflate`
-- HTTPS enforced via `.htaccess` (301 redirect)
-- Pretty URLs: `.html` extension removed via rewrite rules
-- Security headers configured in `.htaccess`
-- `www-data` ownership needed on `api/` and report directories
-- **Required env var**: `JCSM_AUTH_SECRET` must be set in server environment (Apache `SetEnv` or `.env` loaded by PHP). All API endpoints will fail 500 if missing.
+- **nginx** 1.26+ with PHP 8.4-FPM (socket: `/run/php/php8.4-fpm.sock`)
+- HTTPS enforced via 301 redirect (Certbot-managed SSL)
+- HTTP/2 enabled (`http2 on;`)
+- Pretty URLs: `try_files $uri $uri.html $uri/ =404` (no `.html` extension needed)
+- Security headers in `/etc/nginx/snippets/security.conf` (included in all location blocks that use `add_header`)
+- Global headers also loaded via `/etc/nginx/conf.d/security.conf`
+- `.htaccess` is present but **ignored by nginx** — all rules must be in nginx config
+- `www-data` ownership needed on `api/` and `rapports/` directories
+- `.env` must be `640 auxence:www-data` for PHP-FPM to read it
+- **Required env var**: `JCSM_AUTH_SECRET` must be set in `.env` (loaded by PHP). All API endpoints will fail 500 if missing.
 
 ### Git
 
@@ -77,9 +81,9 @@ Edit HTML/CSS/JS files directly. Changes are live on the Apache server. Cache-bu
 
 ### Service Worker
 
-After CSS/JS changes, bump the cache version in `sw.js` (lines 2-5: `CACHE_NAME`, `STATIC_CACHE`, `DYNAMIC_CACHE`, `API_CACHE`) to invalidate old caches. Current version: **v12**.
+After CSS/JS changes, bump the cache version in `sw.js` (lines 2-4: `STATIC_CACHE`, `DYNAMIC_CACHE`, `API_CACHE`) to invalidate old caches. Current version: **v21**.
 
-Also bump `version` in `js/config.js`. Current: **2.3.0**.
+Also bump `version` in `js/config.js`. Current: **2.10.0**.
 
 ## Authentication
 
@@ -97,11 +101,18 @@ Server-side HMAC-SHA256 token authentication via `api/login.php` → `api/auth.p
 
 ## Regional Pages (`zones/`)
 
-Six pages linked from the main site for local SEO:
-- `auvergne-rhone-alpes.html`, `hauts-de-france.html`, `ile-de-france.html`, `nouvelle-aquitaine.html`, `occitanie.html`, `paca.html`
+Seven pages linked from the main site for local SEO:
+- `auvergne-rhone-alpes.html`, `hauts-de-france.html`, `ile-de-france.html`, `nouvelle-aquitaine.html`, `occitanie.html`, `paca.html`, `belgique.html`
 - Same HTML structure as root pages but with `../images/` paths for assets
-- Each includes: skip-link, `id="main-content"` on `<main>`, LocalBusiness schema with HQ address (Paris 75008) and regional `areaServed` with `geoMidpoint`
+- Each includes: skip-link, `id="main-content"` on `<main>`, LocalBusiness schema with HQ address (Paris 75008) and regional `areaServed` with `geoMidpoint`, `og:site_name`
 - No `<meta name="keywords">` (removed — obsolete for SEO)
+
+### SEO Structure (all pages)
+
+- All pages have `og:site_name` meta tag ("JCSM - Infrastructure de Recharge")
+- Service pages + a-propos + carrieres have BreadcrumbList schema (Accueil → Page)
+- Service pages have enriched Service schema with `url`, `image`, `category`
+- Contact form inputs have `sr-only` labels and `autocomplete` attributes for accessibility
 
 ## Contact Form (Important Gotcha)
 
@@ -111,16 +122,15 @@ The contact form (`#contactForm` in `index.html`) uses **Formspree** (`https://f
 
 The submit button uses `.submit-text` / `.submit-loading` spans for loading state.
 
-## Cache Configuration (`.htaccess`)
+## Cache Configuration (nginx)
 
-| Type | Duration |
-|------|----------|
-| Images (jpg, png, svg, webp) | 1 month |
-| Fonts (woff, woff2) | 1 year |
-| CSS / JS | 1 week |
-| JSON / XML | 1 day |
-| HTML | 1 hour |
-| PHP | No cache (must-revalidate) |
+| Type | Duration | Cache-Control |
+|------|----------|---------------|
+| Images (jpg, png, svg, webp, ico) | 1 month (2592000s) | `public, immutable` |
+| Fonts (woff, woff2, ttf, otf) | 1 year (31536000s) | `public, immutable` |
+| CSS / JS | 1 week (604800s) | `public, immutable` |
+| HTML (pretty URLs) | 1 hour (3600s) | `public` |
+| PHP | No cache | `no-cache, no-store, must-revalidate` |
 
 ## Google Sheets Integration
 
@@ -143,13 +153,15 @@ n8n webhook URLs are **never exposed to the frontend**. All webhook calls go thr
 
 ## Security
 
-### Headers (`.htaccess`)
+### Headers (nginx)
 
-`X-Frame-Options: SAMEORIGIN`, `X-Content-Type-Options: nosniff`, `X-XSS-Protection`, `HSTS` (1 year + preload), `Cross-Origin-Opener-Policy`, `Cross-Origin-Resource-Policy`, `Referrer-Policy`, `Permissions-Policy` (blocks geolocation, microphone, camera, payment).
+All 9 security headers configured in `/etc/nginx/snippets/security.conf`, included in every location block:
 
-**CSP**: `default-src 'self'`; scripts from self + Tailwind CDN + unpkg + jsdelivr + Google Analytics; styles from self + Google Fonts + unpkg; connect to self + Formspree + Google Scripts + Nominatim + Google Analytics; no frames; no objects.
+`X-Frame-Options: SAMEORIGIN`, `X-Content-Type-Options: nosniff`, `X-XSS-Protection`, `HSTS` (1 year + includeSubDomains + preload), `Cross-Origin-Opener-Policy: same-origin`, `Cross-Origin-Resource-Policy: same-origin`, `Referrer-Policy: strict-origin-when-cross-origin`, `Permissions-Policy` (blocks geolocation, microphone, camera, payment, usb, magnetometer, gyroscope, accelerometer).
 
-Protected files: `.env`, `*.json`, `*.sql`, `*.sh`, `.git/`, backups, composer files. Directory listing disabled.
+**CSP**: `default-src 'self'`; scripts from self + Tailwind CDN + unpkg + jsdelivr + Google Analytics; styles from self + Google Fonts + unpkg; fonts from self + Google Fonts; images from self + data: + CartoDB + OSM + Unsplash; connect to self + Formspree + Google Scripts + Nominatim + Google Analytics; no frames; no objects.
+
+Protected files (nginx `deny all`): dotfiles, `.env`, `*.sql`, `*.sh`, `*.log`, `/api/*.json`. Directory listing disabled (nginx default).
 
 ### XSS Prevention
 

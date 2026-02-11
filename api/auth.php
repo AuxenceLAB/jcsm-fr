@@ -29,15 +29,10 @@ define('AUTH_SECRET', $envSecret);
 define('TOKEN_EXPIRY', 8 * 3600); // 8 hours
 
 // User credentials: SHA-256 hash => role info
-// Hashes correspond to: JCSM2025, technicien, JCSMADMIN, JCSM
 define('AUTH_USERS', [
-    // SHA-256 of 'JCSM2025'
     'f0e30e24a243ef1fc96806b679b14b23d0b15b5c99f664a59c24384bfa36d898' => ['role' => 'Admin', 'isAdmin' => true],
-    // SHA-256 of 'technicien'
     '526830a02277a03ab1c5eef93a9c6e22ae02e2ae977d8d69604ba212cb3d9507' => ['role' => 'Technicien', 'isAdmin' => false],
-    // SHA-256 of 'JCSMADMIN'
     '6decc588f359f0058a1695322f82ac83215cec4276940897a8648a909e4000c4' => ['role' => 'Admin', 'isAdmin' => true],
-    // SHA-256 of 'JCSM'
     'f4574919cd21d4f4113aa9da4e174ed2a12da4bc5db0232c41a1bdd839fd6ace' => ['role' => 'Technicien', 'isAdmin' => false],
 ]);
 
@@ -86,6 +81,16 @@ function verifyToken(string $token) {
  * Returns the decoded payload or sends 401 and exits.
  */
 function requireAuth(): array {
+    // CSRF protection: require X-Requested-With header on mutating requests
+    if (in_array($_SERVER['REQUEST_METHOD'], ['POST', 'PUT', 'DELETE', 'PATCH'])) {
+        $xrw = $_SERVER['HTTP_X_REQUESTED_WITH'] ?? '';
+        if ($xrw !== 'XMLHttpRequest') {
+            http_response_code(403);
+            echo json_encode(['error' => 'Requête non autorisée (CSRF)']);
+            exit;
+        }
+    }
+
     $header = $_SERVER['HTTP_AUTHORIZATION'] ?? '';
     if (!preg_match('/^Bearer\s+(.+)$/i', $header, $matches)) {
         http_response_code(401);

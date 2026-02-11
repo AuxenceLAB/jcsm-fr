@@ -54,8 +54,8 @@ const JCSM_CONFIG = {
     // ==========================================
     // Version
     // ==========================================
-    version: '2.4.0',
-    buildDate: '2026-01-30'
+    version: '2.12.0',
+    buildDate: '2026-02-11'
 };
 
 // ==========================================
@@ -108,7 +108,7 @@ function getAuthHeaders() {
     try {
         const data = JSON.parse(session);
         if (data.token) {
-            return { 'Authorization': 'Bearer ' + data.token };
+            return { 'Authorization': 'Bearer ' + data.token, 'X-Requested-With': 'XMLHttpRequest' };
         }
     } catch (e) {}
     return {};

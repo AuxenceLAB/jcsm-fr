@@ -1,105 +1,146 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://jcsm.fr/</loc>
-    <lastmod>2026-01-29</lastmod>
+    <lastmod>2026-02-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://jcsm.fr/images/index.webp</image:loc>
+      <image:title>JCSM - Expert IRVE bornes de recharge France et Belgique</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://jcsm.fr/images/logo.png</image:loc>
+      <image:title>Logo JCSM Infrastructure de Recharge IRVE</image:title>
+    </image:image>
   </url>
   <url>
-    <loc>https://jcsm.fr/pilotage-projets.html</loc>
-    <lastmod>2026-01-29</lastmod>
+    <loc>https://jcsm.fr/pilotage-projets</loc>
+    <lastmod>2026-02-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://jcsm.fr/images/amo.webp</image:loc>
+      <image:title>Pilotage de projets IRVE - AMO bornes de recharge</image:title>
+    </image:image>
   </url>
   <url>
-    <loc>https://jcsm.fr/installation-conformite.html</loc>
-    <lastmod>2026-01-29</lastmod>
+    <loc>https://jcsm.fr/installation-conformite</loc>
+    <lastmod>2026-02-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://jcsm.fr/images/installation.webp</image:loc>
+      <image:title>Installation bornes de recharge IRVE et conformite electrique</image:title>
+    </image:image>
   </url>
   <url>
-    <loc>https://jcsm.fr/exploitation.html</loc>
-    <lastmod>2026-01-29</lastmod>
+    <loc>https://jcsm.fr/exploitation</loc>
+    <lastmod>2026-02-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://jcsm.fr/images/maintenance.webp</image:loc>
+      <image:title>Exploitation et maintenance IRVE et transformateurs HTA BT</image:title>
+    </image:image>
   </url>
   <url>
-    <loc>https://jcsm.fr/securisation-installations.html</loc>
-    <lastmod>2026-01-29</lastmod>
+    <loc>https://jcsm.fr/securisation-installations</loc>
+    <lastmod>2026-02-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://jcsm.fr/images/vandalisme.webp</image:loc>
+      <image:title>Securisation bornes de recharge IRVE anti-vandalisme</image:title>
+    </image:image>
   </url>
   <url>
-    <loc>https://jcsm.fr/centre-appel.html</loc>
-    <lastmod>2026-01-29</lastmod>
+    <loc>https://jcsm.fr/centre-appel</loc>
+    <lastmod>2026-02-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://jcsm.fr/images/supporttech.jpg</image:loc>
+      <image:title>Support client IRVE 24/7 hotline bornes de recharge</image:title>
+    </image:image>
   </url>
   <url>
-    <loc>https://jcsm.fr/a-propos.html</loc>
-    <lastmod>2026-01-29</lastmod>
+    <loc>https://jcsm.fr/a-propos</loc>
+    <lastmod>2026-02-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://jcsm.fr/carrieres.html</loc>
-    <lastmod>2026-01-29</lastmod>
+    <loc>https://jcsm.fr/carrieres</loc>
+    <lastmod>2026-02-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://jcsm.fr/mentions-legales.html</loc>
-    <lastmod>2026-01-29</lastmod>
+    <loc>https://jcsm.fr/mentions-legales</loc>
+    <lastmod>2026-02-11</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://jcsm.fr/confidentialite.html</loc>
-    <lastmod>2026-01-29</lastmod>
+    <loc>https://jcsm.fr/confidentialite</loc>
+    <lastmod>2026-02-11</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://jcsm.fr/cgv.html</loc>
-    <lastmod>2026-01-29</lastmod>
+    <loc>https://jcsm.fr/cgv</loc>
+    <lastmod>2026-02-11</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://jcsm.fr/zones/ile-de-france.html</loc>
-    <lastmod>2026-01-29</lastmod>
+    <loc>https://jcsm.fr/zones/ile-de-france</loc>
+    <lastmod>2026-02-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://jcsm.fr/zones/paca.html</loc>
-    <lastmod>2026-01-29</lastmod>
+    <loc>https://jcsm.fr/zones/paca</loc>
+    <lastmod>2026-02-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://jcsm.fr/zones/auvergne-rhone-alpes.html</loc>
-    <lastmod>2026-01-29</lastmod>
+    <loc>https://jcsm.fr/zones/auvergne-rhone-alpes</loc>
+    <lastmod>2026-02-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://jcsm.fr/zones/occitanie.html</loc>
-    <lastmod>2026-01-29</lastmod>
+    <loc>https://jcsm.fr/zones/occitanie</loc>
+    <lastmod>2026-02-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://jcsm.fr/zones/nouvelle-aquitaine.html</loc>
-    <lastmod>2026-01-29</lastmod>
+    <loc>https://jcsm.fr/zones/nouvelle-aquitaine</loc>
+    <lastmod>2026-02-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://jcsm.fr/zones/hauts-de-france.html</loc>
-    <lastmod>2026-01-29</lastmod>
+    <loc>https://jcsm.fr/zones/hauts-de-france</loc>
+    <lastmod>2026-02-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://jcsm.fr/zones/belgique</loc>
+    <lastmod>2026-02-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://jcsm.fr/contact</loc>
+    <lastmod>2026-02-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
 </urlset>

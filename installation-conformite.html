@@ -3,10 +3,10 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Installation & Remise en Conformité IRVE | Expert Certifié | JCSM</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Installation Bornes de Recharge & Conformité IRVE | France & Belgique | JCSM</title>
     <meta name="description"
-        content="Installation de bornes de recharge AC/DC et remise en conformité électrique IRVE. Certification Qualifelec, normes NF C 15-100 et UTE C15-722. Devis gratuit.">
+        content="Installation de bornes de recharge AC/DC et remise en conformité IRVE en France et Belgique. Certification Qualifelec, normes NF C 15-100. Devis gratuit.">
     <meta name="robots" content="index, follow">
     <script type="application/ld+json">
     {
@@ -19,33 +19,47 @@
             "name": "JCSM",
             "url": "https://jcsm.fr"
         },
-        "areaServed": "France",
-        "serviceType": "Installation IRVE"
+        "areaServed": ["FR", "BE"],
+        "serviceType": "Installation IRVE",
+        "url": "https://jcsm.fr/installation-conformite",
+        "image": "https://jcsm.fr/images/installation.jpeg",
+        "category": "Installation Électrique"
     }
     </script>
-    <link rel="canonical" href="https://jcsm.fr/installation-conformite.html">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://jcsm.fr/"},
+            {"@type": "ListItem", "position": 2, "name": "Installation & Conformité IRVE", "item": "https://jcsm.fr/installation-conformite"}
+        ]
+    }
+    </script>
+    <link rel="canonical" href="https://jcsm.fr/installation-conformite">
 
     <!-- Open Graph -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://jcsm.fr/installation-conformite.html">
-    <meta property="og:title" content="Installation & Remise en Conformité IRVE | Expert Certifié | JCSM">
+    <meta property="og:url" content="https://jcsm.fr/installation-conformite">
+    <meta property="og:title" content="Installation Bornes de Recharge & Conformité IRVE | France & Belgique | JCSM">
     <meta property="og:description"
-        content="Installation de bornes AC/DC et remise en conformité IRVE. Certification Qualifelec, normes NF C 15-100. Intervention France entière.">
+        content="Installation de bornes de recharge AC/DC et remise en conformité IRVE en France et Belgique. Certification Qualifelec, normes NF C 15-100.">
     <meta property="og:image" content="https://jcsm.fr/images/installation.jpeg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:locale" content="fr_FR">
+    <meta property="og:site_name" content="JCSM - Infrastructure de Recharge">
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Installation & Conformité IRVE | JCSM">
+    <meta name="twitter:title" content="Installation Bornes de Recharge & Conformité IRVE | France & Belgique | JCSM">
     <meta name="twitter:description"
-        content="Installation et remise en conformité électrique IRVE. Expertise certifiée.">
+        content="Installation de bornes de recharge AC/DC et conformité IRVE en France et Belgique. Certification Qualifelec.">
     <meta name="twitter:image" content="https://jcsm.fr/images/installation.jpeg">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
         rel="stylesheet">
 
     <script src="https://cdn.tailwindcss.com"></script>
@@ -62,7 +76,7 @@
             }
         }
     </script>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css?v=23">
     <link rel="icon" type="image/png" href="images/logo.png">
     <link rel="manifest" href="manifest.json">
     <link rel="apple-touch-icon" href="images/logo.png">
@@ -114,7 +128,7 @@
                     class="text-base text-gray-600 hover:text-gray-900 transition-colors">Support</a>
                 <a href="a-propos.html" class="text-base text-gray-600 hover:text-gray-900 transition-colors">À
                     propos</a>
-                <a href="index.html#contact"
+                <a href="contact.html"
                     class="btn-primary px-6 py-3 rounded-lg text-base font-medium inline-block text-center mt-4">Contact</a>
             </div>
         </div>
@@ -122,10 +136,10 @@
 
     <!-- Barre de progression de scroll -->
     <div id="scroll-progress"
-        class="fixed top-0 left-0 h-1 bg-gradient-to-r from-blue-500 to-purple-600 z-[60] transition-all duration-150"
+        class="fixed top-0 left-0 h-1 bg-blue-600 z-[60] transition-all duration-150"
         style="width: 0%;"></div>
 
-    <nav class="fixed w-full z-50 glass-nav" role="navigation" aria-label="Navigation principale">
+    <nav class="fixed top-0 w-full z-50 glass-nav" role="navigation" aria-label="Navigation principale">
         <div class="max-w-7xl mx-auto px-6 py-4">
             <div class="flex justify-between items-center">
                 <a href="index.html" class="flex items-center space-x-3 group">
@@ -151,7 +165,7 @@
                     <a href="a-propos.html"
                         class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300 hover:scale-105">À
                         propos</a>
-                    <a href="index.html#contact"
+                    <a href="contact.html"
                         class="btn-primary px-7 py-2.5 rounded-xl text-base font-medium shadow-lg hover:shadow-xl">Contact</a>
                 </div>
                 <button class="mobile-menu-btn text-gray-600 hover:text-gray-900" id="mobile-menu-btn"
@@ -170,7 +184,7 @@
 
     <main id="main-content" role="main">
         <!-- Hero -->
-        <section class="pt-[calc(5rem+0.75rem)] pb-6 px-4 sm:px-6 min-h-[calc(100vh-5rem)] flex items-center">
+        <section class="pt-8 pb-6 px-4 sm:px-6 min-h-[calc(100vh-5rem)] flex items-center">
             <div class="max-w-7xl mx-auto w-full">
                 <div class="grid lg:grid-cols-2 gap-5 sm:gap-7 lg:gap-10 items-center">
                     <div class="space-y-4 sm:space-y-5 md:space-y-6 order-1 lg:order-1">
@@ -182,20 +196,20 @@
                         </div>
                         <h1
                             class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight tracking-tight section-appear">
-                            Installation <span class="text-blue-600">certifiée</span> IRVE
+                            L'expertise <span class="text-blue-600">certifiée</span> qui sécurise vos bornes
                         </h1>
                         <p class="text-sm sm:text-base md:text-lg text-gray-600 leading-snug section-appear">
-                            Installation et remise en conformité de vos infrastructures de recharge. Expertise certifiée
-                            selon les normes NF C 15-100 et UTE C15-722.
+                            Installation haute performance et remise en conformité de vos infrastructures de recharge.
+                            Fiabilité garantie selon les normes NF C 15-100 et UTE C15-722.
                         </p>
                         <div class="flex flex-wrap gap-2 sm:gap-3 section-appear">
-                            <a href="index.html#contact"
+                            <a href="contact.html"
                                 class="btn-primary px-4 py-2 sm:px-6 sm:py-3 rounded-xl font-medium text-xs sm:text-sm">
-                                Demander un devis
+                                Obtenir un devis gratuit
                             </a>
                             <a href="#services"
                                 class="btn-secondary px-4 py-2 sm:px-6 sm:py-3 rounded-xl font-medium text-xs sm:text-sm">
-                                Nos prestations
+                                Découvrir nos prestations
                             </a>
                         </div>
                     </div>
@@ -219,18 +233,21 @@
             <div class="max-w-7xl mx-auto">
                 <div class="text-center mb-20 section-appear">
                     <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-6">
-                        Nos Prestations d'Installation
+                        Des installations qui font référence
                     </h2>
                     <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                        De l'installation initiale à la remise en conformité, une expertise technique certifiée pour
-                        garantir la sécurité et la performance de vos équipements.
+                        De l'installation neuve à la remise en conformité, notre expertise certifiée garantit la
+                        sécurité, la performance et la pérennité de chaque équipement.
                     </p>
                 </div>
 
                 <div class="grid md:grid-cols-3 gap-6 mb-12">
                     <div class="card-hover bg-white border border-gray-200 rounded-2xl overflow-hidden section-appear">
-                        <picture><source srcset="images/bornes.webp" type="image/webp"><img loading="lazy" src="images/bornes.png" alt="Parc de bornes de recharge IRVE"
-                                class="w-full h-56 object-contain bg-gray-50" loading="lazy"></picture>
+                        <picture>
+                            <source srcset="images/installation.webp" type="image/webp">
+                            <img loading="lazy" src="images/installation.jpeg" alt="Parc de bornes de recharge IRVE"
+                                class="w-full h-64 object-cover object-center">
+                        </picture>
                         <div class="p-4 text-center">
                             <span class="text-sm font-medium text-gray-700">Parc multi-bornes</span>
                         </div>
@@ -239,7 +256,7 @@
                         <picture>
                             <source srcset="images/2x22kW.webp" type="image/webp">
                             <img loading="lazy" src="images/2x22kW.jpeg" alt="Installation double borne 22kW"
-                                class="w-full h-48 object-cover" loading="lazy">
+                                class="w-full h-64 object-cover" style="object-position: center 35%">
                         </picture>
                         <div class="p-4 text-center">
                             <span class="text-sm font-medium text-gray-700">Double borne 22kW</span>
@@ -249,7 +266,7 @@
                         <picture>
                             <source srcset="images/1x60.webp" type="image/webp">
                             <img loading="lazy" src="images/1x60.jpeg" alt="Borne rapide 60kW DC"
-                                class="w-full h-48 object-cover" loading="lazy">
+                                class="w-full h-64 object-cover" style="object-position: center 30%">
                         </picture>
                         <div class="p-4 text-center">
                             <span class="text-sm font-medium text-gray-700">Borne rapide 60kW</span>
@@ -261,9 +278,9 @@
                     <div class="card-hover bg-white border border-gray-200 rounded-2xl overflow-hidden section-appear">
                         <div class="h-64 sm:h-72 md:h-80 overflow-hidden">
                             <picture>
-                                <source srcset="images/installation.webp" type="image/webp">
-                                <img loading="lazy" src="images/installation.jpeg" alt="Installation neuve de borne de recharge"
-                                    class="w-full h-full object-cover object-center" loading="lazy" width="600"
+                                <source srcset="images/jcsmtesla.webp" type="image/webp">
+                                <img loading="lazy" src="images/jcsmtesla.png" alt="Installation neuve de borne de recharge"
+                                    class="w-full h-full object-cover object-center" width="600"
                                     height="400">
                             </picture>
                         </div>
@@ -302,7 +319,7 @@
 
                     <div class="card-hover bg-white border border-gray-200 rounded-2xl overflow-hidden section-appear">
                         <div class="h-64 sm:h-72 overflow-hidden">
-                            <picture><source srcset="images/remiseconfo.webp" type="image/webp"><img loading="lazy" src="images/remiseconfo.png" alt="Remise en conformité d'une installation IRVE"
+                            <picture><source srcset="images/remiseconfo.webp" type="image/webp"><img src="images/remiseconfo.png" alt="Remise en conformité d'une installation IRVE"
                                     class="w-full h-full object-cover object-center" loading="lazy" width="600"
                                     height="400"></picture>
                         </div>
@@ -357,12 +374,12 @@
                 <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
                     <div
                         class="card-hover bg-white border border-gray-200 rounded-xl p-6 flex items-center justify-center section-appear">
-                        <picture><source srcset="images/alfen.webp" type="image/webp"><img loading="lazy" src="images/alfen.png" alt="Logo Alfen - Bornes de recharge intelligentes"
+                        <picture><source srcset="images/alfen.webp" type="image/webp"><img src="images/alfen.png" alt="Logo Alfen - Bornes de recharge intelligentes"
                             class="h-12 w-auto brand-logo" loading="lazy" width="120" height="48"></picture>
                     </div>
                     <div
                         class="card-hover bg-white border border-gray-200 rounded-xl p-6 flex items-center justify-center section-appear">
-                        <picture><source srcset="images/schneider.webp" type="image/webp"><img loading="lazy" src="images/schneider.png" alt="Logo Schneider Electric - Solutions IRVE"
+                        <picture><source srcset="images/schneider.webp" type="image/webp"><img src="images/schneider.png" alt="Logo Schneider Electric - Solutions IRVE"
                             class="h-12 w-auto brand-logo" loading="lazy" width="120" height="48"></picture>
                     </div>
                     <div
@@ -448,7 +465,7 @@
                                 <picture><source srcset="images/qualifelec.webp" type="image/webp"><img src="images/qualifelec.png" alt="Qualifelec IRVE" class="h-24 w-auto" width="96" height="96" loading="lazy"></picture>
                             </div>
                             <div class="text-center">
-                                <div class="text-6xl font-bold mb-2">150<span class="text-4xl text-gray-400">+</span>
+                                <div class="text-6xl font-bold mb-2">150<span class="text-4xl text-gray-500">+</span>
                                 </div>
                                 <p class="text-sm text-gray-600 font-semibold uppercase tracking-wide">Installations
                                     réalisées</p>
@@ -486,30 +503,55 @@
                         <a href="zones/ile-de-france.html" class="text-blue-600 text-sm font-medium mt-3 inline-block hover:underline">En savoir plus</a>
                     </div>
                     <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 hover:shadow-lg transition-shadow">
-                        <h3 class="text-xl font-bold mb-4 text-green-600">Auvergne-Rhône-Alpes</h3>
+                        <h3 class="text-xl font-bold mb-4 text-blue-600">Auvergne-Rhône-Alpes</h3>
                         <p class="text-gray-600 text-sm leading-relaxed">Rhône (69), Isère (38), Loire (42), Haute-Savoie (74), Puy-de-Dôme (63), Ain (01), Drôme (26), Savoie (73), Ardèche (07), Allier (03), Cantal (15), Haute-Loire (43)</p>
                         <a href="zones/auvergne-rhone-alpes.html" class="text-blue-600 text-sm font-medium mt-3 inline-block hover:underline">En savoir plus</a>
                     </div>
                     <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 hover:shadow-lg transition-shadow">
-                        <h3 class="text-xl font-bold mb-4 text-orange-600">Nouvelle-Aquitaine</h3>
+                        <h3 class="text-xl font-bold mb-4 text-blue-600">Nouvelle-Aquitaine</h3>
                         <p class="text-gray-600 text-sm leading-relaxed">Gironde (33), Charente-Maritime (17), Pyrénées-Atlantiques (64), Vienne (86), Haute-Vienne (87), Dordogne (24), Lot-et-Garonne (47), Landes (40), Charente (16), Deux-Sèvres (79), Corrèze (19), Creuse (23)</p>
                         <a href="zones/nouvelle-aquitaine.html" class="text-blue-600 text-sm font-medium mt-3 inline-block hover:underline">En savoir plus</a>
                     </div>
                     <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 hover:shadow-lg transition-shadow">
-                        <h3 class="text-xl font-bold mb-4 text-purple-600">Occitanie</h3>
+                        <h3 class="text-xl font-bold mb-4 text-blue-600">Occitanie</h3>
                         <p class="text-gray-600 text-sm leading-relaxed">Haute-Garonne (31), Hérault (34), Gard (30), Pyrénées-Orientales (66), Aude (11), Tarn (81), Aveyron (12), Lot (46), Tarn-et-Garonne (82), Gers (32), Hautes-Pyrénées (65), Ariège (09), Lozère (48)</p>
                         <a href="zones/occitanie.html" class="text-blue-600 text-sm font-medium mt-3 inline-block hover:underline">En savoir plus</a>
                     </div>
                     <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 hover:shadow-lg transition-shadow">
-                        <h3 class="text-xl font-bold mb-4 text-pink-600">Provence-Alpes-Côte d'Azur</h3>
+                        <h3 class="text-xl font-bold mb-4 text-blue-600">Provence-Alpes-Côte d'Azur</h3>
                         <p class="text-gray-600 text-sm leading-relaxed">Bouches-du-Rhône (13), Var (83), Alpes-Maritimes (06), Vaucluse (84), Hautes-Alpes (05), Alpes-de-Haute-Provence (04)</p>
                         <a href="zones/paca.html" class="text-blue-600 text-sm font-medium mt-3 inline-block hover:underline">En savoir plus</a>
                     </div>
                     <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 hover:shadow-lg transition-shadow">
-                        <h3 class="text-xl font-bold mb-4 text-red-600">Hauts-de-France</h3>
+                        <h3 class="text-xl font-bold mb-4 text-blue-600">Hauts-de-France</h3>
                         <p class="text-gray-600 text-sm leading-relaxed">Nord (59), Pas-de-Calais (62), Somme (80), Oise (60), Aisne (02)</p>
                         <a href="zones/hauts-de-france.html" class="text-blue-600 text-sm font-medium mt-3 inline-block hover:underline">En savoir plus</a>
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Autres services -->
+        <section class="py-16 px-6 bg-white">
+            <div class="max-w-6xl mx-auto">
+                <h2 class="text-2xl font-bold text-center mb-8">Découvrez nos autres services</h2>
+                <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <a href="pilotage-projets.html" class="bg-gray-50 rounded-xl p-5 hover:shadow-lg transition-shadow text-center">
+                        <h3 class="font-bold text-sm mb-1">Pilotage de projets</h3>
+                        <p class="text-gray-500 text-xs">Coordination et suivi de vos projets IRVE</p>
+                    </a>
+                    <a href="exploitation.html" class="bg-gray-50 rounded-xl p-5 hover:shadow-lg transition-shadow text-center">
+                        <h3 class="font-bold text-sm mb-1">Exploitation</h3>
+                        <p class="text-gray-500 text-xs">Maintenance préventive et curative</p>
+                    </a>
+                    <a href="securisation-installations.html" class="bg-gray-50 rounded-xl p-5 hover:shadow-lg transition-shadow text-center">
+                        <h3 class="font-bold text-sm mb-1">Sécurisation</h3>
+                        <p class="text-gray-500 text-xs">Protection anti-vandalisme</p>
+                    </a>
+                    <a href="centre-appel.html" class="bg-gray-50 rounded-xl p-5 hover:shadow-lg transition-shadow text-center">
+                        <h3 class="font-bold text-sm mb-1">Support 24/7</h3>
+                        <p class="text-gray-500 text-xs">Hotline et télégestion</p>
+                    </a>
                 </div>
             </div>
         </section>
@@ -524,7 +566,7 @@
                     Obtenez un devis détaillé et personnalisé pour votre projet d'installation ou de remise en
                     conformité IRVE.
                 </p>
-                <a href="index.html#contact"
+                <a href="contact.html"
                     class="btn-primary px-10 py-5 rounded-xl font-medium text-lg inline-block hover:scale-105 transition-transform">
                     Demander un Devis
                 </a>
@@ -532,77 +574,80 @@
         </section>
     </main>
 
-    <footer class="border-t border-gray-200 py-20 px-6" role="contentinfo" aria-label="Pied de page">
-        <div class="max-w-7xl mx-auto">
-            <div class="grid md:grid-cols-4 gap-12 mb-12">
+    <footer class="border-t border-gray-100 py-16 px-6 bg-white" role="contentinfo" aria-label="Pied de page">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid md:grid-cols-4 gap-10 mb-12">
                 <div>
-                    <div class="flex items-center space-x-2 mb-6">
-                        <picture><source srcset="images/logo.webp" type="image/webp"><img src="images/logo.png" alt="Logo JCSM" class="w-8 h-8" loading="lazy" width="32"
-                            height="32"></picture>
-                        <span class="text-lg font-semibold">JCSM</span>
+                    <div class="flex items-center space-x-3 mb-4">
+                        <picture><source srcset="images/logo.webp" type="image/webp"><img src="images/logo.png" alt="Logo JCSM" class="w-8 h-8" width="32" height="32" loading="lazy"></picture>
+                        <span class="text-xl font-semibold text-gray-900">JCSM</span>
                     </div>
-                    <p class="text-sm text-gray-600 mb-4 font-medium">Dans l'IRVE depuis 2018</p>
-                    <p class="text-sm text-gray-600">60, rue François 1er<br>75008 Paris</p>
-                    <p class="mt-4 text-sm"><a href="mailto:contact@jcsm.fr"
-                            class="text-gray-900 font-medium hover:underline">contact@jcsm.fr</a></p>
+                    <p class="text-sm text-gray-600 mb-4">Votre partenaire de confiance depuis 2018 pour les infrastructures de recharge.</p>
+                    <p class="text-sm text-gray-500">60 rue François 1er<br>75008 Paris</p>
+                    <p class="text-sm text-gray-500 mt-3"><a href="tel:+33756962758" class="hover:text-gray-900 transition-colors">+33 7 56 96 27 58</a></p>
+                    <p class="text-sm text-gray-500"><a href="mailto:contact@jcsm.fr" class="hover:text-gray-900 transition-colors">contact@jcsm.fr</a></p>
                 </div>
                 <div>
-                    <h3 class="text-sm font-semibold mb-4 uppercase tracking-wide">Services</h3>
-                    <ul class="space-y-3">
-                        <li><a href="pilotage-projets.html"
-                                class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Pilotage</a></li>
-                        <li><a href="installation-conformite.html"
-                                class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Installation</a>
-                        </li>
-                        <li><a href="exploitation.html"
-                                class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Exploitation</a>
-                        </li>
-                        <li><a href="securisation-installations.html"
-                                class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Sécurisation</a>
-                        </li>
-                        <li><a href="centre-appel.html"
-                                class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Support</a></li>
-                    </ul>
+                    <h3 class="text-sm font-semibold text-gray-900 mb-4 uppercase tracking-wide">Services</h3>
+                    <nav aria-label="Services">
+                        <ul class="space-y-3">
+                            <li><a href="pilotage-projets.html" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Pilotage de projets</a></li>
+                            <li><a href="installation-conformite.html" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Installation & conformité</a></li>
+                            <li><a href="exploitation.html" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Exploitation & maintenance</a></li>
+                            <li><a href="securisation-installations.html" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Sécurisation</a></li>
+                            <li><a href="centre-appel.html" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Support 24/7</a></li>
+                        </ul>
+                    </nav>
                 </div>
                 <div>
-                    <h3 class="text-sm font-semibold mb-4 uppercase tracking-wide">Entreprise</h3>
-                    <ul class="space-y-3">
-                        <li><a href="a-propos.html"
-                                class="text-sm text-gray-600 hover:text-gray-900 transition-colors">À
-                                propos</a></li>
-                        <li><a href="carrieres.html"
-                                class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Carrières</a></li>
-                        <li><a href="index.html#contact"
-                                class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Contact</a></li>
-                        <li><a href="mentions-legales.html"
-                                class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Mentions légales</a>
-                        </li>
-                        <li><a href="confidentialite.html"
-                                class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Confidentialité</a>
-                        </li>
-                    </ul>
+                    <h3 class="text-sm font-semibold text-gray-900 mb-4 uppercase tracking-wide">Entreprise</h3>
+                    <nav aria-label="Entreprise">
+                        <ul class="space-y-3">
+                            <li><a href="a-propos.html" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">À propos</a></li>
+                            <li><a href="carrieres.html" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Carrières</a></li>
+                            <li><a href="contact.html" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Contact</a></li>
+                        </ul>
+                    </nav>
                 </div>
                 <div>
-                    <h3 class="text-sm font-semibold mb-4 uppercase tracking-wide">Suivez-nous</h3>
-                    <a href="https://www.linkedin.com/company/jcsm-elec/" target="_blank" rel="noopener noreferrer"
-                        class="inline-flex items-center text-sm text-gray-600 hover:text-gray-900 transition-colors group">
-                        <svg class="w-5 h-5 mr-2 group-hover:scale-110 transition-transform" fill="currentColor"
-                            viewBox="0 0 24 24">
-                            <path
-                                d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-                        </svg>
-                        <span class="font-medium">LinkedIn</span>
+                    <h3 class="text-sm font-semibold text-gray-900 mb-4 uppercase tracking-wide">Légal</h3>
+                    <nav aria-label="Légal">
+                        <ul class="space-y-3">
+                            <li><a href="mentions-legales.html" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Mentions légales</a></li>
+                            <li><a href="confidentialite.html" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Confidentialité</a></li>
+                            <li><a href="cgv.html" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">CGV</a></li>
+                        </ul>
+                    </nav>
+                    <h3 class="text-sm font-semibold text-gray-900 mb-4 uppercase tracking-wide mt-6">Zones</h3>
+                    <nav aria-label="Zones">
+                        <ul class="space-y-3">
+                            <li><a href="zones/ile-de-france.html" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Île-de-France</a></li>
+                            <li><a href="zones/paca.html" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">PACA</a></li>
+                            <li><a href="zones/auvergne-rhone-alpes.html" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Auvergne-Rhône-Alpes</a></li>
+                            <li><a href="zones/occitanie.html" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Occitanie</a></li>
+                            <li><a href="zones/nouvelle-aquitaine.html" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Nouvelle-Aquitaine</a></li>
+                            <li><a href="zones/hauts-de-france.html" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Hauts-de-France</a></li>
+                            <li><a href="zones/belgique.html" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Belgique</a></li>
+                        </ul>
+                    </nav>
+                    <a href="https://www.linkedin.com/company/jcsm-elec/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center mt-4 text-sm text-gray-600 hover:text-blue-600 transition-colors" aria-label="Suivre JCSM sur LinkedIn">
+                        <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                        LinkedIn
                     </a>
                 </div>
             </div>
-            <div class="pt-8 border-t border-gray-200 text-center">
-                <p class="text-sm text-gray-500">© 2026 JCSM SAS - Tous droits réservés.</p>
+            <div class="pt-8 border-t border-gray-100 flex flex-col md:flex-row md:items-center md:justify-between gap-4 text-xs text-gray-500">
+                <span>© 2026 JCSM SAS — SIRET 99387429600011</span>
+                <span><a href="mailto:contact@jcsm.fr" class="hover:text-gray-900 transition-colors">contact@jcsm.fr</a> · <a href="tel:+33756962758" class="hover:text-gray-900 transition-colors">+33 7 56 96 27 58</a></span>
             </div>
         </div>
     </footer>
 
-
-
+    <button class="scroll-top glow-border" id="scrollTop" aria-label="Retour en haut de la page">
+        <svg class="w-6 h-6 float-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+        </svg>
+    </button>
 
     <style>
         #map {
@@ -611,65 +656,27 @@
             border-radius: 1rem;
             z-index: 1;
         }
-        .custom-marker { background: transparent !important; border: none !important; }
-        .marker-wrapper {
-            position: relative;
-            width: 32px;
-            height: 42px;
-            display: flex;
-            align-items: flex-start;
-            justify-content: center;
-            filter: drop-shadow(0 3px 6px rgba(37,99,235,0.4));
-            transition: filter 0.25s ease;
-        }
-        .marker-pin {
-            width: 32px;
-            height: 32px;
-            border-radius: 50% 50% 50% 0;
-            background: linear-gradient(145deg, #3B82F6, #1D4ED8);
-            transform: rotate(-45deg);
-            border: 3px solid #fff;
-            position: relative;
-            transition: all 0.25s cubic-bezier(.4,0,.2,1);
-        }
-        .marker-pin::after {
-            content: '';
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background: #fff;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-        }
-        .marker-shadow {
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 16px;
-            height: 6px;
-            border-radius: 50%;
-            background: rgba(0,0,0,0.18);
-            filter: blur(2px);
-        }
-        .marker-wrapper:hover { filter: drop-shadow(0 4px 10px rgba(37,99,235,0.55)); }
-        .marker-wrapper:hover .marker-pin { transform: rotate(-45deg) scale(1.12); background: linear-gradient(145deg, #2563EB, #1E40AF); }
-        .leaflet-popup-content-wrapper { border-radius: 14px !important; box-shadow: 0 8px 30px rgba(0,0,0,0.12) !important; padding: 0 !important; border: 1px solid rgba(0,0,0,0.06) !important; }
-        .leaflet-popup-content { margin: 0 !important; min-width: 180px; }
-        .leaflet-popup-tip { box-shadow: none !important; }
+        /* === Tailwind CDN preflight overrides for Leaflet === */
+        #map .leaflet-container img { max-width: none; max-height: none; }
+        #map .leaflet-container a { color: inherit; text-decoration: none; }
+        #map .leaflet-control-attribution { color: #333; background: rgba(255,255,255,0.85); font-size: 11px; padding: 2px 6px; }
+        #map .leaflet-control-attribution a { color: #0078A8; text-decoration: underline; }
+        #map .leaflet-control-zoom a { color: #333; background: #fff; text-decoration: none; }
+        #map .leaflet-interactive { cursor: pointer; }
+        #map .leaflet-popup-content-wrapper { border-radius: 14px; box-shadow: 0 8px 30px rgba(0,0,0,0.12); padding: 0; border: 1px solid rgba(0,0,0,0.06); }
+        #map .leaflet-popup-content { margin: 0; min-width: 180px; }
+        #map .leaflet-popup-tip { box-shadow: none; }
         .popup-content { padding: 16px 20px; }
         .popup-content h3 { font-size: 15px; font-weight: 700; color: #1e293b; margin-bottom: 4px; }
         .popup-content p { font-size: 12px; color: #64748b; margin: 0; }
         .popup-content .popup-badge { display: inline-block; margin-top: 8px; padding: 3px 10px; background: #EFF6FF; color: #2563EB; border-radius: 8px; font-size: 11px; font-weight: 600; }
     </style>
 
-    <script src="js/config.js"></script>
-    <script src="js/utils.js" defer></script>
-    <script src="js/public.js" defer></script>
-    <script src="js/analytics.js" defer></script>
-    <script src="js/wow-effects.js" defer></script>
+    <script src="js/config.js?v=23"></script>
+    <script src="js/utils.js?v=23" defer></script>
+    <script src="js/public.js?v=23" defer></script>
+    <script src="js/analytics.js?v=23" defer></script>
+    <script src="js/wow-effects.js?v=23" defer></script>
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
@@ -716,12 +723,14 @@
             ];
 
             cities.forEach(city => {
-                const icon = L.divIcon({
-                    className: 'custom-marker',
-                    html: `<div class="marker-wrapper"><div class="marker-pin"></div><div class="marker-shadow"></div></div>`,
-                    iconSize: [32, 42], iconAnchor: [16, 42], popupAnchor: [0, -38]
-                });
-                L.marker([city.lat, city.lng], { icon })
+                L.circleMarker([city.lat, city.lng], {
+                    radius: 7,
+                    fillColor: '#2563EB',
+                    fillOpacity: 1,
+                    color: '#fff',
+                    weight: 2.5,
+                    opacity: 1
+                })
                     .bindPopup(`<div class="popup-content"><h3>${city.name}</h3><p>Zone d'intervention JCSM</p><span class="popup-badge">Installation & Conformité</span></div>`)
                     .addTo(map);
             });
@@ -733,7 +742,7 @@
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
                 navigator.serviceWorker.register('/sw.js')
-                    .catch((error) => console.log('SW registration failed'));
+                    .catch(() => {});
             });
         }
     </script>

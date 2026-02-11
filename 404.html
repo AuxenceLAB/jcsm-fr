@@ -3,15 +3,16 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>404 - Perdu dans l'espace | JCSM</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>404 - Page introuvable | JCSM</title>
     <meta name="robots" content="noindex, follow">
+    <meta property="og:site_name" content="JCSM - Infrastructure de Recharge">
     <link rel="icon" type="image/png" href="images/logo.png">
     <link rel="manifest" href="manifest.json">
 
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
-    <script src="js/config.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="js/config.js?v=23"></script>
 
     <style>
         body {
@@ -57,7 +58,7 @@
         /* Glitch Text */
         .glitch-text {
             font-size: 8rem;
-            font-weight: 900;
+            font-weight: 800;
             position: relative;
             text-shadow: 2px 2px #2563EB, -2px -2px #FF0080;
             animation: glitch 3s infinite;
@@ -105,41 +106,52 @@
 </head>
 
 <body class="h-full flex items-center justify-center relative">
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:bg-white focus:text-black focus:px-4 focus:py-2 focus:rounded-lg">Aller au contenu principal</a>
 
     <!-- Stars Background -->
     <div class="stars" id="stars"></div>
 
-    <main class="relative z-10 text-center px-4">
+    <main id="main-content" class="relative z-10 text-center px-4">
         <div class="mb-8 floating">
-            <span class="text-6xl" role="img" aria-label="Fusée">🚀</span>
+            <span class="text-6xl" role="img" aria-label="Prise de recharge">🔌</span>
         </div>
 
         <h1 class="glitch-text mb-4 leading-none">404</h1>
 
         <h2
-            class="text-2xl md:text-3xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500">
-            Houston, on a un problème...
+            class="text-2xl md:text-3xl font-bold mb-6 text-blue-500">
+            Cette page s'est débranchée...
         </h2>
 
-        <p class="text-gray-400 text-lg mb-10 max-w-md mx-auto">
-            La page que vous cherchez a peut-être été aspirée par un trou noir ou n'existe pas.
+        <p class="text-gray-500 text-lg mb-10 max-w-md mx-auto">
+            Pas de courant ici. La page que vous cherchez a été déplacée ou n'existe plus, mais notre réseau reste bien connecté.
         </p>
 
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
             <a href="index.html"
                 class="group relative px-8 py-4 bg-white text-black font-bold rounded-full overflow-hidden transition-transform hover:scale-105 active:scale-95">
-                <span class="relative z-10 group-hover:text-blue-600 transition-colors">Retour sur Terre</span>
+                <span class="relative z-10 group-hover:text-blue-600 transition-colors">Revenir à l'accueil</span>
                 <div
                     class="absolute inset-0 bg-blue-100 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left">
                 </div>
             </a>
 
-            <a href="index.html#contact"
+            <a href="contact.html"
                 class="px-8 py-4 border border-white/20 rounded-full hover:bg-white/10 transition-colors backdrop-blur-sm">
-                Signaler une anomalie
+                Nous contacter
             </a>
         </div>
     </main>
+
+    <footer class="absolute bottom-4 left-0 right-0 text-center z-10" role="contentinfo" aria-label="Pied de page">
+        <p class="text-xs text-gray-600">© 2026 JCSM SAS</p>
+    </footer>
+
+    <button class="scroll-top glow-border" id="scrollTop" aria-label="Retour en haut de la page">
+        <svg class="w-6 h-6 float-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+        </svg>
+    </button>
 
     <noscript><p style="text-align:center;color:#9ca3af;margin-top:2rem;">JavaScript est requis pour cette page.</p></noscript>
     <script>
@@ -165,7 +177,7 @@
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
                 navigator.serviceWorker.register('/sw.js')
-                    .catch((error) => console.log('SW registration failed'));
+                    .catch(() => {});
             });
         }
     </script>

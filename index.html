@@ -3,14 +3,13 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>JCSM – Pilotage, installation & maintenance IRVE pour CPO, EMSP et exploitants</title>
     <meta name="description"
-        content="JCSM, expert IRVE depuis 2018 : pilotage de projets, installation certifiée Qualifelec, maintenance et support 24/7 pour bornes de recharge. Accompagnement CPO, EMSP et grands comptes en France.">
+        content="JCSM, expert IRVE depuis 2018 : pilotage de projets, installation certifiée Qualifelec, maintenance et support 24/7 pour bornes de recharge. Accompagnement CPO, EMSP et grands comptes en France et Belgique.">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://jcsm.fr/">
-    <meta property="og:url" content="https://jcsm.fr/">
-    <link rel="preload" as="image" href="images/index.jpg">
+    <link rel="preload" as="image" href="images/index.webp" type="image/webp">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
@@ -22,6 +21,7 @@
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:locale" content="fr_FR">
+    <meta property="og:site_name" content="JCSM - Infrastructure de Recharge">
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
@@ -84,8 +84,19 @@
         "https://www.linkedin.com/company/jcsm-elec/"
       ],
       "foundingDate": "2018",
-      "areaServed": "FR",
-      "serviceType": "IRVE Services"
+      "areaServed": ["FR", "BE"],
+      "serviceType": "IRVE Services",
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Services IRVE JCSM",
+        "itemListElement": [
+          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Pilotage de Projets IRVE", "url": "https://jcsm.fr/pilotage-projets"}},
+          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Installation & Conformité IRVE", "url": "https://jcsm.fr/installation-conformite"}},
+          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Exploitation & Maintenance IRVE", "url": "https://jcsm.fr/exploitation"}},
+          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Sécurisation Installations IRVE", "url": "https://jcsm.fr/securisation-installations"}},
+          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Support Client IRVE 24/7", "url": "https://jcsm.fr/centre-appel"}}
+        ]
+      }
     }
     </script>
     <script type="application/ld+json">
@@ -97,8 +108,15 @@
         "@type": "Organization",
         "name": "JCSM"
       },
-      "serviceType": "Conception, installation, exploitation, sécurisation et support d'infrastructures de recharge",
-      "areaServed": "FR",
+      "serviceType": [
+        "Installation bornes de recharge IRVE",
+        "Maintenance bornes de recharge",
+        "Maintenance transformateurs HTA/BT",
+        "Pilotage de projets IRVE",
+        "Sécurisation installations IRVE",
+        "Support client IRVE 24/7"
+      ],
+      "areaServed": ["FR", "BE"],
       "url": "https://jcsm.fr",
       "description": "Service complet IRVE couvrant la chaîne de valeur : pilotage de projets, installation, mise en service et maintenance, sécurisation et support technique 24/7."
     }
@@ -143,10 +161,28 @@
       ]
     }
     </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SiteNavigationElement",
+      "name": ["Pilotage de Projets", "Installation & Conformité", "Exploitation & Maintenance", "Sécurisation", "Support 24/7", "À Propos", "Contact"],
+      "url": [
+        "https://jcsm.fr/pilotage-projets",
+        "https://jcsm.fr/installation-conformite",
+        "https://jcsm.fr/exploitation",
+        "https://jcsm.fr/securisation-installations",
+        "https://jcsm.fr/centre-appel",
+        "https://jcsm.fr/a-propos",
+        "https://jcsm.fr/contact"
+      ]
+    }
+    </script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+    <link rel="preconnect" href="https://cdn.tailwindcss.com">
+    <link rel="dns-prefetch" href="https://formspree.io">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
         rel="stylesheet">
 
     <script src="https://cdn.tailwindcss.com"></script>
@@ -163,7 +199,7 @@
             }
         }
     </script>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css?v=23">
     <link rel="icon" type="image/png" href="images/logo.png">
 
     <!-- PWA -->
@@ -283,7 +319,7 @@
                     class="text-base text-gray-600 hover:text-gray-900 transition-colors">Support</a>
                 <a href="a-propos.html" class="text-base text-gray-600 hover:text-gray-900 transition-colors">À
                     propos</a>
-                <a href="index.html#contact"
+                <a href="contact.html"
                     class="btn-primary px-6 py-3 rounded-lg text-base font-medium inline-block text-center mt-4">Contact</a>
             </div>
         </div>
@@ -294,7 +330,7 @@
         class="fixed top-0 left-0 h-1 bg-blue-600 z-[60] transition-all duration-150"
         style="width: 0%;"></div>
 
-    <nav class="fixed w-full z-50 glass-nav" role="navigation" aria-label="Navigation principale">
+    <nav class="fixed top-0 w-full z-50 glass-nav" role="navigation" aria-label="Navigation principale">
         <div class="max-w-7xl mx-auto px-6 py-4">
             <div class="flex justify-between items-center">
                 <a href="index.html" class="flex items-center space-x-3 group">
@@ -321,7 +357,7 @@
                     <a href="a-propos.html"
                         class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300 hover:scale-105">À
                         propos</a>
-                    <a href="index.html#contact" data-magnetic
+                    <a href="contact.html" data-magnetic
                         class="btn-primary px-7 py-2.5 rounded-xl text-base font-medium shadow-lg hover:shadow-xl">Contact</a>
                 </div>
                 <button class="mobile-menu-btn text-gray-600 hover:text-gray-900" id="mobile-menu-btn"
@@ -342,21 +378,21 @@
                 <div class="grid lg:grid-cols-2 gap-5 sm:gap-7 lg:gap-10 items-center">
                     <div class="space-y-4 sm:space-y-5 md:space-y-6 order-1 lg:order-1">
                         <div class="inline-flex items-center space-x-2 bg-gray-100 rounded-full px-3 py-1.5 sm:px-4 sm:py-2 section-appear">
-                            <span class="text-[10px] sm:text-xs font-semibold text-gray-600 uppercase tracking-wide">Expert IRVE depuis 2018</span>
+                            <span class="text-[10px] sm:text-xs font-semibold text-gray-600 uppercase tracking-wide">Excellence IRVE depuis 2018</span>
                         </div>
                         <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight tracking-tight section-appear">
-                            Maîtrisez votre<br><span class="text-blue-600">infrastructure de recharge</span></h1>
+                            Votre infrastructure de recharge<br><span class="text-blue-600">mérite l'excellence</span></h1>
                         <p class="text-sm sm:text-base md:text-lg text-gray-600 leading-snug section-appear">
-                            Du pilotage de projet à la maintenance terrain, nous accompagnons CPO, EMSP et grands comptes sur toute la chaîne de valeur IRVE.
+                            Pilotage, installation, exploitation et support 24/7 en France et Belgique : nous prenons en charge l'intégralité de votre chaîne IRVE pour garantir performance et disponibilité maximales.
                         </p>
                         <div class="flex flex-wrap gap-2 sm:gap-3 section-appear">
-                            <a href="index.html#contact"
+                            <a href="contact.html"
                                 class="btn-primary px-4 py-2 sm:px-6 sm:py-3 rounded-xl font-medium text-xs sm:text-sm">
-                                Demander un devis
+                                Obtenir une étude personnalisée
                             </a>
                             <a href="#services"
                                 class="btn-secondary px-4 py-2 sm:px-6 sm:py-3 rounded-xl font-medium text-xs sm:text-sm">
-                                Découvrir nos services
+                                Explorer nos expertises
                             </a>
                         </div>
                     </div>
@@ -365,7 +401,7 @@
                             <picture>
                                 <source srcset="images/index.webp" type="image/webp">
                                 <img id="hero-image" src="images/index.jpg" fetchpriority="high"
-                                    alt="Borne de recharge électrique IRVE professionnelle installée par JCSM"
+                                    alt="Infrastructure de recharge pour véhicules électriques déployée et maintenue par JCSM, expert IRVE certifié"
                                     class="w-full h-auto max-h-[200px] sm:max-h-[300px] md:max-h-[400px] lg:max-h-[500px] object-cover rounded-2xl shadow-2xl"
                                     width="1200" height="800" loading="eager">
                             </picture>
@@ -380,10 +416,10 @@
             <div class="max-w-6xl mx-auto">
                 <div class="text-center mb-20 section-appear">
                     <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-6">
-                        Une expertise complète
+                        Une maîtrise complète de la chaîne IRVE
                     </h2>
                     <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                        Accompagnement sur l'ensemble de la chaîne de valeur IRVE, du cadrage initial à l'exploitation quotidienne.
+                        De la conception à l'exploitation terrain, chaque maillon de votre infrastructure est couvert par une expertise éprouvée sur plus de 1 500 interventions par an.
                     </p>
                 </div>
 
@@ -393,7 +429,7 @@
                             <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"/></svg>
                         </div>
                         <h3 class="font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">Pilotage</h3>
-                        <p class="text-gray-600 text-sm leading-relaxed">Cadrage, planning et coordination de vos déploiements</p>
+                        <p class="text-gray-600 text-sm leading-relaxed">Cadrage stratégique, planning rigoureux et coordination experte de vos déploiements multi-sites</p>
                     </a>
 
                     <a href="installation-conformite.html" class="group card-hover bg-white rounded-2xl p-6 border border-gray-200 section-appear">
@@ -401,7 +437,7 @@
                             <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
                         </div>
                         <h3 class="font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">Installation</h3>
-                        <p class="text-gray-600 text-sm leading-relaxed">Pose, raccordement et conformité NF C 15-100</p>
+                        <p class="text-gray-600 text-sm leading-relaxed">Pose certifiée, raccordement sécurisé et conformité NF C 15-100 garantie</p>
                     </a>
 
                     <a href="exploitation.html" class="group card-hover bg-white rounded-2xl p-6 border border-gray-200 section-appear">
@@ -409,7 +445,7 @@
                             <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
                         </div>
                         <h3 class="font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">Exploitation</h3>
-                        <p class="text-gray-600 text-sm leading-relaxed">Mise en service et maintenance préventive</p>
+                        <p class="text-gray-600 text-sm leading-relaxed">Maintenance bornes et transformateurs HTA/BT, mise en service optimisée pour une disponibilité maximale</p>
                     </a>
 
                     <a href="securisation-installations.html" class="group card-hover bg-white rounded-2xl p-6 border border-gray-200 section-appear">
@@ -417,7 +453,7 @@
                             <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
                         </div>
                         <h3 class="font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">Sécurisation</h3>
-                        <p class="text-gray-600 text-sm leading-relaxed">Protection anti-vandalisme et surveillance</p>
+                        <p class="text-gray-600 text-sm leading-relaxed">Protection avancée anti-vandalisme et surveillance proactive de vos équipements</p>
                     </a>
 
                     <a href="centre-appel.html" class="group card-hover bg-white rounded-2xl p-6 border border-gray-200 section-appear">
@@ -425,41 +461,41 @@
                             <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
                         </div>
                         <h3 class="font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">Support</h3>
-                        <p class="text-gray-600 text-sm leading-relaxed">Hotline IRVE 24/7, marque blanche disponible</p>
+                        <p class="text-gray-600 text-sm leading-relaxed">Hotline IRVE 24/7 et assistance marque blanche pour vos utilisateurs</p>
                     </a>
                 </div>
 
                 <!-- Nous accompagnons - inline sous les services -->
                 <div class="mt-16 pt-12 border-t border-gray-100">
-                    <h3 class="text-center text-xl font-bold tracking-tight mb-10 section-appear">Nous accompagnons</h3>
+                    <h3 class="text-center text-xl font-bold tracking-tight mb-10 section-appear">Des acteurs majeurs nous font confiance</h3>
                     <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
                         <div class="text-center section-appear">
                             <div class="w-12 h-12 bg-gray-100 rounded-xl flex items-center justify-center text-gray-700 mb-3 mx-auto">
                                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
                             </div>
                             <h4 class="font-semibold text-gray-900 text-sm mb-1">CPO & EMSP</h4>
-                            <p class="text-gray-500 text-xs leading-relaxed">Opérateurs de charge</p>
+                            <p class="text-gray-500 text-xs leading-relaxed">Opérateurs de réseaux de recharge</p>
                         </div>
                         <div class="text-center section-appear">
                             <div class="w-12 h-12 bg-gray-100 rounded-xl flex items-center justify-center text-gray-700 mb-3 mx-auto">
                                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
                             </div>
                             <h4 class="font-semibold text-gray-900 text-sm mb-1">Fabricants</h4>
-                            <p class="text-gray-500 text-xs leading-relaxed">Bornes AC et DC</p>
+                            <p class="text-gray-500 text-xs leading-relaxed">Constructeurs de bornes AC et DC</p>
                         </div>
                         <div class="text-center section-appear">
                             <div class="w-12 h-12 bg-gray-100 rounded-xl flex items-center justify-center text-gray-700 mb-3 mx-auto">
                                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
                             </div>
                             <h4 class="font-semibold text-gray-900 text-sm mb-1">Grands comptes</h4>
-                            <p class="text-gray-500 text-xs leading-relaxed">Retail, tertiaire, flottes</p>
+                            <p class="text-gray-500 text-xs leading-relaxed">Retail, tertiaire et gestionnaires de flottes</p>
                         </div>
                         <div class="text-center section-appear">
                             <div class="w-12 h-12 bg-gray-100 rounded-xl flex items-center justify-center text-gray-700 mb-3 mx-auto">
                                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
                             </div>
                             <h4 class="font-semibold text-gray-900 text-sm mb-1">Exploitants</h4>
-                            <p class="text-gray-500 text-xs leading-relaxed">Parcs multi-marques</p>
+                            <p class="text-gray-500 text-xs leading-relaxed">Parcs multi-marques et multi-sites</p>
                         </div>
                     </div>
                 </div>
@@ -471,56 +507,54 @@
             <div class="max-w-7xl mx-auto">
                 <div class="text-center mb-16 section-appear">
                     <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-4">
-                        Performance garantie
+                        Des résultats qui parlent d'eux-mêmes
                     </h2>
                 </div>
                 <div class="grid md:grid-cols-4 gap-12 text-center">
                     <div class="section-appear">
-                        <div class="text-6xl font-bold mb-3">1500<span class="text-4xl text-gray-400">+</span></div>
-                        <p class="text-sm text-gray-600 font-semibold uppercase tracking-wide">Interventions/an</p>
+                        <div class="text-6xl font-bold mb-3">1500<span class="text-4xl text-gray-500">+</span></div>
+                        <p class="text-sm text-gray-600 font-semibold uppercase tracking-wide">Interventions par an</p>
                     </div>
                     <div class="section-appear">
-                        <div class="text-6xl font-bold mb-3">98<span class="text-4xl text-gray-400">%</span></div>
-                        <p class="text-sm text-gray-600 font-semibold uppercase tracking-wide">Satisfaction</p>
+                        <div class="text-6xl font-bold mb-3">98<span class="text-4xl text-gray-500">%</span></div>
+                        <p class="text-sm text-gray-600 font-semibold uppercase tracking-wide">Satisfaction client</p>
                     </div>
                     <div class="section-appear">
-                        <div class="text-6xl font-bold mb-3">&lt;4<span class="text-4xl text-gray-400">h</span></div>
-                        <p class="text-sm text-gray-600 font-semibold uppercase tracking-wide">Temps de réponse</p>
+                        <div class="text-6xl font-bold mb-3">&lt;4<span class="text-4xl text-gray-500">h</span></div>
+                        <p class="text-sm text-gray-600 font-semibold uppercase tracking-wide">Délai d'intervention moyen</p>
                     </div>
                     <div class="section-appear">
-                        <div class="text-6xl font-bold mb-3">24<span class="text-4xl text-gray-400">/7</span></div>
-                        <p class="text-sm text-gray-600 font-semibold uppercase tracking-wide">Support actif</p>
+                        <div class="text-6xl font-bold mb-3">24<span class="text-4xl text-gray-500">/7</span></div>
+                        <p class="text-sm text-gray-600 font-semibold uppercase tracking-wide">Support technique actif</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Partners -->
-        <section class="py-20 px-6 bg-white" style="overflow: hidden;">
+        <section class="py-20 px-6 bg-white overflow-hidden">
             <div class="max-w-7xl mx-auto mb-12 text-center section-appear">
                 <h2 class="text-2xl md:text-3xl font-bold tracking-tight mb-2">
-                    Ils nous font confiance
+                    Ils s'appuient sur notre expertise
                 </h2>
             </div>
 
-            <div class="logo-marquee" style="width: 100%; max-width: 100%; box-sizing: border-box;">
+            <div class="logo-marquee w-full max-w-full box-border">
                 <div class="logo-marquee-track">
                     <div
                         class="logo-item flex items-center justify-center px-6 py-4 min-w-[140px]">
                         <picture><source srcset="images/equans.webp" type="image/webp"><img loading="lazy" src="images/equans.png" alt="Logo Equans - Partenaire Installation Borne Electrique"
-                            width="128" height="64" class="h-14 w-auto opacity-80 hover:opacity-100 transition-all duration-300"
-                            loading="lazy"></picture>
+                            width="128" height="64" class="h-14 w-auto opacity-80 hover:opacity-100 transition-all duration-300"></picture>
                     </div>
                     <div
                         class="logo-item flex items-center justify-center px-6 py-4 min-w-[140px]">
                         <picture><source srcset="images/powerdot.webp" type="image/webp"><img loading="lazy" src="images/powerdot.png" alt="Logo Powerdot - Infrastructures de Recharge Haute Puissance"
-                            width="128" height="64" class="h-14 w-auto opacity-80 hover:opacity-100 transition-all duration-300"
-                            loading="lazy"></picture>
+                            width="128" height="64" class="h-14 w-auto opacity-80 hover:opacity-100 transition-all duration-300"></picture>
                     </div>
                     <div
                         class="logo-item flex items-center justify-center px-6 py-4 min-w-[140px]">
                         <picture><source srcset="images/freshmile.webp" type="image/webp"><img loading="lazy" src="images/freshmile.png" alt="Logo Freshmile - Opérateur de Recharge IRVE" width="128"
-                            height="64" class="h-14 w-auto opacity-80 hover:opacity-100 transition-all duration-300" loading="lazy"></picture>
+                            height="64" class="h-14 w-auto opacity-80 hover:opacity-100 transition-all duration-300"></picture>
                     </div>
                     <div
                         class="logo-item flex items-center justify-center px-6 py-4 min-w-[140px]">
@@ -540,7 +574,7 @@
                     <div
                         class="logo-item flex items-center justify-center px-6 py-4 min-w-[140px]">
                         <picture><source srcset="images/bouygues.webp" type="image/webp"><img loading="lazy" src="images/bouygues.png" alt="Logo Bouygues - Partenaire Grands Projets IRVE" width="128"
-                            height="64" class="h-14 w-auto opacity-80 hover:opacity-100 transition-all duration-300" loading="lazy"></picture>
+                            height="64" class="h-14 w-auto opacity-80 hover:opacity-100 transition-all duration-300"></picture>
                     </div>
                     <div
                         class="logo-item flex items-center justify-center px-6 py-4 min-w-[140px]">
@@ -555,7 +589,7 @@
                     <div
                         class="logo-item flex items-center justify-center px-6 py-4 min-w-[140px]">
                         <picture><source srcset="images/bump.webp" type="image/webp"><img loading="lazy" src="images/bump.png" alt="Logo Bump - Réseau de Recharge Rapide" width="128"
-                            height="64" class="h-14 w-auto opacity-80 hover:opacity-100 transition-all duration-300" loading="lazy"></picture>
+                            height="64" class="h-14 w-auto opacity-80 hover:opacity-100 transition-all duration-300"></picture>
                     </div>
                     <div
                         class="logo-item flex items-center justify-center px-6 py-4 min-w-[140px]">
@@ -595,7 +629,7 @@
             <div class="max-w-3xl mx-auto">
                 <div class="text-center mb-16 section-appear">
                     <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-4">
-                        Questions fréquentes
+                        Vos questions, nos engagements
                     </h2>
                 </div>
                 <div class="space-y-3" role="region" aria-label="Questions fréquentes">
@@ -603,7 +637,7 @@
                     <details class="group bg-white border border-gray-200 rounded-xl p-5 hover:border-gray-300 transition-colors">
                         <summary class="font-medium text-gray-900 cursor-pointer flex items-center justify-between list-none [&::-webkit-details-marker]:hidden" aria-expanded="false">
                             <span>Pilotage de projets</span>
-                            <svg class="w-5 h-5 text-gray-400 transition-transform duration-200 group-open:rotate-45" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4v16m8-8H4"/></svg>
+                            <svg class="w-5 h-5 text-gray-500 transition-transform duration-200 group-open:rotate-45" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4v16m8-8H4"/></svg>
                         </summary>
                         <div class="mt-4 space-y-3 text-gray-600 leading-relaxed text-sm">
                             <p><strong>À quel moment faites-vous intervenir JCSM&nbsp;?</strong><br>Idéalement dès la
@@ -622,9 +656,9 @@
                     </details>
                     <!-- Installation -->
                     <details class="group bg-white border border-gray-200 rounded-xl p-5 hover:border-gray-300 transition-colors">
-                        <summary class="font-medium text-gray-900 cursor-pointer flex items-center justify-between list-none [&::-webkit-details-marker]:hidden">
+                        <summary aria-expanded="false" class="font-medium text-gray-900 cursor-pointer flex items-center justify-between list-none [&::-webkit-details-marker]:hidden">
                             <span>Installation & conformité</span>
-                            <svg class="w-5 h-5 text-gray-400 transition-transform duration-200 group-open:rotate-45" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4v16m8-8H4"/></svg>
+                            <svg class="w-5 h-5 text-gray-500 transition-transform duration-200 group-open:rotate-45" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4v16m8-8H4"/></svg>
                         </summary>
                         <div class="mt-4 space-y-3 text-gray-600 leading-relaxed text-sm">
                             <p><strong>Que vérifiez-vous avant la mise en service&nbsp;?</strong><br>Schémas,
@@ -643,9 +677,9 @@
                     </details>
                     <!-- Exploitation -->
                     <details class="group bg-white border border-gray-200 rounded-xl p-5 hover:border-gray-300 transition-colors">
-                        <summary class="font-medium text-gray-900 cursor-pointer flex items-center justify-between list-none [&::-webkit-details-marker]:hidden">
+                        <summary aria-expanded="false" class="font-medium text-gray-900 cursor-pointer flex items-center justify-between list-none [&::-webkit-details-marker]:hidden">
                             <span>Exploitation & maintenance</span>
-                            <svg class="w-5 h-5 text-gray-400 transition-transform duration-200 group-open:rotate-45" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4v16m8-8H4"/></svg>
+                            <svg class="w-5 h-5 text-gray-500 transition-transform duration-200 group-open:rotate-45" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4v16m8-8H4"/></svg>
                         </summary>
                         <div class="mt-4 space-y-3 text-gray-600 leading-relaxed text-sm">
                             <p><strong>Dans quels délais pouvez-vous intervenir&nbsp;?</strong><br>Les délais dépendent
@@ -663,9 +697,9 @@
                     </details>
                     <!-- Sécurisation -->
                     <details class="group bg-white border border-gray-200 rounded-xl p-5 hover:border-gray-300 transition-colors">
-                        <summary class="font-medium text-gray-900 cursor-pointer flex items-center justify-between list-none [&::-webkit-details-marker]:hidden">
+                        <summary aria-expanded="false" class="font-medium text-gray-900 cursor-pointer flex items-center justify-between list-none [&::-webkit-details-marker]:hidden">
                             <span>Sécurisation des installations</span>
-                            <svg class="w-5 h-5 text-gray-400 transition-transform duration-200 group-open:rotate-45" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4v16m8-8H4"/></svg>
+                            <svg class="w-5 h-5 text-gray-500 transition-transform duration-200 group-open:rotate-45" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4v16m8-8H4"/></svg>
                         </summary>
                         <div class="mt-4 space-y-3 text-gray-600 leading-relaxed text-sm">
                             <p><strong>À partir de quand est-il pertinent de sécuriser un site&nbsp;?</strong><br>Dès
@@ -682,9 +716,9 @@
                     </details>
                     <!-- Support -->
                     <details class="group bg-white border border-gray-200 rounded-xl p-5 hover:border-gray-300 transition-colors">
-                        <summary class="font-medium text-gray-900 cursor-pointer flex items-center justify-between list-none [&::-webkit-details-marker]:hidden">
+                        <summary aria-expanded="false" class="font-medium text-gray-900 cursor-pointer flex items-center justify-between list-none [&::-webkit-details-marker]:hidden">
                             <span>Support & utilisateurs finaux</span>
-                            <svg class="w-5 h-5 text-gray-400 transition-transform duration-200 group-open:rotate-45" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4v16m8-8H4"/></svg>
+                            <svg class="w-5 h-5 text-gray-500 transition-transform duration-200 group-open:rotate-45" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4v16m8-8H4"/></svg>
                         </summary>
                         <div class="mt-4 space-y-3 text-gray-600 leading-relaxed text-sm">
                             <p><strong>Intervenez-vous en marque blanche&nbsp;?</strong><br>Oui, nous opérons en marque
@@ -711,10 +745,10 @@
             <div class="max-w-4xl mx-auto">
                 <div class="text-center mb-16 section-appear">
                     <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-6">
-                        Parlons de votre projet
+                        Concrétisons votre projet IRVE
                     </h2>
                     <p class="text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto">
-                        Réponse sous 24h par un expert technique IRVE
+                        Un expert technique dédié vous répond sous 24h avec une analyse personnalisée
                     </p>
                 </div>
 
@@ -723,22 +757,26 @@
                         <div id="formMessage" class="hidden p-3 rounded-lg mb-4 text-center text-sm"></div>
                         <div class="grid sm:grid-cols-2 gap-4">
                             <div>
-                                <input type="text" name="nom" id="nom" placeholder="Nom *" aria-label="Votre nom" required
+                                <label for="nom" class="sr-only">Votre nom</label>
+                                <input type="text" name="nom" id="nom" placeholder="Nom *" required autocomplete="name"
                                     class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:border-blue-400 text-sm transition-colors">
                                 <span class="error-message hidden text-red-500 text-xs mt-1 block"></span>
                             </div>
                             <div>
-                                <input type="text" name="entreprise" id="entreprise" placeholder="Entreprise" aria-label="Votre entreprise"
+                                <label for="entreprise" class="sr-only">Votre entreprise</label>
+                                <input type="text" name="entreprise" id="entreprise" placeholder="Entreprise" autocomplete="organization"
                                     class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:border-blue-400 text-sm transition-colors">
                             </div>
                         </div>
                         <div>
-                            <input type="email" name="email" id="email" placeholder="Email *" aria-label="Votre email" required
+                            <label for="email" class="sr-only">Votre email</label>
+                            <input type="email" name="email" id="email" placeholder="Email *" required autocomplete="email"
                                 class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:border-blue-400 text-sm transition-colors">
                             <span class="error-message hidden text-red-500 text-xs mt-1 block"></span>
                         </div>
                         <div>
-                            <textarea name="message" id="message" placeholder="Votre message *" rows="4" aria-label="Votre message" required
+                            <label for="message" class="sr-only">Votre message</label>
+                            <textarea name="message" id="message" placeholder="Votre message *" rows="4" required
                                 class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:border-blue-400 text-sm resize-none transition-colors"></textarea>
                             <span class="error-message hidden text-red-500 text-xs mt-1 block"></span>
                         </div>
@@ -752,7 +790,7 @@
                             <span class="error-message hidden text-red-500 text-xs mt-1 block"></span>
                         </div>
                         <button type="submit" class="btn-primary w-full py-3.5 rounded-xl font-medium text-sm">
-                            <span class="submit-text">Envoyer ma demande</span>
+                            <span class="submit-text">Envoyer ma demande — réponse sous 24h</span>
                             <span class="submit-loading hidden flex items-center justify-center">
                                 <svg class="animate-spin h-5 w-5 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                                     <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
@@ -764,8 +802,8 @@
                     </form>
                 </div>
 
-                <p class="text-center text-sm text-gray-400 mt-8">
-                    Ou directement à <a href="mailto:contact@jcsm.fr" class="text-gray-600 font-medium hover:text-gray-900 transition-colors">contact@jcsm.fr</a>
+                <p class="text-center text-sm text-gray-500 mt-8">
+                    Vous préférez l'email ? Écrivez-nous à <a href="mailto:contact@jcsm.fr" class="text-gray-600 font-medium hover:text-gray-900 transition-colors">contact@jcsm.fr</a>
                 </p>
             </div>
         </section>
@@ -779,8 +817,10 @@
                         <picture><source srcset="images/logo.webp" type="image/webp"><img src="images/logo.png" alt="Logo JCSM" class="w-8 h-8" width="32" height="32" loading="lazy"></picture>
                         <span class="text-xl font-semibold text-gray-900">JCSM</span>
                     </div>
-                    <p class="text-sm text-gray-600 mb-4">Expert IRVE depuis 2018. Pilotage, installation et maintenance d'infrastructures de recharge.</p>
+                    <p class="text-sm text-gray-600 mb-4">Votre partenaire de confiance depuis 2018 pour le pilotage, l'installation et la maintenance de vos infrastructures de recharge.</p>
                     <p class="text-sm text-gray-500">60 rue François 1er<br>75008 Paris</p>
+                    <p class="text-sm text-gray-500 mt-3"><a href="tel:+33756962758" class="hover:text-gray-900 transition-colors">+33 7 56 96 27 58</a></p>
+                    <p class="text-sm text-gray-500"><a href="mailto:contact@jcsm.fr" class="hover:text-gray-900 transition-colors">contact@jcsm.fr</a></p>
                 </div>
                 <div>
                     <h3 class="text-sm font-semibold text-gray-900 mb-4 uppercase tracking-wide">Services</h3>
@@ -800,7 +840,7 @@
                         <ul class="space-y-3">
                             <li><a href="a-propos.html" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">À propos</a></li>
                             <li><a href="carrieres.html" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Carrières</a></li>
-                            <li><a href="index.html#contact" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Contact</a></li>
+                            <li><a href="contact.html" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Contact</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -810,6 +850,19 @@
                         <ul class="space-y-3">
                             <li><a href="mentions-legales.html" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Mentions légales</a></li>
                             <li><a href="confidentialite.html" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Confidentialité</a></li>
+                            <li><a href="cgv.html" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">CGV</a></li>
+                        </ul>
+                    </nav>
+                    <h3 class="text-sm font-semibold text-gray-900 mb-4 uppercase tracking-wide mt-6">Zones</h3>
+                    <nav aria-label="Zones">
+                        <ul class="space-y-3">
+                            <li><a href="zones/ile-de-france.html" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Île-de-France</a></li>
+                            <li><a href="zones/paca.html" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">PACA</a></li>
+                            <li><a href="zones/auvergne-rhone-alpes.html" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Auvergne-Rhône-Alpes</a></li>
+                            <li><a href="zones/occitanie.html" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Occitanie</a></li>
+                            <li><a href="zones/nouvelle-aquitaine.html" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Nouvelle-Aquitaine</a></li>
+                            <li><a href="zones/hauts-de-france.html" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Hauts-de-France</a></li>
+                            <li><a href="zones/belgique.html" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Belgique</a></li>
                         </ul>
                     </nav>
                     <a href="https://www.linkedin.com/company/jcsm-elec/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center mt-4 text-sm text-gray-600 hover:text-blue-600 transition-colors" aria-label="Suivre JCSM sur LinkedIn">
@@ -820,7 +873,7 @@
             </div>
             <div class="pt-8 border-t border-gray-100 flex flex-col md:flex-row md:items-center md:justify-between gap-4 text-xs text-gray-500">
                 <span>© 2026 JCSM SAS — SIRET 99387429600011</span>
-                <a href="mailto:contact@jcsm.fr" class="hover:text-gray-900 transition-colors">contact@jcsm.fr</a>
+                <a href="mailto:contact@jcsm.fr" class="hover:text-gray-900 transition-colors">contact@jcsm.fr</a> · <a href="tel:+33756962758" class="hover:text-gray-900 transition-colors">+33 7 56 96 27 58</a>
             </div>
         </div>
     </footer>
@@ -831,12 +884,12 @@
         </svg>
     </button>
 
-    <script src="js/config.js"></script>
-    <script src="js/utils.js" defer></script>
-    <script src="js/public.js" defer></script>
-    <script src="js/landing.js" defer></script>
-    <script src="js/analytics.js" defer></script>
-    <script src="js/wow-effects.js" defer></script>
+    <script src="js/config.js?v=23"></script>
+    <script src="js/utils.js?v=23" defer></script>
+    <script src="js/public.js?v=23" defer></script>
+    <script src="js/landing.js?v=23" defer></script>
+    <script src="js/analytics.js?v=23" defer></script>
+    <script src="js/wow-effects.js?v=23" defer></script>
     <script>
         // SEO: Preload for Hero Image
         const heroImg = document.getElementById('hero-image');
@@ -847,7 +900,7 @@
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
                 navigator.serviceWorker.register('/sw.js')
-                    .catch((error) => console.log('SW registration failed'));
+                    .catch(() => {});
             });
         }
     </script>

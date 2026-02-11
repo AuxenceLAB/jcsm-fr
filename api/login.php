@@ -50,10 +50,14 @@ $rateLimitFile = $rateLimitDir . md5($ip) . '.json';
 $maxAttempts = 10;
 $ratePeriod = 300; // 5 minutes
 
-if (file_exists($rateLimitFile)) {
-    $rateData = json_decode(file_get_contents($rateLimitFile), true);
+$fp = fopen($rateLimitFile, 'c+');
+if ($fp && flock($fp, LOCK_EX)) {
+    $content = stream_get_contents($fp);
+    $rateData = $content ? json_decode($content, true) : null;
     if ($rateData && time() - $rateData['start'] < $ratePeriod) {
         if ($rateData['count'] >= $maxAttempts) {
+            flock($fp, LOCK_UN);
+            fclose($fp);
             http_response_code(429);
             echo json_encode(['error' => 'Trop de tentatives. Réessayez dans quelques minutes.']);
             exit;
@@ -62,10 +66,14 @@ if (file_exists($rateLimitFile)) {
     } else {
         $rateData = ['count' => 1, 'start' => time()];
     }
+    ftruncate($fp, 0);
+    rewind($fp);
+    fwrite($fp, json_encode($rateData));
+    flock($fp, LOCK_UN);
+    fclose($fp);
 } else {
-    $rateData = ['count' => 1, 'start' => time()];
+    if ($fp) fclose($fp);
 }
-file_put_contents($rateLimitFile, json_encode($rateData));
 
 // Parse input
 $input = json_decode(file_get_contents('php://input'), true);

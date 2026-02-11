@@ -17,7 +17,7 @@ if (in_array($origin, $allowedOrigins)) {
     header("Access-Control-Allow-Origin: $origin");
 }
 header('Access-Control-Allow-Methods: GET, POST, OPTIONS');
-header('Access-Control-Allow-Headers: Content-Type, Authorization');
+header('Access-Control-Allow-Headers: Content-Type, Authorization, X-Requested-With');
 header('Access-Control-Max-Age: 86400');
 
 // Préflight request
@@ -62,16 +62,24 @@ $ip = $_SERVER['REMOTE_ADDR'] ?? 'unknown';
 $rateLimitFile = $rateLimitDir . md5($ip) . '.json';
 
 $rateData = null;
-if (file_exists($rateLimitFile)) {
-    $rateData = json_decode(file_get_contents($rateLimitFile), true);
-}
-
-if ($rateData && time() - $rateData['start'] < $ratePeriod) {
-    $rateData['count']++;
+$fp = fopen($rateLimitFile, 'c+');
+if ($fp && flock($fp, LOCK_EX)) {
+    $content = stream_get_contents($fp);
+    $rateData = $content ? json_decode($content, true) : null;
+    if ($rateData && time() - $rateData['start'] < $ratePeriod) {
+        $rateData['count']++;
+    } else {
+        $rateData = ['count' => 1, 'start' => time()];
+    }
+    ftruncate($fp, 0);
+    rewind($fp);
+    fwrite($fp, json_encode($rateData));
+    flock($fp, LOCK_UN);
+    fclose($fp);
 } else {
+    if ($fp) fclose($fp);
     $rateData = ['count' => 1, 'start' => time()];
 }
-file_put_contents($rateLimitFile, json_encode($rateData));
 
 if ($rateData['count'] > $rateLimit) {
     http_response_code(429);
@@ -127,8 +135,8 @@ try {
 
 } catch (Exception $e) {
     http_response_code(500);
+    error_log('Proxy-sheets exception: ' . $e->getMessage());
     echo json_encode([
-        'error' => 'Erreur serveur',
-        'message' => $e->getMessage()
+        'error' => 'Erreur serveur'
     ]);
 }

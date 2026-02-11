@@ -2,22 +2,23 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>JCSM Terrain</title>
     <meta name="theme-color" content="#ffffff">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <meta name="robots" content="noindex, nofollow">
+    <meta property="og:site_name" content="JCSM - Infrastructure de Recharge">
     <link rel="icon" href="https://jcsm.fr/images/logo.png">
     <link rel="apple-touch-icon" href="https://jcsm.fr/images/logo.png">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha384-cxOPjt7s7Iz04uaHJceBmS+qpjv2JkIHNVcuOrM+YHwZOmJGBXI00mdUXEq65HTH" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css"/>
     <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css"/>
-    <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js"></script>
-    <script src="js/config.js"></script>
+    <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js" integrity="sha384-eXVCORTRlv4FUUgS/xmOyr66XBVraen8ATNLMESp92FKXLAMiKkerixTiBvXriZr" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js" integrity="sha384-jb8JQMbMoBUzgWatfe6COACi2ljcDdZQ2OxczGA3bGNeWe+6DChMTBJemed7ZnvJ" crossorigin="anonymous"></script>
+    <script src="js/config.js?v=23"></script>
     <style>
         :root {
             --bg: #f8fafc;
@@ -83,9 +84,9 @@
             --shadow-lg: 0 4px 20px rgba(0,0,0,.4);
         }
 
-        /* Reduced motion */
+        /* Reduced motion — :root body prefix (0,1,1) beats class selectors */
         @media (prefers-reduced-motion: reduce) {
-            *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+            :root body *, :root body *::before, :root body *::after { animation-duration: 0.01ms; animation-iteration-count: 1; transition-duration: 0.01ms; }
         }
         * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
         body { font-family: 'Inter', system-ui, sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; min-height: 100dvh; line-height: 1.5; overscroll-behavior: none; }
@@ -117,7 +118,7 @@
         .btn-lg { padding: 20px 32px; font-size: 17px; }
         .btn-icon { width: 52px; height: 52px; padding: 0; border-radius: 14px; font-size: 22px; }
         
-        .badge { display: inline-flex; align-items: center; gap: 6px; padding: 8px 14px; border-radius: 10px; font-size: 12px; font-weight: 800; letter-spacing: .3px; }
+        .badge { display: inline-flex; align-items: center; gap: 6px; padding: 8px 14px; border-radius: 10px; font-size: 13px; font-weight: 800; letter-spacing: .3px; }
         .badge-red { background: var(--red-light); color: var(--red); }
         .badge-amber { background: var(--amber-light); color: #b45309; }
         .badge-green { background: var(--green-light); color: #15803d; }
@@ -144,19 +145,19 @@
         .intv.late { border-color: rgba(239,68,68,.3); background: linear-gradient(135deg, #fff 0%, #fef2f2 100%); }
         .intv.today::before { background: var(--amber); }
         
-        .group-header { font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 1.5px; padding: 12px 0 6px; display: flex; align-items: center; gap: 8px; }
+        .group-header { font-size: 13px; font-weight: 800; text-transform: uppercase; letter-spacing: 1.5px; padding: 12px 0 6px; display: flex; align-items: center; gap: 8px; }
         .group-header .dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
-        .group-header .count { font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 10px; background: var(--bg3); color: var(--muted); }
+        .group-header .count { font-size: 13px; font-weight: 700; padding: 2px 8px; border-radius: 10px; background: var(--bg3); color: var(--muted); }
         .progress-bar-wrap { background: var(--bg3); border-radius: 8px; height: 6px; margin-bottom: 16px; overflow: hidden; }
         .progress-bar-fill { height: 100%; border-radius: 8px; background: linear-gradient(90deg, var(--green), var(--primary)); transition: width .5s ease; }
-        .progress-summary { display: flex; justify-content: space-between; font-size: 12px; color: var(--muted); margin-bottom: 6px; font-weight: 600; }
+        .progress-summary { display: flex; justify-content: space-between; font-size: 13px; color: var(--muted); margin-bottom: 6px; font-weight: 600; }
 
         .quick-actions { display: grid; grid-template-columns: repeat(auto-fill, minmax(80px, 1fr)); gap: 10px; margin-bottom: 16px; }
         .quick-action { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 16px 8px; text-align: center; cursor: pointer; transition: all .2s; box-shadow: var(--shadow); }
         .quick-action:hover { box-shadow: var(--shadow-lg); transform: translateY(-2px); }
         .quick-action:active { transform: scale(.95); }
         .quick-action span { font-size: 28px; display: block; margin-bottom: 8px; }
-        .quick-action p { font-size: 11px; font-weight: 700; color: var(--muted); }
+        .quick-action p { font-size: 13px; font-weight: 700; color: var(--muted); }
         
         .checklist { background: var(--bg); border-radius: 14px; overflow: hidden; margin-bottom: 20px; }
         .check-item { display: flex; align-items: center; gap: 14px; padding: 16px 20px; border-bottom: 1px solid var(--border); cursor: pointer; transition: all .15s; }
@@ -167,27 +168,27 @@
         .check-item.checked .check-box::after { content: '✓'; color: #fff; font-weight: 900; }
         .check-box { width: 28px; height: 28px; border: 2px solid var(--border); border-radius: 8px; display: flex; align-items: center; justify-content: center; transition: all .15s; flex-shrink: 0; background: #fff; }
         .check-label { flex: 1; font-weight: 600; color: var(--text); }
-        .check-label small { display: block; font-weight: 400; color: var(--muted); font-size: 12px; margin-top: 2px; }
+        .check-label small { display: block; font-weight: 400; color: var(--muted); font-size: 13px; margin-top: 2px; }
         
         .photo-cat { background: var(--bg); border: 2px dashed var(--border); border-radius: 14px; padding: 16px; margin-bottom: 12px; transition: all .2s; }
         .photo-cat.has-photos { border-style: solid; border-color: var(--green); background: var(--green-light); }
         .photo-cat.required:not(.has-photos) { border-color: var(--amber); background: var(--amber-light); }
         .photo-cat-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
         .photo-cat-title { font-size: 14px; font-weight: 700; display: flex; align-items: center; gap: 10px; color: var(--text); }
-        .photo-cat-title .count { background: var(--green); color: #fff; padding: 4px 10px; border-radius: 8px; font-size: 12px; }
+        .photo-cat-title .count { background: var(--green); color: #fff; padding: 4px 10px; border-radius: 8px; font-size: 13px; }
         .photo-cat-title .required-badge { background: var(--amber); color: #fff; padding: 4px 8px; border-radius: 6px; font-size: 10px; }
         .photo-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(80px, 1fr)); gap: 10px; }
         .photo-item { position: relative; aspect-ratio: 1; border-radius: 10px; overflow: hidden; box-shadow: var(--shadow); }
         .photo-item img { width: 100%; height: 100%; object-fit: cover; }
-        .photo-item .delete { position: absolute; top: 6px; right: 6px; width: 26px; height: 26px; background: var(--red); border: none; border-radius: 50%; color: #fff; cursor: pointer; font-size: 16px; font-weight: bold; display: flex; align-items: center; justify-content: center; box-shadow: var(--shadow); }
+        .photo-item .delete { position: absolute; top: 6px; right: 6px; width: 44px; height: 44px; background: var(--red); border: none; border-radius: 50%; color: #fff; cursor: pointer; font-size: 16px; font-weight: bold; display: flex; align-items: center; justify-content: center; box-shadow: var(--shadow); }
         .photo-add { aspect-ratio: 1; border: 2px dashed var(--border); border-radius: 10px; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer; font-size: 28px; color: var(--muted); transition: all .2s; gap: 4px; background: #fff; }
         .photo-add:hover { border-color: var(--primary); color: var(--primary); background: var(--primary-light); transform: scale(1.02); }
         .photo-add:active { border-color: var(--primary); color: var(--primary); background: var(--primary-light); transform: scale(0.98); }
-        .photo-add span { font-size: 11px; font-weight: 600; }
+        .photo-add span { font-size: 13px; font-weight: 600; }
         .photo-item { position: relative; aspect-ratio: 1; border-radius: 10px; overflow: hidden; box-shadow: var(--shadow); transition: transform .2s; }
         .photo-item:hover { transform: scale(1.05); }
         .photo-item img { width: 100%; height: 100%; object-fit: cover; cursor: pointer; }
-        .photo-item .delete { position: absolute; top: 6px; right: 6px; width: 26px; height: 26px; background: var(--red); border: none; border-radius: 50%; color: #fff; cursor: pointer; font-size: 16px; font-weight: bold; display: flex; align-items: center; justify-content: center; box-shadow: var(--shadow); opacity: 0; transition: opacity .2s; }
+        .photo-item .delete { position: absolute; top: 6px; right: 6px; width: 44px; height: 44px; background: var(--red); border: none; border-radius: 50%; color: #fff; cursor: pointer; font-size: 16px; font-weight: bold; display: flex; align-items: center; justify-content: center; box-shadow: var(--shadow); opacity: 0; transition: opacity .2s; }
         .photo-item:hover .delete { opacity: 1; }
         
         .info-card { background: linear-gradient(135deg, var(--primary-light), var(--purple-light)); border: 1px solid rgba(14,165,233,.2); border-radius: 14px; padding: 18px; margin-bottom: 16px; }
@@ -207,7 +208,9 @@
         .status-opt p { font-weight: 800; font-size: 15px; color: var(--text); }
         
         input, select, textarea { background: #fff; border: 2px solid var(--border); border-radius: 14px; padding: 18px; color: var(--text); font-family: inherit; font-size: 16px; width: 100%; transition: all .2s; -webkit-appearance: none; }
-        input:focus, select:focus, textarea:focus { outline: 0; border-color: var(--primary); box-shadow: 0 0 0 4px rgba(14,165,233,.1); }
+        input:focus, select:focus, textarea:focus { outline: 2px solid var(--primary); outline-offset: 2px; border-color: var(--primary); box-shadow: 0 0 0 4px rgba(14,165,233,.15); }
+        input:focus:not(:focus-visible), select:focus:not(:focus-visible), textarea:focus:not(:focus-visible) { outline: none; }
+        [role="button"]:focus-visible, .btn:focus-visible, button:focus-visible, a:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; border-radius: 8px; }
         input::placeholder, textarea::placeholder { color: var(--muted); }
         label { display: block; font-size: 13px; font-weight: 700; color: var(--muted); margin-bottom: 8px; text-transform: uppercase; letter-spacing: .5px; }
         
@@ -247,19 +250,19 @@
         .leaflet-popup-content-wrapper { background: rgba(255,255,255,.96); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); color: var(--text); border-radius: 16px; box-shadow: 0 12px 40px rgba(0,0,0,.15); border: 1px solid rgba(255,255,255,.8); padding: 0; overflow: hidden; }
         .leaflet-popup-content { margin: 0; min-width: 220px; }
         .leaflet-popup-tip { background: rgba(255,255,255,.96); }
-        .leaflet-popup-close-button { color: var(--muted) !important; font-size: 20px !important; top: 8px !important; right: 10px !important; width: 28px !important; height: 28px !important; display: flex; align-items: center; justify-content: center; }
+        #map .leaflet-popup-close-button { color: var(--muted); font-size: 20px; top: 8px; right: 10px; width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; }
 
         .map-popup { padding: 16px; }
         .map-popup-title { font-weight: 800; font-size: 15px; color: var(--text); margin-bottom: 6px; line-height: 1.3; }
-        .map-popup-address { font-size: 12px; color: var(--muted); margin-bottom: 12px; display: flex; align-items: flex-start; gap: 6px; line-height: 1.4; }
+        .map-popup-address { font-size: 13px; color: var(--muted); margin-bottom: 12px; display: flex; align-items: flex-start; gap: 6px; line-height: 1.4; }
         .map-popup-address svg { flex-shrink: 0; margin-top: 1px; }
         .map-popup-meta { display: flex; gap: 8px; align-items: center; margin-bottom: 14px; flex-wrap: wrap; }
-        .map-popup-badge { padding: 4px 10px; border-radius: 8px; font-size: 11px; font-weight: 700; }
+        .map-popup-badge { padding: 6px 12px; border-radius: 8px; font-size: 13px; font-weight: 700; }
         .map-popup-badge.late { background: linear-gradient(135deg, #fef2f2, #fee2e2); color: #dc2626; }
         .map-popup-badge.pending { background: linear-gradient(135deg, #fffbeb, #fef3c7); color: #d97706; }
         .map-popup-badge.done { background: linear-gradient(135deg, #f0fdf4, #dcfce7); color: #16a34a; }
-        .map-popup-tech { font-size: 11px; color: var(--muted); font-weight: 600; }
-        .map-popup-btn { background: linear-gradient(135deg, var(--primary), #0284c7); color: #fff; border: none; padding: 10px 16px; border-radius: 10px; width: 100%; cursor: pointer; font-weight: 700; font-size: 13px; transition: all .15s; box-shadow: 0 4px 12px rgba(14,165,233,.3); }
+        .map-popup-tech { font-size: 13px; color: var(--muted); font-weight: 600; }
+        .map-popup-btn { background: linear-gradient(135deg, var(--primary), #0284c7); color: #fff; border: none; padding: 10px 16px; border-radius: 10px; width: 100%; min-height: 44px; cursor: pointer; font-weight: 700; font-size: 13px; transition: all .15s; box-shadow: 0 4px 12px rgba(14,165,233,.3); }
         .map-popup-btn:active { transform: scale(.97); }
 
         /* Animated map markers */
@@ -275,18 +278,19 @@
         .map-filter-chip.active { background: var(--primary); color: #fff; box-shadow: 0 4px 14px rgba(14,165,233,.35); }
 
         /* Cluster styling */
-        .marker-cluster-small, .marker-cluster-medium, .marker-cluster-large { background: rgba(14,165,233,.15) !important; }
-        .marker-cluster-small div, .marker-cluster-medium div, .marker-cluster-large div { background: linear-gradient(135deg, var(--primary), #0284c7) !important; color: #fff !important; font-weight: 800 !important; font-size: 13px !important; width: 36px !important; height: 36px !important; line-height: 36px !important; margin-left: 6px !important; margin-top: 6px !important; border-radius: 50% !important; box-shadow: 0 4px 14px rgba(14,165,233,.35) !important; }
-        .marker-cluster-medium div { width: 42px !important; height: 42px !important; line-height: 42px !important; margin-left: 4px !important; margin-top: 4px !important; }
-        .marker-cluster-large div { width: 48px !important; height: 48px !important; line-height: 48px !important; margin-left: 1px !important; margin-top: 1px !important; }
+        #map .marker-cluster-small, #map .marker-cluster-medium, #map .marker-cluster-large { background: rgba(14,165,233,.15); }
+        #map .marker-cluster-small div, #map .marker-cluster-medium div, #map .marker-cluster-large div { background: linear-gradient(135deg, var(--primary), #0284c7); color: #fff; font-weight: 800; font-size: 13px; width: 36px; height: 36px; line-height: 36px; margin-left: 6px; margin-top: 6px; border-radius: 50%; box-shadow: 0 4px 14px rgba(14,165,233,.35); }
+        #map .marker-cluster-medium div { width: 42px; height: 42px; line-height: 42px; margin-left: 4px; margin-top: 4px; }
+        #map .marker-cluster-large div { width: 48px; height: 48px; line-height: 48px; margin-left: 1px; margin-top: 1px; }
 
         /* Leaflet controls styling */
-        .leaflet-control-zoom { border: none !important; box-shadow: 0 4px 20px rgba(0,0,0,.1) !important; border-radius: 12px !important; overflow: hidden; }
-        .leaflet-control-zoom a { background: rgba(255,255,255,.92) !important; backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); color: var(--text) !important; width: 36px !important; height: 36px !important; line-height: 36px !important; font-size: 18px !important; border: none !important; }
-        .leaflet-control-zoom a:hover { background: #fff !important; }
-        .leaflet-control-attribution { background: rgba(255,255,255,.7) !important; backdrop-filter: blur(8px); border-radius: 8px 0 0 0; font-size: 10px !important; }
+        #map .leaflet-control-zoom { border: none; box-shadow: 0 4px 20px rgba(0,0,0,.1); border-radius: 12px; overflow: hidden; }
+        #map .leaflet-control-zoom a { background: rgba(255,255,255,.92); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); color: var(--text); width: 44px; height: 44px; line-height: 44px; font-size: 18px; border: none; }
+        #map .leaflet-control-zoom a:hover { background: #fff; }
+        #map .leaflet-control-attribution { background: rgba(255,255,255,.7); backdrop-filter: blur(8px); border-radius: 8px 0 0 0; font-size: 10px; color: #333; }
+        #map .leaflet-control-attribution a { color: #0078A8; }
         
-        .sync-pill { display: inline-flex; align-items: center; gap: 8px; padding: 8px 14px; border-radius: 20px; font-size: 12px; font-weight: 600; background: var(--bg3); color: var(--muted); }
+        .sync-pill { display: inline-flex; align-items: center; gap: 8px; padding: 8px 14px; border-radius: 20px; font-size: 13px; font-weight: 600; background: var(--bg3); color: var(--muted); }
         .sync-dot { width: 8px; height: 8px; border-radius: 50%; }
         .sync-dot.online { background: var(--green); }
         .sync-dot.offline { background: var(--red); }
@@ -295,60 +299,16 @@
         .pull-indicator { position: fixed; top: 0; left: 50%; transform: translateX(-50%) translateY(-100%); background: var(--primary); color: #fff; padding: 12px 24px; border-radius: 0 0 16px 16px; font-weight: 700; font-size: 13px; z-index: 150; transition: transform .2s; box-shadow: var(--shadow); }
         .pull-indicator.visible { transform: translateX(-50%) translateY(0); }
         
-        .hidden { display: none !important; }
+        .hidden { display: none; }
         .container { padding: 20px; padding-bottom: 100px; max-width: 600px; margin: 0 auto; }
         .section-title { font-size: 13px; font-weight: 800; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 16px; display: flex; align-items: center; gap: 10px; }
         .divider { height: 1px; background: var(--border); margin: 24px 0; }
-        
-        /* ADMIN STYLES */
-        .admin-header { background: linear-gradient(135deg, var(--purple), #7c3aed); padding: 16px 20px; display: flex; align-items: center; justify-content: space-between; }
-        .admin-header span { color: #fff; font-weight: 800; font-size: 15px; display: flex; align-items: center; gap: 8px; }
-        .admin-header .admin-badge { background: rgba(255,255,255,.2); padding: 4px 10px; border-radius: 8px; font-size: 11px; }
-        
-        .finance-card { background: #fff; border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; margin-bottom: 16px; box-shadow: var(--shadow); }
-        .finance-card.total { background: linear-gradient(135deg, var(--green-light), #d1fae5); border-color: rgba(34,197,94,.3); }
-        .finance-card.pending { background: linear-gradient(135deg, var(--amber-light), #fef3c7); border-color: rgba(245,158,11,.3); }
-        .finance-big { font-size: 42px; font-weight: 900; margin-bottom: 4px; }
-        .finance-label { font-size: 13px; color: var(--muted); font-weight: 600; }
-        
-        .tech-card { background: #fff; border: 1px solid var(--border); border-radius: var(--radius); margin-bottom: 14px; overflow: hidden; box-shadow: var(--shadow); }
-        .tech-header { padding: 20px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; transition: background .15s; }
-        .tech-header:hover { background: var(--bg3); }
-        .tech-header:active { background: var(--bg); }
-        .tech-name { font-weight: 800; font-size: 17px; display: flex; align-items: center; gap: 12px; color: var(--text); }
-        .tech-name .avatar { width: 44px; height: 44px; background: linear-gradient(135deg, var(--primary), var(--purple)); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 20px; color: #fff; font-weight: 800; }
-        .tech-stats { text-align: right; }
-        .tech-amount { font-size: 24px; font-weight: 900; color: var(--green); }
-        .tech-count { font-size: 12px; color: var(--muted); }
-        .tech-details { background: var(--bg); border-top: 1px solid var(--border); padding: 16px 20px; display: none; }
-        .tech-card.expanded .tech-details { display: block; }
-        .tech-row { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px solid var(--border); font-size: 14px; }
-        .tech-row:last-child { border: none; }
-        .tech-row .date { color: var(--muted); font-weight: 500; min-width: 80px; }
-        .tech-row .site { flex: 1; margin: 0 12px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; color: var(--text); }
-        .tech-row .amount { font-weight: 800; color: var(--green); }
-        .tech-row .amount.unpaid { color: var(--amber); }
-        .tech-row .status-dot { width: 10px; height: 10px; border-radius: 50%; margin-right: 8px; flex-shrink: 0; }
-        .tech-row .status-dot.paid { background: var(--green); }
-        .tech-row .status-dot.unpaid { background: var(--amber); }
         
         .filter-tabs { display: flex; gap: 8px; margin-bottom: 20px; overflow-x: auto; padding-bottom: 4px; }
         .filter-tab { padding: 12px 20px; border-radius: 12px; background: #fff; border: 2px solid var(--border); font-weight: 700; font-size: 13px; white-space: nowrap; cursor: pointer; transition: all .15s; color: var(--text); }
         .filter-tab:hover { background: var(--bg3); }
         .filter-tab:active { transform: scale(.97); }
         .filter-tab.active { background: var(--primary); border-color: var(--primary); color: #fff; }
-        
-        .date-range { display: flex; gap: 12px; margin-bottom: 20px; }
-        .date-range input { flex: 1; }
-        
-        .summary-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-bottom: 24px; }
-        .summary-item { background: #fff; border: 1px solid var(--border); border-radius: 14px; padding: 20px; text-align: center; box-shadow: var(--shadow); }
-        .summary-item .value { font-size: 28px; font-weight: 900; margin-bottom: 4px; }
-        .summary-item .label { font-size: 11px; color: var(--muted); font-weight: 600; text-transform: uppercase; }
-        
-        .pay-btn { background: linear-gradient(135deg, var(--green), #16a34a); color: #fff; border: none; padding: 14px 20px; border-radius: 12px; font-weight: 700; font-size: 14px; cursor: pointer; margin-top: 12px; width: 100%; box-shadow: 0 4px 15px rgba(34,197,94,.3); transition: all .15s; }
-        .pay-btn:hover { box-shadow: 0 6px 20px rgba(34,197,94,.4); }
-        .pay-btn:active { transform: scale(.97); }
 
         /* Header Styles */
         .header-main { background: var(--card); border-bottom: 1px solid var(--border); padding: 16px 20px; display: flex; align-items: center; justify-content: space-between; box-shadow: var(--shadow); }
@@ -357,18 +317,18 @@
         .stats-dashboard { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-bottom: 20px; }
         .stat-mini { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 16px; text-align: center; box-shadow: var(--shadow); }
         .stat-mini .val { font-size: 24px; font-weight: 900; margin-bottom: 4px; }
-        .stat-mini .lbl { font-size: 11px; color: var(--muted); font-weight: 600; text-transform: uppercase; }
+        .stat-mini .lbl { font-size: 13px; color: var(--muted); font-weight: 600; text-transform: uppercase; }
 
         /* Priority indicator */
         .priority-high { position: relative; }
-        .priority-high::after { content: '!'; position: absolute; top: -5px; right: -5px; width: 20px; height: 20px; background: var(--red); color: #fff; border-radius: 50%; font-size: 12px; font-weight: 900; display: flex; align-items: center; justify-content: center; }
+        .priority-high::after { content: '!'; position: absolute; top: -5px; right: -5px; width: 20px; height: 20px; background: var(--red); color: #fff; border-radius: 50%; font-size: 13px; font-weight: 900; display: flex; align-items: center; justify-content: center; }
 
         /* Distance badge */
-        .distance-badge { background: var(--primary-light); color: var(--primary-dark); padding: 4px 10px; border-radius: 8px; font-size: 11px; font-weight: 700; }
+        .distance-badge { background: var(--primary-light); color: var(--primary-dark); padding: 4px 10px; border-radius: 8px; font-size: 13px; font-weight: 700; }
 
         /* Search filters */
         .search-filters { display: flex; gap: 8px; margin-bottom: 16px; overflow-x: auto; padding-bottom: 4px; }
-        .search-filter { padding: 8px 14px; border-radius: 20px; background: var(--card); border: 1px solid var(--border); font-size: 12px; font-weight: 600; cursor: pointer; white-space: nowrap; transition: all .15s; color: var(--text); }
+        .search-filter { padding: 8px 14px; border-radius: 20px; background: var(--card); border: 1px solid var(--border); font-size: 13px; font-weight: 600; cursor: pointer; white-space: nowrap; transition: all .15s; color: var(--text); }
         .search-filter.active { background: var(--primary); border-color: var(--primary); color: #fff; }
 
         /* Loading overlay */
@@ -479,19 +439,81 @@
         .wizard-dot.done { background: var(--green); }
 
         /* Signature canvas */
-        .signature-pad {
-            border: 2px solid var(--border); border-radius: 14px;
-            background: #fff; touch-action: none; cursor: crosshair;
-            width: 100%; height: 200px;
-        }
-        .signature-pad.drawing { border-color: var(--primary); }
-
         /* Sync indicator improvements */
         .sync-indicator { display: inline-flex; align-items: center; gap: 6px; }
         .sync-count { background: var(--amber); color: #fff; font-size: 10px; padding: 2px 6px; border-radius: 8px; font-weight: 800; }
 
         /* Draft indicator */
-        .draft-badge { background: var(--amber-light); color: #b45309; padding: 6px 12px; border-radius: 8px; font-size: 12px; font-weight: 700; }
+        .draft-badge { background: var(--amber-light); color: #b45309; padding: 6px 12px; border-radius: 8px; font-size: 13px; font-weight: 700; }
+        .draft-badge-card { position: absolute; top: 12px; right: 12px; background: var(--amber); color: #fff; padding: 4px 10px; border-radius: 8px; font-size: 13px; font-weight: 800; z-index: 2; animation: pulse 2s infinite; }
+
+        /* Quick report modal (bottom-sheet) */
+        .quick-report-overlay { position: fixed; inset: 0; background: rgba(0,0,0,.5); backdrop-filter: blur(6px); z-index: 260; display: flex; align-items: flex-end; justify-content: center; opacity: 0; pointer-events: none; transition: opacity .25s; }
+        .quick-report-overlay.active { opacity: 1; pointer-events: auto; }
+        .quick-report-sheet { background: var(--card); border-radius: 24px 24px 0 0; width: 100%; max-width: 500px; max-height: 90vh; overflow-y: auto; transform: translateY(100%); transition: transform .3s cubic-bezier(.32,.72,.37,1.12); padding: 24px; padding-bottom: calc(24px + env(safe-area-inset-bottom)); box-shadow: 0 -8px 40px rgba(0,0,0,.15); }
+        .quick-report-overlay.active .quick-report-sheet { transform: translateY(0); }
+        .qr-handle { width: 40px; height: 5px; background: var(--border); border-radius: 3px; margin: 0 auto 20px; }
+        .qr-summary { background: var(--bg); border-radius: 16px; padding: 20px; margin-bottom: 20px; }
+        .qr-row { display: flex; align-items: center; gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--border); font-size: 14px; }
+        .qr-row:last-child { border: none; }
+        .qr-row .qr-icon { font-size: 18px; width: 28px; text-align: center; flex-shrink: 0; }
+        .qr-row .qr-label { color: var(--muted); font-weight: 600; min-width: 70px; font-size: 13px; }
+        .qr-row .qr-value { flex: 1; font-weight: 700; color: var(--text); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+        .qr-obs-preview { background: var(--bg3); border-radius: 12px; padding: 14px; font-size: 13px; line-height: 1.6; color: var(--text-secondary); max-height: 120px; overflow-y: auto; margin-bottom: 20px; white-space: pre-line; }
+        .qr-actions { display: flex; gap: 12px; }
+        .qr-actions .btn { flex: 1; }
+
+        /* Report button on cards */
+        .report-btn-card { position: absolute; bottom: 12px; right: 12px; background: linear-gradient(135deg, var(--green), #16a34a); color: #fff; border: none; width: 40px; height: 40px; border-radius: 12px; font-size: 16px; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 3px 10px rgba(34,197,94,.3); transition: all .15s; z-index: 2; }
+        .report-btn-card:active { transform: scale(.9); }
+
+        /* Timer badge in header */
+        .timer-badge { display: inline-flex; align-items: center; gap: 6px; background: linear-gradient(135deg, var(--primary), var(--purple)); color: #fff; padding: 6px 12px; border-radius: 20px; font-size: 13px; font-weight: 800; font-family: 'SF Mono', monospace; animation: glow 2s infinite; cursor: pointer; }
+        .timer-badge .timer-badge-dot { width: 8px; height: 8px; border-radius: 50%; background: #fff; animation: pulse 1s infinite; }
+
+        /* Swipe action on cards */
+        .intv-swipe-wrapper { position: relative; overflow: hidden; border-radius: var(--radius); }
+        .intv-swipe-action { position: absolute; top: 0; bottom: 0; right: 0; width: 90px; background: linear-gradient(135deg, var(--green), #16a34a); display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 800; font-size: 13px; flex-direction: column; gap: 4px; transform: translateX(100%); transition: transform .2s; }
+        .intv-swipe-wrapper.swiped .intv-swipe-action { transform: translateX(0); }
+
+        /* Wizard optional step indicator */
+        .wizard-dot.optional { border: 2px solid var(--border); background: transparent; }
+        .wizard-dot.optional.done { background: var(--green); border-color: var(--green); }
+        .wizard-dot.optional.active { background: var(--primary); border-color: var(--primary); }
+        .wiz-skip-btn { background: var(--bg3); color: var(--muted); border: 1px solid var(--border); padding: 10px 20px; border-radius: 12px; font-weight: 700; font-size: 13px; cursor: pointer; transition: all .15s; }
+        .wiz-skip-btn:active { transform: scale(.97); }
+
+        /* A8 — Card redesign */
+        .intv-ticket { font-family: 'SF Mono', SFMono-Regular, Consolas, monospace; font-size: 16px; font-weight: 800; color: var(--primary-dark); background: var(--primary-light); padding: 6px 12px; border-radius: 8px; letter-spacing: .5px; }
+        .intv-address { font-weight: 600; font-size: 14px; color: var(--muted); display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; line-height: 1.5; margin-bottom: 14px; }
+        .intv-distance { background: linear-gradient(135deg, var(--primary-light), var(--purple-light)); color: var(--primary-dark); padding: 4px 10px; border-radius: 8px; font-size: 13px; font-weight: 700; font-family: 'SF Mono', monospace; white-space: nowrap; }
+        .intv-copy-btn { position: absolute; top: 12px; right: 12px; background: var(--bg3); border: none; width: 44px; height: 44px; border-radius: 10px; cursor: pointer; font-size: 16px; display: flex; align-items: center; justify-content: center; transition: all .15s; z-index: 2; }
+        .intv-copy-btn:active { transform: scale(.9); background: var(--primary-light); }
+
+        /* A2 — GPS navigation buttons */
+        .nav-actions { display: flex; gap: 10px; margin-top: 12px; }
+        .nav-action-btn { flex: 1; min-height: 48px; display: flex; align-items: center; justify-content: center; gap: 8px; padding: 12px 16px; border-radius: 14px; border: none; font-weight: 800; font-size: 14px; cursor: pointer; transition: all .15s; }
+        .nav-action-btn:active { transform: scale(.96); }
+        .nav-action-btn.copy { background: var(--bg3); color: var(--text); }
+        .nav-action-btn.maps { background: linear-gradient(135deg, #4285F4, #34A853); color: #fff; }
+        .nav-action-btn.waze { background: linear-gradient(135deg, #33CCFF, #00AAFF); color: #fff; }
+
+        /* A4 — Site arrival/departure bar */
+        .site-action-bar { display: flex; gap: 10px; margin-bottom: 20px; }
+        .site-action-btn { flex: 1; min-height: 56px; display: flex; align-items: center; justify-content: center; gap: 8px; padding: 14px 16px; border-radius: 16px; border: none; font-weight: 800; font-size: 15px; cursor: pointer; transition: all .15s; }
+        .site-action-btn:active { transform: scale(.96); }
+        .site-action-btn.arrive { background: linear-gradient(135deg, var(--green), #16a34a); color: #fff; }
+        .site-action-btn.arrive.done { background: var(--bg3); color: var(--green); cursor: default; }
+        .site-action-btn.depart { background: linear-gradient(135deg, var(--primary), var(--purple)); color: #fff; }
+        .site-action-btn.depart.done { background: var(--bg3); color: var(--primary); cursor: default; }
+
+        /* A6 — Submit FAB */
+        .submit-fab { position: fixed; bottom: 90px; right: 20px; background: linear-gradient(135deg, var(--green), #16a34a); color: #fff; border: none; padding: 16px 24px; border-radius: 20px; font-weight: 800; font-size: 15px; cursor: pointer; box-shadow: 0 6px 24px rgba(34,197,94,.4); z-index: 100; display: none; transition: all .2s; animation: fabPulse 2s infinite; }
+        .submit-fab:active { transform: scale(.94); }
+        @keyframes fabPulse { 0%, 100% { box-shadow: 0 6px 24px rgba(34,197,94,.4); } 50% { box-shadow: 0 6px 32px rgba(34,197,94,.6); } }
+
+        /* A3 — Sort select */
+        .sort-select { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 8px 14px; font-size: 13px; font-weight: 600; color: var(--text); cursor: pointer; appearance: none; -webkit-appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 10px center; padding-right: 30px; }
     </style>
 </head>
 <body>
@@ -503,22 +525,8 @@
     <p style="font-weight:700;color:var(--text)">Chargement...</p>
 </div>
 
-<!-- AUTH -->
-<div id="auth" style="min-height:100vh;min-height:100dvh;display:flex;align-items:center;justify-content:center;padding:24px;background:linear-gradient(180deg, var(--card) 0%, var(--bg) 100%)">
-    <div class="card fade-in" style="width:100%;max-width:400px;padding:48px 32px;text-align:center">
-        <img src="https://jcsm.fr/images/logo.png" alt="JCSM" style="height:70px;margin-bottom:32px">
-        <h1 style="font-size:32px;font-weight:900;margin-bottom:8px;color:var(--text)">JCSM Terrain</h1>
-        <p style="color:var(--muted);margin-bottom:40px;font-size:15px">Gestion des interventions IRVE</p>
-        <form id="auth-form">
-            <input type="password" id="pwd" placeholder="••••••••" style="text-align:center;font-size:24px;letter-spacing:8px;margin-bottom:20px;padding:20px">
-            <button type="submit" class="btn btn-primary btn-lg" style="width:100%">Connexion</button>
-        </form>
-        <p style="margin-top:32px;font-size:12px;color:var(--muted)">Dans l'IRVE depuis 2018</p>
-    </div>
-</div>
-
 <!-- APP -->
-<div id="app" class="hidden">
+<div id="app">
     <!-- Header Tech -->
     <header id="header-tech" style="position:sticky;top:0;z-index:100">
         <div class="contact-bar">
@@ -536,30 +544,11 @@
                     </div>
                 </div>
             </div>
-            <div style="display:flex;gap:8px">
+            <div style="display:flex;gap:8px;align-items:center">
+                <span class="timer-badge hidden" id="header-timer-badge" onclick="scrollToTimer()" title="Timer en cours"><span class="timer-badge-dot"></span><span id="header-timer-value">00:00</span></span>
                 <button class="theme-toggle" id="theme-toggle" onclick="toggleTheme()" title="Thème">🌙</button>
                 <button id="btn-refresh" class="btn btn-ghost btn-icon" title="Actualiser">🔄</button>
             </div>
-        </div>
-    </header>
-
-    <!-- Header Admin -->
-    <header id="header-admin" class="hidden" style="position:sticky;top:0;z-index:100">
-        <div class="admin-header">
-            <span>👑 Administration JCSM</span>
-        </div>
-        <div class="header-main">
-            <div style="display:flex;align-items:center;gap:14px">
-                <img src="https://jcsm.fr/images/logo.png" alt="JCSM" style="height:40px">
-                <div>
-                    <div style="font-weight:900;font-size:18px;color:var(--text)">Suivi Financier</div>
-                    <div class="sync-pill">
-                        <span class="sync-dot online" id="sync-dot-admin"></span>
-                        <span id="sync-text-admin">À jour</span>
-                    </div>
-                </div>
-            </div>
-            <button onclick="loadData(true)" class="btn btn-ghost btn-icon">🔄</button>
         </div>
     </header>
 
@@ -568,19 +557,19 @@
         <div style="display:flex;gap:12px;min-width:max-content">
             <div onclick="setFilter('late')" role="button" tabindex="0" aria-label="Filtrer les interventions en retard" style="background:var(--red-light);padding:16px 24px;border-radius:14px;min-width:90px;text-align:center;cursor:pointer;border:2px solid transparent;transition:all .15s" class="stat-card" data-f="late">
                 <p id="s-late" style="font-size:32px;font-weight:900;color:var(--red)" aria-live="polite">-</p>
-                <p style="font-size:11px;color:var(--red);font-weight:600">🔥 Retard</p>
+                <p style="font-size:13px;color:var(--red);font-weight:600">🔥 Retard</p>
             </div>
             <div onclick="setFilter('today')" role="button" tabindex="0" aria-label="Filtrer les interventions du jour" style="background:var(--amber-light);padding:16px 24px;border-radius:14px;min-width:90px;text-align:center;cursor:pointer;border:2px solid transparent;transition:all .15s" class="stat-card" data-f="today">
                 <p id="s-today" style="font-size:32px;font-weight:900;color:#b45309" aria-live="polite">-</p>
-                <p style="font-size:11px;color:#b45309;font-weight:600">📅 Aujourd'hui</p>
+                <p style="font-size:13px;color:#b45309;font-weight:600">📅 Aujourd'hui</p>
             </div>
             <div onclick="setFilter('pending')" role="button" tabindex="0" aria-label="Filtrer les interventions à faire" style="background:var(--primary-light);padding:16px 24px;border-radius:14px;min-width:90px;text-align:center;cursor:pointer;border:2px solid transparent;transition:all .15s" class="stat-card" data-f="pending">
                 <p id="s-pending" style="font-size:32px;font-weight:900;color:var(--primary)" aria-live="polite">-</p>
-                <p style="font-size:11px;color:var(--primary-dark);font-weight:600">⏳ À faire</p>
+                <p style="font-size:13px;color:var(--primary-dark);font-weight:600">⏳ À faire</p>
             </div>
             <div onclick="setFilter('all')" role="button" tabindex="0" aria-label="Voir toutes les interventions" style="background:var(--green-light);padding:16px 24px;border-radius:14px;min-width:90px;text-align:center;cursor:pointer;border:2px solid transparent;transition:all .15s" class="stat-card" data-f="all">
                 <p id="s-done" style="font-size:32px;font-weight:900;color:var(--green)" aria-live="polite">-</p>
-                <p style="font-size:11px;color:#15803d;font-weight:600">✅ Terminées</p>
+                <p style="font-size:13px;color:#15803d;font-weight:600">✅ Terminées</p>
             </div>
         </div>
     </div>
@@ -589,7 +578,7 @@
     <div id="view-list" class="view container">
         <div style="display:flex;gap:12px;margin-bottom:12px">
             <div style="flex:1;position:relative">
-                <input type="search" id="search" placeholder="Ticket, site, département..." style="padding-left:48px">
+                <input type="search" id="search" placeholder="Ticket, site, département..." aria-label="Rechercher une intervention" style="padding-left:48px">
                 <span style="position:absolute;left:18px;top:50%;transform:translateY(-50%);font-size:18px">🔍</span>
             </div>
             <button class="btn btn-ghost btn-icon" onclick="toggleSearchFilters()" id="filter-btn" title="Filtres">⚙️</button>
@@ -604,7 +593,15 @@
         </div>
         <div id="list-stats" style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;font-size:13px;color:var(--muted)">
             <span id="result-count">0 intervention(s)</span>
-            <button class="btn btn-ghost btn-sm" onclick="exportList()" style="padding:8px 14px;font-size:12px">📥 Export</button>
+            <div style="display:flex;gap:8px;align-items:center">
+                <select class="sort-select" id="sort-select" onchange="S.sortMode=this.value;renderList()">
+                    <option value="priority">Priorité</option>
+                    <option value="date">Date</option>
+                    <option value="ticket">Ticket</option>
+                    <option value="distance">Distance</option>
+                </select>
+                <button class="btn btn-ghost btn-sm" onclick="exportList()" style="padding:8px 14px;font-size:13px">📥 Export</button>
+            </div>
         </div>
         <div id="list" style="display:flex;flex-direction:column;gap:14px"></div>
     </div>
@@ -614,7 +611,7 @@
             <button class="btn btn-ghost btn-icon" onclick="showView('list')" style="width:44px;height:44px;flex-shrink:0">←</button>
             <div style="flex:1;min-width:0">
                 <h3 id="d-header-site" style="font-weight:900;font-size:16px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:var(--text)">-</h3>
-                <p id="d-header-ticket" style="font-size:12px;color:var(--muted);font-family:monospace">#-</p>
+                <p id="d-header-ticket" style="font-size:13px;color:var(--muted);font-family:monospace">#-</p>
             </div>
             <span id="d-header-distance" class="distance-badge hidden">-</span>
         </div>
@@ -648,31 +645,41 @@
                     </div>
                     <h2 id="d-site" style="font-size:24px;font-weight:900;margin-bottom:6px;color:var(--text)">-</h2>
                     <p id="d-address" style="color:var(--muted);font-size:14px">-</p>
+                    <div class="nav-actions" id="nav-actions">
+                        <button class="nav-action-btn copy" onclick="copyAddress($('d-address').textContent)">📋 Copier</button>
+                        <button class="nav-action-btn maps" onclick="openGoogleMaps()">🗺️ Maps</button>
+                        <button class="nav-action-btn waze" onclick="openWaze()">🧭 Waze</button>
+                    </div>
                 </div>
                 <div id="d-cd"></div>
             </div>
-            
+
+            <div class="site-action-bar" id="site-action-bar">
+                <button class="site-action-btn arrive" id="btn-arrive" onclick="siteArrive()">📍 Arrivé sur site</button>
+                <button class="site-action-btn depart" id="btn-depart" onclick="siteDepart()">🚗 Départ</button>
+            </div>
+
             <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-bottom:20px">
                 <div style="background:var(--bg3);padding:16px;border-radius:12px">
-                    <p style="font-size:11px;color:var(--muted);margin-bottom:6px;font-weight:600">📅 DATE</p>
+                    <p style="font-size:13px;color:var(--muted);margin-bottom:6px;font-weight:600">📅 DATE</p>
                     <p id="d-date" style="font-weight:800;font-size:16px;color:var(--text)">-</p>
                 </div>
                 <div style="background:var(--bg3);padding:16px;border-radius:12px">
-                    <p style="font-size:11px;color:var(--muted);margin-bottom:6px;font-weight:600">🎯 DEADLINE</p>
+                    <p style="font-size:13px;color:var(--muted);margin-bottom:6px;font-weight:600">🎯 DEADLINE</p>
                     <p id="d-deadline" style="font-weight:800;font-size:16px;color:var(--text)">-</p>
                 </div>
                 <div style="background:var(--bg3);padding:16px;border-radius:12px">
-                    <p style="font-size:11px;color:var(--muted);margin-bottom:6px;font-weight:600">🏭 MARQUE</p>
+                    <p style="font-size:13px;color:var(--muted);margin-bottom:6px;font-weight:600">🏭 MARQUE</p>
                     <p id="d-brand" style="font-weight:800;font-size:16px;color:var(--text)">-</p>
                 </div>
                 <div style="background:var(--bg3);padding:16px;border-radius:12px">
-                    <p style="font-size:11px;color:var(--muted);margin-bottom:6px;font-weight:600">📍 DEPT</p>
+                    <p style="font-size:13px;color:var(--muted);margin-bottom:6px;font-weight:600">📍 DEPT</p>
                     <p id="d-dept" style="font-weight:800;font-size:16px;font-family:monospace;color:var(--text)">-</p>
                 </div>
             </div>
             
             <div style="background:var(--bg3);padding:20px;border-radius:14px">
-                <p style="font-size:12px;color:var(--muted);margin-bottom:10px;font-weight:700">🔧 PROBLÈME</p>
+                <p style="font-size:13px;color:var(--muted);margin-bottom:10px;font-weight:700">🔧 PROBLÈME</p>
                 <p id="d-problem" style="font-size:16px;line-height:1.7;color:var(--text)">-</p>
             </div>
         </div>
@@ -691,9 +698,12 @@
         </div>
         
         <div class="divider"></div>
-        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;flex-wrap:wrap;gap:8px">
             <div class="section-title" style="margin-bottom:0">📝 Rapport</div>
-            <button class="btn btn-ghost btn-sm" onclick="autoFillReport()">⚡ Auto-remplir</button>
+            <div style="display:flex;gap:8px">
+                <button class="btn btn-ghost btn-sm" onclick="autoFillReport()">✏️ Auto-remplir</button>
+                <button class="btn btn-success btn-sm" onclick="quickReport()" style="box-shadow:0 3px 12px rgba(34,197,94,.3)">⚡ Rapport Rapide</button>
+            </div>
         </div>
         
         <form id="form">
@@ -721,7 +731,7 @@
                 <div onclick="showPhotos()" style="background:var(--card);border:2px solid var(--border);border-radius:14px;padding:20px;cursor:pointer;display:flex;align-items:center;justify-content:space-between;transition:all .15s" onmouseover="this.style.borderColor='var(--primary)'" onmouseout="this.style.borderColor='var(--border)'">
                     <div>
                         <p style="font-weight:700;color:var(--text)" id="photos-summary">0 photo</p>
-                        <p style="font-size:12px;color:var(--muted)">Gérer les photos</p>
+                        <p style="font-size:13px;color:var(--muted)">Gérer les photos</p>
                     </div>
                     <span style="font-size:24px;color:var(--muted)">→</span>
                 </div>
@@ -743,6 +753,7 @@
             
             <button type="submit" class="btn btn-success btn-lg" style="width:100%">✅ Envoyer</button>
         </form>
+        <button class="submit-fab" id="submit-fab" onclick="quickReport()">✅ Envoyer le rapport</button>
     </div>
 
     <div id="view-calendar" class="view container hidden">
@@ -751,16 +762,16 @@
                 <button id="cal-prev" class="btn btn-ghost btn-icon" style="width:44px;height:44px">←</button>
                 <div style="text-align:center">
                     <h2 id="cal-title" style="font-weight:900;font-size:18px;color:var(--text)">-</h2>
-                    <button id="cal-today-btn" onclick="calGoToday()" style="background:none;border:none;color:var(--primary);font-size:12px;font-weight:700;cursor:pointer;padding:4px 8px">Aujourd'hui</button>
+                    <button id="cal-today-btn" onclick="calGoToday()" style="background:none;border:none;color:var(--primary);font-size:13px;font-weight:700;cursor:pointer;padding:4px 8px">Aujourd'hui</button>
                 </div>
                 <button id="cal-next" class="btn btn-ghost btn-icon" style="width:44px;height:44px">→</button>
             </div>
-            <div style="display:flex;gap:12px;margin-bottom:16px;font-size:11px;font-weight:600;justify-content:center">
+            <div style="display:flex;gap:12px;margin-bottom:16px;font-size:13px;font-weight:600;justify-content:center">
                 <span style="display:flex;align-items:center;gap:4px"><span style="width:10px;height:10px;border-radius:3px;background:var(--red);display:inline-block"></span>Retard</span>
                 <span style="display:flex;align-items:center;gap:4px"><span style="width:10px;height:10px;border-radius:3px;background:var(--primary);display:inline-block"></span>À faire</span>
                 <span style="display:flex;align-items:center;gap:4px"><span style="width:10px;height:10px;border-radius:3px;background:var(--green);display:inline-block"></span>Terminées</span>
             </div>
-            <div style="display:grid;grid-template-columns:repeat(7,1fr);gap:1px;background:var(--border);border-radius:14px;overflow:hidden;font-size:12px;margin-bottom:1px">
+            <div style="display:grid;grid-template-columns:repeat(7,1fr);gap:1px;background:var(--border);border-radius:14px;overflow:hidden;font-size:13px;margin-bottom:1px">
                 <div style="background:var(--bg3);padding:12px;text-align:center;font-weight:800;color:var(--muted)">L</div>
                 <div style="background:var(--bg3);padding:12px;text-align:center;font-weight:800;color:var(--muted)">M</div>
                 <div style="background:var(--bg3);padding:12px;text-align:center;font-weight:800;color:var(--muted)">M</div>
@@ -781,7 +792,7 @@
             <!-- Search + filter overlay -->
             <div id="map-controls" style="position:absolute;top:12px;left:12px;right:12px;z-index:600;display:flex;gap:8px;flex-wrap:wrap;align-items:center">
                 <div style="flex:1;min-width:180px;position:relative">
-                    <input id="map-search" type="text" placeholder="Rechercher une adresse..." style="width:100%;padding:12px 14px 12px 40px;border-radius:12px;border:none;background:rgba(255,255,255,.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);box-shadow:0 4px 20px rgba(0,0,0,.12);font-size:14px;font-weight:500;color:var(--text);outline:none" />
+                    <input id="map-search" type="text" placeholder="Rechercher une adresse..." aria-label="Rechercher une adresse sur la carte" style="width:100%;padding:12px 14px 12px 40px;border-radius:12px;border:none;background:rgba(255,255,255,.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);box-shadow:0 4px 20px rgba(0,0,0,.12);font-size:14px;font-weight:500;color:var(--text)" />
                     <svg style="position:absolute;left:12px;top:50%;transform:translateY(-50%);width:18px;height:18px;color:var(--muted)" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
                 </div>
                 <div style="display:flex;gap:6px">
@@ -792,74 +803,21 @@
             </div>
 
             <!-- Station count badge -->
-            <div id="map-count" style="position:absolute;top:70px;right:12px;z-index:600;background:rgba(255,255,255,.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-radius:10px;padding:8px 14px;box-shadow:0 4px 20px rgba(0,0,0,.1);font-size:12px;font-weight:700;color:var(--text);display:flex;align-items:center;gap:6px">
+            <div id="map-count" style="position:absolute;top:70px;right:12px;z-index:600;background:rgba(255,255,255,.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-radius:10px;padding:8px 14px;box-shadow:0 4px 20px rgba(0,0,0,.1);font-size:13px;font-weight:700;color:var(--text);display:flex;align-items:center;gap:6px">
                 <span style="width:8px;height:8px;border-radius:50%;background:var(--primary);display:inline-block"></span>
                 <span id="map-count-value">0</span> sites
             </div>
 
             <!-- Premium legend -->
             <div id="map-legend" style="position:absolute;bottom:24px;left:12px;z-index:600;background:rgba(255,255,255,.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-radius:12px;padding:12px 16px;box-shadow:0 4px 20px rgba(0,0,0,.1);display:flex;gap:14px;align-items:center">
-                <span style="display:flex;align-items:center;gap:6px;font-size:11px;font-weight:600;color:var(--text)"><span style="width:12px;height:12px;border-radius:50%;background:linear-gradient(135deg,#ef4444,#dc2626);display:inline-block;box-shadow:0 2px 6px rgba(239,68,68,.4)"></span>Retard</span>
-                <span style="display:flex;align-items:center;gap:6px;font-size:11px;font-weight:600;color:var(--text)"><span style="width:12px;height:12px;border-radius:50%;background:linear-gradient(135deg,#f59e0b,#d97706);display:inline-block;box-shadow:0 2px 6px rgba(245,158,11,.4)"></span>A faire</span>
-                <span style="display:flex;align-items:center;gap:6px;font-size:11px;font-weight:600;color:var(--text)"><span style="width:12px;height:12px;border-radius:50%;background:linear-gradient(135deg,var(--primary),#0284c7);display:inline-block;border:2px solid #fff;box-shadow:0 2px 6px rgba(14,165,233,.4)"></span>Moi</span>
+                <span style="display:flex;align-items:center;gap:6px;font-size:13px;font-weight:600;color:var(--text)"><span style="width:12px;height:12px;border-radius:50%;background:linear-gradient(135deg,#ef4444,#dc2626);display:inline-block;box-shadow:0 2px 6px rgba(239,68,68,.4)"></span>Retard</span>
+                <span style="display:flex;align-items:center;gap:6px;font-size:13px;font-weight:600;color:var(--text)"><span style="width:12px;height:12px;border-radius:50%;background:linear-gradient(135deg,#f59e0b,#d97706);display:inline-block;box-shadow:0 2px 6px rgba(245,158,11,.4)"></span>A faire</span>
+                <span style="display:flex;align-items:center;gap:6px;font-size:13px;font-weight:600;color:var(--text)"><span style="width:12px;height:12px;border-radius:50%;background:linear-gradient(135deg,var(--primary),#0284c7);display:inline-block;border:2px solid #fff;box-shadow:0 2px 6px rgba(14,165,233,.4)"></span>Moi</span>
             </div>
         </div>
     </div>
 
-    <!-- VIEWS ADMIN -->
-    <div id="view-admin" class="view container hidden">
-        <div style="margin-bottom:20px">
-            <label>📅 Période</label>
-            <div class="filter-tabs">
-                <div class="filter-tab active" data-period="today" onclick="setPeriod('today')">Aujourd'hui</div>
-                <div class="filter-tab" data-period="week" onclick="setPeriod('week')">Cette semaine</div>
-                <div class="filter-tab" data-period="month" onclick="setPeriod('month')">Ce mois</div>
-                <div class="filter-tab" data-period="custom" onclick="setPeriod('custom')">Personnalisé</div>
-            </div>
-            <div class="date-range hidden" id="custom-dates">
-                <input type="date" id="date-from" onchange="applyCustomDates()">
-                <input type="date" id="date-to" onchange="applyCustomDates()">
-            </div>
-        </div>
-        
-        <div class="summary-grid">
-            <div class="finance-card total">
-                <div class="finance-big count-up" style="color:#15803d" id="admin-total">0€</div>
-                <div class="finance-label">💰 Total facturé</div>
-            </div>
-            <div class="finance-card pending">
-                <div class="finance-big count-up" style="color:#b45309" id="admin-unpaid">0€</div>
-                <div class="finance-label">⏳ À payer</div>
-            </div>
-        </div>
-        
-        <div class="summary-grid">
-            <div class="summary-item">
-                <div class="value" style="color:var(--primary)" id="admin-count">0</div>
-                <div class="label">Interventions</div>
-            </div>
-            <div class="summary-item">
-                <div class="value" style="color:var(--purple)" id="admin-avg">0€</div>
-                <div class="label">Moyenne/intv</div>
-            </div>
-        </div>
-        
-        <div class="section-title">📈 Tendances</div>
-        <div class="card" style="padding:16px;margin-bottom:20px">
-            <canvas id="admin-chart" height="180"></canvas>
-        </div>
-
-        <div style="display:flex;gap:12px;margin-bottom:20px">
-            <button class="btn btn-ghost" style="flex:1" onclick="openTechniciensModal()">👷 Gérer techniciens</button>
-            <button class="btn btn-danger" style="flex:1" onclick="sendBulkReminders()">🔥 Rappels retard</button>
-        </div>
-
-        <div class="section-title">👷 Par technicien</div>
-        <input type="text" id="admin-tech-search" placeholder="Rechercher un technicien..." style="width:100%;padding:10px 14px;border:1px solid var(--border);border-radius:10px;margin-bottom:14px;background:var(--bg);color:var(--text);font-size:14px" oninput="filterTechList(this.value)">
-        <div id="tech-list"></div>
-    </div>
-
-    <!-- View Stats (Tech Dashboard) -->
+    <!-- View Stats -->
     <div id="view-stats" class="view container hidden">
         <h2 style="font-weight:900;font-size:24px;margin-bottom:24px;color:var(--text)">📊 Tableau de bord</h2>
 
@@ -906,31 +864,12 @@
         <div id="stats-by-dept" class="card" style="padding:16px"></div>
     </div>
 
-    <!-- Floating Action Button -->
-    <button class="fab" id="fab" onclick="toggleFabMenu()" title="Actions rapides">+</button>
-    <div id="fab-menu" class="hidden" style="position:fixed;bottom:170px;right:20px;display:flex;flex-direction:column;gap:12px;z-index:89">
-        <button class="btn btn-success btn-sm" onclick="sendBulkReminders();toggleFabMenu()" style="box-shadow:var(--shadow-lg)">🔥 Rappels retard</button>
-        <button class="btn btn-primary btn-sm" onclick="openTechniciensModal();toggleFabMenu()" style="box-shadow:var(--shadow-lg)">👷 Techniciens</button>
-        <button class="btn btn-ghost btn-sm" onclick="exportList();toggleFabMenu()" style="box-shadow:var(--shadow-lg)">📥 Export CSV</button>
-    </div>
-
     <!-- Nav Tech -->
     <nav class="nav" id="nav-tech">
         <div class="nav-item active" data-v="list"><span>📋</span>Liste<span class="nav-badge hidden" id="nav-badge-late">0</span></div>
         <div class="nav-item" data-v="stats"><span>📊</span>Stats</div>
         <div class="nav-item" data-v="calendar"><span>📅</span>Calendrier</div>
         <div class="nav-item" data-v="map"><span>🗺️</span>Carte</div>
-        <div class="nav-item" onclick="logout()"><span>🚪</span>Sortir</div>
-    </nav>
-
-    <!-- Nav Admin -->
-    <nav class="nav hidden" id="nav-admin">
-        <div class="nav-item active" data-v="admin"><span>💰</span>Finance</div>
-        <div class="nav-item" data-v="list"><span>📋</span>Interventions<span class="nav-badge hidden" id="nav-badge-late-admin">0</span></div>
-        <div class="nav-item" data-v="stats"><span>📊</span>Stats</div>
-        <div class="nav-item" data-v="calendar"><span>📅</span>Calendrier</div>
-        <div class="nav-item" data-v="map"><span>🗺️</span>Carte</div>
-        <div class="nav-item" onclick="logout()"><span>🚪</span>Sortir</div>
     </nav>
 </div>
 
@@ -953,29 +892,6 @@
     </div>
 </div>
 
-<div class="modal-overlay" id="modal-payment" role="dialog" aria-modal="true" aria-label="Enregistrer paiement">
-    <div class="modal">
-        <div class="modal-handle"></div>
-        <h3 style="font-weight:900;font-size:20px;margin-bottom:24px;color:var(--text)">💳 Enregistrer paiement</h3>
-        <div style="margin-bottom:20px">
-            <label>Technicien</label>
-            <p id="pay-tech" style="font-weight:800;font-size:18px;color:var(--text)">-</p>
-        </div>
-        <div style="margin-bottom:20px">
-            <label>Montant</label>
-            <p id="pay-amount" style="font-weight:900;font-size:32px;color:var(--green)">0€</p>
-        </div>
-        <div style="margin-bottom:20px">
-            <label>Date de paiement</label>
-            <input type="date" id="pay-date">
-        </div>
-        <div style="margin-bottom:20px">
-            <label>Référence (optionnel)</label>
-            <input type="text" id="pay-ref" placeholder="N° virement, chèque...">
-        </div>
-        <button class="btn btn-success" style="width:100%" onclick="confirmPayment()">✅ Confirmer le paiement</button>
-    </div>
-</div>
 
 <input type="file" id="photo-input" accept="image/*" capture="environment" multiple class="hidden">
 
@@ -1029,7 +945,6 @@
             <input type="text" id="new-tech-name" placeholder="Nom" style="margin-bottom:8px">
             <input type="tel" id="new-tech-phone" placeholder="Téléphone (0612345678)" style="margin-bottom:8px">
             <input type="text" id="new-tech-zone" placeholder="Départements (75,77,78)" style="margin-bottom:8px">
-            <input type="number" id="new-tech-tarif" placeholder="Tarif (€)" value="80" style="margin-bottom:12px">
             <button class="btn btn-success btn-sm" style="width:100%" onclick="addTechnicien()">+ Ajouter</button>
         </div>
         <button class="btn btn-primary" style="width:100%" onclick="closeModal('techniciens')">Fermer</button>
@@ -1059,18 +974,53 @@
 </div>
 
 <!-- Photo Viewer -->
-<div class="photo-viewer" id="photo-viewer" onclick="closePhotoViewer()">
+<div class="photo-viewer" id="photo-viewer" onclick="closePhotoViewer()" role="dialog" aria-modal="true" aria-label="Visionneuse de photo">
     <img id="photo-viewer-img" src="" alt="Photo">
     <button class="close" onclick="closePhotoViewer()">×</button>
 </div>
 
+<!-- Quick Report / Report Summary Modal -->
+<div class="quick-report-overlay" id="quick-report-overlay" role="dialog" aria-modal="true" aria-label="Rapport rapide">
+    <div class="quick-report-sheet" id="quick-report-sheet">
+        <div class="qr-handle"></div>
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px">
+            <span style="font-size:28px">⚡</span>
+            <div>
+                <h3 style="font-weight:900;font-size:20px;color:var(--text)" id="qr-title">Rapport Rapide</h3>
+                <p style="font-size:13px;color:var(--muted)">Vérifiez et envoyez en 1 tap</p>
+            </div>
+        </div>
+        <div class="qr-summary" id="qr-summary">
+            <div class="qr-row"><span class="qr-icon">📍</span><span class="qr-label">Site</span><span class="qr-value" id="qr-site">-</span></div>
+            <div class="qr-row"><span class="qr-icon">🎫</span><span class="qr-label">Ticket</span><span class="qr-value" id="qr-ticket">-</span></div>
+            <div class="qr-row"><span class="qr-icon">📅</span><span class="qr-label">Date</span><span class="qr-value" id="qr-date">-</span></div>
+            <div class="qr-row"><span class="qr-icon">⏰</span><span class="qr-label">Horaires</span><span class="qr-value" id="qr-time">-</span></div>
+            <div class="qr-row"><span class="qr-icon">📷</span><span class="qr-label">Photos</span><span class="qr-value" id="qr-photos">-</span></div>
+            <div class="qr-row"><span class="qr-icon">✅</span><span class="qr-label">Statut</span><span class="qr-value" id="qr-status">Résolu</span></div>
+        </div>
+        <div style="margin-bottom:16px">
+            <label style="margin-bottom:8px">📝 Observations</label>
+            <div class="qr-obs-preview" id="qr-obs-preview">-</div>
+            <button class="btn btn-ghost btn-sm" onclick="editQuickReportObs()" style="width:100%">✏️ Modifier les observations</button>
+        </div>
+        <div id="qr-obs-edit" class="hidden" style="margin-bottom:16px">
+            <textarea id="qr-obs-textarea" rows="5" placeholder="Observations..."></textarea>
+            <button class="btn btn-ghost btn-sm" onclick="saveQuickReportObs()" style="width:100%;margin-top:8px">✅ Valider</button>
+        </div>
+        <div class="qr-actions">
+            <button class="btn btn-ghost" onclick="closeQuickReport()">✏️ Modifier</button>
+            <button class="btn btn-success" id="qr-send-btn" onclick="confirmAndSendQuickReport()">✅ Envoyer</button>
+        </div>
+    </div>
+</div>
+
 <!-- Report Wizard Full-Screen -->
-<div class="wizard-overlay" id="report-wizard">
+<div class="wizard-overlay" id="report-wizard" role="dialog" aria-modal="true" aria-label="Assistant de rapport">
     <div class="wizard-header">
         <button class="btn btn-ghost btn-icon" onclick="closeWizard()" style="width:44px;height:44px;flex-shrink:0">×</button>
         <div style="text-align:center;flex:1">
             <div style="font-weight:900;font-size:16px;color:var(--text)" id="wizard-title">Rapport</div>
-            <div style="font-size:12px;color:var(--muted)" id="wizard-subtitle">Étape 1/5</div>
+            <div style="font-size:13px;color:var(--muted)" id="wizard-subtitle">Étape 1/5</div>
         </div>
         <span id="wizard-draft-badge" class="draft-badge hidden">Brouillon</span>
     </div>
@@ -1147,13 +1097,6 @@
                     </div>
                 </div>
             </div>
-            <div style="margin-bottom:24px">
-                <label>✍️ Signature</label>
-                <canvas class="signature-pad" id="signature-canvas" width="600" height="200"></canvas>
-                <div style="display:flex;gap:12px;margin-top:12px">
-                    <button class="btn btn-ghost btn-sm" onclick="clearSignature()" style="flex:1">Effacer</button>
-                </div>
-            </div>
         </div>
     </div>
     <div class="wizard-footer">
@@ -1164,19 +1107,20 @@
 </div>
 
 <script>
-// Configuration API - URLs centralisées
-const API = 'https://script.google.com/macros/s/AKfycbw7fOwNestEOFzvpiYmQYOEaTfmYNQLJuAOSJ_FAJgC3ScUC-aTS8jUFMEcg-n41UhCNw/exec';
-const WEBHOOK = typeof JCSM_CONFIG !== 'undefined' ? JCSM_CONFIG.api.webhooks.rapport : 'https://n8n.jcsm.fr/webhook/rapport';
-const WEBHOOK_PAY = typeof JCSM_CONFIG !== 'undefined' ? JCSM_CONFIG.api.webhooks.paiement : 'https://n8n.jcsm.fr/webhook/paiement';
-const WEBHOOK_SMS = typeof JCSM_CONFIG !== 'undefined' ? JCSM_CONFIG.api.webhooks.sms : 'https://n8n.jcsm.fr/webhook/sms';
-const WEBHOOK_NOTIFY = typeof JCSM_CONFIG !== 'undefined' ? JCSM_CONFIG.api.webhooks.notification : 'https://n8n.jcsm.fr/webhook/notification';
+// Configuration API - URLs centralisées (Google Sheets URL server-side only via proxy)
+const API = '/api/proxy-sheets.php?context=terrain';
+const WEBHOOK_PROXY = typeof JCSM_CONFIG !== 'undefined' ? JCSM_CONFIG.api.webhookProxy : '/api/webhook-proxy.php';
+const WEBHOOK = WEBHOOK_PROXY;
+const WEBHOOK_PAY = WEBHOOK_PROXY;
+const WEBHOOK_SMS = WEBHOOK_PROXY;
+const WEBHOOK_NOTIFY = WEBHOOK_PROXY;
 // Authentification par hash uniquement (via config.js verifyPassword / JCSM_CONFIG.auth.hashes)
 const SYNC_INTERVAL = typeof JCSM_CONFIG !== 'undefined' ? JCSM_CONFIG.refresh.interval : 60 * 60 * 1000;
 
 // Gestion des techniciens
 const TECHNICIENS = JSON.parse(localStorage.getItem('jcsm_techniciens') || '[]') || [
-    { id: 1, name: 'Jean Dupont', phone: '0612345678', zone: '75,77,78,91,92,93,94,95', tarif: 80, active: true },
-    { id: 2, name: 'Pierre Martin', phone: '0623456789', zone: '13,83,84,06', tarif: 85, active: true }
+    { id: 1, name: 'Jean Dupont', phone: '0612345678', zone: '75,77,78,91,92,93,94,95', active: true },
+    { id: 2, name: 'Pierre Martin', phone: '0623456789', zone: '13,83,84,06', active: true }
 ];
 function saveTechniciens() { localStorage.setItem('jcsm_techniciens', JSON.stringify(TECHNICIENS)); }
 
@@ -1214,7 +1158,7 @@ let S = {
     calDate: new Date(), map: null, markers: [], syncTimer: null,
     timerInterval: null, timerStart: null, timerElapsed: 0, checklist: {},
     currentPhotoCat: null, period: 'today', dateFrom: null, dateTo: null,
-    selTech: null, payments: JSON.parse(localStorage.getItem('jcsm_payments') || '{}'),
+    selTech: null,
     currentTechPhone: null, brandFilter: '', showFilters: false,
     theme: localStorage.getItem('jcsm_theme') || 'auto', isOnline: navigator.onLine,
     userLocation: null, pendingSync: JSON.parse(localStorage.getItem('jcsm_pending') || '[]')
@@ -1223,10 +1167,9 @@ let S = {
 const $ = id => document.getElementById(id);
 const $$ = sel => document.querySelectorAll(sel);
 const esc = s => { if (s == null) return ''; const d = document.createElement('div'); d.textContent = String(s); return d.innerHTML; };
-const toast = (m, t = 'info') => { const el = document.createElement('div'); el.className = 'toast toast-' + t; el.innerHTML = m; $('toasts').appendChild(el); setTimeout(() => el.remove(), 3500); };
+const toast = (m, t = 'info') => { const el = document.createElement('div'); el.className = 'toast toast-' + t; el.textContent = m; $('toasts').appendChild(el); setTimeout(() => el.remove(), 3500); };
 const iso = d => (d ? new Date(d) : new Date()).toISOString().split('T')[0];
 const vibrate = (ms = 10) => navigator.vibrate?.(ms);
-const fmtMoney = n => new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 }).format(n);
 const debounce = (fn, ms) => { let t; return (...args) => { clearTimeout(t); t = setTimeout(() => fn(...args), ms); }; };
 const showLoading = (show) => $('loading-overlay')?.classList.toggle('active', show);
 
@@ -1301,6 +1244,70 @@ function calculateDistance(lat1, lng1, lat2, lng2) {
     const a = Math.sin(dLat/2) * Math.sin(dLat/2) + Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) * Math.sin(dLng/2) * Math.sin(dLng/2);
     return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
 }
+
+// A7 — Geocode cache for distances
+S.geocodeCache = {};
+S.sortMode = 'priority';
+S.siteArrival = null;
+S.siteDeparture = null;
+
+function formatDist(km) {
+    if (km < 1) return Math.round(km * 1000) + 'm';
+    if (km < 10) return km.toFixed(1) + ' km';
+    return Math.round(km) + ' km';
+}
+
+// Detect country suffix from postal code: 4 digits = Belgium, 5 digits = France
+function geocodeCountrySuffix(address) {
+    const m = address.match(/\b(\d{4,5})\b/);
+    if (!m) return '';
+    return m[1].length === 4 ? ', Belgium' : ', France';
+}
+
+async function buildGeocodeCache() {
+    if (!S.userLocation) return;
+    const pending = S.data.filter(i => !i.done && !i.report && i.address && !S.geocodeCache[i.id]).slice(0, 20);
+    for (const i of pending) {
+        try {
+            const r = await fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(i.address + geocodeCountrySuffix(i.address))}&limit=1`);
+            const d = await r.json();
+            if (d.length) {
+                S.geocodeCache[i.id] = { lat: parseFloat(d[0].lat), lng: parseFloat(d[0].lon) };
+            }
+            await new Promise(ok => setTimeout(ok, 1100));
+        } catch (e) { /* skip */ }
+    }
+    renderList();
+}
+
+function getDistanceForIntv(i) {
+    if (!S.userLocation || !S.geocodeCache[i.id]) return null;
+    const c = S.geocodeCache[i.id];
+    return calculateDistance(S.userLocation.lat, S.userLocation.lng, c.lat, c.lng);
+}
+
+window.copyAddress = (addr, e) => {
+    if (e) e.stopPropagation();
+    vibrate();
+    navigator.clipboard.writeText(addr).then(() => toast('📋 Adresse copiée', 'success')).catch(() => toast('❌ Copie échouée', 'error'));
+};
+
+window.openGoogleMaps = () => {
+    vibrate();
+    const a = S.sel?.address || S.sel?.site;
+    if (a) window.open('https://www.google.com/maps/dir/?api=1&destination=' + encodeURIComponent(a), '_blank');
+};
+
+window.openWaze = () => {
+    vibrate();
+    const c = S.sel ? S.geocodeCache[S.sel.id] : null;
+    if (c) {
+        window.open('https://waze.com/ul?ll=' + c.lat + ',' + c.lng + '&navigate=yes', '_blank');
+    } else {
+        const a = S.sel?.address || S.sel?.site;
+        if (a) window.open('https://waze.com/ul?q=' + encodeURIComponent(a) + '&navigate=yes', '_blank');
+    }
+};
 
 // Search filters
 window.toggleSearchFilters = () => {
@@ -1399,80 +1406,20 @@ function getDateRange() {
     return { from, to };
 }
 
-$('auth-form').onsubmit = async e => {
-    e.preventDefault();
-    const p = $('pwd').value;
-    const btn = e.target.querySelector('button[type="submit"]');
-
-    if (!p) {
-        toast('Veuillez entrer le code', 'error');
-        return;
-    }
-
-    if (btn) { btn.disabled = true; btn.textContent = 'Vérification...'; }
-
-    try {
-        // Utiliser la vérification centralisée si disponible
-        const userInfo = typeof verifyPassword === 'function' ? await verifyPassword(p) : null;
-
-        if (userInfo) {
-            S.user = { role: userInfo.role, name: userInfo.isAdmin ? 'Admin' : 'Technicien' };
-        } else {
-            // Fallback client-side: hash et comparer manuellement (fonctionne sans serveur PHP)
-            const hash = typeof hashPassword === 'function' ? await hashPassword(p) : null;
-            const CLIENT_HASHES = {
-                'f0e30e24a243ef1fc96806b679b14b23d0b15b5c99f664a59c24384bfa36d898': { role: 'admin', isAdmin: true },
-                '6decc588f359f0058a1695322f82ac83215cec4276940897a8648a909e4000c4': { role: 'admin', isAdmin: true },
-                '526830a02277a03ab1c5eef93a9c6e22ae02e2ae977d8d69604ba212cb3d9507': { role: 'tech', isAdmin: false },
-                'f4574919cd21d4f4113aa9da4e174ed2a12da4bc5db0232c41a1bdd839fd6ace': { role: 'tech', isAdmin: false }
-            };
-            const hashInfo = hash ? CLIENT_HASHES[hash] : null;
-            if (hashInfo) {
-                S.user = { role: hashInfo.role, name: hashInfo.isAdmin ? 'Admin' : 'Technicien' };
-            } else {
-                toast('Code incorrect', 'error');
-                vibrate(100);
-                return;
-            }
-        }
-
-        // Créer session sécurisée si disponible
-        if (typeof createSession === 'function') {
-            createSession(S.user.role, S.user.role === 'admin');
-        }
-
-        localStorage.setItem('jcsm_user', JSON.stringify(S.user));
-        vibrate();
-        init();
-    } catch (err) {
-        console.error('Erreur auth:', err);
-        toast('Erreur de connexion', 'error');
-    } finally {
-        if (btn) { btn.disabled = false; btn.textContent = 'Connexion'; }
-    }
-};
-
-function checkAuth() { const u = localStorage.getItem('jcsm_user'); if (u) { S.user = JSON.parse(u); init(); } }
-
 function init() {
-    $('auth').classList.add('hidden'); $('app').classList.remove('hidden');
+    S.user = { role: 'tech', name: 'Technicien' };
     initTheme();
     initGeolocation();
     initSearchFilters();
-    if (S.user.role === 'admin') {
-        $('header-tech').classList.add('hidden'); $('header-admin').classList.remove('hidden');
-        $('stats-tech').classList.add('hidden'); $('nav-tech').classList.add('hidden'); $('nav-admin').classList.remove('hidden');
-        showView('admin');
-    } else { showView('list'); }
+    showView('list');
     showLoading(true);
     loadData().finally(() => showLoading(false));
     if (S.syncTimer) clearInterval(S.syncTimer);
     S.syncTimer = setInterval(() => loadData(true), SYNC_INTERVAL);
-    // Sync pending data if online
     if (S.isOnline && S.pendingSync.length) setTimeout(syncPendingData, 2000);
 }
 
-function logout() { if (confirm('Déconnexion ?')) { localStorage.removeItem('jcsm_user'); location.reload(); } }
+function logout() { location.reload(); }
 
 let _isLoading = false;
 async function loadData(force = false) {
@@ -1485,15 +1432,14 @@ async function loadData(force = false) {
             const d = JSON.parse(cache); S.data = d.data || []; S.techs = d.techs || {};
             setSyncStatus('online', 'Cache'); render(); return;
         }
-        const res = await fetch(API); const json = await res.json();
+        const res = await fetch(API, { headers: getAuthHeaders() }); const json = await res.json();
         S.techs = json.techniciens?.byDept || {};
         S.data = (json.interventions || []).map((r, i) => ({
             id: 'i' + i, row: r._row, ticket: r.ticket, site: r.site, address: r.address,
             dept: r.dept || '', sla: r.sla, date: r.date, dateFmt: r.dateFmt, deadline: r.deadline,
             deadlineFmt: r.deadlineFmt, daysLeft: r.daysLeft, isLate: r.isLate, done: r.done,
             client: r.client, brand: r.brand, problem: r.problem, report: r.report,
-            techAssigned: r.techAssigned, techSuggested: S.techs[r.dept] || null,
-            montant: r.montant || 80, paidDate: r.paidDate || null
+            techAssigned: r.techAssigned, techSuggested: S.techs[r.dept] || null
         }));
         localStorage.setItem('jcsm_data', JSON.stringify({ data: S.data, techs: S.techs }));
         localStorage.setItem('jcsm_data_time', Date.now().toString());
@@ -1505,6 +1451,7 @@ async function loadData(force = false) {
             toast('✅ Synchronisé', 'success');
         }
         render();
+        setTimeout(buildGeocodeCache, 2000);
     } catch (e) {
         console.error(e); setSyncStatus('offline', 'Hors ligne');
         const cache = localStorage.getItem('jcsm_data');
@@ -1516,13 +1463,11 @@ async function loadData(force = false) {
 
 function setSyncStatus(status, text) {
     $('sync-dot').className = 'sync-dot ' + status; $('sync-text').textContent = text;
-    if ($('sync-dot-admin')) { $('sync-dot-admin').className = 'sync-dot ' + status; $('sync-text-admin').textContent = text; }
 }
 
 $('btn-refresh').onclick = () => { vibrate(); loadData(true); };
 
 function render() {
-    if (S.user.role === 'admin') renderAdmin();
     renderStats();
     renderList();
     updateNavBadge();
@@ -1534,8 +1479,6 @@ function updateNavBadge() {
     const late = S.data.filter(i => i.isLate && !i.done && !i.report).length;
     const badge = $('nav-badge-late');
     if (badge) { if (late > 0) { badge.textContent = late; badge.classList.remove('hidden'); } else { badge.classList.add('hidden'); } }
-    const badgeAdmin = $('nav-badge-late-admin');
-    if (badgeAdmin) { if (late > 0) { badgeAdmin.textContent = late; badgeAdmin.classList.remove('hidden'); } else { badgeAdmin.classList.add('hidden'); } }
 }
 
 function setFilter(f) { S.filter = f; vibrate(); render(); }
@@ -1555,8 +1498,13 @@ function renderList() {
         return true;
     });
 
-    // Sort by priority score (higher = more urgent)
-    list.sort((a, b) => getPriorityScore(b) - getPriorityScore(a));
+    // Sort by selected mode
+    switch (S.sortMode) {
+        case 'date': list.sort((a, b) => new Date(a.date || '9999') - new Date(b.date || '9999')); break;
+        case 'ticket': list.sort((a, b) => { const na = parseInt(a.ticket) || 0, nb = parseInt(b.ticket) || 0; return na - nb; }); break;
+        case 'distance': list.sort((a, b) => (getDistanceForIntv(a) ?? 99999) - (getDistanceForIntv(b) ?? 99999)); break;
+        default: list.sort((a, b) => getPriorityScore(b) - getPriorityScore(a));
+    }
 
     // Update result count
     const countEl = $('result-count');
@@ -1591,19 +1539,20 @@ function renderList() {
 
     const renderCard = (i, idx) => {
         const done = i.done || i.report, isToday = i.date && new Date(i.date).toDateString() === today;
-        const techBadge = i.techAssigned ? `<span class="badge badge-purple">👷 ${esc(i.techAssigned)}</span>` : '<span class="badge badge-amber">Non assigné</span>';
         const priorityClass = !done && i.isLate && Math.abs(i.daysLeft) > 2 ? 'priority-high' : '';
-        return `<div class="intv fade-in ${done ? 'done' : ''} ${i.isLate && !done ? 'late' : ''} ${isToday && !done ? 'today' : ''} ${priorityClass}" style="animation-delay:${Math.min(idx * 20, 200)}ms" onclick="selectIntv('${esc(i.id)}')">
-            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:14px">
-                <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
-                    <span style="font-family:monospace;font-size:13px;color:var(--muted);background:var(--bg3);padding:6px 10px;border-radius:8px">${esc(i.ticket) || '-'}</span>
-                    ${done ? '<span class="badge badge-green">✅</span>' : cdHTML(i.daysLeft)}
-                    ${!done ? techBadge : ''}
-                </div>
-                ${!done ? `<button onclick="event.stopPropagation();quickAssign('${esc(i.id)}')" style="background:var(--primary-light);color:var(--primary);border:none;padding:8px 12px;border-radius:8px;cursor:pointer;font-size:12px;font-weight:700" title="Assigner">👷</button>` : ''}
+        const hasDraft = localStorage.getItem('jcsm_wiz_draft_' + i.id);
+        const dist = getDistanceForIntv(i);
+        const distBadge = dist != null ? `<span class="intv-distance">${formatDist(dist)}</span>` : '';
+        return `<div class="intv fade-in ${done ? 'done' : ''} ${i.isLate && !done ? 'late' : ''} ${isToday && !done ? 'today' : ''} ${priorityClass}" style="animation-delay:${Math.min(idx * 20, 200)}ms;position:relative" onclick="selectIntv('${esc(i.id)}')">
+            ${hasDraft && !done ? '<span class="draft-badge-card">📝 Brouillon</span>' : ''}
+            ${i.address ? `<button class="intv-copy-btn" onclick="copyAddress('${esc(i.address).replace(/'/g, "\\'")}',event)" title="Copier l'adresse">📋</button>` : ''}
+            <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:12px">
+                <span class="intv-ticket">${esc(i.ticket) || '-'}</span>
+                ${done ? '<span class="badge badge-green">✅</span>' : cdHTML(i.daysLeft)}
+                ${distBadge}
             </div>
-            <h4 style="font-weight:900;font-size:18px;margin-bottom:8px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--text)">${esc(i.site) || '-'}</h4>
-            <p style="font-size:14px;color:var(--muted);margin-bottom:14px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${esc(i.address) || '-'}</p>
+            <h4 style="font-weight:900;font-size:18px;margin-bottom:6px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--text)">${esc(i.site) || '-'}</h4>
+            <p class="intv-address">${esc(i.address) || '-'}</p>
             <div style="display:flex;justify-content:space-between;font-size:13px;color:var(--muted);align-items:center">
                 <span>📅 ${esc(i.dateFmt) || '-'}</span>
                 <span style="display:flex;gap:12px;align-items:center">
@@ -1611,6 +1560,7 @@ function renderList() {
                     <span style="font-family:monospace;font-weight:800;background:var(--primary-light);color:var(--primary-dark);padding:4px 10px;border-radius:6px">${esc(i.dept) || '-'}</span>
                 </span>
             </div>
+            ${!done ? `<button class="report-btn-card" onclick="event.stopPropagation();quickReport('${esc(i.id)}')" title="Rapport rapide">📝</button>` : ''}
         </div>`;
     };
 
@@ -1637,51 +1587,6 @@ window.quickAssign = (id) => {
     if (S.sel) openAssignModal();
 };
 
-function renderAdmin() {
-    const { from, to } = getDateRange();
-    const filtered = S.data.filter(i => { if (!i.done && !i.report) return false; const d = new Date(i.date); return d >= from && d <= to; });
-    const byTech = {};
-    filtered.forEach(i => {
-        const tech = i.techAssigned || i.techSuggested?.name || 'Non assigné';
-        if (!byTech[tech]) byTech[tech] = { interventions: [], total: 0, unpaid: 0 };
-        const montant = i.montant || 80, isPaid = S.payments[i.id] || i.paidDate;
-        byTech[tech].interventions.push({ ...i, montant, isPaid });
-        byTech[tech].total += montant; if (!isPaid) byTech[tech].unpaid += montant;
-    });
-    const totalAmount = filtered.reduce((sum, i) => sum + (i.montant || 80), 0);
-    const unpaidAmount = filtered.reduce((sum, i) => { if (S.payments[i.id] || i.paidDate) return sum; return sum + (i.montant || 80); }, 0);
-    $('admin-total').textContent = fmtMoney(totalAmount); $('admin-unpaid').textContent = fmtMoney(unpaidAmount);
-    $('admin-count').textContent = filtered.length; $('admin-avg').textContent = filtered.length ? fmtMoney(totalAmount / filtered.length) : '0€';
-    const techEntries = Object.entries(byTech).sort((a, b) => b[1].total - a[1].total);
-    if (!techEntries.length) { $('tech-list').innerHTML = `<div style="padding:40px;text-align:center;color:var(--muted)"><p style="font-size:48px;margin-bottom:16px;opacity:.3">👷</p><p>Aucune intervention sur cette période</p></div>`; return; }
-    $('tech-list').innerHTML = techEntries.map(([name, data]) => `
-        <div class="tech-card fade-in" data-tech="${esc(name)}">
-            <div class="tech-header" onclick="toggleTechCard(this)">
-                <div class="tech-name"><div class="avatar">${esc(name.charAt(0).toUpperCase())}</div><div><div style="font-weight:800;font-size:16px">${esc(name)}</div><div style="font-size:12px;color:var(--muted)">${data.interventions.length} intervention${data.interventions.length > 1 ? 's' : ''}</div></div></div>
-                <div class="tech-stats"><div class="tech-amount">${fmtMoney(data.total)}</div>${data.unpaid > 0 ? `<div class="tech-count" style="color:var(--amber)">⏳ ${fmtMoney(data.unpaid)} à payer</div>` : '<div class="tech-count" style="color:var(--green)">✅ Tout payé</div>'}</div>
-            </div>
-            <div class="tech-details">
-                ${data.interventions.map(i => `<div class="tech-row"><span class="status-dot ${i.isPaid ? 'paid' : 'unpaid'}"></span><span class="date">${esc(i.dateFmt) || '-'}</span><span class="site">${esc(i.site) || '-'}</span><span class="amount ${i.isPaid ? '' : 'unpaid'}">${fmtMoney(i.montant)}</span></div>`).join('')}
-                ${data.unpaid > 0 ? `<button class="pay-btn" onclick="openPayment('${esc(name)}', ${data.unpaid})">💳 Payer ${fmtMoney(data.unpaid)}</button>` : ''}
-            </div>
-        </div>
-    `).join('');
-    renderAdminChart();
-}
-
-window.toggleTechCard = el => { vibrate(); el.closest('.tech-card').classList.toggle('expanded'); };
-window.setPeriod = p => { vibrate(); S.period = p; $$('.filter-tab').forEach(t => t.classList.toggle('active', t.dataset.period === p)); $('custom-dates').classList.toggle('hidden', p !== 'custom'); if (p !== 'custom') renderAdmin(); };
-window.applyCustomDates = () => { S.dateFrom = $('date-from').value; S.dateTo = $('date-to').value; renderAdmin(); };
-window.openPayment = (tech, amount) => { vibrate(); S.selTech = tech; $('pay-tech').textContent = tech; $('pay-amount').textContent = fmtMoney(amount); $('pay-date').value = iso(); $('pay-ref').value = ''; openModal('payment'); };
-
-window.confirmPayment = async () => {
-    vibrate(); const { from, to } = getDateRange();
-    S.data.filter(i => { if (!i.done && !i.report) return false; const tech = i.techAssigned || i.techSuggested?.name || 'Non assigné'; if (tech !== S.selTech) return false; const d = new Date(i.date); if (d < from || d > to) return false; return !S.payments[i.id] && !i.paidDate; }).forEach(i => { S.payments[i.id] = { date: $('pay-date').value, ref: $('pay-ref').value }; });
-    localStorage.setItem('jcsm_payments', JSON.stringify(S.payments));
-    try { await fetch(WEBHOOK_PAY, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ technicien: S.selTech, montant: $('pay-amount').textContent, date: $('pay-date').value, reference: $('pay-ref').value, period: S.period, dateFrom: from.toISOString(), dateTo: to.toISOString() }) }); } catch (e) { console.error(e); }
-    closeModal('payment'); toast('✅ Paiement enregistré', 'success'); renderAdmin();
-};
-
 window.selectIntv = id => {
     S.sel = S.data.find(i => i.id === id); if (!S.sel) return; vibrate(); const i = S.sel;
     $('d-ticket').textContent = '#' + (i.ticket || '-'); $('d-site').textContent = i.site || '-'; $('d-address').textContent = i.address || '-';
@@ -1706,37 +1611,107 @@ window.selectIntv = id => {
     // Detail header
     if ($('d-header-site')) $('d-header-site').textContent = i.site || '-';
     if ($('d-header-ticket')) $('d-header-ticket').textContent = '#' + (i.ticket || '-');
-    // Distance badge
+    // Distance badge — use geocode cache first, fallback to fetch
     const distBadge = $('d-header-distance');
     if (distBadge && S.userLocation && i.address) {
-        distBadge.classList.add('hidden');
-        fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(i.address + ', France')}&limit=1`)
-            .then(r => r.json()).then(d => { if (d.length) { const km = calculateDistance(S.userLocation.lat, S.userLocation.lng, parseFloat(d[0].lat), parseFloat(d[0].lon)); distBadge.textContent = km < 1 ? `${Math.round(km * 1000)}m` : `${Math.round(km)} km`; distBadge.classList.remove('hidden'); } }).catch(() => {});
+        const cached = S.geocodeCache[i.id];
+        if (cached) {
+            const km = calculateDistance(S.userLocation.lat, S.userLocation.lng, cached.lat, cached.lng);
+            distBadge.textContent = formatDist(km); distBadge.classList.remove('hidden');
+        } else {
+            distBadge.classList.add('hidden');
+            fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(i.address + geocodeCountrySuffix(i.address))}&limit=1`)
+                .then(r => r.json()).then(d => { if (d.length) { const lat = parseFloat(d[0].lat), lng = parseFloat(d[0].lon); S.geocodeCache[i.id] = { lat, lng }; const km = calculateDistance(S.userLocation.lat, S.userLocation.lng, lat, lng); distBadge.textContent = formatDist(km); distBadge.classList.remove('hidden'); } }).catch(() => {});
+        }
     } else if (distBadge) { distBadge.classList.add('hidden'); }
 
-    $('f-date').value = iso(i.date || new Date()); const now = new Date(); $('f-start').value = String(now.getHours()).padStart(2, '0') + ':00'; $('f-end').value = String(now.getHours() + 1).padStart(2, '0') + ':00';
+    // A5 — Auto-fill: today + current HH:MM + end empty
+    $('f-date').value = iso(); const now = new Date(); $('f-start').value = String(now.getHours()).padStart(2, '0') + ':' + String(now.getMinutes()).padStart(2, '0'); $('f-end').value = '';
     $('f-obs').value = ''; S.photos = { borne: [], site: [], nc: [], avap: [] }; S.status = null; S.checklist = {}; S.timerElapsed = 0; S.timerStart = null; clearInterval(S.timerInterval); updateTimerDisplay(); restoreTimerState();
-    $$('.status-opt').forEach(o => o.classList.remove('selected')); genChips(); updatePhotosSummary(); showView('detail');
+    // A4 — Reset site arrival/departure
+    S.siteArrival = null; S.siteDeparture = null; updateSiteButtons();
+    $$('.status-opt').forEach(o => o.classList.remove('selected')); genChips(); updatePhotosSummary(); checkSubmitReady(); showView('detail');
 };
 
+function getSmartChips(problem) {
+    const p = (problem || '').toLowerCase();
+    let chips = ['✅ RAS', '✅ Terre OK', '✅ Serrage OK', '✅ Test charge OK', '✅ Contrôle visuel OK'];
+    if (p.includes('disjonc') || p.includes('ir ') || p.includes('relais')) chips.push('⚙️ Ir réglé', '✅ Disjoncteur vérifié');
+    if (p.includes('hors ligne') || p.includes('offline') || p.includes('comm')) chips.push('📶 SIM vérifiée', '🔄 Reboot fait', '✅ Communication rétablie');
+    if (p.includes('session') || p.includes('échec') || p.includes('charge')) chips.push('🔌 Connecteurs OK', '⚡ Tensions OK');
+    if (p.includes('écran') || p.includes('affichage')) chips.push('🖥️ Écran vérifié', '✅ Interface fonctionnelle');
+    if (p.includes('câble') || p.includes('connecteur')) chips.push('🔌 Câble vérifié/remplacé');
+    if (p.includes('terre') || p.includes('isolement')) chips.push('✅ Terre mesurée OK', '✅ Isolement conforme');
+    if (p.includes('ventilation') || p.includes('temp')) chips.push('🌡️ Ventilation OK', '✅ Température normale');
+    if (p.includes('badge') || p.includes('rfid')) chips.push('🔲 Lecteur RFID OK');
+    return chips;
+}
 function genChips() {
-    const p = S.sel?.problem?.toLowerCase() || '';
-    let chips = ['✅ RAS', '✅ Terre OK', '✅ Serrage OK', '✅ Test charge OK'];
-    if (p.includes('disjonc') || p.includes('ir ')) chips.push('⚙️ Ir réglé');
-    if (p.includes('hors ligne') || p.includes('offline') || p.includes('comm')) chips.push('📶 SIM OK', '🔄 Reboot fait');
-    if (p.includes('session') || p.includes('échec') || p.includes('charge')) chips.push('🔌 Câble OK', '⚡ Tensions OK');
-    if (p.includes('écran')) chips.push('🖥️ Écran OK');
+    const chips = getSmartChips(S.sel?.problem);
     $('chips').innerHTML = chips.map(c => `<span onclick="addChip('${c}')" style="background:var(--card);padding:12px 16px;border-radius:12px;font-size:14px;font-weight:600;cursor:pointer;border:2px solid var(--border);color:var(--text);transition:all .15s" onmouseover="this.style.borderColor='var(--primary)'" onmouseout="this.style.borderColor='var(--border)'">${c}</span>`).join('');
 }
 
-window.addChip = c => { vibrate(); $('f-obs').value += ($('f-obs').value ? '\n' : '') + c; };
+window.addChip = c => { vibrate(); $('f-obs').value += ($('f-obs').value ? '\n' : '') + c; checkSubmitReady(); };
+
+// A6 — FAB visibility check
+function checkSubmitReady() {
+    const fab = $('submit-fab');
+    if (!fab) return;
+    const hasDate = !!$('f-date')?.value;
+    const hasStart = !!$('f-start')?.value;
+    const hasEnd = !!$('f-end')?.value;
+    const hasObs = !!$('f-obs')?.value?.trim();
+    fab.style.display = (hasDate && hasStart && hasEnd && hasObs) ? 'block' : 'none';
+}
+// Watch form fields for FAB
+['f-date', 'f-start', 'f-end', 'f-obs'].forEach(id => {
+    const el = $(id);
+    if (el) el.addEventListener('input', checkSubmitReady);
+});
 
 function saveTimerState() { localStorage.setItem('jcsm_timer', JSON.stringify({ start: S.timerStart, elapsed: S.timerElapsed, intv: S.sel?.id || null })); }
-function restoreTimerState() { try { const t = JSON.parse(localStorage.getItem('jcsm_timer') || 'null'); if (t && t.intv === S.sel?.id && t.start) { S.timerStart = t.start; S.timerElapsed = t.elapsed || 0; S.timerInterval = setInterval(updateTimerDisplay, 1000); $('timer-start').classList.add('hidden'); $('timer-stop').classList.remove('hidden'); $('timer-card').classList.add('running'); updateTimerDisplay(); } } catch (e) {} }
+function restoreTimerState() { try { const t = JSON.parse(localStorage.getItem('jcsm_timer') || 'null'); if (t && t.intv === S.sel?.id && t.start) { S.timerStart = t.start; S.timerElapsed = t.elapsed || 0; S.timerInterval = setInterval(updateTimerDisplay, 1000); $('timer-start').classList.add('hidden'); $('timer-stop').classList.remove('hidden'); $('timer-card').classList.add('running'); updateTimerDisplay(); renderTimerBadge(); } } catch (e) {} }
 function clearTimerState() { localStorage.removeItem('jcsm_timer'); }
-window.timerStart = () => { vibrate(); S.timerStart = Date.now() - S.timerElapsed; S.timerInterval = setInterval(updateTimerDisplay, 1000); $('timer-start').classList.add('hidden'); $('timer-stop').classList.remove('hidden'); $('timer-card').classList.add('running'); const now = new Date(); $('f-start').value = String(now.getHours()).padStart(2, '0') + ':' + String(now.getMinutes()).padStart(2, '0'); saveTimerState(); };
-window.timerStop = () => { vibrate(); clearInterval(S.timerInterval); S.timerElapsed = Date.now() - S.timerStart; S.timerStart = null; $('timer-start').classList.remove('hidden'); $('timer-stop').classList.add('hidden'); $('timer-card').classList.remove('running'); const now = new Date(); $('f-end').value = String(now.getHours()).padStart(2, '0') + ':' + String(now.getMinutes()).padStart(2, '0'); clearTimerState(); };
-function updateTimerDisplay() { const elapsed = S.timerStart ? Date.now() - S.timerStart : S.timerElapsed; const s = Math.floor(elapsed / 1000); $('timer-display').textContent = `${String(Math.floor(s / 3600)).padStart(2, '0')}:${String(Math.floor((s % 3600) / 60)).padStart(2, '0')}:${String(s % 60).padStart(2, '0')}`; if (S.timerStart) saveTimerState(); }
+window.timerStart = () => { vibrate([20, 10, 20]); S.timerStart = Date.now() - S.timerElapsed; S.timerInterval = setInterval(updateTimerDisplay, 1000); $('timer-start').classList.add('hidden'); $('timer-stop').classList.remove('hidden'); $('timer-card').classList.add('running'); if ($('wiz-timer-start')) $('wiz-timer-start').classList.add('hidden'); if ($('wiz-timer-stop')) $('wiz-timer-stop').classList.remove('hidden'); if ($('wiz-timer-card')) $('wiz-timer-card').classList.add('running'); const now = new Date(); const timeStr = String(now.getHours()).padStart(2, '0') + ':' + String(now.getMinutes()).padStart(2, '0'); $('f-start').value = timeStr; if ($('wiz-start')) $('wiz-start').value = timeStr; saveTimerState(); renderTimerBadge(); };
+window.timerStop = () => { vibrate([20, 10, 20]); clearInterval(S.timerInterval); S.timerElapsed = Date.now() - S.timerStart; S.timerStart = null; $('timer-start').classList.remove('hidden'); $('timer-stop').classList.add('hidden'); $('timer-card').classList.remove('running'); if ($('wiz-timer-start')) $('wiz-timer-start').classList.remove('hidden'); if ($('wiz-timer-stop')) $('wiz-timer-stop').classList.add('hidden'); if ($('wiz-timer-card')) $('wiz-timer-card').classList.remove('running'); const now = new Date(); const timeStr = String(now.getHours()).padStart(2, '0') + ':' + String(now.getMinutes()).padStart(2, '0'); $('f-end').value = timeStr; if ($('wiz-end')) $('wiz-end').value = timeStr; clearTimerState(); renderTimerBadge(); };
+function updateTimerDisplay() { const elapsed = S.timerStart ? Date.now() - S.timerStart : S.timerElapsed; const s = Math.floor(elapsed / 1000); const display = `${String(Math.floor(s / 3600)).padStart(2, '0')}:${String(Math.floor((s % 3600) / 60)).padStart(2, '0')}:${String(s % 60).padStart(2, '0')}`; $('timer-display').textContent = display; if ($('wiz-timer-display')) $('wiz-timer-display').textContent = display; if (S.timerStart) saveTimerState(); renderTimerBadge(); }
+
+// A4 — Site arrival / departure
+window.siteArrive = () => {
+    if (S.siteArrival) return;
+    vibrate([20, 10, 20]);
+    const now = new Date();
+    const timeStr = String(now.getHours()).padStart(2, '0') + ':' + String(now.getMinutes()).padStart(2, '0');
+    S.siteArrival = timeStr;
+    $('f-date').value = iso();
+    $('f-start').value = timeStr;
+    if ($('wiz-start')) $('wiz-start').value = timeStr;
+    timerStart();
+    updateSiteButtons();
+    toast('📍 Arrivée enregistrée à ' + timeStr, 'success');
+    checkSubmitReady();
+};
+window.siteDepart = () => {
+    if (S.siteDeparture) return;
+    vibrate([20, 10, 20]);
+    const now = new Date();
+    const timeStr = String(now.getHours()).padStart(2, '0') + ':' + String(now.getMinutes()).padStart(2, '0');
+    S.siteDeparture = timeStr;
+    $('f-end').value = timeStr;
+    if ($('wiz-end')) $('wiz-end').value = timeStr;
+    timerStop();
+    updateSiteButtons();
+    toast('🚗 Départ enregistré à ' + timeStr, 'success');
+    checkSubmitReady();
+};
+function updateSiteButtons() {
+    const arrBtn = $('btn-arrive'), depBtn = $('btn-depart');
+    if (!arrBtn || !depBtn) return;
+    if (S.siteArrival) { arrBtn.innerHTML = '✅ Arrivé à ' + S.siteArrival; arrBtn.classList.add('done'); }
+    else { arrBtn.innerHTML = '📍 Arrivé sur site'; arrBtn.classList.remove('done'); }
+    if (S.siteDeparture) { depBtn.innerHTML = '🚗 Parti à ' + S.siteDeparture; depBtn.classList.add('done'); }
+    else { depBtn.innerHTML = '🚗 Départ'; depBtn.classList.remove('done'); }
+}
 
 window.openMaps = () => { vibrate(); const a = S.sel?.address || S.sel?.site; if (a) window.open('https://www.google.com/maps/search/' + encodeURIComponent(a), '_blank'); };
 window.callPowerdot = () => { vibrate(); window.location.href = 'tel:0756962758'; };
@@ -1769,8 +1744,10 @@ function compressImage(file, maxWidth = 1200, quality = 0.8) {
                 ctx.drawImage(img, 0, 0, width, height);
                 resolve(canvas.toDataURL('image/jpeg', quality));
             };
+            img.onerror = () => resolve(null);
             img.src = e.target.result;
         };
+        reader.onerror = () => resolve(null);
         reader.readAsDataURL(file);
     });
 }
@@ -1782,7 +1759,7 @@ $('photo-input').onchange = async e => {
     toast('📷 Traitement...', 'info');
     for (const f of files) {
         const compressed = await compressImage(f);
-        S.photos[cat].push({ id: Date.now() + '' + Math.random(), data: compressed });
+        if (compressed) S.photos[cat].push({ id: Date.now() + '' + Math.random(), data: compressed });
     }
     renderPhotoModal();
     updatePhotosSummary();
@@ -1802,24 +1779,41 @@ $('form').onsubmit = async e => {
     if (_isSubmitting) return;
     if (!S.status) { toast('❌ Sélectionnez un résultat', 'error'); vibrate(100); return; }
     const missingPhotos = PHOTO_CATS.filter(c => c.required && S.photos[c.id].length === 0);
-    if (missingPhotos.length) { toast(`❌ Photos manquantes`, 'error'); vibrate(100); return; }
+    if (missingPhotos.length) { toast('⚠️ Aucune photo jointe', 'info'); }
     const submitBtn = e.target.querySelector('button[type="submit"]');
     _isSubmitting = true;
     if (submitBtn) { submitBtn.disabled = true; submitBtn.innerHTML = '<span class="spinner" style="width:18px;height:18px;border-width:2px"></span> Envoi...'; }
-    const i = S.sel, tech = i.techAssigned || i.techSuggested?.name || S.user.name, tarif = i.techSuggested?.tarif || 80;
-    const report = { ticket: i.ticket, site: i.site, address: i.address, row: i.row, date: $('f-date').value, timeStart: $('f-start').value, timeEnd: $('f-end').value, duration: S.timerElapsed > 0 ? Math.round(S.timerElapsed / 60000) : null, comments: $('f-obs').value || 'RAS', status: S.status, photos: Object.values(S.photos).flat().map(p => p.data), photoCategories: { borne: S.photos.borne.length, site: S.photos.site.length, nc: S.photos.nc.length, avap: S.photos.avap.length }, technicien: tech, montant: tarif, dept: i.dept, brand: i.brand };
+    const i = S.sel, tech = i.techAssigned || i.techSuggested?.name || S.user.name;
+    const report = { ticket: i.ticket, site: i.site, address: i.address, row: i.row, date: $('f-date').value, timeStart: $('f-start').value, timeEnd: $('f-end').value, duration: S.timerElapsed > 0 ? Math.round(S.timerElapsed / 60000) : null, comments: $('f-obs').value || 'RAS', status: S.status, photos: Object.values(S.photos).flat().map(p => p.data), photoCategories: { borne: S.photos.borne.length, site: S.photos.site.length, nc: S.photos.nc.length, avap: S.photos.avap.length }, technicien: tech, dept: i.dept, brand: i.brand };
     toast('📤 Envoi...', 'info');
     try { await fetch(WEBHOOK, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(report) }); i.done = true; i.report = 'sent'; clearTimerState(); toast('✅ Rapport envoyé!', 'success'); vibrate([50, 50, 50]); showView('list'); render(); }
     catch (err) { console.error(err); const pending = JSON.parse(localStorage.getItem('jcsm_pending') || '[]'); pending.push(report); localStorage.setItem('jcsm_pending', JSON.stringify(pending)); toast('💾 Sauvegardé hors ligne', 'info'); }
     finally { _isSubmitting = false; if (submitBtn) { submitBtn.disabled = false; submitBtn.innerHTML = '✅ Envoyer'; } }
 };
 
+let _prevFocus = null;
 function openModal(id) {
     // Close any open modal first
     $$('.modal-overlay.active').forEach(m => { const mid = m.id.replace('modal-', ''); if (mid !== id) { m.classList.remove('active'); const modal = m.querySelector('.modal'); if (modal) modal.style.transform = ''; } });
+    _prevFocus = document.activeElement;
     $('modal-' + id).classList.add('active'); document.body.style.overflow = 'hidden';
+    // Focus first focusable element
+    const overlay = $('modal-' + id);
+    const first = overlay?.querySelector('button, [href], input:not([type=hidden]), select, textarea, [tabindex]:not([tabindex="-1"])');
+    if (first) setTimeout(() => first.focus(), 50);
 }
-function closeModal(id) { vibrate(); const overlay = $('modal-' + id); if (!overlay) return; const modal = overlay.querySelector('.modal'); if (modal) modal.style.transform = ''; overlay.classList.remove('active'); document.body.style.overflow = ''; }
+function closeModal(id) { vibrate(); const overlay = $('modal-' + id); if (!overlay) return; const modal = overlay.querySelector('.modal'); if (modal) modal.style.transform = ''; overlay.classList.remove('active'); document.body.style.overflow = ''; if (_prevFocus) { _prevFocus.focus(); _prevFocus = null; } }
+// Focus trap inside active modals
+document.addEventListener('keydown', function(e) {
+    if (e.key !== 'Tab') return;
+    const active = document.querySelector('.modal-overlay.active, .wizard-overlay.active, .quick-report-overlay.active');
+    if (!active) return;
+    const focusable = active.querySelectorAll('button, [href], input:not([type=hidden]), select, textarea, [tabindex]:not([tabindex="-1"])');
+    if (!focusable.length) return;
+    const first = focusable[0], last = focusable[focusable.length - 1];
+    if (e.shiftKey) { if (document.activeElement === first) { e.preventDefault(); last.focus(); } }
+    else { if (document.activeElement === last) { e.preventDefault(); first.focus(); } }
+});
 window.closeModal = closeModal;
 // Tap backdrop to close + swipe-down-to-close
 $$('.modal-overlay').forEach(m => {
@@ -1849,7 +1843,7 @@ function renderCal() {
     for (let day = 1; day <= last.getDate(); day++) {
         const isToday = today.getDate() === day && today.getMonth() === m && today.getFullYear() === y;
         const items = byDate[day] || [], late = items.filter(i => i.isLate && !i.done && !i.report).length, pending = items.filter(i => !i.done && !i.report && !i.isLate).length, done = items.filter(i => i.done || i.report).length;
-        html += `<div onclick="calDay(${y},${m},${day})" style="background:var(--card);padding:10px;min-height:80px;cursor:pointer;transition:background .15s;${isToday ? 'box-shadow:inset 0 0 0 2px var(--primary);' : ''}" onmouseover="this.style.background='var(--bg3)'" onmouseout="this.style.background='var(--card)'"><div style="font-weight:900;font-size:15px;margin-bottom:6px;${isToday ? 'color:var(--primary);' : 'color:var(--text);'}">${day}</div>${late ? `<div style="background:var(--red);color:#fff;padding:3px 8px;border-radius:6px;font-size:11px;font-weight:800;margin-bottom:4px">🔥 ${late}</div>` : ''}${pending ? `<div style="background:var(--primary);color:#fff;padding:3px 8px;border-radius:6px;font-size:11px;font-weight:700;margin-bottom:4px">${pending}</div>` : ''}${done ? `<div style="background:var(--green);color:#fff;padding:3px 8px;border-radius:6px;font-size:11px;font-weight:700">✓ ${done}</div>` : ''}</div>`;
+        html += `<div onclick="calDay(${y},${m},${day})" style="background:var(--card);padding:10px;min-height:80px;cursor:pointer;transition:background .15s;${isToday ? 'box-shadow:inset 0 0 0 2px var(--primary);' : ''}" onmouseover="this.style.background='var(--bg3)'" onmouseout="this.style.background='var(--card)'"><div style="font-weight:900;font-size:15px;margin-bottom:6px;${isToday ? 'color:var(--primary);' : 'color:var(--text);'}">${day}</div>${late ? `<div style="background:var(--red);color:#fff;padding:3px 8px;border-radius:6px;font-size:13px;font-weight:800;margin-bottom:4px">🔥 ${late}</div>` : ''}${pending ? `<div style="background:var(--primary);color:#fff;padding:3px 8px;border-radius:6px;font-size:13px;font-weight:700;margin-bottom:4px">${pending}</div>` : ''}${done ? `<div style="background:var(--green);color:#fff;padding:3px 8px;border-radius:6px;font-size:13px;font-weight:700">✓ ${done}</div>` : ''}</div>`;
     }
     $('cal-grid').innerHTML = html;
 }
@@ -1906,7 +1900,7 @@ function initMap() {
                 const q = searchInput.value.trim();
                 if (q.length < 3) return;
                 try {
-                    const res = await fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(q + ', France')}&limit=1`);
+                    const res = await fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(q + geocodeCountrySuffix(q))}&limit=1`);
                     const data = await res.json();
                     if (data.length) S.map.flyTo([parseFloat(data[0].lat), parseFloat(data[0].lon)], 14, { duration: 1.2 });
                 } catch (e) {}
@@ -1924,37 +1918,51 @@ async function renderMapMarkers() {
         if (_mapFilter === 'pending') return !x.isLate;
         return true;
     });
-    // Update station count
     const countEl = $('map-count-value');
     if (countEl) countEl.textContent = items.length;
 
+    function addMarkerForItem(i, lat, lon) {
+        if (isNaN(lat) || isNaN(lon) || (lat === 0 && lon === 0) || lat < -90 || lat > 90 || lon < -180 || lon > 180) return;
+        const gradient = i.isLate ? 'linear-gradient(135deg,#ef4444,#dc2626)' : 'linear-gradient(135deg,#f59e0b,#d97706)';
+        const shadow = i.isLate ? 'rgba(239,68,68,.4)' : 'rgba(245,158,11,.4)';
+        const pulseColor = i.isLate ? 'rgba(239,68,68,.2)' : 'rgba(245,158,11,.2)';
+        const icon = L.divIcon({
+            html: `<div class="map-marker"><div class="map-marker-pulse" style="background:${pulseColor}"></div><div class="map-marker-pin" style="background:${gradient};box-shadow:0 3px 12px ${shadow}"></div></div>`,
+            className: '', iconSize: [28, 28], iconAnchor: [14, 14], popupAnchor: [0, -14]
+        });
+        const badgeClass = i.isLate ? 'late' : 'pending';
+        const badgeText = i.isLate ? 'En retard' : 'A faire';
+        const marker = L.marker([lat, lon], { icon });
+        marker.bindPopup(`<div class="map-popup">
+            <div class="map-popup-title">${esc(i.site)}</div>
+            <div class="map-popup-address"><svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a2 2 0 01-2.828 0l-4.243-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>${esc(i.address)}</div>
+            <div class="map-popup-meta"><span class="map-popup-badge ${badgeClass}">${badgeText}</span>${i.techAssigned ? '<span class="map-popup-tech">' + esc(i.techAssigned) + '</span>' : ''}</div>
+            <button class="map-popup-btn" onclick="selectIntv('${esc(i.id)}')">Voir le détail</button>
+        </div>`);
+        _clusterGroup.addLayer(marker);
+        S.markers.push(marker);
+    }
+
+    // Phase 1: add cached markers immediately
+    const uncached = [];
     for (const i of items) {
+        const c = S.geocodeCache[i.id];
+        if (c) { addMarkerForItem(i, c.lat, c.lng); }
+        else { uncached.push(i); }
+    }
+    if (S.markers.length) S.map.fitBounds(_clusterGroup.getBounds().pad(0.1));
+
+    // Phase 2: geocode uncached in background (1req/s for Nominatim)
+    for (const i of uncached) {
         try {
-            const res = await fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(i.address + ', France')}&limit=1`);
+            const res = await fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(i.address + geocodeCountrySuffix(i.address))}&limit=1`);
             const data = await res.json();
             if (data.length) {
                 const lat = parseFloat(data[0].lat), lon = parseFloat(data[0].lon);
-                if (lat === 0 && lon === 0) continue;
-                const gradient = i.isLate ? 'linear-gradient(135deg,#ef4444,#dc2626)' : 'linear-gradient(135deg,#f59e0b,#d97706)';
-                const shadow = i.isLate ? 'rgba(239,68,68,.4)' : 'rgba(245,158,11,.4)';
-                const pulseColor = i.isLate ? 'rgba(239,68,68,.2)' : 'rgba(245,158,11,.2)';
-                const icon = L.divIcon({
-                    html: `<div class="map-marker"><div class="map-marker-pulse" style="background:${pulseColor}"></div><div class="map-marker-pin" style="background:${gradient};box-shadow:0 3px 12px ${shadow}"></div></div>`,
-                    className: '', iconSize: [28, 28], iconAnchor: [14, 14], popupAnchor: [0, -14]
-                });
-                const badgeClass = i.isLate ? 'late' : 'pending';
-                const badgeText = i.isLate ? 'En retard' : 'A faire';
-                const marker = L.marker([lat, lon], { icon });
-                marker.bindPopup(`<div class="map-popup">
-                    <div class="map-popup-title">${esc(i.site)}</div>
-                    <div class="map-popup-address"><svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a2 2 0 01-2.828 0l-4.243-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>${esc(i.address)}</div>
-                    <div class="map-popup-meta"><span class="map-popup-badge ${badgeClass}">${badgeText}</span>${i.techAssigned ? '<span class="map-popup-tech">' + esc(i.techAssigned) + '</span>' : ''}</div>
-                    <button class="map-popup-btn" onclick="selectIntv('${esc(i.id)}')">Voir le détail</button>
-                </div>`);
-                _clusterGroup.addLayer(marker);
-                S.markers.push(marker);
+                S.geocodeCache[i.id] = { lat, lng: lon };
+                addMarkerForItem(i, lat, lon);
             }
-            await new Promise(r => setTimeout(r, 200));
+            await new Promise(r => setTimeout(r, 1100));
         } catch (e) {}
     }
     if (S.markers.length) S.map.fitBounds(_clusterGroup.getBounds().pad(0.1));
@@ -1967,18 +1975,11 @@ function showView(v) {
     if (v === 'calendar') renderCal();
     if (v === 'map') { setTimeout(() => { initMap(); S.map?.invalidateSize(); }, 100); }
     if (v === 'list') renderList();
-    if (v === 'admin') renderAdmin();
     if (v === 'stats') renderStats();
-    // Show stats-tech bar when admin views list
     const statsTech = $('stats-tech');
-    if (statsTech && S.user?.role === 'admin') {
+    if (statsTech) {
         statsTech.classList.toggle('hidden', v !== 'list');
     }
-    // Show/hide FAB based on view
-    const fab = $('fab');
-    const fabMenu = $('fab-menu');
-    if (fab) fab.classList.toggle('hidden', v === 'detail' || v === 'stats');
-    if (fabMenu) fabMenu.classList.add('hidden');
     window.scrollTo(0, 0);
 }
 window.showView = showView;
@@ -2007,7 +2008,7 @@ function renderTechMgmtList() {
         <div style="background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px;margin-bottom:12px;display:flex;justify-content:space-between;align-items:center">
             <div>
                 <p style="font-weight:700;color:var(--text)">${esc(t.name)}</p>
-                <p style="font-size:12px;color:var(--muted)">📞 ${esc(t.phone)} | 📍 ${esc(t.zone)} | 💰 ${esc(t.tarif)}€</p>
+                <p style="font-size:13px;color:var(--muted)">📞 ${esc(t.phone)} | 📍 ${esc(t.zone)}</p>
             </div>
             <button onclick="deleteTechnicien(${t.id})" style="background:var(--red-light);color:var(--red);border:none;padding:8px 12px;border-radius:8px;cursor:pointer;font-weight:700">×</button>
         </div>
@@ -2018,15 +2019,13 @@ window.addTechnicien = () => {
     const name = $('new-tech-name').value.trim();
     const phone = $('new-tech-phone').value.trim();
     const zone = $('new-tech-zone').value.trim();
-    const tarif = parseInt($('new-tech-tarif').value) || 80;
     if (!name || !phone) { toast('❌ Nom et téléphone requis', 'error'); return; }
     const id = Date.now();
-    TECHNICIENS.push({ id, name, phone, zone, tarif, active: true });
+    TECHNICIENS.push({ id, name, phone, zone, active: true });
     saveTechniciens();
     $('new-tech-name').value = '';
     $('new-tech-phone').value = '';
     $('new-tech-zone').value = '';
-    $('new-tech-tarif').value = '80';
     renderTechMgmtList();
     toast('✅ Technicien ajouté', 'success');
 };
@@ -2103,14 +2102,13 @@ window.confirmAssign = async () => {
                 technicien: {
                     name: tech.name,
                     phone: tech.phone,
-                    tarif: tech.tarif
                 }
             })
         });
     } catch (e) { console.error('Notification error:', e); }
 
     // Envoyer SMS si coché
-    if ($('assign-sms').checked) {
+    if ($('assign-sms')?.checked) {
         const smsType = $('assign-sms-type').value;
         const message = SMS_TEMPLATES[smsType](S.sel, tech);
 
@@ -2221,48 +2219,305 @@ window.sendBulkReminders = async () => {
     toast(`✅ ${sent} rappel(s) envoyé(s)`, 'success');
 };
 
+// Smart observations mapping
+const SMART_OBS_MAP = [
+    { patterns: ['disjonc', 'ir ', 'ir/', 'relais'], obs: ['⚙️ Ir réglé', '✅ Disjoncteur vérifié'] },
+    { patterns: ['hors ligne', 'offline', 'communication', 'comm'], obs: ['📶 SIM vérifiée', '🔄 Reboot effectué', '✅ Communication rétablie'] },
+    { patterns: ['câble', 'connecteur'], obs: ['🔌 Câble vérifié/remplacé', '✅ Test charge OK'] },
+    { patterns: ['écran', 'affichage', 'display'], obs: ['🖥️ Écran vérifié', '✅ Interface fonctionnelle'] },
+    { patterns: ['terre', 'isolement'], obs: ['✅ Terre mesurée OK', '✅ Isolement conforme'] },
+    { patterns: ['session', 'charge', 'échec'], obs: ['⚡ Tensions vérifiées', '🔌 Connecteurs OK', '✅ Test charge réussi'] },
+    { patterns: ['ventilation', 'température', 'temp'], obs: ['🌡️ Ventilation vérifiée', '✅ Température normale'] },
+    { patterns: ['badge', 'rfid', 'lecteur'], obs: ['🔲 Lecteur RFID vérifié', '✅ Badge test OK'] },
+    { patterns: ['puissance', 'kw', 'watt'], obs: ['⚡ Puissance mesurée conforme', '✅ Calibration OK'] },
+    { patterns: ['fuite', 'eau', 'étanchéité'], obs: ['💧 Étanchéité vérifiée', '✅ Pas de fuite constatée'] }
+];
+
+function generateSmartObs(intervention) {
+    const p = (intervention?.problem || '').toLowerCase();
+    const obs = [];
+    // Match specific observations based on problem
+    let matched = false;
+    SMART_OBS_MAP.forEach(rule => {
+        if (rule.patterns.some(pat => p.includes(pat))) {
+            rule.obs.forEach(o => { if (!obs.includes(o)) obs.push(o); });
+            matched = true;
+        }
+    });
+    // If no specific match, add generic
+    if (!matched) obs.push('✅ RAS');
+    // Always add base checks
+    if (!obs.includes('✅ Test charge OK') && !obs.includes('✅ Test charge réussi')) obs.push('✅ Test charge OK');
+    obs.push('✅ Serrage OK', '✅ Contrôle visuel OK');
+    // Build structured text
+    const header = `Intervention ${intervention?.ticket || ''} - ${intervention?.site || ''}\n---`;
+    return header + '\n' + obs.join('\n');
+}
+
 // Auto-fill fonctionnality pour le rapport
 window.autoFillReport = () => {
     if (!S.sel) return;
     vibrate();
-
-    // Remplir les observations avec des suggestions intelligentes
-    const problem = S.sel?.problem?.toLowerCase() || '';
-    let obs = [];
-
-    // Ajouter automatiquement les vérifications de base
-    obs.push('✅ RAS');
-    obs.push('✅ Test charge OK');
-
-    if (problem.includes('disjonc')) obs.push('⚙️ Ir réglé');
-    if (problem.includes('hors ligne') || problem.includes('offline')) {
-        obs.push('📶 SIM OK');
-        obs.push('🔄 Reboot effectué');
-    }
-    if (problem.includes('terre')) obs.push('✅ Terre vérifiée');
-    if (problem.includes('câble')) obs.push('🔌 Câble remplacé');
-
-    $('f-obs').value = obs.join('\n');
-
+    $('f-obs').value = generateSmartObs(S.sel);
     // Définir automatiquement le statut comme résolu
     $$('.status-opt').forEach(o => o.classList.remove('selected'));
     const resolvedOpt = document.querySelector('.status-opt[data-v="resolved"]');
-    if (resolvedOpt) {
-        resolvedOpt.classList.add('selected');
-        S.status = 'resolved';
-    }
-
+    if (resolvedOpt) { resolvedOpt.classList.add('selected'); S.status = 'resolved'; }
     toast('✅ Rapport pré-rempli', 'success');
 };
 
-// FAB menu toggle
-window.toggleFabMenu = () => {
+// ==========================================
+// QUICK REPORT FLOW
+// ==========================================
+let _quickReportData = null;
+
+function quickReport(id) {
+    const intv = id ? S.data.find(i => i.id === id) : S.sel;
+    if (!intv) return;
+    vibrate([30, 20, 30]);
+    // If called from list with an id, set as current selection
+    if (id && intv) { S.sel = intv; }
+
+    const now = new Date();
+    const todayStr = iso();
+    const nowTime = String(now.getHours()).padStart(2, '0') + ':' + String(now.getMinutes()).padStart(2, '0');
+    // Use form fields if already filled (by Arrivé/Départ), else use timer/current time
+    let startTime = $('f-start')?.value || nowTime;
+    let endTime = $('f-end')?.value || nowTime;
+    if (!$('f-start')?.value) {
+        if (S.timerStart) {
+            const startDate = new Date(S.timerStart);
+            startTime = String(startDate.getHours()).padStart(2, '0') + ':' + String(startDate.getMinutes()).padStart(2, '0');
+        } else if (S.timerElapsed > 0) {
+            const startDate = new Date(now.getTime() - S.timerElapsed);
+            startTime = String(startDate.getHours()).padStart(2, '0') + ':' + String(startDate.getMinutes()).padStart(2, '0');
+        }
+    }
+    if (S.timerStart) timerStop();
+    // Compute duration
+    const [sh, sm] = startTime.split(':').map(Number);
+    const [eh, em] = endTime.split(':').map(Number);
+    const durMin = (eh * 60 + em) - (sh * 60 + sm);
+    const durH = Math.floor(Math.abs(durMin) / 60);
+    const durM = Math.abs(durMin) % 60;
+    const durStr = durMin > 0 ? `${durH}h${String(durM).padStart(2, '0')}` : '-';
+
+    // Use form obs if filled, else generate smart observations
+    const obs = $('f-obs')?.value?.trim() || generateSmartObs(intv);
+
+    // Auto-check all checklist items
+    CHECKLIST.forEach(c => { S.checklist[c.id] = true; });
+
+    // Photos count
+    const totalPhotos = Object.values(S.photos).flat().length;
+    const requiredOk = PHOTO_CATS.filter(c => c.required).every(c => S.photos[c.id].length > 0);
+
+    // Build report data
+    _quickReportData = {
+        intervention: intv,
+        date: todayStr,
+        timeStart: startTime,
+        timeEnd: endTime,
+        duration: durStr,
+        durationMin: durMin > 0 ? durMin : null,
+        obs: obs,
+        status: 'resolved',
+        photos: S.photos,
+        totalPhotos: totalPhotos,
+        requiredOk: requiredOk
+    };
+
+    // Populate modal
+    $('qr-site').textContent = intv.site || '-';
+    $('qr-ticket').textContent = '#' + (intv.ticket || '-');
+    $('qr-date').textContent = new Date(todayStr).toLocaleDateString('fr-FR', { day: '2-digit', month: '2-digit', year: 'numeric' });
+    $('qr-time').textContent = `${startTime} - ${endTime} (${durStr})`;
+    $('qr-photos').textContent = totalPhotos > 0 ? `${totalPhotos} photo${totalPhotos > 1 ? 's' : ''} ${requiredOk ? '✓ complet' : '⚠️ incomplet'}` : '0 photo';
+    $('qr-photos').style.color = requiredOk ? 'var(--green)' : 'var(--amber)';
+    $('qr-status').textContent = 'Résolu';
+    $('qr-status').style.color = 'var(--green)';
+    $('qr-obs-preview').textContent = obs;
+    $('qr-obs-edit').classList.add('hidden');
+    $('qr-obs-textarea').value = obs;
+
+    // Show modal
+    $('quick-report-overlay').classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+window.quickReport = quickReport;
+
+function editQuickReportObs() {
     vibrate();
-    const menu = $('fab-menu');
-    const fab = $('fab');
-    const isOpen = !menu.classList.contains('hidden');
-    menu.classList.toggle('hidden');
-    fab.style.transform = isOpen ? '' : 'rotate(45deg)';
+    $('qr-obs-edit').classList.remove('hidden');
+    $('qr-obs-textarea').value = _quickReportData?.obs || '';
+    $('qr-obs-textarea').focus();
+}
+window.editQuickReportObs = editQuickReportObs;
+
+function saveQuickReportObs() {
+    vibrate();
+    if (_quickReportData) _quickReportData.obs = $('qr-obs-textarea').value;
+    $('qr-obs-preview').textContent = $('qr-obs-textarea').value;
+    $('qr-obs-edit').classList.add('hidden');
+}
+window.saveQuickReportObs = saveQuickReportObs;
+
+function closeQuickReport() {
+    vibrate();
+    $('quick-report-overlay').classList.remove('active');
+    document.body.style.overflow = '';
+    // If user wants to modify, go to detail view
+    if (_quickReportData?.intervention && $('view-detail')?.classList.contains('hidden')) {
+        selectIntv(_quickReportData.intervention.id);
+    }
+}
+window.closeQuickReport = closeQuickReport;
+
+// Click backdrop to close
+$('quick-report-overlay')?.addEventListener('click', e => {
+    if (e.target === $('quick-report-overlay')) closeQuickReport();
+});
+
+let _qrSubmitting = false;
+async function confirmAndSendQuickReport() {
+    if (_qrSubmitting || !_quickReportData) return;
+
+    // If this came from wizard, delegate to the full wizard submit
+    if (_quickReportData.source === 'wizard') {
+        $('quick-report-overlay').classList.remove('active');
+        document.body.style.overflow = 'hidden'; // wizard is still open
+        // Update wizard obs with any edits
+        if ($('wiz-obs')) $('wiz-obs').value = _quickReportData.obs || '';
+        _quickReportData = null;
+        await _doWizSubmit();
+        return;
+    }
+
+    _qrSubmitting = true;
+    vibrate([50, 30, 50]);
+    const btn = $('qr-send-btn');
+    if (btn) { btn.disabled = true; btn.innerHTML = '<span class="spinner" style="width:18px;height:18px;border-width:2px"></span> Envoi...'; }
+
+    const d = _quickReportData;
+    const i = d.intervention;
+    const tech = i.techAssigned || i.techSuggested?.name || S.user.name;
+
+    const report = {
+        ticket: i.ticket, site: i.site, address: i.address, row: i.row,
+        date: d.date, timeStart: d.timeStart, timeEnd: d.timeEnd,
+        duration: d.durationMin, comments: d.obs || 'RAS', status: d.status,
+        photos: Object.values(d.photos).flat().map(p => p.data),
+        photoCategories: { borne: d.photos.borne.length, site: d.photos.site.length, nc: d.photos.nc.length, avap: d.photos.avap.length },
+        technicien: tech, dept: i.dept, brand: i.brand
+    };
+
+    const apiReport = {
+        ticket: i.ticket, nomSite: i.site, adresse: i.address,
+        dateIntervention: d.date, heureArrivee: d.timeStart, heureDepart: d.timeEnd,
+        probleme: i.problem || '', actionRealisee: d.obs || 'RAS',
+        statut: d.status, piecesChangees: '', remarques: '',
+        interventionId: i.id, photos: Object.values(d.photos).flat().map(p => p.data)
+    };
+
+    toast('📤 Envoi...', 'info');
+    let webhookOk = false, apiOk = false;
+
+    try { await fetch(WEBHOOK, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(report) }); webhookOk = true; }
+    catch (e) { enqueueSync('rapport-webhook', report); }
+
+    try { const headers = { 'Content-Type': 'application/json', ...getAuthHeaders() }; await fetch('/api/save-rapport.php', { method: 'POST', headers, body: JSON.stringify(apiReport) }); apiOk = true; }
+    catch (e) { enqueueSync('rapport-api', apiReport); }
+
+    if (webhookOk || apiOk) {
+        i.done = true; i.report = 'sent';
+        clearTimerState();
+        if (S.sel?.id === i.id) clearWizDraft();
+        toast('✅ Rapport envoyé!', 'success');
+        vibrate([50, 50, 50]);
+    } else {
+        toast('💾 Sauvegardé hors ligne', 'info');
+    }
+
+    $('quick-report-overlay').classList.remove('active');
+    document.body.style.overflow = '';
+    _qrSubmitting = false;
+    if (btn) { btn.disabled = false; btn.innerHTML = '✅ Envoyer'; }
+    _quickReportData = null;
+    showView('list');
+    render();
+}
+window.confirmAndSendQuickReport = confirmAndSendQuickReport;
+
+// ==========================================
+// REPORT SUMMARY FOR WIZARD (intercept wizSubmit)
+// ==========================================
+function showReportSummary(source) {
+    if (!S.sel) return;
+    vibrate();
+    const i = S.sel;
+    const isWiz = source === 'wizard';
+    const dateVal = isWiz ? $('wiz-date')?.value : $('f-date')?.value;
+    const startVal = isWiz ? $('wiz-start')?.value : $('f-start')?.value;
+    const endVal = isWiz ? $('wiz-end')?.value : $('f-end')?.value;
+    const obsVal = isWiz ? $('wiz-obs')?.value : $('f-obs')?.value;
+    const statusVal = isWiz ? wizStatus : S.status;
+
+    const [sh, sm] = (startVal || '00:00').split(':').map(Number);
+    const [eh, em] = (endVal || '00:00').split(':').map(Number);
+    const durMin = (eh * 60 + em) - (sh * 60 + sm);
+    const durH = Math.floor(Math.abs(durMin) / 60);
+    const durM = Math.abs(durMin) % 60;
+    const durStr = durMin > 0 ? `${durH}h${String(durM).padStart(2, '0')}` : '-';
+
+    const totalPhotos = Object.values(S.photos).flat().length;
+    const requiredOk = PHOTO_CATS.filter(c => c.required).every(c => S.photos[c.id].length > 0);
+
+    _quickReportData = {
+        intervention: i, date: dateVal, timeStart: startVal, timeEnd: endVal,
+        duration: durStr, durationMin: durMin > 0 ? durMin : null,
+        obs: obsVal, status: statusVal, photos: S.photos,
+        totalPhotos: totalPhotos, requiredOk: requiredOk, source: source
+    };
+
+    $('qr-title').textContent = '📋 Résumé du rapport';
+    $('qr-site').textContent = i.site || '-';
+    $('qr-ticket').textContent = '#' + (i.ticket || '-');
+    $('qr-date').textContent = dateVal ? new Date(dateVal).toLocaleDateString('fr-FR', { day: '2-digit', month: '2-digit', year: 'numeric' }) : '-';
+    $('qr-time').textContent = `${startVal || '-'} - ${endVal || '-'} (${durStr})`;
+    $('qr-photos').textContent = totalPhotos > 0 ? `${totalPhotos} photo${totalPhotos > 1 ? 's' : ''} ${requiredOk ? '✓ complet' : '⚠️ incomplet'}` : '0 photo';
+    $('qr-photos').style.color = requiredOk ? 'var(--green)' : 'var(--amber)';
+    $('qr-status').textContent = statusVal === 'resolved' ? 'Résolu' : statusVal === 'followup' ? 'Suivi requis' : '-';
+    $('qr-status').style.color = statusVal === 'resolved' ? 'var(--green)' : 'var(--amber)';
+    $('qr-obs-preview').textContent = obsVal || 'RAS';
+    $('qr-obs-edit').classList.add('hidden');
+    $('qr-obs-textarea').value = obsVal || '';
+
+    $('quick-report-overlay').classList.add('active');
+}
+
+// ==========================================
+// TIMER BADGE IN HEADER
+// ==========================================
+function renderTimerBadge() {
+    const badge = $('header-timer-badge');
+    if (!badge) return;
+    if (S.timerStart) {
+        const elapsed = Date.now() - S.timerStart;
+        const s = Math.floor(elapsed / 1000);
+        const mm = String(Math.floor(s / 60)).padStart(2, '0');
+        const ss = String(s % 60).padStart(2, '0');
+        $('header-timer-value').textContent = `${mm}:${ss}`;
+        badge.classList.remove('hidden');
+    } else {
+        badge.classList.add('hidden');
+    }
+}
+window.scrollToTimer = () => {
+    vibrate();
+    if (S.sel) {
+        showView('detail');
+        setTimeout(() => $('timer-card')?.scrollIntoView({ behavior: 'smooth' }), 200);
+    }
 };
 
 // Render stats view
@@ -2304,7 +2559,7 @@ function renderStats() {
         <div style="display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid var(--border)">
             <span style="font-weight:600;color:var(--text)">${esc(brand)}</span>
             <div style="display:flex;gap:12px;align-items:center">
-                <span style="font-size:12px;color:var(--muted)">${data.done}/${data.total}</span>
+                <span style="font-size:13px;color:var(--muted)">${data.done}/${data.total}</span>
                 <div style="width:60px;height:6px;background:var(--bg3);border-radius:3px;overflow:hidden">
                     <div style="height:100%;background:var(--green);width:${data.total ? (data.done/data.total)*100 : 0}%"></div>
                 </div>
@@ -2326,7 +2581,7 @@ function renderStats() {
             <span style="font-weight:700;font-family:monospace;background:var(--primary-light);color:var(--primary-dark);padding:4px 10px;border-radius:6px">${esc(dept)}</span>
             <div style="display:flex;gap:12px;align-items:center">
                 <span style="font-size:13px;color:var(--text);font-weight:600">${data.total} intv</span>
-                ${data.late ? `<span style="font-size:12px;color:var(--red);font-weight:700">${data.late} retard</span>` : ''}
+                ${data.late ? `<span style="font-size:13px;color:var(--red);font-weight:700">${data.late} retard</span>` : ''}
             </div>
         </div>
     `).join('') || '<p style="color:var(--muted);text-align:center;padding:16px">Aucune donnée</p>';
@@ -2337,49 +2592,7 @@ function renderStats() {
 // ==========================================
 // Chart.js rendering
 // ==========================================
-let _adminChart = null, _statsDoughnut = null, _statsBrands = null;
-
-function renderAdminChart() {
-    if (typeof Chart === 'undefined' || !$('admin-chart')) return;
-    const weeks = {};
-    const now = new Date();
-    for (let w = 7; w >= 0; w--) {
-        const d = new Date(now); d.setDate(d.getDate() - w * 7);
-        const key = d.toISOString().slice(0, 10).replace(/-\d{2}$/, '-S' + Math.ceil(d.getDate() / 7));
-        const label = `S${Math.ceil(d.getDate() / 7)} ${d.toLocaleDateString('fr-FR', { month: 'short' })}`;
-        weeks[label] = { done: 0, total: 0, start: new Date(d.setDate(d.getDate() - d.getDay() + 1)), end: new Date(d.setDate(d.getDate() + 6)) };
-    }
-    S.data.forEach(i => {
-        if (!i.date) return;
-        const d = new Date(i.date);
-        Object.entries(weeks).forEach(([label, w]) => {
-            if (d >= w.start && d <= w.end) {
-                w.total++;
-                if (i.done || i.report) w.done++;
-            }
-        });
-    });
-    const labels = Object.keys(weeks);
-    const totals = labels.map(l => weeks[l].total);
-    const dones = labels.map(l => weeks[l].done);
-
-    if (_adminChart) _adminChart.destroy();
-    _adminChart = new Chart($('admin-chart'), {
-        type: 'bar',
-        data: {
-            labels,
-            datasets: [
-                { label: 'Total', data: totals, backgroundColor: 'rgba(14,165,233,0.3)', borderColor: '#0ea5e9', borderWidth: 2, borderRadius: 6 },
-                { label: 'Terminées', data: dones, backgroundColor: 'rgba(34,197,94,0.3)', borderColor: '#22c55e', borderWidth: 2, borderRadius: 6 }
-            ]
-        },
-        options: {
-            responsive: true, maintainAspectRatio: false,
-            plugins: { legend: { position: 'bottom', labels: { boxWidth: 12, padding: 16, font: { size: 11, weight: 600 } } } },
-            scales: { y: { beginAtZero: true, ticks: { stepSize: 1, font: { size: 11 } }, grid: { color: 'rgba(0,0,0,0.05)' } }, x: { ticks: { font: { size: 10 } }, grid: { display: false } } }
-        }
-    });
-}
+let _statsDoughnut = null, _statsBrands = null;
 
 function renderStatsCharts() {
     if (typeof Chart === 'undefined') return;
@@ -2424,25 +2637,6 @@ function renderStatsCharts() {
         });
     }
 }
-
-// Tech search filter for admin view
-function filterTechList(q) {
-    q = q.toLowerCase();
-    let visible = 0;
-    $$('#tech-list .tech-card').forEach(card => {
-        const name = card.getAttribute('data-tech') || '';
-        const show = name.toLowerCase().includes(q);
-        card.style.display = show ? '' : 'none';
-        if (show) visible++;
-    });
-    let emptyEl = $('tech-list-empty');
-    if (!visible && q) {
-        if (!emptyEl) { emptyEl = document.createElement('div'); emptyEl.id = 'tech-list-empty'; emptyEl.style.cssText = 'padding:32px;text-align:center;color:var(--muted);font-size:14px'; $('tech-list').appendChild(emptyEl); }
-        emptyEl.textContent = 'Aucun technicien trouvé';
-        emptyEl.style.display = '';
-    } else if (emptyEl) { emptyEl.style.display = 'none'; }
-}
-window.filterTechList = filterTechList;
 
 // Keyboard shortcuts
 document.addEventListener('keydown', e => {
@@ -2498,8 +2692,6 @@ function openWizard() {
     updateWizUI();
     // Start auto-save draft
     wizDraftTimer = setInterval(saveWizDraft, 30000);
-    // Clear signature
-    clearSignature();
 }
 window.openWizard = openWizard;
 
@@ -2512,28 +2704,51 @@ function closeWizard() {
 }
 window.closeWizard = closeWizard;
 
+const WIZ_OPTIONAL_STEPS = [1, 2]; // Checklist and Photos are optional
 function updateWizUI() {
     // Progress
     $('wizard-progress').style.width = ((wizStep + 1) / WIZ_STEPS * 100) + '%';
-    $('wizard-subtitle').textContent = `Étape ${wizStep + 1}/${WIZ_STEPS}`;
+    const optLabel = WIZ_OPTIONAL_STEPS.includes(wizStep) ? ' (optionnel)' : '';
+    $('wizard-subtitle').textContent = `Étape ${wizStep + 1}/${WIZ_STEPS}${optLabel}`;
     const titles = ['Horaires', 'Checklist', 'Photos', 'Observations', 'Finalisation'];
     $('wizard-title').textContent = titles[wizStep] || 'Rapport';
     // Steps visibility
     $$('#report-wizard .wizard-step').forEach((el, idx) => {
         el.classList.toggle('active', idx === wizStep);
     });
-    // Dots
+    // Dots - mark optional steps
     $$('#wizard-dots .wizard-dot').forEach((d, idx) => {
         d.classList.toggle('active', idx === wizStep);
         d.classList.toggle('done', idx < wizStep);
+        d.classList.toggle('optional', WIZ_OPTIONAL_STEPS.includes(idx) && idx !== wizStep && idx >= wizStep);
     });
-    // Buttons
+    // Buttons - show skip for optional steps
     $('wiz-prev').style.display = wizStep > 0 ? '' : 'none';
-    $('wiz-next').classList.toggle('hidden', wizStep === WIZ_STEPS - 1);
-    $('wiz-submit').classList.toggle('hidden', wizStep !== WIZ_STEPS - 1);
+    const isOptional = WIZ_OPTIONAL_STEPS.includes(wizStep);
+    if (wizStep === WIZ_STEPS - 1) {
+        $('wiz-next').classList.add('hidden');
+        $('wiz-submit').classList.remove('hidden');
+    } else {
+        $('wiz-next').classList.remove('hidden');
+        $('wiz-submit').classList.add('hidden');
+        $('wiz-next').textContent = isOptional ? 'Passer →' : 'Suivant →';
+    }
 }
 
-function wizNext() { vibrate(); if (wizStep < WIZ_STEPS - 1) { wizStep++; updateWizUI(); $('wizard-body').scrollTop = 0; } }
+function wizNext() {
+    vibrate();
+    if (wizStep >= WIZ_STEPS - 1) return;
+    wizStep++;
+    // Auto-skip photos step if all required photos are already taken
+    if (wizStep === 2) {
+        const requiredOk = PHOTO_CATS.filter(c => c.required).every(c => S.photos[c.id].length > 0);
+        if (requiredOk && Object.values(S.photos).flat().length > 0) {
+            toast('📷 Photos déjà prises, étape passée', 'info');
+            wizStep++;
+        }
+    }
+    updateWizUI(); $('wizard-body').scrollTop = 0;
+}
 function wizPrev() { vibrate(); if (wizStep > 0) { wizStep--; updateWizUI(); $('wizard-body').scrollTop = 0; } }
 window.wizNext = wizNext;
 window.wizPrev = wizPrev;
@@ -2560,12 +2775,7 @@ function renderWizChecklist() {
 }
 
 function genWizChips() {
-    const p = S.sel?.problem?.toLowerCase() || '';
-    let chips = ['✅ RAS', '✅ Terre OK', '✅ Serrage OK', '✅ Test charge OK'];
-    if (p.includes('disjonc') || p.includes('ir ')) chips.push('⚙️ Ir réglé');
-    if (p.includes('hors ligne') || p.includes('offline') || p.includes('comm')) chips.push('📶 SIM OK', '🔄 Reboot fait');
-    if (p.includes('session') || p.includes('échec') || p.includes('charge')) chips.push('🔌 Câble OK', '⚡ Tensions OK');
-    if (p.includes('écran')) chips.push('🖥️ Écran OK');
+    const chips = getSmartChips(S.sel?.problem);
     $('wiz-chips').innerHTML = chips.map(c =>
         `<span onclick="addWizChip('${c}')" style="background:var(--card);padding:12px 16px;border-radius:12px;font-size:14px;font-weight:600;cursor:pointer;border:2px solid var(--border);color:var(--text);transition:all .15s;min-height:48px;display:inline-flex;align-items:center" onmouseover="this.style.borderColor='var(--primary)'" onmouseout="this.style.borderColor='var(--border)'">${c}</span>`
     ).join('');
@@ -2638,98 +2848,6 @@ async function handleWizPhotoInput(e) {
 }
 $('wiz-photo-camera')?.addEventListener('change', handleWizPhotoInput);
 $('wiz-photo-gallery')?.addEventListener('change', handleWizPhotoInput);
-
-// ==========================================
-// SIGNATURE CANVAS (Phase 4)
-// ==========================================
-let sigCanvas, sigCtx, sigDrawing = false;
-
-function initSignature() {
-    sigCanvas = $('signature-canvas');
-    if (!sigCanvas) return;
-    sigCtx = sigCanvas.getContext('2d');
-    // Scale canvas for high DPI
-    const rect = sigCanvas.getBoundingClientRect();
-    const dpr = window.devicePixelRatio || 1;
-    sigCanvas.width = rect.width * dpr;
-    sigCanvas.height = rect.height * dpr;
-    sigCtx.scale(dpr, dpr);
-    sigCtx.strokeStyle = '#1e293b';
-    sigCtx.lineWidth = 2.5;
-    sigCtx.lineCap = 'round';
-    sigCtx.lineJoin = 'round';
-
-    const getPos = e => {
-        const t = e.touches ? e.touches[0] : e;
-        const r = sigCanvas.getBoundingClientRect();
-        return { x: t.clientX - r.left, y: t.clientY - r.top };
-    };
-
-    sigCanvas.addEventListener('touchstart', e => {
-        e.preventDefault();
-        sigDrawing = true;
-        sigCanvas.classList.add('drawing');
-        const p = getPos(e);
-        sigCtx.beginPath();
-        sigCtx.moveTo(p.x, p.y);
-    }, { passive: false });
-
-    sigCanvas.addEventListener('touchmove', e => {
-        if (!sigDrawing) return;
-        e.preventDefault();
-        const p = getPos(e);
-        sigCtx.lineTo(p.x, p.y);
-        sigCtx.stroke();
-    }, { passive: false });
-
-    sigCanvas.addEventListener('touchend', () => {
-        sigDrawing = false;
-        sigCanvas.classList.remove('drawing');
-    });
-
-    // Mouse fallback
-    sigCanvas.addEventListener('mousedown', e => {
-        sigDrawing = true;
-        sigCanvas.classList.add('drawing');
-        const p = getPos(e);
-        sigCtx.beginPath();
-        sigCtx.moveTo(p.x, p.y);
-    });
-    sigCanvas.addEventListener('mousemove', e => {
-        if (!sigDrawing) return;
-        const p = getPos(e);
-        sigCtx.lineTo(p.x, p.y);
-        sigCtx.stroke();
-    });
-    sigCanvas.addEventListener('mouseup', () => { sigDrawing = false; sigCanvas.classList.remove('drawing'); });
-    sigCanvas.addEventListener('mouseleave', () => { sigDrawing = false; sigCanvas.classList.remove('drawing'); });
-}
-
-function clearSignature() {
-    if (!sigCanvas || !sigCtx) initSignature();
-    if (sigCtx) {
-        sigCtx.clearRect(0, 0, sigCanvas.width, sigCanvas.height);
-    }
-}
-window.clearSignature = clearSignature;
-
-function getSignatureData() {
-    if (!sigCanvas) return null;
-    // Check if canvas is blank
-    const blank = document.createElement('canvas');
-    blank.width = sigCanvas.width;
-    blank.height = sigCanvas.height;
-    if (sigCanvas.toDataURL() === blank.toDataURL()) return null;
-    return sigCanvas.toDataURL('image/png');
-}
-
-// Init signature when wizard step 5 is shown
-const wizBodyObserver = new MutationObserver(() => {
-    if ($('report-wizard')?.classList.contains('active') && wizStep === 4) {
-        setTimeout(initSignature, 100);
-    }
-});
-if ($('report-wizard')) wizBodyObserver.observe($('report-wizard'), { attributes: true });
 
 // ==========================================
 // WIZARD DRAFT AUTO-SAVE (Phase 6)
@@ -2838,16 +2956,21 @@ async function wizSubmit() {
     if (_wizSubmitting) return;
     if (!wizStatus) { toast('❌ Sélectionnez un résultat', 'error'); vibrate(100); return; }
     const missingPhotos = PHOTO_CATS.filter(c => c.required && S.photos[c.id].length === 0);
-    if (missingPhotos.length) { toast('❌ Photos manquantes', 'error'); vibrate(100); return; }
+    if (missingPhotos.length) { toast('⚠️ Aucune photo jointe', 'info'); }
 
+    // Show summary before sending
+    showReportSummary('wizard');
+    return;
+}
+window.wizSubmit = wizSubmit;
+
+async function _doWizSubmit() {
     _wizSubmitting = true;
     const submitBtn = $('wiz-submit');
     if (submitBtn) { submitBtn.disabled = true; submitBtn.innerHTML = '<span class="spinner" style="width:18px;height:18px;border-width:2px"></span> Envoi...'; }
 
     const i = S.sel;
     const tech = i.techAssigned || i.techSuggested?.name || S.user.name;
-    const tarif = i.techSuggested?.tarif || 80;
-    const signature = getSignatureData();
 
     const report = {
         ticket: i.ticket, site: i.site, address: i.address, row: i.row,
@@ -2856,8 +2979,7 @@ async function wizSubmit() {
         comments: $('wiz-obs').value || 'RAS', status: wizStatus,
         photos: Object.values(S.photos).flat().map(p => p.data),
         photoCategories: { borne: S.photos.borne.length, site: S.photos.site.length, nc: S.photos.nc.length, avap: S.photos.avap.length },
-        technicien: tech, montant: tarif, dept: i.dept, brand: i.brand,
-        signature: signature
+        technicien: tech, dept: i.dept, brand: i.brand
     };
 
     // Also prepare API payload
@@ -2867,8 +2989,7 @@ async function wizSubmit() {
         heureArrivee: $('wiz-start').value, heureDepart: $('wiz-end').value,
         probleme: i.problem || '', actionRealisee: $('wiz-obs').value || 'RAS',
         statut: wizStatus, piecesChangees: '', remarques: '',
-        interventionId: i.id, photos: Object.values(S.photos).flat().map(p => p.data),
-        signature: signature
+        interventionId: i.id, photos: Object.values(S.photos).flat().map(p => p.data)
     };
 
     toast('📤 Envoi...', 'info');
@@ -2910,7 +3031,6 @@ async function wizSubmit() {
     _wizSubmitting = false;
     if (submitBtn) { submitBtn.disabled = false; submitBtn.innerHTML = '✅ Envoyer le rapport'; }
 }
-window.wizSubmit = wizSubmit;
 
 // Also update the original form submit to double-save
 const origForm = $('form');
@@ -2982,15 +3102,95 @@ if (detailSubmitBtn) {
     detailSubmitBtn.onclick = () => openWizard();
 }
 
+// ==========================================
+// SWIPE-TO-REPORT ON CARDS
+// ==========================================
+let _cardSwipeStartX = 0, _cardSwipeStartY = 0, _cardSwipeEl = null, _cardSwipeDx = 0;
+document.addEventListener('touchstart', e => {
+    const card = e.target.closest('.intv:not(.done)');
+    if (!card || $('report-wizard')?.classList.contains('active') || document.querySelector('.modal-overlay.active') || $('quick-report-overlay')?.classList.contains('active')) return;
+    _cardSwipeEl = card;
+    _cardSwipeStartX = e.touches[0].clientX;
+    _cardSwipeStartY = e.touches[0].clientY;
+    _cardSwipeDx = 0;
+}, { passive: true });
+
+document.addEventListener('touchmove', e => {
+    if (!_cardSwipeEl) return;
+    const dx = e.touches[0].clientX - _cardSwipeStartX;
+    const dy = e.touches[0].clientY - _cardSwipeStartY;
+    // Only horizontal swipe left
+    if (Math.abs(dy) > Math.abs(dx) || dx > 10) { _cardSwipeEl = null; return; }
+    if (dx < -15) {
+        _cardSwipeDx = dx;
+        _cardSwipeEl.style.transform = `translateX(${Math.max(dx, -100)}px)`;
+        _cardSwipeEl.style.transition = 'none';
+    }
+}, { passive: true });
+
+document.addEventListener('touchend', () => {
+    if (!_cardSwipeEl) return;
+    _cardSwipeEl.style.transition = 'transform .2s ease';
+    if (_cardSwipeDx < -70) {
+        // Trigger quick report
+        _cardSwipeEl.style.transform = 'translateX(-100px)';
+        const id = _cardSwipeEl.getAttribute('onclick')?.match(/selectIntv\('([^']+)'\)/)?.[1];
+        vibrate([30, 20, 30]);
+        setTimeout(() => {
+            _cardSwipeEl.style.transform = '';
+            if (id) quickReport(id);
+        }, 200);
+    } else {
+        _cardSwipeEl.style.transform = '';
+    }
+    _cardSwipeEl = null;
+    _cardSwipeDx = 0;
+});
+
+// ==========================================
+// TIMER AUTO-START TOAST ON DETAIL VIEW
+// ==========================================
+const _origSelectIntv = window.selectIntv;
+window.selectIntv = (id) => {
+    _origSelectIntv(id);
+    // If the intervention is not done and timer not running, suggest starting timer
+    setTimeout(() => {
+        const i = S.sel;
+        if (i && !i.done && !i.report && !S.timerStart && !S.timerElapsed) {
+            const timerToast = document.createElement('div');
+            timerToast.className = 'toast toast-info';
+            timerToast.style.cursor = 'pointer';
+            timerToast.textContent = '⏱️ Démarrer le chrono ?';
+            timerToast.onclick = () => { timerStart(); timerToast.remove(); };
+            $('toasts').appendChild(timerToast);
+            setTimeout(() => timerToast.remove(), 5000);
+        }
+    }, 500);
+};
+
+// Restore timer badge on init (check for any running timer in localStorage)
+function restoreGlobalTimer() {
+    try {
+        const t = JSON.parse(localStorage.getItem('jcsm_timer') || 'null');
+        if (t && t.start) {
+            S.timerStart = t.start;
+            S.timerElapsed = t.elapsed || 0;
+            if (!S.timerInterval) S.timerInterval = setInterval(() => { renderTimerBadge(); }, 1000);
+            renderTimerBadge();
+        }
+    } catch (e) {}
+}
+setTimeout(restoreGlobalTimer, 500);
+
 // Service Worker registration for PWA
 if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('/sw.js').catch(() => {});
 }
 
 // Initialize app
-initTheme();
 updateSyncIndicator();
-checkAuth();
+renderTimerBadge();
+init();
 </script>
 </body>
 </html>

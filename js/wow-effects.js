@@ -351,6 +351,7 @@
     // PARALLAX
     // ==========================================
     function initParallaxElements() {
+        if (window.innerWidth <= 768) return;
         const parallaxes = document.querySelectorAll('[data-parallax]');
         if (!parallaxes.length) return;
 
