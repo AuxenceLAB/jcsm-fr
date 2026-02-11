@@ -9,6 +9,7 @@ ini_set('display_errors', '0');
 ini_set('log_errors', '1');
 
 require_once __DIR__ . '/auth.php';
+require_once __DIR__ . '/helpers.php';
 
 header('Content-Type: application/json; charset=utf-8');
 
@@ -32,47 +33,11 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     exit;
 }
 
-// Rate limiting by IP
-$rateLimitDir = sys_get_temp_dir() . '/jcsm_login_rate/';
-if (!is_dir($rateLimitDir)) {
-    @mkdir($rateLimitDir, 0755, true);
-}
-
-// Cleanup stale rate-limit files (older than 10 minutes) — runs ~5% of requests
-if (mt_rand(1, 20) === 1) {
-    foreach (glob($rateLimitDir . '*.json') as $f) {
-        if (filemtime($f) < time() - 600) @unlink($f);
-    }
-}
-
-$ip = $_SERVER['REMOTE_ADDR'] ?? 'unknown';
-$rateLimitFile = $rateLimitDir . md5($ip) . '.json';
-$maxAttempts = 10;
-$ratePeriod = 300; // 5 minutes
-
-$fp = fopen($rateLimitFile, 'c+');
-if ($fp && flock($fp, LOCK_EX)) {
-    $content = stream_get_contents($fp);
-    $rateData = $content ? json_decode($content, true) : null;
-    if ($rateData && time() - $rateData['start'] < $ratePeriod) {
-        if ($rateData['count'] >= $maxAttempts) {
-            flock($fp, LOCK_UN);
-            fclose($fp);
-            http_response_code(429);
-            echo json_encode(['error' => 'Trop de tentatives. Réessayez dans quelques minutes.']);
-            exit;
-        }
-        $rateData['count']++;
-    } else {
-        $rateData = ['count' => 1, 'start' => time()];
-    }
-    ftruncate($fp, 0);
-    rewind($fp);
-    fwrite($fp, json_encode($rateData));
-    flock($fp, LOCK_UN);
-    fclose($fp);
-} else {
-    if ($fp) fclose($fp);
+// Rate limiting by IP (10 attempts per 5 minutes)
+if (!checkRateLimit('login', 10, 300)) {
+    http_response_code(429);
+    echo json_encode(['error' => 'Trop de tentatives. Réessayez dans quelques minutes.']);
+    exit;
 }
 
 // Parse input
