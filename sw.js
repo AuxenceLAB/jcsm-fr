@@ -1,7 +1,7 @@
-// JCSM Service Worker - Enhanced PWA Support v25
-const STATIC_CACHE = 'jcsm-static-v26';
-const DYNAMIC_CACHE = 'jcsm-dynamic-v26';
-const API_CACHE = 'jcsm-api-v26';
+// JCSM Service Worker - Enhanced PWA Support v27
+const STATIC_CACHE = 'jcsm-static-v27';
+const DYNAMIC_CACHE = 'jcsm-dynamic-v27';
+const API_CACHE = 'jcsm-api-v27';
 
 // Assets to cache on install
 const STATIC_ASSETS = [
