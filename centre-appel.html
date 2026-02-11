@@ -76,7 +76,7 @@
             }
         }
     </script>
-    <link rel="stylesheet" href="styles.css?v=25">
+    <link rel="stylesheet" href="styles.css?v=26">
     <link rel="icon" type="image/png" href="images/logo.png">
     <link rel="manifest" href="manifest.json">
     <link rel="apple-touch-icon" href="images/logo.png">
@@ -90,7 +90,7 @@
 
     <div class="preloader" id="preloader" role="status" aria-label="Chargement">
         <div class="flex flex-col items-center justify-center">
-            <img src="images/logo.png" alt="JCSM" width="80" height="80" class="animate-pulse">
+            <picture><source srcset="images/logo.webp" type="image/webp"><img src="images/logo.png" alt="JCSM" width="80" height="80" class="animate-pulse"></picture>
             <div class="mt-4 flex space-x-2">
                 <div class="w-2 h-2 bg-blue-600 rounded-full animate-bounce" style="animation-delay: 0s"></div>
                 <div class="w-2 h-2 bg-blue-600 rounded-full animate-bounce" style="animation-delay: 0.1s"></div>
@@ -139,9 +139,7 @@
         <div class="max-w-7xl mx-auto px-6 py-4">
             <div class="flex justify-between items-center">
                 <a href="index.html" class="flex items-center space-x-3 group">
-                    <img src="images/logo.png" alt="Logo JCSM - Expert en Support Client et Centre d'Appel IRVE"
-                        class="w-9 h-9 transition-transform group-hover:scale-105 duration-300" loading="lazy"
-                        width="36" height="36">
+                    <picture><source srcset="images/logo.webp" type="image/webp"><img src="images/logo.png" alt="JCSM" class="w-9 h-9 transition-transform group-hover:scale-105 duration-300" width="36" height="36"></picture>
                     <span class="text-xl font-bold tracking-tight">JCSM</span>
                 </a>
                 <div class="hidden lg:flex items-center space-x-10">
@@ -691,12 +689,7 @@
                     <h3 class="text-sm font-semibold text-gray-900 mb-4 uppercase tracking-wide mt-6">Zones</h3>
                     <nav aria-label="Zones">
                         <ul class="space-y-3">
-                            <li><a href="zones/ile-de-france.html" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Île-de-France</a></li>
-                            <li><a href="zones/paca.html" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">PACA</a></li>
-                            <li><a href="zones/auvergne-rhone-alpes.html" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Auvergne-Rhône-Alpes</a></li>
-                            <li><a href="zones/occitanie.html" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Occitanie</a></li>
-                            <li><a href="zones/nouvelle-aquitaine.html" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Nouvelle-Aquitaine</a></li>
-                            <li><a href="zones/hauts-de-france.html" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Hauts-de-France</a></li>
+                            <li><a href="zones/ile-de-france.html" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">France</a></li>
                             <li><a href="zones/belgique.html" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Belgique</a></li>
                         </ul>
                     </nav>
@@ -719,11 +712,11 @@
         </svg>
     </button>
 
-    <script src="js/config.js?v=25"></script>
-    <script src="js/utils.js?v=25" defer></script>
-    <script src="js/public.js?v=25" defer></script>
-    <script src="js/analytics.js?v=25" defer></script>
-    <script src="js/wow-effects.js?v=25" defer></script>
+    <script src="js/config.js?v=26"></script>
+    <script src="js/utils.js?v=26" defer></script>
+    <script src="js/public.js?v=26" defer></script>
+    <script src="js/analytics.js?v=26" defer></script>
+    <script src="js/wow-effects.js?v=26" defer></script>
     <!-- Service Worker Registration -->
     <script>
         if ('serviceWorker' in navigator) {

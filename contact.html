@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Contact | Expert IRVE France & Belgique | JCSM</title>
-    <meta name="description" content="Contactez JCSM pour vos projets IRVE en France et Belgique. Devis gratuit sous 24h, support technique 24/7. Téléphone, email ou formulaire.">
+    <meta name="description" content="Contactez JCSM pour vos projets IRVE en France et Belgique. Devis gratuit sous 24h, support technique 24/7. Appelez, écrivez ou remplissez notre formulaire.">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://jcsm.fr/contact">
 
@@ -59,19 +59,23 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>tailwind.config = { theme: { extend: { colors: { primary: '#2563EB', secondary: '#1D4ED8' }}}}</script>
-    <link rel="stylesheet" href="styles.css?v=25">
+    <link rel="stylesheet" href="styles.css?v=26">
     <link rel="icon" type="image/png" href="images/logo.png">
     <link rel="manifest" href="manifest.json">
     <link rel="apple-touch-icon" href="images/logo.png">
-    <script src="js/config.js?v=25"></script>
+    <script src="js/config.js?v=26"></script>
 </head>
 <body class="text-gray-900">
     <a href="#main-content" class="skip-link">Aller au contenu principal</a>
 
     <div class="preloader" id="preloader" role="status" aria-label="Chargement">
         <div class="flex flex-col items-center justify-center">
-            <img src="images/logo.png" alt="JCSM" width="48" height="48">
-            <div class="mt-6 w-8 h-8 border-2 border-gray-200 border-t-blue-600 rounded-full animate-spin"></div>
+            <picture><source srcset="images/logo.webp" type="image/webp"><img src="images/logo.png" alt="JCSM" width="80" height="80" class="animate-pulse"></picture>
+            <div class="mt-4 flex space-x-2">
+                <div class="w-2 h-2 bg-blue-600 rounded-full animate-bounce" style="animation-delay: 0s"></div>
+                <div class="w-2 h-2 bg-blue-600 rounded-full animate-bounce" style="animation-delay: 0.1s"></div>
+                <div class="w-2 h-2 bg-blue-600 rounded-full animate-bounce" style="animation-delay: 0.2s"></div>
+            </div>
         </div>
     </div>
 
@@ -94,29 +98,29 @@
                 <a href="securisation-installations.html" class="text-base text-gray-600 hover:text-gray-900 transition-colors">Sécurisation</a>
                 <a href="centre-appel.html" class="text-base text-gray-600 hover:text-gray-900 transition-colors">Support</a>
                 <a href="a-propos.html" class="text-base text-gray-600 hover:text-gray-900 transition-colors">À propos</a>
-                <a href="contact.html" class="text-base text-blue-600 font-bold">Contact</a>
+                <a href="contact.html" class="btn-primary px-6 py-3 rounded-lg text-base font-medium inline-block text-center mt-4">Contact</a>
             </div>
         </div>
     </nav>
 
-    <nav class="fixed top-0 w-full z-50 bg-white/95 backdrop-blur-md border-b border-gray-100" role="navigation" aria-label="Navigation principale">
+    <nav class="fixed top-0 w-full z-50 glass-nav" role="navigation" aria-label="Navigation principale">
         <div class="max-w-7xl mx-auto px-6 py-4">
             <div class="flex justify-between items-center">
-                <a href="index.html" class="flex items-center space-x-3">
-                    <img src="images/logo.png" alt="JCSM" class="w-9 h-9" width="36" height="36">
-                    <span class="text-xl font-bold">JCSM</span>
+                <a href="index.html" class="flex items-center space-x-3 group">
+                    <picture><source srcset="images/logo.webp" type="image/webp"><img src="images/logo.png" alt="JCSM" class="w-9 h-9 transition-transform group-hover:scale-105 duration-300" width="36" height="36"></picture>
+                    <span class="text-xl font-bold tracking-tight">JCSM</span>
                 </a>
-                <div class="hidden lg:flex items-center space-x-8">
-                    <a href="index.html" class="text-sm font-medium text-gray-600 hover:text-blue-600">Accueil</a>
-                    <a href="pilotage-projets.html" class="text-sm font-medium text-gray-600 hover:text-blue-600">Pilotage</a>
-                    <a href="installation-conformite.html" class="text-sm font-medium text-gray-600 hover:text-blue-600">Installation</a>
-                    <a href="exploitation.html" class="text-sm font-medium text-gray-600 hover:text-blue-600">Exploitation</a>
-                    <a href="securisation-installations.html" class="text-sm font-medium text-gray-600 hover:text-blue-600">Sécurisation</a>
-                    <a href="centre-appel.html" class="text-sm font-medium text-gray-600 hover:text-blue-600">Support</a>
-                    <a href="a-propos.html" class="text-sm font-medium text-gray-600 hover:text-blue-600">À propos</a>
-                    <a href="contact.html" class="bg-blue-600 text-white px-6 py-2.5 rounded-lg text-sm font-medium hover:bg-blue-700 border-b-2 border-blue-800">Contact</a>
+                <div class="hidden lg:flex items-center space-x-10">
+                    <a href="index.html" class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300 hover:scale-105">Accueil</a>
+                    <a href="pilotage-projets.html" class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300 hover:scale-105">Pilotage de projets</a>
+                    <a href="installation-conformite.html" class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300 hover:scale-105">Installation</a>
+                    <a href="exploitation.html" class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300 hover:scale-105">Exploitation</a>
+                    <a href="securisation-installations.html" class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300 hover:scale-105">Sécurisation</a>
+                    <a href="centre-appel.html" class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300 hover:scale-105">Support</a>
+                    <a href="a-propos.html" class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300 hover:scale-105">À propos</a>
+                    <a href="contact.html" class="btn-primary px-7 py-2.5 rounded-xl text-base font-medium shadow-lg hover:shadow-xl">Contact</a>
                 </div>
-                <button class="lg:hidden text-gray-600 hover:text-gray-900" id="mobile-menu-btn" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobile-menu">
+                <button class="mobile-menu-btn text-gray-600 hover:text-gray-900" id="mobile-menu-btn" aria-label="Ouvrir le menu de navigation" aria-expanded="false" aria-controls="mobile-menu">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                     </svg>
@@ -292,12 +296,7 @@
                     <h3 class="text-sm font-semibold text-gray-900 mb-4 uppercase tracking-wide mt-6">Zones</h3>
                     <nav aria-label="Zones">
                         <ul class="space-y-3">
-                            <li><a href="zones/ile-de-france.html" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Île-de-France</a></li>
-                            <li><a href="zones/paca.html" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">PACA</a></li>
-                            <li><a href="zones/auvergne-rhone-alpes.html" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Auvergne-Rhône-Alpes</a></li>
-                            <li><a href="zones/occitanie.html" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Occitanie</a></li>
-                            <li><a href="zones/nouvelle-aquitaine.html" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Nouvelle-Aquitaine</a></li>
-                            <li><a href="zones/hauts-de-france.html" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Hauts-de-France</a></li>
+                            <li><a href="zones/ile-de-france.html" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">France</a></li>
                             <li><a href="zones/belgique.html" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Belgique</a></li>
                         </ul>
                     </nav>
@@ -320,11 +319,11 @@
         </svg>
     </button>
 
-    <script src="js/utils.js?v=25" defer></script>
-    <script src="js/public.js?v=25" defer></script>
-    <script src="js/landing.js?v=25" defer></script>
-    <script src="js/analytics.js?v=25" defer></script>
-    <script src="js/wow-effects.js?v=25" defer></script>
+    <script src="js/utils.js?v=26" defer></script>
+    <script src="js/public.js?v=26" defer></script>
+    <script src="js/landing.js?v=26" defer></script>
+    <script src="js/analytics.js?v=26" defer></script>
+    <script src="js/wow-effects.js?v=26" defer></script>
     <script>
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {

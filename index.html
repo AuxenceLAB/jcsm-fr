@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>JCSM – Expert IRVE | Bornes de Recharge France & Belgique</title>
     <meta name="description"
-        content="JCSM, expert IRVE depuis 2018 : pilotage de projets, installation certifiée Qualifelec, maintenance et support 24/7 pour bornes de recharge. Accompagnement CPO, EMSP et grands comptes en France et Belgique.">
+        content="JCSM, expert IRVE depuis 2018 : installation certifiée Qualifelec, maintenance et support 24/7 pour bornes de recharge en France et Belgique.">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://jcsm.fr/">
     <link rel="preload" as="image" href="images/index.webp" type="image/webp">
@@ -177,6 +177,15 @@
       ]
     }
     </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://jcsm.fr/"}
+      ]
+    }
+    </script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -199,7 +208,7 @@
             }
         }
     </script>
-    <link rel="stylesheet" href="styles.css?v=25">
+    <link rel="stylesheet" href="styles.css?v=26">
     <link rel="icon" type="image/png" href="images/logo.png">
 
     <!-- PWA -->
@@ -286,8 +295,12 @@
 
     <div class="preloader" id="preloader" role="status" aria-label="Chargement">
         <div class="flex flex-col items-center justify-center">
-            <picture><source srcset="images/logo.webp" type="image/webp"><img src="images/logo.png" alt="JCSM" width="48" height="48"></picture>
-            <div class="mt-6 w-8 h-8 border-2 border-gray-200 border-t-blue-600 rounded-full animate-spin"></div>
+            <picture><source srcset="images/logo.webp" type="image/webp"><img src="images/logo.png" alt="JCSM" width="80" height="80" class="animate-pulse"></picture>
+            <div class="mt-4 flex space-x-2">
+                <div class="w-2 h-2 bg-blue-600 rounded-full animate-bounce" style="animation-delay: 0s"></div>
+                <div class="w-2 h-2 bg-blue-600 rounded-full animate-bounce" style="animation-delay: 0.1s"></div>
+                <div class="w-2 h-2 bg-blue-600 rounded-full animate-bounce" style="animation-delay: 0.2s"></div>
+            </div>
         </div>
     </div>
 
@@ -335,8 +348,8 @@
             <div class="flex justify-between items-center">
                 <a href="index.html" class="flex items-center space-x-3 group">
                     <picture><source srcset="images/logo.webp" type="image/webp"><img src="images/logo.png"
-                        alt="Logo JCSM - Expert en Infrastructures de Recharge de Véhicule Électrique"
-                        class="w-9 h-9 transition-transform group-hover:scale-105 duration-300" loading="lazy"
+                        alt="JCSM"
+                        class="w-9 h-9 transition-transform group-hover:scale-105 duration-300"
                         width="36" height="36"></picture>
                     <span class="text-xl font-bold tracking-tight">JCSM</span>
                 </a>
@@ -856,12 +869,7 @@
                     <h3 class="text-sm font-semibold text-gray-900 mb-4 uppercase tracking-wide mt-6">Zones</h3>
                     <nav aria-label="Zones">
                         <ul class="space-y-3">
-                            <li><a href="zones/ile-de-france.html" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Île-de-France</a></li>
-                            <li><a href="zones/paca.html" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">PACA</a></li>
-                            <li><a href="zones/auvergne-rhone-alpes.html" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Auvergne-Rhône-Alpes</a></li>
-                            <li><a href="zones/occitanie.html" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Occitanie</a></li>
-                            <li><a href="zones/nouvelle-aquitaine.html" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Nouvelle-Aquitaine</a></li>
-                            <li><a href="zones/hauts-de-france.html" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Hauts-de-France</a></li>
+                            <li><a href="zones/ile-de-france.html" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">France</a></li>
                             <li><a href="zones/belgique.html" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Belgique</a></li>
                         </ul>
                     </nav>
@@ -884,12 +892,12 @@
         </svg>
     </button>
 
-    <script src="js/config.js?v=25"></script>
-    <script src="js/utils.js?v=25" defer></script>
-    <script src="js/public.js?v=25" defer></script>
-    <script src="js/landing.js?v=25" defer></script>
-    <script src="js/analytics.js?v=25" defer></script>
-    <script src="js/wow-effects.js?v=25" defer></script>
+    <script src="js/config.js?v=26"></script>
+    <script src="js/utils.js?v=26" defer></script>
+    <script src="js/public.js?v=26" defer></script>
+    <script src="js/landing.js?v=26" defer></script>
+    <script src="js/analytics.js?v=26" defer></script>
+    <script src="js/wow-effects.js?v=26" defer></script>
     <script>
         // SEO: Preload for Hero Image
         const heroImg = document.getElementById('hero-image');
