@@ -36,6 +36,7 @@ const STATIC_ASSETS = [
     '/zones/hauts-de-france.html',
     '/zones/nouvelle-aquitaine.html',
     '/zones/belgique.html',
+    '/zones/france.html',
     '/contact.html'
 ];
 
