@@ -27,22 +27,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
 }
 
 require_once __DIR__ . '/auth.php';
+require_once __DIR__ . '/helpers.php';
 requireAuth();
-
-// URL réelle de l'API Google Sheets (chargées depuis .env)
-function loadEnvVar($key) {
-    $val = getenv($key);
-    if ($val) return $val;
-    $envFile = __DIR__ . '/../.env';
-    if (file_exists($envFile)) {
-        foreach (file($envFile, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES) as $line) {
-            if (strpos($line, $key . '=') === 0) {
-                return substr($line, strlen($key) + 1);
-            }
-        }
-    }
-    return null;
-}
 
 $GOOGLE_SHEETS_URLS = [
     'admin' => loadEnvVar('GOOGLE_SHEETS_ADMIN_URL'),
@@ -62,45 +48,8 @@ if (!isset($GOOGLE_SHEETS_URLS[$context])) {
 }
 $GOOGLE_SHEETS_URL = $GOOGLE_SHEETS_URLS[$context];
 
-// Rate limiting par IP (fichier temp)
-$rateLimit = 100; // requêtes par minute
-$ratePeriod = 60; // secondes
-$rateLimitDir = sys_get_temp_dir() . '/jcsm_rate/';
-if (!is_dir($rateLimitDir)) {
-    @mkdir($rateLimitDir, 0755, true);
-}
-
-// Cleanup stale rate-limit files (older than 5 minutes) — runs ~1% of requests
-if (mt_rand(1, 100) === 1) {
-    foreach (glob($rateLimitDir . '*.json') as $f) {
-        if (filemtime($f) < time() - 300) @unlink($f);
-    }
-}
-
-$ip = $_SERVER['REMOTE_ADDR'] ?? 'unknown';
-$rateLimitFile = $rateLimitDir . md5($ip) . '.json';
-
-$rateData = null;
-$fp = fopen($rateLimitFile, 'c+');
-if ($fp && flock($fp, LOCK_EX)) {
-    $content = stream_get_contents($fp);
-    $rateData = $content ? json_decode($content, true) : null;
-    if ($rateData && time() - $rateData['start'] < $ratePeriod) {
-        $rateData['count']++;
-    } else {
-        $rateData = ['count' => 1, 'start' => time()];
-    }
-    ftruncate($fp, 0);
-    rewind($fp);
-    fwrite($fp, json_encode($rateData));
-    flock($fp, LOCK_UN);
-    fclose($fp);
-} else {
-    if ($fp) fclose($fp);
-    $rateData = ['count' => 1, 'start' => time()];
-}
-
-if ($rateData['count'] > $rateLimit) {
+// Rate limiting par IP (100 req/min)
+if (!checkRateLimit('sheets', 100, 60)) {
     http_response_code(429);
     echo json_encode(['error' => 'Trop de requêtes. Réessayez dans quelques secondes.']);
     exit;

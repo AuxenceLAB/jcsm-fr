@@ -111,7 +111,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit;
     }
 
-    $data = loadData($storageFile);
     $action = $input['action'] ?? 'save';
 
     // Validate action
@@ -121,43 +120,58 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit;
     }
 
-    if ($action === 'save') {
-        // Logique de sauvegarde / mise à jour
-        $id = $input['data']['id'] ?? null;
-
-        if ($id) {
-            // Mise à jour existant
-            $found = false;
-            foreach ($data as &$item) {
-                if ($item['id'] === $id) {
-                    $item = array_merge($item, $input['data']);
-                    $found = true;
-                    break;
-                }
-            }
-            unset($item); // Break reference after foreach
-            if (!$found) {
-                // Création avec ID spécifié (rare) ou erreur ? On ajoute.
-                $data[] = $input['data'];
-            }
-        } else {
-            // Création nouveau
-            $newItem = $input['data'];
-            $newItem['id'] = 'intv-' . bin2hex(random_bytes(16));
-            // Ajout en tête de liste
-            array_unshift($data, $newItem);
-        }
-    } elseif ($action === 'delete') {
-        $id = $input['id'] ?? null;
-        if ($id) {
-            $data = array_filter($data, function ($item) use ($id) {
-                return $item['id'] !== $id;
-            });
-            $data = array_values($data);
-        }
+    // File locking to prevent race conditions on concurrent writes
+    $lockFile = $storageFile . '.lock';
+    $lockFp = fopen($lockFile, 'c');
+    if (!$lockFp || !flock($lockFp, LOCK_EX)) {
+        http_response_code(503);
+        echo json_encode(['error' => 'Serveur occupé, réessayez']);
+        exit;
     }
 
-    if (saveData($storageFile, $data)) {
+    try {
+        $data = loadData($storageFile);
+
+        if ($action === 'save') {
+            $id = $input['data']['id'] ?? null;
+
+            if ($id) {
+                // Mise à jour existant
+                $found = false;
+                foreach ($data as &$item) {
+                    if ($item['id'] === $id) {
+                        $item = array_merge($item, $input['data']);
+                        $found = true;
+                        break;
+                    }
+                }
+                unset($item);
+                if (!$found) {
+                    $data[] = $input['data'];
+                }
+            } else {
+                // Création nouveau
+                $newItem = $input['data'];
+                $newItem['id'] = 'intv-' . bin2hex(random_bytes(16));
+                array_unshift($data, $newItem);
+            }
+        } elseif ($action === 'delete') {
+            $id = $input['id'] ?? null;
+            if ($id) {
+                $data = array_filter($data, function ($item) use ($id) {
+                    return $item['id'] !== $id;
+                });
+                $data = array_values($data);
+            }
+        }
+
+        $saved = saveData($storageFile, $data);
+    } finally {
+        flock($lockFp, LOCK_UN);
+        fclose($lockFp);
+    }
+
+    if ($saved) {
         echo json_encode(['success' => true, 'count' => count($data)]);
     } else {
         http_response_code(500);

@@ -55,10 +55,19 @@ if (!$data) {
 }
 
 // Valider le format de date d'intervention
-if (isset($data['dateIntervention']) && !preg_match('/^\d{4}-\d{2}-\d{2}$/', $data['dateIntervention'])) {
-    http_response_code(400);
-    echo json_encode(['success' => false, 'error' => 'Format de date invalide (attendu: YYYY-MM-DD)']);
-    exit;
+if (isset($data['dateIntervention'])) {
+    if (!preg_match('/^\d{4}-\d{2}-\d{2}$/', $data['dateIntervention'])) {
+        http_response_code(400);
+        echo json_encode(['success' => false, 'error' => 'Format de date invalide (attendu: YYYY-MM-DD)']);
+        exit;
+    }
+    // Vérifier que c'est une date réelle (pas 2025-13-99)
+    $dt = DateTime::createFromFormat('Y-m-d', $data['dateIntervention']);
+    if (!$dt || $dt->format('Y-m-d') !== $data['dateIntervention']) {
+        http_response_code(400);
+        echo json_encode(['success' => false, 'error' => 'Date invalide']);
+        exit;
+    }
 }
 
 // Chemin du dossier public pour les rapports
@@ -75,7 +84,7 @@ if (!is_dir($rapportsDir)) {
 
 // Générer un nom de fichier unique
 $ticket = isset($data['ticket']) ? preg_replace('/[^a-zA-Z0-9_-]/', '_', $data['ticket']) : 'RAPPORT';
-$dateIntervention = isset($data['dateIntervention']) ? $data['dateIntervention'] : date('Y-m-d');
+$dateIntervention = isset($data['dateIntervention']) ? preg_replace('/[^0-9\-]/', '', $data['dateIntervention']) : date('Y-m-d');
 $timestamp = date('Ymd_His');
 $filename = "Rapport_{$ticket}_{$dateIntervention}_{$timestamp}.json";
 

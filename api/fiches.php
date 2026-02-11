@@ -88,6 +88,14 @@ function saveImage($base64Data, $imageId, $imagesDir)
         $imageData = base64_decode(substr($base64Data, strpos($base64Data, ',') + 1), true);
         if ($imageData === false) return null;
 
+        // Verify actual MIME type of decoded image data
+        $finfo = new finfo(FILEINFO_MIME_TYPE);
+        $actualMime = $finfo->buffer($imageData);
+        $allowedMimes = ['image/png', 'image/jpeg', 'image/gif', 'image/webp'];
+        if (!in_array($actualMime, $allowedMimes, true)) {
+            return null;
+        }
+
         // Sanitize imageId to prevent path traversal
         $safeId = preg_replace('/[^a-zA-Z0-9_-]/', '', $imageId);
         $filename = $safeId . '.' . $imageType;
@@ -144,46 +152,68 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit;
     }
 
-    $fiches = loadFiches($storageFile);
+    // Limiter le nombre d'images par fiche (anti-DoS)
+    if (isset($input['images']) && is_array($input['images']) && count($input['images']) > 20) {
+        http_response_code(400);
+        echo json_encode(['error' => 'Maximum 20 images par fiche']);
+        exit;
+    }
 
-    // Traiter les images
-    if (isset($input['images']) && is_array($input['images'])) {
-        foreach ($input['images'] as &$img) {
-            // Si l'image est en base64 et n'a pas encore été sauvegardée
-            if (str_starts_with($img['data'], 'data:image/')) {
-                $imagePath = saveImage($img['data'], $img['id'], $imagesDir);
-                if ($imagePath) {
-                    $img['data'] = 'https://' . SITE_HOST . '/' . $imagePath;
+    // File locking to prevent race conditions
+    $lockFile = $storageFile . '.lock';
+    $lockFp = fopen($lockFile, 'c');
+    if (!$lockFp || !flock($lockFp, LOCK_EX)) {
+        http_response_code(503);
+        echo json_encode(['error' => 'Serveur occupé, réessayez']);
+        exit;
+    }
+
+    try {
+        $fiches = loadFiches($storageFile);
+
+        // Traiter les images
+        if (isset($input['images']) && is_array($input['images'])) {
+            foreach ($input['images'] as &$img) {
+                if (str_starts_with($img['data'], 'data:image/')) {
+                    $imagePath = saveImage($img['data'], $img['id'], $imagesDir);
+                    if ($imagePath) {
+                        $img['data'] = 'https://' . SITE_HOST . '/' . $imagePath;
+                    }
                 }
             }
         }
-    }
 
-    if (isset($input['id'])) {
-        // Modification d'une fiche existante
-        $index = array_search($input['id'], array_column($fiches, 'id'));
-        if ($index !== false) {
-            $fiches[$index] = array_merge($fiches[$index], $input);
-            $fiches[$index]['dateModified'] = date('c');
+        if (isset($input['id'])) {
+            $index = array_search($input['id'], array_column($fiches, 'id'));
+            if ($index !== false) {
+                $fiches[$index] = array_merge($fiches[$index], $input);
+                $fiches[$index]['dateModified'] = date('c');
+            } else {
+                flock($lockFp, LOCK_UN);
+                fclose($lockFp);
+                http_response_code(404);
+                echo json_encode(['error' => 'Fiche non trouvée']);
+                exit;
+            }
         } else {
-            http_response_code(404);
-            echo json_encode(['error' => 'Fiche non trouvée']);
-            exit;
+            $nouvelleFiche = [
+                'id' => 'fiche-' . bin2hex(random_bytes(16)),
+                'titre' => $input['titre'] ?? '',
+                'contenu' => $input['contenu'] ?? '',
+                'images' => $input['images'] ?? [],
+                'dateCreated' => date('c'),
+                'dateModified' => date('c')
+            ];
+            array_unshift($fiches, $nouvelleFiche);
         }
-    } else {
-        // Création d'une nouvelle fiche
-        $nouvelleFiche = [
-            'id' => 'fiche-' . bin2hex(random_bytes(16)),
-            'titre' => $input['titre'] ?? '',
-            'contenu' => $input['contenu'] ?? '',
-            'images' => $input['images'] ?? [],
-            'dateCreated' => date('c'),
-            'dateModified' => date('c')
-        ];
-        array_unshift($fiches, $nouvelleFiche);
+
+        $saved = saveFiches($storageFile, $fiches);
+    } finally {
+        flock($lockFp, LOCK_UN);
+        fclose($lockFp);
     }
 
-    if (saveFiches($storageFile, $fiches)) {
+    if ($saved) {
         echo json_encode(['success' => true, 'fiches' => $fiches]);
     } else {
         http_response_code(500);
@@ -203,34 +233,52 @@ if ($_SERVER['REQUEST_METHOD'] === 'DELETE') {
         exit;
     }
 
-    $fiches = loadFiches($storageFile);
-    $initialCount = count($fiches);
+    // File locking
+    $lockFile = $storageFile . '.lock';
+    $lockFp = fopen($lockFile, 'c');
+    if (!$lockFp || !flock($lockFp, LOCK_EX)) {
+        http_response_code(503);
+        echo json_encode(['error' => 'Serveur occupé, réessayez']);
+        exit;
+    }
 
-    // Supprimer les images associées (avec vérification de chemin)
-    $fiche = array_filter($fiches, fn($f) => $f['id'] === $ficheId);
-    if (!empty($fiche)) {
-        $fiche = reset($fiche);
-        if (isset($fiche['images'])) {
-            $realImagesDir = realpath($imagesDir);
-            foreach ($fiche['images'] as $img) {
-                if (isset($img['data']) && str_contains($img['data'], 'api/images_fiches/')) {
-                    $imagePath = __DIR__ . '/' . str_replace('https://' . SITE_HOST . '/api/', '', $img['data']);
-                    $realImagePath = realpath($imagePath);
-                    // Only delete if the file is inside the images directory
-                    if ($realImagePath && $realImagesDir && strpos($realImagePath, $realImagesDir) === 0 && file_exists($realImagePath)) {
-                        @unlink($realImagePath);
+    try {
+        $fiches = loadFiches($storageFile);
+        $initialCount = count($fiches);
+
+        // Supprimer les images associées (avec vérification de chemin)
+        $fiche = array_filter($fiches, fn($f) => $f['id'] === $ficheId);
+        if (!empty($fiche)) {
+            $fiche = reset($fiche);
+            if (isset($fiche['images'])) {
+                $realImagesDir = realpath($imagesDir);
+                foreach ($fiche['images'] as $img) {
+                    if (isset($img['data']) && str_contains($img['data'], 'api/images_fiches/')) {
+                        $imagePath = __DIR__ . '/' . str_replace('https://' . SITE_HOST . '/api/', '', $img['data']);
+                        $realImagePath = realpath($imagePath);
+                        if ($realImagePath && $realImagesDir && strpos($realImagePath, $realImagesDir) === 0 && file_exists($realImagePath)) {
+                            @unlink($realImagePath);
+                        }
                     }
                 }
             }
         }
+
+        $fiches = array_filter($fiches, fn($f) => $f['id'] !== $ficheId);
+        $fiches = array_values($fiches);
+
+        if (count($fiches) < $initialCount) {
+            saveFiches($storageFile, $fiches);
+            $deleted = true;
+        } else {
+            $deleted = false;
+        }
+    } finally {
+        flock($lockFp, LOCK_UN);
+        fclose($lockFp);
     }
 
-    // Supprimer la fiche
-    $fiches = array_filter($fiches, fn($f) => $f['id'] !== $ficheId);
-    $fiches = array_values($fiches);
-
-    if (count($fiches) < $initialCount) {
-        saveFiches($storageFile, $fiches);
+    if ($deleted) {
         echo json_encode(['success' => true, 'message' => 'Fiche supprimée']);
     } else {
         http_response_code(404);

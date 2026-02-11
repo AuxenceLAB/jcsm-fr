@@ -6,6 +6,8 @@
 :root {
   /* Colors - Unified Blue-600 (#2563EB) */
   --color-primary: #2563EB;
+  --color-primary-dark: #1D4ED8;
+  --color-primary-darker: #1E40AF;
   --color-secondary: #2563EB;
   --color-accent: #2563EB;
   --color-success: #10b981;
@@ -909,7 +911,7 @@ section {
 }
 
 .gradient-text {
-  background: #1D4ED8;
+  background: var(--color-primary-dark);
   background-size: 200% 200%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -962,12 +964,12 @@ section {
   position: relative;
   overflow: hidden;
   transition: all 0.3s ease;
-  background: #1D4ED8;
+  background: var(--color-primary-dark);
   color: #fff;
 }
 
 .btn-primary:hover {
-  background: #1E40AF;
+  background: var(--color-primary-darker);
   transform: translateY(-2px);
   box-shadow: 0 12px 24px -8px rgba(29, 78, 216, 0.4);
 }
@@ -1017,7 +1019,7 @@ section {
   position: absolute;
   width: 2px;
   height: 2px;
-  background: #1D4ED8;
+  background: var(--color-primary-dark);
   border-radius: 50%;
   animation: float 20s infinite ease-in-out;
   will-change: transform, opacity;
@@ -1066,7 +1068,7 @@ section {
   position: absolute;
   inset: -2px;
   z-index: -1;
-  background: #1D4ED8;
+  background: var(--color-primary-dark);
   background-size: 200% 200%;
   border-radius: 1.1rem;
   opacity: 0;
@@ -1148,7 +1150,7 @@ body.loaded {
 }
 
 .scroll-top:hover {
-  background: #1D4ED8;
+  background: var(--color-primary-dark);
   box-shadow: 0 8px 24px rgba(37, 99, 235, 0.4);
   transform: translateY(-4px);
 }
@@ -1232,7 +1234,7 @@ body .nav-link-active {
   left: 0;
   right: 0;
   height: 3px;
-  background: #1D4ED8;
+  background: var(--color-primary-dark);
   border-radius: 2px;
 }
 
@@ -1248,7 +1250,7 @@ nav a:not(.btn-primary):not(.nav-link-active)::after {
   left: 50%;
   width: 0;
   height: 2px;
-  background: #1D4ED8;
+  background: var(--color-primary-dark);
   border-radius: 2px;
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   transform: translateX(-50%);
@@ -1307,7 +1309,7 @@ nav a:not(.btn-primary):not(.nav-link-active):hover::after {
 
 /* Animated Gradient Background for sections */
 .gradient-bg-animated {
-  background: #1D4ED8;
+  background: var(--color-primary-dark);
   background-size: 400% 400%;
   animation: gradientBG 15s ease infinite;
 }
@@ -1327,7 +1329,7 @@ nav a:not(.btn-primary):not(.nav-link-active):hover::after {
   content: '';
   position: absolute;
   inset: -3px;
-  background: #1D4ED8;
+  background: var(--color-primary-dark);
   background-size: 300% 300%;
   border-radius: inherit;
   z-index: -1;
@@ -1389,13 +1391,6 @@ nav a:not(.btn-primary):not(.nav-link-active):hover::after {
     inset 0 0 80px rgba(255, 255, 255, 0.1);
 }
 
-/* Neon Glow Text */
-.neon-text {
-  text-shadow:
-    0 0 10px rgba(37, 99, 235, 0.5),
-    0 0 20px rgba(37, 99, 235, 0.3),
-    0 0 40px rgba(37, 99, 235, 0.2);
-}
 
 /* Morphing Background Blob */
 .morph-blob {
@@ -1534,7 +1529,7 @@ nav a:not(.btn-primary):not(.nav-link-active):hover::after {
   background: linear-gradient(
     90deg,
     #2563EB,
-    #1D4ED8,
+    var(--color-primary-dark),
     #3B82F6,
     #2563EB
   );
@@ -1651,7 +1646,7 @@ nav a:not(.btn-primary):not(.nav-link-active):hover::after {
   left: 0;
   width: 100%;
   height: 3px;
-  background: #1D4ED8;
+  background: var(--color-primary-dark);
   transform: scaleX(0);
   transform-origin: right;
   transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -1944,6 +1939,16 @@ input:-webkit-autofill:focus {
 
 @keyframes spin {
     to { transform: rotate(360deg); }
+}
+
+/* Disabled button states */
+button:disabled,
+button[disabled],
+.btn-primary:disabled,
+.btn-secondary:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
 }
 
 /* ============================================

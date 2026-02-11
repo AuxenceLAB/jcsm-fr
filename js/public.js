@@ -24,6 +24,13 @@ document.addEventListener('DOMContentLoaded', () => {
     initFAQAccessibility();
     initAccessibilityEnhancements();
     initToastNotifications();
+    // Professional features
+    initFormValidation();
+    initButtonLoadingStates();
+    initScrollSpy();
+    initKeyboardNavigation();
+    initTouchFeedback();
+    initLiveFormFeedback();
 });
 
 // ==========================================
@@ -251,18 +258,24 @@ function initMobileMenu() {
         btn.addEventListener('click', () => {
             menu.classList.add('open');
             overlay.classList.add('active');
-            document.body.style.overflow = 'hidden'; // Prevent scrolling
+            document.body.style.overflow = 'hidden';
+            menu.setAttribute('aria-hidden', 'false');
+            btn.setAttribute('aria-expanded', 'true');
         });
     }
 
-    [close, overlay].forEach(el => {
-        if (el && menu && overlay) {
-            el.addEventListener('click', () => {
-                menu.classList.remove('open');
-                overlay.classList.remove('active');
-                document.body.style.overflow = ''; // Restore scrolling
-            });
+    function closeMenu() {
+        if (menu) {
+            menu.classList.remove('open');
+            menu.setAttribute('aria-hidden', 'true');
         }
+        if (overlay) overlay.classList.remove('active');
+        if (btn) btn.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+    }
+
+    [close, overlay].forEach(el => {
+        if (el) el.addEventListener('click', closeMenu);
     });
 }
 
@@ -465,7 +478,7 @@ function initParallax() {
             });
             ticking = true;
         }
-    });
+    }, { passive: true });
 }
 
 // ==========================================
@@ -510,15 +523,7 @@ function initSmoothHoverTransitions() {
 // PROFESSIONAL FEATURES
 // ==========================================
 
-// Initialize professional features on DOMContentLoaded
-document.addEventListener('DOMContentLoaded', () => {
-    initFormValidation();
-    initButtonLoadingStates();
-    initScrollSpy();
-    initKeyboardNavigation();
-    initTouchFeedback();
-    initLiveFormFeedback();
-});
+// Professional features (initialized in main DOMContentLoaded above)
 
 // ---- FORM VALIDATION WITH VISUAL FEEDBACK ----
 function initFormValidation() {
@@ -625,6 +630,11 @@ function initButtonLoadingStates() {
                     Envoi...
                 `;
                 submitBtn.disabled = true;
+
+                // Announce to screen readers
+                if (window.announceToScreenReader) {
+                    window.announceToScreenReader('Formulaire en cours d\'envoi');
+                }
 
                 // Reset after 5s (fallback)
                 setTimeout(() => resetButton(submitBtn), 5000);
@@ -880,7 +890,7 @@ function initAccessibilityEnhancements() {
 // TOAST NOTIFICATIONS
 // ==========================================
 function initToastNotifications() {
-    // Create toast container
+    // Create toast container (showToast function provided by utils.js)
     if (!document.getElementById('toast-container')) {
         const container = document.createElement('div');
         container.id = 'toast-container';
@@ -898,71 +908,6 @@ function initToastNotifications() {
         `;
         document.body.appendChild(container);
     }
-
-    // Global toast function
-    window.showToast = window.showToast || function(message, type = 'info', duration = 3000) {
-        const container = document.getElementById('toast-container');
-        if (!container) return;
-
-        const toast = document.createElement('div');
-        toast.className = 'toast-notification';
-        toast.setAttribute('role', 'alert');
-
-        const colors = {
-            success: { bg: '#10b981', icon: 'M5 13l4 4L19 7' },
-            error: { bg: '#ef4444', icon: 'M6 18L18 6M6 6l12 12' },
-            warning: { bg: '#f59e0b', icon: 'M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z' },
-            info: { bg: '#2563EB', icon: 'M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z' }
-        };
-
-        const config = colors[type] || colors.info;
-
-        toast.style.cssText = `
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            padding: 12px 16px;
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 10px 25px -5px rgba(0,0,0,0.15);
-            border-left: 4px solid ${config.bg};
-            pointer-events: auto;
-            transform: translateX(120%);
-            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-            max-width: 320px;
-        `;
-
-        const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-        svg.setAttribute('class', 'w-5 h-5 flex-shrink-0');
-        svg.setAttribute('style', 'color: ' + config.bg);
-        svg.setAttribute('fill', 'none');
-        svg.setAttribute('stroke', 'currentColor');
-        svg.setAttribute('viewBox', '0 0 24 24');
-        const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-        path.setAttribute('stroke-linecap', 'round');
-        path.setAttribute('stroke-linejoin', 'round');
-        path.setAttribute('stroke-width', '2');
-        path.setAttribute('d', config.icon);
-        svg.appendChild(path);
-        const span = document.createElement('span');
-        span.style.cssText = 'color: #374151; font-size: 14px; font-weight: 500;';
-        span.textContent = message;
-        toast.appendChild(svg);
-        toast.appendChild(span);
-
-        container.appendChild(toast);
-
-        // Animate in
-        requestAnimationFrame(() => {
-            toast.style.transform = 'translateX(0)';
-        });
-
-        // Remove after duration
-        setTimeout(() => {
-            toast.style.transform = 'translateX(120%)';
-            setTimeout(() => toast.remove(), 300);
-        }, duration);
-    };
 }
 
 // ==========================================

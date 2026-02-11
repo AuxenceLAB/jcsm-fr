@@ -103,7 +103,22 @@
                 this.position = 0; // Reset to avoid rounding glitches
             });
 
-            requestAnimationFrame((t) => this.animate(t));
+            // Pause/resume RAF on tab visibility to save CPU/battery
+            document.addEventListener('visibilitychange', () => {
+                if (document.hidden) {
+                    if (this._rafId) {
+                        cancelAnimationFrame(this._rafId);
+                        this._rafId = null;
+                    }
+                } else {
+                    this.lastTimestamp = 0;
+                    if (!this._rafId) {
+                        this._rafId = requestAnimationFrame((t) => this.animate(t));
+                    }
+                }
+            });
+
+            this._rafId = requestAnimationFrame((t) => this.animate(t));
         }
 
         animate(timestamp) {
@@ -111,7 +126,7 @@
             const delta = (timestamp - this.lastTimestamp) / 16;
             this.lastTimestamp = timestamp;
 
-            if (!this.isPaused && !document.hidden) {
+            if (!this.isPaused) {
                 this.position -= this.speed * (delta || 1);
                 const contentWidth = this.track.scrollWidth / 3;
                 if (Math.abs(this.position) >= contentWidth) {
@@ -260,16 +275,24 @@
             if (glow.style.opacity === '0') glow.style.opacity = '1';
         }, { passive: true });
 
+        let rafId = null;
         function animate() {
-            if (!document.hidden) {
-                glowX += (mouseX - glowX) * 0.08;
-                glowY += (mouseY - glowY) * 0.08;
-                glow.style.left = glowX + 'px';
-                glow.style.top = glowY + 'px';
-            }
-            requestAnimationFrame(animate);
+            glowX += (mouseX - glowX) * 0.08;
+            glowY += (mouseY - glowY) * 0.08;
+            glow.style.left = glowX + 'px';
+            glow.style.top = glowY + 'px';
+            rafId = requestAnimationFrame(animate);
         }
-        animate();
+
+        document.addEventListener('visibilitychange', () => {
+            if (document.hidden) {
+                if (rafId) { cancelAnimationFrame(rafId); rafId = null; }
+            } else if (!rafId) {
+                rafId = requestAnimationFrame(animate);
+            }
+        });
+
+        rafId = requestAnimationFrame(animate);
     }
 
     // ==========================================

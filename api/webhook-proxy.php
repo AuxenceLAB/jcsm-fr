@@ -10,6 +10,7 @@ ini_set('log_errors', '1');
 
 header('Content-Type: application/json; charset=utf-8');
 require_once __DIR__ . '/auth.php';
+require_once __DIR__ . '/helpers.php';
 
 // CORS restreint
 $allowedOrigins = ['https://jcsm.fr', 'https://www.jcsm.fr'];
@@ -34,25 +35,48 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 // Authentification requise
 requireAuth();
 
-// URLs n8n (côté serveur uniquement)
+// Rate limiting (30 req/min par IP)
+if (!checkRateLimit('webhook', 30, 60)) {
+    http_response_code(429);
+    echo json_encode(['error' => 'Trop de requêtes webhook. Réessayez dans quelques secondes.']);
+    exit;
+}
+
+// URLs n8n chargées depuis .env
 $webhookUrls = [
-    'rapport'      => 'https://n8n.jcsm.fr/webhook/rapport',
-    'paiement'     => 'https://n8n.jcsm.fr/webhook/paiement',
-    'sms'          => 'https://n8n.jcsm.fr/webhook/sms',
-    'notification' => 'https://n8n.jcsm.fr/webhook/notification',
+    'rapport'      => loadEnvVar('WEBHOOK_RAPPORT_URL'),
+    'paiement'     => loadEnvVar('WEBHOOK_PAIEMENT_URL'),
+    'sms'          => loadEnvVar('WEBHOOK_SMS_URL'),
+    'notification' => loadEnvVar('WEBHOOK_NOTIFICATION_URL'),
 ];
 
+// Vérifier que toutes les URLs sont configurées
+$missingUrls = array_keys(array_filter($webhookUrls, fn($url) => empty($url)));
+if (!empty($missingUrls)) {
+    http_response_code(500);
+    error_log('Missing webhook URLs in .env: ' . implode(', ', $missingUrls));
+    echo json_encode(['error' => 'Configuration webhook incomplète']);
+    exit;
+}
+
 $input = json_decode(file_get_contents('php://input'), true);
-if (!$input) {
+if (!$input || !is_array($input)) {
     http_response_code(400);
     echo json_encode(['error' => 'Données JSON invalides']);
     exit;
 }
 
+// Validation du payload
 $type = $input['type'] ?? '';
 if (!isset($webhookUrls[$type])) {
     http_response_code(400);
     echo json_encode(['error' => 'Type de webhook inconnu: ' . htmlspecialchars($type)]);
+    exit;
+}
+
+if (!isset($input['data']) || !is_array($input['data'])) {
+    http_response_code(400);
+    echo json_encode(['error' => 'Champ "data" requis']);
     exit;
 }
 
@@ -69,6 +93,7 @@ try {
         CURLOPT_POSTFIELDS     => json_encode($payload),
         CURLOPT_TIMEOUT        => 30,
         CURLOPT_SSL_VERIFYPEER => true,
+        CURLOPT_SSL_VERIFYHOST => 2,
         CURLOPT_HTTPHEADER     => [
             'Content-Type: application/json',
             'Accept: application/json',

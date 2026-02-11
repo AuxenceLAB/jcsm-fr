@@ -122,7 +122,7 @@ const JCSMAnalytics = {
                 });
                 ticking = true;
             }
-        });
+        }, { passive: true });
     }
 };
 
