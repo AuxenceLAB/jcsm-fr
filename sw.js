@@ -1,13 +1,14 @@
-// JCSM Service Worker - Enhanced PWA Support v27
-const STATIC_CACHE = 'jcsm-static-v27';
-const DYNAMIC_CACHE = 'jcsm-dynamic-v27';
-const API_CACHE = 'jcsm-api-v27';
+// JCSM Service Worker - Enhanced PWA Support v35
+const STATIC_CACHE = 'jcsm-static-v35';
+const DYNAMIC_CACHE = 'jcsm-dynamic-v35';
+const API_CACHE = 'jcsm-api-v35';
 
 // Assets to cache on install
 const STATIC_ASSETS = [
     '/',
     '/index.html',
     '/styles.css',
+    '/css/tailwind.css',
     '/js/config.js',
     '/js/public.js',
     '/js/utils.js',
@@ -37,6 +38,7 @@ const STATIC_ASSETS = [
     '/zones/nouvelle-aquitaine.html',
     '/zones/belgique.html',
     '/zones/france.html',
+    '/blog.html',
     '/contact.html'
 ];
 

@@ -33,6 +33,7 @@ function initContactForm() {
 
         // Validate name
         const nom = document.getElementById('nom');
+        if (!nom) return;
         if (!nom.value.trim() || nom.value.length < 2) {
             showError(nom, 'Le nom doit contenir au moins 2 caractères', formMessage);
             isValid = false;
@@ -40,6 +41,7 @@ function initContactForm() {
 
         // Validate email
         const email = document.getElementById('email');
+        if (!email) return;
         const emailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)+$/;
         if (!email.value.trim() || !emailRegex.test(email.value)) {
             showError(email, 'Veuillez entrer une adresse email valide', formMessage);
@@ -48,6 +50,7 @@ function initContactForm() {
 
         // Validate message
         const message = document.getElementById('message');
+        if (!message) return;
         if (!message.value.trim() || message.value.length < 10) {
             showError(message, 'Le message doit contenir au moins 10 caractères', formMessage);
             isValid = false;
@@ -55,6 +58,7 @@ function initContactForm() {
 
         // Validate RGPD
         const rgpd = document.getElementById('rgpd');
+        if (!rgpd) return;
         if (!rgpd.checked) {
             showError(rgpd, 'Vous devez accepter la politique de confidentialité', formMessage);
             isValid = false;

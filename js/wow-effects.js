@@ -91,12 +91,18 @@
             // Duplicate content for seamless loop
             const items = Array.from(this.track.children);
             // We clone twice to ensure coverage on even the widest screens
-            items.forEach(item => this.track.appendChild(item.cloneNode(true)));
-            items.forEach(item => this.track.appendChild(item.cloneNode(true)));
+            for (let i = 0; i < 2; i++) {
+                items.forEach(item => {
+                    const clone = item.cloneNode(true);
+                    // Fix lazy loading on cloned images
+                    clone.querySelectorAll('img[loading="lazy"]').forEach(img => {
+                        img.loading = 'eager';
+                    });
+                    this.track.appendChild(clone);
+                });
+            }
 
-            // Robust hover detection
-            this.container.addEventListener('mouseenter', () => this.isPaused = true);
-            this.container.addEventListener('mouseleave', () => this.isPaused = false);
+            // Continuous scroll — no pause on hover
 
             // Recalculate dimensions on window resize
             window.addEventListener('resize', () => {
@@ -257,7 +263,7 @@
             height: 600px;
             border-radius: 50%;
             pointer-events: none;
-            background: radial-gradient(circle, rgba(0, 112, 243, 0.08) 0%, rgba(121, 40, 202, 0.04) 30%, transparent 70%);
+            background: radial-gradient(circle, rgba(37, 99, 235, 0.08) 0%, rgba(59, 130, 246, 0.04) 30%, transparent 70%);
             transform: translate(-50%, -50%);
             z-index: 1;
             opacity: 0;
@@ -439,7 +445,7 @@
                 position: absolute;
                 width: 400px;
                 height: 400px;
-                background: linear-gradient(135deg, rgba(0, 112, 243, 0.08), rgba(121, 40, 202, 0.08));
+                background: linear-gradient(135deg, rgba(37, 99, 235, 0.08), rgba(59, 130, 246, 0.06));
                 border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
                 animation: morphBlobAnim ${8 + index}s ease-in-out infinite;
                 filter: blur(80px);
@@ -629,10 +635,8 @@
             content: '';
             position: absolute;
             inset: -2px;
-            background: linear-gradient(45deg, #2563EB, #7928CA, #FF0080, #00DFD8, #2563EB);
-            background-size: 300% 300%;
+            background: rgba(37, 99, 235, 0.15);
             border-radius: inherit;
-            animation: glowRotate 4s linear infinite;
             z-index: -1;
             opacity: 0;
             transition: opacity 0.4s ease;
@@ -640,18 +644,12 @@
         }
 
         .glow-border:hover::before {
-            opacity: 0.6;
-        }
-
-        @keyframes glowRotate {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+            opacity: 1;
         }
 
         /* Counter glow effect */
         .counter-glow {
-            text-shadow: 0 0 30px rgba(0, 112, 243, 0.3), 0 0 60px rgba(121, 40, 202, 0.15);
+            text-shadow: 0 0 30px rgba(37, 99, 235, 0.3), 0 0 60px rgba(37, 99, 235, 0.15);
         }
 
         /* Spotlight gradient */

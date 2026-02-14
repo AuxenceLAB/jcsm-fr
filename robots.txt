@@ -12,9 +12,19 @@ Disallow: /interne
 Disallow: /admin
 Disallow: /api/
 Disallow: /*.json$
+Disallow: /offline
+Disallow: /404
+
+# Disallow old/renamed URLs (301 redirects configured)
+Disallow: /securisation
+Disallow: /interventions
+Disallow: /support-client
+Disallow: /mise-en-service
 
 # Disallow admin assets
 Disallow: /js/map.js
+Disallow: /js/dashboard.js
+Disallow: /js/fiches.js
 
 # Allow CSS and JS for rendering
 Allow: /styles.css
@@ -22,6 +32,7 @@ Allow: /js/public.js
 Allow: /js/wow-effects.js
 Allow: /js/utils.js
 Allow: /js/landing.js
+Allow: /js/analytics.js
 
 # Crawl-delay
 Crawl-delay: 1

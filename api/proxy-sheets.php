@@ -43,7 +43,7 @@ if (!$GOOGLE_SHEETS_URLS['admin'] || !$GOOGLE_SHEETS_URLS['terrain']) {
 
 // Déterminer quelle URL utiliser (par défaut: terrain, whitelist stricte)
 $context = $_GET['context'] ?? 'terrain';
-if (!isset($GOOGLE_SHEETS_URLS[$context])) {
+if (!in_array($context, ['admin', 'terrain'], true)) {
     $context = 'terrain';
 }
 $GOOGLE_SHEETS_URL = $GOOGLE_SHEETS_URLS[$context];
@@ -71,8 +71,10 @@ try {
         CURLOPT_URL => $url,
         CURLOPT_RETURNTRANSFER => true,
         CURLOPT_FOLLOWLOCATION => true,
+        CURLOPT_MAXREDIRS => 3,
         CURLOPT_TIMEOUT => 30,
         CURLOPT_SSL_VERIFYPEER => true,
+        CURLOPT_SSL_VERIFYHOST => 2,
         CURLOPT_HTTPHEADER => ['Accept: application/json']
     ]);
 

@@ -3,6 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-KKMQQVCF');</script>
+    <!-- End Google Tag Manager -->
     <title>Bornes de Recharge Nouvelle-Aquitaine | JCSM IRVE</title>
     <meta name="description" content="Expert IRVE Nouvelle-Aquitaine : installation et maintenance bornes de recharge à Bordeaux, Limoges, Pau, La Rochelle. Intervention 24/7.">
     <meta name="robots" content="index, follow">
@@ -15,6 +22,7 @@
     <meta property="og:image" content="https://jcsm.fr/images/index.jpg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="JCSM - Expert bornes de recharge en Nouvelle-Aquitaine">
     <meta property="og:locale" content="fr_FR">
     <meta property="og:site_name" content="JCSM - Infrastructure de Recharge">
     <meta name="twitter:card" content="summary_large_image">
@@ -25,10 +33,14 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>tailwind.config = { theme: { extend: { colors: { primary: '#2563EB', secondary: '#1D4ED8' }}}}</script>
-    <link rel="stylesheet" href="../styles.css?v=27">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"
+        media="print" onload="this.media='all'">
+    <noscript>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+            rel="stylesheet">
+    </noscript>
+    <link rel="stylesheet" href="../css/tailwind.css?v=35">
+    <link rel="stylesheet" href="../styles.css?v=35">
     <link rel="icon" type="image/png" href="../images/logo.png">
     <link rel="manifest" href="../manifest.json">
     <link rel="apple-touch-icon" href="../images/logo.png">
@@ -89,10 +101,25 @@
         "url": "https://jcsm.fr/zones/nouvelle-aquitaine"
     }
     </script>
-    <script src="../js/config.js?v=27"></script>
+    <script src="../js/config.js?v=35" defer></script>
 </head>
 <body class="text-gray-900 bg-white">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KKMQQVCF"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
     <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+
+    <div class="preloader" id="preloader" role="status" aria-label="Chargement">
+        <div class="flex flex-col items-center justify-center">
+            <picture><source srcset="../images/logo.webp" type="image/webp"><img src="../images/logo.png" alt="JCSM" width="80" height="80" class="animate-pulse"></picture>
+            <div class="mt-4 flex space-x-2">
+                <div class="w-2 h-2 bg-blue-600 rounded-full animate-bounce" style="animation-delay: 0s"></div>
+                <div class="w-2 h-2 bg-blue-600 rounded-full animate-bounce" style="animation-delay: 0.1s"></div>
+                <div class="w-2 h-2 bg-blue-600 rounded-full animate-bounce" style="animation-delay: 0.2s"></div>
+            </div>
+        </div>
+    </div>
     <div class="mobile-menu-overlay" id="mobile-menu-overlay"></div>
     <nav class="mobile-menu" id="mobile-menu" role="dialog" aria-modal="true" aria-label="Menu de navigation" aria-hidden="true">
         <div class="p-8">
@@ -104,15 +131,15 @@
                     </svg>
                 </button>
             </div>
-            <div class="flex flex-col space-y-6">
-                <a href="../index.html" class="text-base text-gray-600 hover:text-gray-900 transition-colors">Accueil</a>
-                <a href="../pilotage-projets.html" class="text-base text-gray-600 hover:text-gray-900 transition-colors">Pilotage de projets</a>
-                <a href="../installation-conformite.html" class="text-base text-gray-600 hover:text-gray-900 transition-colors">Installation</a>
-                <a href="../exploitation.html" class="text-base text-gray-600 hover:text-gray-900 transition-colors">Exploitation</a>
-                <a href="../securisation-installations.html" class="text-base text-gray-600 hover:text-gray-900 transition-colors">Sécurisation</a>
-                <a href="../centre-appel.html" class="text-base text-gray-600 hover:text-gray-900 transition-colors">Support</a>
-                <a href="../a-propos.html" class="text-base text-gray-600 hover:text-gray-900 transition-colors">À propos</a>
-                <a href="../contact.html" class="btn-primary px-6 py-3 rounded-lg text-base font-medium inline-block text-center mt-4">Contact</a>
+                        <div class="flex flex-col space-y-6">
+                <a href="/" class="text-base text-gray-600 hover:text-gray-900 transition-colors">Accueil</a>
+                <a href="/pilotage-projets" class="text-base text-gray-600 hover:text-gray-900 transition-colors">Pilotage de projets</a>
+                <a href="/installation-conformite" class="text-base text-gray-600 hover:text-gray-900 transition-colors">Installation</a>
+                <a href="/exploitation" class="text-base text-gray-600 hover:text-gray-900 transition-colors">Exploitation</a>
+                <a href="/securisation-installations" class="text-base text-gray-600 hover:text-gray-900 transition-colors">Sécurisation</a>
+                <a href="/centre-appel" class="text-base text-gray-600 hover:text-gray-900 transition-colors">Support</a>
+                <a href="/a-propos" class="text-base text-gray-600 hover:text-gray-900 transition-colors">À propos</a>
+                <a href="/contact" class="btn-primary px-6 py-3 rounded-lg text-base font-medium inline-block text-center mt-4">Contact</a>
             </div>
         </div>
     </nav>
@@ -120,19 +147,19 @@
     <nav class="fixed top-0 w-full z-50 glass-nav" role="navigation" aria-label="Navigation principale">
         <div class="max-w-7xl mx-auto px-6 py-4">
             <div class="flex justify-between items-center">
-                <a href="../index.html" class="flex items-center space-x-3 group">
+                <a href="/" class="flex items-center space-x-3 group">
                     <picture><source srcset="../images/logo.webp" type="image/webp"><img src="../images/logo.png" alt="JCSM" class="w-9 h-9 transition-transform group-hover:scale-105 duration-300" width="36" height="36"></picture>
                     <span class="text-xl font-bold tracking-tight">JCSM</span>
                 </a>
                 <div class="hidden lg:flex items-center space-x-10">
-                    <a href="../index.html" class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300 hover:scale-105">Accueil</a>
-                    <a href="../pilotage-projets.html" class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300 hover:scale-105">Pilotage de projets</a>
-                    <a href="../installation-conformite.html" class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300 hover:scale-105">Installation</a>
-                    <a href="../exploitation.html" class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300 hover:scale-105">Exploitation</a>
-                    <a href="../securisation-installations.html" class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300 hover:scale-105">Sécurisation</a>
-                    <a href="../centre-appel.html" class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300 hover:scale-105">Support</a>
-                    <a href="../a-propos.html" class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300 hover:scale-105">À propos</a>
-                    <a href="../contact.html" class="btn-primary px-7 py-2.5 rounded-xl text-base font-medium shadow-lg hover:shadow-xl">Contact</a>
+                    <a href="/" class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300 hover:scale-105">Accueil</a>
+                    <a href="/pilotage-projets" class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300 hover:scale-105">Pilotage de projets</a>
+                    <a href="/installation-conformite" class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300 hover:scale-105">Installation</a>
+                    <a href="/exploitation" class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300 hover:scale-105">Exploitation</a>
+                    <a href="/securisation-installations" class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300 hover:scale-105">Sécurisation</a>
+                    <a href="/centre-appel" class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300 hover:scale-105">Support</a>
+                    <a href="/a-propos" class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300 hover:scale-105">À propos</a>
+                    <a href="/contact" class="btn-primary px-7 py-2.5 rounded-xl text-base font-medium shadow-lg hover:shadow-xl">Contact</a>
                 </div>
                 <button class="mobile-menu-btn text-gray-600 hover:text-gray-900" id="mobile-menu-btn" aria-label="Ouvrir le menu de navigation" aria-expanded="false" aria-controls="mobile-menu">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -145,7 +172,7 @@
 
     <main id="main-content">
         <!-- Hero régional -->
-        <section class="pt-32 pb-20 px-6 bg-gradient-to-br from-blue-50 via-white to-purple-50">
+        <section class="pt-32 pb-20 px-6 bg-gradient-to-br from-blue-50 via-white to-blue-50">
             <div class="max-w-6xl mx-auto">
                 <div class="text-center mb-12">
                     <div class="inline-flex items-center bg-blue-100 text-blue-800 rounded-full px-4 py-2 mb-6">
@@ -153,13 +180,13 @@
                         <span class="text-sm font-semibold">Expertise de proximité en Nouvelle-Aquitaine</span>
                     </div>
                     <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-                        De Bordeaux au Pays basque, votre <span class="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">expert IRVE régional</span>
+                        De Bordeaux au Pays basque, votre <span class="text-blue-600">expert IRVE régional</span>
                     </h1>
                     <p class="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
                         Plus grande région de France par sa superficie, la Nouvelle-Aquitaine exige un partenaire IRVE capable de couvrir aussi bien les métropoles que les zones rurales. Notre ancrage local garantit réactivité et proximité sur les 12 départements.
                     </p>
                     <div class="flex flex-wrap gap-4 justify-center">
-                        <a href="../contact.html" class="bg-blue-600 text-white px-8 py-4 rounded-xl font-medium hover:bg-blue-700 transition-colors">
+                        <a href="/contact" class="bg-blue-600 text-white px-8 py-4 rounded-xl font-medium hover:bg-blue-700 transition-colors">
                             Recevoir un devis gratuit
                         </a>
                         <a href="tel:+33756962758" class="border border-gray-300 px-8 py-4 rounded-xl font-medium hover:bg-gray-50 transition-colors">
@@ -253,8 +280,8 @@
                         <p class="text-gray-600">Réseau de techniciens répartis sur la région, diagnostic à distance et contrats adaptés à la diversité géographique du territoire.</p>
                     </div>
                     <div class="bg-white rounded-2xl p-8 shadow-sm">
-                        <div class="w-14 h-14 bg-purple-100 rounded-xl flex items-center justify-center mb-6">
-                            <svg class="w-7 h-7 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+                        <div class="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center mb-6">
+                            <svg class="w-7 h-7 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
                         </div>
                         <h3 class="text-xl font-bold mb-3">Accompagnement 24/7</h3>
                         <p class="text-gray-600">Hotline technique, supervision à distance et engagement d'intervention rapide, y compris dans les zones les plus éloignées.</p>
@@ -264,11 +291,11 @@
         </section>
 
         <!-- CTA -->
-        <section class="py-20 px-6 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
+        <section class="py-20 px-6 bg-blue-600 text-white">
             <div class="max-w-4xl mx-auto text-center">
                 <h2 class="text-3xl md:text-4xl font-bold mb-6">La Nouvelle-Aquitaine passe à la recharge électrique</h2>
                 <p class="text-xl text-blue-100 mb-8">De Bordeaux à Limoges, de La Rochelle à Pau : notre expertise locale accompagne votre transition énergétique. Devis gratuit sous 24h.</p>
-                <a href="../contact.html" class="inline-block bg-white text-blue-600 px-8 py-4 rounded-xl font-medium hover:bg-blue-50 transition-colors">
+                <a href="/contact" class="inline-block bg-white text-blue-600 px-8 py-4 rounded-xl font-medium hover:bg-blue-50 transition-colors">
                     Lancer mon projet IRVE
                 </a>
             </div>
@@ -279,13 +306,13 @@
             <div class="max-w-6xl mx-auto">
                 <h2 class="text-2xl font-bold text-center mb-8">JCSM, un réseau France-Belgique au service de chaque territoire</h2>
                 <div class="flex flex-wrap justify-center gap-4">
-                    <a href="paca.html" class="px-4 py-2 bg-gray-100 rounded-lg text-sm hover:bg-blue-100 hover:text-blue-700 transition-colors">PACA</a>
-                    <a href="auvergne-rhone-alpes.html" class="px-4 py-2 bg-gray-100 rounded-lg text-sm hover:bg-blue-100 hover:text-blue-700 transition-colors">Auvergne-Rhône-Alpes</a>
-                    <a href="occitanie.html" class="px-4 py-2 bg-gray-100 rounded-lg text-sm hover:bg-blue-100 hover:text-blue-700 transition-colors">Occitanie</a>
-                    <a href="nouvelle-aquitaine.html" class="px-4 py-2 bg-gray-100 rounded-lg text-sm hover:bg-blue-100 hover:text-blue-700 transition-colors">Nouvelle-Aquitaine</a>
-                    <a href="hauts-de-france.html" class="px-4 py-2 bg-gray-100 rounded-lg text-sm hover:bg-blue-100 hover:text-blue-700 transition-colors">Hauts-de-France</a>
-                    <a href="ile-de-france.html" class="px-4 py-2 bg-gray-100 rounded-lg text-sm hover:bg-blue-100 hover:text-blue-700 transition-colors">Île-de-France</a>
-                    <a href="belgique.html" class="px-4 py-2 bg-gray-100 rounded-lg text-sm hover:bg-blue-100 hover:text-blue-700 transition-colors">Belgique</a>
+                    <a href="/zones/paca" class="px-4 py-2 bg-gray-100 rounded-lg text-sm hover:bg-blue-100 hover:text-blue-700 transition-colors">PACA</a>
+                    <a href="/zones/auvergne-rhone-alpes" class="px-4 py-2 bg-gray-100 rounded-lg text-sm hover:bg-blue-100 hover:text-blue-700 transition-colors">Auvergne-Rhône-Alpes</a>
+                    <a href="/zones/occitanie" class="px-4 py-2 bg-gray-100 rounded-lg text-sm hover:bg-blue-100 hover:text-blue-700 transition-colors">Occitanie</a>
+                    <a href="/zones/nouvelle-aquitaine" class="px-4 py-2 bg-gray-100 rounded-lg text-sm hover:bg-blue-100 hover:text-blue-700 transition-colors">Nouvelle-Aquitaine</a>
+                    <a href="/zones/hauts-de-france" class="px-4 py-2 bg-gray-100 rounded-lg text-sm hover:bg-blue-100 hover:text-blue-700 transition-colors">Hauts-de-France</a>
+                    <a href="/zones/ile-de-france" class="px-4 py-2 bg-gray-100 rounded-lg text-sm hover:bg-blue-100 hover:text-blue-700 transition-colors">Île-de-France</a>
+                    <a href="/zones/belgique" class="px-4 py-2 bg-gray-100 rounded-lg text-sm hover:bg-blue-100 hover:text-blue-700 transition-colors">Belgique</a>
                 </div>
             </div>
         </section>
@@ -300,7 +327,7 @@
                         <picture><source srcset="../images/logo.webp" type="image/webp"><img src="../images/logo.png" alt="Logo JCSM" class="w-8 h-8" width="32" height="32" loading="lazy"></picture>
                         <span class="text-xl font-semibold text-gray-900">JCSM</span>
                     </div>
-                    <p class="text-sm text-gray-600 mb-4">Votre partenaire de confiance depuis 2018 pour les infrastructures de recharge.</p>
+                    <p class="text-sm text-gray-600 mb-4">Votre partenaire de confiance depuis 2018 pour le pilotage, l'installation et la maintenance de vos infrastructures de recharge.</p>
                     <p class="text-sm text-gray-500">60 rue François 1er<br>75008 Paris</p>
                     <p class="text-sm text-gray-500 mt-3"><a href="tel:+33756962758" class="hover:text-gray-900 transition-colors">+33 7 56 96 27 58</a></p>
                     <p class="text-sm text-gray-500"><a href="mailto:contact@jcsm.fr" class="hover:text-gray-900 transition-colors">contact@jcsm.fr</a></p>
@@ -309,11 +336,11 @@
                     <h3 class="text-sm font-semibold text-gray-900 mb-4 uppercase tracking-wide">Services</h3>
                     <nav aria-label="Services">
                         <ul class="space-y-3">
-                            <li><a href="../pilotage-projets.html" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Pilotage de projets</a></li>
-                            <li><a href="../installation-conformite.html" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Installation & conformité</a></li>
-                            <li><a href="../exploitation.html" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Exploitation & maintenance</a></li>
-                            <li><a href="../securisation-installations.html" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Sécurisation</a></li>
-                            <li><a href="../centre-appel.html" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Support 24/7</a></li>
+                            <li><a href="/pilotage-projets" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Pilotage de projets</a></li>
+                            <li><a href="/installation-conformite" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Installation & conformité</a></li>
+                            <li><a href="/exploitation" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Exploitation & maintenance</a></li>
+                            <li><a href="/securisation-installations" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Sécurisation</a></li>
+                            <li><a href="/centre-appel" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Support 24/7</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -321,9 +348,10 @@
                     <h3 class="text-sm font-semibold text-gray-900 mb-4 uppercase tracking-wide">Entreprise</h3>
                     <nav aria-label="Entreprise">
                         <ul class="space-y-3">
-                            <li><a href="../a-propos.html" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">À propos</a></li>
-                            <li><a href="../carrieres.html" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Carrières</a></li>
-                            <li><a href="../contact.html" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Contact</a></li>
+                            <li><a href="/a-propos" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">À propos</a></li>
+                            <li><a href="/carrieres" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Carrières</a></li>
+                            <li><a href="/contact" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Contact</a></li>
+                            <li><a href="/blog" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Blog</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -331,41 +359,54 @@
                     <h3 class="text-sm font-semibold text-gray-900 mb-4 uppercase tracking-wide">Légal</h3>
                     <nav aria-label="Légal">
                         <ul class="space-y-3">
-                            <li><a href="../mentions-legales.html" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Mentions légales</a></li>
-                            <li><a href="../confidentialite.html" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Confidentialité</a></li>
-                            <li><a href="../cgv.html" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">CGV</a></li>
+                            <li><a href="/mentions-legales" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Mentions légales</a></li>
+                            <li><a href="/confidentialite" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Confidentialité</a></li>
+                            <li><a href="/cgv" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">CGV</a></li>
                         </ul>
                     </nav>
                     <h3 class="text-sm font-semibold text-gray-900 mb-4 uppercase tracking-wide mt-6">Zones</h3>
                     <nav aria-label="Zones">
                         <ul class="space-y-3">
-                            <li><a href="france.html" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">France</a></li>
-                            <li><a href="belgique.html" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Belgique</a></li>
+                            <li><a href="/zones/france" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">France</a></li>
+                            <li><a href="/zones/belgique" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Belgique</a></li>
                         </ul>
                     </nav>
-                    <a href="https://www.linkedin.com/company/jcsm-elec/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center mt-4 text-sm text-gray-600 hover:text-blue-600 transition-colors" aria-label="Suivre JCSM sur LinkedIn">
-                        <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-                        LinkedIn
-                    </a>
+                    <div class="flex items-center gap-3 mt-4">
+                        <a href="https://www.linkedin.com/company/jcsm-elec/" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-gray-900 transition-colors" aria-label="LinkedIn">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                        </a>
+                        <a href="https://www.facebook.com/profile.php?id=61587992161634" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-gray-900 transition-colors" aria-label="Facebook">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                        </a>
+                        <a href="https://x.com/JCSM_ELEC" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-gray-900 transition-colors" aria-label="X (Twitter)">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                        </a>
+                        <a href="https://www.instagram.com/jcsm.elec/" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-gray-900 transition-colors" aria-label="Instagram">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+                        </a>
+                        <a href="https://www.youtube.com/@JCSM_ELEC" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-gray-900 transition-colors" aria-label="YouTube">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                        </a>
+                    </div>
                 </div>
             </div>
             <div class="pt-8 border-t border-gray-100 flex flex-col md:flex-row md:items-center md:justify-between gap-4 text-xs text-gray-500">
                 <span>© 2026 JCSM SAS — SIRET 99387429600011</span>
-                <span><a href="mailto:contact@jcsm.fr" class="hover:text-gray-900 transition-colors">contact@jcsm.fr</a> · <a href="tel:+33756962758" class="hover:text-gray-900 transition-colors">+33 7 56 96 27 58</a></span>
+                <a href="mailto:contact@jcsm.fr" class="hover:text-gray-900 transition-colors">contact@jcsm.fr</a> · <a href="tel:+33756962758" class="hover:text-gray-900 transition-colors">+33 7 56 96 27 58</a>
             </div>
         </div>
     </footer>
 
-    <button class="scroll-top glow-border" id="scrollTop" aria-label="Retour en haut de la page">
+    <button class="scroll-top" id="scrollTop" aria-label="Retour en haut de la page">
         <svg class="w-6 h-6 float-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
         </svg>
     </button>
 
-    <script src="../js/utils.js?v=27" defer></script>
-    <script src="../js/public.js?v=27" defer></script>
-    <script src="../js/analytics.js?v=27" defer></script>
-    <script src="../js/wow-effects.js?v=27" defer></script>
+    <script src="../js/utils.js?v=35" defer></script>
+    <script src="../js/public.js?v=35" defer></script>
+    <script src="../js/analytics.js?v=35" defer></script>
+    <script src="../js/wow-effects.js?v=35" defer></script>
     <script>
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {

@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-KKMQQVCF');</script>
+    <!-- End Google Tag Manager -->
+    <title>Raccordement des bornes DC : process et coûts | JCSM</title>
+    <meta name="description" content="Raccordement d'une station de recharge DC : dimensionnement, BT vs HTA, process Enedis (PTF), couts, delais et conformite Consuel.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://jcsm.fr/blog/raccordement-electrique-bornes-dc">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Raccordement electrique des bornes DC : puissance, process Enedis et couts",
+        "description": "Comment raccorder une station de recharge rapide DC au reseau electrique ? Dimensionnement de puissance, raccordement BT vs HTA, process Enedis, couts et conformite.",
+        "datePublished": "2026-02-12",
+        "dateModified": "2026-02-12",
+        "author": {"@type": "Organization", "name": "JCSM", "url": "https://jcsm.fr"},
+        "publisher": {"@type": "Organization", "name": "JCSM", "url": "https://jcsm.fr", "logo": {"@type": "ImageObject", "url": "https://jcsm.fr/images/logo.png"}},
+        "mainEntityOfPage": "https://jcsm.fr/blog/raccordement-electrique-bornes-dc",
+        "image": "https://jcsm.fr/images/index.webp"
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Combien coute le raccordement electrique d'une station de recharge DC ?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Le cout varie enormement selon la puissance demandee et la distance au reseau existant. Pour un raccordement basse tension (jusqu'a environ 250 kVA), comptez entre 10 000 et 50 000 euros. Pour un raccordement HTA avec poste de transformation, les couts peuvent aller de 50 000 a plus de 200 000 euros. La Proposition Technique et Financiere (PTF) d'Enedis detaille le cout exact pour chaque projet."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Quel est le delai pour raccorder une station DC en HTA ?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Le delai total pour un raccordement HTA est generalement de 6 a 18 mois entre la demande initiale et la mise en service. Ce delai inclut l'etude technique par Enedis (2 a 4 mois), la signature de la convention de raccordement, les travaux de genie civil et de raccordement (3 a 12 mois selon la complexite), et la mise en service. Les delais varient selon la region, la charge de travail d'Enedis et les eventuels travaux d'extension de reseau necessaires."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Quelle difference entre raccordement BT et HTA pour les bornes de recharge ?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Le raccordement basse tension (BT) alimente directement en 400 V triphase et convient pour des puissances jusqu'a environ 250 kVA, soit typiquement une a deux bornes DC de 50 a 100 kW. Au-dela, le raccordement haute tension A (HTA) est necessaire : l'electricite arrive en 20 000 V et un poste de transformation sur site convertit en 400 V. Le HTA est plus couteux et plus long a obtenir, mais indispensable pour les stations de recharge rapide a forte puissance."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Qu'est-ce que le facteur de diversite pour dimensionner une station de recharge ?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Le facteur de diversite (ou facteur de foisonnement) traduit le fait que toutes les bornes d'une station ne fonctionnent pas simultanement a pleine puissance. Pour une station de recharge DC, on applique generalement un facteur de 0.6 a 0.8. Par exemple, une station de 4 bornes de 150 kW (600 kW de puissance installee) necessitera un raccordement de 360 a 480 kVA, et non 600 kVA. Ce facteur depend du profil d'usage du site et se valide avec le gestionnaire de reseau."
+                }
+            }
+        ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://jcsm.fr/"},
+            {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://jcsm.fr/blog"},
+            {"@type": "ListItem", "position": 3, "name": "Raccordement electrique des bornes DC", "item": "https://jcsm.fr/blog/raccordement-electrique-bornes-dc"}
+        ]
+    }
+    </script>
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://jcsm.fr/blog/raccordement-electrique-bornes-dc">
+    <meta property="og:title" content="Raccordement electrique des bornes DC : puissance, process Enedis et couts">
+    <meta property="og:description" content="Dimensionnement de puissance, raccordement BT vs HTA, process Enedis (PTF), couts et delais. Guide technique complet.">
+    <meta property="og:image" content="https://jcsm.fr/images/index.webp">
+    <meta property="og:image:alt" content="Infrastructure de recharge pour véhicules électriques">
+    <meta property="og:locale" content="fr_FR">
+    <meta property="og:site_name" content="JCSM - Infrastructure de Recharge">
+    <meta property="article:published_time" content="2026-02-12">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Raccordement electrique des bornes DC : puissance, process Enedis et couts">
+    <meta name="twitter:description" content="Dimensionnement de puissance, raccordement BT vs HTA, process Enedis, couts et delais.">
+    <meta name="twitter:image" content="https://jcsm.fr/images/index.webp">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"
+        media="print" onload="this.media='all'">
+    <noscript>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+            rel="stylesheet">
+    </noscript>
+    <link rel="stylesheet" href="../css/tailwind.css?v=35">
+    <link rel="stylesheet" href="../styles.css?v=35">
+    <link rel="icon" type="image/png" href="../images/logo.png">
+    <link rel="manifest" href="../manifest.json">
+    <link rel="apple-touch-icon" href="../images/logo.png">
+</head>
+<body class="text-gray-900 bg-white">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KKMQQVCF"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+    <div class="mobile-menu-overlay" id="mobile-menu-overlay"></div>
+    <nav class="mobile-menu" id="mobile-menu" role="dialog" aria-modal="true" aria-label="Menu de navigation" aria-hidden="true">
+        <div class="p-8">
+            <div class="flex justify-between items-center mb-12">
+                <span class="text-xl font-semibold">Menu</span>
+                <button class="text-gray-600 hover:text-gray-900" id="mobile-menu-close" aria-label="Fermer le menu de navigation">
+                    <svg class="w-6 h-6" fill="none" aria-hidden="true" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+                </button>
+            </div>
+                        <div class="flex flex-col space-y-6">
+                <a href="/" class="text-base text-gray-600 hover:text-gray-900 transition-colors">Accueil</a>
+                <a href="/pilotage-projets" class="text-base text-gray-600 hover:text-gray-900 transition-colors">Pilotage de projets</a>
+                <a href="/installation-conformite" class="text-base text-gray-600 hover:text-gray-900 transition-colors">Installation</a>
+                <a href="/exploitation" class="text-base text-gray-600 hover:text-gray-900 transition-colors">Exploitation</a>
+                <a href="/securisation-installations" class="text-base text-gray-600 hover:text-gray-900 transition-colors">Sécurisation</a>
+                <a href="/centre-appel" class="text-base text-gray-600 hover:text-gray-900 transition-colors">Support</a>
+                <a href="/a-propos" class="text-base text-gray-600 hover:text-gray-900 transition-colors">À propos</a>
+                <a href="/contact" class="btn-primary px-6 py-3 rounded-lg text-base font-medium inline-block text-center mt-4">Contact</a>
+            </div>
+        </div>
+    </nav>
+    <nav class="fixed top-0 w-full z-50 glass-nav" role="navigation" aria-label="Navigation principale">
+        <div class="max-w-7xl mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <a href="/" class="flex items-center space-x-3 group">
+                    <picture><source srcset="../images/logo.webp" type="image/webp"><img src="../images/logo.png" alt="JCSM" class="w-9 h-9 transition-transform group-hover:scale-105 duration-300" width="36" height="36"></picture>
+                    <span class="text-xl font-bold tracking-tight">JCSM</span>
+                </a>
+                <div class="hidden lg:flex items-center space-x-10">
+                    <a href="/" class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300 hover:scale-105">Accueil</a>
+                    <a href="/pilotage-projets" class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300 hover:scale-105">Pilotage de projets</a>
+                    <a href="/installation-conformite" class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300 hover:scale-105">Installation</a>
+                    <a href="/exploitation" class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300 hover:scale-105">Exploitation</a>
+                    <a href="/securisation-installations" class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300 hover:scale-105">Sécurisation</a>
+                    <a href="/centre-appel" class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300 hover:scale-105">Support</a>
+                    <a href="/a-propos" class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300 hover:scale-105">À propos</a>
+                    <a href="/contact" class="btn-primary px-7 py-2.5 rounded-xl text-base font-medium shadow-lg hover:shadow-xl">Contact</a>
+                </div>
+                <button class="mobile-menu-btn text-gray-600 hover:text-gray-900" id="mobile-menu-btn" aria-label="Ouvrir le menu de navigation" aria-expanded="false" aria-controls="mobile-menu">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main id="main-content">
+        <article class="pt-32 pb-16 px-6">
+            <div class="max-w-3xl mx-auto">
+                <div class="mb-8">
+                    <a href="/blog" class="text-sm text-blue-600 hover:text-blue-800 transition-colors">&larr; Retour au blog</a>
+                </div>
+                <div class="mb-10">
+                    <span class="inline-block text-xs font-semibold text-amber-700 bg-amber-100 rounded-full px-3 py-1 mb-4">Technique</span>
+                    <h1 class="text-3xl md:text-4xl font-bold mb-4 leading-tight">Raccordement electrique des bornes DC : puissance, process et couts</h1>
+                    <div class="flex items-center text-sm text-gray-500">
+                        <time datetime="2026-02-12">12 fevrier 2026</time>
+                        <span class="mx-2">&middot;</span>
+                        <span>9 min de lecture</span>
+                    </div>
+                </div>
+
+                <div class="bg-amber-50 rounded-2xl p-6 mb-10">
+                    <h2 class="text-lg font-bold text-amber-700 mb-4">Sommaire</h2>
+                    <ol class="list-decimal pl-5 text-sm text-amber-700 space-y-2">
+                        <li><a href="#dc-different" class="hover:underline">Pourquoi la charge DC change tout cote raccordement</a></li>
+                        <li><a href="#dimensionnement" class="hover:underline">Dimensionner la puissance : calcul et facteur de diversite</a></li>
+                        <li><a href="#bt-vs-hta" class="hover:underline">Raccordement BT vs HTA : deux mondes differents</a></li>
+                        <li><a href="#process-enedis" class="hover:underline">Le process Enedis etape par etape</a></li>
+                        <li><a href="#couts" class="hover:underline">Les couts du raccordement</a></li>
+                        <li><a href="#technique" class="hover:underline">Exigences techniques : protections, comptage, conformite</a></li>
+                        <li><a href="#pilotage-jcsm" class="hover:underline">Le role de JCSM dans le pilotage du raccordement</a></li>
+                        <li><a href="#faq" class="hover:underline">Questions frequentes</a></li>
+                    </ol>
+                </div>
+
+                <div class="prose prose-lg max-w-none">
+                    <p class="text-lg text-gray-600 leading-relaxed mb-8">Installer des bornes de recharge rapide DC, c'est d'abord un projet electrique. Avant de couler le moindre massif de beton ou de poser un chargeur, il faut obtenir la puissance necessaire aupres du gestionnaire de reseau. Pour une station DC, les niveaux de puissance en jeu (50 kW a 350 kW par point de charge) imposent des contraintes de raccordement bien differentes de celles d'une borne AC domestique. Voici ce qu'il faut savoir pour anticiper les delais, les couts et les choix techniques.</p>
+
+                    <h2 id="dc-different" class="text-2xl font-bold mt-12 mb-4">Pourquoi la charge DC change tout cote raccordement</h2>
+                    <p class="text-gray-600 leading-relaxed mb-4">Une borne AC de 7 a 22 kW se raccorde sur une alimentation basse tension classique, souvent sur un branchement existant. Le vehicule gere lui-meme la conversion AC/DC via son chargeur embarque. Une borne DC, en revanche, integre un convertisseur de puissance qui delivre du courant continu directement a la batterie du vehicule, a des puissances bien superieures.</p>
+                    <p class="text-gray-600 leading-relaxed mb-4">Les ordres de grandeur sont sans commune mesure (pour une introduction aux differences AC/DC, voir notre article sur la <a href="/blog/borne-ac-dc-difference" class="text-blue-600 hover:text-blue-800 underline">difference entre bornes AC et DC</a>) :</p>
+                    <ul class="list-disc pl-6 text-gray-600 space-y-2 mb-6">
+                        <li><strong>50 kW</strong> : charge rapide standard (CHAdeMO, CCS). Convient aux aires de repos, hotels, parkings relais</li>
+                        <li><strong>150 kW</strong> : charge tres rapide. Le standard des nouvelles stations sur autoroutes et axes frequentes</li>
+                        <li><strong>350 kW</strong> : ultra-rapide. Encore peu de vehicules capables d'absorber cette puissance, mais les stations sont dimensionnees pour l'avenir</li>
+                    </ul>
+                    <p class="text-gray-600 leading-relaxed mb-4">Concretement, une station de 4 bornes DC a 150 kW represente une puissance installee de 600 kW. C'est l'equivalent d'un petit immeuble de bureaux ou d'un supermarche. Le reseau electrique local n'est pas toujours dimensionne pour absorber cette demande supplementaire, d'ou la necessite d'un raccordement dedie, parfois avec renforcement du reseau.</p>
+
+                    <h2 id="dimensionnement" class="text-2xl font-bold mt-12 mb-4">Dimensionner la puissance : calcul et facteur de diversite</h2>
+                    <p class="text-gray-600 leading-relaxed mb-4">Le dimensionnement de la puissance de raccordement repose sur un calcul simple en apparence, mais qui necessite de prendre en compte le facteur de diversite (ou de foisonnement).</p>
+                    <p class="text-gray-600 leading-relaxed mb-4">La formule de base :</p>
+
+                    <div class="bg-gray-50 rounded-xl p-5 mb-6 font-mono text-sm text-gray-700">
+                        Puissance de raccordement = Nombre de bornes &times; Puissance unitaire &times; Facteur de diversite
+                    </div>
+
+                    <p class="text-gray-600 leading-relaxed mb-4">Le facteur de diversite traduit le fait que toutes les bornes ne fonctionnent pas simultanement a pleine puissance. En pratique, la probabilite que 4 bornes DC chargent toutes a 100 % en meme temps est faible : certaines sessions commencent, d'autres finissent, la puissance acceptee par le vehicule varie selon son etat de charge. On applique generalement un facteur de 0.6 a 0.8 pour une station DC.</p>
+
+                    <h3 class="text-xl font-semibold mt-8 mb-3">Exemples concrets</h3>
+                    <div class="overflow-x-auto mb-6">
+                        <table class="w-full text-sm text-gray-600 border border-gray-200 rounded-lg">
+                            <thead>
+                                <tr class="bg-gray-50">
+                                    <th class="text-left px-4 py-3 font-semibold text-gray-900 border-b border-gray-200">Configuration</th>
+                                    <th class="text-left px-4 py-3 font-semibold text-gray-900 border-b border-gray-200">Puissance installee</th>
+                                    <th class="text-left px-4 py-3 font-semibold text-gray-900 border-b border-gray-200">Facteur diversite</th>
+                                    <th class="text-left px-4 py-3 font-semibold text-gray-900 border-b border-gray-200">Puissance raccordement</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="border-b border-gray-100">
+                                    <td class="px-4 py-3">2 &times; 50 kW</td>
+                                    <td class="px-4 py-3">100 kW</td>
+                                    <td class="px-4 py-3">0.8</td>
+                                    <td class="px-4 py-3 font-medium text-gray-900">~80 kVA</td>
+                                </tr>
+                                <tr class="border-b border-gray-100">
+                                    <td class="px-4 py-3">4 &times; 150 kW</td>
+                                    <td class="px-4 py-3">600 kW</td>
+                                    <td class="px-4 py-3">0.7</td>
+                                    <td class="px-4 py-3 font-medium text-gray-900">~420 kVA</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-4 py-3">6 &times; 350 kW</td>
+                                    <td class="px-4 py-3">2 100 kW</td>
+                                    <td class="px-4 py-3">0.6</td>
+                                    <td class="px-4 py-3 font-medium text-gray-900">~1 260 kVA</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="bg-amber-50 border-l-4 border-amber-400 rounded-r-xl p-5 mb-8">
+                        <p class="text-gray-700 text-sm leading-relaxed"><span class="font-semibold">Point pratique :</span> Le facteur de diversite n'est pas une valeur arbitraire. Il se discute avec le gestionnaire de reseau (Enedis) et depend du profil d'usage prevu du site : une station d'autoroute a fort transit aura un facteur plus eleve (plus proche de 0.8) qu'un parking de supermarche ou l'usage est plus disperse.</p>
+                    </div>
+
+                    <h2 id="bt-vs-hta" class="text-2xl font-bold mt-12 mb-4">Raccordement BT vs HTA : deux mondes differents</h2>
+                    <p class="text-gray-600 leading-relaxed mb-4">Le choix entre basse tension (BT) et haute tension A (HTA) depend de la puissance de raccordement necessaire. C'est la variable qui conditionne tout : les delais, les couts, la complexite technique et les obligations reglementaires.</p>
+
+                    <div class="grid sm:grid-cols-2 gap-4 mb-8">
+                        <div class="bg-blue-50 rounded-xl p-5 border border-blue-100">
+                            <h3 class="font-semibold text-blue-900 mb-3">Raccordement BT</h3>
+                            <ul class="text-sm text-gray-600 space-y-2">
+                                <li><strong>Tension :</strong> 400 V triphase</li>
+                                <li><strong>Puissance :</strong> jusqu'a ~250 kVA</li>
+                                <li><strong>Cas d'usage :</strong> 1 a 2 bornes DC de 50-100 kW, ou complement sur un branchement existant</li>
+                                <li><strong>Delai :</strong> 2 a 6 mois</li>
+                                <li><strong>Avantage :</strong> process plus simple, pas de poste de transformation</li>
+                            </ul>
+                        </div>
+                        <div class="bg-amber-50 rounded-xl p-5 border border-amber-100">
+                            <h3 class="font-semibold text-amber-900 mb-3">Raccordement HTA</h3>
+                            <ul class="text-sm text-gray-600 space-y-2">
+                                <li><strong>Tension :</strong> 20 000 V (transforme en 400 V sur site)</li>
+                                <li><strong>Puissance :</strong> au-dela de 250 kVA</li>
+                                <li><strong>Cas d'usage :</strong> stations multi-bornes DC, hubs de recharge rapide</li>
+                                <li><strong>Delai :</strong> 6 a 18 mois</li>
+                                <li><strong>Contrainte :</strong> poste de transformation, protections HTA, espace au sol</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <p class="text-gray-600 leading-relaxed mb-4">En resume : si votre station necessite moins de 250 kVA (typiquement 2 bornes DC de 50 a 100 kW), un raccordement BT peut suffire. Au-dela, le raccordement HTA est quasi systematique. Et pour les tres grosses stations (1 MW+), on parle parfois de raccordement HTB, mais c'est encore marginal dans l'IRVE.</p>
+
+                    <h2 id="process-enedis" class="text-2xl font-bold mt-12 mb-4">Le process Enedis etape par etape</h2>
+                    <p class="text-gray-600 leading-relaxed mb-4">Enedis (ou le gestionnaire de reseau local pour les regies) suit un processus structure pour tout raccordement. Voici les etapes cles :</p>
+
+                    <div class="space-y-6 mb-8">
+                        <div class="flex gap-4">
+                            <div class="flex-shrink-0 w-10 h-10 bg-amber-100 text-amber-700 rounded-full flex items-center justify-center font-bold text-sm">1</div>
+                            <div>
+                                <h3 class="font-semibold text-gray-900 mb-1">Demande de raccordement</h3>
+                                <p class="text-gray-600 text-sm leading-relaxed">Le demandeur (maitre d'ouvrage ou son mandataire) depose une demande aupres d'Enedis via le portail raccordement, en precisant la puissance souhaitee, la localisation exacte et l'usage (IRVE). Un dossier technique accompagne la demande.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="flex-shrink-0 w-10 h-10 bg-amber-100 text-amber-700 rounded-full flex items-center justify-center font-bold text-sm">2</div>
+                            <div>
+                                <h3 class="font-semibold text-gray-900 mb-1">PTF (Proposition Technique et Financiere)</h3>
+                                <p class="text-gray-600 text-sm leading-relaxed">Enedis etudie la faisabilite technique et emet une PTF qui detaille : la solution de raccordement retenue, les travaux necessaires (extension reseau, creation de poste, tirage de cable), le cout de raccordement et le delai previsionnel. Delai d'emission : 1 a 3 mois en BT, 2 a 4 mois en HTA.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="flex-shrink-0 w-10 h-10 bg-amber-100 text-amber-700 rounded-full flex items-center justify-center font-bold text-sm">3</div>
+                            <div>
+                                <h3 class="font-semibold text-gray-900 mb-1">Convention de raccordement</h3>
+                                <p class="text-gray-600 text-sm leading-relaxed">Si la PTF est acceptee, une convention est signee entre le demandeur et Enedis. Elle fixe les engagements reciproques, le calendrier des travaux et les conditions financieres. Le paiement (ou un acompte) declenche le lancement des travaux.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="flex-shrink-0 w-10 h-10 bg-amber-100 text-amber-700 rounded-full flex items-center justify-center font-bold text-sm">4</div>
+                            <div>
+                                <h3 class="font-semibold text-gray-900 mb-1">Travaux de raccordement</h3>
+                                <p class="text-gray-600 text-sm leading-relaxed">Enedis realise les travaux sur le reseau public (extension, renforcement). Le demandeur realise les travaux cote prive (genie civil, pose du poste de transformation si HTA, tableau general, protections). Les deux parties se coordonnent pour la connexion finale.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="flex-shrink-0 w-10 h-10 bg-amber-100 text-amber-700 rounded-full flex items-center justify-center font-bold text-sm">5</div>
+                            <div>
+                                <h3 class="font-semibold text-gray-900 mb-1">Consuel et mise en service</h3>
+                                <p class="text-gray-600 text-sm leading-relaxed">Avant la mise sous tension, l'installation doit obtenir une attestation de conformite du Consuel (Comite national pour la securite des usagers de l'electricite). Une fois le Consuel obtenu, Enedis procede a la mise en service effective du raccordement et a la pose du compteur.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-amber-50 border-l-4 border-amber-400 rounded-r-xl p-5 mb-8">
+                        <p class="text-gray-700 text-sm leading-relaxed"><span class="font-semibold">Delais realistes :</span> Pour un raccordement BT simple, comptez 2 a 6 mois au total. Pour un raccordement HTA, le delai varie de 6 a 18 mois. Les cas les plus longs concernent les sites eloignes du reseau HTA existant, necessitant une extension significative. Ces delais sont souvent le facteur limitant d'un projet de station DC, bien davantage que l'installation des bornes elles-memes.</p>
+                    </div>
+
+                    <h2 id="couts" class="text-2xl font-bold mt-12 mb-4">Les couts du raccordement</h2>
+                    <p class="text-gray-600 leading-relaxed mb-4">Le raccordement represente souvent le poste de depense le plus important d'un projet de station de recharge DC. Les couts varient considerablement en fonction de trois facteurs principaux :</p>
+                    <ul class="list-disc pl-6 text-gray-600 space-y-2 mb-6">
+                        <li><strong>La puissance demandee</strong> : plus la puissance est elevee, plus le raccordement est couteux (calibre des cables, taille du poste, protections)</li>
+                        <li><strong>La distance au reseau existant</strong> : si le reseau HTA ou BT passe devant le site, le cout est maitrise. Si Enedis doit tirer 500 m de cable ou creer un nouveau depart, la facture explose</li>
+                        <li><strong>Les travaux de genie civil</strong> : tranchees, traversees de voirie, pose de fourreaux. Le genie civil peut representer 30 a 50 % du cout total</li>
+                    </ul>
+
+                    <div class="overflow-x-auto mb-6">
+                        <table class="w-full text-sm text-gray-600 border border-gray-200 rounded-lg">
+                            <thead>
+                                <tr class="bg-gray-50">
+                                    <th class="text-left px-4 py-3 font-semibold text-gray-900 border-b border-gray-200">Type</th>
+                                    <th class="text-left px-4 py-3 font-semibold text-gray-900 border-b border-gray-200">Fourchette de cout</th>
+                                    <th class="text-left px-4 py-3 font-semibold text-gray-900 border-b border-gray-200">Ce qui influence le prix</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="border-b border-gray-100">
+                                    <td class="px-4 py-3 font-medium text-gray-900">Raccordement BT</td>
+                                    <td class="px-4 py-3">10 000 &ndash; 50 000 &euro;</td>
+                                    <td class="px-4 py-3">Distance, puissance, renforcement eventuel</td>
+                                </tr>
+                                <tr class="border-b border-gray-100">
+                                    <td class="px-4 py-3 font-medium text-gray-900">Raccordement HTA</td>
+                                    <td class="px-4 py-3">50 000 &ndash; 200 000+ &euro;</td>
+                                    <td class="px-4 py-3">Extension reseau, poste transfo, genie civil</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-4 py-3 font-medium text-gray-900">Poste de transformation</td>
+                                    <td class="px-4 py-3">30 000 &ndash; 80 000 &euro;</td>
+                                    <td class="px-4 py-3">Puissance, type (prefabrique ou maconnerie), acces</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <p class="text-gray-600 leading-relaxed mb-4">A ces couts de raccordement s'ajoute le TURPE (Tarif d'Utilisation des Reseaux Publics d'Electricite), qui est la part fixe de la facture d'electricite liee a la puissance souscrite. Pour une station DC avec une puissance souscrite elevee, le TURPE represente un cout d'exploitation significatif. Le choix de la puissance souscrite (qui peut etre inferieure a la puissance de raccordement) doit etre optimise en fonction du profil de charge reel du site.</p>
+
+                    <div class="bg-amber-50 border-l-4 border-amber-400 rounded-r-xl p-5 mb-8">
+                        <p class="text-gray-700 text-sm leading-relaxed"><span class="font-semibold">Attention aux surprises :</span> La PTF d'Enedis donne le cout exact du raccordement cote reseau public. Mais les travaux cote prive (genie civil sur le parking, tableau electrique, protections, cablage interne) sont a la charge du maitre d'ouvrage et ne figurent pas dans la PTF. Il faut budgeter les deux.</p>
+                    </div>
+
+                    <h2 id="technique" class="text-2xl font-bold mt-12 mb-4">Exigences techniques : protections, comptage, conformite</h2>
+                    <p class="text-gray-600 leading-relaxed mb-4">Au-dela de la puissance et du cout, un raccordement DC impose des exigences techniques specifiques, en particulier pour le HTA.</p>
+
+                    <h3 class="text-xl font-semibold mt-8 mb-3">Protections electriques</h3>
+                    <ul class="list-disc pl-6 text-gray-600 space-y-2 mb-6">
+                        <li><strong>En BT</strong> : disjoncteur general de branchement, protections differentielles, parafoudre. Le schema de protection est classique et gere par l'installateur electricien</li>
+                        <li><strong>En HTA</strong> : le poste de transformation doit integrer un systeme de protection DGPT2 (Detection Gaz, Pression, Temperature a 2 niveaux) qui surveille l'etat du transformateur et coupe l'alimentation en cas d'anomalie. Les protections HTA incluent egalement des fusibles HTA, un interrupteur-sectionneur et un systeme de coupure visible</li>
+                    </ul>
+
+                    <h3 class="text-xl font-semibold mt-8 mb-3">Comptage</h3>
+                    <p class="text-gray-600 leading-relaxed mb-4">Le compteur est pose par Enedis lors de la mise en service. En BT, c'est generalement un compteur Linky triphase. En HTA, le comptage se fait cote haute tension avec des transformateurs de courant et de tension (TI/TT), et les donnees sont telemesurables. Le contrat de fourniture d'electricite doit etre adapte a un profil de soutirage IRVE, avec une puissance souscrite coherente.</p>
+
+                    <h3 class="text-xl font-semibold mt-8 mb-3">Mise a la terre</h3>
+                    <p class="text-gray-600 leading-relaxed mb-4">Le regime de neutre et la mise a la terre sont critiques pour la securite. En HTA, le poste de transformation necessite une prise de terre du neutre et une prise de terre des masses, avec des valeurs de resistance conformes aux normes NF C 13-100 (postes HTA/BT) et NF C 15-100 (installations BT). Les bornes DC elles-memes doivent etre reliees au reseau de terre general du site.</p>
+
+                    <h3 class="text-xl font-semibold mt-8 mb-3">Attestation Consuel</h3>
+                    <p class="text-gray-600 leading-relaxed mb-4">Toute nouvelle installation ou modification substantielle doit obtenir une attestation de conformite du Consuel avant la mise en service. Pour un raccordement HTA, le controle porte sur le poste de transformation, le tableau general basse tension (TGBT), les protections, le cablage et la mise a la terre. Le Consuel verifie la conformite aux normes en vigueur, pas le bon fonctionnement des bornes elles-memes.</p>
+
+                    <h2 id="pilotage-jcsm" class="text-2xl font-bold mt-12 mb-4">Le role de JCSM dans le pilotage du raccordement</h2>
+                    <p class="text-gray-600 leading-relaxed mb-4">Le raccordement electrique est le maillon critique d'un projet de station DC. C'est lui qui determine le planning global, puisque les delais Enedis sont souvent les plus longs. JCSM intervient en <a href="/pilotage-projets" class="text-blue-600 hover:text-blue-800 underline">pilotage de projet</a> pour coordonner cette phase :</p>
+                    <ul class="list-disc pl-6 text-gray-600 space-y-2 mb-6">
+                        <li><strong>Etude de faisabilite</strong> : analyse du site, verification de la capacite du reseau existant, dimensionnement de la puissance necessaire</li>
+                        <li><strong>Constitution du dossier Enedis</strong> : depot de la demande de raccordement, suivi de l'instruction, analyse de la PTF</li>
+                        <li><strong>Coordination des travaux</strong> : interface entre Enedis (travaux reseau public) et les entreprises de genie civil et d'electricite (travaux cote prive)</li>
+                        <li><strong>Suivi Consuel</strong> : preparation du dossier de conformite, accompagnement lors du controle</li>
+                        <li><strong>Mise en service</strong> : coordination entre la mise sous tension du raccordement et l'<a href="/installation-conformite" class="text-blue-600 hover:text-blue-800 underline">installation des bornes</a></li>
+                    </ul>
+                    <p class="text-gray-600 leading-relaxed mb-4">L'objectif est de lancer la demande de raccordement le plus tot possible dans le projet, pour que les delais Enedis soient absorbes pendant la phase de conception et de preparation du site, et non apres.</p>
+
+                    <div class="bg-gray-50 border border-gray-200 rounded-2xl p-6 my-8">
+                        <h3 class="text-lg font-bold text-gray-900 mb-2">JCSM pilote votre raccordement DC</h3>
+                        <p class="text-gray-600 leading-relaxed mb-4">De la demande Enedis a la mise en service, nous coordonnons l'ensemble du processus de raccordement pour vos stations de recharge rapide. Un interlocuteur unique pour le <a href="/pilotage-projets" class="text-blue-600 hover:text-blue-800 underline">pilotage de projet</a>, l'<a href="/installation-conformite" class="text-blue-600 hover:text-blue-800 underline">installation</a> et la conformite.</p>
+                        <a href="/contact" class="inline-flex items-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-xl font-semibold hover:bg-blue-700 transition-colors">
+                            Discuter de votre projet
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                        </a>
+                    </div>
+
+                    <h2 id="faq" class="text-2xl font-bold mt-12 mb-6">Questions frequentes</h2>
+                    <div class="space-y-6 mb-8">
+                        <div class="border border-gray-200 rounded-xl p-5">
+                            <h3 class="font-semibold text-gray-900 mb-2">Combien coute le raccordement electrique d'une station de recharge DC ?</h3>
+                            <p class="text-gray-600 text-sm leading-relaxed">Le cout varie enormement selon la puissance demandee et la distance au reseau existant. Pour un raccordement basse tension (jusqu'a environ 250 kVA), comptez entre 10 000 et 50 000 euros. Pour un raccordement HTA avec poste de transformation, les couts peuvent aller de 50 000 a plus de 200 000 euros. La Proposition Technique et Financiere (PTF) d'Enedis detaille le cout exact pour chaque projet.</p>
+                        </div>
+                        <div class="border border-gray-200 rounded-xl p-5">
+                            <h3 class="font-semibold text-gray-900 mb-2">Quel est le delai pour raccorder une station DC en HTA ?</h3>
+                            <p class="text-gray-600 text-sm leading-relaxed">Le delai total pour un raccordement HTA est generalement de 6 a 18 mois entre la demande initiale et la mise en service. Ce delai inclut l'etude technique par Enedis, la signature de la convention, les travaux et la mise en service. Les delais varient selon la region, la charge de travail d'Enedis et les eventuels travaux d'extension de reseau necessaires.</p>
+                        </div>
+                        <div class="border border-gray-200 rounded-xl p-5">
+                            <h3 class="font-semibold text-gray-900 mb-2">Quelle difference entre raccordement BT et HTA pour les bornes de recharge ?</h3>
+                            <p class="text-gray-600 text-sm leading-relaxed">Le raccordement basse tension (BT) alimente directement en 400 V triphase et convient pour des puissances jusqu'a environ 250 kVA. Au-dela, le raccordement haute tension A (HTA) est necessaire : l'electricite arrive en 20 000 V et un poste de transformation sur site convertit en 400 V. Le HTA est plus couteux et plus long a obtenir, mais indispensable pour les stations de forte puissance.</p>
+                        </div>
+                        <div class="border border-gray-200 rounded-xl p-5">
+                            <h3 class="font-semibold text-gray-900 mb-2">Qu'est-ce que le facteur de diversite pour dimensionner une station de recharge ?</h3>
+                            <p class="text-gray-600 text-sm leading-relaxed">Le facteur de diversite traduit le fait que toutes les bornes ne fonctionnent pas simultanement a pleine puissance. Pour une station DC, on applique generalement un facteur de 0.6 a 0.8. Par exemple, 4 bornes de 150 kW (600 kW installes) necessiteront un raccordement de 360 a 480 kVA. Ce facteur depend du profil d'usage du site et se valide avec le gestionnaire de reseau.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-12 bg-amber-50 rounded-2xl p-8 text-center">
+                    <h3 class="text-xl font-bold mb-3">Un projet de station DC a raccorder ?</h3>
+                    <p class="text-gray-600 mb-6">JCSM pilote votre raccordement de A a Z, de la demande Enedis a la mise en service.</p>
+                    <a href="/contact" class="btn-primary px-8 py-3 rounded-xl font-medium inline-block">Nous contacter</a>
+                </div>
+
+                <div class="mt-16 pt-8 border-t border-gray-100">
+                    <h3 class="text-lg font-bold mb-6">Articles similaires</h3>
+                    <div class="grid sm:grid-cols-2 gap-6">
+                        <a href="/blog/borne-ac-dc-difference" class="group">
+                            <h4 class="font-semibold group-hover:text-blue-600 transition-colors mb-1">Borne AC vs DC : quelle difference ?</h4>
+                            <p class="text-sm text-gray-500">Fonctionnement, puissances et cas d'usage.</p>
+                        </a>
+                        <a href="/blog/maintenance-bornes-recharge-guide" class="group">
+                            <h4 class="font-semibold group-hover:text-blue-600 transition-colors mb-1">Guide de la maintenance IRVE</h4>
+                            <p class="text-sm text-gray-500">Preventive, curative, SLA et pieces detachees.</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <footer class="border-t border-gray-100 py-16 px-6 bg-white" role="contentinfo" aria-label="Pied de page">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid md:grid-cols-4 gap-10 mb-12">
+                <div>
+                    <div class="flex items-center space-x-3 mb-4">
+                        <picture><source srcset="../images/logo.webp" type="image/webp"><img src="../images/logo.png" alt="Logo JCSM" class="w-8 h-8" width="32" height="32" loading="lazy"></picture>
+                        <span class="text-xl font-semibold text-gray-900">JCSM</span>
+                    </div>
+                    <p class="text-sm text-gray-600 mb-4">Votre partenaire de confiance depuis 2018 pour le pilotage, l'installation et la maintenance de vos infrastructures de recharge.</p>
+                    <p class="text-sm text-gray-500">60 rue François 1er<br>75008 Paris</p>
+                    <p class="text-sm text-gray-500 mt-3"><a href="tel:+33756962758" class="hover:text-gray-900 transition-colors">+33 7 56 96 27 58</a></p>
+                    <p class="text-sm text-gray-500"><a href="mailto:contact@jcsm.fr" class="hover:text-gray-900 transition-colors">contact@jcsm.fr</a></p>
+                </div>
+                <div>
+                    <h3 class="text-sm font-semibold text-gray-900 mb-4 uppercase tracking-wide">Services</h3>
+                    <nav aria-label="Services">
+                        <ul class="space-y-3">
+                            <li><a href="/pilotage-projets" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Pilotage de projets</a></li>
+                            <li><a href="/installation-conformite" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Installation & conformité</a></li>
+                            <li><a href="/exploitation" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Exploitation & maintenance</a></li>
+                            <li><a href="/securisation-installations" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Sécurisation</a></li>
+                            <li><a href="/centre-appel" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Support 24/7</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div>
+                    <h3 class="text-sm font-semibold text-gray-900 mb-4 uppercase tracking-wide">Entreprise</h3>
+                    <nav aria-label="Entreprise">
+                        <ul class="space-y-3">
+                            <li><a href="/a-propos" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">À propos</a></li>
+                            <li><a href="/carrieres" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Carrières</a></li>
+                            <li><a href="/contact" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Contact</a></li>
+                            <li><a href="/blog" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Blog</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div>
+                    <h3 class="text-sm font-semibold text-gray-900 mb-4 uppercase tracking-wide">Légal</h3>
+                    <nav aria-label="Légal">
+                        <ul class="space-y-3">
+                            <li><a href="/mentions-legales" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Mentions légales</a></li>
+                            <li><a href="/confidentialite" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Confidentialité</a></li>
+                            <li><a href="/cgv" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">CGV</a></li>
+                        </ul>
+                    </nav>
+                    <h3 class="text-sm font-semibold text-gray-900 mb-4 uppercase tracking-wide mt-6">Zones</h3>
+                    <nav aria-label="Zones">
+                        <ul class="space-y-3">
+                            <li><a href="/zones/france" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">France</a></li>
+                            <li><a href="/zones/belgique" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Belgique</a></li>
+                        </ul>
+                    </nav>
+                    <div class="flex items-center gap-3 mt-4">
+                        <a href="https://www.linkedin.com/company/jcsm-elec/" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-gray-900 transition-colors" aria-label="LinkedIn">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                        </a>
+                        <a href="https://www.facebook.com/profile.php?id=61587992161634" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-gray-900 transition-colors" aria-label="Facebook">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                        </a>
+                        <a href="https://x.com/JCSM_ELEC" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-gray-900 transition-colors" aria-label="X (Twitter)">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                        </a>
+                        <a href="https://www.instagram.com/jcsm.elec/" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-gray-900 transition-colors" aria-label="Instagram">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+                        </a>
+                        <a href="https://www.youtube.com/@JCSM_ELEC" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-gray-900 transition-colors" aria-label="YouTube">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="pt-8 border-t border-gray-100 flex flex-col md:flex-row md:items-center md:justify-between gap-4 text-xs text-gray-500">
+                <span>© 2026 JCSM SAS — SIRET 99387429600011</span>
+                <a href="mailto:contact@jcsm.fr" class="hover:text-gray-900 transition-colors">contact@jcsm.fr</a> · <a href="tel:+33756962758" class="hover:text-gray-900 transition-colors">+33 7 56 96 27 58</a>
+            </div>
+        </div>
+    </footer>
+
+    <button class="scroll-top" id="scrollTop" aria-label="Retour en haut de la page">
+        <svg class="w-6 h-6 float-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" /></svg>
+    </button>
+    <script src="../js/config.js?v=35" defer></script>
+    <script src="../js/utils.js?v=35" defer></script>
+    <script src="../js/public.js?v=35" defer></script>
+    <script src="../js/analytics.js?v=35" defer></script>
+    <script src="../js/wow-effects.js?v=35" defer></script>
+    <script>if ('serviceWorker' in navigator) { window.addEventListener('load', () => { navigator.serviceWorker.register('/sw.js').catch(() => {}); }); }</script>
+</body>
+</html>

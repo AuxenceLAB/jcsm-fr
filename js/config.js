@@ -54,8 +54,8 @@ const JCSM_CONFIG = {
     // ==========================================
     // Version
     // ==========================================
-    version: '2.16.0',
-    buildDate: '2026-02-11'
+    version: '2.24.0',
+    buildDate: '2026-02-14'
 };
 
 // ==========================================
@@ -93,7 +93,7 @@ async function verifyPassword(password) {
             return { role: data.role, isAdmin: data.isAdmin, token: data.token };
         }
     } catch (e) {
-        // Auth verification failed silently
+        console.error('Auth verification failed:', e.message);
     }
     return null;
 }
@@ -110,7 +110,9 @@ function getAuthHeaders() {
         if (data.token) {
             return { 'Authorization': 'Bearer ' + data.token, 'X-Requested-With': 'XMLHttpRequest' };
         }
-    } catch (e) {}
+    } catch (e) {
+        console.error('Auth headers parse failed:', e.message);
+    }
     return {};
 }
 

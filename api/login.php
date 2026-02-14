@@ -33,8 +33,8 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     exit;
 }
 
-// Rate limiting by IP (10 attempts per 5 minutes)
-if (!checkRateLimit('login', 10, 300)) {
+// Rate limiting by IP (5 attempts per 5 minutes)
+if (!checkRateLimit('login', 5, 300)) {
     http_response_code(429);
     echo json_encode(['error' => 'Trop de tentatives. Réessayez dans quelques minutes.']);
     exit;
@@ -50,17 +50,23 @@ if (empty($password)) {
     exit;
 }
 
-// Hash the password and look it up
+// Hash the password and look it up (timing-safe comparison)
 $hash = hash('sha256', $password);
 $users = AUTH_USERS;
 
-if (!isset($users[$hash])) {
+$user = null;
+foreach ($users as $storedHash => $userData) {
+    if (hash_equals($storedHash, $hash)) {
+        $user = $userData;
+        break;
+    }
+}
+
+if ($user === null) {
     http_response_code(401);
     echo json_encode(['error' => 'Mot de passe incorrect']);
     exit;
 }
-
-$user = $users[$hash];
 $token = generateToken($user['role'], $user['isAdmin']);
 
 echo json_encode([

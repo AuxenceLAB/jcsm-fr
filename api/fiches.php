@@ -96,9 +96,14 @@ function saveImage($base64Data, $imageId, $imagesDir)
             return null;
         }
 
+        // Derive extension from actual MIME type, not user-provided header
+        $mimeToExt = ['image/png' => 'png', 'image/jpeg' => 'jpg', 'image/gif' => 'gif', 'image/webp' => 'webp'];
+        $extension = $mimeToExt[$actualMime] ?? null;
+        if ($extension === null) return null;
+
         // Sanitize imageId to prevent path traversal
         $safeId = preg_replace('/[^a-zA-Z0-9_-]/', '', $imageId);
-        $filename = $safeId . '.' . $imageType;
+        $filename = $safeId . '.' . $extension;
         $filepath = $imagesDir . $filename;
 
         // Verify the resolved path is within imagesDir

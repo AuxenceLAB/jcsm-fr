@@ -12,11 +12,9 @@ document.addEventListener('DOMContentLoaded', () => {
     initPreloader();
     initScrollToTop();
     initLazyLoading();
-    // initDarkMode(); // Désactivé : mode clair forcé
     initCookieConsent();
     initMagneticButtons();
     initScrollProgress();
-    // initLogoMarquee(); // Désactivé - géré par wow-effects.js LogoMarquee class
     initStatsCounters();
     initParallax();
     initSpotlightCards();
@@ -85,6 +83,8 @@ function initCookieConsent() {
 
     const banner = document.createElement('div');
     banner.className = 'fixed bottom-4 left-4 right-4 md:left-auto md:right-4 md:w-96 bg-white p-6 rounded-2xl shadow-2xl border border-gray-100 z-[10000] transform transition-all duration-500 translate-y-full opacity-0';
+    banner.setAttribute('role', 'dialog');
+    banner.setAttribute('aria-label', 'Consentement cookies');
     banner.innerHTML = `
         <h4 class="text-lg font-bold mb-2">Confidentialité</h4>
         <p class="text-sm text-gray-600 mb-4">Nous utilisons des cookies pour améliorer votre expérience. En continuant, vous acceptez notre politique de confidentialité.</p>
@@ -208,10 +208,12 @@ function initScrollProgress() {
 function initParticles() {
     const particlesBg = document.getElementById('particles-bg');
     if (!particlesBg) return;
+    // Skip particles on mobile to save battery
+    if (window.innerWidth < 768) return;
     // Prevent duplicate particles on re-init
     if (particlesBg.children.length > 0) return;
 
-    const particleCount = window.innerWidth < 768 ? 8 : 20;
+    const particleCount = 20;
     const fragment = document.createDocumentFragment();
 
     for (let i = 0; i < particleCount; i++) {
@@ -261,6 +263,10 @@ function initMobileMenu() {
             document.body.style.overflow = 'hidden';
             menu.setAttribute('aria-hidden', 'false');
             btn.setAttribute('aria-expanded', 'true');
+            const main = document.querySelector('main');
+            const footer = document.querySelector('footer');
+            if (main) main.inert = true;
+            if (footer) footer.inert = true;
         });
     }
 
@@ -272,6 +278,10 @@ function initMobileMenu() {
         if (overlay) overlay.classList.remove('active');
         if (btn) btn.setAttribute('aria-expanded', 'false');
         document.body.style.overflow = '';
+        const main = document.querySelector('main');
+        const footer = document.querySelector('footer');
+        if (main) main.inert = false;
+        if (footer) footer.inert = false;
     }
 
     [close, overlay].forEach(el => {
@@ -567,6 +577,7 @@ function validateInput(input) {
 
     // Remove existing error state
     input.classList.remove('input-error', 'input-success');
+    input.removeAttribute('aria-invalid');
     const existingError = input.parentElement.querySelector('.error-message');
     if (existingError) existingError.remove();
 
@@ -603,8 +614,10 @@ function validateInput(input) {
     // Apply visual feedback
     if (!isValid) {
         input.classList.add('input-error');
+        input.setAttribute('aria-invalid', 'true');
         const error = document.createElement('span');
         error.className = 'error-message text-red-500 text-xs mt-1 block animate-fadeIn';
+        error.setAttribute('role', 'alert');
         error.textContent = errorMsg;
         input.parentElement.appendChild(error);
     } else if (value) {
@@ -780,7 +793,7 @@ function initLiveFormFeedback() {
         /* Focus Ring */
         input:focus, textarea:focus, select:focus, button:focus-visible {
             outline: none;
-            box-shadow: 0 0 0 3px rgba(0, 112, 243, 0.2);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
             border-color: #2563EB;
         }
 
@@ -790,13 +803,13 @@ function initLiveFormFeedback() {
             opacity: 0.8;
         }
 
-        /* Animate fade in */
-        @keyframes fadeIn {
+        /* Animate fade in (form errors) */
+        @keyframes fadeInSlide {
             from { opacity: 0; transform: translateY(-4px); }
             to { opacity: 1; transform: translateY(0); }
         }
         .animate-fadeIn {
-            animation: fadeIn 0.2s ease-out;
+            animation: fadeInSlide 0.2s ease-out;
         }
 
         /* Touch Active State */

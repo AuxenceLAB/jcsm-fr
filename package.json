@@ -1,0 +1,27 @@
+{
+  "name": "jcsm.fr",
+  "version": "1.0.0",
+  "description": "",
+  "main": "sw.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://Auxence33: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@github.com/Auxence33/JCSM.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Auxence33/JCSM/issues"
+  },
+  "homepage": "https://github.com/Auxence33/JCSM#readme",
+  "devDependencies": {
+    "tailwindcss": "^3.4.19"
+  }
+}

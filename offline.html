@@ -4,12 +4,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-KKMQQVCF');</script>
+    <!-- End Google Tag Manager -->
     <title>Hors ligne | JCSM</title>
-    <meta name="description" content="Vous êtes actuellement hors ligne. Reconnectez-vous pour accéder à JCSM.">
+    <meta name="description" content="Vous êtes actuellement hors ligne. Reconnectez-vous pour accéder aux services JCSM : installation, maintenance et exploitation de bornes de recharge IRVE.">
     <meta name="robots" content="noindex, nofollow">
     <meta property="og:site_name" content="JCSM - Infrastructure de Recharge">
     <link rel="icon" type="image/png" href="images/logo.png">
     <link rel="manifest" href="manifest.json">
+    <meta name="apple-mobile-web-app-capable" content="yes">
     <style>
         * {
             margin: 0;
@@ -128,6 +136,10 @@
 </head>
 
 <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KKMQQVCF"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
     <a href="#main-content" class="skip-link">Aller au contenu principal</a>
 
     <main id="main-content">
@@ -140,7 +152,7 @@
             </div>
             <h1>Vous êtes hors ligne</h1>
             <p>Pas de connexion internet. Vérifiez votre réseau et réessayez.</p>
-            <a href="index.html" class="btn" onclick="location.reload()">Réessayer</a>
+            <a href="/" class="btn" onclick="location.reload()">Réessayer</a>
             <div class="status" id="status" role="status" aria-live="polite">Hors ligne</div>
         </div>
     </main>
@@ -149,7 +161,7 @@
         <p style="font-size:12px;color:#9CA3AF;">© 2026 JCSM SAS</p>
     </footer>
 
-    <button class="scroll-top glow-border" id="scrollTop" aria-label="Retour en haut de la page">
+    <button class="scroll-top" id="scrollTop" aria-label="Retour en haut de la page">
         <svg class="w-6 h-6 float-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
         </svg>
