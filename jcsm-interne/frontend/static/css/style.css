@@ -1,0 +1,241 @@
+/* ── JCSM Interne — Charte graphique ── */
+
+:root {
+    --jcsm-primary: #1B365D;
+    --jcsm-secondary: #2D8CFF;
+    --jcsm-accent: #00C853;
+    --jcsm-warning: #FF9800;
+    --jcsm-danger: #E53935;
+    --jcsm-bg: #F5F7FA;
+    --jcsm-card: #FFFFFF;
+    --jcsm-text: #1A1A2E;
+    --jcsm-text-light: #6B7280;
+    --jcsm-border: #E5E7EB;
+}
+
+* { box-sizing: border-box; }
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: var(--jcsm-bg);
+    color: var(--jcsm-text);
+    margin: 0;
+}
+
+/* ── Badges statut ── */
+.badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 2px 10px;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.badge-a_planifier { background: #FEE2E2; color: #991B1B; }
+.badge-assignee { background: #FFEDD5; color: #9A3412; }
+.badge-notifiee { background: #FEF9C3; color: #854D0E; }
+.badge-en_route { background: #DBEAFE; color: #1E40AF; }
+.badge-sur_site { background: #EDE9FE; color: #6B21A8; }
+.badge-terminee { background: #DCFCE7; color: #166534; }
+.badge-rapport_fait { background: #D1FAE5; color: #065F46; }
+.badge-facturee { background: #FEF3C7; color: #92400E; }
+.badge-payee { background: #F3F4F6; color: #6B7280; }
+
+/* ── Tableau ── */
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.875rem;
+}
+
+.data-table thead th {
+    background: var(--jcsm-bg);
+    color: var(--jcsm-text-light);
+    font-weight: 600;
+    text-align: left;
+    padding: 10px 12px;
+    border-bottom: 2px solid var(--jcsm-border);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.data-table tbody tr {
+    border-bottom: 1px solid var(--jcsm-border);
+    cursor: pointer;
+    transition: background 0.15s;
+}
+
+.data-table tbody tr:hover {
+    background: #F0F4FF;
+}
+
+.data-table tbody td {
+    padding: 10px 12px;
+    vertical-align: middle;
+}
+
+/* Édition inline */
+.data-table td[contenteditable="true"] {
+    outline: 2px solid var(--jcsm-secondary);
+    border-radius: 4px;
+    background: white;
+}
+
+/* ── KPI Cards ── */
+.kpi-card {
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    text-align: center;
+}
+
+.kpi-card .kpi-value {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--jcsm-primary);
+}
+
+.kpi-card .kpi-label {
+    font-size: 0.75rem;
+    color: var(--jcsm-text-light);
+    margin-top: 4px;
+}
+
+/* ── Panneau latéral ── */
+.side-panel {
+    position: fixed;
+    top: 0;
+    right: -480px;
+    width: 480px;
+    height: 100vh;
+    background: white;
+    box-shadow: -4px 0 20px rgba(0,0,0,0.15);
+    z-index: 50;
+    transition: right 0.3s ease;
+    overflow-y: auto;
+}
+
+.side-panel.open {
+    right: 0;
+}
+
+.side-panel-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.3);
+    z-index: 49;
+    display: none;
+}
+
+.side-panel-overlay.open {
+    display: block;
+}
+
+/* ── Onglets ── */
+.tab-btn {
+    padding: 10px 20px;
+    font-weight: 600;
+    color: var(--jcsm-text-light);
+    border-bottom: 3px solid transparent;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.tab-btn:hover {
+    color: var(--jcsm-primary);
+}
+
+.tab-btn.active {
+    color: var(--jcsm-primary);
+    border-bottom-color: var(--jcsm-secondary);
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* ── Toast notifications ── */
+.toast {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 12px 20px;
+    border-radius: 8px;
+    color: white;
+    font-size: 0.875rem;
+    font-weight: 500;
+    z-index: 100;
+    transform: translateY(100px);
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.toast.show {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.toast-success { background: var(--jcsm-accent); }
+.toast-error { background: var(--jcsm-danger); }
+.toast-info { background: var(--jcsm-secondary); }
+
+/* ── Mobile ── */
+@media (max-width: 768px) {
+    .side-panel {
+        width: 100%;
+        right: -100%;
+    }
+
+    .data-table {
+        font-size: 0.8rem;
+    }
+
+    .data-table thead th,
+    .data-table tbody td {
+        padding: 8px 6px;
+    }
+}
+
+/* ── Bottom nav mobile ── */
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: white;
+    border-top: 1px solid var(--jcsm-border);
+    display: flex;
+    z-index: 40;
+    padding-bottom: env(safe-area-inset-bottom);
+}
+
+.bottom-nav a {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 8px 4px;
+    font-size: 0.625rem;
+    color: var(--jcsm-text-light);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.bottom-nav a.active {
+    color: var(--jcsm-primary);
+}
+
+.bottom-nav a svg {
+    width: 22px;
+    height: 22px;
+    margin-bottom: 2px;
+}

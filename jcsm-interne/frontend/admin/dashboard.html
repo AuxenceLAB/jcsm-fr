@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JCSM — Dashboard Admin</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        jcsm: {
+                            primary: '#1B365D',
+                            secondary: '#2D8CFF',
+                            accent: '#00C853',
+                            warning: '#FF9800',
+                            danger: '#E53935',
+                            bg: '#F5F7FA',
+                            card: '#FFFFFF',
+                            text: '#1A1A2E',
+                            'text-light': '#6B7280',
+                            border: '#E5E7EB',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body class="bg-jcsm-bg min-h-screen">
+    <!-- ── Header ── -->
+    <header class="bg-white border-b border-jcsm-border sticky top-0 z-30">
+        <div class="max-w-screen-2xl mx-auto px-4 py-3 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="w-8 h-8 bg-jcsm-primary rounded-lg flex items-center justify-center">
+                    <span class="text-white font-bold text-sm">J</span>
+                </div>
+                <span class="font-bold text-jcsm-primary text-lg">JCSM Interne</span>
+            </div>
+            <div class="flex items-center gap-4">
+                <span id="userName" class="text-sm text-jcsm-text-light"></span>
+                <button onclick="logout()" class="text-sm text-jcsm-danger hover:underline">Deconnexion</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-screen-2xl mx-auto px-4 py-6">
+        <!-- ── KPI Cards ── -->
+        <div id="kpiGrid" class="grid grid-cols-2 md:grid-cols-5 gap-4 mb-6">
+            <div class="kpi-card"><div class="kpi-value" id="kpiTotal">-</div><div class="kpi-label">Interventions ce mois</div></div>
+            <div class="kpi-card"><div class="kpi-value text-jcsm-danger" id="kpiAPlanifier">-</div><div class="kpi-label">A planifier</div></div>
+            <div class="kpi-card"><div class="kpi-value" id="kpiCA">-</div><div class="kpi-label">CA HT ce mois</div></div>
+            <div class="kpi-card"><div class="kpi-value" id="kpiMarge">-</div><div class="kpi-label">Marge nette</div></div>
+            <div class="kpi-card"><div class="kpi-value text-jcsm-accent" id="kpiReussite">-</div><div class="kpi-label">Taux reussite</div></div>
+        </div>
+
+        <!-- ── Onglets ── -->
+        <div class="flex border-b border-jcsm-border mb-4 overflow-x-auto">
+            <button class="tab-btn active" data-tab="interventions">Interventions</button>
+            <button class="tab-btn" data-tab="techniciens">Techniciens</button>
+            <button class="tab-btn" data-tab="paiements">Paiements</button>
+            <button class="tab-btn" data-tab="rapports">Rapports</button>
+        </div>
+
+        <!-- ═══ ONGLET INTERVENTIONS ═══ -->
+        <div id="tab-interventions" class="tab-content active">
+            <!-- Filtres -->
+            <div class="flex flex-wrap gap-3 mb-4">
+                <select id="filterStatut" class="px-3 py-2 border border-jcsm-border rounded-lg text-sm bg-white">
+                    <option value="">Tous les statuts</option>
+                    <option value="a_planifier">A planifier</option>
+                    <option value="assignee">Assignee</option>
+                    <option value="notifiee">Notifiee</option>
+                    <option value="en_route">En route</option>
+                    <option value="sur_site">Sur site</option>
+                    <option value="terminee">Terminee</option>
+                    <option value="rapport_fait">Rapport fait</option>
+                    <option value="facturee">Facturee</option>
+                    <option value="payee">Payee</option>
+                </select>
+                <select id="filterTech" class="px-3 py-2 border border-jcsm-border rounded-lg text-sm bg-white">
+                    <option value="">Tous les techniciens</option>
+                </select>
+                <input type="month" id="filterMois" class="px-3 py-2 border border-jcsm-border rounded-lg text-sm bg-white">
+                <input type="text" id="filterSearch" placeholder="Rechercher..." class="px-3 py-2 border border-jcsm-border rounded-lg text-sm bg-white flex-1 min-w-[200px]">
+            </div>
+
+            <!-- Tableau -->
+            <div class="bg-white rounded-xl shadow-sm overflow-x-auto">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>N&deg;</th>
+                            <th>Site</th>
+                            <th>Dept</th>
+                            <th>Probleme</th>
+                            <th>Technicien</th>
+                            <th>Statut</th>
+                            <th>Fait</th>
+                            <th>Reussi</th>
+                            <th>Total HT</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+                    <tbody id="interventionsTable"></tbody>
+                </table>
+            </div>
+
+            <!-- Actions -->
+            <div class="flex flex-wrap gap-3 mt-4">
+                <button onclick="showNewIntervention()" class="px-4 py-2 bg-jcsm-primary text-white rounded-lg text-sm font-medium hover:bg-opacity-90">+ Nouvelle intervention</button>
+                <button onclick="exportCSV()" class="px-4 py-2 bg-white border border-jcsm-border text-jcsm-text rounded-lg text-sm font-medium hover:bg-jcsm-bg">Export CSV</button>
+            </div>
+        </div>
+
+        <!-- ═══ ONGLET TECHNICIENS ═══ -->
+        <div id="tab-techniciens" class="tab-content">
+            <div class="bg-white rounded-xl shadow-sm overflow-x-auto">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Prenom</th>
+                            <th>Nom</th>
+                            <th>Telephone</th>
+                            <th>Email</th>
+                            <th>Zone</th>
+                            <th>Taux standard</th>
+                            <th>Taux urgence</th>
+                            <th>WhatsApp</th>
+                            <th>SMS</th>
+                            <th>Email notif</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="techniciensTable"></tbody>
+                </table>
+            </div>
+            <div class="mt-4">
+                <button onclick="showNewTechnicien()" class="px-4 py-2 bg-jcsm-primary text-white rounded-lg text-sm font-medium hover:bg-opacity-90">+ Ajouter technicien</button>
+            </div>
+        </div>
+
+        <!-- ═══ ONGLET PAIEMENTS ═══ -->
+        <div id="tab-paiements" class="tab-content">
+            <!-- Synthese -->
+            <div id="syntheseGrid" class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6"></div>
+
+            <div class="bg-white rounded-xl shadow-sm overflow-x-auto">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th><input type="checkbox" id="checkAllPaiements"></th>
+                            <th>Technicien</th>
+                            <th>Intervention</th>
+                            <th>Montant</th>
+                            <th>Type</th>
+                            <th>Statut</th>
+                            <th>Date paiement</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="paiementsTable"></tbody>
+                </table>
+            </div>
+            <div class="mt-4">
+                <button onclick="bulkPayer()" class="px-4 py-2 bg-jcsm-accent text-white rounded-lg text-sm font-medium hover:bg-opacity-90">Payer la selection</button>
+            </div>
+        </div>
+
+        <!-- ═══ ONGLET RAPPORTS ═══ -->
+        <div id="tab-rapports" class="tab-content">
+            <div class="bg-white rounded-xl shadow-sm overflow-x-auto">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Site</th>
+                            <th>Technicien</th>
+                            <th>Date</th>
+                            <th>Statut</th>
+                            <th>PDF</th>
+                            <th>Drive</th>
+                        </tr>
+                    </thead>
+                    <tbody id="rapportsTable"></tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <!-- ── Panneau lateral (detail intervention) ── -->
+    <div id="panelOverlay" class="side-panel-overlay" onclick="closePanel()"></div>
+    <div id="sidePanel" class="side-panel">
+        <div class="p-6" id="panelContent"></div>
+    </div>
+
+    <!-- ── Modale nouvelle intervention ── -->
+    <div id="modalOverlay" class="fixed inset-0 bg-black bg-opacity-30 z-50 hidden flex items-center justify-center">
+        <div class="bg-white rounded-2xl shadow-xl max-w-lg w-full mx-4 max-h-[90vh] overflow-y-auto p-6">
+            <h2 id="modalTitle" class="text-lg font-bold text-jcsm-primary mb-4">Nouvelle intervention</h2>
+            <form id="modalForm" class="space-y-3">
+                <div>
+                    <label class="block text-xs font-medium text-jcsm-text-light mb-1">Site *</label>
+                    <input name="nom_site" required class="w-full px-3 py-2 border border-jcsm-border rounded-lg text-sm">
+                </div>
+                <div>
+                    <label class="block text-xs font-medium text-jcsm-text-light mb-1">Adresse *</label>
+                    <input name="adresse" required class="w-full px-3 py-2 border border-jcsm-border rounded-lg text-sm">
+                </div>
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <label class="block text-xs font-medium text-jcsm-text-light mb-1">Departement</label>
+                        <input name="departement" type="number" class="w-full px-3 py-2 border border-jcsm-border rounded-lg text-sm">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-medium text-jcsm-text-light mb-1">N&deg; Job</label>
+                        <input name="numero_job" class="w-full px-3 py-2 border border-jcsm-border rounded-lg text-sm">
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-xs font-medium text-jcsm-text-light mb-1">Probleme *</label>
+                    <textarea name="probleme" required rows="2" class="w-full px-3 py-2 border border-jcsm-border rounded-lg text-sm"></textarea>
+                </div>
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <label class="block text-xs font-medium text-jcsm-text-light mb-1">Date demande *</label>
+                        <input name="date_demande" type="date" required class="w-full px-3 py-2 border border-jcsm-border rounded-lg text-sm">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-medium text-jcsm-text-light mb-1">Date proposee</label>
+                        <input name="date_proposee" type="date" class="w-full px-3 py-2 border border-jcsm-border rounded-lg text-sm">
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <label class="block text-xs font-medium text-jcsm-text-light mb-1">Client</label>
+                        <input name="client" value="Powerdot" class="w-full px-3 py-2 border border-jcsm-border rounded-lg text-sm">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-medium text-jcsm-text-light mb-1">Demandeur</label>
+                        <input name="demandeur" class="w-full px-3 py-2 border border-jcsm-border rounded-lg text-sm">
+                    </div>
+                </div>
+                <div class="grid grid-cols-3 gap-3">
+                    <div>
+                        <label class="block text-xs font-medium text-jcsm-text-light mb-1">Marque</label>
+                        <input name="marque" class="w-full px-3 py-2 border border-jcsm-border rounded-lg text-sm">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-medium text-jcsm-text-light mb-1">Charger ID</label>
+                        <input name="charger_id" class="w-full px-3 py-2 border border-jcsm-border rounded-lg text-sm">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-medium text-jcsm-text-light mb-1">SLA jours</label>
+                        <input name="sla_jours" type="number" class="w-full px-3 py-2 border border-jcsm-border rounded-lg text-sm">
+                    </div>
+                </div>
+                <div class="flex gap-3 pt-2">
+                    <button type="submit" class="flex-1 py-2 bg-jcsm-primary text-white rounded-lg text-sm font-medium hover:bg-opacity-90">Creer</button>
+                    <button type="button" onclick="closeModal()" class="px-4 py-2 bg-jcsm-bg text-jcsm-text rounded-lg text-sm font-medium hover:bg-gray-200">Annuler</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- ── Modale technicien ── -->
+    <div id="techModalOverlay" class="fixed inset-0 bg-black bg-opacity-30 z-50 hidden flex items-center justify-center">
+        <div class="bg-white rounded-2xl shadow-xl max-w-lg w-full mx-4 max-h-[90vh] overflow-y-auto p-6">
+            <h2 class="text-lg font-bold text-jcsm-primary mb-4">Nouveau technicien</h2>
+            <form id="techForm" class="space-y-3">
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <label class="block text-xs font-medium text-jcsm-text-light mb-1">Prenom *</label>
+                        <input name="prenom" required class="w-full px-3 py-2 border border-jcsm-border rounded-lg text-sm">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-medium text-jcsm-text-light mb-1">Nom *</label>
+                        <input name="nom" required class="w-full px-3 py-2 border border-jcsm-border rounded-lg text-sm">
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <label class="block text-xs font-medium text-jcsm-text-light mb-1">Telephone *</label>
+                        <input name="telephone" required class="w-full px-3 py-2 border border-jcsm-border rounded-lg text-sm">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-medium text-jcsm-text-light mb-1">Email</label>
+                        <input name="email" type="email" class="w-full px-3 py-2 border border-jcsm-border rounded-lg text-sm">
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <label class="block text-xs font-medium text-jcsm-text-light mb-1">Zone principale</label>
+                        <input name="zone_principale" class="w-full px-3 py-2 border border-jcsm-border rounded-lg text-sm">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-medium text-jcsm-text-light mb-1">Departements (ex: 31,33,40)</label>
+                        <input name="departements_couverts" class="w-full px-3 py-2 border border-jcsm-border rounded-lg text-sm">
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <label class="block text-xs font-medium text-jcsm-text-light mb-1">Taux standard</label>
+                        <input name="taux_standard" type="number" step="0.01" value="70" class="w-full px-3 py-2 border border-jcsm-border rounded-lg text-sm">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-medium text-jcsm-text-light mb-1">Taux urgence</label>
+                        <input name="taux_urgence" type="number" step="0.01" value="100" class="w-full px-3 py-2 border border-jcsm-border rounded-lg text-sm">
+                    </div>
+                </div>
+                <div class="flex gap-4">
+                    <label class="flex items-center gap-2 text-sm"><input type="checkbox" name="notif_whatsapp" checked> WhatsApp</label>
+                    <label class="flex items-center gap-2 text-sm"><input type="checkbox" name="notif_sms"> SMS</label>
+                    <label class="flex items-center gap-2 text-sm"><input type="checkbox" name="notif_email"> Email</label>
+                </div>
+                <div class="flex gap-3 pt-2">
+                    <button type="submit" class="flex-1 py-2 bg-jcsm-primary text-white rounded-lg text-sm font-medium hover:bg-opacity-90">Ajouter</button>
+                    <button type="button" onclick="closeTechModal()" class="px-4 py-2 bg-jcsm-bg text-jcsm-text rounded-lg text-sm font-medium hover:bg-gray-200">Annuler</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="/static/js/app.js"></script>
+    <script>
+        // ── State ──
+        let interventions = [];
+        let techniciens = [];
+        let user = null;
+
+        // ── Init ──
+        async function init() {
+            user = await getCurrentUser();
+            if (!user || user.role !== 'admin') {
+                window.location.href = '/interne';
+                return;
+            }
+            document.getElementById('userName').textContent = user.prenom;
+
+            await Promise.all([loadInterventions(), loadTechniciens(), loadStats()]);
+
+            // Set default month filter
+            const now = new Date();
+            document.getElementById('filterMois').value = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}`;
+
+            setupTabs();
+            setupFilters();
+            setupForms();
+
+            // Auto-refresh every 30s
+            setInterval(loadInterventions, 30000);
+        }
+
+        // ── Data loading ──
+        async function loadInterventions() {
+            const params = new URLSearchParams();
+            const statut = document.getElementById('filterStatut').value;
+            const techId = document.getElementById('filterTech').value;
+            const mois = document.getElementById('filterMois').value;
+            const search = document.getElementById('filterSearch').value;
+            if (statut) params.set('statut', statut);
+            if (techId) params.set('technicien_id', techId);
+            if (mois) params.set('mois', mois);
+            if (search) params.set('search', search);
+
+            try {
+                interventions = await API.get(`/api/interventions?${params}`);
+                renderInterventions();
+            } catch (e) {
+                toast(e.message, 'error');
+            }
+        }
+
+        async function loadTechniciens() {
+            try {
+                techniciens = await API.get('/api/techniciens');
+                renderTechniciens();
+                populateTechFilter();
+            } catch (e) {
+                toast(e.message, 'error');
+            }
+        }
+
+        async function loadStats() {
+            try {
+                const mois = document.getElementById('filterMois').value;
+                const params = mois ? `?mois=${mois}` : '';
+                const stats = await API.get(`/api/interventions/stats${params}`);
+                document.getElementById('kpiTotal').textContent = stats.total;
+                document.getElementById('kpiAPlanifier').textContent = stats.a_planifier;
+                document.getElementById('kpiCA').textContent = formatMoney(stats.ca_ht);
+                document.getElementById('kpiMarge').textContent = formatMoney(stats.marge_nette);
+                document.getElementById('kpiReussite').textContent = `${stats.taux_reussite}%`;
+            } catch (e) { /* silencieux */ }
+        }
+
+        async function loadRapports() {
+            try {
+                const rapports = await API.get('/api/rapports');
+                renderRapports(rapports);
+            } catch (e) {
+                toast(e.message, 'error');
+            }
+        }
+
+        async function loadPaiements() {
+            try {
+                const [paiements, synthese] = await Promise.all([
+                    API.get('/api/paiements'),
+                    API.get('/api/paiements/synthese'),
+                ]);
+                renderPaiements(paiements);
+                renderSynthese(synthese);
+            } catch (e) {
+                toast(e.message, 'error');
+            }
+        }
+
+        // ── Render Interventions ──
+        function renderInterventions() {
+            const tbody = document.getElementById('interventionsTable');
+            if (!interventions.length) {
+                tbody.innerHTML = '<tr><td colspan="10" class="text-center py-8 text-jcsm-text-light">Aucune intervention</td></tr>';
+                return;
+            }
+
+            tbody.innerHTML = interventions.map(i => {
+                const techOptions = techniciens.map(t =>
+                    `<option value="${t.id}" ${t.id === i.technicien_id ? 'selected' : ''}>${t.prenom}</option>`
+                ).join('');
+
+                return `<tr onclick="openPanel(${i.id})" class="group">
+                    <td class="font-mono text-xs">${i.numero_intervention || '-'}</td>
+                    <td class="font-medium max-w-[200px] truncate">${i.nom_site}</td>
+                    <td class="text-center">${i.departement || '-'}</td>
+                    <td class="max-w-[200px] truncate text-jcsm-text-light text-xs">${i.probleme}</td>
+                    <td onclick="event.stopPropagation()">
+                        <select onchange="assignTech(${i.id}, this.value)" class="text-xs px-2 py-1 border border-jcsm-border rounded bg-white">
+                            <option value="">---</option>
+                            ${techOptions}
+                        </select>
+                    </td>
+                    <td>${statutBadge(i.statut)}</td>
+                    <td class="text-center" onclick="event.stopPropagation()">
+                        <input type="checkbox" ${i.fait ? 'checked' : ''} onchange="toggleFait(${i.id}, this.checked)">
+                    </td>
+                    <td class="text-center" onclick="event.stopPropagation()">
+                        <input type="checkbox" ${i.reussi === true ? 'checked' : ''} ${i.reussi === null ? '' : ''} onchange="toggleReussi(${i.id}, this.checked)">
+                    </td>
+                    <td class="font-mono text-sm" onclick="event.stopPropagation()">
+                        <span class="cursor-pointer hover:text-jcsm-secondary" onclick="editMontant(${i.id})">${i.total_ht ? formatMoney(i.total_ht) : '-'}</span>
+                    </td>
+                    <td class="text-xs text-jcsm-text-light">${formatDate(i.date_demande)}</td>
+                </tr>`;
+            }).join('');
+        }
+
+        // ── Render Techniciens ──
+        function renderTechniciens() {
+            const tbody = document.getElementById('techniciensTable');
+            tbody.innerHTML = techniciens.map(t => `
+                <tr>
+                    <td class="font-medium">${t.prenom}</td>
+                    <td>${t.nom}</td>
+                    <td class="font-mono text-xs">${t.telephone}</td>
+                    <td class="text-xs">${t.email || '-'}</td>
+                    <td>${t.zone_principale || '-'}</td>
+                    <td class="font-mono">${t.taux_standard}&euro;</td>
+                    <td class="font-mono">${t.taux_urgence}&euro;</td>
+                    <td class="text-center">${t.notif_whatsapp ? '&#10003;' : ''}</td>
+                    <td class="text-center">${t.notif_sms ? '&#10003;' : ''}</td>
+                    <td class="text-center">${t.notif_email ? '&#10003;' : ''}</td>
+                    <td>
+                        <button onclick="desactiverTech(${t.id})" class="text-xs text-jcsm-danger hover:underline">Desactiver</button>
+                    </td>
+                </tr>
+            `).join('');
+        }
+
+        // ── Render Rapports ──
+        function renderRapports(rapports) {
+            const tbody = document.getElementById('rapportsTable');
+            if (!rapports.length) {
+                tbody.innerHTML = '<tr><td colspan="7" class="text-center py-8 text-jcsm-text-light">Aucun rapport</td></tr>';
+                return;
+            }
+            tbody.innerHTML = rapports.map(r => `
+                <tr>
+                    <td class="font-mono text-xs">${r.id}</td>
+                    <td>${r.nom_site || '-'}</td>
+                    <td>${r.technicien_id}</td>
+                    <td>${formatDate(r.date_intervention)}</td>
+                    <td><span class="badge badge-${r.statut_rapport === 'complet' ? 'terminee' : 'assignee'}">${r.statut_rapport}</span></td>
+                    <td>${r.pdf_path ? '<a href="/api/rapports/' + r.id + '/pdf" class="text-jcsm-secondary hover:underline text-xs">PDF</a>' : '-'}</td>
+                    <td>${r.google_drive_url ? '<a href="' + r.google_drive_url + '" target="_blank" class="text-jcsm-secondary hover:underline text-xs">Drive</a>' : '-'}</td>
+                </tr>
+            `).join('');
+        }
+
+        // ── Render Paiements ──
+        function renderPaiements(paiements) {
+            const tbody = document.getElementById('paiementsTable');
+            if (!paiements.length) {
+                tbody.innerHTML = '<tr><td colspan="8" class="text-center py-8 text-jcsm-text-light">Aucun paiement</td></tr>';
+                return;
+            }
+            tbody.innerHTML = paiements.map(p => `
+                <tr>
+                    <td onclick="event.stopPropagation()"><input type="checkbox" class="paiement-check" value="${p.id}" ${p.statut === 'paye' ? 'disabled' : ''}></td>
+                    <td>${p.technicien_prenom || '-'}</td>
+                    <td class="font-mono text-xs">${p.intervention_numero || '-'}</td>
+                    <td class="font-mono font-medium">${formatMoney(p.montant)}</td>
+                    <td class="text-xs">${p.type_paiement || '-'}</td>
+                    <td><span class="badge ${p.statut === 'paye' ? 'badge-payee' : 'badge-a_planifier'}">${p.statut}</span></td>
+                    <td class="text-xs">${p.date_paiement ? formatDate(p.date_paiement) : '-'}</td>
+                    <td>${p.statut !== 'paye' ? '<button onclick="payerSingle(' + p.id + ')" class="text-xs text-jcsm-accent hover:underline">Payer</button>' : ''}</td>
+                </tr>
+            `).join('');
+        }
+
+        function renderSynthese(synthese) {
+            const grid = document.getElementById('syntheseGrid');
+            grid.innerHTML = synthese.map(s => `
+                <div class="kpi-card">
+                    <div class="font-bold text-jcsm-primary">${s.technicien_prenom} ${s.technicien_nom}</div>
+                    <div class="text-sm mt-2">A payer: <span class="font-mono font-bold text-jcsm-danger">${formatMoney(s.total_a_payer)}</span></div>
+                    <div class="text-sm">Paye: <span class="font-mono text-jcsm-accent">${formatMoney(s.total_paye)}</span></div>
+                    <div class="text-xs text-jcsm-text-light mt-1">${s.nb_interventions} interventions</div>
+                </div>
+            `).join('');
+        }
+
+        // ── Actions ──
+        async function assignTech(interventionId, techId) {
+            if (!techId) return;
+            try {
+                await API.put(`/api/interventions/${interventionId}/assigner`, { technicien_id: parseInt(techId) });
+                toast('Technicien assigne');
+                loadInterventions();
+                loadStats();
+            } catch (e) {
+                toast(e.message, 'error');
+            }
+        }
+
+        async function toggleFait(id, checked) {
+            try {
+                await API.put(`/api/interventions/${id}`, { fait: checked });
+                if (checked) toast('Fait');
+            } catch (e) { toast(e.message, 'error'); }
+        }
+
+        async function toggleReussi(id, checked) {
+            try {
+                await API.put(`/api/interventions/${id}`, { reussi: checked });
+                toast(checked ? 'Reussi' : 'Non reussi');
+            } catch (e) { toast(e.message, 'error'); }
+        }
+
+        function editMontant(id) {
+            const interv = interventions.find(i => i.id === id);
+            if (!interv) return;
+            const newTotal = prompt('Total HT (€):', interv.total_ht || '');
+            if (newTotal === null) return;
+            API.put(`/api/interventions/${id}`, { total_ht: parseFloat(newTotal) || 0 })
+                .then(() => { toast('Montant mis a jour'); loadInterventions(); loadStats(); })
+                .catch(e => toast(e.message, 'error'));
+        }
+
+        async function desactiverTech(id) {
+            if (!confirm('Desactiver ce technicien ?')) return;
+            try {
+                await API.delete(`/api/techniciens/${id}`);
+                toast('Technicien desactive');
+                loadTechniciens();
+            } catch (e) { toast(e.message, 'error'); }
+        }
+
+        async function payerSingle(id) {
+            try {
+                await API.put(`/api/paiements/${id}/payer`, {});
+                toast('Paiement effectue');
+                loadPaiements();
+            } catch (e) { toast(e.message, 'error'); }
+        }
+
+        async function bulkPayer() {
+            const checks = document.querySelectorAll('.paiement-check:checked');
+            const ids = Array.from(checks).map(c => parseInt(c.value));
+            if (!ids.length) { toast('Aucun paiement selectionne', 'info'); return; }
+            try {
+                await API.post('/api/paiements/bulk-payer', { paiement_ids: ids });
+                toast(`${ids.length} paiements effectues`);
+                loadPaiements();
+            } catch (e) { toast(e.message, 'error'); }
+        }
+
+        function exportCSV() {
+            window.open('/api/interventions/export-csv', '_blank');
+        }
+
+        // ── Panel detail ──
+        async function openPanel(id) {
+            try {
+                const i = await API.get(`/api/interventions/${id}`);
+                const tech = i.technicien_prenom || 'Non assigne';
+                document.getElementById('panelContent').innerHTML = `
+                    <div class="flex justify-between items-start mb-6">
+                        <div>
+                            <h2 class="text-lg font-bold text-jcsm-primary">${i.numero_intervention || 'Nouvelle'}</h2>
+                            <p class="text-sm text-jcsm-text-light">${i.nom_site}</p>
+                        </div>
+                        <button onclick="closePanel()" class="text-jcsm-text-light hover:text-jcsm-text text-xl">&times;</button>
+                    </div>
+                    ${statutBadge(i.statut)}
+                    <div class="mt-4 space-y-3 text-sm">
+                        <div><strong>Client:</strong> ${i.client}</div>
+                        <div><strong>Adresse:</strong> ${i.adresse}</div>
+                        <div><strong>Departement:</strong> ${i.departement || '-'}</div>
+                        <div><strong>Probleme:</strong> ${i.probleme}</div>
+                        <div><strong>Marque:</strong> ${i.marque || '-'} / <strong>Charger:</strong> ${i.charger_id || '-'}</div>
+                        <div><strong>N&deg; Job:</strong> ${i.numero_job || '-'}</div>
+                        <div><strong>Technicien:</strong> ${tech}</div>
+                        <div><strong>Date demande:</strong> ${formatDate(i.date_demande)}</div>
+                        <div><strong>Date proposee:</strong> ${formatDate(i.date_proposee)}</div>
+                        <div><strong>SLA:</strong> ${i.sla_jours || '-'} jours</div>
+                        <hr class="border-jcsm-border">
+                        <div><strong>Fait:</strong> ${i.fait ? 'Oui' : 'Non'} | <strong>Reussi:</strong> ${i.reussi === true ? 'Oui' : i.reussi === false ? 'Non' : '-'}</div>
+                        <div><strong>Total HT:</strong> ${i.total_ht ? formatMoney(i.total_ht) : '-'}</div>
+                        <div><strong>Rapport:</strong> ${i.rapport_genere ? 'Genere' : 'Non'}</div>
+                    </div>
+                    <div class="mt-6 flex gap-2">
+                        <a href="https://maps.google.com/?q=${encodeURIComponent(i.adresse)}" target="_blank"
+                            class="px-3 py-2 bg-jcsm-secondary text-white rounded-lg text-xs">Google Maps</a>
+                        <button onclick="deleteIntervention(${i.id})" class="px-3 py-2 bg-jcsm-danger text-white rounded-lg text-xs">Supprimer</button>
+                    </div>
+                `;
+                document.getElementById('sidePanel').classList.add('open');
+                document.getElementById('panelOverlay').classList.add('open');
+            } catch (e) { toast(e.message, 'error'); }
+        }
+
+        function closePanel() {
+            document.getElementById('sidePanel').classList.remove('open');
+            document.getElementById('panelOverlay').classList.remove('open');
+        }
+
+        async function deleteIntervention(id) {
+            if (!confirm('Supprimer cette intervention ?')) return;
+            try {
+                await API.delete(`/api/interventions/${id}`);
+                toast('Intervention supprimee');
+                closePanel();
+                loadInterventions();
+                loadStats();
+            } catch (e) { toast(e.message, 'error'); }
+        }
+
+        // ── Modales ──
+        function showNewIntervention() {
+            document.getElementById('modalOverlay').classList.remove('hidden');
+            document.getElementById('modalForm').reset();
+            document.querySelector('[name="date_demande"]').value = new Date().toISOString().split('T')[0];
+        }
+
+        function closeModal() {
+            document.getElementById('modalOverlay').classList.add('hidden');
+        }
+
+        function showNewTechnicien() {
+            document.getElementById('techModalOverlay').classList.remove('hidden');
+            document.getElementById('techForm').reset();
+        }
+
+        function closeTechModal() {
+            document.getElementById('techModalOverlay').classList.add('hidden');
+        }
+
+        // ── Setup ──
+        function setupTabs() {
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+                    document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+                    btn.classList.add('active');
+                    document.getElementById(`tab-${btn.dataset.tab}`).classList.add('active');
+
+                    // Lazy load
+                    if (btn.dataset.tab === 'rapports') loadRapports();
+                    if (btn.dataset.tab === 'paiements') loadPaiements();
+                });
+            });
+        }
+
+        function setupFilters() {
+            ['filterStatut', 'filterTech', 'filterMois'].forEach(id => {
+                document.getElementById(id).addEventListener('change', () => {
+                    loadInterventions();
+                    loadStats();
+                });
+            });
+            let searchTimeout;
+            document.getElementById('filterSearch').addEventListener('input', () => {
+                clearTimeout(searchTimeout);
+                searchTimeout = setTimeout(loadInterventions, 300);
+            });
+        }
+
+        function setupForms() {
+            document.getElementById('modalForm').addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const fd = new FormData(e.target);
+                const data = Object.fromEntries(fd);
+                if (data.departement) data.departement = parseInt(data.departement);
+                if (data.sla_jours) data.sla_jours = parseInt(data.sla_jours);
+                // Remove empty strings
+                Object.keys(data).forEach(k => { if (data[k] === '') delete data[k]; });
+                try {
+                    await API.post('/api/interventions', data);
+                    toast('Intervention creee');
+                    closeModal();
+                    loadInterventions();
+                    loadStats();
+                } catch (e) { toast(e.message, 'error'); }
+            });
+
+            document.getElementById('techForm').addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const fd = new FormData(e.target);
+                const data = {
+                    prenom: fd.get('prenom'),
+                    nom: fd.get('nom'),
+                    telephone: fd.get('telephone'),
+                    email: fd.get('email') || undefined,
+                    zone_principale: fd.get('zone_principale') || undefined,
+                    taux_standard: parseFloat(fd.get('taux_standard')) || 70,
+                    taux_urgence: parseFloat(fd.get('taux_urgence')) || 100,
+                    notif_whatsapp: e.target.querySelector('[name=notif_whatsapp]').checked,
+                    notif_sms: e.target.querySelector('[name=notif_sms]').checked,
+                    notif_email: e.target.querySelector('[name=notif_email]').checked,
+                };
+                const depts = fd.get('departements_couverts');
+                if (depts) data.departements_couverts = depts.split(',').map(d => parseInt(d.trim())).filter(Boolean);
+                try {
+                    await API.post('/api/techniciens', data);
+                    toast('Technicien ajoute');
+                    closeTechModal();
+                    loadTechniciens();
+                } catch (e) { toast(e.message, 'error'); }
+            });
+
+            // Check all paiements
+            document.getElementById('checkAllPaiements').addEventListener('change', (e) => {
+                document.querySelectorAll('.paiement-check:not(:disabled)').forEach(c => c.checked = e.target.checked);
+            });
+        }
+
+        function populateTechFilter() {
+            const select = document.getElementById('filterTech');
+            const current = select.value;
+            select.innerHTML = '<option value="">Tous les techniciens</option>' +
+                techniciens.map(t => `<option value="${t.id}">${t.prenom}</option>`).join('');
+            select.value = current;
+        }
+
+        // ── Start ──
+        init();
+    </script>
+</body>
+</html>
