@@ -515,34 +515,6 @@
     }
 
     // ==========================================
-    // SMOOTH REVEAL ON SCROLL (ENHANCED)
-    // ==========================================
-    function initSmoothScrollReveal() {
-        const revealElements = document.querySelectorAll('h2, h3, p, .card-hover, img:not([loading])');
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0) scale(1)';
-                    entry.target.style.filter = 'blur(0)';
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
-
-        revealElements.forEach((el, i) => {
-            if (!el.closest('.section-appear') && !el.classList.contains('revealed')) {
-                el.style.opacity = '0';
-                el.style.transform = 'translateY(20px) scale(0.98)';
-                el.style.filter = 'blur(2px)';
-                el.style.transition = `all 0.8s cubic-bezier(0.16, 1, 0.3, 1) ${(i % 5) * 0.05}s`;
-                observer.observe(el);
-            }
-        });
-    }
-
-    // ==========================================
     // HOVER SOUND FEEDBACK (SUBTLE)
     // ==========================================
     function initHoverFeedback() {
@@ -591,7 +563,7 @@
     style.id = 'jcsm-wow-styles';
     style.textContent = `
         .will-reveal { opacity: 0; transform: translateY(20px); transition: all 1s cubic-bezier(0.16, 1, 0.3, 1); }
-        .revealed { opacity: 1; transform: translateY(0); }
+        .revealed { opacity: 1; transform: none; }
         .reveal-clip { transition: clip-path 1.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 1.4s ease; }
 
         .cursor-glow { mix-blend-mode: screen; filter: blur(40px); }

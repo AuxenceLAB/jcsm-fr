@@ -85,29 +85,6 @@ function escapeHtml(str) {
 window.escapeHtml = escapeHtml;
 
 // ==========================================
-// LOCAL STORAGE HELPERS
-// ==========================================
-
-function safeLocalStorageSet(key, value) {
-    try {
-        localStorage.setItem(key, value);
-        return true;
-    } catch (e) {
-        // LocalStorage error
-        showToast("Erreur de sauvegarde locale (Stockage plein ?)", 'error');
-        return false;
-    }
-}
-
-function safeLocalStorageGet(key) {
-    try {
-        return localStorage.getItem(key);
-    } catch (e) {
-        return null;
-    }
-}
-
-// ==========================================
 // DATE FORMATTERS
 // ==========================================
 
@@ -120,17 +97,10 @@ function formatDateFr(dateString) {
     }).format(date);
 }
 
-function formatTimeFr(timeString) {
-    if (!timeString) return '';
-    return timeString; // Déjà souvent au bon format HH:MM
-}
-
 // ==========================================
 // EXPORTS GLOBALS (Pour compatibilité)
 // ==========================================
 window.showToast = showToast;
-window.safeLocalStorageSet = safeLocalStorageSet;
-window.safeLocalStorageGet = safeLocalStorageGet;
 window.formatDateFr = formatDateFr;
 
 // ==========================================

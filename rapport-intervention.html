@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Rapport d'intervention | JCSM</title>
+    <link rel="stylesheet" href="css/tailwind.css">
+    <link rel="icon" href="images/logo.png">
+    <style>
+        :root {
+            --primary: #2563EB;
+            --primary-dark: #1D4ED8;
+            --green: #16a34a;
+            --red: #dc2626;
+            --amber: #d97706;
+        }
+        * { box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #f3f4f6; color: #1f2937; margin: 0; }
+        .container { max-width: 640px; margin: 0 auto; padding: 16px; }
+        .card { background: #fff; border-radius: 16px; box-shadow: 0 1px 3px rgba(0,0,0,.1); padding: 20px; margin-bottom: 16px; }
+        .header-bar { background: linear-gradient(135deg, var(--primary), var(--primary-dark)); color: #fff; padding: 20px; border-radius: 16px; margin-bottom: 16px; display: flex; align-items: center; gap: 14px; }
+        .header-bar img { width: 44px; height: 44px; border-radius: 10px; }
+        .header-bar h1 { font-size: 18px; font-weight: 800; margin: 0 0 2px; }
+        .header-bar p { font-size: 13px; opacity: .85; margin: 0; }
+        .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+        .info-item { background: #f9fafb; padding: 10px 14px; border-radius: 10px; border: 1px solid #e5e7eb; }
+        .info-item label { display: block; font-size: 10px; text-transform: uppercase; letter-spacing: 1px; color: #6b7280; font-weight: 700; margin-bottom: 2px; }
+        .info-item span { font-size: 13px; font-weight: 600; color: #1f2937; word-break: break-word; }
+        .field-group { margin-bottom: 16px; }
+        .field-group label { display: block; font-size: 13px; font-weight: 700; color: #374151; margin-bottom: 6px; }
+        .field-group label .req { color: var(--red); }
+        .field-input { width: 100%; padding: 12px 14px; border: 1px solid #d1d5db; border-radius: 10px; font-size: 14px; background: #fff; transition: border .15s; }
+        .field-input:focus { border-color: var(--primary); outline: none; box-shadow: 0 0 0 3px rgba(37,99,235,.1); }
+        textarea.field-input { resize: vertical; min-height: 100px; }
+        .checklist { display: grid; gap: 8px; }
+        .check-item { display: flex; align-items: center; gap: 10px; padding: 10px 14px; background: #f9fafb; border-radius: 10px; border: 1px solid #e5e7eb; cursor: pointer; transition: background .15s; }
+        .check-item:has(input:checked) { background: #eff6ff; border-color: var(--primary); }
+        .check-item input { width: 20px; height: 20px; accent-color: var(--primary); flex-shrink: 0; }
+        .check-item .check-text { font-size: 13px; font-weight: 600; }
+        .check-item .check-sub { font-size: 11px; color: #6b7280; }
+        .photo-section { margin-bottom: 12px; }
+        .photo-section-title { font-size: 13px; font-weight: 700; margin-bottom: 6px; display: flex; align-items: center; gap: 6px; }
+        .photo-section-title .req { color: var(--red); font-size: 11px; }
+        .photo-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+        .photo-thumb { position: relative; aspect-ratio: 1; border-radius: 10px; overflow: hidden; border: 1px solid #e5e7eb; background: #f9fafb; }
+        .photo-thumb img { width: 100%; height: 100%; object-fit: cover; }
+        .photo-thumb .photo-remove { position: absolute; top: 4px; right: 4px; width: 24px; height: 24px; border-radius: 50%; background: rgba(0,0,0,.6); color: #fff; border: none; font-size: 14px; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+        .photo-add { aspect-ratio: 1; border: 2px dashed #d1d5db; border-radius: 10px; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer; color: #9ca3af; transition: border-color .15s; font-size: 13px; gap: 4px; }
+        .photo-add:hover { border-color: var(--primary); color: var(--primary); }
+        .photo-add span { font-size: 28px; line-height: 1; }
+        .chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+        .chip { padding: 6px 12px; border-radius: 20px; border: 1px solid #d1d5db; background: #fff; font-size: 12px; cursor: pointer; transition: all .15s; white-space: nowrap; }
+        .chip:hover, .chip.active { background: #eff6ff; border-color: var(--primary); color: var(--primary); }
+        .status-toggle { display: flex; gap: 8px; }
+        .status-opt { flex: 1; padding: 14px; border: 2px solid #d1d5db; border-radius: 12px; text-align: center; cursor: pointer; font-weight: 700; font-size: 14px; transition: all .15s; }
+        .status-opt.active-ok { border-color: var(--green); background: #f0fdf4; color: var(--green); }
+        .status-opt.active-pending { border-color: var(--amber); background: #fffbeb; color: var(--amber); }
+        .btn-submit { width: 100%; padding: 16px; border: none; border-radius: 12px; background: linear-gradient(135deg, var(--primary), var(--primary-dark)); color: #fff; font-size: 16px; font-weight: 800; cursor: pointer; transition: all .15s; }
+        .btn-submit:hover { transform: translateY(-1px); box-shadow: 0 8px 24px rgba(37,99,235,.3); }
+        .btn-submit:disabled { opacity: .5; cursor: not-allowed; transform: none; box-shadow: none; }
+        .toast { position: fixed; top: 20px; left: 50%; transform: translateX(-50%); padding: 14px 24px; border-radius: 12px; color: #fff; font-weight: 700; font-size: 14px; z-index: 1000; animation: slideDown .3s ease; }
+        .toast-success { background: var(--green); }
+        .toast-error { background: var(--red); }
+        @keyframes slideDown { from { opacity: 0; transform: translate(-50%, -20px); } to { opacity: 1; transform: translate(-50%, 0); } }
+        .loading-overlay { position: fixed; inset: 0; background: rgba(255,255,255,.8); display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 100; }
+        .spinner { width: 40px; height: 40px; border: 4px solid #e5e7eb; border-top-color: var(--primary); border-radius: 50%; animation: spin 1s linear infinite; }
+        @keyframes spin { to { transform: rotate(360deg); } }
+        .error-page { text-align: center; padding: 60px 24px; }
+        .error-page h2 { font-size: 22px; font-weight: 800; color: #1f2937; margin-bottom: 8px; }
+        .error-page p { font-size: 14px; color: #6b7280; }
+        .success-page { text-align: center; padding: 40px 24px; }
+        .success-page .check-circle { width: 80px; height: 80px; border-radius: 50%; background: #dcfce7; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; font-size: 40px; }
+        .link-app { display: inline-flex; align-items: center; gap: 6px; padding: 10px 20px; border: 1px solid #d1d5db; border-radius: 10px; text-decoration: none; color: var(--primary); font-weight: 600; font-size: 13px; margin-top: 12px; }
+    </style>
+</head>
+<body>
+
+<div class="container" id="app">
+    <!-- Loading -->
+    <div class="loading-overlay" id="loading-state">
+        <div class="spinner"></div>
+        <p style="margin-top:16px;font-weight:600;color:#6b7280">Chargement de l'intervention...</p>
+    </div>
+</div>
+
+<script>
+(function() {
+    'use strict';
+
+    // Parse URL params
+    const params = new URLSearchParams(window.location.search);
+    const TOKEN = params.get('token') || '';
+    const INTV_ID = params.get('id') || '';
+    const PHONE = params.get('phone') || '';
+    const EXPIRES = params.get('expires') || '';
+
+    let intervention = null;
+    let photos = { borne: [], site: [], nc: [], avap: [] };
+    let selectedStatus = null;
+
+    const PHOTO_CATS = [
+        { id: 'borne', icon: '\uD83D\uDCE6', title: 'Interieur borne / TGBT', required: true },
+        { id: 'site', icon: '\uD83C\uDFE2', title: 'Vue globale', required: true },
+        { id: 'nc', icon: '\u26A0\uFE0F', title: 'Non-conformites', required: false },
+        { id: 'avap', icon: '\uD83D\uDD04', title: 'Avant / Apres', required: false }
+    ];
+
+    const CHECKLIST = [
+        { id: 'epi', text: 'EPI complet', sub: 'Chaussures, gants, lunettes' },
+        { id: 'outils', text: 'Outillage verifie', sub: 'Multimetre, VAT, cles' },
+        { id: 'keys', text: 'Cles fabricant', sub: 'Selon marque' },
+        { id: 'docs', text: 'Documentation', sub: 'Schemas, notice' }
+    ];
+
+    const SMART_OBS = [
+        { patterns: ['disjonc', 'ir ', 'ir/', 'relais'], obs: ['Ir regle', 'Disjoncteur verifie'] },
+        { patterns: ['hors ligne', 'offline', 'communication', 'comm'], obs: ['SIM verifiee', 'Reboot effectue', 'Communication retablie'] },
+        { patterns: ['cable', 'connecteur'], obs: ['Cable verifie/remplace', 'Test charge OK'] },
+        { patterns: ['ecran', 'affichage', 'display'], obs: ['Ecran verifie', 'Interface fonctionnelle'] },
+        { patterns: ['terre', 'isolement'], obs: ['Terre mesuree OK', 'Isolement conforme'] },
+        { patterns: ['session', 'charge', 'echec'], obs: ['Tensions verifiees', 'Connecteurs OK', 'Test charge reussi'] },
+        { patterns: ['badge', 'rfid', 'lecteur'], obs: ['Lecteur RFID verifie', 'Badge test OK'] },
+        { patterns: ['puissance', 'kw', 'watt'], obs: ['Puissance mesuree conforme', 'Calibration OK'] }
+    ];
+
+    const esc = (s) => {
+        const d = document.createElement('div');
+        d.textContent = s || '';
+        return d.innerHTML;
+    };
+
+    function showToast(msg, type) {
+        const t = document.createElement('div');
+        t.className = 'toast toast-' + type;
+        t.textContent = msg;
+        document.body.appendChild(t);
+        setTimeout(() => t.remove(), 4000);
+    }
+
+    // Validate and load
+    async function init() {
+        if (!TOKEN || !INTV_ID || !PHONE || !EXPIRES) {
+            showError('Lien invalide', 'Les parametres du lien sont manquants ou incorrects.');
+            return;
+        }
+
+        try {
+            const res = await fetch('/api/intervention-link.php?action=validate&id=' + encodeURIComponent(INTV_ID) + '&phone=' + encodeURIComponent(PHONE) + '&token=' + encodeURIComponent(TOKEN) + '&expires=' + encodeURIComponent(EXPIRES));
+            const data = await res.json();
+
+            if (!res.ok || !data.success) {
+                showError('Lien expire ou invalide', data.error || 'Ce lien n\'est plus valide. Contactez JCSM pour un nouveau lien.');
+                return;
+            }
+
+            intervention = data.intervention;
+            renderForm();
+        } catch (e) {
+            showError('Erreur de connexion', 'Impossible de charger l\'intervention. Verifiez votre connexion internet.');
+        }
+    }
+
+    function showError(title, message) {
+        document.getElementById('app').innerHTML = '<div class="error-page"><div style="font-size:48px;margin-bottom:16px">&#x26A0;&#xFE0F;</div><h2>' + esc(title) + '</h2><p>' + esc(message) + '</p><a href="tel:+33756962758" style="display:inline-block;margin-top:20px;padding:10px 24px;background:var(--primary);color:#fff;border-radius:10px;text-decoration:none;font-weight:700">Appeler JCSM</a></div>';
+    }
+
+    function generateChips() {
+        if (!intervention || !intervention.problem) return [];
+        const problem = (intervention.problem || '').toLowerCase();
+        const chips = [];
+        SMART_OBS.forEach(rule => {
+            if (rule.patterns.some(p => problem.includes(p))) {
+                chips.push(...rule.obs);
+            }
+        });
+        if (!chips.length) {
+            chips.push('Verification complete', 'Test charge OK', 'Remise en service');
+        }
+        return [...new Set(chips)];
+    }
+
+    function renderForm() {
+        const i = intervention;
+        const now = new Date();
+        const todayStr = now.toISOString().slice(0, 10);
+        const timeStr = now.toTimeString().slice(0, 5);
+        const chips = generateChips();
+
+        document.getElementById('app').innerHTML = `
+            <div class="header-bar">
+                <img src="images/logo.png" alt="JCSM">
+                <div>
+                    <h1>Rapport - ${esc(i.ticket)}</h1>
+                    <p>${esc(i.site)}</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="info-grid">
+                    <div class="info-item"><label>Site</label><span>${esc(i.site)}</span></div>
+                    <div class="info-item"><label>Client</label><span>${esc(i.client)}</span></div>
+                    <div class="info-item"><label>Adresse</label><span>${esc(i.address)}</span></div>
+                    <div class="info-item"><label>Marque</label><span>${esc(i.brand)}</span></div>
+                    <div class="info-item" style="grid-column:1/-1"><label>Probleme signale</label><span>${esc(i.problem)}</span></div>
+                </div>
+                <a class="link-app" href="interne.html?intv=${encodeURIComponent(i.id)}" target="_blank">Ouvrir dans l'app complete &rarr;</a>
+            </div>
+
+            <div class="card">
+                <h3 style="font-size:16px;font-weight:800;margin:0 0 16px;color:#1f2937">Date et horaires</h3>
+                <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px">
+                    <div class="field-group" style="margin:0">
+                        <label>Date <span class="req">*</span></label>
+                        <input type="date" id="r-date" class="field-input" value="${todayStr}">
+                    </div>
+                    <div class="field-group" style="margin:0">
+                        <label>Arrivee <span class="req">*</span></label>
+                        <input type="time" id="r-start" class="field-input" value="${timeStr}">
+                    </div>
+                    <div class="field-group" style="margin:0">
+                        <label>Depart</label>
+                        <input type="time" id="r-end" class="field-input">
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3 style="font-size:16px;font-weight:800;margin:0 0 16px;color:#1f2937">Checklist</h3>
+                <div class="checklist">
+                    ${CHECKLIST.map(c => `<label class="check-item"><input type="checkbox" checked><div><div class="check-text">${esc(c.text)}</div><div class="check-sub">${esc(c.sub)}</div></div></label>`).join('')}
+                </div>
+            </div>
+
+            <div class="card">
+                <h3 style="font-size:16px;font-weight:800;margin:0 0 16px;color:#1f2937">Photos</h3>
+                ${PHOTO_CATS.map(cat => `
+                    <div class="photo-section">
+                        <div class="photo-section-title">${cat.icon} ${esc(cat.title)} ${cat.required ? '<span class="req">*</span>' : ''}</div>
+                        <div class="photo-grid" id="photos-${cat.id}">
+                            <label class="photo-add">
+                                <span>+</span>
+                                <small>Ajouter</small>
+                                <input type="file" accept="image/*" capture="environment" multiple hidden onchange="addPhotos('${cat.id}', this.files)">
+                            </label>
+                        </div>
+                    </div>
+                `).join('')}
+            </div>
+
+            <div class="card">
+                <h3 style="font-size:16px;font-weight:800;margin:0 0 16px;color:#1f2937">Observations <span class="req">*</span></h3>
+                <textarea id="r-obs" class="field-input" placeholder="Decrivez les actions realisees..."></textarea>
+                <div class="chips" id="obs-chips">
+                    ${chips.map(c => `<span class="chip" onclick="addChip(this)">${esc(c)}</span>`).join('')}
+                </div>
+            </div>
+
+            <div class="card">
+                <h3 style="font-size:16px;font-weight:800;margin:0 0 16px;color:#1f2937">Statut <span class="req">*</span></h3>
+                <div class="status-toggle">
+                    <div class="status-opt" onclick="selectStatus('resolu', this)" id="status-ok">Resolu</div>
+                    <div class="status-opt" onclick="selectStatus('a_suivre', this)" id="status-pending">A suivre</div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="field-group">
+                    <label>Pieces changees</label>
+                    <input type="text" id="r-pieces" class="field-input" placeholder="Ex: disjoncteur 32A, cable T2...">
+                </div>
+                <div class="field-group" style="margin-bottom:0">
+                    <label>Remarques</label>
+                    <textarea id="r-remarks" class="field-input" style="min-height:60px" placeholder="Informations complementaires..."></textarea>
+                </div>
+            </div>
+
+            <button class="btn-submit" id="btn-submit" onclick="submitReport()">Envoyer le rapport</button>
+            <p style="text-align:center;font-size:11px;color:#9ca3af;margin-top:12px;padding-bottom:40px">JCSM - Infrastructure de Recharge</p>
+        `;
+    }
+
+    // Photo handling
+    window.addPhotos = function(catId, files) {
+        Array.from(files).forEach(file => {
+            if (!file.type.startsWith('image/')) return;
+            if (photos[catId].length >= 5) { showToast('Maximum 5 photos par categorie', 'error'); return; }
+
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const id = 'p-' + Math.random().toString(36).slice(2, 10);
+                photos[catId].push({ id, data: e.target.result });
+                renderPhotoGrid(catId);
+            };
+            reader.readAsDataURL(file);
+        });
+    };
+
+    window.removePhoto = function(catId, photoId) {
+        photos[catId] = photos[catId].filter(p => p.id !== photoId);
+        renderPhotoGrid(catId);
+    };
+
+    function renderPhotoGrid(catId) {
+        const grid = document.getElementById('photos-' + catId);
+        if (!grid) return;
+        const thumbs = photos[catId].map(p => `<div class="photo-thumb"><img src="${p.data}" alt=""><button class="photo-remove" onclick="removePhoto('${catId}','${p.id}')">&times;</button></div>`).join('');
+        grid.innerHTML = thumbs + `<label class="photo-add"><span>+</span><small>Ajouter</small><input type="file" accept="image/*" capture="environment" multiple hidden onchange="addPhotos('${catId}', this.files)"></label>`;
+    }
+
+    // Chips
+    window.addChip = function(el) {
+        const obs = document.getElementById('r-obs');
+        if (!obs) return;
+        const text = el.textContent.trim();
+        if (obs.value && !obs.value.endsWith('\n')) obs.value += '\n';
+        obs.value += text;
+        el.classList.add('active');
+    };
+
+    // Status
+    window.selectStatus = function(status, el) {
+        selectedStatus = status;
+        document.querySelectorAll('.status-opt').forEach(o => o.className = 'status-opt');
+        el.classList.add(status === 'resolu' ? 'active-ok' : 'active-pending');
+    };
+
+    // Submit
+    window.submitReport = async function() {
+        const date = document.getElementById('r-date')?.value;
+        const start = document.getElementById('r-start')?.value;
+        const end = document.getElementById('r-end')?.value;
+        const obs = document.getElementById('r-obs')?.value?.trim();
+        const pieces = document.getElementById('r-pieces')?.value?.trim();
+        const remarks = document.getElementById('r-remarks')?.value?.trim();
+
+        // Validation
+        if (!date) { showToast('Date requise', 'error'); return; }
+        if (!start) { showToast('Heure d\'arrivee requise', 'error'); return; }
+        if (!obs) { showToast('Observations requises', 'error'); return; }
+        if (!selectedStatus) { showToast('Selectionnez un statut', 'error'); return; }
+
+        // Calculer duree
+        let duree = '';
+        if (start && end) {
+            const [sh, sm] = start.split(':').map(Number);
+            const [eh, em] = end.split(':').map(Number);
+            const mins = (eh * 60 + em) - (sh * 60 + sm);
+            if (mins > 0) {
+                const h = Math.floor(mins / 60);
+                const m = mins % 60;
+                duree = h > 0 ? h + 'h' + (m > 0 ? String(m).padStart(2, '0') : '') : m + 'min';
+            }
+        }
+
+        // Photos: flatten all categories
+        const allPhotos = Object.values(photos).flat().map(p => p.data);
+
+        const btn = document.getElementById('btn-submit');
+        btn.disabled = true;
+        btn.textContent = 'Envoi en cours...';
+
+        try {
+            const res = await fetch('/api/intervention-link.php', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    token: TOKEN,
+                    interventionId: INTV_ID,
+                    phone: PHONE,
+                    expires: parseInt(EXPIRES),
+                    ticket: intervention.ticket,
+                    nomSite: intervention.site,
+                    adresse: intervention.address,
+                    dateIntervention: date,
+                    heureArrivee: start,
+                    heureDepart: end || '',
+                    probleme: intervention.problem,
+                    actionRealisee: obs,
+                    statut: selectedStatus,
+                    piecesChangees: pieces || '',
+                    remarques: remarks || '',
+                    client: intervention.client || '',
+                    marque: intervention.brand || '',
+                    duree: duree,
+                    photos: allPhotos
+                })
+            });
+
+            const data = await res.json();
+
+            if (res.ok && data.success) {
+                showSuccess(data.filename);
+            } else {
+                showToast(data.error || 'Erreur lors de l\'envoi', 'error');
+                btn.disabled = false;
+                btn.textContent = 'Envoyer le rapport';
+            }
+        } catch (e) {
+            showToast('Erreur de connexion', 'error');
+            btn.disabled = false;
+            btn.textContent = 'Envoyer le rapport';
+        }
+    };
+
+    function showSuccess(filename) {
+        document.getElementById('app').innerHTML = `
+            <div class="card success-page">
+                <div class="check-circle">&#x2705;</div>
+                <h2 style="font-size:22px;font-weight:800;margin:0 0 8px">Rapport envoye !</h2>
+                <p style="color:#6b7280;margin:0 0 8px">Votre rapport a ete soumis avec succes.</p>
+                <p style="font-size:13px;color:#9ca3af">Reference : ${esc(filename)}</p>
+                <a class="link-app" href="interne.html?intv=${encodeURIComponent(INTV_ID)}" target="_blank">Ouvrir dans l'app complete &rarr;</a>
+            </div>
+            <p style="text-align:center;font-size:11px;color:#9ca3af;margin-top:24px">JCSM - Infrastructure de Recharge</p>
+        `;
+    }
+
+    // Init
+    init();
+})();
+</script>
+</body>
+</html>

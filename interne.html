@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>JCSM Terrain</title>
-    <meta name="theme-color" content="#ffffff">
+    <title>JCSM Interne</title>
+    <meta name="theme-color" content="#1B365D">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <meta name="robots" content="noindex, nofollow">
@@ -23,71 +23,70 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css" integrity="sha384-wgw+aLYNQ7dlhK47ZPK7FRACiq7ROZwgFNg0m04avm4CaXS+Z9Y7nMu8yNjBKYC+" crossorigin="anonymous"/>
     <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js" integrity="sha384-eXVCORTRlv4FUUgS/xmOyr66XBVraen8ATNLMESp92FKXLAMiKkerixTiBvXriZr" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js" integrity="sha384-jb8JQMbMoBUzgWatfe6COACi2ljcDdZQ2OxczGA3bGNeWe+6DChMTBJemed7ZnvJ" crossorigin="anonymous"></script>
-    <script src="js/config.js?v=35"></script>
+    <script src="https://sdk.twilio.com/js/voice/releases/2.12/twilio.min.js" crossorigin="anonymous"></script>
+    <script src="js/config.js?v=42"></script>
     <style>
         :root {
-            --bg: #f8fafc;
+            --primary: #1B365D;
+            --primary-dark: #0F2440;
+            --primary-light: #E8EDF4;
+            --secondary: #2D8CFF;
+            --secondary-dark: #1A6FD4;
+            --secondary-light: #E3F0FF;
+            --bg: #F5F7FA;
             --bg2: #ffffff;
-            --bg3: #f1f5f9;
+            --bg3: #EEF1F6;
             --card: #ffffff;
-            --border: #e2e8f0;
-            --text: #0f172a;
-            --text-secondary: #1e293b;
-            --muted: #64748b;
-            --primary: #0ea5e9;
-            --primary-dark: #0284c7;
-            --primary-light: #e0f2fe;
-            --green: #22c55e;
-            --green-light: #dcfce7;
-            --red: #ef4444;
-            --red-light: #fee2e2;
-            --amber: #f59e0b;
-            --amber-light: #fef3c7;
-            --purple: #8b5cf6;
-            --purple-light: #ede9fe;
-            --radius: 16px;
-            --shadow: 0 1px 3px rgba(0,0,0,.08), 0 4px 12px rgba(0,0,0,.04);
-            --shadow-lg: 0 4px 20px rgba(0,0,0,.1);
+            --border: #E5E7EB;
+            --text: #1A1A2E;
+            --text-secondary: #374151;
+            --muted: #6B7280;
+            --green: #00C853;
+            --green-light: #E6F9EE;
+            --red: #E53935;
+            --red-light: #FDEAEA;
+            --amber: #FF9800;
+            --amber-light: #FFF3E0;
+            --purple: #7C3AED;
+            --purple-light: #F0EBFF;
+            --emerald: #10B981;
+            --emerald-light: #D1FAE5;
+            --orange: #F97316;
+            --orange-light: #FFF7ED;
+            --radius: 14px;
+            --shadow: 0 1px 3px rgba(27,54,93,.06), 0 2px 8px rgba(27,54,93,.04);
+            --shadow-lg: 0 4px 16px rgba(27,54,93,.12);
         }
 
-        /* Dark Mode */
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --bg: #0f172a;
-                --bg2: #1e293b;
-                --bg3: #334155;
-                --card: #1e293b;
-                --border: #475569;
-                --text: #f1f5f9;
-                --text-secondary: #e2e8f0;
-                --muted: #94a3b8;
-                --primary-light: rgba(14,165,233,.2);
-                --green-light: rgba(34,197,94,.2);
-                --red-light: rgba(239,68,68,.2);
-                --amber-light: rgba(245,158,11,.2);
-                --purple-light: rgba(139,92,246,.2);
-                --shadow: 0 1px 3px rgba(0,0,0,.3), 0 4px 12px rgba(0,0,0,.2);
-                --shadow-lg: 0 4px 20px rgba(0,0,0,.4);
-            }
-        }
+        /* Light mode only */
 
-        [data-theme="dark"] {
-            --bg: #0f172a;
-            --bg2: #1e293b;
-            --bg3: #334155;
-            --card: #1e293b;
-            --border: #475569;
-            --text: #f1f5f9;
-            --text-secondary: #e2e8f0;
-            --muted: #94a3b8;
-            --primary-light: rgba(14,165,233,.2);
-            --green-light: rgba(34,197,94,.2);
-            --red-light: rgba(239,68,68,.2);
-            --amber-light: rgba(245,158,11,.2);
-            --purple-light: rgba(139,92,246,.2);
-            --shadow: 0 1px 3px rgba(0,0,0,.3), 0 4px 12px rgba(0,0,0,.2);
-            --shadow-lg: 0 4px 20px rgba(0,0,0,.4);
-        }
+        /* Login screen */
+        #login-screen { display:flex;align-items:center;justify-content:center;min-height:100vh;min-height:100dvh;background:linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 50%, #0a1628 100%);padding:20px;position:relative; }
+        #login-screen::before { content:'';position:absolute;inset:0;background:radial-gradient(circle at 30% 50%, rgba(45,140,255,.15) 0%, transparent 50%),radial-gradient(circle at 70% 30%, rgba(124,58,237,.1) 0%, transparent 50%);pointer-events:none; }
+        .login-card { background:#fff;border-radius:24px;padding:52px 40px;width:100%;max-width:420px;box-shadow:0 25px 80px rgba(0,0,0,.4);text-align:center;position:relative;z-index:1; }
+        .login-card img { height:56px;margin-bottom:24px;filter:none; }
+        .login-card h1 { font-size:26px;font-weight:900;color:var(--primary);margin-bottom:6px;letter-spacing:-.5px; }
+        .login-card p { font-size:14px;color:var(--muted);margin-bottom:36px; }
+        .login-input { width:100%;padding:16px 20px;border:2px solid var(--border);border-radius:14px;font-size:15px;font-family:inherit;background:var(--bg);color:var(--text);outline:none;transition:all .2s; }
+        .login-input:focus { border-color:var(--secondary);background:#fff;box-shadow:0 0 0 4px rgba(45,140,255,.12); }
+        .login-btn { width:100%;padding:16px;border:none;border-radius:14px;background:linear-gradient(135deg,var(--secondary),var(--secondary-dark));color:#fff;font-size:15px;font-weight:800;font-family:inherit;cursor:pointer;margin-top:16px;transition:all .25s;letter-spacing:.3px;box-shadow:0 4px 15px rgba(45,140,255,.3); }
+        .login-btn:hover { transform:translateY(-2px);box-shadow:0 8px 25px rgba(45,140,255,.45); }
+        .login-btn:active { transform:translateY(0);box-shadow:0 2px 8px rgba(45,140,255,.3); }
+        .login-btn:disabled { opacity:.6;cursor:not-allowed;transform:none;box-shadow:none; }
+        .login-error { color:var(--red);font-size:13px;font-weight:600;margin-top:14px;min-height:20px; }
+
+        /* Status badges - 9 etats workflow */
+        .status-badge { display:inline-flex;align-items:center;gap:5px;padding:4px 10px;border-radius:8px;font-size:11px;font-weight:700;letter-spacing:.2px;white-space:nowrap;position:relative; }
+        .status-badge::before { content:'';width:6px;height:6px;border-radius:50%;background:currentColor;flex-shrink:0;opacity:.7; }
+        .st-planifier { background:var(--red-light);color:var(--red); }
+        .st-assignee { background:var(--orange-light);color:var(--orange); }
+        .st-notifiee { background:var(--amber-light);color:#B45309; }
+        .st-en-route { background:var(--secondary-light);color:var(--secondary); }
+        .st-sur-site { background:var(--purple-light);color:var(--purple); }
+        .st-terminee { background:var(--green-light);color:#15803D; }
+        .st-rapport { background:var(--emerald-light);color:var(--emerald); }
+        .st-facturee { background:var(--amber-light);color:#92400E; }
+        .st-payee { background:var(--bg3);color:var(--muted); }
 
         /* Reduced motion — :root body prefix (0,1,1) beats class selectors */
         @media (prefers-reduced-motion: reduce) {
@@ -110,15 +109,17 @@
         .count-up { animation: countUp .4s ease-out; }
         .skeleton { background: linear-gradient(90deg, var(--bg3) 25%, var(--bg) 50%, var(--bg3) 75%); background-size: 200% 100%; animation: shimmer 1.5s infinite; border-radius: 8px; }
         
-        .card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow); }
-        .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 16px 24px; border-radius: 14px; font-weight: 700; font-size: 15px; border: none; cursor: pointer; transition: all .15s; touch-action: manipulation; -webkit-user-select: none; user-select: none; }
+        .card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow); transition: box-shadow .2s, transform .2s; }
+        .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 16px 24px; border-radius: 14px; font-weight: 700; font-size: 15px; border: none; cursor: pointer; transition: all .2s; touch-action: manipulation; -webkit-user-select: none; user-select: none; }
         .btn:active { transform: scale(.96); }
-        .btn-primary { background: linear-gradient(135deg, var(--primary), var(--primary-dark)); color: #fff; box-shadow: 0 4px 15px rgba(14,165,233,.3); }
-        .btn-primary:hover { box-shadow: 0 6px 20px rgba(14,165,233,.4); }
+        .btn-primary { background: linear-gradient(135deg, var(--secondary), var(--secondary-dark)); color: #fff; box-shadow: 0 2px 8px rgba(45,140,255,.25); }
+        .btn-primary:hover { box-shadow: 0 6px 18px rgba(45,140,255,.4); transform: translateY(-1px); }
         .btn-success { background: linear-gradient(135deg, var(--green), #16a34a); color: #fff; box-shadow: 0 4px 15px rgba(34,197,94,.3); }
-        .btn-danger { background: linear-gradient(135deg, var(--red), #dc2626); color: #fff; }
-        .btn-ghost { background: var(--bg); color: var(--text); border: 1px solid var(--border); }
-        .btn-ghost:hover { background: var(--bg3); }
+        .btn-success:hover { box-shadow: 0 6px 20px rgba(34,197,94,.4); transform: translateY(-1px); }
+        .btn-danger { background: linear-gradient(135deg, var(--red), #dc2626); color: #fff; box-shadow: 0 2px 8px rgba(229,57,53,.25); }
+        .btn-danger:hover { box-shadow: 0 6px 18px rgba(229,57,53,.4); transform: translateY(-1px); }
+        .btn-ghost { background: var(--card); color: var(--text); border: 1px solid var(--border); }
+        .btn-ghost:hover { background: var(--bg3); border-color: var(--text); }
         .btn-sm { padding: 12px 18px; font-size: 13px; }
         .btn-lg { padding: 20px 32px; font-size: 17px; }
         .btn-icon { width: 52px; height: 52px; padding: 0; border-radius: 14px; font-size: 22px; }
@@ -141,14 +142,14 @@
         .timer-controls { display: flex; gap: 12px; justify-content: center; margin-top: 16px; }
         .timer.running { animation: glow 2s infinite; }
         
-        .intv { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; position: relative; overflow: hidden; transition: all .2s; box-shadow: var(--shadow); cursor: pointer; }
-        .intv:hover { box-shadow: var(--shadow-lg); transform: translateY(-2px); }
-        .intv::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 5px; }
-        .intv.done { opacity: .6; }
-        .intv.done::before { background: var(--green); }
-        .intv.late::before { background: var(--red); }
-        .intv.late { border-color: rgba(239,68,68,.3); background: linear-gradient(135deg, #fff 0%, #fef2f2 100%); }
-        .intv.today::before { background: var(--amber); }
+        .intv { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; position: relative; overflow: hidden; transition: all .25s cubic-bezier(.4,0,.2,1); box-shadow: var(--shadow); cursor: pointer; }
+        .intv:hover { box-shadow: 0 8px 30px rgba(27,54,93,.12); transform: translateY(-3px); }
+        .intv::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; border-radius: 0 4px 4px 0; }
+        .intv.done { opacity: .55; }
+        .intv.done::before { background: linear-gradient(180deg, var(--green), var(--emerald)); }
+        .intv.late::before { background: linear-gradient(180deg, var(--red), #b91c1c); }
+        .intv.late { border-color: rgba(239,68,68,.2); background: linear-gradient(135deg, #fff 0%, #fef2f2 100%); }
+        .intv.today::before { background: linear-gradient(180deg, var(--amber), var(--orange)); }
         
         .group-header { font-size: 13px; font-weight: 800; text-transform: uppercase; letter-spacing: 1.5px; padding: 12px 0 6px; display: flex; align-items: center; gap: 8px; }
         .group-header .dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
@@ -183,26 +184,25 @@
         .photo-cat-title .count { background: var(--green); color: #fff; padding: 4px 10px; border-radius: 8px; font-size: 13px; }
         .photo-cat-title .required-badge { background: var(--amber); color: #fff; padding: 4px 8px; border-radius: 6px; font-size: 10px; }
         .photo-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(80px, 1fr)); gap: 10px; }
-        .photo-item { position: relative; aspect-ratio: 1; border-radius: 10px; overflow: hidden; box-shadow: var(--shadow); }
-        .photo-item img { width: 100%; height: 100%; object-fit: cover; }
-        .photo-item .delete { position: absolute; top: 6px; right: 6px; width: 44px; height: 44px; background: var(--red); border: none; border-radius: 50%; color: #fff; cursor: pointer; font-size: 16px; font-weight: bold; display: flex; align-items: center; justify-content: center; box-shadow: var(--shadow); }
-        .photo-add { aspect-ratio: 1; border: 2px dashed var(--border); border-radius: 10px; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer; font-size: 28px; color: var(--muted); transition: all .2s; gap: 4px; background: #fff; }
-        .photo-add:hover { border-color: var(--primary); color: var(--primary); background: var(--primary-light); transform: scale(1.02); }
-        .photo-add:active { border-color: var(--primary); color: var(--primary); background: var(--primary-light); transform: scale(0.98); }
-        .photo-add span { font-size: 13px; font-weight: 600; }
         .photo-item { position: relative; aspect-ratio: 1; border-radius: 10px; overflow: hidden; box-shadow: var(--shadow); transition: transform .2s; }
         .photo-item:hover { transform: scale(1.05); }
         .photo-item img { width: 100%; height: 100%; object-fit: cover; cursor: pointer; }
         .photo-item .delete { position: absolute; top: 6px; right: 6px; width: 44px; height: 44px; background: var(--red); border: none; border-radius: 50%; color: #fff; cursor: pointer; font-size: 16px; font-weight: bold; display: flex; align-items: center; justify-content: center; box-shadow: var(--shadow); opacity: 0; transition: opacity .2s; }
         .photo-item:hover .delete { opacity: 1; }
+        .photo-add { aspect-ratio: 1; border: 2px dashed var(--border); border-radius: 10px; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer; font-size: 28px; color: var(--muted); transition: all .2s; gap: 4px; background: #fff; }
+        .photo-add:hover { border-color: var(--primary); color: var(--primary); background: var(--primary-light); transform: scale(1.02); }
+        .photo-add:active { border-color: var(--primary); color: var(--primary); background: var(--primary-light); transform: scale(0.98); }
+        .photo-add span { font-size: 13px; font-weight: 600; }
         
         .info-card { background: linear-gradient(135deg, var(--primary-light), var(--purple-light)); border: 1px solid rgba(14,165,233,.2); border-radius: 14px; padding: 18px; margin-bottom: 16px; }
         .info-card h4 { font-size: 13px; color: var(--primary-dark); margin-bottom: 14px; display: flex; align-items: center; gap: 10px; }
         .info-chips { display: flex; flex-wrap: wrap; gap: 10px; }
         .info-chip { background: #fff; padding: 10px 16px; border-radius: 10px; font-size: 14px; font-weight: 700; display: flex; align-items: center; gap: 8px; box-shadow: var(--shadow); color: var(--text); }
         
-        .contact-bar { background: linear-gradient(135deg, var(--primary), var(--primary-dark)); padding: 14px 20px; display: flex; align-items: center; justify-content: space-between; }
-        .contact-bar a { color: #fff; text-decoration: none; font-weight: 800; font-size: 17px; display: flex; align-items: center; gap: 10px; }
+        .contact-bar { background: var(--primary-dark); padding: 8px 20px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,.08); }
+        .contact-bar a { color: rgba(255,255,255,.9); text-decoration: none; font-weight: 700; font-size: 14px; display: flex; align-items: center; gap: 8px; transition: color .15s; }
+        .contact-bar a:hover { color: #fff; }
+        .contact-bar span { color: rgba(255,255,255,.5); font-size: 12px; font-weight: 600; }
         
         .status-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 20px; }
         .status-opt { background: var(--bg); border: 3px solid var(--border); border-radius: 16px; padding: 24px 16px; cursor: pointer; text-align: center; transition: all .2s; }
@@ -219,23 +219,24 @@
         input::placeholder, textarea::placeholder { color: var(--muted); }
         label { display: block; font-size: 13px; font-weight: 700; color: var(--muted); margin-bottom: 8px; text-transform: uppercase; letter-spacing: .5px; }
         
-        .nav { display: flex; background: var(--card); border-top: 1px solid var(--border); position: fixed; bottom: 0; left: 0; right: 0; z-index: 100; padding: 8px 8px calc(8px + env(safe-area-inset-bottom)); box-shadow: 0 -4px 20px rgba(0,0,0,.08); }
-        .nav-item { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 4px; padding: 8px 4px; border-radius: 12px; color: var(--muted); font-size: 10px; font-weight: 700; cursor: pointer; transition: all .15s; position: relative; }
-        .nav-item:active { transform: scale(.95); }
-        .nav-item.active { color: var(--primary); background: var(--primary-light); transition: all .2s ease; }
-        .nav-item.active::after { content: ''; position: absolute; bottom: 2px; left: 50%; transform: translateX(-50%); width: 20px; height: 3px; background: var(--primary); border-radius: 2px; }
-        .nav-item span { font-size: 24px; }
+        .nav { display: flex; background: rgba(255,255,255,.92); border-top: 1px solid rgba(0,0,0,.06); position: fixed; bottom: 0; left: 0; right: 0; z-index: 100; padding: 6px 8px calc(6px + env(safe-area-inset-bottom)); box-shadow: 0 -4px 24px rgba(0,0,0,.06); backdrop-filter: blur(24px) saturate(180%); -webkit-backdrop-filter: blur(24px) saturate(180%); }
+        .nav-item { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 3px; padding: 8px 4px; border-radius: 14px; color: var(--muted); font-size: 10px; font-weight: 700; cursor: pointer; transition: all .2s; position: relative; }
+        .nav-item:active { transform: scale(.92); }
+        .nav-item.active { color: var(--primary); background: var(--primary-light); }
+        .nav-item.active::after { content: ''; position: absolute; bottom: 3px; left: 50%; transform: translateX(-50%); width: 20px; height: 3px; background: linear-gradient(90deg, var(--primary), var(--secondary)); border-radius: 2px; }
+        .nav-item span { font-size: 22px; }
         .nav-item .nav-badge { position: absolute; top: 4px; right: 50%; transform: translateX(14px); background: var(--red); color: #fff; font-size: 10px; padding: 2px 6px; border-radius: 6px; font-weight: 800; }
         
-        .toast { position: fixed; top: 20px; left: 20px; right: 20px; padding: 18px 24px; border-radius: 16px; font-weight: 700; z-index: 9999; animation: slideDown .3s ease-out; text-align: center; display: flex; align-items: center; justify-content: center; gap: 12px; box-shadow: var(--shadow-lg); }
-        @keyframes slideDown { from { transform: translateY(-100%); opacity: 0; } }
+        .toast { position: fixed; top: 20px; left: 50%; transform: translateX(-50%); max-width: 400px; width: calc(100% - 40px); padding: 16px 24px; border-radius: 16px; font-weight: 700; font-size: 14px; z-index: 9999; animation: toastIn .3s cubic-bezier(.4,0,.2,1); text-align: center; display: flex; align-items: center; justify-content: center; gap: 10px; box-shadow: 0 12px 40px rgba(0,0,0,.2); }
+        @keyframes toastIn { from { transform: translateX(-50%) translateY(-120%); opacity: 0; } to { transform: translateX(-50%) translateY(0); opacity: 1; } }
         .toast-success { background: linear-gradient(135deg, var(--green), #16a34a); color: #fff; }
-        .toast-error { background: linear-gradient(135deg, var(--red), #dc2626); color: #fff; }
+        .toast-error { background: linear-gradient(135deg, var(--red), #b91c1c); color: #fff; }
+        .toast-warning { background: linear-gradient(135deg, var(--amber), #d97706); color: #fff; }
         .toast-info { background: linear-gradient(135deg, var(--primary), var(--primary-dark)); color: #fff; }
         
-        .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,.4); backdrop-filter: blur(4px); z-index: 200; display: flex; align-items: flex-end; justify-content: center; opacity: 0; pointer-events: none; transition: opacity .2s; }
+        .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,.5); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); z-index: 200; display: flex; align-items: flex-end; justify-content: center; opacity: 0; pointer-events: none; transition: opacity .25s; }
         .modal-overlay.active { opacity: 1; pointer-events: auto; }
-        .modal { background: #fff; border-radius: 24px 24px 0 0; width: 100%; max-width: 500px; max-height: 85vh; overflow-y: auto; transform: translateY(100%); transition: transform .3s ease-out; padding: 24px; padding-bottom: calc(24px + env(safe-area-inset-bottom)); box-shadow: var(--shadow-lg); }
+        .modal { background: #fff; border-radius: 24px 24px 0 0; width: 100%; max-width: 520px; max-height: 85vh; overflow-y: auto; transform: translateY(100%); transition: transform .35s cubic-bezier(.4,0,.2,1); padding: 28px; padding-bottom: calc(28px + env(safe-area-inset-bottom)); box-shadow: 0 -16px 60px rgba(0,0,0,.15); }
         .modal-overlay.active .modal { transform: translateY(0); }
         .modal-handle { width: 40px; height: 5px; background: var(--border); border-radius: 3px; margin: 0 auto 20px; }
 
@@ -306,23 +307,37 @@
         
         .hidden { display: none; }
         .container { padding: 20px; padding-bottom: 100px; max-width: 600px; margin: 0 auto; }
+        body.role-admin .container { max-width: 1400px; }
+        @media (max-width: 768px) { body.role-admin .container { max-width: 100%; padding: 12px; } .kpi-grid { grid-template-columns: repeat(2, 1fr); } .admin-header { flex-direction: column; gap: 12px; align-items: flex-start; } .admin-filters { width: 100%; } }
+        @media (min-width: 769px) and (max-width: 1200px) { body.role-admin .container { max-width: 100%; padding: 16px; } .kpi-grid { grid-template-columns: repeat(3, 1fr); } }
         .section-title { font-size: 13px; font-weight: 800; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 16px; display: flex; align-items: center; gap: 10px; }
         .divider { height: 1px; background: var(--border); margin: 24px 0; }
         
-        .filter-tabs { display: flex; gap: 8px; margin-bottom: 20px; overflow-x: auto; padding-bottom: 4px; }
-        .filter-tab { padding: 12px 20px; border-radius: 12px; background: #fff; border: 2px solid var(--border); font-weight: 700; font-size: 13px; white-space: nowrap; cursor: pointer; transition: all .15s; color: var(--text); }
-        .filter-tab:hover { background: var(--bg3); }
+        .filter-tabs { display: flex; gap: 8px; margin-bottom: 20px; overflow-x: auto; padding-bottom: 4px; -webkit-overflow-scrolling: touch; }
+        .filter-tab { padding: 10px 20px; border-radius: 12px; background: var(--card); border: 2px solid var(--border); font-weight: 700; font-size: 13px; white-space: nowrap; cursor: pointer; transition: all .2s; color: var(--text); }
+        .filter-tab:hover { background: var(--bg3); border-color: var(--muted); }
         .filter-tab:active { transform: scale(.97); }
-        .filter-tab.active { background: var(--primary); border-color: var(--primary); color: #fff; }
+        .filter-tab.active { background: var(--primary); border-color: var(--primary); color: #fff; box-shadow: 0 2px 8px rgba(27,54,93,.2); }
 
         /* Header Styles */
-        .header-main { background: var(--card); border-bottom: 1px solid var(--border); padding: 16px 20px; display: flex; align-items: center; justify-content: space-between; box-shadow: var(--shadow); }
+        .header-main { background: linear-gradient(135deg, var(--primary), var(--primary-dark)); padding: 14px 20px; display: flex; align-items: center; justify-content: space-between; box-shadow: 0 2px 12px rgba(0,0,0,.15); }
+        .header-main .logo-area { display:flex;align-items:center;gap:14px; }
+        .header-main .logo-area img { height:38px;filter:brightness(0) invert(1); }
+        .header-main .app-title { font-weight:900;font-size:18px;color:#fff;letter-spacing:-.3px; }
+        .header-main .role-badge { display:inline-flex;align-items:center;gap:5px;padding:4px 12px;border-radius:8px;font-size:11px;font-weight:700;letter-spacing:.3px; }
+        .header-main .role-admin { background:rgba(255,255,255,.2);color:#fff;backdrop-filter:blur(8px); }
+        .header-main .role-tech { background:rgba(45,140,255,.3);color:#b8deff;backdrop-filter:blur(8px); }
+        .header-main .header-actions { display:flex;gap:8px;align-items:center; }
+        .header-main .header-actions .btn-header { width:42px;height:42px;border-radius:12px;border:none;background:rgba(255,255,255,.1);color:#fff;font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s;backdrop-filter:blur(8px); }
+        .header-main .header-actions .btn-header:hover { background:rgba(255,255,255,.2);transform:translateY(-1px); }
+        .header-main .header-actions .btn-header:active { transform:scale(.94); }
 
         /* Stats Dashboard */
-        .stats-dashboard { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-bottom: 20px; }
-        .stat-mini { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 16px; text-align: center; box-shadow: var(--shadow); }
-        .stat-mini .val { font-size: 24px; font-weight: 900; margin-bottom: 4px; }
-        .stat-mini .lbl { font-size: 13px; color: var(--muted); font-weight: 600; text-transform: uppercase; }
+        .stats-dashboard { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin-bottom: 20px; }
+        .stat-mini { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 18px; text-align: center; box-shadow: var(--shadow); position: relative; overflow: hidden; transition: all .2s; }
+        .stat-mini:hover { box-shadow: var(--shadow-lg); transform: translateY(-2px); }
+        .stat-mini .val { font-size: 26px; font-weight: 900; margin-bottom: 4px; }
+        .stat-mini .lbl { font-size: 11px; color: var(--muted); font-weight: 700; text-transform: uppercase; letter-spacing: .3px; }
 
         /* Priority indicator */
         .priority-high { position: relative; }
@@ -339,8 +354,6 @@
         /* Loading overlay */
         .loading-overlay { position: fixed; inset: 0; background: rgba(255,255,255,.9); z-index: 400; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 20px; opacity: 0; pointer-events: none; transition: opacity .3s; }
         .loading-overlay.active { opacity: 1; pointer-events: auto; }
-        [data-theme="dark"] .loading-overlay { background: rgba(15,23,42,.9); }
-
         /* Export button */
         .export-btn { background: linear-gradient(135deg, #10b981, #059669); color: #fff; }
 
@@ -352,10 +365,10 @@
         .swipe-action.sms { background: var(--green); }
 
         /* Empty state */
-        .empty-state { padding: 60px 24px; text-align: center; }
-        .empty-state .icon { font-size: 64px; margin-bottom: 20px; opacity: .3; }
-        .empty-state .title { font-weight: 700; font-size: 18px; margin-bottom: 8px; color: var(--text); }
-        .empty-state .desc { color: var(--muted); font-size: 14px; }
+        .empty-state { padding: 80px 24px; text-align: center; }
+        .empty-state .icon { font-size: 56px; margin-bottom: 16px; width: 100px; height: 100px; display: flex; align-items: center; justify-content: center; background: var(--bg3); border-radius: 50%; margin: 0 auto 20px; }
+        .empty-state .title { font-weight: 800; font-size: 18px; margin-bottom: 8px; color: var(--text); }
+        .empty-state .desc { color: var(--muted); font-size: 14px; line-height: 1.6; max-width: 320px; margin: 0 auto; }
 
         /* Notification dot */
         .notif-dot { width: 10px; height: 10px; background: var(--red); border-radius: 50%; position: absolute; top: 2px; right: 2px; animation: pulse 1.5s infinite; }
@@ -401,13 +414,6 @@
             background: rgba(255,255,255,.85);
             padding-bottom: calc(8px + env(safe-area-inset-bottom));
         }
-        [data-theme="dark"] .nav {
-            background: rgba(30,41,59,.85);
-        }
-        @media (prefers-color-scheme: dark) {
-            .nav { background: rgba(30,41,59,.85); }
-        }
-
         /* Slide animations for swipe navigation */
         @keyframes slideEnterLeft { from { transform: translateX(-100%); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
         @keyframes slideEnterRight { from { transform: translateX(100%); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
@@ -519,40 +525,196 @@
 
         /* A3 — Sort select */
         .sort-select { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 8px 14px; font-size: 13px; font-weight: 600; color: var(--text); cursor: pointer; appearance: none; -webkit-appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 10px center; padding-right: 30px; }
+
+        /* Admin Dashboard - Underline tabs (inspired by prototype) */
+        .admin-tab-bar { display: flex; gap: 0; border-bottom: 2px solid var(--border); margin-bottom: 20px; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+        .admin-tab { padding: 12px 18px; border: none; background: none; font-weight: 600; font-size: 13px; color: var(--muted); cursor: pointer; transition: all .2s; white-space: nowrap; border-bottom: 3px solid transparent; margin-bottom: -2px; }
+        .admin-tab:hover { color: var(--text); }
+        .admin-tab.active { color: var(--secondary); border-bottom-color: var(--secondary); font-weight: 700; }
+        .admin-tab-content.hidden { display: none; }
+
+        /* CRM Table - Professional scrollable table */
+        .crm-table-wrap { overflow-x: auto; border-radius: var(--radius); border: 1px solid var(--border); background: var(--card); box-shadow: var(--shadow); }
+        .admin-table { width: max-content; min-width: 100%; border-collapse: separate; border-spacing: 0; font-size: 13px; }
+        .admin-table th { position: sticky; top: 0; z-index: 2; text-align: left; padding: 12px 16px; font-weight: 600; color: var(--muted); font-size: 11px; text-transform: uppercase; letter-spacing: .5px; background: var(--card); border-bottom: 2px solid var(--border); white-space: nowrap; cursor: pointer; user-select: none; transition: color .15s; }
+        .admin-table th:hover { color: var(--primary); }
+        .admin-table th.sorted { color: var(--primary); }
+        .admin-table th .sort-arrow { display: inline-block; margin-left: 4px; font-size: 9px; opacity: .4; transition: opacity .15s; }
+        .admin-table th.sorted .sort-arrow { opacity: 1; }
+        .admin-table td { padding: 12px 16px; border-bottom: 1px solid rgba(0,0,0,.04); color: var(--text); white-space: nowrap; max-width: 220px; overflow: hidden; text-overflow: ellipsis; vertical-align: middle; transition: background .1s; }
+        .admin-table tr:hover td { background: #EEF2FF; }
+        .admin-table tr:nth-child(even) td { background: #FAFBFC; }
+        .admin-table tr:nth-child(even):hover td { background: #EEF2FF; }
+        .admin-table tr:hover td:first-child { box-shadow: inset 3px 0 0 var(--secondary); }
+        .admin-table .col-ticket { font-family: 'SF Mono', monospace; font-weight: 700; font-size: 12px; color: var(--muted); }
+        .admin-table .col-amount { font-family: 'SF Mono', monospace; font-weight: 600; text-align: right; }
+        .admin-table .col-bool { text-align: center; }
+        .admin-table .col-date { font-size: 12px; color: var(--muted); }
+        .admin-table .col-problem { max-width: 300px; }
+        .admin-table .month-row td { background: var(--bg); color: var(--primary); font-weight: 800; font-size: 12px; letter-spacing: .5px; padding: 10px 16px; border-bottom: 1px solid var(--border); text-transform: uppercase; }
+        .admin-table .col-site { max-width: 180px; }
+        .admin-table .col-site .site-name { font-weight: 600; color: var(--text); }
+        .admin-table .col-site .site-client { font-size: 11px; color: var(--muted); }
+        .admin-table .tech-select { font-size: 12px; padding: 4px 8px; border-radius: 6px; border: 1px solid var(--border); background: #fff; cursor: pointer; min-height: auto; width: auto; }
+        .admin-table .tech-select:focus { border-color: var(--secondary); outline: none; }
+        .admin-table .checkbox-cell { width: 18px; height: 18px; accent-color: var(--green); cursor: pointer; }
+
+        /* Sidebar detail panel (desktop) */
+        .detail-sidebar { position: fixed; top: 0; right: 0; bottom: 0; width: 480px; max-width: 100vw; background: #fff; z-index: 250; box-shadow: -12px 0 50px rgba(0,0,0,.15); transform: translateX(100%); transition: transform .35s cubic-bezier(.32,.72,.37,1.12); overflow-y: auto; }
+        .detail-sidebar.open { transform: translateX(0); }
+        .detail-sidebar-overlay { position: fixed; inset: 0; background: rgba(0,0,0,.25); backdrop-filter: blur(2px); -webkit-backdrop-filter: blur(2px); z-index: 249; opacity: 0; pointer-events: none; transition: opacity .3s; }
+        .detail-sidebar-overlay.active { opacity: 1; pointer-events: auto; }
+        .detail-section { background: var(--bg); border-radius: 10px; padding: 16px; margin-bottom: 12px; }
+        .detail-section-title { font-size: 11px; text-transform: uppercase; letter-spacing: .5px; color: var(--muted); font-weight: 700; margin-bottom: 8px; }
+        .detail-field { display: flex; justify-content: space-between; padding: 6px 0; border-bottom: 1px solid var(--border); font-size: 13px; }
+        .detail-field:last-child { border-bottom: none; }
+        .detail-field .label { color: var(--muted); font-weight: 600; }
+        .detail-field .value { font-weight: 600; color: var(--text); text-align: right; max-width: 60%; overflow: hidden; text-overflow: ellipsis; }
+
+        /* KPI Grid - Premium cards */
+        .kpi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 14px; margin-bottom: 24px; }
+        .kpi-card { padding: 20px; background: var(--card); border-radius: var(--radius); box-shadow: var(--shadow); border: 1px solid var(--border); position: relative; overflow: hidden; transition: all .2s; }
+        .kpi-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-2px); }
+        .kpi-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--kpi-color, var(--primary)); }
+        .kpi-card::after { content: ''; position: absolute; top: 0; right: 0; width: 80px; height: 80px; background: var(--kpi-color, var(--primary)); opacity: .04; border-radius: 0 0 0 80px; pointer-events: none; }
+        .kpi-val { font-size: 28px; font-weight: 900; line-height: 1.2; transition: all .4s ease-out; }
+        .kpi-lbl { font-size: 11px; font-weight: 700; color: var(--muted); margin-top: 6px; text-transform: uppercase; letter-spacing: .5px; }
+        .kpi-icon { width: 36px; height: 36px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 16px; margin-bottom: 10px; background: color-mix(in srgb, var(--kpi-color, var(--primary)) 10%, transparent); }
+
+        /* Admin dashboard header */
+        .admin-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; }
+        .admin-header h2 { font-weight: 900; font-size: 22px; color: var(--primary); display: flex; align-items: center; gap: 10px; }
+        .admin-filters { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+        .admin-filters input, .admin-filters select { padding: 9px 14px; border-radius: 10px; border: 1px solid var(--border); font-size: 13px; background: var(--card); color: var(--text); min-height: auto; font-weight: 600; }
+        .admin-filters input:focus, .admin-filters select:focus { border-color: var(--primary); box-shadow: 0 0 0 3px rgba(27,54,93,.1); }
+
+        /* Login history */
+        .login-history { max-height: 300px; overflow-y: auto; }
+        .login-entry { display: flex; align-items: center; gap: 12px; padding: 10px 14px; border-bottom: 1px solid var(--border); font-size: 12px; }
+        .login-entry:last-child { border-bottom: none; }
+        .login-entry .login-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+        .login-entry .login-dot.admin { background: var(--purple); }
+        .login-entry .login-dot.tech { background: var(--secondary); }
+        .login-entry .login-time { font-weight: 700; color: var(--text); min-width: 130px; }
+        .login-entry .login-role { font-weight: 600; color: var(--muted); }
+        .login-entry .login-device { font-size: 11px; color: var(--muted); flex: 1; text-align: right; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+        .channel-toggle { display: flex; gap: 8px; }
+        .channel-opt { flex: 1; padding: 10px; border: 2px solid var(--border); border-radius: 10px; text-align: center; cursor: pointer; font-weight: 700; font-size: 13px; transition: all .15s; }
+        .channel-opt.active { border-color: var(--primary); background: var(--primary-light); color: var(--primary-dark); }
+        /* Voice Call Overlay */
+        .call-overlay { position: fixed; bottom: 80px; right: 20px; width: 320px; background: var(--card); border: 1px solid var(--border); border-radius: 20px; box-shadow: 0 16px 60px rgba(0,0,0,.2); z-index: 150; overflow: hidden; transform: translateY(120%); opacity: 0; transition: all .35s cubic-bezier(.4,0,.2,1); }
+        .call-overlay.active { transform: translateY(0); opacity: 1; }
+        .call-overlay-header { background: linear-gradient(135deg, var(--green), #16a34a); padding: 20px; text-align: center; color: #fff; }
+        .call-overlay-header.connecting { background: linear-gradient(135deg, var(--amber, #d97706), #b45309); }
+        .call-overlay-header.ended { background: linear-gradient(135deg, var(--muted), #4b5563); }
+        .call-name { font-size: 18px; font-weight: 900; margin-bottom: 4px; }
+        .call-number { font-size: 13px; opacity: .8; }
+        .call-timer { font-size: 28px; font-weight: 900; font-family: 'SF Mono', monospace; letter-spacing: 2px; margin-top: 8px; }
+        .call-status { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-top: 4px; }
+        .call-controls { display: flex; justify-content: center; gap: 16px; padding: 20px; }
+        .call-btn { width: 56px; height: 56px; border-radius: 50%; border: none; cursor: pointer; font-size: 24px; display: flex; align-items: center; justify-content: center; transition: all .15s; box-shadow: 0 4px 12px rgba(0,0,0,.15); }
+        .call-btn:active { transform: scale(.9); }
+        .call-btn-mute { background: var(--bg3, #e5e7eb); color: var(--text); }
+        .call-btn-mute.active { background: var(--amber, #d97706); color: #fff; }
+        .call-btn-hangup { background: var(--red); color: #fff; }
+        /* Conversation thread */
+        .conv-thread { max-height: 400px; overflow-y: auto; padding: 16px; display: flex; flex-direction: column; gap: 8px; }
+        .conv-bubble { max-width: 80%; padding: 12px 16px; border-radius: 16px; font-size: 14px; line-height: 1.4; word-break: break-word; }
+        .conv-bubble.incoming { align-self: flex-start; background: var(--bg3, #f3f4f6); color: var(--text); border-bottom-left-radius: 4px; }
+        .conv-bubble.outgoing { align-self: flex-end; background: linear-gradient(135deg, var(--secondary, #1B365D), var(--primary-dark)); color: #fff; border-bottom-right-radius: 4px; }
+        .conv-bubble .conv-time { font-size: 11px; opacity: .6; margin-top: 4px; display: block; }
+        .conv-list-item { display: flex; align-items: center; gap: 12px; padding: 14px 16px; border-bottom: 1px solid var(--border); cursor: pointer; transition: background .15s; }
+        .conv-list-item:hover { background: var(--bg3, #f3f4f6); }
+        .conv-list-item .conv-avatar { width: 44px; height: 44px; border-radius: 50%; background: var(--primary); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 18px; flex-shrink: 0; }
+        .conv-unread-badge { background: var(--red); color: #fff; padding: 2px 8px; border-radius: 10px; font-size: 11px; font-weight: 800; flex-shrink: 0; }
+        .comms-subtab-content { display: none; }
+        .comms-subtab-content.active-subtab { display: block; }
+        @media (max-width: 640px) { .call-overlay { width: calc(100% - 32px); left: 16px; right: 16px; bottom: 90px; } }
+
+        /* Tech-specific: hide admin nav items */
+        body.role-tech .nav-admin-only { display: none; }
+        body.role-tech .admin-only { display: none; }
+
+        /* Tech status action buttons */
+        .tech-action-bar { display:flex;gap:10px;margin-bottom:16px; }
+        .tech-action-btn { flex:1;padding:14px 12px;border-radius:14px;border:none;font-weight:800;font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;transition:all .15s;color:#fff; }
+        .tech-action-btn:active { transform:scale(.96); }
+        .tech-action-btn.route { background:linear-gradient(135deg,var(--secondary),#1a6fd4); }
+        .tech-action-btn.arrive { background:linear-gradient(135deg,var(--green),#16a34a); }
+        .tech-action-btn.report { background:linear-gradient(135deg,var(--purple),#6d28d9); }
+        .tech-action-btn.done-btn { background:var(--bg3);color:var(--muted);cursor:default; }
+
+        /* Intervention status in card */
+        .intv-status { margin-top:8px;display:flex;align-items:center;gap:8px; }
     </style>
 </head>
 <body>
 <div id="toasts"></div>
-<div class="offline-bar" id="offline-bar">Mode hors ligne - Les modifications seront synchronisées</div>
-<div class="pull-indicator" id="pull-indicator">↓ Relâchez pour actualiser</div>
-<div class="loading-overlay" id="loading-overlay">
-    <div class="spinner" style="width:48px;height:48px;border-width:4px"></div>
-    <p style="font-weight:700;color:var(--text)">Chargement...</p>
+
+<!-- LOGIN SCREEN -->
+<div id="login-screen">
+    <div class="login-card">
+        <div style="width:72px;height:72px;background:linear-gradient(135deg,var(--primary),var(--primary-dark));border-radius:20px;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;box-shadow:0 8px 30px rgba(27,54,93,.3)">
+            <span style="font-size:32px;font-weight:900;color:#fff">J</span>
+        </div>
+        <h1>JCSM Interne</h1>
+        <p>Espace de gestion des interventions IRVE</p>
+        <form id="login-form" onsubmit="return handleLogin(event)">
+            <div style="position:relative">
+                <svg style="position:absolute;left:16px;top:50%;transform:translateY(-50%);width:18px;height:18px;color:var(--muted);pointer-events:none" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+                <input type="password" id="login-password" class="login-input" style="padding-left:46px" placeholder="Mot de passe" autocomplete="current-password" autofocus required>
+            </div>
+            <button type="submit" class="login-btn" id="login-btn">
+                <span id="login-btn-text">Se connecter</span>
+                <span id="login-btn-spinner" style="display:none"><span class="spinner" style="width:18px;height:18px;border-width:2px;border-color:rgba(255,255,255,.3);border-top-color:#fff"></span></span>
+            </button>
+            <div class="login-error" id="login-error"></div>
+        </form>
+        <p style="font-size:11px;color:var(--border);margin-top:24px">v2.30.0</p>
+    </div>
 </div>
 
-<!-- APP -->
+<!-- APP (hidden until auth) -->
+<div id="app-wrapper" style="display:none">
+<div class="offline-bar" id="offline-bar">Mode hors ligne - Les modifications seront synchronisees</div>
+<div class="pull-indicator" id="pull-indicator">Relachez pour actualiser</div>
+<div class="loading-overlay" id="loading-overlay">
+    <div style="width:56px;height:56px;background:linear-gradient(135deg,var(--primary),var(--secondary));border-radius:16px;display:flex;align-items:center;justify-content:center;margin-bottom:16px;box-shadow:0 8px 24px rgba(27,54,93,.2)">
+        <span style="font-size:24px;font-weight:900;color:#fff">J</span>
+    </div>
+    <div class="spinner" style="width:32px;height:32px;border-width:3px;margin-bottom:12px"></div>
+    <p style="font-weight:700;color:var(--text);font-size:14px">Chargement des donnees...</p>
+    <p style="font-size:12px;color:var(--muted);margin-top:4px">Synchronisation en cours</p>
+</div>
+
 <div id="app">
-    <!-- Header Tech -->
+    <!-- Header -->
     <header id="header-tech" style="position:sticky;top:0;z-index:100">
         <div class="contact-bar">
-            <span style="font-size:13px;opacity:.9">📞 Powerdot</span>
-            <a href="tel:0756962758">07 56 96 27 58</a>
+            <span style="font-size:12px;opacity:.8">📞 Support Powerdot</span>
+            <a href="tel:+33756962758">+33 7 56 96 27 58</a>
         </div>
         <div class="header-main">
-            <div style="display:flex;align-items:center;gap:14px">
-                <img src="https://jcsm.fr/images/logo.png" alt="JCSM" style="height:40px">
+            <div class="logo-area">
+                <div style="width:40px;height:40px;background:#fff;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0">
+                    <span style="font-size:18px;font-weight:900;color:var(--primary)">J</span>
+                </div>
                 <div>
-                    <div style="font-weight:900;font-size:18px;color:var(--text)">Interventions</div>
-                    <div class="sync-pill" id="sync-pill">
-                        <span class="sync-dot online" id="sync-dot"></span>
-                        <span id="sync-text">Synchronisé</span>
+                    <div class="app-title">JCSM <span style="font-weight:500;opacity:.7">Interne</span></div>
+                    <div style="display:flex;align-items:center;gap:8px;margin-top:2px">
+                        <span class="role-badge" id="header-role-badge">-</span>
+                        <div class="sync-pill" id="sync-pill" style="padding:2px 8px;font-size:11px;background:rgba(255,255,255,.1);color:rgba(255,255,255,.7)">
+                            <span class="sync-dot online" id="sync-dot"></span>
+                            <span id="sync-text">Sync</span>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div style="display:flex;gap:8px;align-items:center">
+            <div class="header-actions">
+                <span style="font-size:13px;color:rgba(255,255,255,.7);font-weight:500;margin-right:4px" id="header-greeting"></span>
                 <span class="timer-badge hidden" id="header-timer-badge" onclick="scrollToTimer()" title="Timer en cours"><span class="timer-badge-dot"></span><span id="header-timer-value">00:00</span></span>
-                <button class="theme-toggle" id="theme-toggle" onclick="toggleTheme()" title="Thème">🌙</button>
-                <button id="btn-refresh" class="btn btn-ghost btn-icon" title="Actualiser">🔄</button>
+                <button id="btn-refresh" class="btn-header" title="Actualiser">🔄</button>
+                <button onclick="doLogout()" class="btn-header" title="Deconnexion">🚪</button>
             </div>
         </div>
     </header>
@@ -560,19 +722,19 @@
     <!-- Stats Tech -->
     <div id="stats-tech" style="background:var(--card);padding:16px 20px;border-bottom:1px solid var(--border);overflow-x:auto;box-shadow:var(--shadow)" role="toolbar" aria-label="Filtres interventions">
         <div style="display:flex;gap:12px;min-width:max-content">
-            <div onclick="setFilter('late')" role="button" tabindex="0" aria-label="Filtrer les interventions en retard" style="background:var(--red-light);padding:16px 24px;border-radius:14px;min-width:90px;text-align:center;cursor:pointer;border:2px solid transparent;transition:all .15s" class="stat-card" data-f="late">
+            <div onclick="setFilter('late')" role="button" tabindex="0" aria-pressed="false" aria-label="Filtrer les interventions en retard" style="background:var(--red-light);padding:16px 24px;border-radius:14px;min-width:90px;text-align:center;cursor:pointer;border:2px solid transparent;transition:all .15s" class="stat-card" data-f="late">
                 <p id="s-late" style="font-size:32px;font-weight:900;color:var(--red)" aria-live="polite">-</p>
                 <p style="font-size:13px;color:var(--red);font-weight:600">🔥 Retard</p>
             </div>
-            <div onclick="setFilter('today')" role="button" tabindex="0" aria-label="Filtrer les interventions du jour" style="background:var(--amber-light);padding:16px 24px;border-radius:14px;min-width:90px;text-align:center;cursor:pointer;border:2px solid transparent;transition:all .15s" class="stat-card" data-f="today">
+            <div onclick="setFilter('today')" role="button" tabindex="0" aria-pressed="false" aria-label="Filtrer les interventions du jour" style="background:var(--amber-light);padding:16px 24px;border-radius:14px;min-width:90px;text-align:center;cursor:pointer;border:2px solid transparent;transition:all .15s" class="stat-card" data-f="today">
                 <p id="s-today" style="font-size:32px;font-weight:900;color:#b45309" aria-live="polite">-</p>
                 <p style="font-size:13px;color:#b45309;font-weight:600">📅 Aujourd'hui</p>
             </div>
-            <div onclick="setFilter('pending')" role="button" tabindex="0" aria-label="Filtrer les interventions à faire" style="background:var(--primary-light);padding:16px 24px;border-radius:14px;min-width:90px;text-align:center;cursor:pointer;border:2px solid transparent;transition:all .15s" class="stat-card" data-f="pending">
+            <div onclick="setFilter('pending')" role="button" tabindex="0" aria-pressed="true" aria-label="Filtrer les interventions à faire" style="background:var(--primary-light);padding:16px 24px;border-radius:14px;min-width:90px;text-align:center;cursor:pointer;border:2px solid transparent;transition:all .15s" class="stat-card" data-f="pending">
                 <p id="s-pending" style="font-size:32px;font-weight:900;color:var(--primary)" aria-live="polite">-</p>
                 <p style="font-size:13px;color:var(--primary-dark);font-weight:600">⏳ À faire</p>
             </div>
-            <div onclick="setFilter('all')" role="button" tabindex="0" aria-label="Voir toutes les interventions" style="background:var(--green-light);padding:16px 24px;border-radius:14px;min-width:90px;text-align:center;cursor:pointer;border:2px solid transparent;transition:all .15s" class="stat-card" data-f="all">
+            <div onclick="setFilter('all')" role="button" tabindex="0" aria-pressed="false" aria-label="Voir toutes les interventions" style="background:var(--green-light);padding:16px 24px;border-radius:14px;min-width:90px;text-align:center;cursor:pointer;border:2px solid transparent;transition:all .15s" class="stat-card" data-f="all">
                 <p id="s-done" style="font-size:32px;font-weight:900;color:var(--green)" aria-live="polite">-</p>
                 <p style="font-size:13px;color:#15803d;font-weight:600">✅ Terminées</p>
             </div>
@@ -589,17 +751,17 @@
             <button class="btn btn-ghost btn-icon" onclick="toggleSearchFilters()" id="filter-btn" title="Filtres">⚙️</button>
         </div>
         <div id="search-filters" class="search-filters hidden" role="toolbar" aria-label="Filtres marques">
-            <span class="search-filter active" role="button" tabindex="0" data-brand="">Toutes marques</span>
-            <span class="search-filter" role="button" tabindex="0" data-brand="Alfen">Alfen</span>
-            <span class="search-filter" role="button" tabindex="0" data-brand="Delta">Delta</span>
-            <span class="search-filter" role="button" tabindex="0" data-brand="Kempower">Kempower</span>
-            <span class="search-filter" role="button" tabindex="0" data-brand="Starcharge">Starcharge</span>
-            <span class="search-filter" role="button" tabindex="0" data-brand="Ekoenergetyka">Ekoenergetyka</span>
+            <span class="search-filter active" role="button" tabindex="0" aria-pressed="true" data-brand="">Toutes marques</span>
+            <span class="search-filter" role="button" tabindex="0" aria-pressed="false" data-brand="Alfen">Alfen</span>
+            <span class="search-filter" role="button" tabindex="0" aria-pressed="false" data-brand="Delta">Delta</span>
+            <span class="search-filter" role="button" tabindex="0" aria-pressed="false" data-brand="Kempower">Kempower</span>
+            <span class="search-filter" role="button" tabindex="0" aria-pressed="false" data-brand="Starcharge">Starcharge</span>
+            <span class="search-filter" role="button" tabindex="0" aria-pressed="false" data-brand="Ekoenergetyka">Ekoenergetyka</span>
         </div>
         <div id="list-stats" style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;font-size:13px;color:var(--muted)">
             <span id="result-count">0 intervention(s)</span>
             <div style="display:flex;gap:8px;align-items:center">
-                <select class="sort-select" id="sort-select" onchange="S.sortMode=this.value;renderList()">
+                <select class="sort-select" id="sort-select" aria-label="Trier les interventions" onchange="S.sortMode=this.value;renderList()">
                     <option value="priority">Priorité</option>
                     <option value="date">Date</option>
                     <option value="ticket">Ticket</option>
@@ -621,6 +783,12 @@
             <span id="d-header-distance" class="distance-badge hidden">-</span>
         </div>
 
+        <!-- Status + Tech Actions -->
+        <div id="d-status-bar" style="display:flex;align-items:center;gap:10px;margin-bottom:16px">
+            <span id="d-status-badge"></span>
+            <div id="d-tech-actions" style="display:flex;gap:8px;flex:1;justify-content:flex-end"></div>
+        </div>
+
         <div class="timer" id="timer-card">
             <div class="timer-display" id="timer-display">00:00:00</div>
             <p style="font-size:13px;opacity:.9;margin-top:8px;color:#fff">Temps d'intervention</p>
@@ -636,7 +804,7 @@
             <div class="quick-action" role="button" tabindex="0" aria-label="Ouvrir la checklist" onclick="showChecklist()"><span>✅</span><p>Checklist</p></div>
             <div class="quick-action" role="button" tabindex="0" aria-label="Gérer les photos" onclick="showPhotos()"><span>📷</span><p>Photos</p></div>
         </div>
-        <div class="quick-actions" style="grid-template-columns: repeat(2, 1fr);margin-bottom:20px">
+        <div class="quick-actions admin-only" style="grid-template-columns: repeat(2, 1fr);margin-bottom:20px">
             <div class="quick-action" role="button" tabindex="0" aria-label="Assigner un technicien" onclick="openAssignModal()"><span>👷</span><p>Assigner tech</p></div>
             <div class="quick-action" role="button" tabindex="0" aria-label="Envoyer un SMS" onclick="openSMSModal()"><span>📱</span><p>Envoyer SMS</p></div>
         </div>
@@ -867,15 +1035,333 @@
 
         <div class="section-title" style="margin-top:24px">📍 Par département</div>
         <div id="stats-by-dept" class="card" style="padding:16px"></div>
+
+        <!-- Admin Dashboard (hidden for non-admins) -->
+        <div id="admin-dashboard" class="hidden" style="margin-top:32px">
+            <div class="admin-header">
+                <h2><span style="width:32px;height:32px;background:var(--primary-light);border-radius:8px;display:inline-flex;align-items:center;justify-content:center;font-size:16px">⚡</span> Dashboard</h2>
+                <div class="admin-filters">
+                    <input type="month" id="admin-month-filter">
+                    <select id="admin-filter-tech">
+                        <option value="">Tous techniciens</option>
+                    </select>
+                    <select id="admin-filter-status">
+                        <option value="">Tous statuts</option>
+                        <option value="pending">En cours</option>
+                        <option value="done">Terminees</option>
+                        <option value="late">En retard</option>
+                    </select>
+                    <button class="btn btn-ghost btn-sm" onclick="exportFullCRM()" style="min-height:38px;padding:8px 14px;font-size:12px">📥 Export CSV</button>
+                </div>
+            </div>
+
+            <!-- 5 KPI Cards -->
+            <div class="kpi-grid">
+                <div class="kpi-card" style="--kpi-color:var(--primary)">
+                    <div class="kpi-icon" style="color:var(--primary)">📋</div>
+                    <div class="kpi-val" style="color:var(--primary)" id="kpi-total">-</div>
+                    <div class="kpi-lbl">Total interventions</div>
+                </div>
+                <div class="kpi-card" style="--kpi-color:var(--red)">
+                    <div class="kpi-icon" style="color:var(--red)">⏳</div>
+                    <div class="kpi-val" style="color:var(--red)" id="kpi-planifier">-</div>
+                    <div class="kpi-lbl">A planifier</div>
+                </div>
+                <div class="kpi-card" style="--kpi-color:var(--green)">
+                    <div class="kpi-icon" style="color:var(--green)">💰</div>
+                    <div class="kpi-val" style="color:var(--green)" id="kpi-ca">-</div>
+                    <div class="kpi-lbl">CA HT</div>
+                </div>
+                <div class="kpi-card" style="--kpi-color:var(--purple)">
+                    <div class="kpi-icon" style="color:var(--purple)">📊</div>
+                    <div class="kpi-val" style="color:var(--purple)" id="kpi-marge">-</div>
+                    <div class="kpi-lbl">Marge nette</div>
+                </div>
+                <div class="kpi-card" style="--kpi-color:var(--emerald)">
+                    <div class="kpi-icon" style="color:var(--emerald)">✅</div>
+                    <div class="kpi-val" style="color:var(--emerald)" id="kpi-reussite">-</div>
+                    <div class="kpi-lbl">Taux reussite</div>
+                </div>
+            </div>
+
+            <!-- Last sync info -->
+            <div id="admin-sync-info" style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;padding:10px 16px;background:var(--bg);border-radius:10px;font-size:12px;color:var(--muted)">
+                <span>Derniere MAJ : <strong id="admin-last-sync" style="color:var(--text)">-</strong></span>
+                <span id="admin-data-count" style="font-weight:700">-</span>
+            </div>
+
+            <!-- Tab buttons -->
+            <div class="admin-tab-bar">
+                <button class="admin-tab active" data-tab="admin-intv" onclick="switchAdminTab(this)">Interventions</button>
+                <button class="admin-tab" data-tab="admin-techs" onclick="switchAdminTab(this)">Techniciens</button>
+                <button class="admin-tab" data-tab="admin-payments" onclick="switchAdminTab(this)">Paiements</button>
+                <button class="admin-tab" data-tab="admin-reports" onclick="switchAdminTab(this)">Rapports</button>
+                <button class="admin-tab" data-tab="admin-charts" onclick="switchAdminTab(this)">Graphiques</button>
+                <button class="admin-tab" data-tab="admin-comms" onclick="switchAdminTab(this)">Communications</button>
+                <button class="admin-tab" data-tab="admin-history" onclick="switchAdminTab(this)">Connexions</button>
+            </div>
+
+            <!-- Tab: CRM Full Table -->
+            <div id="admin-intv" class="admin-tab-content">
+                <div style="display:flex;gap:10px;margin-bottom:12px;align-items:center">
+                    <div style="flex:1;position:relative">
+                        <svg style="position:absolute;left:12px;top:50%;transform:translateY(-50%);width:16px;height:16px;color:var(--muted);pointer-events:none" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+                        <input type="search" id="crm-search" placeholder="Rechercher ticket, site, adresse..." style="width:100%;padding:9px 14px 9px 36px;border-radius:10px;border:1px solid var(--border);font-size:13px;min-height:auto">
+                    </div>
+                    <span id="crm-count" style="font-size:12px;font-weight:700;color:var(--muted);white-space:nowrap">0 lignes</span>
+                </div>
+                <div class="crm-table-wrap">
+                    <table class="admin-table" id="admin-intv-table">
+                        <thead>
+                            <tr>
+                                <th data-sort="numIntervention">N° Intv <span class="sort-arrow">▼</span></th>
+                                <th data-sort="ticket">Ticket <span class="sort-arrow">▼</span></th>
+                                <th data-sort="dept">Dept <span class="sort-arrow">▼</span></th>
+                                <th data-sort="emplacement">Emplacement <span class="sort-arrow">▼</span></th>
+                                <th data-sort="site">Nom du site <span class="sort-arrow">▼</span></th>
+                                <th data-sort="address">Adresse <span class="sort-arrow">▼</span></th>
+                                <th data-sort="brand">Marque <span class="sort-arrow">▼</span></th>
+                                <th data-sort="serialNumber">S/N <span class="sort-arrow">▼</span></th>
+                                <th data-sort="problem">Probleme <span class="sort-arrow">▼</span></th>
+                                <th data-sort="sla">SLA <span class="sort-arrow">▼</span></th>
+                                <th data-sort="client">Demandeur <span class="sort-arrow">▼</span></th>
+                                <th data-sort="requester">Requester <span class="sort-arrow">▼</span></th>
+                                <th data-sort="supplier">Supplier <span class="sort-arrow">▼</span></th>
+                                <th data-sort="dateDemande">Demande <span class="sort-arrow">▼</span></th>
+                                <th data-sort="dateProposee">Proposee <span class="sort-arrow">▼</span></th>
+                                <th data-sort="dateIntervention">Intervention <span class="sort-arrow">▼</span></th>
+                                <th>Statut</th>
+                                <th>Fait</th><th>Reussi</th><th>Rapport</th>
+                                <th data-sort="deplacement">Depl. <span class="sort-arrow">▼</span></th>
+                                <th data-sort="tauxHoraire">T.H. <span class="sort-arrow">▼</span></th>
+                                <th data-sort="factureHT">Fact. HT <span class="sort-arrow">▼</span></th>
+                                <th data-sort="remiseDeplacement">Remise <span class="sort-arrow">▼</span></th>
+                                <th data-sort="totalHT">Total HT <span class="sort-arrow">▼</span></th>
+                            </tr>
+                        </thead>
+                        <tbody id="admin-intv-tbody"></tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Tab: Login History -->
+            <div id="admin-history" class="admin-tab-content hidden">
+                <div class="card" style="padding:0;overflow:hidden">
+                    <div style="padding:16px 20px;background:var(--bg);border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center">
+                        <span style="font-weight:800;font-size:14px;color:var(--text)">Historique des connexions</span>
+                        <button class="btn btn-ghost btn-sm" onclick="clearLoginHistory()" style="min-height:32px;padding:6px 12px;font-size:11px">Vider</button>
+                    </div>
+                    <div id="login-history-list" class="login-history"></div>
+                </div>
+            </div>
+
+            <!-- Tab: Technicians -->
+            <div id="admin-techs" class="admin-tab-content hidden">
+                <div id="admin-techs-list"></div>
+            </div>
+
+            <!-- Tab: Paiements -->
+            <div id="admin-payments" class="admin-tab-content hidden">
+                <div style="display:flex;gap:12px;margin-bottom:16px;flex-wrap:wrap;align-items:center">
+                    <select id="pay-tech-filter" style="padding:8px 14px;border-radius:10px;border:1px solid var(--border);font-size:13px;background:var(--card);color:var(--text)">
+                        <option value="">Tous techniciens</option>
+                    </select>
+                    <select id="pay-status-filter" style="padding:8px 14px;border-radius:10px;border:1px solid var(--border);font-size:13px;background:var(--card);color:var(--text)">
+                        <option value="">Tous statuts</option>
+                        <option value="pending">A payer</option>
+                        <option value="paid">Paye</option>
+                    </select>
+                    <button class="btn btn-primary btn-sm" onclick="markSelectedPaid()" id="pay-bulk-btn" style="display:none">Marquer paye</button>
+                    <button class="btn btn-ghost btn-sm" onclick="exportPayments()">📥 Export CSV</button>
+                </div>
+                <!-- Payment summary cards -->
+                <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin-bottom:20px" id="pay-summary"></div>
+                <!-- Payment table -->
+                <div class="card" style="overflow-x:auto;padding:0">
+                    <table class="admin-table" id="pay-table">
+                        <thead>
+                            <tr>
+                                <th><input type="checkbox" id="pay-check-all" onchange="toggleAllPayChecks(this)"></th>
+                                <th>Technicien</th>
+                                <th>Intervention</th>
+                                <th>SLA</th>
+                                <th>Montant</th>
+                                <th>Statut</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="pay-tbody"></tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Tab: Rapports -->
+            <div id="admin-reports" class="admin-tab-content hidden">
+                <div style="display:flex;gap:12px;margin-bottom:16px;flex-wrap:wrap;align-items:center">
+                    <input type="search" id="report-search" placeholder="Rechercher un rapport..." style="flex:1;min-width:200px;padding:8px 14px;border-radius:10px;border:1px solid var(--border);font-size:13px">
+                    <select id="report-month-filter" style="padding:8px 14px;border-radius:10px;border:1px solid var(--border);font-size:13px;background:var(--card);color:var(--text)">
+                        <option value="">Tous les mois</option>
+                    </select>
+                </div>
+                <div id="reports-list" style="display:flex;flex-direction:column;gap:12px"></div>
+                <div id="reports-empty" class="hidden" style="text-align:center;padding:40px;color:var(--muted)">
+                    <div style="font-size:48px;margin-bottom:12px">📄</div>
+                    <p style="font-weight:700">Aucun rapport trouve</p>
+                </div>
+            </div>
+
+            <!-- Tab: Charts -->
+            <div id="admin-charts" class="admin-tab-content hidden">
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+                    <div class="card" style="padding:16px"><canvas id="chart-monthly-trend" height="220"></canvas></div>
+                    <div class="card" style="padding:16px"><canvas id="chart-tech-prod" height="220"></canvas></div>
+                </div>
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px">
+                    <div class="card" style="padding:16px"><canvas id="chart-success-rate" height="180"></canvas></div>
+                    <div class="card" style="padding:16px"><canvas id="chart-revenue" height="180"></canvas></div>
+                </div>
+            </div>
+
+            <!-- Tab: Communications -->
+            <div id="admin-comms" class="admin-tab-content hidden">
+                <!-- Sub-tabs -->
+                <div class="admin-tab-bar" id="comms-subtab-bar" style="margin-bottom:20px">
+                    <button class="admin-tab active" data-subtab="comms-directory" onclick="switchCommsSubTab(this)">Annuaire</button>
+                    <button class="admin-tab" data-subtab="comms-conversations" onclick="switchCommsSubTab(this)">Conversations <span id="comms-unread-total" class="conv-unread-badge" style="display:none;margin-left:4px">0</span></button>
+                    <button class="admin-tab" data-subtab="comms-call-history" onclick="switchCommsSubTab(this)">Appels</button>
+                    <button class="admin-tab" data-subtab="comms-send" onclick="switchCommsSubTab(this)">Envoi rapide</button>
+                </div>
+
+                <!-- Sub: Annuaire -->
+                <div id="comms-directory" class="comms-subtab-content active-subtab">
+                    <div id="comms-annuaire" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px"></div>
+                </div>
+
+                <!-- Sub: Conversations (bidirectional SMS) -->
+                <div id="comms-conversations" class="comms-subtab-content">
+                    <div style="display:flex;gap:16px;height:500px">
+                        <div style="width:280px;border:1px solid var(--border);border-radius:var(--radius, 12px);overflow:hidden;display:flex;flex-direction:column;flex-shrink:0">
+                            <div style="padding:12px;border-bottom:1px solid var(--border);background:var(--bg3, #f3f4f6)">
+                                <input type="text" id="conv-search" placeholder="Rechercher..." style="width:100%;padding:10px 14px;font-size:13px;border-radius:10px;border:1px solid var(--border);background:var(--card)" oninput="renderConversationList()">
+                            </div>
+                            <div id="conv-list" style="flex:1;overflow-y:auto"></div>
+                        </div>
+                        <div style="flex:1;border:1px solid var(--border);border-radius:var(--radius, 12px);overflow:hidden;display:flex;flex-direction:column">
+                            <div id="conv-header" style="padding:14px 16px;border-bottom:1px solid var(--border);background:var(--bg3, #f3f4f6);display:flex;align-items:center;gap:12px">
+                                <span id="conv-header-name" style="font-weight:800;font-size:15px;color:var(--text)">Selectionnez une conversation</span>
+                                <span id="conv-header-phone" style="font-size:12px;color:var(--muted);margin-left:auto"></span>
+                                <button id="conv-call-btn" style="display:none;width:38px;height:38px;border-radius:10px;border:1px solid var(--border);background:var(--card);cursor:pointer;font-size:16px" onclick="voiceCallFromConv()" title="Appeler">📞</button>
+                            </div>
+                            <div id="conv-thread" class="conv-thread" style="flex:1">
+                                <div style="text-align:center;color:var(--muted);padding:40px;font-size:13px">Selectionnez une conversation dans la liste</div>
+                            </div>
+                            <div id="conv-compose" style="display:none;gap:8px;padding:12px 16px;border-top:1px solid var(--border);background:var(--card)">
+                                <input type="text" id="conv-input" placeholder="Tapez votre message..." onkeydown="if(event.key==='Enter')convSendReply()" style="flex:1;border-radius:24px;padding:12px 16px;font-size:14px;border:1px solid var(--border)">
+                                <button onclick="convSendReply()" style="width:44px;height:44px;border-radius:50%;border:none;background:var(--primary);color:#fff;font-size:18px;cursor:pointer;flex-shrink:0">➤</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sub: Call History -->
+                <div id="comms-call-history" class="comms-subtab-content">
+                    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px">
+                        <h4 style="font-weight:800;font-size:16px;color:var(--text)">Historique des appels</h4>
+                        <button class="btn btn-ghost" onclick="loadCallLogs()">Rafraichir</button>
+                    </div>
+                    <div id="call-logs-list">
+                        <div style="text-align:center;color:var(--muted);padding:40px;font-size:13px">Chargement...</div>
+                    </div>
+                </div>
+
+                <!-- Sub: Envoi rapide (existing) -->
+                <div id="comms-send" class="comms-subtab-content">
+                    <div class="card" style="padding:20px;margin-bottom:24px">
+                        <h4 style="font-weight:800;font-size:16px;margin-bottom:16px;color:var(--text)">Envoi rapide</h4>
+                        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px">
+                            <div>
+                                <label style="font-weight:700;font-size:13px;color:var(--muted);margin-bottom:4px;display:block">Destinataire</label>
+                                <select id="comms-dest" style="width:100%;padding:10px 12px;border:1px solid var(--border);border-radius:10px;font-size:14px;background:var(--card);color:var(--text)">
+                                    <option value="">-- Selectionner --</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label style="font-weight:700;font-size:13px;color:var(--muted);margin-bottom:4px;display:block">Canal</label>
+                                <div class="channel-toggle" id="comms-channel-toggle">
+                                    <div class="channel-opt active" onclick="selectCommsChannel(this,'sms')">SMS</div>
+                                    <div class="channel-opt" onclick="selectCommsChannel(this,'whatsapp')">WhatsApp</div>
+                                </div>
+                                <input type="hidden" id="comms-channel" value="sms">
+                            </div>
+                        </div>
+                        <div style="margin-bottom:12px">
+                            <label style="font-weight:700;font-size:13px;color:var(--muted);margin-bottom:4px;display:block">Templates</label>
+                            <div style="display:flex;gap:8px;flex-wrap:wrap" id="comms-templates">
+                                <button class="admin-tab" onclick="applyCommsTemplate('disponibilite')">Disponibilite</button>
+                                <button class="admin-tab" onclick="applyCommsTemplate('urgent')">Urgent</button>
+                                <button class="admin-tab" onclick="applyCommsTemplate('reunion')">Reunion</button>
+                                <button class="admin-tab" onclick="applyCommsTemplate('info')">Info generale</button>
+                            </div>
+                        </div>
+                        <div style="margin-bottom:12px">
+                            <label style="font-weight:700;font-size:13px;color:var(--muted);margin-bottom:4px;display:block">Message</label>
+                            <textarea id="comms-message" rows="5" style="width:100%;padding:12px;border:1px solid var(--border);border-radius:10px;font-size:14px;resize:vertical;background:var(--card);color:var(--text)" placeholder="Votre message..."></textarea>
+                            <div style="text-align:right;font-size:12px;color:var(--muted);margin-top:4px"><span id="comms-char-count">0</span> / <span id="comms-max-chars">1600</span></div>
+                        </div>
+                        <div style="display:flex;gap:12px">
+                            <button class="btn btn-primary" style="flex:1" onclick="commsSend()">Envoyer</button>
+                            <button class="btn btn-ghost" onclick="commsClear()">Effacer</button>
+                        </div>
+                    </div>
+                    <div class="card" style="padding:20px;margin-bottom:24px">
+                        <h4 style="font-weight:800;font-size:16px;margin-bottom:12px;color:var(--text)">Actions groupees</h4>
+                        <div style="display:flex;gap:12px;flex-wrap:wrap">
+                            <button class="btn btn-primary" onclick="sendBulkReminders()" id="comms-bulk-btn">Rappels retards (<span id="comms-late-count">0</span>)</button>
+                            <button class="btn btn-ghost" onclick="commsBroadcast()">Message a tous</button>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 style="font-weight:800;font-size:16px;margin-bottom:12px;color:var(--text)">Historique recent</h4>
+                        <div id="comms-history" style="max-height:300px;overflow-y:auto"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <!-- Nav Tech -->
+    <!-- Voice Call Overlay -->
+    <div class="call-overlay" id="call-overlay" role="dialog" aria-modal="true" aria-label="Appel en cours">
+        <div class="call-overlay-header connecting" id="call-overlay-header">
+            <div class="call-name" id="call-contact-name">-</div>
+            <div class="call-number" id="call-contact-number">-</div>
+            <div class="call-timer" id="call-timer-display">00:00</div>
+            <div class="call-status" id="call-status-text">Connexion...</div>
+        </div>
+        <div class="call-controls">
+            <button class="call-btn call-btn-mute" id="call-mute-btn" onclick="toggleMute()" title="Muet">🔊</button>
+            <button class="call-btn call-btn-hangup" onclick="hangupCall()" title="Raccrocher">📵</button>
+        </div>
+    </div>
+
+    <!-- Nav Bottom -->
     <nav class="nav" id="nav-tech">
-        <div class="nav-item active" data-v="list"><span>📋</span>Liste<span class="nav-badge hidden" id="nav-badge-late">0</span></div>
-        <div class="nav-item" data-v="stats"><span>📊</span>Stats</div>
-        <div class="nav-item" data-v="calendar"><span>📅</span>Calendrier</div>
+        <div class="nav-item active" data-v="list"><span>📋</span>Interventions<span class="nav-badge hidden" id="nav-badge-late">0</span></div>
+        <div class="nav-item nav-admin-only" data-v="stats"><span>📊</span>Dashboard</div>
         <div class="nav-item" data-v="map"><span>🗺️</span>Carte</div>
+        <div class="nav-item nav-admin-only" data-v="calendar"><span>📅</span>Calendrier</div>
     </nav>
+</div>
+
+<!-- DETAIL SIDEBAR (admin desktop) -->
+<div class="detail-sidebar-overlay" id="sidebar-overlay" onclick="closeSidebar()"></div>
+<div class="detail-sidebar" id="detail-sidebar">
+    <div style="background:linear-gradient(135deg,var(--primary),var(--primary-dark));padding:20px 24px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:2">
+        <h2 style="font-weight:800;font-size:16px;color:#fff;display:flex;align-items:center;gap:10px" id="sidebar-title"><span style="width:28px;height:28px;background:rgba(255,255,255,.15);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:14px">📋</span> Detail</h2>
+        <button onclick="closeSidebar()" style="width:36px;height:36px;border-radius:8px;border:none;background:rgba(255,255,255,.12);color:rgba(255,255,255,.8);font-size:20px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .15s" onmouseover="this.style.background='rgba(255,255,255,.2)'" onmouseout="this.style.background='rgba(255,255,255,.12)'">&times;</button>
+    </div>
+    <div style="padding:20px 24px">
+        <div id="sidebar-content"></div>
+    </div>
 </div>
 
 <!-- MODALS -->
@@ -960,12 +1446,20 @@
 <div class="modal-overlay" id="modal-sms" role="dialog" aria-modal="true" aria-label="Envoyer SMS">
     <div class="modal">
         <div class="modal-handle"></div>
-        <h3 style="font-weight:900;font-size:20px;margin-bottom:24px;color:var(--text)">📱 Envoyer SMS</h3>
+        <h3 style="font-weight:900;font-size:20px;margin-bottom:24px;color:var(--text)">📱 Envoyer un message</h3>
         <div style="margin-bottom:20px">
             <label>Destinataire</label>
             <select id="sms-dest">
                 <option value="">-- Sélectionner --</option>
             </select>
+        </div>
+        <div style="margin-bottom:16px">
+            <label>Canal</label>
+            <div class="channel-toggle" style="margin-top:6px">
+                <div class="channel-opt active" onclick="selectChannel(this,'sms')">📱 SMS</div>
+                <div class="channel-opt" onclick="selectChannel(this,'whatsapp')">💬 WhatsApp</div>
+            </div>
+            <input type="hidden" id="sms-channel" value="sms">
         </div>
         <div style="margin-bottom:20px">
             <label>Message</label>
@@ -1080,6 +1574,27 @@
                 <label>💡 Suggestions rapides</label>
                 <div id="wiz-chips" style="display:flex;flex-wrap:wrap;gap:10px"></div>
             </div>
+            <div style="margin-bottom:16px">
+                <button type="button" id="btn-ai-reformulate" onclick="aiReformulate()"
+                    style="width:100%;padding:14px;border-radius:12px;border:2px solid var(--purple);background:var(--purple-light);color:var(--purple);font-weight:800;font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;transition:all .15s;min-height:48px">
+                    <span id="ai-btn-icon">🤖</span>
+                    <span id="ai-btn-text">Reformuler avec IA</span>
+                </button>
+                <p style="font-size:12px;color:var(--muted);text-align:center;margin-top:6px">Transforme vos notes en rapport structure professionnel</p>
+            </div>
+            <!-- AI Result Preview -->
+            <div id="ai-result" class="hidden" style="margin-bottom:16px">
+                <div class="card" style="padding:16px;border:2px solid var(--purple);border-radius:12px">
+                    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+                        <span style="font-weight:800;color:var(--purple)">🤖 Resultat IA</span>
+                        <button type="button" onclick="applyAiResult()" style="background:var(--green);color:#fff;border:none;padding:8px 16px;border-radius:8px;font-weight:700;font-size:13px;cursor:pointer;min-height:36px">Appliquer</button>
+                    </div>
+                    <div id="ai-res-desc" style="margin-bottom:8px;font-size:13px;color:var(--text)"></div>
+                    <div id="ai-res-comm" style="margin-bottom:8px;font-size:13px;color:var(--text)"></div>
+                    <div id="ai-res-etapes" style="margin-bottom:8px;font-size:13px;color:var(--muted)"></div>
+                    <div id="ai-res-risques" style="font-size:13px;color:var(--red)"></div>
+                </div>
+            </div>
             <div>
                 <label>📝 Détails</label>
                 <textarea id="wiz-obs" rows="6" placeholder="Observations détaillées..."></textarea>
@@ -1111,8 +1626,10 @@
     </div>
 </div>
 
+</div><!-- /app-wrapper -->
+
 <script>
-// Configuration API - URLs centralisées (Google Sheets URL server-side only via proxy)
+// Configuration API - URLs centralisees (Google Sheets URL server-side only via proxy)
 const API = '/api/proxy-sheets.php?context=terrain';
 const WEBHOOK_PROXY = typeof JCSM_CONFIG !== 'undefined' ? JCSM_CONFIG.api.webhookProxy : '/api/webhook-proxy.php';
 const WEBHOOK = WEBHOOK_PROXY;
@@ -1131,10 +1648,33 @@ function saveTechniciens() { localStorage.setItem('jcsm_techniciens', JSON.strin
 
 // Templates SMS
 const SMS_TEMPLATES = {
-    nouvelle: (intv, tech) => `🔧 JCSM - Nouvelle intervention\n\nTicket: ${intv.ticket}\nSite: ${intv.site}\nAdresse: ${intv.address}\nDeadline: ${intv.deadlineFmt || 'Non définie'}\nProblème: ${intv.problem?.substring(0, 100) || 'Non spécifié'}\n\nCordialement, JCSM`,
-    rappel: (intv, tech) => `⏰ JCSM - Rappel intervention\n\nTicket: ${intv.ticket}\nSite: ${intv.site}\nDeadline: ${intv.deadlineFmt || 'Aujourd\'hui'}\n⚠️ Merci d'intervenir rapidement.\n\nCordialement, JCSM`,
-    retard: (intv, tech) => `🔥 JCSM - URGENT - Intervention en retard\n\nTicket: ${intv.ticket}\nSite: ${intv.site}\n⚠️ Cette intervention est en retard de ${Math.abs(intv.daysLeft)} jour(s)!\n\nMerci d'intervenir en priorité.\n\nCordialement, JCSM`
+    nouvelle: (intv, tech, link) => `🔧 JCSM - Nouvelle intervention\n\nTicket: ${intv.ticket}\nSite: ${intv.site}\nAdresse: ${intv.address}\nDeadline: ${intv.deadlineFmt || 'Non définie'}\nProblème: ${intv.problem?.substring(0, 100) || 'Non spécifié'}${link ? '\n\n📋 Rapport: ' + link : ''}\n\nCordialement, JCSM`,
+    rappel: (intv, tech, link) => `⏰ JCSM - Rappel intervention\n\nTicket: ${intv.ticket}\nSite: ${intv.site}\nDeadline: ${intv.deadlineFmt || 'Aujourd\'hui'}\n⚠️ Merci d'intervenir rapidement.${link ? '\n\n📋 Rapport: ' + link : ''}\n\nCordialement, JCSM`,
+    retard: (intv, tech, link) => `🔥 JCSM - URGENT - Intervention en retard\n\nTicket: ${intv.ticket}\nSite: ${intv.site}\n⚠️ Cette intervention est en retard de ${Math.abs(intv.daysLeft)} jour(s)!\n\nMerci d'intervenir en priorité.${link ? '\n\n📋 Rapport: ' + link : ''}\n\nCordialement, JCSM`
 };
+
+// Shared SMS sending: Twilio first, webhook fallback
+async function sendMessage(phone, message, channel = 'sms', meta = {}) {
+    const TWILIO_PROXY = JCSM_CONFIG.api.twilioProxy || '/api/twilio-proxy.php';
+    const payload = { to: phone, message, channel, ...meta };
+    try {
+        const res = await fetch(TWILIO_PROXY, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', ...getAuthHeaders() },
+            body: JSON.stringify(payload)
+        });
+        if (res.ok) { const data = await res.json().catch(() => ({})); return { ok: true, via: 'twilio', data }; }
+    } catch (e) { console.warn('Twilio error, trying webhook:', e); }
+    try {
+        await fetch(WEBHOOK_SMS, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', ...getAuthHeaders() },
+            body: JSON.stringify({ type: 'sms', data: payload })
+        });
+        return { ok: true, via: 'webhook' };
+    } catch (e) { console.error('Both SMS channels failed:', e); }
+    return { ok: false };
+}
 
 const KEYS = {
     'Delta': ['EK333'], 'Alfen': ['Torx percés'], 'Starcharge': ['EK333', 'EK396'],
@@ -1154,8 +1694,50 @@ const CHECKLIST = [
     { id: 'outils', text: 'Outillage vérifié', sub: 'Multimètre, VAT, clés' },
     { id: 'keys', text: 'Clés fabricant', sub: 'Selon marque' },
     { id: 'docs', text: 'Documentation', sub: 'Schémas, notice' },
-    { id: 'contact', text: 'Contact Powerdot', sub: '07 56 96 27 58' }
+    { id: 'contact', text: 'Contact Powerdot', sub: '+33 7 56 96 27 58' }
 ];
+
+// ==========================================
+// 9-Status Workflow
+// ==========================================
+const STATUS_FLOW = ['a_planifier','assignee','notifiee','en_route','sur_site','terminee','rapport_fait','facturee','payee'];
+const STATUS_LABELS = {
+    a_planifier: 'A planifier', assignee: 'Assignee', notifiee: 'Notifiee',
+    en_route: 'En route', sur_site: 'Sur site', terminee: 'Terminee',
+    rapport_fait: 'Rapport fait', facturee: 'Facturee', payee: 'Payee'
+};
+const STATUS_CLASSES = {
+    a_planifier:'st-planifier', assignee:'st-assignee', notifiee:'st-notifiee',
+    en_route:'st-en-route', sur_site:'st-sur-site', terminee:'st-terminee',
+    rapport_fait:'st-rapport', facturee:'st-facturee', payee:'st-payee'
+};
+
+// Local status overrides (en_route, sur_site, facturee, payee are set locally)
+let _statusOverrides = JSON.parse(localStorage.getItem('jcsm_status_overrides') || '{}');
+
+function deriveStatus(i) {
+    // Check local overrides first
+    const override = _statusOverrides[i.ticket];
+    if (override) return override;
+    // Derive from data
+    if (i.report || i.done) {
+        if (i.report) return 'rapport_fait';
+        return 'terminee';
+    }
+    if (i.techAssigned) return 'assignee';
+    return 'a_planifier';
+}
+
+function setIntvStatus(ticket, status) {
+    _statusOverrides[ticket] = status;
+    localStorage.setItem('jcsm_status_overrides', JSON.stringify(_statusOverrides));
+}
+
+function statusBadgeHTML(status) {
+    const cls = STATUS_CLASSES[status] || 'st-planifier';
+    const label = STATUS_LABELS[status] || status;
+    return '<span class="status-badge ' + cls + '">' + esc(label) + '</span>';
+}
 
 let S = {
     user: null, data: [], techs: {}, sel: null, filter: 'pending',
@@ -1178,40 +1760,24 @@ const vibrate = (ms = 10) => navigator.vibrate?.(ms);
 const debounce = (fn, ms) => { let t; return (...args) => { clearTimeout(t); t = setTimeout(() => fn(...args), ms); }; };
 const showLoading = (show) => $('loading-overlay')?.classList.toggle('active', show);
 
-// Theme management
+// Light mode forced (no dark mode)
 function initTheme() {
-    const saved = localStorage.getItem('jcsm_theme');
-    if (saved === 'dark') {
-        document.documentElement.setAttribute('data-theme', 'dark');
-        if ($('theme-toggle')) $('theme-toggle').textContent = '☀️';
-    } else if (saved === 'light') {
-        document.documentElement.removeAttribute('data-theme');
-        if ($('theme-toggle')) $('theme-toggle').textContent = '🌙';
-    }
+    document.documentElement.removeAttribute('data-theme');
+    localStorage.setItem('jcsm_theme', 'light');
 }
-window.toggleTheme = () => {
-    vibrate();
-    const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-    if (isDark) {
-        document.documentElement.removeAttribute('data-theme');
-        localStorage.setItem('jcsm_theme', 'light');
-        $('theme-toggle').textContent = '🌙';
-    } else {
-        document.documentElement.setAttribute('data-theme', 'dark');
-        localStorage.setItem('jcsm_theme', 'dark');
-        $('theme-toggle').textContent = '☀️';
-    }
-};
 
 // Offline detection
 window.addEventListener('online', () => {
     S.isOnline = true;
     $('offline-bar').classList.remove('visible');
+    if (typeof updateSyncIndicator === 'function') updateSyncIndicator();
     syncPendingData();
+    if (typeof processSyncQueue === 'function') setTimeout(processSyncQueue, 2000);
 });
 window.addEventListener('offline', () => {
     S.isOnline = false;
     $('offline-bar').classList.add('visible');
+    if (typeof updateSyncIndicator === 'function') updateSyncIndicator();
 });
 
 async function syncPendingData() {
@@ -1282,7 +1848,7 @@ async function buildGeocodeCache() {
             await new Promise(ok => setTimeout(ok, 1100));
         } catch (e) { /* skip */ }
     }
-    renderList();
+    scheduleRenderList();
 }
 
 function getDistanceForIntv(i) {
@@ -1327,8 +1893,9 @@ function initSearchFilters() {
         f.onclick = () => {
             vibrate();
             S.brandFilter = f.dataset.brand || '';
-            $$('.search-filter').forEach(x => x.classList.remove('active'));
+            $$('.search-filter').forEach(x => { x.classList.remove('active'); x.setAttribute('aria-pressed', 'false'); });
             f.classList.add('active');
+            f.setAttribute('aria-pressed', 'true');
             renderList();
         };
     });
@@ -1337,16 +1904,7 @@ function initSearchFilters() {
 // Export functionality
 window.exportList = () => {
     vibrate();
-    const f = S.filter, q = $('search').value.toLowerCase();
-    let list = S.data.filter(i => {
-        const done = i.done || i.report;
-        if (f === 'pending' && done) return false;
-        if (f === 'late' && (!i.isLate || done)) return false;
-        if (f === 'today') { if (!i.date || done) return false; if (new Date(i.date).toDateString() !== new Date().toDateString()) return false; }
-        if (S.brandFilter && i.brand?.toLowerCase() !== S.brandFilter.toLowerCase()) return false;
-        if (q && !i.ticket?.toLowerCase().includes(q) && !i.site?.toLowerCase().includes(q) && !i.dept?.includes(q)) return false;
-        return true;
-    });
+    let list = getFilteredList();
 
     const csv = [
         ['Ticket', 'Site', 'Adresse', 'Département', 'Date', 'Deadline', 'Marque', 'Problème', 'Technicien', 'Statut'].join(';'),
@@ -1412,7 +1970,28 @@ function getDateRange() {
 }
 
 function init() {
-    S.user = { role: 'tech', name: 'Technicien' };
+    const session = isSessionValid();
+    S.user = {
+        role: session ? session.role : 'tech',
+        name: session && session.isAdmin ? 'Administrateur' : 'Technicien',
+        isAdmin: !!(session && session.isAdmin)
+    };
+    // Update header role badge
+    const rb = $('header-role-badge');
+    if (rb) {
+        rb.textContent = S.user.isAdmin ? '👑 Admin' : '🔧 Tech';
+        rb.className = 'role-badge ' + (S.user.isAdmin ? 'role-admin' : 'role-tech');
+    }
+    // Set header greeting
+    const greet = $('header-greeting');
+    if (greet) {
+        const h = new Date().getHours();
+        const salut = h < 12 ? 'Bonjour' : h < 18 ? 'Bon apres-midi' : 'Bonsoir';
+        greet.textContent = salut + ', ' + S.user.name;
+    }
+    // Set body class for role-based CSS
+    document.body.classList.toggle('role-tech', !S.user.isAdmin);
+    document.body.classList.toggle('role-admin', S.user.isAdmin);
     initTheme();
     initGeolocation();
     initSearchFilters();
@@ -1422,9 +2001,26 @@ function init() {
     if (S.syncTimer) clearInterval(S.syncTimer);
     S.syncTimer = setInterval(() => loadData(true), SYNC_INTERVAL);
     if (S.isOnline && S.pendingSync.length) setTimeout(syncPendingData, 2000);
+    // Deep link: ?intv=ID opens intervention detail after data loads
+    const urlParams = new URLSearchParams(window.location.search);
+    const deepLinkId = urlParams.get('intv');
+    if (deepLinkId) {
+        const waitForData = setInterval(() => {
+            if (S.data && S.data.length) {
+                clearInterval(waitForData);
+                const intv = S.data.find(i => i.id === deepLinkId || i.ticket === deepLinkId);
+                if (intv) { selectIntv(intv.id); showView('list'); }
+            }
+        }, 500);
+        setTimeout(() => clearInterval(waitForData), 15000);
+    }
+    // Initialize Twilio Voice (admin only)
+    if (S.user.isAdmin) initTwilioVoice();
 }
 
-function logout() { location.reload(); }
+function logout() { destroySession(); location.reload(); }
+function doLogout() { vibrate(); if (confirm('Se deconnecter ?')) logout(); }
+window.doLogout = doLogout;
 
 let _isLoading = false;
 async function loadData(force = false) {
@@ -1439,12 +2035,49 @@ async function loadData(force = false) {
         }
         const res = await fetch(API, { headers: getAuthHeaders() }); const json = await res.json();
         S.techs = json.techniciens?.byDept || {};
-        S.data = (json.interventions || []).map((r, i) => ({
-            id: 'i' + i, row: r._row, ticket: r.ticket, site: r.site, address: r.address,
-            dept: r.dept || '', sla: r.sla, date: r.date, dateFmt: r.dateFmt, deadline: r.deadline,
-            deadlineFmt: r.deadlineFmt, daysLeft: r.daysLeft, isLate: r.isLate, done: r.done,
-            client: r.client, brand: r.brand, problem: r.problem, report: r.report,
-            techAssigned: r.techAssigned, techSuggested: S.techs[r.dept] || null
+        const raw = json.interventions || json || [];
+        S.data = (Array.isArray(raw) ? raw : []).map((r, i) => ({
+            // Core identifiers
+            id: r.id || 'i' + i, row: r._row || r.rowIndex || i,
+            ticket: r.ticket || '',
+            numIntervention: r.numIntervention || r.region || '',
+            // Location
+            site: r.nomSite || r.site || '',
+            address: r.adresse || r.address || '',
+            dept: r.dept || r.numIntervention || '',
+            emplacement: r.emplacement || '',
+            // Dates
+            date: r.dateProposee || r.date || '',
+            dateFmt: r.dateFmt || '',
+            dateDemande: r.dateDemande || '',
+            dateProposee: r.dateProposee || '',
+            dateIntervention: r.dateIntervention || '',
+            deadline: r.deadline || '',
+            deadlineFmt: r.deadlineFmt || '',
+            daysLeft: r.daysLeft ?? null,
+            isLate: r.isLate || false,
+            // Status
+            done: r.fait === true || r.fait === 'TRUE' || r.done || false,
+            reussi: r.reussi || '',
+            report: r.rapportFait || r.report || '',
+            prisEnCompte: r.prisEnCompte || '',
+            testCharge: r.testCharge || '',
+            // People
+            client: r.demandeur || r.client || '',
+            brand: r.marque || r.brand || '',
+            problem: r.descriptionProbleme || r.problem || '',
+            sla: r.delais || r.sla || '',
+            serialNumber: r.serialNumber || '',
+            requester: r.requester || '',
+            supplier: r.supplier || '',
+            techAssigned: r.techAssigned || '',
+            techSuggested: S.techs[r.dept || r.numIntervention || ''] || null,
+            // Financial
+            deplacement: r.deplacement || '',
+            tauxHoraire: r.tauxHoraire || '',
+            factureHT: r.factureHT || '',
+            remiseDeplacement: r.remiseDeplacement || '',
+            totalHT: r.totalHT || '',
         }));
         localStorage.setItem('jcsm_data', JSON.stringify({ data: S.data, techs: S.techs }));
         localStorage.setItem('jcsm_data_time', Date.now().toString());
@@ -1489,19 +2122,58 @@ function updateNavBadge() {
 function setFilter(f) { S.filter = f; vibrate(); render(); }
 window.setFilter = setFilter;
 
-function renderList() {
+let _renderListScheduled = false;
+let _listObserver = null;
+function scheduleRenderList() {
+    if (_renderListScheduled) return;
+    _renderListScheduled = true;
+    requestAnimationFrame(() => { _renderListScheduled = false; renderList(); });
+}
+
+function renderCard(i, idx, today) {
+    const done = i.done || i.report, isToday = i.date && new Date(i.date).toDateString() === today;
+    const priorityClass = !done && i.isLate && Math.abs(i.daysLeft) > 2 ? 'priority-high' : '';
+    const hasDraft = localStorage.getItem('jcsm_wiz_draft_' + i.id);
+    const dist = getDistanceForIntv(i);
+    const distBadge = dist != null ? `<span class="intv-distance">${formatDist(dist)}</span>` : '';
+    const status = deriveStatus(i);
+    return `<div class="intv fade-in ${done ? 'done' : ''} ${i.isLate && !done ? 'late' : ''} ${isToday && !done ? 'today' : ''} ${priorityClass}" style="animation-delay:${Math.min(idx * 20, 200)}ms;position:relative" onclick="selectIntv('${esc(i.id)}')">
+        ${hasDraft && !done ? '<span class="draft-badge-card">📝 Brouillon</span>' : ''}
+        ${i.address ? `<button class="intv-copy-btn" onclick="copyAddress('${esc(i.address).replace(/'/g, "\\'")}',event)" title="Copier l'adresse">📋</button>` : ''}
+        <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:12px">
+            <span class="intv-ticket">${esc(i.ticket) || '-'}</span>
+            ${statusBadgeHTML(status)}
+            ${!done ? cdHTML(i.daysLeft) : ''}
+            ${distBadge}
+        </div>
+        <h4 style="font-weight:900;font-size:18px;margin-bottom:6px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--text)">${esc(i.site) || '-'}</h4>
+        <p class="intv-address">${esc(i.address) || '-'}</p>
+        <div style="display:flex;justify-content:space-between;font-size:13px;color:var(--muted);align-items:center">
+            <span>📅 ${esc(i.dateFmt) || '-'}</span>
+            <span style="display:flex;gap:8px;align-items:center">
+                <span class="badge" style="background:var(--bg3);color:var(--text);padding:4px 10px">${esc(i.brand) || '-'}</span>
+                <span style="font-family:monospace;font-weight:800;background:var(--primary-light);color:var(--primary-dark);padding:4px 10px;border-radius:6px">${esc(i.dept) || '-'}</span>
+            </span>
+        </div>
+        ${!done ? `<button class="report-btn-card" onclick="event.stopPropagation();quickReport('${esc(i.id)}')" title="Rapport rapide">📝</button>` : ''}
+    </div>`;
+}
+
+function getFilteredList() {
     const f = S.filter, q = $('search').value.toLowerCase();
-    let list = S.data.filter(i => {
+    return S.data.filter(i => {
         const done = i.done || i.report;
         if (f === 'pending' && done) return false;
         if (f === 'late' && (!i.isLate || done)) return false;
         if (f === 'today') { if (!i.date || done) return false; if (new Date(i.date).toDateString() !== new Date().toDateString()) return false; }
-        // Brand filter
         if (S.brandFilter && i.brand?.toLowerCase() !== S.brandFilter.toLowerCase()) return false;
-        // Search query
         if (q && !i.ticket?.toLowerCase().includes(q) && !i.site?.toLowerCase().includes(q) && !i.dept?.includes(q) && !i.address?.toLowerCase().includes(q) && !i.brand?.toLowerCase().includes(q)) return false;
         return true;
     });
+}
+
+function renderList() {
+    let list = getFilteredList();
 
     // Sort by selected mode
     switch (S.sortMode) {
@@ -1542,34 +2214,9 @@ function renderList() {
     let html = `<div class="progress-summary"><span>${doneCount}/${totalCount} terminées</span><span>${pct}%</span></div>`;
     html += `<div class="progress-bar-wrap"><div class="progress-bar-fill" style="width:${pct}%"></div></div>`;
 
-    const renderCard = (i, idx) => {
-        const done = i.done || i.report, isToday = i.date && new Date(i.date).toDateString() === today;
-        const priorityClass = !done && i.isLate && Math.abs(i.daysLeft) > 2 ? 'priority-high' : '';
-        const hasDraft = localStorage.getItem('jcsm_wiz_draft_' + i.id);
-        const dist = getDistanceForIntv(i);
-        const distBadge = dist != null ? `<span class="intv-distance">${formatDist(dist)}</span>` : '';
-        return `<div class="intv fade-in ${done ? 'done' : ''} ${i.isLate && !done ? 'late' : ''} ${isToday && !done ? 'today' : ''} ${priorityClass}" style="animation-delay:${Math.min(idx * 20, 200)}ms;position:relative" onclick="selectIntv('${esc(i.id)}')">
-            ${hasDraft && !done ? '<span class="draft-badge-card">📝 Brouillon</span>' : ''}
-            ${i.address ? `<button class="intv-copy-btn" onclick="copyAddress('${esc(i.address).replace(/'/g, "\\'")}',event)" title="Copier l'adresse">📋</button>` : ''}
-            <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:12px">
-                <span class="intv-ticket">${esc(i.ticket) || '-'}</span>
-                ${done ? '<span class="badge badge-green">✅</span>' : cdHTML(i.daysLeft)}
-                ${distBadge}
-            </div>
-            <h4 style="font-weight:900;font-size:18px;margin-bottom:6px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--text)">${esc(i.site) || '-'}</h4>
-            <p class="intv-address">${esc(i.address) || '-'}</p>
-            <div style="display:flex;justify-content:space-between;font-size:13px;color:var(--muted);align-items:center">
-                <span>📅 ${esc(i.dateFmt) || '-'}</span>
-                <span style="display:flex;gap:12px;align-items:center">
-                    <span class="badge" style="background:var(--bg3);color:var(--text);padding:4px 10px">${esc(i.brand) || '-'}</span>
-                    <span style="font-family:monospace;font-weight:800;background:var(--primary-light);color:var(--primary-dark);padding:4px 10px;border-radius:6px">${esc(i.dept) || '-'}</span>
-                </span>
-            </div>
-            ${!done ? `<button class="report-btn-card" onclick="event.stopPropagation();quickReport('${esc(i.id)}')" title="Rapport rapide">📝</button>` : ''}
-        </div>`;
-    };
-
     let cardIdx = 0;
+    const INITIAL_RENDER = 20;
+    const allCards = [];
     const sections = [
         { key: 'late', label: 'En retard', color: 'var(--red)' },
         { key: 'today', label: "Aujourd'hui", color: 'var(--amber)' },
@@ -1579,11 +2226,33 @@ function renderList() {
     sections.forEach(({ key, label, color }) => {
         const items = groups[key];
         if (!items.length) return;
-        html += `<div class="group-header"><span class="dot" style="background:${color}"></span>${label}<span class="count">${items.length}</span></div>`;
-        html += items.map(i => renderCard(i, cardIdx++)).join('');
+        allCards.push({ type: 'header', html: `<div class="group-header"><span class="dot" style="background:${color}"></span>${label}<span class="count">${items.length}</span></div>` });
+        items.forEach(i => allCards.push({ type: 'card', html: renderCard(i, cardIdx++, today) }));
     });
 
+    // Render first batch immediately
+    const firstBatch = allCards.slice(0, INITIAL_RENDER);
+    html += firstBatch.map(c => c.html).join('');
     $('list').innerHTML = html;
+
+    // Lazy-render remaining cards via IntersectionObserver
+    if (_listObserver) _listObserver.disconnect();
+    if (allCards.length > INITIAL_RENDER) {
+        const remaining = allCards.slice(INITIAL_RENDER);
+        const sentinel = document.createElement('div');
+        sentinel.className = 'load-sentinel';
+        sentinel.style.height = '1px';
+        $('list').appendChild(sentinel);
+        _listObserver = new IntersectionObserver((entries) => {
+            if (entries[0].isIntersecting && remaining.length) {
+                const batch = remaining.splice(0, 15);
+                const fragment = document.createRange().createContextualFragment(batch.map(c => c.html).join(''));
+                $('list').insertBefore(fragment, sentinel);
+                if (!remaining.length) { _listObserver.disconnect(); sentinel.remove(); }
+            }
+        });
+        _listObserver.observe(sentinel);
+    }
 }
 
 // Quick assign from list
@@ -1635,8 +2304,62 @@ window.selectIntv = id => {
     $('f-obs').value = ''; S.photos = { borne: [], site: [], nc: [], avap: [] }; S.status = null; S.checklist = {}; S.timerElapsed = 0; S.timerStart = null; clearInterval(S.timerInterval); updateTimerDisplay(); restoreTimerState();
     // A4 — Reset site arrival/departure
     S.siteArrival = null; S.siteDeparture = null; updateSiteButtons();
-    $$('.status-opt').forEach(o => o.classList.remove('selected')); genChips(); updatePhotosSummary(); checkSubmitReady(); showView('detail');
+    $$('.status-opt').forEach(o => o.classList.remove('selected')); genChips(); updatePhotosSummary(); checkSubmitReady();
+    // Render status badge + tech action buttons
+    const status = deriveStatus(i);
+    $('d-status-badge').innerHTML = statusBadgeHTML(status);
+    renderDetailActions(i, status);
+    showView('detail');
 };
+
+function renderDetailActions(intv, status) {
+    const el = $('d-tech-actions');
+    if (!el) return;
+    const done = intv.done || intv.report;
+    const ticket = esc(intv.ticket);
+
+    if (done || status === 'rapport_fait' || status === 'facturee' || status === 'payee') {
+        el.innerHTML = '<span style="font-size:13px;color:var(--muted);font-weight:600">Intervention cloturee</span>';
+        return;
+    }
+
+    let btns = '';
+    if (status === 'assignee' || status === 'notifiee' || status === 'a_planifier') {
+        btns += `<button class="tech-action-btn route" onclick="techSetStatus('${ticket}','en_route')">🚗 En route</button>`;
+    }
+    if (status === 'en_route') {
+        btns += `<button class="tech-action-btn arrive" onclick="techSetStatus('${ticket}','sur_site')">📍 Arrive</button>`;
+    }
+    if (status === 'sur_site' || status === 'terminee') {
+        btns += `<button class="tech-action-btn report" onclick="quickReport('${esc(intv.id)}')">📝 Rapport</button>`;
+    }
+    if (status === 'en_route' || status === 'sur_site') {
+        btns += `<button class="tech-action-btn arrive" style="background:var(--bg3);color:var(--text)" onclick="techSetStatus('${ticket}','terminee')">✅ Termine</button>`;
+    }
+    // Admin-only: facturee/payee
+    if (S.user.isAdmin && status === 'rapport_fait') {
+        btns += `<button class="tech-action-btn" style="background:var(--amber);color:#fff" onclick="techSetStatus('${ticket}','facturee')">📄 Facturer</button>`;
+    }
+    if (S.user.isAdmin && status === 'facturee') {
+        btns += `<button class="tech-action-btn" style="background:var(--green);color:#fff" onclick="techSetStatus('${ticket}','payee')">💰 Payer</button>`;
+    }
+
+    el.innerHTML = btns || '<span style="font-size:13px;color:var(--muted)">-</span>';
+}
+
+function techSetStatus(ticket, newStatus) {
+    vibrate();
+    setIntvStatus(ticket, newStatus);
+    // Re-render current detail
+    if (S.sel) {
+        const status = deriveStatus(S.sel);
+        $('d-status-badge').innerHTML = statusBadgeHTML(status);
+        renderDetailActions(S.sel, status);
+    }
+    toast(STATUS_LABELS[newStatus] || newStatus, 'success');
+    scheduleRenderList();
+}
+window.techSetStatus = techSetStatus;
 
 function getSmartChips(problem) {
     const p = (problem || '').toLowerCase();
@@ -1719,7 +2442,7 @@ function updateSiteButtons() {
 }
 
 window.openMaps = () => { vibrate(); const a = S.sel?.address || S.sel?.site; if (a) window.open('https://www.google.com/maps/search/' + encodeURIComponent(a), '_blank'); };
-window.callPowerdot = () => { vibrate(); window.location.href = 'tel:0756962758'; };
+window.callPowerdot = () => { vibrate(); window.location.href = 'tel:+33756962758'; };
 window.callTechnicien = () => { vibrate(); if (S.currentTechPhone) window.location.href = 'tel:' + S.currentTechPhone; else toast('❌ Pas de numéro', 'error'); };
 
 window.showChecklist = () => { vibrate(); renderChecklist(); openModal('checklist'); };
@@ -1980,7 +2703,7 @@ function showView(v) {
     if (v === 'calendar') renderCal();
     if (v === 'map') { setTimeout(() => { initMap(); S.map?.invalidateSize(); }, 100); }
     if (v === 'list') renderList();
-    if (v === 'stats') renderStats();
+    if (v === 'stats') { renderStats(); if (S.user.isAdmin && $('admin-dashboard')) { $('admin-dashboard').classList.remove('hidden'); renderAdminDashboard(); } }
     const statsTech = $('stats-tech');
     if (statsTech) {
         statsTech.classList.toggle('hidden', v !== 'list');
@@ -1991,6 +2714,7 @@ window.showView = showView;
 $$('.nav-item[data-v]').forEach(n => { n.onclick = () => { vibrate(); showView(n.dataset.v); }; });
 
 $('search').oninput = debounce(renderList, 150);
+if ($('crm-search')) $('crm-search').oninput = debounce(() => renderAdminTable(getFilteredData()), 200);
 let pullStart = 0;
 document.addEventListener('touchstart', e => { if (window.scrollY === 0) pullStart = e.touches[0].clientY; });
 document.addEventListener('touchmove', e => { if (pullStart && e.touches[0].clientY - pullStart > 80) $('pull-indicator').classList.add('visible'); });
@@ -2112,29 +2836,31 @@ window.confirmAssign = async () => {
         });
     } catch (e) { console.error('Notification error:', e); }
 
-    // Envoyer SMS si coché
+    // Envoyer SMS si coché (avec lien d'intervention)
     if ($('assign-sms')?.checked) {
         const smsType = $('assign-sms-type').value;
-        const message = SMS_TEMPLATES[smsType](S.sel, tech);
+        let intvLink = '';
 
+        // Generer le lien d'intervention si possible
         try {
-            await fetch(WEBHOOK_SMS, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    to: tech.phone,
-                    message: message,
-                    technicien: tech.name,
-                    ticket: S.sel.ticket
-                })
+            const linkRes = await fetch((JCSM_CONFIG.api.interventionLink || '/api/intervention-link.php') + '?action=generate&id=' + encodeURIComponent(S.sel.id || S.sel.ticket) + '&phone=' + encodeURIComponent(tech.phone), {
+                headers: getAuthHeaders()
             });
-            toast('✅ Assigné + SMS envoyé', 'success');
-        } catch (e) {
-            console.error('SMS error:', e);
-            toast('✅ Assigné (SMS échec)', 'info');
+            if (linkRes.ok) {
+                const linkData = await linkRes.json();
+                if (linkData.success) intvLink = linkData.link;
+            }
+        } catch (e) { console.warn('Intervention link generation failed:', e); }
+
+        const message = SMS_TEMPLATES[smsType](S.sel, tech, intvLink);
+        const result = await sendMessage(tech.phone, message, 'sms', { technicien: tech.name, ticket: S.sel.ticket });
+        if (result.ok) {
+            toast('✅ Assigne + SMS envoye' + (intvLink ? ' avec lien' : ''), 'success');
+        } else {
+            toast('✅ Assigne (SMS echec)', 'info');
         }
     } else {
-        toast('✅ Technicien assigné', 'success');
+        toast('✅ Technicien assigne', 'success');
     }
 
     closeModal('assign');
@@ -2162,32 +2888,20 @@ window.openSMSModal = () => {
 window.sendSMS = async () => {
     const phone = $('sms-dest').value;
     const message = $('sms-message').value.trim();
+    const channel = $('sms-channel')?.value || 'sms';
 
     if (!phone) { toast('❌ Sélectionnez un destinataire', 'error'); return; }
     if (!message) { toast('❌ Message requis', 'error'); return; }
 
     vibrate();
-    toast('📤 Envoi SMS...', 'info');
+    const label = channel === 'whatsapp' ? 'WhatsApp' : 'SMS';
+    toast('📤 Envoi ' + label + '...', 'info');
 
     const techName = $('sms-dest').selectedOptions[0]?.dataset.name || 'Inconnu';
+    const result = await sendMessage(phone, message, channel, { technicien: techName, ticket: S.sel?.ticket || 'Manuel' });
 
-    try {
-        await fetch(WEBHOOK_SMS, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                to: phone,
-                message: message,
-                technicien: techName,
-                ticket: S.sel?.ticket || 'Manuel'
-            })
-        });
-        toast('✅ SMS envoyé', 'success');
-        closeModal('sms');
-    } catch (e) {
-        console.error('SMS error:', e);
-        toast('❌ Erreur envoi SMS', 'error');
-    }
+    if (result.ok) { toast('✅ ' + label + ' envoyé', 'success'); closeModal('sms'); }
+    else { toast('❌ Erreur envoi ' + label, 'error'); }
 };
 
 // Envoi rappels automatiques pour retards
@@ -2199,26 +2913,17 @@ window.sendBulkReminders = async () => {
 
     vibrate();
     toast('📤 Envoi des rappels...', 'info');
+    const TWILIO_PROXY = JCSM_CONFIG.api.twilioProxy || '/api/twilio-proxy.php';
 
     let sent = 0;
     for (const intv of lateItems) {
         const tech = TECHNICIENS.find(t => t.name === intv.techAssigned && t.active !== false);
         if (!tech) continue;
 
-        try {
-            await fetch(WEBHOOK_SMS, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    to: tech.phone,
-                    message: SMS_TEMPLATES.retard(intv, tech),
-                    technicien: tech.name,
-                    ticket: intv.ticket
-                })
-            });
-            sent++;
-            await new Promise(r => setTimeout(r, 500)); // Éviter le rate limiting
-        } catch (e) { console.error('SMS error:', e); }
+        const msg = SMS_TEMPLATES.retard(intv, tech);
+        const result = await sendMessage(tech.phone, msg, 'sms', { technicien: tech.name, ticket: intv.ticket });
+        if (result.ok) sent++;
+        await new Promise(r => setTimeout(r, 500)); // Rate limiting
     }
 
     toast(`✅ ${sent} rappel(s) envoyé(s)`, 'success');
@@ -2436,7 +3141,7 @@ async function confirmAndSendQuickReport() {
     if (webhookOk || apiOk) {
         i.done = true; i.report = 'sent';
         clearTimerState();
-        if (S.sel?.id === i.id) clearWizDraft();
+        localStorage.removeItem('jcsm_wiz_draft_' + i.id);
         toast('✅ Rapport envoyé!', 'success');
         vibrate([50, 50, 50]);
     } else {
@@ -2503,18 +3208,20 @@ function showReportSummary(source) {
 // ==========================================
 // TIMER BADGE IN HEADER
 // ==========================================
+let _timerBadgeEl = null, _timerValueEl = null;
 function renderTimerBadge() {
-    const badge = $('header-timer-badge');
-    if (!badge) return;
+    if (!_timerBadgeEl) _timerBadgeEl = $('header-timer-badge');
+    if (!_timerValueEl) _timerValueEl = $('header-timer-value');
+    if (!_timerBadgeEl) return;
     if (S.timerStart) {
         const elapsed = Date.now() - S.timerStart;
         const s = Math.floor(elapsed / 1000);
         const mm = String(Math.floor(s / 60)).padStart(2, '0');
         const ss = String(s % 60).padStart(2, '0');
-        $('header-timer-value').textContent = `${mm}:${ss}`;
-        badge.classList.remove('hidden');
+        _timerValueEl.textContent = `${mm}:${ss}`;
+        _timerBadgeEl.classList.remove('hidden');
     } else {
-        badge.classList.add('hidden');
+        _timerBadgeEl.classList.add('hidden');
     }
 }
 window.scrollToTimer = () => {
@@ -2538,7 +3245,7 @@ function renderStats() {
     if ($('s-late')) $('s-late').textContent = late;
     if ($('s-today')) $('s-today').textContent = today;
     if ($('s-done')) $('s-done').textContent = done;
-    $$('.stat-card').forEach(c => { c.style.borderColor = c.dataset.f === S.filter ? 'var(--primary)' : 'transparent'; });
+    $$('.stat-card').forEach(c => { const active = c.dataset.f === S.filter; c.style.borderColor = active ? 'var(--primary)' : 'transparent'; c.setAttribute('aria-pressed', active ? 'true' : 'false'); });
 
     // Update stats view if elements exist
     if ($('stat-total')) $('stat-total').textContent = total;
@@ -2608,18 +3315,22 @@ function renderStatsCharts() {
 
     // Doughnut
     if ($('stats-doughnut')) {
-        if (_statsDoughnut) _statsDoughnut.destroy();
-        _statsDoughnut = new Chart($('stats-doughnut'), {
-            type: 'doughnut',
-            data: {
-                labels: ['Terminées', 'En retard', 'À faire'],
-                datasets: [{ data: [done, late, pending], backgroundColor: ['#22c55e', '#ef4444', '#0ea5e9'], borderWidth: 0 }]
-            },
-            options: {
-                responsive: true, maintainAspectRatio: false, cutout: '65%',
-                plugins: { legend: { position: 'bottom', labels: { boxWidth: 10, padding: 10, font: { size: 10, weight: 600 } } } }
-            }
-        });
+        if (_statsDoughnut) {
+            _statsDoughnut.data.datasets[0].data = [done, late, pending];
+            _statsDoughnut.update();
+        } else {
+            _statsDoughnut = new Chart($('stats-doughnut'), {
+                type: 'doughnut',
+                data: {
+                    labels: ['Terminées', 'En retard', 'À faire'],
+                    datasets: [{ data: [done, late, pending], backgroundColor: ['#22c55e', '#ef4444', '#0ea5e9'], borderWidth: 0 }]
+                },
+                options: {
+                    responsive: true, maintainAspectRatio: false, cutout: '65%',
+                    plugins: { legend: { position: 'bottom', labels: { boxWidth: 10, padding: 10, font: { size: 10, weight: 600 } } } }
+                }
+            });
+        }
     }
 
     // Horizontal bar - top brands
@@ -2627,28 +3338,1401 @@ function renderStatsCharts() {
         const byBrand = {};
         S.data.forEach(i => { const b = i.brand || 'N/A'; byBrand[b] = (byBrand[b] || 0) + 1; });
         const sorted = Object.entries(byBrand).sort((a, b) => b[1] - a[1]).slice(0, 6);
-        if (_statsBrands) _statsBrands.destroy();
-        _statsBrands = new Chart($('stats-brands'), {
-            type: 'bar',
-            data: {
-                labels: sorted.map(e => e[0]),
-                datasets: [{ data: sorted.map(e => e[1]), backgroundColor: '#0ea5e9', borderRadius: 4 }]
-            },
-            options: {
-                indexAxis: 'y', responsive: true, maintainAspectRatio: false,
-                plugins: { legend: { display: false } },
-                scales: { x: { beginAtZero: true, ticks: { stepSize: 1, font: { size: 10 } }, grid: { color: 'rgba(0,0,0,0.05)' } }, y: { ticks: { font: { size: 10, weight: 600 } }, grid: { display: false } } }
+        if (_statsBrands) {
+            _statsBrands.data.labels = sorted.map(e => e[0]);
+            _statsBrands.data.datasets[0].data = sorted.map(e => e[1]);
+            _statsBrands.update();
+        } else {
+            _statsBrands = new Chart($('stats-brands'), {
+                type: 'bar',
+                data: {
+                    labels: sorted.map(e => e[0]),
+                    datasets: [{ data: sorted.map(e => e[1]), backgroundColor: '#0ea5e9', borderRadius: 4 }]
+                },
+                options: {
+                    indexAxis: 'y', responsive: true, maintainAspectRatio: false,
+                    plugins: { legend: { display: false } },
+                    scales: { x: { beginAtZero: true, ticks: { stepSize: 1, font: { size: 10 } }, grid: { color: 'rgba(0,0,0,0.05)' } }, y: { ticks: { font: { size: 10, weight: 600 } }, grid: { display: false } } }
+                }
+            });
+        }
+    }
+}
+
+// ==========================================
+// Admin Dashboard
+// ==========================================
+function getFilteredData() {
+    const filterMonth = $('admin-month-filter')?.value || '';
+    const filterTech = $('admin-filter-tech')?.value || '';
+    const filterStatus = $('admin-filter-status')?.value || '';
+    const search = $('crm-search')?.value?.toLowerCase() || '';
+
+    let filtered = S.data;
+    if (filterMonth) {
+        const [fy, fm] = filterMonth.split('-').map(Number);
+        filtered = filtered.filter(i => {
+            const dateStr = i.dateIntervention || i.dateProposee || i.dateDemande || i.date || '';
+            if (!dateStr) return false;
+            const parts = dateStr.match(/(\d{2})\/(\d{2})\/(\d{4})/);
+            if (parts) {
+                return parseInt(parts[3]) === fy && parseInt(parts[2]) === fm;
             }
+            const d = new Date(dateStr);
+            return !isNaN(d) && d.getFullYear() === fy && d.getMonth() + 1 === fm;
+        });
+    }
+    if (filterTech) filtered = filtered.filter(i => i.techAssigned === filterTech);
+    if (filterStatus === 'done') filtered = filtered.filter(i => i.done || i.report);
+    if (filterStatus === 'pending') filtered = filtered.filter(i => !i.done && !i.report);
+    if (filterStatus === 'late') filtered = filtered.filter(i => i.isLate && !i.done && !i.report);
+    if (search) {
+        filtered = filtered.filter(i =>
+            (i.ticket || '').toLowerCase().includes(search) ||
+            (i.site || '').toLowerCase().includes(search) ||
+            (i.address || '').toLowerCase().includes(search) ||
+            (i.dept || '').toLowerCase().includes(search) ||
+            (i.client || '').toLowerCase().includes(search) ||
+            (i.brand || '').toLowerCase().includes(search) ||
+            (i.serialNumber || '').toLowerCase().includes(search) ||
+            (i.problem || '').toLowerCase().includes(search)
+        );
+    }
+    return filtered;
+}
+
+function renderAdminDashboard() {
+    if (!S.user.isAdmin || !$('admin-dashboard')) return;
+
+    const now = new Date();
+    const monthInput = $('admin-month-filter');
+    if (monthInput && !monthInput.value) {
+        monthInput.value = now.getFullYear() + '-' + String(now.getMonth() + 1).padStart(2, '0');
+    }
+
+    // Populate tech filter dropdown
+    const techSelect = $('admin-filter-tech');
+    if (techSelect && techSelect.options.length <= 1) {
+        const techs = [...new Set(S.data.map(i => i.techAssigned).filter(Boolean))].sort();
+        if (typeof TECHNICIENS !== 'undefined') {
+            TECHNICIENS.filter(t => t.active !== false).forEach(t => {
+                if (!techs.includes(t.name)) techs.push(t.name);
+            });
+        }
+        techs.sort().forEach(t => {
+            const opt = document.createElement('option');
+            opt.value = t; opt.textContent = t;
+            techSelect.appendChild(opt);
+        });
+    }
+
+    const filtered = getFilteredData();
+
+    // KPIs
+    const total = filtered.length;
+    const aPlanifier = filtered.filter(i => !i.done && !i.report).length;
+    const done = filtered.filter(i => i.done || i.report).length;
+    const resolved = filtered.filter(i => i.reussi === true || i.reussi === 'TRUE' || i.reussi === 'Oui').length;
+    const ca = filtered.reduce((s, i) => s + (parseFloat(i.totalHT) || parseFloat(i.factureHT) || 0), 0);
+    const depTotal = filtered.reduce((s, i) => s + (parseFloat(i.deplacement) || 0), 0);
+    const marge = ca - depTotal;
+    const tauxReussite = done > 0 ? Math.round((resolved / done) * 100) : 0;
+
+    if ($('kpi-total')) $('kpi-total').textContent = total;
+    if ($('kpi-planifier')) $('kpi-planifier').textContent = aPlanifier;
+    if ($('kpi-ca')) $('kpi-ca').textContent = ca > 0 ? ca.toLocaleString('fr-FR') + ' \u20ac' : '0 \u20ac';
+    if ($('kpi-marge')) $('kpi-marge').textContent = marge !== 0 ? marge.toLocaleString('fr-FR') + ' \u20ac' : '0 \u20ac';
+    if ($('kpi-reussite')) $('kpi-reussite').textContent = done > 0 ? tauxReussite + '%' : 'N/D';
+
+    // Sync info bar
+    if ($('admin-last-sync')) {
+        $('admin-last-sync').textContent = new Date().toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit' });
+    }
+    if ($('admin-data-count')) {
+        $('admin-data-count').textContent = S.data.length + ' interventions totales / ' + filtered.length + ' affichees';
+    }
+
+    // CRM table
+    renderAdminTable(filtered);
+
+    // Tech stats
+    renderAdminTechStats(filtered);
+
+    // Charts
+    renderAdminCharts();
+
+    // Login history
+    renderLoginHistory();
+
+    // Bind filter events (once)
+    if (!monthInput._bound) {
+        monthInput.addEventListener('change', () => renderAdminDashboard());
+        monthInput._bound = true;
+    }
+    const techSel = $('admin-filter-tech');
+    if (techSel && !techSel._bound) {
+        techSel.addEventListener('change', () => renderAdminDashboard());
+        techSel._bound = true;
+    }
+    const statusSel = $('admin-filter-status');
+    if (statusSel && !statusSel._bound) {
+        statusSel.addEventListener('change', () => renderAdminDashboard());
+        statusSel._bound = true;
+    }
+}
+
+function renderAdminTable(data) {
+    const tbody = $('admin-intv-tbody');
+    if (!tbody) return;
+
+    const countEl = $('crm-count');
+    if (countEl) countEl.textContent = data.length + ' ligne' + (data.length > 1 ? 's' : '');
+
+    const boolIcon = (v) => {
+        if (v === true || v === 'TRUE' || v === 'Oui' || v === 'oui') return '<span style="color:var(--green);font-weight:900">✓</span>';
+        if (v === false || v === 'FALSE' || v === 'Non' || v === 'non') return '<span style="color:var(--red)">✗</span>';
+        return v ? esc(String(v)) : '-';
+    };
+    const fmtAmount = (v) => {
+        const n = parseFloat(v);
+        return !isNaN(n) && n !== 0 ? n.toLocaleString('fr-FR') + '\u20ac' : '-';
+    };
+
+    // Group by month
+    const groups = {};
+    data.forEach(i => {
+        const dateStr = i.dateIntervention || i.dateProposee || i.dateDemande || i.date || '';
+        let key = 'Sans date';
+        const parts = dateStr.match(/(\d{2})\/(\d{2})\/(\d{4})/);
+        if (parts) {
+            key = parts[3] + '-' + parts[2];
+        } else if (dateStr) {
+            const d = new Date(dateStr);
+            if (!isNaN(d)) key = d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0');
+        }
+        if (!groups[key]) groups[key] = [];
+        groups[key].push(i);
+    });
+
+    const months = Object.keys(groups).sort().reverse();
+    const monthNames = ['', 'Janvier', 'Fevrier', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Aout', 'Septembre', 'Octobre', 'Novembre', 'Decembre'];
+
+    let html = '';
+    months.forEach(m => {
+        const rows = groups[m];
+        let label = m;
+        if (m !== 'Sans date') {
+            const [y, mo] = m.split('-');
+            label = (monthNames[parseInt(mo)] || mo) + ' ' + y;
+        }
+        html += `<tr class="month-row"><td colspan="25" style="cursor:pointer" onclick="this.parentElement.nextElementSibling?.classList.toggle('hidden')">${esc(label)} (${rows.length})</td></tr>`;
+        html += '<tbody>';
+        rows.forEach(i => {
+            html += `<tr onclick="window.innerWidth>=768?openSidebar(S.data.find(x=>x.id==='${i.id}')):selectIntv('${i.id}')" style="cursor:pointer">
+                <td class="col-ticket">${esc(i.numIntervention || '-')}</td>
+                <td class="col-ticket">${esc(i.ticket || '-')}</td>
+                <td><span style="background:var(--primary-light);color:var(--primary-dark);padding:2px 8px;border-radius:6px;font-weight:700;font-size:11px">${esc(i.dept || '-')}</span></td>
+                <td>${esc(i.emplacement || '-')}</td>
+                <td style="font-weight:700;max-width:180px;overflow:hidden;text-overflow:ellipsis" title="${esc(i.site)}">${esc(i.site || '-')}</td>
+                <td style="max-width:200px;overflow:hidden;text-overflow:ellipsis" title="${esc(i.address)}">${esc(i.address || '-')}</td>
+                <td>${esc(i.brand || '-')}</td>
+                <td style="font-family:monospace;font-size:11px">${esc(i.serialNumber || '-')}</td>
+                <td class="col-problem" title="${esc(i.problem)}">${esc(i.problem || '-')}</td>
+                <td><span style="background:var(--amber-light);color:#92400E;padding:2px 8px;border-radius:6px;font-weight:700;font-size:11px">${esc(i.sla || '-')}</span></td>
+                <td>${esc(i.client || '-')}</td>
+                <td>${esc(i.requester || '-')}</td>
+                <td>${esc(i.supplier || '-')}</td>
+                <td class="col-date">${esc(i.dateDemande || '-')}</td>
+                <td class="col-date">${esc(i.dateProposee || i.date || '-')}</td>
+                <td class="col-date">${esc(i.dateIntervention || '-')}</td>
+                <td>${statusBadgeHTML(deriveStatus(i))}</td>
+                <td class="col-bool">${boolIcon(i.done)}</td>
+                <td class="col-bool">${boolIcon(i.reussi)}</td>
+                <td class="col-bool">${boolIcon(i.report)}</td>
+                <td class="col-amount">${fmtAmount(i.deplacement)}</td>
+                <td class="col-amount">${fmtAmount(i.tauxHoraire)}</td>
+                <td class="col-amount">${fmtAmount(i.factureHT)}</td>
+                <td class="col-amount">${fmtAmount(i.remiseDeplacement)}</td>
+                <td class="col-amount" style="font-weight:900">${fmtAmount(i.totalHT)}</td>
+            </tr>`;
+        });
+        html += '</tbody>';
+    });
+
+    tbody.innerHTML = html || '<tr><td colspan="25" style="text-align:center;padding:40px;color:var(--muted)">Aucune donnee</td></tr>';
+
+    // Bind sort headers (once)
+    const table = $('admin-intv-table');
+    if (table && !table._sortBound) {
+        table._sortBound = true;
+        table.querySelectorAll('th[data-sort]').forEach(th => {
+            th.addEventListener('click', () => {
+                const key = th.dataset.sort;
+                const isNum = ['deplacement','tauxHoraire','factureHT','remiseDeplacement','totalHT'].includes(key);
+                const isDate = ['dateDemande','dateProposee','dateIntervention'].includes(key);
+                const asc = th.classList.contains('sorted') && th.dataset.dir === 'asc' ? false : true;
+                table.querySelectorAll('th').forEach(h => { h.classList.remove('sorted'); h.dataset.dir = ''; });
+                th.classList.add('sorted');
+                th.dataset.dir = asc ? 'asc' : 'desc';
+                th.querySelector('.sort-arrow').textContent = asc ? '\u25B2' : '\u25BC';
+                const filtered = getFilteredData();
+                filtered.sort((a, b) => {
+                    let va = a[key] || '', vb = b[key] || '';
+                    if (isNum) { va = parseFloat(va) || 0; vb = parseFloat(vb) || 0; }
+                    else if (isDate) {
+                        const pa = String(va).match(/(\d{2})\/(\d{2})\/(\d{4})/);
+                        const pb = String(vb).match(/(\d{2})\/(\d{2})\/(\d{4})/);
+                        va = pa ? pa[3]+pa[2]+pa[1] : String(va);
+                        vb = pb ? pb[3]+pb[2]+pb[1] : String(vb);
+                    } else { va = String(va).toLowerCase(); vb = String(vb).toLowerCase(); }
+                    return asc ? (va > vb ? 1 : va < vb ? -1 : 0) : (va < vb ? 1 : va > vb ? -1 : 0);
+                });
+                renderAdminTable(filtered);
+            });
         });
     }
 }
+
+// Full CRM CSV export
+function exportFullCRM() {
+    const filtered = getFilteredData();
+    const headers = ['N Intv','Ticket','Dept','Emplacement','Nom du site','Adresse','Marque','Serial Number','Probleme','SLA','Demandeur','Requester','Supplier','Date demande','Date proposee','Date intervention','Statut','Fait','Reussi','Rapport','Deplacement','Taux horaire','Facture HT','Remise','Total HT'];
+    const rows = filtered.map(i => [
+        i.numIntervention, i.ticket, i.dept, i.emplacement, i.site, i.address, i.brand, i.serialNumber, (i.problem || '').replace(/\n/g, ' '),
+        i.sla, i.client, i.requester, i.supplier, i.dateDemande, i.dateProposee || i.date, i.dateIntervention,
+        deriveStatus(i), i.done ? 'Oui' : 'Non', i.reussi || '', i.report ? 'Oui' : '',
+        i.deplacement, i.tauxHoraire, i.factureHT, i.remiseDeplacement, i.totalHT
+    ]);
+    const csv = [headers, ...rows].map(r => r.map(c => '"' + String(c || '').replace(/"/g, '""') + '"').join(',')).join('\n');
+    const blob = new Blob(['\ufeff' + csv], { type: 'text/csv;charset=utf-8' });
+    const a = document.createElement('a'); a.href = URL.createObjectURL(blob);
+    a.download = 'jcsm_crm_' + iso() + '.csv';
+    a.click(); URL.revokeObjectURL(a.href);
+    toast('Export CSV telecharge', 'success');
+}
+window.exportFullCRM = exportFullCRM;
+
+function renderAdminTechStats(data) {
+    const container = $('admin-techs-list');
+    if (!container) return;
+
+    const byTech = {};
+    data.forEach(i => {
+        const t = i.techAssigned || 'Non assigné';
+        if (!byTech[t]) byTech[t] = { total: 0, done: 0, late: 0 };
+        byTech[t].total++;
+        if (i.done || i.report) byTech[t].done++;
+        if (i.isLate && !i.done && !i.report) byTech[t].late++;
+    });
+
+    const entries = Object.entries(byTech).sort((a, b) => b[1].total - a[1].total);
+    container.innerHTML = entries.map(([name, d]) => {
+        const pct = d.total ? Math.round((d.done / d.total) * 100) : 0;
+        return `<div class="card" style="padding:14px;margin-bottom:10px">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+                <span style="font-weight:800;color:var(--text)">${esc(name)}</span>
+                <span style="font-size:13px;color:var(--green);font-weight:700">${pct}%</span>
+            </div>
+            <div style="display:flex;gap:16px;font-size:12px;color:var(--muted);font-weight:600">
+                <span>${d.total} total</span>
+                <span style="color:var(--green)">${d.done} fait</span>
+                ${d.late ? `<span style="color:var(--red)">${d.late} retard</span>` : ''}
+            </div>
+            <div class="progress-bar" style="margin-top:8px"><div class="progress-fill" style="width:${pct}%"></div></div>
+        </div>`;
+    }).join('') || '<p style="color:var(--muted);text-align:center;padding:24px">Aucune donnée</p>';
+}
+
+function switchAdminTab(el) {
+    vibrate();
+    $$('.admin-tab[data-tab]').forEach(t => t.classList.remove('active'));
+    $$('.admin-tab-content').forEach(c => c.classList.add('hidden'));
+    el.classList.add('active');
+    const target = el.dataset.tab;
+    if ($(target)) $(target).classList.remove('hidden');
+    if (target === 'admin-charts') renderAdminCharts();
+    if (target === 'admin-comms') renderAdminComms();
+    if (target === 'admin-payments') renderAdminPayments();
+    if (target === 'admin-reports') renderAdminReports();
+    if (target === 'admin-history') renderLoginHistory();
+}
+window.switchAdminTab = switchAdminTab;
+
+// ==========================================
+// Login History
+// ==========================================
+function logLogin(role, isAdmin) {
+    const history = JSON.parse(localStorage.getItem('jcsm_login_history') || '[]');
+    history.unshift({
+        time: new Date().toISOString(),
+        role: role,
+        isAdmin: isAdmin,
+        device: navigator.userAgent.replace(/^.*?(Chrome|Firefox|Safari|Edge|Opera)\/(\S+).*$/, '$1 $2').slice(0, 40),
+        screen: screen.width + 'x' + screen.height
+    });
+    // Keep last 50 entries
+    if (history.length > 50) history.length = 50;
+    localStorage.setItem('jcsm_login_history', JSON.stringify(history));
+}
+
+function renderLoginHistory() {
+    const container = $('login-history-list');
+    if (!container) return;
+    const history = JSON.parse(localStorage.getItem('jcsm_login_history') || '[]');
+    if (!history.length) {
+        container.innerHTML = '<div style="padding:40px;text-align:center;color:var(--muted)"><div style="font-size:36px;margin-bottom:8px">🔐</div><p style="font-weight:600">Aucune connexion enregistree</p></div>';
+        return;
+    }
+    container.innerHTML = history.map(h => {
+        const d = new Date(h.time);
+        const timeStr = d.toLocaleDateString('fr-FR') + ' ' + d.toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit' });
+        return `<div class="login-entry">
+            <div class="login-dot ${h.isAdmin ? 'admin' : 'tech'}"></div>
+            <span class="login-time">${esc(timeStr)}</span>
+            <span class="login-role">${h.isAdmin ? 'Admin' : 'Technicien'}</span>
+            <span class="login-device" title="${esc(h.device || '')}">${esc(h.device || '-')} ${h.screen || ''}</span>
+        </div>`;
+    }).join('');
+}
+
+function clearLoginHistory() {
+    if (!confirm('Vider l\'historique des connexions ?')) return;
+    localStorage.removeItem('jcsm_login_history');
+    renderLoginHistory();
+    toast('Historique vide', 'success');
+}
+window.clearLoginHistory = clearLoginHistory;
+
+// ==========================================
+// Detail Sidebar (admin desktop)
+// ==========================================
+function openSidebar(interv) {
+    if (!interv) return;
+    const sb = $('detail-sidebar');
+    const ov = $('sidebar-overlay');
+    if (!sb || !ov) return;
+
+    $('sidebar-title').textContent = interv.ticket || interv.site || 'Detail';
+
+    const statusLabel = typeof deriveStatus === 'function' ? deriveStatus(interv) : '';
+    const statusHTML = typeof statusBadgeHTML === 'function' ? statusBadgeHTML(statusLabel) : esc(statusLabel);
+
+    const field = (label, val, mono) => {
+        if (!val || val === '-') return '';
+        const style = mono ? 'font-family:monospace;font-size:12px' : '';
+        return `<div style="display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--border)">
+            <span style="color:var(--muted);font-size:13px;font-weight:600">${esc(label)}</span>
+            <span style="color:var(--text);font-weight:700;text-align:right;max-width:60%;word-break:break-word;${style}">${esc(val)}</span>
+        </div>`;
+    };
+
+    const amountField = (label, val) => {
+        const n = parseFloat(val);
+        if (isNaN(n) || n === 0) return '';
+        return field(label, n.toLocaleString('fr-FR') + ' \u20ac');
+    };
+
+    $('sidebar-content').innerHTML = `
+        <div style="margin-bottom:20px">${statusHTML}</div>
+
+        <div style="background:var(--bg);border-radius:12px;padding:16px;margin-bottom:16px">
+            <div style="font-weight:800;font-size:13px;color:var(--primary);margin-bottom:8px;text-transform:uppercase;letter-spacing:.5px">Intervention</div>
+            ${field('N\u00b0 Intervention', interv.numIntervention)}
+            ${field('Ticket', interv.ticket)}
+            ${field('D\u00e9partement', interv.dept)}
+            ${field('Emplacement', interv.emplacement)}
+            ${field('SLA', interv.sla)}
+        </div>
+
+        <div style="background:var(--bg);border-radius:12px;padding:16px;margin-bottom:16px">
+            <div style="font-weight:800;font-size:13px;color:var(--primary);margin-bottom:8px;text-transform:uppercase;letter-spacing:.5px">Site</div>
+            ${field('Nom du site', interv.site)}
+            ${field('Adresse', interv.address)}
+            ${field('Marque', interv.brand)}
+            ${field('Serial Number', interv.serialNumber, true)}
+        </div>
+
+        <div style="background:var(--bg);border-radius:12px;padding:16px;margin-bottom:16px">
+            <div style="font-weight:800;font-size:13px;color:var(--primary);margin-bottom:8px;text-transform:uppercase;letter-spacing:.5px">Probl\u00e8me</div>
+            <p style="color:var(--text);font-size:14px;line-height:1.6;margin:0">${esc(interv.problem || 'Non renseign\u00e9')}</p>
+        </div>
+
+        <div style="background:var(--bg);border-radius:12px;padding:16px;margin-bottom:16px">
+            <div style="font-weight:800;font-size:13px;color:var(--primary);margin-bottom:8px;text-transform:uppercase;letter-spacing:.5px">Contacts</div>
+            ${field('Demandeur', interv.client)}
+            ${field('Requester', interv.requester)}
+            ${field('Supplier', interv.supplier)}
+        </div>
+
+        <div style="background:var(--bg);border-radius:12px;padding:16px;margin-bottom:16px">
+            <div style="font-weight:800;font-size:13px;color:var(--primary);margin-bottom:8px;text-transform:uppercase;letter-spacing:.5px">Dates</div>
+            ${field('Date demande', interv.dateDemande)}
+            ${field('Date propos\u00e9e', interv.dateProposee || interv.date)}
+            ${field('Date intervention', interv.dateIntervention)}
+        </div>
+
+        <div style="background:var(--bg);border-radius:12px;padding:16px;margin-bottom:16px">
+            <div style="font-weight:800;font-size:13px;color:var(--primary);margin-bottom:8px;text-transform:uppercase;letter-spacing:.5px">Financier</div>
+            ${amountField('D\u00e9placement', interv.deplacement)}
+            ${amountField('Taux horaire', interv.tauxHoraire)}
+            ${amountField('Facture HT', interv.factureHT)}
+            ${amountField('Remise d\u00e9placement', interv.remiseDeplacement)}
+            ${amountField('Total HT', interv.totalHT)}
+        </div>
+
+        <div style="display:flex;gap:10px;margin-top:20px">
+            <button class="btn btn-primary btn-sm" onclick="closeSidebar();selectIntv('${interv.id}')" style="flex:1">Voir fiche complete</button>
+            <button class="btn btn-ghost btn-sm" onclick="closeSidebar()" style="flex:1">Fermer</button>
+        </div>
+    `;
+
+    sb.classList.add('open');
+    ov.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+window.openSidebar = openSidebar;
+
+function closeSidebar() {
+    const sb = $('detail-sidebar');
+    const ov = $('sidebar-overlay');
+    if (sb) sb.classList.remove('open');
+    if (ov) ov.classList.remove('active');
+    document.body.style.overflow = '';
+}
+window.closeSidebar = closeSidebar;
+
+// ==========================================
+// Admin Paiements
+// ==========================================
+const PAY_RATES = {
+    'SLA 4h nuit': { deplacement: 240, horaire: 100 },
+    'SLA 4h jour': { deplacement: 200, horaire: 80 },
+    'SLA 4h': { deplacement: 200, horaire: 80 },
+    'SLA 1j': { deplacement: 150, horaire: 80 },
+    'SLA J+1': { deplacement: 150, horaire: 80 },
+    'SLA 2j': { deplacement: 135, horaire: 80 },
+    'SLA 5j': { deplacement: 120, horaire: 60 },
+    'default': { deplacement: 120, horaire: 60 }
+};
+
+let _payData = JSON.parse(localStorage.getItem('jcsm_payments') || '{}');
+
+function calcPayAmount(intervention) {
+    const sla = intervention.sla || '';
+    const rate = PAY_RATES[sla] || PAY_RATES['default'];
+    return rate.deplacement;
+}
+
+function renderAdminPayments() {
+    if (!S.user.isAdmin) return;
+    const techFilter = $('pay-tech-filter')?.value || '';
+    const statusFilter = $('pay-status-filter')?.value || '';
+    const done = S.data.filter(i => i.done || i.report);
+
+    // Populate tech filter
+    const techSelect = $('pay-tech-filter');
+    if (techSelect && techSelect.options.length <= 1) {
+        const techs = [...new Set(done.map(i => i.techAssigned).filter(Boolean))].sort();
+        techs.forEach(t => { const o = document.createElement('option'); o.value = t; o.textContent = t; techSelect.appendChild(o); });
+    }
+
+    let filtered = done;
+    if (techFilter) filtered = filtered.filter(i => i.techAssigned === techFilter);
+    if (statusFilter === 'paid') filtered = filtered.filter(i => _payData[i.ticket]?.paid);
+    if (statusFilter === 'pending') filtered = filtered.filter(i => !_payData[i.ticket]?.paid);
+
+    // Summary
+    const totalAmount = filtered.reduce((s, i) => s + calcPayAmount(i), 0);
+    const paidAmount = filtered.filter(i => _payData[i.ticket]?.paid).reduce((s, i) => s + calcPayAmount(i), 0);
+    const unpaidAmount = totalAmount - paidAmount;
+    const summary = $('pay-summary');
+    if (summary) {
+        summary.innerHTML = `
+            <div class="kpi-card"><div class="kpi-val" style="color:var(--primary)">${filtered.length}</div><div class="kpi-lbl">Interventions</div></div>
+            <div class="kpi-card"><div class="kpi-val" style="color:var(--green)">${totalAmount.toLocaleString('fr-FR')}€</div><div class="kpi-lbl">Total</div></div>
+            <div class="kpi-card"><div class="kpi-val" style="color:var(--emerald)">${paidAmount.toLocaleString('fr-FR')}€</div><div class="kpi-lbl">Paye</div></div>
+            <div class="kpi-card"><div class="kpi-val" style="color:var(--red)">${unpaidAmount.toLocaleString('fr-FR')}€</div><div class="kpi-lbl">A payer</div></div>
+        `;
+    }
+
+    // Table
+    const tbody = $('pay-tbody');
+    if (tbody) {
+        tbody.innerHTML = filtered.map(i => {
+            const amount = calcPayAmount(i);
+            const paid = _payData[i.ticket]?.paid;
+            const paidDate = _payData[i.ticket]?.date || '';
+            return `<tr>
+                <td><input type="checkbox" class="pay-check" data-ticket="${esc(i.ticket)}" ${paid ? 'disabled' : ''}></td>
+                <td style="font-weight:700">${esc(i.techAssigned || '-')}</td>
+                <td><span style="font-family:monospace;font-size:12px;color:var(--muted)">#${esc(i.ticket)}</span> ${esc(i.site)}</td>
+                <td>${esc(i.sla || '-')}</td>
+                <td style="font-weight:800">${amount}€</td>
+                <td>${paid ? '<span class="status-badge st-payee">Paye ' + esc(paidDate) + '</span>' : '<span class="status-badge st-planifier">A payer</span>'}</td>
+                <td>${paid ? '' : '<button class="btn btn-sm btn-primary" onclick="markPaid(\'' + esc(i.ticket) + '\')" style="padding:6px 12px;font-size:12px">Payer</button>'}</td>
+            </tr>`;
+        }).join('') || '<tr><td colspan="7" style="text-align:center;color:var(--muted);padding:24px">Aucune intervention terminee</td></tr>';
+    }
+
+    // Show/hide bulk button
+    updateBulkPayBtn();
+}
+
+function markPaid(ticket) {
+    _payData[ticket] = { paid: true, date: new Date().toLocaleDateString('fr-FR') };
+    localStorage.setItem('jcsm_payments', JSON.stringify(_payData));
+    renderAdminPayments();
+    toast('Paiement enregistre', 'success');
+}
+
+function toggleAllPayChecks(el) {
+    $$('.pay-check:not(:disabled)').forEach(c => { c.checked = el.checked; });
+    updateBulkPayBtn();
+}
+
+function updateBulkPayBtn() {
+    const checked = $$('.pay-check:checked').length;
+    const btn = $('pay-bulk-btn');
+    if (btn) btn.style.display = checked > 0 ? 'inline-flex' : 'none';
+}
+
+function markSelectedPaid() {
+    const tickets = [...$$('.pay-check:checked')].map(c => c.dataset.ticket);
+    if (!tickets.length) return;
+    if (!confirm('Marquer ' + tickets.length + ' paiement(s) comme paye(s) ?')) return;
+    const now = new Date().toLocaleDateString('fr-FR');
+    tickets.forEach(t => { _payData[t] = { paid: true, date: now }; });
+    localStorage.setItem('jcsm_payments', JSON.stringify(_payData));
+    renderAdminPayments();
+    toast(tickets.length + ' paiement(s) marque(s)', 'success');
+}
+
+function exportPayments() {
+    const done = S.data.filter(i => i.done || i.report);
+    const rows = [['Technicien', 'Ticket', 'Site', 'SLA', 'Montant', 'Statut', 'Date paiement']];
+    done.forEach(i => {
+        const paid = _payData[i.ticket]?.paid;
+        rows.push([i.techAssigned || '', i.ticket, i.site, i.sla || '', calcPayAmount(i) + '€', paid ? 'Paye' : 'A payer', _payData[i.ticket]?.date || '']);
+    });
+    const csv = rows.map(r => r.map(c => '"' + String(c).replace(/"/g, '""') + '"').join(',')).join('\n');
+    const blob = new Blob(['\ufeff' + csv], { type: 'text/csv;charset=utf-8' });
+    const a = document.createElement('a'); a.href = URL.createObjectURL(blob);
+    a.download = 'paiements_jcsm_' + new Date().toISOString().slice(0, 10) + '.csv';
+    a.click(); URL.revokeObjectURL(a.href);
+    toast('Export CSV telecharge', 'success');
+}
+
+// Event listeners for payment filters
+document.addEventListener('change', e => {
+    if (e.target.id === 'pay-tech-filter' || e.target.id === 'pay-status-filter') renderAdminPayments();
+    if (e.target.classList.contains('pay-check')) updateBulkPayBtn();
+});
+
+window.markPaid = markPaid;
+window.toggleAllPayChecks = toggleAllPayChecks;
+window.markSelectedPaid = markSelectedPaid;
+window.exportPayments = exportPayments;
+
+// ==========================================
+// Admin Rapports
+// ==========================================
+function renderAdminReports() {
+    if (!S.user.isAdmin) return;
+    const search = $('report-search')?.value?.toLowerCase() || '';
+    const monthFilter = $('report-month-filter')?.value || '';
+
+    // Fetch reports from API
+    fetch(JCSM_CONFIG.api.listRapports, { headers: getAuthHeaders() })
+        .then(r => r.json())
+        .then(reports => {
+            if (!Array.isArray(reports)) reports = reports.rapports || [];
+            let filtered = reports;
+            if (search) filtered = filtered.filter(r => JSON.stringify(r).toLowerCase().includes(search));
+            if (monthFilter) filtered = filtered.filter(r => (r.dateCreation || r.dateIntervention || '').startsWith(monthFilter));
+
+            // Populate month filter
+            const monthSelect = $('report-month-filter');
+            if (monthSelect && monthSelect.options.length <= 1) {
+                const months = [...new Set(reports.map(r => (r.dateCreation || r.dateIntervention || '').slice(0, 7)).filter(Boolean))].sort().reverse();
+                months.forEach(m => { const o = document.createElement('option'); o.value = m; o.textContent = m; monthSelect.appendChild(o); });
+            }
+
+            const list = $('reports-list');
+            const empty = $('reports-empty');
+            if (!filtered.length) {
+                if (list) list.innerHTML = '';
+                if (empty) empty.classList.remove('hidden');
+                return;
+            }
+            if (empty) empty.classList.add('hidden');
+            if (list) {
+                list.innerHTML = filtered.map(r => {
+                    const name = r.filename || r.ticket || 'Rapport';
+                    const date = r.dateCreation || r.dateIntervention || '';
+                    const tech = r.technicien || '';
+                    const site = r.nomSite || r.site || '';
+                    const htmlUrl = r.htmlUrl || r.url || '';
+                    const docxUrl = r.docxUrl || '';
+                    return `<div class="card" style="padding:16px;display:flex;align-items:center;gap:16px">
+                        <div style="width:44px;height:44px;border-radius:12px;background:var(--primary-light);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0">📄</div>
+                        <div style="flex:1;min-width:0">
+                            <div style="font-weight:800;font-size:14px;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${esc(name)}</div>
+                            <div style="font-size:12px;color:var(--muted);margin-top:2px">${esc(site)} ${tech ? '• ' + esc(tech) : ''} ${date ? '• ' + esc(date) : ''}</div>
+                        </div>
+                        <div style="display:flex;gap:6px;flex-shrink:0">
+                            ${htmlUrl ? '<a href="' + esc(htmlUrl) + '" target="_blank" class="btn btn-ghost btn-sm" style="padding:6px 10px;font-size:12px">HTML</a>' : ''}
+                            ${docxUrl ? '<a href="' + esc(docxUrl) + '" target="_blank" class="btn btn-primary btn-sm" style="padding:6px 10px;font-size:12px">DOCX</a>' : ''}
+                        </div>
+                    </div>`;
+                }).join('');
+            }
+        })
+        .catch(() => {
+            const list = $('reports-list');
+            if (list) list.innerHTML = '<div style="text-align:center;padding:24px;color:var(--muted)">Erreur de chargement des rapports</div>';
+        });
+}
+
+// Report search listener
+document.addEventListener('input', e => {
+    if (e.target.id === 'report-search') renderAdminReports();
+});
+document.addEventListener('change', e => {
+    if (e.target.id === 'report-month-filter') renderAdminReports();
+});
+
+// ==========================================
+// Admin Communications
+// ==========================================
+const COMMS_TEMPLATES = {
+    disponibilite: 'Bonjour, merci de confirmer votre disponibilite pour les prochaines interventions planifiees. Cordialement, JCSM',
+    urgent: 'URGENT - Merci de rappeler le bureau JCSM au plus vite. Cordialement, JCSM',
+    reunion: 'Rappel : reunion equipe JCSM demain matin. Merci de confirmer votre presence. Cordialement, JCSM',
+    info: 'Information JCSM : '
+};
+
+let _commsHistory = JSON.parse(localStorage.getItem('jcsm_comms_history') || '[]');
+
+function renderAdminComms() {
+    if (!S.user.isAdmin) return;
+    const techs = TECHNICIENS.filter(t => t.active !== false);
+    const annuaire = $('comms-annuaire');
+    if (annuaire) {
+        annuaire.innerHTML = techs.map(t => `
+            <div class="card" style="padding:16px;display:flex;align-items:center;gap:12px">
+                <div style="width:44px;height:44px;border-radius:50%;background:var(--primary);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:18px;flex-shrink:0">${esc(t.name.charAt(0))}</div>
+                <div style="flex:1;min-width:0">
+                    <div style="font-weight:800;font-size:14px;color:var(--text)">${esc(t.name)}</div>
+                    <div style="font-size:12px;color:var(--muted)">${esc(t.phone || 'Pas de tel')}</div>
+                    <div style="font-size:11px;color:var(--muted)">Zone: ${esc(t.zone || 'Non definie')}</div>
+                </div>
+                <div style="display:flex;gap:6px;flex-shrink:0">
+                    ${t.phone ? `<button onclick="makeCall('${esc(t.phone)}','${esc(t.name)}')" style="width:38px;height:38px;border-radius:10px;border:1px solid var(--border);background:var(--card);cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center" title="Appel navigateur">🎧</button>` : ''}
+                    ${t.phone ? `<a href="tel:${esc(t.phone)}" style="width:38px;height:38px;border-radius:10px;border:1px solid var(--border);background:var(--card);cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center;text-decoration:none" title="Appel telephone">📞</a>` : ''}
+                    ${t.phone ? `<button onclick="commsPreFill('${esc(t.phone)}','${esc(t.name)}','sms')" style="width:38px;height:38px;border-radius:10px;border:1px solid var(--border);background:var(--card);cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center" title="SMS">📱</button>` : ''}
+                    ${t.phone ? `<button onclick="commsPreFill('${esc(t.phone)}','${esc(t.name)}','whatsapp')" style="width:38px;height:38px;border-radius:10px;border:1px solid var(--border);background:var(--card);cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center" title="WhatsApp">💬</button>` : ''}
+                </div>
+            </div>
+        `).join('');
+    }
+
+    // Populate destination select
+    const dest = $('comms-dest');
+    if (dest && dest.options.length <= 1) {
+        techs.forEach(t => {
+            if (!t.phone) return;
+            const opt = document.createElement('option');
+            opt.value = t.phone;
+            opt.textContent = t.name + ' (' + t.phone + ')';
+            opt.dataset.name = t.name;
+            dest.appendChild(opt);
+        });
+    }
+
+    // Late count
+    const lateCount = S.data.filter(i => i.isLate && !i.done && !i.report && i.techAssigned).length;
+    if ($('comms-late-count')) $('comms-late-count').textContent = lateCount;
+
+    // Character counter
+    const msgEl = $('comms-message');
+    if (msgEl && !msgEl._bound) {
+        msgEl.addEventListener('input', () => {
+            if ($('comms-char-count')) $('comms-char-count').textContent = msgEl.value.length;
+        });
+        msgEl._bound = true;
+    }
+
+    // Update max chars based on channel
+    _updateCommsMaxChars();
+
+    // Render history
+    _renderCommsHistory();
+}
+
+function _updateCommsMaxChars() {
+    const ch = $('comms-channel')?.value || 'sms';
+    if ($('comms-max-chars')) $('comms-max-chars').textContent = ch === 'whatsapp' ? '4096' : '1600';
+}
+
+function selectCommsChannel(el, channel) {
+    vibrate();
+    $$('#comms-channel-toggle .channel-opt').forEach(o => o.classList.remove('active'));
+    el.classList.add('active');
+    if ($('comms-channel')) $('comms-channel').value = channel;
+    _updateCommsMaxChars();
+}
+window.selectCommsChannel = selectCommsChannel;
+
+function commsQuickCall(phone) {
+    vibrate();
+    window.location.href = 'tel:' + phone;
+}
+window.commsQuickCall = commsQuickCall;
+
+function commsPreFill(phone, name, channel) {
+    vibrate();
+    // Switch to Envoi rapide sub-tab
+    const sendTab = document.querySelector('#comms-subtab-bar [data-subtab="comms-send"]');
+    if (sendTab) switchCommsSubTab(sendTab);
+    const dest = $('comms-dest');
+    if (dest) {
+        for (let i = 0; i < dest.options.length; i++) {
+            if (dest.options[i].value === phone) { dest.selectedIndex = i; break; }
+        }
+    }
+    // Set channel
+    const chEls = $$('#comms-channel-toggle .channel-opt');
+    chEls.forEach(o => o.classList.remove('active'));
+    if (channel === 'whatsapp') { if (chEls[1]) chEls[1].classList.add('active'); }
+    else { if (chEls[0]) chEls[0].classList.add('active'); }
+    if ($('comms-channel')) $('comms-channel').value = channel;
+    _updateCommsMaxChars();
+
+    // Scroll to form
+    $('comms-message')?.focus();
+}
+window.commsPreFill = commsPreFill;
+
+function applyCommsTemplate(key) {
+    vibrate();
+    const msg = COMMS_TEMPLATES[key] || '';
+    if ($('comms-message')) {
+        $('comms-message').value = msg;
+        if ($('comms-char-count')) $('comms-char-count').textContent = msg.length;
+    }
+}
+window.applyCommsTemplate = applyCommsTemplate;
+
+async function commsSend() {
+    const phone = $('comms-dest')?.value;
+    const message = $('comms-message')?.value?.trim();
+    const channel = $('comms-channel')?.value || 'sms';
+
+    if (!phone) { toast('Selectionnez un destinataire', 'error'); return; }
+    if (!message) { toast('Message requis', 'error'); return; }
+
+    vibrate();
+    const label = channel === 'whatsapp' ? 'WhatsApp' : 'SMS';
+    const techName = $('comms-dest')?.selectedOptions[0]?.dataset?.name || 'Inconnu';
+    toast('Envoi ' + label + '...', 'info');
+
+    const result = await sendMessage(phone, message, channel, { technicien: techName, ticket: 'Admin' });
+
+    if (result.ok) {
+        _addCommsHistory({ phone, techName, channel, message, status: result.via === 'twilio' ? 'sent' : 'webhook', sid: result.data?.sid || '', time: new Date().toISOString() });
+        toast(label + ' envoye a ' + techName, 'success');
+        commsClear();
+    } else {
+        _addCommsHistory({ phone, techName, channel, message, status: 'error', time: new Date().toISOString() });
+        toast('Erreur envoi ' + label, 'error');
+    }
+    _renderCommsHistory();
+}
+window.commsSend = commsSend;
+
+function commsClear() {
+    if ($('comms-message')) { $('comms-message').value = ''; }
+    if ($('comms-char-count')) $('comms-char-count').textContent = '0';
+    if ($('comms-dest')) $('comms-dest').selectedIndex = 0;
+}
+window.commsClear = commsClear;
+
+function commsBroadcast() {
+    const message = $('comms-message')?.value?.trim();
+    const channel = $('comms-channel')?.value || 'sms';
+    if (!message) { toast('Ecrivez un message avant d\'envoyer', 'error'); return; }
+
+    const techs = TECHNICIENS.filter(t => t.active !== false && t.phone);
+    if (!techs.length) { toast('Aucun technicien avec telephone', 'error'); return; }
+
+    if (!confirm('Envoyer ce message a ' + techs.length + ' technicien(s) ?')) return;
+
+    vibrate();
+    const label = channel === 'whatsapp' ? 'WhatsApp' : 'SMS';
+    toast('Envoi ' + label + ' a ' + techs.length + ' techniciens...', 'info');
+
+    let sentCount = 0;
+
+    (async () => {
+        for (const t of techs) {
+            const result = await sendMessage(t.phone, message, channel, { technicien: t.name, ticket: 'Broadcast' });
+            if (result.ok) sentCount++;
+        }
+        toast(sentCount + '/' + techs.length + ' ' + label + ' envoyes', sentCount > 0 ? 'success' : 'error');
+        _addCommsHistory({ phone: 'broadcast', techName: techs.length + ' techs', channel, message, status: sentCount + '/' + techs.length, time: new Date().toISOString() });
+        _renderCommsHistory();
+    })();
+}
+window.commsBroadcast = commsBroadcast;
+
+function _addCommsHistory(entry) {
+    _commsHistory.unshift(entry);
+    if (_commsHistory.length > 50) _commsHistory = _commsHistory.slice(0, 50);
+    localStorage.setItem('jcsm_comms_history', JSON.stringify(_commsHistory));
+}
+
+function _renderCommsHistory() {
+    const el = $('comms-history');
+    if (!el) return;
+
+    if (!_commsHistory.length) {
+        el.innerHTML = '<div style="text-align:center;color:var(--muted);padding:24px;font-size:13px">Aucun message envoye</div>';
+        return;
+    }
+
+    el.innerHTML = _commsHistory.slice(0, 20).map(h => {
+        const dt = h.time ? new Date(h.time) : null;
+        const timeStr = dt ? dt.toLocaleDateString('fr-FR') + ' ' + dt.toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit' }) : '';
+        const statusColor = h.status === 'sent' ? 'var(--green)' : h.status === 'error' ? 'var(--red)' : 'var(--orange)';
+        const icon = h.channel === 'whatsapp' ? '💬' : '📱';
+        return `<div style="display:flex;align-items:center;gap:12px;padding:10px 12px;border-bottom:1px solid var(--border)">
+            <span style="font-size:18px">${icon}</span>
+            <div style="flex:1;min-width:0">
+                <div style="font-weight:700;font-size:13px;color:var(--text)">${esc(h.techName || h.phone)}</div>
+                <div style="font-size:12px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:300px">${esc(h.message?.substring(0, 80) || '')}</div>
+            </div>
+            <div style="text-align:right;flex-shrink:0">
+                <div style="font-size:11px;color:var(--muted)">${timeStr}</div>
+                <div style="font-size:11px;font-weight:700;color:${statusColor}">${esc(h.status)}</div>
+            </div>
+        </div>`;
+    }).join('');
+}
+
+// ==========================================
+// Communications Sub-tabs
+// ==========================================
+function switchCommsSubTab(el) {
+    vibrate();
+    $$('#comms-subtab-bar .admin-tab').forEach(t => t.classList.remove('active'));
+    $$('.comms-subtab-content').forEach(c => { c.classList.remove('active-subtab'); c.style.display = 'none'; });
+    el.classList.add('active');
+    const target = el.dataset.subtab;
+    if ($(target)) { $(target).classList.add('active-subtab'); $(target).style.display = ''; }
+    if (target === 'comms-conversations') loadConversations();
+    if (target === 'comms-call-history') loadCallLogs();
+    if (target === 'comms-send') { _renderCommsHistory(); _updateCommsMaxChars(); }
+}
+window.switchCommsSubTab = switchCommsSubTab;
+
+// ==========================================
+// Twilio Voice (Browser Calls)
+// ==========================================
+let _twilioDevice = null;
+let _activeCall = null;
+let _callTimer = null;
+let _callStart = null;
+let _callLogId = null;
+
+async function initTwilioVoice() {
+    if (typeof Twilio === 'undefined' || !Twilio.Device) {
+        console.warn('Twilio Voice SDK not loaded');
+        return;
+    }
+    try {
+        const token = await fetchVoiceToken();
+        if (!token) return;
+        _twilioDevice = new Twilio.Device(token, { edge: 'dublin', closeProtection: true });
+        _twilioDevice.on('error', (err) => { console.error('Twilio Device error:', err); toast('Erreur telephonie: ' + (err.message || 'Inconnu'), 'error'); });
+        _twilioDevice.on('tokenWillExpire', async () => { const t = await fetchVoiceToken(); if (t) _twilioDevice.updateToken(t); });
+        await _twilioDevice.register();
+        console.log('Twilio Voice: registered');
+    } catch (e) { console.error('Twilio Voice init error:', e); }
+}
+
+async function fetchVoiceToken() {
+    try {
+        const res = await fetch(JCSM_CONFIG.api.twilioVoiceToken || '/api/twilio-voice-token.php', { method: 'POST', headers: { 'Content-Type': 'application/json', ...getAuthHeaders() } });
+        if (!res.ok) return null;
+        const data = await res.json();
+        return data.token || null;
+    } catch (e) { console.error('Voice token error:', e); return null; }
+}
+
+async function makeCall(phoneNumber, contactName) {
+    if (!_twilioDevice) { toast('Telephonie non initialisee. Rechargez la page.', 'error'); return; }
+    vibrate();
+    showCallOverlay(contactName || phoneNumber, phoneNumber, 'connecting');
+    try {
+        _callLogId = await createCallLog(phoneNumber, contactName);
+        _activeCall = await _twilioDevice.connect({ params: { To: phoneNumber } });
+        _activeCall.on('accept', () => { _callStart = Date.now(); startCallTimer(); updateCallOverlayStatus('active'); });
+        _activeCall.on('disconnect', () => {
+            const duration = _callStart ? Math.round((Date.now() - _callStart) / 1000) : 0;
+            stopCallTimer(); updateCallOverlayStatus('ended');
+            updateCallLog(_callLogId, duration, 'completed');
+            setTimeout(hideCallOverlay, 2000);
+            _activeCall = null; _callStart = null; _callLogId = null;
+        });
+        _activeCall.on('cancel', () => { stopCallTimer(); updateCallLog(_callLogId, 0, 'cancelled'); hideCallOverlay(); _activeCall = null; _callStart = null; _callLogId = null; });
+        _activeCall.on('error', (err) => { console.error('Call error:', err); toast('Erreur appel: ' + (err.message || 'Inconnu'), 'error'); stopCallTimer(); updateCallLog(_callLogId, 0, 'error'); hideCallOverlay(); _activeCall = null; });
+    } catch (e) {
+        console.error('makeCall error:', e);
+        if (e.name === 'NotAllowedError') toast('Acces microphone refuse. Autorisez le micro pour appeler.', 'error');
+        else toast('Erreur connexion appel', 'error');
+        hideCallOverlay();
+    }
+}
+window.makeCall = makeCall;
+
+function hangupCall() { vibrate(); if (_activeCall) _activeCall.disconnect(); }
+window.hangupCall = hangupCall;
+
+function toggleMute() {
+    if (!_activeCall) return;
+    vibrate();
+    const muted = !_activeCall.isMuted();
+    _activeCall.mute(muted);
+    const btn = $('call-mute-btn');
+    if (btn) { btn.classList.toggle('active', muted); btn.textContent = muted ? '🔇' : '🔊'; }
+}
+window.toggleMute = toggleMute;
+
+function startCallTimer() {
+    _callTimer = setInterval(() => {
+        if (!_callStart) return;
+        const elapsed = Math.floor((Date.now() - _callStart) / 1000);
+        const m = String(Math.floor(elapsed / 60)).padStart(2, '0');
+        const s = String(elapsed % 60).padStart(2, '0');
+        if ($('call-timer-display')) $('call-timer-display').textContent = m + ':' + s;
+    }, 1000);
+}
+function stopCallTimer() { if (_callTimer) { clearInterval(_callTimer); _callTimer = null; } }
+
+function showCallOverlay(name, number, status) {
+    if ($('call-contact-name')) $('call-contact-name').textContent = name;
+    if ($('call-contact-number')) $('call-contact-number').textContent = number;
+    if ($('call-timer-display')) $('call-timer-display').textContent = '00:00';
+    updateCallOverlayStatus(status);
+    $('call-overlay')?.classList.add('active');
+}
+function updateCallOverlayStatus(status) {
+    const h = $('call-overlay-header');
+    if (!h) return;
+    h.className = 'call-overlay-header' + (status === 'connecting' ? ' connecting' : status === 'ended' ? ' ended' : '');
+    const labels = { connecting: 'Connexion...', active: 'En cours', ended: 'Termine' };
+    if ($('call-status-text')) $('call-status-text').textContent = labels[status] || status;
+}
+function hideCallOverlay() { $('call-overlay')?.classList.remove('active'); }
+
+async function createCallLog(phone, name) {
+    try {
+        const res = await fetch(JCSM_CONFIG.api.callLogs || '/api/call-logs.php', { method: 'POST', headers: { 'Content-Type': 'application/json', ...getAuthHeaders() }, body: JSON.stringify({ action: 'create', to: phone, toName: name || '', direction: 'outgoing', startTime: new Date().toISOString() }) });
+        const data = await res.json();
+        return data.id || null;
+    } catch (e) { return null; }
+}
+async function updateCallLog(callId, duration, status) {
+    if (!callId) return;
+    try { await fetch(JCSM_CONFIG.api.callLogs || '/api/call-logs.php', { method: 'POST', headers: { 'Content-Type': 'application/json', ...getAuthHeaders() }, body: JSON.stringify({ action: 'update', callId, duration, status, endTime: new Date().toISOString() }) }); } catch (e) {}
+}
+
+// ==========================================
+// SMS Conversations (Bidirectional)
+// ==========================================
+let _conversations = [];
+let _activeConvPhone = null;
+let _convPollTimer = null;
+let _lastUnreadTotal = -1;
+
+function findTechByPhone(phone) {
+    const norm = (p) => (p || '').replace(/[\s\-\.\(\)]/g, '').replace(/^0/, '+33');
+    const normalized = norm(phone);
+    return TECHNICIENS.find(t => norm(t.phone) === normalized);
+}
+
+async function loadConversations() {
+    try {
+        const res = await fetch((JCSM_CONFIG.api.conversations || '/api/conversations.php'), { headers: getAuthHeaders() });
+        if (!res.ok) throw new Error('Erreur ' + res.status);
+        _conversations = await res.json();
+        renderConversationList();
+        updateUnreadBadge();
+        checkForNewMessages();
+    } catch (e) { console.error('Load conversations error:', e); }
+    if (!_convPollTimer) { _convPollTimer = setInterval(loadConversations, 30000); }
+}
+
+function renderConversationList() {
+    const el = $('conv-list');
+    if (!el) return;
+    const q = ($('conv-search')?.value || '').toLowerCase();
+    let filtered = _conversations;
+    if (q) filtered = _conversations.filter(c => { const t = findTechByPhone(c.phone); return (t?.name || '').toLowerCase().includes(q) || c.phone.includes(q); });
+    if (!filtered.length) { el.innerHTML = '<div style="text-align:center;color:var(--muted);padding:40px 16px;font-size:13px">Aucune conversation</div>'; return; }
+    el.innerHTML = filtered.map(c => {
+        const tech = findTechByPhone(c.phone);
+        const name = tech ? tech.name : c.phone;
+        const initial = name.charAt(0).toUpperCase();
+        const dt = c.lastActivity ? new Date(c.lastActivity) : null;
+        const timeStr = dt ? dt.toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit' }) : '';
+        const dateStr = dt ? dt.toLocaleDateString('fr-FR', { day: '2-digit', month: '2-digit' }) : '';
+        const isActive = c.phone === _activeConvPhone;
+        return `<div class="conv-list-item" onclick="openConversation('${esc(c.phone)}')" style="${isActive ? 'background:var(--primary-light)' : ''}">
+            <div class="conv-avatar">${esc(initial)}</div>
+            <div style="flex:1;min-width:0">
+                <div style="display:flex;justify-content:space-between;align-items:center">
+                    <span style="font-weight:${c.unread > 0 ? '900' : '600'};font-size:14px;color:var(--text)">${esc(name)}</span>
+                    <span style="font-size:11px;color:var(--muted);flex-shrink:0">${dateStr} ${timeStr}</span>
+                </div>
+                <div style="font-size:12px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-top:2px">${c.lastDirection === 'outgoing' ? '↗ ' : ''}${esc(c.lastMessage || '')}</div>
+            </div>
+            ${c.unread > 0 ? `<span class="conv-unread-badge">${c.unread}</span>` : ''}
+        </div>`;
+    }).join('');
+}
+window.renderConversationList = renderConversationList;
+
+async function openConversation(phone) {
+    vibrate();
+    _activeConvPhone = phone;
+    try {
+        const res = await fetch((JCSM_CONFIG.api.conversations || '/api/conversations.php') + '?phone=' + encodeURIComponent(phone), { headers: getAuthHeaders() });
+        const conv = await res.json();
+        renderConversationThread(conv);
+        if (conv.unread > 0) {
+            fetch(JCSM_CONFIG.api.conversations || '/api/conversations.php', { method: 'POST', headers: { 'Content-Type': 'application/json', ...getAuthHeaders() }, body: JSON.stringify({ action: 'mark_read', phone }) }).then(() => {
+                const c = _conversations.find(x => x.phone === phone);
+                if (c) c.unread = 0;
+                updateUnreadBadge(); renderConversationList();
+            });
+        }
+    } catch (e) { console.error('Open conversation error:', e); }
+    const tech = findTechByPhone(phone);
+    if ($('conv-header-name')) $('conv-header-name').textContent = tech ? tech.name : phone;
+    if ($('conv-header-phone')) $('conv-header-phone').textContent = phone;
+    if ($('conv-call-btn')) $('conv-call-btn').style.display = '';
+    if ($('conv-compose')) $('conv-compose').style.display = 'flex';
+    renderConversationList();
+}
+window.openConversation = openConversation;
+
+function renderConversationThread(conv) {
+    const el = $('conv-thread');
+    if (!el) return;
+    const msgs = conv.messages || [];
+    if (!msgs.length) { el.innerHTML = '<div style="text-align:center;color:var(--muted);padding:40px;font-size:13px">Aucun message</div>'; return; }
+    el.innerHTML = msgs.map(m => {
+        const dt = m.timestamp ? new Date(m.timestamp) : null;
+        const t = dt ? dt.toLocaleDateString('fr-FR', { day: '2-digit', month: '2-digit' }) + ' ' + dt.toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit' }) : '';
+        return `<div class="conv-bubble ${m.direction === 'incoming' ? 'incoming' : 'outgoing'}">${esc(m.body)}<span class="conv-time">${t}${m.channel === 'whatsapp' ? ' (WA)' : ''}</span></div>`;
+    }).join('');
+    el.scrollTop = el.scrollHeight;
+}
+
+async function convSendReply() {
+    if (!_activeConvPhone) return;
+    const input = $('conv-input');
+    const message = input?.value?.trim();
+    if (!message) return;
+    vibrate(); input.value = '';
+    try {
+        const res = await fetch(JCSM_CONFIG.api.conversations || '/api/conversations.php', { method: 'POST', headers: { 'Content-Type': 'application/json', ...getAuthHeaders() }, body: JSON.stringify({ action: 'send', phone: _activeConvPhone, message, channel: 'sms', techName: S.user.name || 'Admin' }) });
+        if (!res.ok) { const err = await res.json(); toast('Erreur: ' + (err.error || 'Envoi echoue'), 'error'); return; }
+        toast('SMS envoye', 'success');
+        openConversation(_activeConvPhone);
+    } catch (e) { console.error('Conv send error:', e); toast('Erreur envoi SMS', 'error'); }
+}
+window.convSendReply = convSendReply;
+
+function updateUnreadBadge() {
+    const total = _conversations.reduce((sum, c) => sum + (c.unread || 0), 0);
+    const badge = $('comms-unread-total');
+    if (badge) { badge.textContent = total; badge.style.display = total > 0 ? '' : 'none'; }
+}
+
+function checkForNewMessages() {
+    const total = _conversations.reduce((sum, c) => sum + (c.unread || 0), 0);
+    if (total > _lastUnreadTotal && _lastUnreadTotal >= 0) {
+        if (Notification.permission === 'granted') {
+            new Notification('JCSM - Nouveau SMS', { body: (total - _lastUnreadTotal) + ' nouveau(x) message(s)', icon: 'https://jcsm.fr/images/logo.png' });
+        } else if (Notification.permission === 'default') {
+            Notification.requestPermission();
+        }
+    }
+    _lastUnreadTotal = total;
+}
+
+function voiceCallFromConv() {
+    if (!_activeConvPhone) return;
+    const tech = findTechByPhone(_activeConvPhone);
+    makeCall(_activeConvPhone, tech?.name || _activeConvPhone);
+}
+window.voiceCallFromConv = voiceCallFromConv;
+
+// ==========================================
+// Call History
+// ==========================================
+async function loadCallLogs() {
+    try {
+        const res = await fetch((JCSM_CONFIG.api.callLogs || '/api/call-logs.php') + '?limit=50', { headers: getAuthHeaders() });
+        if (!res.ok) throw new Error('Erreur ' + res.status);
+        const logs = await res.json();
+        renderCallLogs(logs);
+    } catch (e) { console.error('Load call logs error:', e); }
+}
+
+function renderCallLogs(logs) {
+    const el = $('call-logs-list');
+    if (!el) return;
+    if (!logs.length) { el.innerHTML = '<div style="text-align:center;color:var(--muted);padding:40px;font-size:13px">Aucun appel</div>'; return; }
+    el.innerHTML = logs.map(log => {
+        const dt = log.startTime ? new Date(log.startTime) : null;
+        const dateStr = dt ? dt.toLocaleDateString('fr-FR') : '';
+        const timeStr = dt ? dt.toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit' }) : '';
+        const durMin = Math.floor((log.duration || 0) / 60);
+        const durSec = (log.duration || 0) % 60;
+        const durStr = log.duration ? durMin + ':' + String(durSec).padStart(2, '0') : '-';
+        const statusIcon = log.status === 'completed' ? '✅' : log.status === 'cancelled' ? '❌' : log.status === 'error' ? '⚠️' : '📞';
+        const statusColor = log.status === 'completed' ? 'var(--green)' : log.status === 'error' ? 'var(--red)' : 'var(--muted)';
+        return `<div style="display:flex;align-items:center;gap:12px;padding:12px 16px;border-bottom:1px solid var(--border)">
+            <span style="font-size:20px">${statusIcon}</span>
+            <div style="flex:1;min-width:0">
+                <div style="font-weight:700;font-size:14px;color:var(--text)">${esc(log.toName || log.to)}</div>
+                <div style="font-size:12px;color:var(--muted)">${esc(log.to)}</div>
+            </div>
+            <div style="text-align:right;flex-shrink:0">
+                <div style="font-size:12px;color:var(--muted)">${dateStr} ${timeStr}</div>
+                <div style="font-size:13px;font-weight:700;color:${statusColor}">${durStr}</div>
+            </div>
+            <button onclick="makeCall('${esc(log.to)}','${esc(log.toName || '')}')" style="width:38px;height:38px;border-radius:10px;border:1px solid var(--border);background:var(--card);cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center" title="Rappeler">📞</button>
+        </div>`;
+    }).join('');
+}
+
+// ==========================================
+// Admin Charts (advanced)
+// ==========================================
+let _chartMonthly = null, _chartTechProd = null, _chartSuccess = null, _chartRevenue = null;
+
+function renderAdminCharts() {
+    if (typeof Chart === 'undefined') return;
+
+    // Monthly trend line chart
+    if ($('chart-monthly-trend')) {
+        const byMonth = {};
+        S.data.forEach(i => {
+            if (!i.date) return;
+            const d = new Date(i.date);
+            const key = d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0');
+            if (!byMonth[key]) byMonth[key] = { total: 0, done: 0 };
+            byMonth[key].total++;
+            if (i.done || i.report) byMonth[key].done++;
+        });
+        const months = Object.keys(byMonth).sort();
+        const monthLabels = months.map(m => { const [y, mo] = m.split('-'); return new Date(y, mo - 1).toLocaleDateString('fr-FR', { month: 'short', year: '2-digit' }); });
+        if (_chartMonthly) {
+            _chartMonthly.data.labels = monthLabels;
+            _chartMonthly.data.datasets[0].data = months.map(m => byMonth[m].total);
+            _chartMonthly.data.datasets[1].data = months.map(m => byMonth[m].done);
+            _chartMonthly.update();
+        } else {
+            _chartMonthly = new Chart($('chart-monthly-trend'), {
+                type: 'line',
+                data: {
+                    labels: monthLabels,
+                    datasets: [
+                        { label: 'Total', data: months.map(m => byMonth[m].total), borderColor: '#0ea5e9', backgroundColor: 'rgba(14,165,233,.1)', fill: true, tension: .3, pointRadius: 3 },
+                        { label: 'Terminées', data: months.map(m => byMonth[m].done), borderColor: '#22c55e', backgroundColor: 'rgba(34,197,94,.1)', fill: true, tension: .3, pointRadius: 3 }
+                    ]
+                },
+                options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'bottom', labels: { boxWidth: 10, font: { size: 10, weight: 600 } } }, title: { display: true, text: 'Tendance mensuelle', font: { size: 13, weight: 700 } } }, scales: { y: { beginAtZero: true, ticks: { stepSize: 1, font: { size: 10 } } }, x: { ticks: { font: { size: 10 } } } } }
+            });
+        }
+    }
+
+    // Tech productivity horizontal bar
+    if ($('chart-tech-prod')) {
+        const byTech = {};
+        S.data.forEach(i => { const t = i.techAssigned || 'N/A'; byTech[t] = (byTech[t] || 0) + 1; });
+        const sorted = Object.entries(byTech).sort((a, b) => b[1] - a[1]).slice(0, 8);
+        if (_chartTechProd) {
+            _chartTechProd.data.labels = sorted.map(e => e[0]);
+            _chartTechProd.data.datasets[0].data = sorted.map(e => e[1]);
+            _chartTechProd.update();
+        } else {
+            _chartTechProd = new Chart($('chart-tech-prod'), {
+                type: 'bar',
+                data: { labels: sorted.map(e => e[0]), datasets: [{ data: sorted.map(e => e[1]), backgroundColor: '#8b5cf6', borderRadius: 4 }] },
+                options: { indexAxis: 'y', responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false }, title: { display: true, text: 'Par technicien', font: { size: 13, weight: 700 } } }, scales: { x: { beginAtZero: true, ticks: { stepSize: 1, font: { size: 10 } } }, y: { ticks: { font: { size: 10, weight: 600 } } } } }
+            });
+        }
+    }
+
+    // Success rate doughnut
+    if ($('chart-success-rate')) {
+        const resolved = S.data.filter(i => i.resolved).length;
+        const followup = S.data.filter(i => (i.done || i.report) && !i.resolved).length;
+        const pending = S.data.filter(i => !i.done && !i.report).length;
+        if (_chartSuccess) {
+            _chartSuccess.data.datasets[0].data = [resolved, followup, pending];
+            _chartSuccess.update();
+        } else {
+            _chartSuccess = new Chart($('chart-success-rate'), {
+                type: 'doughnut',
+                data: { labels: ['Résolu', 'Suivi', 'En cours'], datasets: [{ data: [resolved, followup, pending], backgroundColor: ['#22c55e', '#f59e0b', '#0ea5e9'], borderWidth: 0 }] },
+                options: { responsive: true, maintainAspectRatio: false, cutout: '65%', plugins: { legend: { position: 'bottom', labels: { boxWidth: 10, padding: 8, font: { size: 10, weight: 600 } } }, title: { display: true, text: 'Taux de résolution', font: { size: 13, weight: 700 } } } }
+            });
+        }
+    }
+
+    // Revenue bar chart (if data has montant/total_ht)
+    if ($('chart-revenue')) {
+        const byMonth = {};
+        let hasRevenue = false;
+        S.data.forEach(i => {
+            const amt = parseFloat(i.montant || i.total_ht || 0);
+            if (amt > 0) hasRevenue = true;
+            if (!i.date) return;
+            const d = new Date(i.date);
+            const key = d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0');
+            byMonth[key] = (byMonth[key] || 0) + amt;
+        });
+        if (hasRevenue) {
+            const months = Object.keys(byMonth).sort();
+            const revLabels = months.map(m => { const [y, mo] = m.split('-'); return new Date(y, mo - 1).toLocaleDateString('fr-FR', { month: 'short' }); });
+            if (_chartRevenue) {
+                _chartRevenue.data.labels = revLabels;
+                _chartRevenue.data.datasets[0].data = months.map(m => byMonth[m]);
+                _chartRevenue.update();
+            } else {
+                _chartRevenue = new Chart($('chart-revenue'), {
+                    type: 'bar',
+                    data: { labels: revLabels, datasets: [{ label: 'CA HT', data: months.map(m => byMonth[m]), backgroundColor: '#22c55e', borderRadius: 4 }] },
+                    options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false }, title: { display: true, text: 'Chiffre d\'affaires mensuel', font: { size: 13, weight: 700 } } }, scales: { y: { beginAtZero: true, ticks: { font: { size: 10 }, callback: v => v.toLocaleString('fr-FR') + ' \u20ac' } }, x: { ticks: { font: { size: 10 } } } } }
+                });
+            }
+        } else {
+            $('chart-revenue').parentElement.innerHTML = '<p style="text-align:center;color:var(--muted);padding:40px 16px;font-size:13px;font-weight:600">Données CA non disponibles dans le Google Sheet</p>';
+        }
+    }
+}
+
+// ==========================================
+// AI Reformulation
+// ==========================================
+let _aiResult = null;
+
+async function aiReformulate() {
+    const obs = $('wiz-obs')?.value?.trim();
+    if (!obs) { toast('Écrivez d\'abord vos observations', 'info'); return; }
+    if (obs.length < 10) { toast('Observations trop courtes (min 10 caractères)', 'info'); return; }
+
+    vibrate();
+    const btn = $('btn-ai-reformulate');
+    const icon = $('ai-btn-icon');
+    const text = $('ai-btn-text');
+    if (btn) btn.disabled = true;
+    if (icon) icon.textContent = '';
+    if (text) text.innerHTML = '<span class="spinner" style="width:16px;height:16px;border-width:2px;display:inline-block"></span> Reformulation...';
+
+    try {
+        const endpoint = JCSM_CONFIG.api.aiReformulate || '/api/ai-reformulate.php';
+        const i = S.sel || {};
+        const res = await fetch(endpoint, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', ...getAuthHeaders() },
+            body: JSON.stringify({
+                texte_brut: obs,
+                client: i.client || 'Powerdot',
+                site: i.site || i.address || '',
+                marque: i.brand || '',
+                charger_id: i.chargerId || '',
+                probleme: i.problem || ''
+            })
+        });
+
+        if (!res.ok) throw new Error('Erreur serveur ' + res.status);
+        _aiResult = await res.json();
+
+        // Afficher le résultat (XSS-safe via textContent)
+        if ($('ai-res-desc')) $('ai-res-desc').textContent = 'Description : ' + (_aiResult.description || '-');
+        if ($('ai-res-comm')) $('ai-res-comm').textContent = 'Actions : ' + (_aiResult.commentaires || '-');
+        if ($('ai-res-etapes')) $('ai-res-etapes').textContent = 'Prochaines étapes : ' + (_aiResult.prochaines_etapes || 'Aucune');
+        if ($('ai-res-risques')) $('ai-res-risques').textContent = 'Risques : ' + (_aiResult.risques || 'Aucun');
+        if ($('ai-result')) $('ai-result').classList.remove('hidden');
+
+        if (_aiResult.source === 'fallback' || _aiResult.source === 'error') {
+            toast('IA non disponible, texte original conservé', 'info');
+        } else {
+            toast('✅ Reformulation terminée', 'success');
+        }
+    } catch (e) {
+        console.error('AI reformulation error:', e);
+        toast('❌ Erreur reformulation IA', 'error');
+    } finally {
+        if (btn) btn.disabled = false;
+        if (icon) icon.textContent = '🤖';
+        if (text) text.textContent = 'Reformuler avec IA';
+    }
+}
+window.aiReformulate = aiReformulate;
+
+function applyAiResult() {
+    if (!_aiResult) return;
+    vibrate();
+    const formatted = [
+        'DESCRIPTION :',
+        _aiResult.description || '',
+        '',
+        'ACTIONS RÉALISÉES :',
+        _aiResult.commentaires || '',
+        '',
+        'PROCHAINES ÉTAPES :',
+        _aiResult.prochaines_etapes || 'Aucune',
+        '',
+        'RISQUES :',
+        _aiResult.risques || 'Aucun'
+    ].join('\n');
+    if ($('wiz-obs')) $('wiz-obs').value = formatted;
+    if ($('ai-result')) $('ai-result').classList.add('hidden');
+    toast('✅ Rapport IA appliqué', 'success');
+}
+window.applyAiResult = applyAiResult;
+
+// ==========================================
+// SMS Channel Toggle
+// ==========================================
+function selectChannel(el, channel) {
+    vibrate();
+    const parent = el.closest('.channel-toggle');
+    if (parent) parent.querySelectorAll('.channel-opt').forEach(o => o.classList.remove('active'));
+    else $$('.channel-opt').forEach(o => o.classList.remove('active'));
+    el.classList.add('active');
+    if ($('sms-channel')) $('sms-channel').value = channel;
+}
+window.selectChannel = selectChannel;
 
 // Keyboard shortcuts
 document.addEventListener('keydown', e => {
     // Escape to close modals
     if (e.key === 'Escape') {
+        if ($('quick-report-overlay')?.classList.contains('active')) { closeQuickReport(); return; }
+        if ($('report-wizard')?.classList.contains('active')) { closeWizard(); return; }
+        if ($('call-overlay')?.classList.contains('active') && !_activeCall) { hideCallOverlay(); return; }
+        if ($('detail-sidebar')?.classList.contains('open')) { closeSidebar(); return; }
+        if ($('photo-viewer')?.classList.contains('active')) { closePhotoViewer(); return; }
         $$('.modal-overlay.active').forEach(m => closeModal(m.id.replace('modal-', '')));
-        if ($('photo-viewer').classList.contains('active')) closePhotoViewer();
     }
     // Ctrl+K or Cmd+K to focus search
     if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
@@ -2950,8 +5034,7 @@ async function processSyncQueue() {
     }
 }
 
-window.addEventListener('online', () => { S.isOnline = true; updateSyncIndicator(); setTimeout(processSyncQueue, 2000); });
-window.addEventListener('offline', () => { S.isOnline = false; updateSyncIndicator(); });
+// online/offline listeners merged into single pair above
 
 // ==========================================
 // WIZARD SUBMIT with double save (Phase 8)
@@ -3192,10 +5275,56 @@ if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('/sw.js').catch(() => {});
 }
 
-// Initialize app
-updateSyncIndicator();
-renderTimerBadge();
-init();
+// Login handler
+async function handleLogin(e) {
+    e.preventDefault();
+    const pwd = $('login-password').value;
+    if (!pwd) return false;
+
+    const btn = $('login-btn');
+    const errEl = $('login-error');
+    const btnText = $('login-btn-text');
+    const btnSpinner = $('login-btn-spinner');
+    btn.disabled = true;
+    if (btnText) btnText.style.display = 'none';
+    if (btnSpinner) btnSpinner.style.display = 'inline-flex';
+    errEl.textContent = '';
+
+    try {
+        const result = await verifyPassword(pwd);
+        if (result) {
+            createSession(result.role, result.isAdmin, result.token);
+            logLogin(result.role, result.isAdmin);
+            $('login-screen').style.display = 'none';
+            $('app-wrapper').style.display = 'block';
+            init();
+        } else {
+            errEl.textContent = 'Mot de passe incorrect';
+            btn.disabled = false;
+            if (btnText) btnText.style.display = '';
+            if (btnSpinner) btnSpinner.style.display = 'none';
+        }
+    } catch (err) {
+        errEl.textContent = 'Erreur de connexion';
+        btn.disabled = false;
+        if (btnText) btnText.style.display = '';
+        if (btnSpinner) btnSpinner.style.display = 'none';
+    }
+    return false;
+}
+window.handleLogin = handleLogin;
+
+// Check existing session on load
+const existingSession = isSessionValid();
+if (existingSession) {
+    $('login-screen').style.display = 'none';
+    $('app-wrapper').style.display = 'block';
+    updateSyncIndicator();
+    renderTimerBadge();
+    init();
+} else {
+    $('login-screen').style.display = 'flex';
+}
 </script>
 </body>
 </html>

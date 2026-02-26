@@ -429,46 +429,6 @@ function initStatsCounters() {
 }
 
 // ==========================================
-// LOGO MARQUEE
-// ==========================================
-function initLogoMarquee() {
-    const marquee = document.querySelector('.logo-marquee');
-    const track = document.querySelector('.logo-marquee-track');
-    if (!marquee || !track) return;
-
-    let offset = 0;
-    let lastTime = 0;
-    const baseSpeed = 40; // pixels per second
-
-    function step(timestamp) {
-        if (!lastTime) lastTime = timestamp;
-        const delta = (timestamp - lastTime) / 1000;
-        lastTime = timestamp;
-
-        if (delta > 0.1) { // Prevent huge jump if tab was inactive
-            requestAnimationFrame(step);
-            return;
-        }
-
-        const isMobile = window.innerWidth <= 768;
-        const speed = isMobile ? baseSpeed * 1.2 : baseSpeed;
-
-        const trackWidth = track.scrollWidth / 2; // Assuming content is duplicated
-        if (trackWidth > 0) {
-            offset -= speed * delta;
-            if (Math.abs(offset) >= trackWidth) {
-                offset = 0;
-            }
-            track.style.transform = `translate3d(${offset}px, 0, 0)`;
-        }
-
-        requestAnimationFrame(step);
-    }
-
-    requestAnimationFrame(step);
-}
-
-// ==========================================
 // HERO PARALLAX
 // ==========================================
 function initParallax() {

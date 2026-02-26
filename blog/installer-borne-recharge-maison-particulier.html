@@ -23,7 +23,7 @@
         "datePublished": "2025-04-14",
         "dateModified": "2025-04-14",
         "author": {"@type": "Organization", "name": "JCSM", "url": "https://jcsm.fr"},
-        "publisher": {"@type": "Organization", "name": "JCSM", "url": "https://jcsm.fr", "logo": {"@type": "ImageObject", "url": "https://jcsm.fr/images/logo.png"}},
+        "publisher": {"@type": "Organization", "name": "JCSM", "url": "https://jcsm.fr", "logo": {"@type": "ImageObject", "url": "https://jcsm.fr/images/logo.png", "width": 512, "height": 512}},
         "mainEntityOfPage": "https://jcsm.fr/blog/installer-borne-recharge-maison-particulier",
         "image": "https://jcsm.fr/images/index.webp"
     }
@@ -46,7 +46,7 @@
                 "name": "Combien coûte l'installation d'une borne de recharge à domicile ?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Le coût d'une wallbox installée se situe généralement entre 1 200 et 2 500 &euro; TTC, pose incluse, pour une puissance de 7 à 22 kW. Ce montant varie selon la puissance choisie, la distance entre le tableau électrique et le point de charge, et les éventuels travaux de mise en conformité du tableau."
+                    "text": "Le coût d'une wallbox installée se situe généralement entre 1 200 et 2 500 € TTC, pose incluse, pour une puissance de 7 à 22 kW. Ce montant varie selon la puissance choisie, la distance entre le tableau électrique et le point de charge, et les éventuels travaux de mise en conformité du tableau."
                 }
             },
             {
@@ -54,7 +54,7 @@
                 "name": "Quelle puissance de borne choisir pour sa maison ?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Pour un usage quotidien en maison individuelle, une wallbox 7,4 kW (monophasé) convient à la plupart des besoins : elle recharge une batterie de 60 kWh en environ 8 heures, soit une nuit complète. Si votre installation est en triphasé, une borne 11 kW offre un meilleur confort avec environ 5,5 heures de charge pour la m&ecirc;me batterie."
+                    "text": "Pour un usage quotidien en maison individuelle, une wallbox 7,4 kW (monophasé) convient à la plupart des besoins : elle recharge une batterie de 60 kWh en environ 8 heures, soit une nuit complète. Si votre installation est en triphasé, une borne 11 kW offre un meilleur confort avec environ 5,5 heures de charge pour la même batterie."
                 }
             },
             {
@@ -62,7 +62,7 @@
                 "name": "Puis-je bénéficier d'aides pour installer une borne en 2026 ?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "En 2026, le crédit d'impôt de 500 &euro; pour l'installation d'une borne à domicile a été supprimé (il était valable jusqu'au 31 décembre 2025). La TVA à taux réduit de 5,5 % reste en revanche applicable sur la fourniture et la pose. La prime ADVENIR peut s'appliquer si la borne est accessible au public."
+                    "text": "En 2026, le crédit d'impôt de 500 € pour l'installation d'une borne à domicile a été supprimé (il était valable jusqu'au 31 décembre 2025). La TVA à taux réduit de 5,5 % reste en revanche applicable sur la fourniture et la pose. La prime ADVENIR peut s'appliquer si la borne est accessible au public."
                 }
             }
         ]
@@ -86,6 +86,8 @@
     <meta property="og:description" content="Puissance, coût, aides, normes et étapes : tout savoir pour installer une borne de recharge à domicile.">
     <meta property="og:image" content="https://jcsm.fr/images/index.webp">
     <meta property="og:image:alt" content="Infrastructure de recharge pour véhicules électriques">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
     <meta property="og:locale" content="fr_FR">
     <meta property="og:site_name" content="JCSM - Infrastructure de Recharge">
     <meta property="article:published_time" content="2025-04-14">
@@ -93,6 +95,7 @@
     <meta name="twitter:title" content="Installer une borne de recharge chez soi : guide complet particuliers">
     <meta name="twitter:description" content="Puissance, coût, aides, normes et étapes : guide complet pour installer une borne à domicile.">
     <meta name="twitter:image" content="https://jcsm.fr/images/index.webp">
+    <meta name="twitter:image:alt" content="Infrastructure de recharge pour véhicules électriques">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -102,8 +105,8 @@
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
             rel="stylesheet">
     </noscript>
-    <link rel="stylesheet" href="../css/tailwind.css?v=35">
-    <link rel="stylesheet" href="../styles.css?v=35">
+    <link rel="stylesheet" href="../css/tailwind.css?v=36">
+    <link rel="stylesheet" href="../styles.css?v=36">
     <link rel="icon" type="image/png" href="../images/logo.png">
     <link rel="manifest" href="../manifest.json">
     <link rel="apple-touch-icon" href="../images/logo.png">
@@ -114,6 +117,16 @@
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
     <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+    <div class="preloader" id="preloader" role="status" aria-label="Chargement">
+        <div class="flex flex-col items-center justify-center">
+            <picture><source srcset="../images/logo.webp" type="image/webp"><img src="../images/logo.png" alt="JCSM" width="80" height="80" class="animate-pulse"></picture>
+            <div class="mt-4 flex space-x-2">
+                <div class="w-2 h-2 bg-blue-600 rounded-full animate-bounce" style="animation-delay: 0s"></div>
+                <div class="w-2 h-2 bg-blue-600 rounded-full animate-bounce" style="animation-delay: 0.1s"></div>
+                <div class="w-2 h-2 bg-blue-600 rounded-full animate-bounce" style="animation-delay: 0.2s"></div>
+            </div>
+        </div>
+    </div>
     <div class="mobile-menu-overlay" id="mobile-menu-overlay"></div>
     <nav class="mobile-menu" id="mobile-menu" role="dialog" aria-modal="true" aria-label="Menu de navigation" aria-hidden="true">
         <div class="p-8">
@@ -161,7 +174,7 @@
         </div>
     </nav>
 
-    <main id="main-content">
+    <main id="main-content" role="main">
         <article class="pt-32 pb-16 px-6">
             <div class="max-w-3xl mx-auto">
                 <div class="mb-8">
@@ -172,7 +185,7 @@
                     <h1 class="text-3xl md:text-4xl font-bold mb-4 leading-tight">Installer une borne de recharge chez soi : le guide complet pour les particuliers</h1>
                     <div class="flex items-center text-sm text-gray-500">
                         <time datetime="2025-04-14">14 avril 2025</time>
-                        <span class="mx-2">&middot;</span>
+                        <span class="mx-2">·</span>
                         <span>9 min de lecture</span>
                     </div>
                 </div>
@@ -203,7 +216,7 @@
                     <!-- Section 1 : Pourquoi à domicile -->
                     <h2 id="pourquoi-domicile" class="text-2xl font-bold mt-12 mb-4">Pourquoi installer une borne à domicile ?</h2>
                     <p class="text-gray-600 leading-relaxed mb-4">Selon les données de l'Avere-France, <strong>90 % des recharges de véhicules électriques se font à domicile ou sur le lieu de travail</strong>. La recharge à domicile est la solution la plus pratique, la plus économique et la plus confortable pour un particulier. Brancher sa voiture le soir et la retrouver pleinement chargée le lendemain matin : c'est le quotidien de la grande majorité des conducteurs électriques.</p>
-                    <p class="text-gray-600 leading-relaxed mb-4">Recharger à domicile permet également de profiter des tarifs heures creuses de votre fournisseur d'électricité. Le coût d'une recharge complète sur une wallbox domestique se situe généralement entre 3 et 5 &euro; pour 100 km d'autonomie, contre 8 à 15 &euro; sur une borne publique rapide. Sur une année, l'économie est significative.</p>
+                    <p class="text-gray-600 leading-relaxed mb-4">Recharger à domicile permet également de profiter des tarifs heures creuses de votre fournisseur d'électricité. Le coût d'une recharge complète sur une wallbox domestique se situe généralement entre 3 et 5 € pour 100 km d'autonomie, contre 8 à 15 € sur une borne publique rapide. Sur une année, l'économie est significative.</p>
 
                     <div class="bg-amber-50 border-l-4 border-amber-400 rounded-r-xl p-5 mb-8">
                         <p class="text-gray-700 text-sm leading-relaxed"><span class="font-semibold">Chiffre clé :</span> 90 % des recharges se font à domicile ou au travail. La borne publique sert principalement pour les longs trajets et les recharges d'appoint.</p>
@@ -270,9 +283,9 @@
                     <p class="text-gray-600 leading-relaxed mb-4">Avant d'installer une borne, plusieurs vérifications s'imposent sur votre installation électrique :</p>
 
                     <ul class="list-disc pl-6 text-gray-600 space-y-2 mb-6">
-                        <li><strong>Vérification du tableau électrique</strong> : le tableau doit disposer d'un emplacement libre pour accueillir un disjoncteur dédié et une protection différentielle. Si votre tableau est ancien ou saturé, une mise à niveau peut &ecirc;tre nécessaire.</li>
+                        <li><strong>Vérification du tableau électrique</strong> : le tableau doit disposer d'un emplacement libre pour accueillir un disjoncteur dédié et une protection différentielle. Si votre tableau est ancien ou saturé, une mise à niveau peut être nécessaire.</li>
                         <li><strong>Protection différentielle dédiée</strong> : la norme exige un dispositif différentiel de type A ou de type B (selon le modèle de wallbox) dédié exclusivement au circuit de recharge. Cela protège contre les fuites de courant et les risques d'électrocution.</li>
-                        <li><strong>Section de c&acirc;ble adaptée</strong> : la section du c&acirc;ble d'alimentation dépend de la puissance de la borne et de la distance entre le tableau et le point de charge. En général, 6 mm&sup2; pour une 7,4 kW et 10 mm&sup2; pour une 22 kW, mais l'installateur calculera la section exacte.</li>
+                        <li><strong>Section de câble adaptée</strong> : la section du câble d'alimentation dépend de la puissance de la borne et de la distance entre le tableau et le point de charge. En général, 6 mm&sup2; pour une 7,4 kW et 10 mm&sup2; pour une 22 kW, mais l'installateur calculera la section exacte.</li>
                         <li><strong>Puissance d'abonnement</strong> : vérifiez que votre abonnement électrique est suffisant. Une wallbox 7,4 kW nécessite au minimum un abonnement 9 kVA en monophasé. Pour du 11 kW ou 22 kW, un abonnement triphasé est requis.</li>
                         <li><strong>Mise à la terre</strong> : une prise de terre conforme est indispensable. L'installateur vérifiera sa résistance (inférieure à 100 ohms selon la norme NF C 15-100).</li>
                     </ul>
@@ -298,10 +311,10 @@
 
                     <ul class="list-disc pl-6 text-gray-600 space-y-2 mb-6">
                         <li><strong>NF C 15-100</strong> : la norme générale des installations électriques basse tension en France. Elle définit les règles de sécurité pour l'ensemble de l'installation domestique, y compris le circuit dédié à la borne.</li>
-                        <li><strong>UTE C 15-722</strong> : le guide d'application spécifique aux installations de recharge pour véhicules électriques. Il précise les exigences en matière de protection, de c&acirc;blage et de mise en service.</li>
+                        <li><strong>UTE C 15-722</strong> : le guide d'application spécifique aux installations de recharge pour véhicules électriques. Il précise les exigences en matière de protection, de câblage et de mise en service.</li>
                     </ul>
 
-                    <p class="text-gray-600 leading-relaxed mb-4">Un installateur certifié IRVE maîtrise ces deux référentiels. &Agrave; l'issue de l'installation, il délivre une attestation de conformité qui peut &ecirc;tre demandée par le Consuel (Comité national pour la sécurité des usagers de l'électricité) en cas de contrôle.</p>
+                    <p class="text-gray-600 leading-relaxed mb-4">Un installateur certifié IRVE maîtrise ces deux référentiels. À l'issue de l'installation, il délivre une attestation de conformité qui peut être demandée par le Consuel (Comité national pour la sécurité des usagers de l'électricité) en cas de contrôle.</p>
 
                     <!-- Section 7 : Aides financières -->
                     <h2 id="aides-financieres" class="text-2xl font-bold mt-12 mb-4">Aides financières en 2025 et 2026</h2>
@@ -320,7 +333,7 @@
                             <tbody>
                                 <tr class="border-b border-gray-100">
                                     <td class="px-4 py-3 font-medium text-gray-900">Crédit d'impôt</td>
-                                    <td class="px-4 py-3">500 &euro; par point de charge</td>
+                                    <td class="px-4 py-3">500 € par point de charge</td>
                                     <td class="px-4 py-3 text-green-700 font-medium">Actif</td>
                                     <td class="px-4 py-3 text-red-700 font-medium">Supprimé</td>
                                 </tr>
@@ -341,10 +354,10 @@
                     </div>
 
                     <div class="bg-red-50 border-l-4 border-red-400 rounded-r-xl p-5 mb-8">
-                        <p class="text-gray-700 text-sm leading-relaxed"><span class="font-semibold">Attention :</span> Le crédit d'impôt de 500 &euro; pour l'installation d'une borne à domicile était valable jusqu'au 31 décembre 2025. Il n'a pas été reconduit en 2026. Si vous prévoyez d'installer une borne, agissez en conséquence.</p>
+                        <p class="text-gray-700 text-sm leading-relaxed"><span class="font-semibold">Attention :</span> Le crédit d'impôt de 500 € pour l'installation d'une borne à domicile était valable jusqu'au 31 décembre 2025. Il n'a pas été reconduit en 2026. Si vous prévoyez d'installer une borne, agissez en conséquence.</p>
                     </div>
 
-                    <p class="text-gray-600 leading-relaxed mb-4">La prime ADVENIR concerne principalement les bornes accessibles au public (copropriétés, entreprises, parkings ouverts). Pour une installation strictement privée en maison individuelle, elle ne s'applique généralement pas. En revanche, la TVA à 5,5 % reste un avantage significatif : sur une installation à 2 000 &euro; HT, c'est une économie de près de 300 &euro; par rapport au taux normal de 20 %.</p>
+                    <p class="text-gray-600 leading-relaxed mb-4">La prime ADVENIR concerne principalement les bornes accessibles au public (copropriétés, entreprises, parkings ouverts). Pour une installation strictement privée en maison individuelle, elle ne s'applique généralement pas. En revanche, la TVA à 5,5 % reste un avantage significatif : sur une installation à 2 000 € HT, c'est une économie de près de 300 € par rapport au taux normal de 20 %.</p>
 
                     <!-- Section 8 : Coût -->
                     <h2 id="cout-installation" class="text-2xl font-bold mt-12 mb-4">Coût indicatif d'une installation</h2>
@@ -360,11 +373,11 @@
 
                     <div class="grid sm:grid-cols-2 gap-4 mb-8">
                         <div class="bg-gray-50 rounded-xl p-5 text-center">
-                            <p class="text-3xl font-bold text-blue-600 mb-1">1 200 &euro;</p>
+                            <p class="text-3xl font-bold text-blue-600 mb-1">1 200 €</p>
                             <p class="text-sm text-gray-600">Entrée de gamme (7 kW, pose incluse)</p>
                         </div>
                         <div class="bg-blue-50 rounded-xl p-5 text-center border border-blue-200">
-                            <p class="text-3xl font-bold text-blue-700 mb-1">1 500 - 2 500 &euro;</p>
+                            <p class="text-3xl font-bold text-blue-700 mb-1">1 500 - 2 500 €</p>
                             <p class="text-sm text-blue-600 font-medium">Gamme courante (7-22 kW, pose incluse)</p>
                         </div>
                     </div>
@@ -380,7 +393,7 @@
                             <span class="flex-shrink-0 w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center text-sm font-bold">1</span>
                             <div>
                                 <h3 class="font-semibold text-gray-900">Diagnostic électrique</h3>
-                                <p class="text-gray-600 text-sm">L'installateur évalue votre tableau, votre abonnement et le parcours de c&acirc;ble. Il identifie les éventuelles mises à niveau nécessaires.</p>
+                                <p class="text-gray-600 text-sm">L'installateur évalue votre tableau, votre abonnement et le parcours de câble. Il identifie les éventuelles mises à niveau nécessaires.</p>
                             </div>
                         </div>
                         <div class="flex items-start space-x-4">
@@ -401,7 +414,7 @@
                             <span class="flex-shrink-0 w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center text-sm font-bold">4</span>
                             <div>
                                 <h3 class="font-semibold text-gray-900">Installation</h3>
-                                <p class="text-gray-600 text-sm">L'intervention dure en général une demi-journée : pose de la borne, tirage du c&acirc;ble, raccordement au tableau, installation des protections.</p>
+                                <p class="text-gray-600 text-sm">L'intervention dure en général une demi-journée : pose de la borne, tirage du câble, raccordement au tableau, installation des protections.</p>
                             </div>
                         </div>
                         <div class="flex items-start space-x-4">
@@ -415,7 +428,7 @@
                             <span class="flex-shrink-0 w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center text-sm font-bold">6</span>
                             <div>
                                 <h3 class="font-semibold text-gray-900">Attestation Consuel</h3>
-                                <p class="text-gray-600 text-sm">L'installateur délivre une attestation de conformité. Le Consuel peut &ecirc;tre sollicité pour un contrôle, obligatoire dans certains cas (nouveau raccordement).</p>
+                                <p class="text-gray-600 text-sm">L'installateur délivre une attestation de conformité. Le Consuel peut être sollicité pour un contrôle, obligatoire dans certains cas (nouveau raccordement).</p>
                             </div>
                         </div>
                     </div>
@@ -429,12 +442,12 @@
                         <li><strong>Programmation heures creuses</strong> : la charge démarre automatiquement pendant les heures creuses de votre contrat, réduisant la facture de 30 à 40 %.</li>
                         <li><strong>Suivi de consommation</strong> : via une application mobile, vous suivez en temps réel la puissance délivrée, l'énergie consommée et le coût de chaque session de charge.</li>
                         <li><strong>Connectivité Wi-Fi / 4G</strong> : mise à jour du firmware à distance, supervision à distance et intégration avec les systèmes de gestion d'énergie domestique.</li>
-                        <li><strong>Compatibilité solaire</strong> : certaines bornes peuvent &ecirc;tre couplées à une installation photovolta&iuml;que pour privilégier l'autoconsommation.</li>
+                        <li><strong>Compatibilité solaire</strong> : certaines bornes peuvent être couplées à une installation photovolta&iuml;que pour privilégier l'autoconsommation.</li>
                     </ul>
 
                     <!-- Section 11 : Maison vs appartement -->
                     <h2 id="maison-appartement" class="text-2xl font-bold mt-12 mb-4">Maison vs appartement : les différences</h2>
-                    <p class="text-gray-600 leading-relaxed mb-4">L'installation d'une borne ne se déroule pas de la m&ecirc;me façon selon que vous habitez en maison individuelle ou en appartement :</p>
+                    <p class="text-gray-600 leading-relaxed mb-4">L'installation d'une borne ne se déroule pas de la même façon selon que vous habitez en maison individuelle ou en appartement :</p>
 
                     <div class="overflow-x-auto mb-6">
                         <table class="w-full text-sm text-gray-600 border border-gray-200 rounded-lg">
@@ -458,7 +471,7 @@
                                 </tr>
                                 <tr class="border-b border-gray-100">
                                     <td class="px-4 py-3 font-medium text-gray-900">Travaux</td>
-                                    <td class="px-4 py-3">Simples (c&acirc;blage court)</td>
+                                    <td class="px-4 py-3">Simples (câblage court)</td>
                                     <td class="px-4 py-3">Plus complexes (passage en parties communes)</td>
                                 </tr>
                                 <tr class="border-b border-gray-100">
@@ -475,13 +488,13 @@
                         </table>
                     </div>
 
-                    <p class="text-gray-600 leading-relaxed mb-4">En maison individuelle, le projet est généralement simple et rapide : le garage ou la place de parking est proche du tableau électrique, et vous &ecirc;tes seul décisionnaire. En copropriété, le « droit à la prise » (article L353-12 du Code de l'énergie) vous permet de demander l'installation sans que le syndic puisse s'y opposer, mais la procédure est plus longue. Pour un guide détaillé sur les copropriétés, consultez notre article <a href="/blog/installer-borne-copropriete" class="text-blue-600 hover:text-blue-800 underline">Installer une borne en copropriété</a>.</p>
+                    <p class="text-gray-600 leading-relaxed mb-4">En maison individuelle, le projet est généralement simple et rapide : le garage ou la place de parking est proche du tableau électrique, et vous êtes seul décisionnaire. En copropriété, le « droit à la prise » (article L353-12 du Code de l'énergie) vous permet de demander l'installation sans que le syndic puisse s'y opposer, mais la procédure est plus longue. Pour un guide détaillé sur les copropriétés, consultez notre article <a href="/blog/installer-borne-copropriete" class="text-blue-600 hover:text-blue-800 underline">Installer une borne en copropriété</a>.</p>
 
                     <!-- Section 12 : JCSM -->
                     <h2 id="jcsm-particuliers" class="text-2xl font-bold mt-12 mb-4">JCSM : installation certifiée chez les particuliers</h2>
                     <p class="text-gray-600 leading-relaxed mb-4">Chez JCSM, nous accompagnons les particuliers dans l'installation de leur borne de recharge à domicile. Certifiés IRVE, nous intervenons en <a href="/zones/ile-de-france" class="text-blue-600 hover:text-blue-800 underline">&Icirc;le-de-France</a>, <a href="/zones/hauts-de-france" class="text-blue-600 hover:text-blue-800 underline">Hauts-de-France</a>, <a href="/zones/auvergne-rhone-alpes" class="text-blue-600 hover:text-blue-800 underline">Auvergne-Rhône-Alpes</a>, <a href="/zones/nouvelle-aquitaine" class="text-blue-600 hover:text-blue-800 underline">Nouvelle-Aquitaine</a>, <a href="/zones/occitanie" class="text-blue-600 hover:text-blue-800 underline">Occitanie</a>, <a href="/zones/paca" class="text-blue-600 hover:text-blue-800 underline">PACA</a> et en <a href="/zones/belgique" class="text-blue-600 hover:text-blue-800 underline">Belgique</a>.</p>
                     <p class="text-gray-600 leading-relaxed mb-4">Notre approche : un diagnostic complet, un devis transparent, une installation conforme aux normes NF C 15-100 et UTE C 15-722, et une mise en service testée avec votre véhicule. Nous vous aidons également dans les démarches pour bénéficier des aides disponibles.</p>
-                    <p class="text-gray-600 leading-relaxed mb-4">Vous souhaitez un devis gratuit pour l'installation d'une borne à domicile ? <a href="/contact" class="text-blue-600 hover:text-blue-800 underline font-semibold">Contactez-nous</a> pour &ecirc;tre rappelé sous 24 heures.</p>
+                    <p class="text-gray-600 leading-relaxed mb-4">Vous souhaitez un devis gratuit pour l'installation d'une borne à domicile ? <a href="/contact" class="text-blue-600 hover:text-blue-800 underline font-semibold">Contactez-nous</a> pour être rappelé sous 24 heures.</p>
 
                     <div class="bg-gray-50 border border-gray-200 rounded-2xl p-6 my-8">
                         <h3 class="text-lg font-bold text-gray-900 mb-2">JCSM vous accompagne</h3>
@@ -501,7 +514,7 @@
                         </div>
                         <div class="border border-gray-200 rounded-xl p-5">
                             <h3 class="font-semibold text-gray-900 mb-2">Combien coûte une borne de recharge à domicile ?</h3>
-                            <p class="text-gray-600 text-sm leading-relaxed">Comptez entre 1 200 et 2 500 &euro; TTC pose incluse pour une wallbox de 7 à 22 kW. Le prix varie selon la puissance, la distance de c&acirc;blage, la marque de la borne et les éventuels travaux sur le tableau électrique. Un devis personnalisé est indispensable pour connaître le coût exact.</p>
+                            <p class="text-gray-600 text-sm leading-relaxed">Comptez entre 1 200 et 2 500 € TTC pose incluse pour une wallbox de 7 à 22 kW. Le prix varie selon la puissance, la distance de câblage, la marque de la borne et les éventuels travaux sur le tableau électrique. Un devis personnalisé est indispensable pour connaître le coût exact.</p>
                         </div>
                         <div class="border border-gray-200 rounded-xl p-5">
                             <h3 class="font-semibold text-gray-900 mb-2">Quelle puissance choisir pour sa borne à domicile ?</h3>
@@ -509,7 +522,7 @@
                         </div>
                         <div class="border border-gray-200 rounded-xl p-5">
                             <h3 class="font-semibold text-gray-900 mb-2">Puis-je bénéficier d'aides pour installer une borne en 2026 ?</h3>
-                            <p class="text-gray-600 text-sm leading-relaxed">En 2026, le crédit d'impôt de 500 &euro; a été supprimé (il était valable jusqu'au 31 décembre 2025). La TVA à taux réduit de 5,5 % sur la fourniture et la pose reste en vigueur. La prime <a href="/blog/aide-advenir-subventions-irve" class="text-blue-600 hover:text-blue-800 underline">ADVENIR</a> peut s'appliquer si votre borne est accessible au public (copropriété, parking partagé).</p>
+                            <p class="text-gray-600 text-sm leading-relaxed">En 2026, le crédit d'impôt de 500 € a été supprimé (il était valable jusqu'au 31 décembre 2025). La TVA à taux réduit de 5,5 % sur la fourniture et la pose reste en vigueur. La prime <a href="/blog/aide-advenir-subventions-irve" class="text-blue-600 hover:text-blue-800 underline">ADVENIR</a> peut s'appliquer si votre borne est accessible au public (copropriété, parking partagé).</p>
                         </div>
                     </div>
                 </div>
@@ -547,7 +560,7 @@
                         <picture><source srcset="../images/logo.webp" type="image/webp"><img src="../images/logo.png" alt="Logo JCSM" class="w-8 h-8" width="32" height="32" loading="lazy"></picture>
                         <span class="text-xl font-semibold text-gray-900">JCSM</span>
                     </div>
-                    <p class="text-sm text-gray-600 mb-4">Votre partenaire de confiance depuis 2018 pour le pilotage, l'installation et la maintenance de vos infrastructures de recharge.</p>
+                    <p class="text-sm text-gray-600 mb-4">Votre partenaire de confiance depuis 2019 pour le pilotage, l'installation et la maintenance de vos infrastructures de recharge.</p>
                     <p class="text-sm text-gray-500">60 rue François 1er<br>75008 Paris</p>
                     <p class="text-sm text-gray-500 mt-3"><a href="tel:+33756962758" class="hover:text-gray-900 transition-colors">+33 7 56 96 27 58</a></p>
                     <p class="text-sm text-gray-500"><a href="mailto:contact@jcsm.fr" class="hover:text-gray-900 transition-colors">contact@jcsm.fr</a></p>
@@ -620,11 +633,11 @@
     <button class="scroll-top" id="scrollTop" aria-label="Retour en haut de la page">
         <svg class="w-6 h-6 float-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" /></svg>
     </button>
-    <script src="../js/config.js?v=35" defer></script>
-    <script src="../js/utils.js?v=35" defer></script>
-    <script src="../js/public.js?v=35" defer></script>
-    <script src="../js/analytics.js?v=35" defer></script>
-    <script src="../js/wow-effects.js?v=35" defer></script>
+    <script src="../js/config.js?v=36" defer></script>
+    <script src="../js/utils.js?v=36" defer></script>
+    <script src="../js/public.js?v=36" defer></script>
+    <script src="../js/analytics.js?v=36" defer></script>
+    <script src="../js/wow-effects.js?v=36" defer></script>
     <script>if ('serviceWorker' in navigator) { window.addEventListener('load', () => { navigator.serviceWorker.register('/sw.js').catch(() => {}); }); }</script>
 </body>
 </html>

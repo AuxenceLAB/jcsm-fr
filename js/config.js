@@ -19,7 +19,25 @@ const JCSM_CONFIG = {
         listRapports: '/api/list-rapports.php',
 
         // Webhook proxy (URLs n8n masquées côté serveur)
-        webhookProxy: '/api/webhook-proxy.php'
+        webhookProxy: '/api/webhook-proxy.php',
+
+        // IA reformulation (Claude API côté serveur)
+        aiReformulate: '/api/ai-reformulate.php',
+
+        // Twilio SMS/WhatsApp (credentials côté serveur)
+        twilioProxy: '/api/twilio-proxy.php',
+
+        // Twilio Voice (appels navigateur)
+        twilioVoiceToken: '/api/twilio-voice-token.php',
+
+        // Conversations SMS bidirectionnelles
+        conversations: '/api/conversations.php',
+
+        // Logs d'appels
+        callLogs: '/api/call-logs.php',
+
+        // Liens d'intervention (rapports techniciens)
+        interventionLink: '/api/intervention-link.php'
     },
 
     // ==========================================
@@ -54,26 +72,13 @@ const JCSM_CONFIG = {
     // ==========================================
     // Version
     // ==========================================
-    version: '2.24.0',
-    buildDate: '2026-02-14'
+    version: '2.31.0',
+    buildDate: '2026-02-20'
 };
 
 // ==========================================
 // FONCTIONS UTILITAIRES D'AUTHENTIFICATION
 // ==========================================
-
-/**
- * Hash un mot de passe avec SHA-256
- * @param {string} password - Mot de passe à hasher
- * @returns {Promise<string>} Hash hexadécimal
- */
-async function hashPassword(password) {
-    const encoder = new TextEncoder();
-    const data = encoder.encode(password);
-    const hashBuffer = await crypto.subtle.digest('SHA-256', data);
-    const hashArray = Array.from(new Uint8Array(hashBuffer));
-    return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
-}
 
 /**
  * Vérifie un mot de passe via l'API serveur
@@ -187,7 +192,6 @@ function showToast(message, type = 'info', duration = 3000) {
 // EXPORT GLOBAL
 // ==========================================
 window.JCSM_CONFIG = JCSM_CONFIG;
-window.hashPassword = hashPassword;
 window.verifyPassword = verifyPassword;
 window.isSessionValid = isSessionValid;
 window.createSession = createSession;

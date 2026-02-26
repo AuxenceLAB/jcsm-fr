@@ -1,7 +1,7 @@
-// JCSM Service Worker - Enhanced PWA Support v35
-const STATIC_CACHE = 'jcsm-static-v35';
-const DYNAMIC_CACHE = 'jcsm-dynamic-v35';
-const API_CACHE = 'jcsm-api-v35';
+// JCSM Service Worker - Enhanced PWA Support v43
+const STATIC_CACHE = 'jcsm-static-v43';
+const DYNAMIC_CACHE = 'jcsm-dynamic-v43';
+const API_CACHE = 'jcsm-api-v43';
 
 // Assets to cache on install
 const STATIC_ASSETS = [
@@ -119,8 +119,10 @@ self.addEventListener('fetch', (event) => {
             caches.match(request).then(cached => {
                 if (cached) return cached;
                 return fetch(request).then(response => {
-                    const clone = response.clone();
-                    caches.open(STATIC_CACHE).then(cache => cache.put(request, clone));
+                    if (response.ok) {
+                        const clone = response.clone();
+                        caches.open(STATIC_CACHE).then(cache => cache.put(request, clone));
+                    }
                     return response;
                 });
             })

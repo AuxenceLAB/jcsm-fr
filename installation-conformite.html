@@ -99,7 +99,7 @@
     <meta property="og:title" content="Installation Bornes de Recharge Particuliers & Pro | JCSM">
     <meta property="og:description"
         content="Installation de bornes de recharge pour particuliers et professionnels. Wallbox 7-22 kW, bornes DC jusqu'à 350 kW. Certifié IRVE Qualifelec.">
-    <meta property="og:image" content="https://jcsm.fr/images/installation.jpeg">
+    <meta property="og:image" content="https://jcsm.fr/images/installation.webp">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:image:alt" content="Installation professionnelle de bornes de recharge IRVE par JCSM">
@@ -112,6 +112,7 @@
     <meta name="twitter:description"
         content="Installation de bornes de recharge pour particuliers et professionnels. Certifié IRVE Qualifelec. Devis gratuit.">
     <meta name="twitter:image" content="https://jcsm.fr/images/installation.jpeg">
+    <meta name="twitter:image:alt" content="Installation professionnelle de bornes de recharge IRVE par JCSM">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -121,17 +122,13 @@
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
             rel="stylesheet">
     </noscript>
-    <link rel="stylesheet" href="css/tailwind.css?v=35">
-    <link rel="stylesheet" href="styles.css?v=35">
+    <link rel="stylesheet" href="css/tailwind.css?v=36">
+    <link rel="stylesheet" href="styles.css?v=36">
     <link rel="icon" type="image/png" href="images/logo.png">
     <link rel="manifest" href="manifest.json">
     <link rel="apple-touch-icon" href="images/logo.png">
     <meta name="apple-mobile-web-app-capable" content="yes">
 
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 
 </head>
 
@@ -262,12 +259,8 @@
         <section id="services" class="py-20 px-6 bg-white">
             <div class="max-w-7xl mx-auto">
                 <div class="text-center mb-16 section-appear">
-                    <div class="inline-flex items-center space-x-2 bg-gray-900 rounded-full px-4 py-2 mb-6">
-                        <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
-                        <span class="text-xs font-semibold text-white uppercase tracking-wide">Professionnels & Entreprises</span>
-                    </div>
                     <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-6">
-                        Des installations qui font référence
+                        Professionnels & Entreprises
                     </h2>
                     <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
                         Parkings, stations de recharge, flottes d'entreprise, copropriétés : nous déployons des infrastructures IRVE clé en main, de l'étude technique à la mise en service.
@@ -279,7 +272,7 @@
                         <picture>
                             <source srcset="images/installation.webp" type="image/webp">
                             <img loading="lazy" src="images/installation.jpeg" alt="Parc de bornes de recharge IRVE"
-                                class="w-full h-64 object-cover object-center">
+                                class="w-full h-64 object-cover object-center" width="800" height="533">
                         </picture>
                         <div class="p-4 text-center">
                             <span class="text-sm font-medium text-gray-700">Parc multi-bornes</span>
@@ -289,7 +282,7 @@
                         <picture>
                             <source srcset="images/2x22kW.webp" type="image/webp">
                             <img loading="lazy" src="images/2x22kW.jpeg" alt="Installation double borne 22kW"
-                                class="w-full h-64 object-cover" style="object-position: center 35%">
+                                class="w-full h-64 object-cover" style="object-position: center 35%" width="950" height="1349">
                         </picture>
                         <div class="p-4 text-center">
                             <span class="text-sm font-medium text-gray-700">Double borne 22kW</span>
@@ -299,7 +292,7 @@
                         <picture>
                             <source srcset="images/1x60.webp" type="image/webp">
                             <img loading="lazy" src="images/1x60.jpeg" alt="Borne rapide 60kW DC"
-                                class="w-full h-64 object-cover" style="object-position: center 30%">
+                                class="w-full h-64 object-cover" style="object-position: center 30%" width="1280" height="1706">
                         </picture>
                         <div class="p-4 text-center">
                             <span class="text-sm font-medium text-gray-700">Borne rapide 60kW</span>
@@ -422,194 +415,26 @@
                 </div>
 
                 <div class="bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl p-10 text-center section-appear">
+                    <div class="flex items-center justify-center gap-6 mb-6">
+                        <picture><source srcset="images/qualifelec.webp" type="image/webp"><img src="images/qualifelec.png" alt="Qualifelec IRVE" class="h-16 w-auto" width="64" height="64" loading="lazy"></picture>
+                        <div class="text-left">
+                            <div class="text-3xl font-bold text-white">150<span class="text-2xl text-gray-400">+</span></div>
+                            <p class="text-xs text-gray-400 font-semibold uppercase tracking-wide">Installations réalisées</p>
+                        </div>
+                    </div>
                     <h3 class="text-2xl font-bold mb-3 text-white">Vous êtes un professionnel ?</h3>
                     <p class="text-gray-300 mb-6 max-w-2xl mx-auto">Étude technique, dimensionnement, installation et mise en service : JCSM gère votre projet IRVE de A à Z. Un interlocuteur unique, des délais maîtrisés.</p>
                     <a href="/contact" class="btn-primary px-8 py-3 rounded-xl font-medium inline-block">Demander un devis professionnel</a>
-                    <p class="text-xs text-gray-400 mt-4">Réponse sous 24h · Accompagnement ADVENIR</p>
+                    <p class="text-xs text-gray-400 mt-4">Réponse sous 24h · Certifié Qualifelec IRVE · Accompagnement ADVENIR</p>
                 </div>
             </div>
         </section>
 
-        <!-- Brands -->
-        <section class="py-20 px-6 bg-white">
+        <!-- Particuliers -->
+        <section class="py-20 px-6 bg-gray-50" id="particuliers">
             <div class="max-w-7xl mx-auto">
                 <div class="text-center mb-16 section-appear">
-                    <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-6">
-                        Marques gérées
-                    </h2>
-                    <p class="text-xl text-gray-600">
-                        Expertise sur toutes les principales marques du marché
-                    </p>
-                </div>
-                <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
-                    <div
-                        class="card-hover bg-white border border-gray-200 rounded-xl p-6 flex items-center justify-center section-appear">
-                        <picture><source srcset="images/alfen.webp" type="image/webp"><img src="images/alfen.png" alt="Logo Alfen - Bornes de recharge intelligentes"
-                            class="h-12 w-auto brand-logo" loading="lazy" width="120" height="48"></picture>
-                    </div>
-                    <div
-                        class="card-hover bg-white border border-gray-200 rounded-xl p-6 flex items-center justify-center section-appear">
-                        <picture><source srcset="images/schneider.webp" type="image/webp"><img src="images/schneider.png" alt="Logo Schneider Electric - Solutions IRVE"
-                            class="h-12 w-auto brand-logo" loading="lazy" width="120" height="48"></picture>
-                    </div>
-                    <div
-                        class="card-hover bg-white border border-gray-200 rounded-xl p-6 flex items-center justify-center section-appear">
-                        <picture><source srcset="images/delta.webp" type="image/webp"><img src="images/delta.png" alt="Delta" class="h-12 w-auto brand-logo" width="128" height="48" loading="lazy"></picture>
-                    </div>
-                    <div
-                        class="card-hover bg-white border border-gray-200 rounded-xl p-6 flex items-center justify-center section-appear">
-                        <picture><source srcset="images/autel.webp" type="image/webp"><img src="images/autel.png" alt="Autel" class="h-12 w-auto brand-logo" width="128" height="48" loading="lazy"></picture>
-                    </div>
-                    <div
-                        class="card-hover bg-white border border-gray-200 rounded-xl p-6 flex items-center justify-center section-appear">
-                        <picture><source srcset="images/eko.webp" type="image/webp"><img src="images/eko.png" alt="EKO" class="h-12 w-auto brand-logo" width="128" height="48" loading="lazy"></picture>
-                    </div>
-                    <div
-                        class="card-hover bg-white border border-gray-200 rounded-xl p-6 flex items-center justify-center section-appear">
-                        <picture><source srcset="images/alpi.webp" type="image/webp"><img src="images/alpi.png" alt="Alpitronic" class="h-12 w-auto brand-logo" width="128" height="48" loading="lazy"></picture>
-                    </div>
-                    <div
-                        class="card-hover bg-white border border-gray-200 rounded-xl p-6 flex items-center justify-center section-appear">
-                        <picture><source srcset="images/icharging.webp" type="image/webp"><img src="images/icharging.png" alt="iCharging" class="h-12 w-auto brand-logo" width="128" height="48" loading="lazy"></picture>
-                    </div>
-                    <div
-                        class="card-hover bg-white border border-gray-200 rounded-xl p-6 flex items-center justify-center section-appear">
-                        <picture><source srcset="images/ies.webp" type="image/webp"><img src="images/ies.png" alt="IES" class="h-12 w-auto brand-logo" width="128" height="48" loading="lazy"></picture>
-                    </div>
-                    <div
-                        class="card-hover bg-white border border-gray-200 rounded-xl p-6 flex items-center justify-center section-appear">
-                        <picture><source srcset="images/ingeteam.webp" type="image/webp"><img src="images/ingeteam.png" alt="Ingeteam" class="h-12 w-auto brand-logo" width="128" height="48" loading="lazy"></picture>
-                    </div>
-                    <div
-                        class="card-hover bg-white border border-gray-200 rounded-xl p-6 flex items-center justify-center section-appear">
-                        <picture><source srcset="images/circontrol.webp" type="image/webp"><img src="images/circontrol.png" alt="Circontrol" class="h-12 w-auto brand-logo" width="128" height="48" loading="lazy"></picture>
-                    </div>
-                    <div
-                        class="card-hover bg-white border border-gray-200 rounded-xl p-6 flex items-center justify-center section-appear">
-                        <picture><source srcset="images/evbox.webp" type="image/webp"><img src="images/evbox.png" alt="EVBox" class="h-12 w-auto brand-logo" width="128" height="48" loading="lazy"></picture>
-                    </div>
-                    <div
-                        class="card-hover bg-white border border-gray-200 rounded-xl p-6 flex items-center justify-center section-appear">
-                        <picture><source srcset="images/abb.webp" type="image/webp"><img src="images/abb.png" alt="ABB" class="h-12 w-auto brand-logo" width="128" height="48" loading="lazy"></picture>
-                    </div>
-                    <div
-                        class="card-hover bg-white border border-gray-200 rounded-xl p-6 flex items-center justify-center section-appear">
-                        <picture><source srcset="images/kempower.webp" type="image/webp"><img src="images/kempower.png" alt="Kempower" class="h-12 w-auto brand-logo" width="128" height="48" loading="lazy"></picture>
-                    </div>
-                    <div
-                        class="card-hover bg-white border border-gray-200 rounded-xl p-6 flex items-center justify-center section-appear">
-                        <picture><source srcset="images/dbt.webp" type="image/webp"><img src="images/dbt.png" alt="DBT" class="h-12 w-auto brand-logo" width="128" height="48" loading="lazy"></picture>
-                    </div>
-                    <div
-                        class="card-hover bg-white border border-gray-200 rounded-xl p-6 flex items-center justify-center section-appear">
-                        <picture><source srcset="images/hager.webp" type="image/webp"><img src="images/hager.png" alt="Hager" class="h-12 w-auto brand-logo" width="128" height="48" loading="lazy"></picture>
-                    </div>
-                    <div
-                        class="card-hover bg-white border border-gray-200 rounded-xl p-6 flex items-center justify-center section-appear">
-                        <picture><source srcset="images/anyos.webp" type="image/webp"><img src="images/anyos.png" alt="Anyos" class="h-12 w-auto brand-logo" width="128" height="48" loading="lazy"></picture>
-                    </div>
-                    <div
-                        class="card-hover bg-white border border-gray-200 rounded-xl p-6 flex items-center justify-center section-appear">
-                        <picture><source srcset="images/siemens.webp" type="image/webp"><img src="images/siemens.png" alt="Siemens" class="h-12 w-auto brand-logo" width="128" height="48" loading="lazy"></picture>
-                    </div>
-                    <div
-                        class="card-hover bg-white border border-gray-200 rounded-xl p-6 flex items-center justify-center section-appear">
-                        <picture><source srcset="images/wallbox.webp" type="image/webp"><img src="images/wallbox.png" alt="Wallbox" class="h-12 w-auto brand-logo" width="128" height="48" loading="lazy"></picture>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Certifications -->
-        <section class="py-20 px-6 bg-white">
-            <div class="max-w-7xl mx-auto">
-                <div class="text-center mb-12 section-appear">
-                    <h2 class="text-4xl md:text-5xl font-bold tracking-tight mb-4">
-                        Certifications & Qualifications
-                    </h2>
-                </div>
-                <div class="max-w-4xl mx-auto">
-                    <div class="card-hover bg-white border border-gray-200 rounded-2xl p-8 section-appear">
-                        <div class="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-16">
-                            <div class="flex items-center justify-center">
-                                <picture><source srcset="images/qualifelec.webp" type="image/webp"><img src="images/qualifelec.png" alt="Qualifelec IRVE" class="h-24 w-auto" width="96" height="96" loading="lazy"></picture>
-                            </div>
-                            <div class="text-center">
-                                <div class="text-6xl font-bold mb-2">150<span class="text-4xl text-gray-500">+</span>
-                                </div>
-                                <p class="text-sm text-gray-600 font-semibold uppercase tracking-wide">Installations
-                                    réalisées</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Couverture Nationale -->
-        <section class="py-20 px-6">
-            <div class="max-w-7xl mx-auto">
-                <div class="text-center mb-16 section-appear">
-                    <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-6">Installation IRVE partout en France</h2>
-                    <p class="text-xl text-gray-600 max-w-3xl mx-auto">Nos installateurs certifiés Qualifelec interviennent dans toutes les régions pour vos projets de bornes de recharge.</p>
-                </div>
-                <div class="section-appear">
-                    <div id="map" class="shadow-lg"></div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Zones d'intervention par région -->
-        <section class="py-20 px-6 bg-gray-50">
-            <div class="max-w-7xl mx-auto">
-                <div class="text-center mb-16 section-appear">
-                    <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-6">Installation de bornes IRVE par région</h2>
-                    <p class="text-xl text-gray-600 max-w-3xl mx-auto">Installation certifiée et remise en conformité de vos infrastructures de recharge électrique dans toute la France.</p>
-                </div>
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 section-appear">
-                    <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 hover:shadow-lg transition-shadow">
-                        <h3 class="text-xl font-bold mb-4 text-blue-600">Île-de-France</h3>
-                        <p class="text-gray-600 text-sm leading-relaxed">Paris (75), Hauts-de-Seine (92), Seine-Saint-Denis (93), Val-de-Marne (94), Yvelines (78), Essonne (91), Val-d'Oise (95), Seine-et-Marne (77)</p>
-                        <a href="/zones/ile-de-france" class="text-blue-600 text-sm font-medium mt-3 inline-block hover:underline">En savoir plus</a>
-                    </div>
-                    <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 hover:shadow-lg transition-shadow">
-                        <h3 class="text-xl font-bold mb-4 text-blue-600">Auvergne-Rhône-Alpes</h3>
-                        <p class="text-gray-600 text-sm leading-relaxed">Rhône (69), Isère (38), Loire (42), Haute-Savoie (74), Puy-de-Dôme (63), Ain (01), Drôme (26), Savoie (73), Ardèche (07), Allier (03), Cantal (15), Haute-Loire (43)</p>
-                        <a href="/zones/auvergne-rhone-alpes" class="text-blue-600 text-sm font-medium mt-3 inline-block hover:underline">En savoir plus</a>
-                    </div>
-                    <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 hover:shadow-lg transition-shadow">
-                        <h3 class="text-xl font-bold mb-4 text-blue-600">Nouvelle-Aquitaine</h3>
-                        <p class="text-gray-600 text-sm leading-relaxed">Gironde (33), Charente-Maritime (17), Pyrénées-Atlantiques (64), Vienne (86), Haute-Vienne (87), Dordogne (24), Lot-et-Garonne (47), Landes (40), Charente (16), Deux-Sèvres (79), Corrèze (19), Creuse (23)</p>
-                        <a href="/zones/nouvelle-aquitaine" class="text-blue-600 text-sm font-medium mt-3 inline-block hover:underline">En savoir plus</a>
-                    </div>
-                    <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 hover:shadow-lg transition-shadow">
-                        <h3 class="text-xl font-bold mb-4 text-blue-600">Occitanie</h3>
-                        <p class="text-gray-600 text-sm leading-relaxed">Haute-Garonne (31), Hérault (34), Gard (30), Pyrénées-Orientales (66), Aude (11), Tarn (81), Aveyron (12), Lot (46), Tarn-et-Garonne (82), Gers (32), Hautes-Pyrénées (65), Ariège (09), Lozère (48)</p>
-                        <a href="/zones/occitanie" class="text-blue-600 text-sm font-medium mt-3 inline-block hover:underline">En savoir plus</a>
-                    </div>
-                    <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 hover:shadow-lg transition-shadow">
-                        <h3 class="text-xl font-bold mb-4 text-blue-600">Provence-Alpes-Côte d'Azur</h3>
-                        <p class="text-gray-600 text-sm leading-relaxed">Bouches-du-Rhône (13), Var (83), Alpes-Maritimes (06), Vaucluse (84), Hautes-Alpes (05), Alpes-de-Haute-Provence (04)</p>
-                        <a href="/zones/paca" class="text-blue-600 text-sm font-medium mt-3 inline-block hover:underline">En savoir plus</a>
-                    </div>
-                    <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 hover:shadow-lg transition-shadow">
-                        <h3 class="text-xl font-bold mb-4 text-blue-600">Hauts-de-France</h3>
-                        <p class="text-gray-600 text-sm leading-relaxed">Nord (59), Pas-de-Calais (62), Somme (80), Oise (60), Aisne (02)</p>
-                        <a href="/zones/hauts-de-france" class="text-blue-600 text-sm font-medium mt-3 inline-block hover:underline">En savoir plus</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Installation pour les Particuliers -->
-        <section class="py-20 px-6 bg-white" id="particuliers">
-            <div class="max-w-7xl mx-auto">
-                <div class="text-center mb-16 section-appear">
-                    <div class="inline-flex items-center space-x-2 bg-blue-600 rounded-full px-4 py-2 mb-6">
-                        <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
-                        <span class="text-xs font-semibold text-white uppercase tracking-wide">Particuliers</span>
-                    </div>
-                    <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-6">Installation de borne de recharge chez vous</h2>
+                    <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-6">Particuliers & Domicile</h2>
                     <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">90 % des recharges se font à domicile. Faites installer votre borne par un professionnel certifié IRVE pour recharger en toute sécurité, chaque nuit, à moindre coût.</p>
                 </div>
 
@@ -617,14 +442,14 @@
                     <div class="section-appear">
                         <h3 class="text-2xl font-bold mb-6">Quelle borne pour votre maison ?</h3>
                         <div class="space-y-4">
-                            <div class="bg-gray-50 rounded-xl p-5 border border-gray-100">
+                            <div class="bg-white rounded-xl p-5 border border-gray-100">
                                 <div class="flex justify-between items-start mb-2">
                                     <h4 class="font-semibold text-gray-900">Prise renforcée 3,7 kW</h4>
                                     <span class="text-xs font-medium text-gray-500 bg-gray-200 rounded-full px-2 py-0.5">~16h pour 60 kWh</span>
                                 </div>
                                 <p class="text-sm text-gray-600">Solution d'entrée de gamme pour un usage occasionnel. Recharge lente mais suffisante si le véhicule stationne toute la nuit.</p>
                             </div>
-                            <div class="bg-gray-50 rounded-xl p-5 border border-gray-100">
+                            <div class="bg-white rounded-xl p-5 border border-gray-100">
                                 <div class="flex justify-between items-start mb-2">
                                     <h4 class="font-semibold text-gray-900">Wallbox 7,4 kW monophasé</h4>
                                     <span class="text-xs font-medium text-gray-500 bg-gray-200 rounded-full px-2 py-0.5">~8h pour 60 kWh</span>
@@ -638,7 +463,7 @@
                                 </div>
                                 <p class="text-sm text-blue-800">Le meilleur rapport performance/coût pour les foyers en triphasé. Permet une recharge rapide en soirée, même après un long trajet.</p>
                             </div>
-                            <div class="bg-gray-50 rounded-xl p-5 border border-gray-100">
+                            <div class="bg-white rounded-xl p-5 border border-gray-100">
                                 <div class="flex justify-between items-start mb-2">
                                     <h4 class="font-semibold text-gray-900">Wallbox 22 kW triphasé</h4>
                                     <span class="text-xs font-medium text-gray-500 bg-gray-200 rounded-full px-2 py-0.5">~3h pour 60 kWh</span>
@@ -728,27 +553,6 @@
             </div>
         </section>
 
-        <!-- Articles du blog -->
-        <section class="py-16 bg-gray-50">
-            <div class="max-w-5xl mx-auto px-6">
-                <h2 class="text-2xl font-bold text-center mb-8">Articles associés</h2>
-                <div class="grid md:grid-cols-3 gap-6">
-                    <a href="/blog/installer-borne-recharge-maison-particulier" class="bg-white rounded-xl p-6 border border-gray-100 hover:shadow-lg transition-all hover:-translate-y-1 group">
-                        <span class="text-xs font-semibold text-rose-600 uppercase tracking-wider">Guide</span>
-                        <h3 class="font-semibold text-gray-900 mt-2 group-hover:text-rose-600 transition-colors">Installer une borne de recharge chez soi : le guide complet pour les particuliers</h3>
-                    </a>
-                    <a href="/blog/installer-borne-copropriete" class="bg-white rounded-xl p-6 border border-gray-100 hover:shadow-lg transition-all hover:-translate-y-1 group">
-                        <span class="text-xs font-semibold text-rose-600 uppercase tracking-wider">Guide</span>
-                        <h3 class="font-semibold text-gray-900 mt-2 group-hover:text-rose-600 transition-colors">Installer une borne de recharge en copropriété : le guide complet</h3>
-                    </a>
-                    <a href="/blog/borne-ac-dc-difference" class="bg-white rounded-xl p-6 border border-gray-100 hover:shadow-lg transition-all hover:-translate-y-1 group">
-                        <span class="text-xs font-semibold text-rose-600 uppercase tracking-wider">Technique</span>
-                        <h3 class="font-semibold text-gray-900 mt-2 group-hover:text-rose-600 transition-colors">Borne AC vs DC : quelle différence et comment choisir ?</h3>
-                    </a>
-                </div>
-            </div>
-        </section>
-
         <!-- FAQ -->
         <section class="py-20 px-6 bg-gray-50">
             <div class="max-w-4xl mx-auto">
@@ -779,7 +583,7 @@
         </section>
 
         <!-- CTA -->
-        <section class="py-20 px-6">
+        <section class="py-20 px-6 bg-white">
             <div class="max-w-4xl mx-auto text-center section-appear">
                 <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-6">
                     Besoin d'une Installation Certifiée ?
@@ -794,6 +598,27 @@
                 </a>
             </div>
         </section>
+
+        <!-- Articles du blog -->
+        <section class="py-16 bg-gray-50">
+            <div class="max-w-5xl mx-auto px-6">
+                <h2 class="text-2xl font-bold text-center mb-8">Articles associés</h2>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <a href="/blog/installer-borne-recharge-maison-particulier" class="bg-white rounded-xl p-6 border border-gray-100 hover:shadow-lg transition-all hover:-translate-y-1 group">
+                        <span class="text-xs font-semibold text-rose-600 uppercase tracking-wider">Guide</span>
+                        <h3 class="font-semibold text-gray-900 mt-2 group-hover:text-rose-600 transition-colors">Installer une borne de recharge chez soi : le guide complet pour les particuliers</h3>
+                    </a>
+                    <a href="/blog/installer-borne-copropriete" class="bg-white rounded-xl p-6 border border-gray-100 hover:shadow-lg transition-all hover:-translate-y-1 group">
+                        <span class="text-xs font-semibold text-rose-600 uppercase tracking-wider">Guide</span>
+                        <h3 class="font-semibold text-gray-900 mt-2 group-hover:text-rose-600 transition-colors">Installer une borne de recharge en copropriété : le guide complet</h3>
+                    </a>
+                    <a href="/blog/borne-ac-dc-difference" class="bg-white rounded-xl p-6 border border-gray-100 hover:shadow-lg transition-all hover:-translate-y-1 group">
+                        <span class="text-xs font-semibold text-rose-600 uppercase tracking-wider">Technique</span>
+                        <h3 class="font-semibold text-gray-900 mt-2 group-hover:text-rose-600 transition-colors">Borne AC vs DC : quelle différence et comment choisir ?</h3>
+                    </a>
+                </div>
+            </div>
+        </section>
     </main>
 
     <footer class="border-t border-gray-100 py-16 px-6 bg-white" role="contentinfo" aria-label="Pied de page">
@@ -804,7 +629,7 @@
                         <picture><source srcset="images/logo.webp" type="image/webp"><img src="images/logo.png" alt="Logo JCSM" class="w-8 h-8" width="32" height="32" loading="lazy"></picture>
                         <span class="text-xl font-semibold text-gray-900">JCSM</span>
                     </div>
-                    <p class="text-sm text-gray-600 mb-4">Votre partenaire de confiance depuis 2018 pour le pilotage, l'installation et la maintenance de vos infrastructures de recharge.</p>
+                    <p class="text-sm text-gray-600 mb-4">Votre partenaire de confiance depuis 2019 pour le pilotage, l'installation et la maintenance de vos infrastructures de recharge.</p>
                     <p class="text-sm text-gray-500">60 rue François 1er<br>75008 Paris</p>
                     <p class="text-sm text-gray-500 mt-3"><a href="tel:+33756962758" class="hover:text-gray-900 transition-colors">+33 7 56 96 27 58</a></p>
                     <p class="text-sm text-gray-500"><a href="mailto:contact@jcsm.fr" class="hover:text-gray-900 transition-colors">contact@jcsm.fr</a></p>
@@ -880,93 +705,11 @@
         </svg>
     </button>
 
-    <style>
-        #map {
-            height: 550px;
-            width: 100%;
-            border-radius: 1rem;
-            z-index: 1;
-        }
-        /* === Tailwind CDN preflight overrides for Leaflet === */
-        #map .leaflet-container img { max-width: none; max-height: none; }
-        #map .leaflet-container a { color: inherit; text-decoration: none; }
-        #map .leaflet-control-attribution { color: #333; background: rgba(255,255,255,0.85); font-size: 11px; padding: 2px 6px; }
-        #map .leaflet-control-attribution a { color: #0078A8; text-decoration: underline; }
-        #map .leaflet-control-zoom a { color: #333; background: #fff; text-decoration: none; }
-        #map .leaflet-interactive { cursor: pointer; }
-        #map .leaflet-popup-content-wrapper { border-radius: 14px; box-shadow: 0 8px 30px rgba(0,0,0,0.12); padding: 0; border: 1px solid rgba(0,0,0,0.06); }
-        #map .leaflet-popup-content { margin: 0; min-width: 180px; }
-        #map .leaflet-popup-tip { box-shadow: none; }
-        .popup-content { padding: 16px 20px; }
-        .popup-content h3 { font-size: 15px; font-weight: 700; color: #1e293b; margin-bottom: 4px; }
-        .popup-content p { font-size: 12px; color: #64748b; margin: 0; }
-        .popup-content .popup-badge { display: inline-block; margin-top: 8px; padding: 3px 10px; background: #EFF6FF; color: #2563EB; border-radius: 8px; font-size: 11px; font-weight: 600; }
-    </style>
-
-    <script src="js/config.js?v=35" defer></script>
-    <script src="js/utils.js?v=35" defer></script>
-    <script src="js/public.js?v=35" defer></script>
-    <script src="js/analytics.js?v=35" defer></script>
-    <script src="js/wow-effects.js?v=35" defer></script>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const mapContainer = document.getElementById('map');
-            if (!mapContainer || typeof L === 'undefined') return;
-
-            const map = L.map('map', { zoomControl: false, scrollWheelZoom: false }).setView([47.5, 2.5], 6);
-            L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
-                attribution: '&copy; OpenStreetMap &copy; CARTO', subdomains: 'abcd', maxZoom: 19
-            }).addTo(map);
-            L.control.zoom({ position: 'bottomright' }).addTo(map);
-
-            const cities = [
-                { name: 'Paris', lat: 48.8566, lng: 2.3522 },
-                { name: 'Lyon', lat: 45.7640, lng: 4.8357 },
-                { name: 'Marseille', lat: 43.2965, lng: 5.3698 },
-                { name: 'Toulouse', lat: 43.6047, lng: 1.4442 },
-                { name: 'Nice', lat: 43.7102, lng: 7.2620 },
-                { name: 'Nantes', lat: 47.2184, lng: -1.5536 },
-                { name: 'Montpellier', lat: 43.6110, lng: 3.8767 },
-                { name: 'Strasbourg', lat: 48.5734, lng: 7.7521 },
-                { name: 'Bordeaux', lat: 44.8378, lng: -0.5792 },
-                { name: 'Lille', lat: 50.6292, lng: 3.0573 },
-                { name: 'Rennes', lat: 48.1173, lng: -1.6778 },
-                { name: 'Reims', lat: 49.2583, lng: 4.0317 },
-                { name: 'Toulon', lat: 43.1242, lng: 5.9280 },
-                { name: 'Grenoble', lat: 45.1885, lng: 5.7245 },
-                { name: 'Dijon', lat: 47.3220, lng: 5.0415 },
-                { name: 'Angers', lat: 47.4784, lng: -0.5632 },
-                { name: 'Nîmes', lat: 43.8367, lng: 4.3601 },
-                { name: 'Clermont-Fd', lat: 45.7772, lng: 3.0870 },
-                { name: 'Tours', lat: 47.3941, lng: 0.6848 },
-                { name: 'Metz', lat: 49.1193, lng: 6.1757 },
-                { name: 'Perpignan', lat: 42.6986, lng: 2.8956 },
-                { name: 'Orléans', lat: 47.9029, lng: 1.9039 },
-                { name: 'Rouen', lat: 49.4432, lng: 1.0999 },
-                { name: 'Caen', lat: 49.1829, lng: -0.3707 },
-                { name: 'Nancy', lat: 48.6921, lng: 6.1844 },
-                { name: 'Avignon', lat: 43.9493, lng: 4.8055 },
-                { name: 'Brest', lat: 48.3904, lng: -4.4861 },
-                { name: 'Quimper', lat: 47.9960, lng: -4.1024 },
-                { name: 'Liège', lat: 50.6326, lng: 5.5797 },
-                { name: 'Bruxelles', lat: 50.8503, lng: 4.3517 }
-            ];
-
-            cities.forEach(city => {
-                L.circleMarker([city.lat, city.lng], {
-                    radius: 7,
-                    fillColor: '#2563EB',
-                    fillOpacity: 1,
-                    color: '#fff',
-                    weight: 2.5,
-                    opacity: 1
-                })
-                    .bindPopup(`<div class="popup-content"><h3>${city.name}</h3><p>Zone d'intervention JCSM</p><span class="popup-badge">Installation & Conformité</span></div>`)
-                    .addTo(map);
-            });
-        });
-    </script>
+    <script src="js/config.js?v=36" defer></script>
+    <script src="js/utils.js?v=36" defer></script>
+    <script src="js/public.js?v=36" defer></script>
+    <script src="js/analytics.js?v=36" defer></script>
+    <script src="js/wow-effects.js?v=36" defer></script>
 
     <!-- Service Worker Registration -->
     <script>

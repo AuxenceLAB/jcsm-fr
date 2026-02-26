@@ -1,6 +1,6 @@
 # JCSM - Expert IRVE
 
-> JCSM est un expert en infrastructures de recharge de véhicules électriques (IRVE) depuis 2018. Installation, maintenance, pilotage de projets et support 24/7 pour bornes de recharge en France et Belgique.
+> JCSM est un expert en infrastructures de recharge de véhicules électriques (IRVE) depuis 2019. Installation, maintenance, pilotage de projets et support 24/7 pour bornes de recharge en France et Belgique.
 
 ## Services
 
@@ -12,7 +12,7 @@
 
 ## Zones d'intervention
 
-- [France](https://jcsm.fr/zones/ile-de-france): Île-de-France, PACA, Occitanie, Auvergne-Rhône-Alpes, Hauts-de-France, Nouvelle-Aquitaine
+- [France](https://jcsm.fr/zones/france): Île-de-France, PACA, Occitanie, Auvergne-Rhône-Alpes, Hauts-de-France, Nouvelle-Aquitaine
 - [Belgique](https://jcsm.fr/zones/belgique): Bruxelles, Wallonie, Flandre
 
 ## Entreprise
@@ -20,6 +20,10 @@
 - [À propos](https://jcsm.fr/a-propos): Notre histoire, nos valeurs, notre équipe
 - [Carrières](https://jcsm.fr/carrieres): Rejoignez-nous
 - [Contact](https://jcsm.fr/contact): Devis gratuit sous 24h
+
+## Blog
+
+- [Blog JCSM](https://jcsm.fr/blog): 35 articles sur les bornes de recharge, la réglementation IRVE, les aides financières et les bonnes pratiques
 
 ## Contact
 

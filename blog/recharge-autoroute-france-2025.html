@@ -23,7 +23,7 @@
         "datePublished": "2025-07-10",
         "dateModified": "2025-07-10",
         "author": {"@type": "Organization", "name": "JCSM", "url": "https://jcsm.fr"},
-        "publisher": {"@type": "Organization", "name": "JCSM", "url": "https://jcsm.fr", "logo": {"@type": "ImageObject", "url": "https://jcsm.fr/images/logo.png"}},
+        "publisher": {"@type": "Organization", "name": "JCSM", "url": "https://jcsm.fr", "logo": {"@type": "ImageObject", "url": "https://jcsm.fr/images/logo.png", "width": 512, "height": 512}},
         "mainEntityOfPage": "https://jcsm.fr/blog/recharge-autoroute-france-2025",
         "image": "https://jcsm.fr/images/index.webp"
     }
@@ -86,6 +86,8 @@
     <meta property="og:description" content="100 % des aires d'autoroute équipées, 3 673 points de charge, 71 % en ultra-rapide. Le point complet sur la recharge autoroutière.">
     <meta property="og:image" content="https://jcsm.fr/images/index.webp">
     <meta property="og:image:alt" content="Infrastructure de recharge pour véhicules électriques">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
     <meta property="og:locale" content="fr_FR">
     <meta property="og:site_name" content="JCSM - Infrastructure de Recharge">
     <meta property="article:published_time" content="2025-07-10">
@@ -93,6 +95,7 @@
     <meta name="twitter:title" content="Recharge sur autoroute en France : couverture et chiffres clés 2025">
     <meta name="twitter:description" content="3 673 points de charge, 100 % des aires équipées. Analyse JCSM.">
     <meta name="twitter:image" content="https://jcsm.fr/images/index.webp">
+    <meta name="twitter:image:alt" content="Infrastructure de recharge pour véhicules électriques">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -102,8 +105,8 @@
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
             rel="stylesheet">
     </noscript>
-    <link rel="stylesheet" href="../css/tailwind.css?v=35">
-    <link rel="stylesheet" href="../styles.css?v=35">
+    <link rel="stylesheet" href="../css/tailwind.css?v=36">
+    <link rel="stylesheet" href="../styles.css?v=36">
     <link rel="icon" type="image/png" href="../images/logo.png">
     <link rel="manifest" href="../manifest.json">
     <link rel="apple-touch-icon" href="../images/logo.png">
@@ -114,6 +117,16 @@
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
     <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+    <div class="preloader" id="preloader" role="status" aria-label="Chargement">
+        <div class="flex flex-col items-center justify-center">
+            <picture><source srcset="../images/logo.webp" type="image/webp"><img src="../images/logo.png" alt="JCSM" width="80" height="80" class="animate-pulse"></picture>
+            <div class="mt-4 flex space-x-2">
+                <div class="w-2 h-2 bg-blue-600 rounded-full animate-bounce" style="animation-delay: 0s"></div>
+                <div class="w-2 h-2 bg-blue-600 rounded-full animate-bounce" style="animation-delay: 0.1s"></div>
+                <div class="w-2 h-2 bg-blue-600 rounded-full animate-bounce" style="animation-delay: 0.2s"></div>
+            </div>
+        </div>
+    </div>
     <div class="mobile-menu-overlay" id="mobile-menu-overlay"></div>
     <nav class="mobile-menu" id="mobile-menu" role="dialog" aria-modal="true" aria-label="Menu de navigation" aria-hidden="true">
         <div class="p-8">
@@ -161,7 +174,7 @@
         </div>
     </nav>
 
-    <main id="main-content">
+    <main id="main-content" role="main">
         <article class="pt-32 pb-16 px-6">
             <div class="max-w-3xl mx-auto">
                 <div class="mb-8">
@@ -172,7 +185,7 @@
                     <h1 class="text-3xl md:text-4xl font-bold mb-4 leading-tight">Recharge sur autoroute en France : couverture et chiffres clés 2025</h1>
                     <div class="flex items-center text-sm text-gray-500">
                         <time datetime="2025-07-10">10 juillet 2025</time>
-                        <span class="mx-2">&middot;</span>
+                        <span class="mx-2">·</span>
                         <span>6 min de lecture</span>
                     </div>
                 </div>
@@ -193,12 +206,12 @@
                 </div>
 
                 <div class="prose prose-lg max-w-none">
-                    <p class="text-lg text-gray-600 leading-relaxed mb-8">L'anxiété de la recharge sur autoroute est-elle encore justifiée en 2025 ? Avec 100 % des aires de service des autoroutes concédées désormais équipées en bornes rapides, la France offre un maillage parmi les plus denses d'Europe. Mais combien de points de charge sont réellement disponibles ? &Agrave; quelle puissance ? Et comment la demande explose-t-elle en période estivale ? Décryptage complet.</p>
+                    <p class="text-lg text-gray-600 leading-relaxed mb-8">L'anxiété de la recharge sur autoroute est-elle encore justifiée en 2025 ? Avec 100 % des aires de service des autoroutes concédées désormais équipées en bornes rapides, la France offre un maillage parmi les plus denses d'Europe. Mais combien de points de charge sont réellement disponibles ? À quelle puissance ? Et comment la demande explose-t-elle en période estivale ? Décryptage complet.</p>
 
                     <!-- Section 1 : Couverture -->
                     <h2 id="couverture-complete" class="text-2xl font-bold mt-12 mb-4">100 % des aires de service équipées</h2>
                     <p class="text-gray-600 leading-relaxed mb-4">Depuis 2024, l'intégralité des aires de service des autoroutes concédées françaises est équipée en infrastructures de recharge rapide. C'est le résultat d'un effort concerté entre sociétés d'autoroutes (Vinci Autoroutes, APRR/AREA, Sanef/SAPN, ATLANDES, COFIROUTE), opérateurs de recharge (TotalEnergies, Ionity, Fastned, Allego, Engie Vianeo) et pouvoirs publics.</p>
-                    <p class="text-gray-600 leading-relaxed mb-4">Cette couverture à 100 % place la France dans le peloton de t&ecirc;te européen, aux côtés des Pays-Bas et de l'Allemagne. L'espacement moyen entre deux stations de recharge sur autoroute est désormais de <strong>50 km</strong>, en dessous du seuil de 60 km imposé par le règlement européen AFIR.</p>
+                    <p class="text-gray-600 leading-relaxed mb-4">Cette couverture à 100 % place la France dans le peloton de tête européen, aux côtés des Pays-Bas et de l'Allemagne. L'espacement moyen entre deux stations de recharge sur autoroute est désormais de <strong>50 km</strong>, en dessous du seuil de 60 km imposé par le règlement européen AFIR.</p>
 
                     <div class="bg-amber-50 border-l-4 border-amber-400 rounded-r-xl p-5 mb-8">
                         <p class="text-gray-700 text-sm leading-relaxed"><span class="font-semibold">Repère :</span> En juillet 2025, les sociétés d'autoroutes françaises ont annoncé l'ajout de <strong>765 bornes rapides et ultra-rapides</strong> supplémentaires, dont environ 100 dépassant 350 kW. Le rythme d'équipement ne faiblit pas.</p>
@@ -230,7 +243,7 @@
 
                     <!-- Section 3 : Puissance -->
                     <h2 id="repartition-puissance" class="text-2xl font-bold mt-12 mb-4">Répartition par puissance</h2>
-                    <p class="text-gray-600 leading-relaxed mb-4">L'un des enjeux majeurs n'est pas seulement le nombre de bornes, mais leur puissance. Sur autoroute, les conducteurs ont besoin de recharger rapidement pour minimiser le temps d'arr&ecirc;t. Bonne nouvelle : la grande majorité du parc autoroutier est en haute puissance.</p>
+                    <p class="text-gray-600 leading-relaxed mb-4">L'un des enjeux majeurs n'est pas seulement le nombre de bornes, mais leur puissance. Sur autoroute, les conducteurs ont besoin de recharger rapidement pour minimiser le temps d'arrêt. Bonne nouvelle : la grande majorité du parc autoroutier est en haute puissance.</p>
 
                     <div class="space-y-4 mb-8">
                         <div>
@@ -328,7 +341,7 @@
                         </div>
                     </div>
 
-                    <p class="text-gray-600 leading-relaxed mb-4">Le premier week-end d'août 2025, la demande de recharge sur autoroute a bondi de <strong>92 %</strong> par rapport à la m&ecirc;me période de l'année précédente. Cette hausse spectaculaire reflète à la fois la croissance du parc automobile électrique et l'adoption massive du véhicule électrique pour les départs en vacances.</p>
+                    <p class="text-gray-600 leading-relaxed mb-4">Le premier week-end d'août 2025, la demande de recharge sur autoroute a bondi de <strong>92 %</strong> par rapport à la même période de l'année précédente. Cette hausse spectaculaire reflète à la fois la croissance du parc automobile électrique et l'adoption massive du véhicule électrique pour les départs en vacances.</p>
                     <p class="text-gray-600 leading-relaxed mb-4">Des files d'attente ont été signalées ponctuellement sur les axes les plus fréquentés (A7 vallée du Rhône, A10 vers la côte atlantique), en particulier aux heures de pointe. C'est pourquoi les opérateurs multiplient les extensions de capacité : ajout de points de charge supplémentaires sur les aires existantes, renforcement des puissances et déploiement de stations temporaires en période de chassé-croisé.</p>
 
                     <div class="bg-amber-50 border-l-4 border-amber-400 rounded-r-xl p-5 mb-8">
@@ -339,9 +352,9 @@
                     <h2 id="conseils-trajet" class="text-2xl font-bold mt-12 mb-4">Conseils pour recharger sur autoroute</h2>
                     <p class="text-gray-600 leading-relaxed mb-4">Pour profiter sereinement de la recharge autoroutigère, quelques bonnes pratiques s'imposent :</p>
                     <ul class="list-disc pl-6 text-gray-600 space-y-3 mb-6">
-                        <li><strong>Planifiez vos arr&ecirc;ts à l'avance</strong> : les applications Chargemap, ABRP (A Better Routeplanner) et les planificateurs intégrés des véhicules permettent de repérer les stations disponibles et de calculer l'autonomie nécessaire</li>
-                        <li><strong>Préférez les recharges courtes et fréquentes</strong> : recharger de 20 % à 80 % est bien plus rapide que de 10 % à 100 %. Sur un trajet Paris-Lyon (460 km), un seul arr&ecirc;t de 25 minutes suffit avec la plupart des véhicules récents</li>
-                        <li><strong>Préconditionnez la batterie</strong> : les véhicules récents préchauffent automatiquement la batterie lorsqu'un arr&ecirc;t de recharge est programmé dans le GPS, ce qui maximise la vitesse de charge</li>
+                        <li><strong>Planifiez vos arrêts à l'avance</strong> : les applications Chargemap, ABRP (A Better Routeplanner) et les planificateurs intégrés des véhicules permettent de repérer les stations disponibles et de calculer l'autonomie nécessaire</li>
+                        <li><strong>Préférez les recharges courtes et fréquentes</strong> : recharger de 20 % à 80 % est bien plus rapide que de 10 % à 100 %. Sur un trajet Paris-Lyon (460 km), un seul arrêt de 25 minutes suffit avec la plupart des véhicules récents</li>
+                        <li><strong>Préconditionnez la batterie</strong> : les véhicules récents préchauffent automatiquement la batterie lorsqu'un arrêt de recharge est programmé dans le GPS, ce qui maximise la vitesse de charge</li>
                         <li><strong>Évitez les heures de pointe</strong> : en période de départs, les créneaux 6h-8h et 12h-14h sont moins chargés. Les applications affichent en temps réel le taux d'occupation des stations</li>
                         <li><strong>Ayez un badge ou une carte bancaire</strong> : depuis 2024, le paiement par carte bancaire sans contact est obligatoire sur toutes les nouvelles bornes. Les badges multi-réseaux (ChargeMap, Electropass) restent pratiques pour bénéficier de tarifs négociés</li>
                     </ul>
@@ -413,7 +426,7 @@
                         <picture><source srcset="../images/logo.webp" type="image/webp"><img src="../images/logo.png" alt="Logo JCSM" class="w-8 h-8" width="32" height="32" loading="lazy"></picture>
                         <span class="text-xl font-semibold text-gray-900">JCSM</span>
                     </div>
-                    <p class="text-sm text-gray-600 mb-4">Votre partenaire de confiance depuis 2018 pour le pilotage, l'installation et la maintenance de vos infrastructures de recharge.</p>
+                    <p class="text-sm text-gray-600 mb-4">Votre partenaire de confiance depuis 2019 pour le pilotage, l'installation et la maintenance de vos infrastructures de recharge.</p>
                     <p class="text-sm text-gray-500">60 rue François 1er<br>75008 Paris</p>
                     <p class="text-sm text-gray-500 mt-3"><a href="tel:+33756962758" class="hover:text-gray-900 transition-colors">+33 7 56 96 27 58</a></p>
                     <p class="text-sm text-gray-500"><a href="mailto:contact@jcsm.fr" class="hover:text-gray-900 transition-colors">contact@jcsm.fr</a></p>
@@ -486,11 +499,11 @@
     <button class="scroll-top" id="scrollTop" aria-label="Retour en haut de la page">
         <svg class="w-6 h-6 float-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" /></svg>
     </button>
-    <script src="../js/config.js?v=35" defer></script>
-    <script src="../js/utils.js?v=35" defer></script>
-    <script src="../js/public.js?v=35" defer></script>
-    <script src="../js/analytics.js?v=35" defer></script>
-    <script src="../js/wow-effects.js?v=35" defer></script>
+    <script src="../js/config.js?v=36" defer></script>
+    <script src="../js/utils.js?v=36" defer></script>
+    <script src="../js/public.js?v=36" defer></script>
+    <script src="../js/analytics.js?v=36" defer></script>
+    <script src="../js/wow-effects.js?v=36" defer></script>
     <script>if ('serviceWorker' in navigator) { window.addEventListener('load', () => { navigator.serviceWorker.register('/sw.js').catch(() => {}); }); }</script>
 </body>
 </html>

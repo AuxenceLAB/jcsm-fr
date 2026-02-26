@@ -23,7 +23,7 @@
         "datePublished": "2026-02-08",
         "dateModified": "2026-02-08",
         "author": {"@type": "Organization", "name": "JCSM", "url": "https://jcsm.fr"},
-        "publisher": {"@type": "Organization", "name": "JCSM", "url": "https://jcsm.fr", "logo": {"@type": "ImageObject", "url": "https://jcsm.fr/images/logo.png"}},
+        "publisher": {"@type": "Organization", "name": "JCSM", "url": "https://jcsm.fr", "logo": {"@type": "ImageObject", "url": "https://jcsm.fr/images/logo.png", "width": 512, "height": 512}},
         "mainEntityOfPage": "https://jcsm.fr/blog/v2g-v2h-recharge-bidirectionnelle",
         "image": "https://jcsm.fr/images/index.webp"
     }
@@ -86,6 +86,8 @@
     <meta property="og:description" content="Vehicle-to-Grid, Vehicle-to-Home, Vehicle-to-Load : la recharge bidirectionnelle transforme votre VE en batterie domestique.">
     <meta property="og:image" content="https://jcsm.fr/images/index.webp">
     <meta property="og:image:alt" content="Infrastructure de recharge pour véhicules électriques">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
     <meta property="og:locale" content="fr_FR">
     <meta property="og:site_name" content="JCSM - Infrastructure de Recharge">
     <meta property="article:published_time" content="2026-02-08">
@@ -93,6 +95,7 @@
     <meta name="twitter:title" content="V2G, V2H, V2L : la recharge bidirectionnelle expliquée simplement">
     <meta name="twitter:description" content="Vehicle-to-Grid, Vehicle-to-Home, Vehicle-to-Load : la recharge bidirectionnelle transforme votre VE en batterie domestique.">
     <meta name="twitter:image" content="https://jcsm.fr/images/index.webp">
+    <meta name="twitter:image:alt" content="Infrastructure de recharge pour véhicules électriques">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -102,8 +105,8 @@
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
             rel="stylesheet">
     </noscript>
-    <link rel="stylesheet" href="../css/tailwind.css?v=35">
-    <link rel="stylesheet" href="../styles.css?v=35">
+    <link rel="stylesheet" href="../css/tailwind.css?v=36">
+    <link rel="stylesheet" href="../styles.css?v=36">
     <link rel="icon" type="image/png" href="../images/logo.png">
     <link rel="manifest" href="../manifest.json">
     <link rel="apple-touch-icon" href="../images/logo.png">
@@ -114,6 +117,16 @@
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
     <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+    <div class="preloader" id="preloader" role="status" aria-label="Chargement">
+        <div class="flex flex-col items-center justify-center">
+            <picture><source srcset="../images/logo.webp" type="image/webp"><img src="../images/logo.png" alt="JCSM" width="80" height="80" class="animate-pulse"></picture>
+            <div class="mt-4 flex space-x-2">
+                <div class="w-2 h-2 bg-blue-600 rounded-full animate-bounce" style="animation-delay: 0s"></div>
+                <div class="w-2 h-2 bg-blue-600 rounded-full animate-bounce" style="animation-delay: 0.1s"></div>
+                <div class="w-2 h-2 bg-blue-600 rounded-full animate-bounce" style="animation-delay: 0.2s"></div>
+            </div>
+        </div>
+    </div>
     <div class="mobile-menu-overlay" id="mobile-menu-overlay"></div>
     <nav class="mobile-menu" id="mobile-menu" role="dialog" aria-modal="true" aria-label="Menu de navigation" aria-hidden="true">
         <div class="p-8">
@@ -161,7 +174,7 @@
         </div>
     </nav>
 
-    <main id="main-content">
+    <main id="main-content" role="main">
         <article class="pt-32 pb-16 px-6">
             <div class="max-w-3xl mx-auto">
                 <div class="mb-8">
@@ -172,7 +185,7 @@
                     <h1 class="text-3xl md:text-4xl font-bold mb-4 leading-tight">V2G, V2H, V2L : la recharge bidirectionnelle expliquée simplement</h1>
                     <div class="flex items-center text-sm text-gray-500">
                         <time datetime="2026-02-08">8 février 2026</time>
-                        <span class="mx-2">&middot;</span>
+                        <span class="mx-2">·</span>
                         <span>8 min de lecture</span>
                     </div>
                 </div>
@@ -244,13 +257,13 @@
                     <p class="text-gray-600 leading-relaxed mb-4">En cas de coupure réseau, le VE prend le relais automatiquement. Avec une batterie de 60 kWh et une consommation moyenne de 13 kWh/jour, votre foyer tient 4 à 5 jours en autonomie complète. C'est l'équivalent d'un groupe électrogène silencieux et sans émissions.</p>
 
                     <h3 class="text-xl font-semibold mt-8 mb-3">Optimisation tarifaire</h3>
-                    <p class="text-gray-600 leading-relaxed mb-4">En fonctionnement normal, le V2H permet de jouer sur les écarts de tarif entre heures creuses et heures pleines. Le VE se recharge en heures creuses (environ 0,15 &euro;/kWh) et décharge ses batteries en heures pleines (environ 0,25 &euro;/kWh). Le gain : <strong>0,10 &euro; par kWh transféré</strong>.</p>
+                    <p class="text-gray-600 leading-relaxed mb-4">En fonctionnement normal, le V2H permet de jouer sur les écarts de tarif entre heures creuses et heures pleines. Le VE se recharge en heures creuses (environ 0,15 €/kWh) et décharge ses batteries en heures pleines (environ 0,25 €/kWh). Le gain : <strong>0,10 € par kWh transféré</strong>.</p>
 
                     <h3 class="text-xl font-semibold mt-8 mb-3">Couplage avec le solaire</h3>
                     <p class="text-gray-600 leading-relaxed mb-4">C'est le scénario le plus intéressant économiquement. Les panneaux solaires produisent pendant la journée, mais la consommation du foyer est concentrée le matin et le soir. Le VE stocke le surplus solaire du jour et le restitue le soir. C'est l'équivalent d'une batterie domestique type Tesla Powerwall, mais vous l'avez déjà dans votre garage.</p>
 
                     <div class="bg-amber-50 border-l-4 border-amber-400 rounded-r-xl p-5 mb-8">
-                        <p class="text-gray-700 text-sm leading-relaxed"><span class="font-semibold">Coût :</span> Une borne bidirectionnelle coûte 2 000 à 5 000 &euro; de plus qu'une wallbox standard. Un investissement conséquent, mais qui se substitue à une batterie domestique fixe (5 000 à 10 000 &euro; pour un Powerwall). Le prérequis : un véhicule compatible.</p>
+                        <p class="text-gray-700 text-sm leading-relaxed"><span class="font-semibold">Coût :</span> Une borne bidirectionnelle coûte 2 000 à 5 000 € de plus qu'une wallbox standard. Un investissement conséquent, mais qui se substitue à une batterie domestique fixe (5 000 à 10 000 € pour un Powerwall). Le prérequis : un véhicule compatible.</p>
                     </div>
 
                     <!-- Section 4 -->
@@ -352,11 +365,11 @@
 
                     <div class="grid sm:grid-cols-2 gap-4 mb-8">
                         <div class="bg-gray-50 rounded-xl p-5 text-center">
-                            <p class="text-3xl font-bold text-indigo-600 mb-1">4 000 — 8 000 &euro;</p>
+                            <p class="text-3xl font-bold text-indigo-600 mb-1">4 000 — 8 000 €</p>
                             <p class="text-sm text-gray-600">Borne bidirectionnelle installée</p>
                         </div>
                         <div class="bg-gray-50 rounded-xl p-5 text-center">
-                            <p class="text-3xl font-bold text-indigo-600 mb-1">1 000 — 2 000 &euro;</p>
+                            <p class="text-3xl font-bold text-indigo-600 mb-1">1 000 — 2 000 €</p>
                             <p class="text-sm text-gray-600">Wallbox standard installée</p>
                         </div>
                     </div>
@@ -377,7 +390,7 @@
                     <h3 class="text-xl font-semibold mt-8 mb-3">Les limites à connaître</h3>
                     <ul class="list-disc pl-6 text-gray-600 space-y-2 mb-6">
                         <li><strong>Peu de véhicules compatibles en 2026</strong> : la liste est courte et le déploiement commercial lent</li>
-                        <li><strong>Bornes bidirectionnelles chères</strong> : 4 000 à 8 000 &euro; installée, soit 3 à 4 fois le prix d'une wallbox standard</li>
+                        <li><strong>Bornes bidirectionnelles chères</strong> : 4 000 à 8 000 € installée, soit 3 à 4 fois le prix d'une wallbox standard</li>
                         <li><strong>Impact sur la durée de vie de la batterie</strong> : chaque cycle V2H/V2G s'ajoute aux cycles de roulage. Les constructeurs disent que c'est négligeable en usage modéré, mais les données long terme manquent encore</li>
                         <li><strong>Réglementation V2G instable</strong> : le cadre juridique de la revente d'électricité par un particulier n'est pas encore stabilisé en France</li>
                         <li><strong>ROI long</strong> : 5 à 8 ans pour le V2H (selon le profil de consommation et la présence de solaire), incertain pour le V2G</li>
@@ -406,7 +419,7 @@
                         </div>
                         <div class="border border-gray-200 rounded-xl p-5">
                             <h3 class="font-semibold text-gray-900 mb-2">Combien peut-on économiser avec le V2H ?</h3>
-                            <p class="text-gray-600 text-sm leading-relaxed">Avec un différentiel HC/HP de 0,10 &euro;/kWh et 10 kWh transférés par jour, environ <strong>365 &euro;/an</strong>. Avec une installation solaire couplée, les économies montent à 800-1 200 &euro;/an grâce à l'autoconsommation maximisée. Le retour sur investissement de la borne bidirectionnelle se situe entre 5 et 7 ans, selon votre profil de consommation.</p>
+                            <p class="text-gray-600 text-sm leading-relaxed">Avec un différentiel HC/HP de 0,10 €/kWh et 10 kWh transférés par jour, environ <strong>365 €/an</strong>. Avec une installation solaire couplée, les économies montent à 800-1 200 €/an grâce à l'autoconsommation maximisée. Le retour sur investissement de la borne bidirectionnelle se situe entre 5 et 7 ans, selon votre profil de consommation.</p>
                         </div>
                         <div class="border border-gray-200 rounded-xl p-5">
                             <h3 class="font-semibold text-gray-900 mb-2">Faut-il une autorisation pour le V2G ?</h3>
@@ -452,7 +465,7 @@
                         <picture><source srcset="../images/logo.webp" type="image/webp"><img src="../images/logo.png" alt="Logo JCSM" class="w-8 h-8" width="32" height="32" loading="lazy"></picture>
                         <span class="text-xl font-semibold text-gray-900">JCSM</span>
                     </div>
-                    <p class="text-sm text-gray-600 mb-4">Votre partenaire de confiance depuis 2018 pour le pilotage, l'installation et la maintenance de vos infrastructures de recharge.</p>
+                    <p class="text-sm text-gray-600 mb-4">Votre partenaire de confiance depuis 2019 pour le pilotage, l'installation et la maintenance de vos infrastructures de recharge.</p>
                     <p class="text-sm text-gray-500">60 rue François 1er<br>75008 Paris</p>
                     <p class="text-sm text-gray-500 mt-3"><a href="tel:+33756962758" class="hover:text-gray-900 transition-colors">+33 7 56 96 27 58</a></p>
                     <p class="text-sm text-gray-500"><a href="mailto:contact@jcsm.fr" class="hover:text-gray-900 transition-colors">contact@jcsm.fr</a></p>
@@ -525,11 +538,11 @@
     <button class="scroll-top" id="scrollTop" aria-label="Retour en haut de la page">
         <svg class="w-6 h-6 float-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" /></svg>
     </button>
-    <script src="../js/config.js?v=35" defer></script>
-    <script src="../js/utils.js?v=35" defer></script>
-    <script src="../js/public.js?v=35" defer></script>
-    <script src="../js/analytics.js?v=35" defer></script>
-    <script src="../js/wow-effects.js?v=35" defer></script>
+    <script src="../js/config.js?v=36" defer></script>
+    <script src="../js/utils.js?v=36" defer></script>
+    <script src="../js/public.js?v=36" defer></script>
+    <script src="../js/analytics.js?v=36" defer></script>
+    <script src="../js/wow-effects.js?v=36" defer></script>
     <script>if ('serviceWorker' in navigator) { window.addEventListener('load', () => { navigator.serviceWorker.register('/sw.js').catch(() => {}); }); }</script>
 </body>
 </html>

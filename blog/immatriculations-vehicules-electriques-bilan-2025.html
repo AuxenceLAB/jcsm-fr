@@ -23,7 +23,7 @@
         "datePublished": "2026-01-15",
         "dateModified": "2026-01-15",
         "author": {"@type": "Organization", "name": "JCSM", "url": "https://jcsm.fr"},
-        "publisher": {"@type": "Organization", "name": "JCSM", "url": "https://jcsm.fr", "logo": {"@type": "ImageObject", "url": "https://jcsm.fr/images/logo.png"}},
+        "publisher": {"@type": "Organization", "name": "JCSM", "url": "https://jcsm.fr", "logo": {"@type": "ImageObject", "url": "https://jcsm.fr/images/logo.png", "width": 512, "height": 512}},
         "mainEntityOfPage": "https://jcsm.fr/blog/immatriculations-vehicules-electriques-bilan-2025",
         "image": "https://jcsm.fr/images/index.webp"
     }
@@ -86,6 +86,8 @@
     <meta property="og:description" content="326 923 VE immatriculés en 2025, 20 % de part de marché. Top ventes, tendances et impact sur les bornes de recharge.">
     <meta property="og:image" content="https://jcsm.fr/images/index.webp">
     <meta property="og:image:alt" content="Infrastructure de recharge pour véhicules électriques">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
     <meta property="og:locale" content="fr_FR">
     <meta property="og:site_name" content="JCSM - Infrastructure de Recharge">
     <meta property="article:published_time" content="2026-01-15">
@@ -93,6 +95,7 @@
     <meta name="twitter:title" content="Immatriculations de véhicules électriques en France : bilan record 2025">
     <meta name="twitter:description" content="326 923 VE immatriculés en 2025, 20 % de part de marché. Top ventes et impact sur les bornes de recharge. Analyse JCSM.">
     <meta name="twitter:image" content="https://jcsm.fr/images/index.webp">
+    <meta name="twitter:image:alt" content="Infrastructure de recharge pour véhicules électriques">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -102,8 +105,8 @@
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
             rel="stylesheet">
     </noscript>
-    <link rel="stylesheet" href="../css/tailwind.css?v=35">
-    <link rel="stylesheet" href="../styles.css?v=35">
+    <link rel="stylesheet" href="../css/tailwind.css?v=36">
+    <link rel="stylesheet" href="../styles.css?v=36">
     <link rel="icon" type="image/png" href="../images/logo.png">
     <link rel="manifest" href="../manifest.json">
     <link rel="apple-touch-icon" href="../images/logo.png">
@@ -114,6 +117,16 @@
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
     <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+    <div class="preloader" id="preloader" role="status" aria-label="Chargement">
+        <div class="flex flex-col items-center justify-center">
+            <picture><source srcset="../images/logo.webp" type="image/webp"><img src="../images/logo.png" alt="JCSM" width="80" height="80" class="animate-pulse"></picture>
+            <div class="mt-4 flex space-x-2">
+                <div class="w-2 h-2 bg-blue-600 rounded-full animate-bounce" style="animation-delay: 0s"></div>
+                <div class="w-2 h-2 bg-blue-600 rounded-full animate-bounce" style="animation-delay: 0.1s"></div>
+                <div class="w-2 h-2 bg-blue-600 rounded-full animate-bounce" style="animation-delay: 0.2s"></div>
+            </div>
+        </div>
+    </div>
     <div class="mobile-menu-overlay" id="mobile-menu-overlay"></div>
     <nav class="mobile-menu" id="mobile-menu" role="dialog" aria-modal="true" aria-label="Menu de navigation" aria-hidden="true">
         <div class="p-8">
@@ -161,7 +174,7 @@
         </div>
     </nav>
 
-    <main id="main-content">
+    <main id="main-content" role="main">
         <article class="pt-32 pb-16 px-6">
             <div class="max-w-3xl mx-auto">
                 <div class="mb-8">
@@ -172,7 +185,7 @@
                     <h1 class="text-3xl md:text-4xl font-bold mb-4 leading-tight">Immatriculations de véhicules électriques en France : bilan record 2025</h1>
                     <div class="flex items-center text-sm text-gray-500">
                         <time datetime="2026-01-15">15 janvier 2026</time>
-                        <span class="mx-2">&middot;</span>
+                        <span class="mx-2">·</span>
                         <span>8 min de lecture</span>
                     </div>
                 </div>
@@ -184,7 +197,7 @@
                         <li><a href="#bilan-annuel" class="hover:underline">Bilan annuel : 326 923 VE immatriculés</a></li>
                         <li><a href="#part-marche" class="hover:underline">Part de marché : la barre des 20 % franchie</a></li>
                         <li><a href="#records-mensuels" class="hover:underline">Records mensuels et dépassement de l'essence</a></li>
-                        <li><a href="#top-ventes" class="hover:underline">Top 5 des ventes : la Renault 5 en t&ecirc;te</a></li>
+                        <li><a href="#top-ventes" class="hover:underline">Top 5 des ventes : la Renault 5 en tête</a></li>
                         <li><a href="#flottes-particuliers" class="hover:underline">Flottes d'entreprise vs particuliers</a></li>
                         <li><a href="#parc-circulation" class="hover:underline">Plus de 2,5 millions de VE en circulation</a></li>
                         <li><a href="#impact-bornes" class="hover:underline">Impact sur les bornes de recharge</a></li>
@@ -263,7 +276,7 @@
                         </table>
                     </div>
 
-                    <p class="text-gray-600 leading-relaxed mb-4">&Agrave; titre de comparaison, les véhicules diesel ne représentent plus que 7 % du marché en 2025 (contre 73 % en 2012). Les motorisations hybrides rechargeables ajoutent environ 9 % de part de marché, portant l'ensemble des véhicules à prise à près de 29 % des ventes. Le basculement vers l'électrique est désormais irréversible.</p>
+                    <p class="text-gray-600 leading-relaxed mb-4">À titre de comparaison, les véhicules diesel ne représentent plus que 7 % du marché en 2025 (contre 73 % en 2012). Les motorisations hybrides rechargeables ajoutent environ 9 % de part de marché, portant l'ensemble des véhicules à prise à près de 29 % des ventes. Le basculement vers l'électrique est désormais irréversible.</p>
 
                     <!-- Section 3 : Records mensuels -->
                     <h2 id="records-mensuels" class="text-2xl font-bold mt-12 mb-4">Records mensuels et dépassement de l'essence</h2>
@@ -274,10 +287,10 @@
                         <p class="text-gray-700 text-sm leading-relaxed"><span class="font-semibold">Fait historique :</span> En septembre 2025, les véhicules électriques ont dépassé pour la première fois les véhicules essence en part de marché mensuelle : <strong>20,8 %</strong> pour les VE contre 20,3 % pour l'essence. Un moment symbolique dans l'histoire de l'automobile française.</p>
                     </div>
 
-                    <p class="text-gray-600 leading-relaxed mb-4">Ce dépassement, m&ecirc;me s'il ne s'est pas reproduit chaque mois, illustre la vitesse de la transition en cours. Sur les trois derniers mois de 2025, la part de marché du VE a systématiquement dépassé les 22 %, laissant présager une année 2026 encore plus forte.</p>
+                    <p class="text-gray-600 leading-relaxed mb-4">Ce dépassement, même s'il ne s'est pas reproduit chaque mois, illustre la vitesse de la transition en cours. Sur les trois derniers mois de 2025, la part de marché du VE a systématiquement dépassé les 22 %, laissant présager une année 2026 encore plus forte.</p>
 
                     <!-- Section 4 : Top ventes -->
-                    <h2 id="top-ventes" class="text-2xl font-bold mt-12 mb-4">Top 5 des ventes : la Renault 5 en t&ecirc;te</h2>
+                    <h2 id="top-ventes" class="text-2xl font-bold mt-12 mb-4">Top 5 des ventes : la Renault 5 en tête</h2>
                     <p class="text-gray-600 leading-relaxed mb-4">Le classement des ventes 2025 est dominé par les constructeurs français, qui placent quatre modèles dans le top 5. L'arrivée de la Renault 5 E-Tech et de la Citro&euml;n &euml;-C3 a profondément rebattu les cartes du marché.</p>
 
                     <div class="overflow-x-auto mb-6">
@@ -325,8 +338,8 @@
                         </table>
                     </div>
 
-                    <p class="text-gray-600 leading-relaxed mb-4">La <strong>Renault 5 E-Tech</strong> est la révélation de l'année. Lancée fin 2024 et montée en cadence au premier trimestre 2025, elle a séduit par son design néo-rétro, son prix contenu (à partir de 25 000 &euro; bonus déduit) et son autonomie de 400 km. C'est le véhicule électrique le plus vendu en France en 2025, loin devant la concurrence.</p>
-                    <p class="text-gray-600 leading-relaxed mb-4">Le recul de la <strong>Tesla Model Y</strong> (-32,8 %) s'explique par l'attente du restylage (projet Juniper) et la concurrence accrue des constructeurs européens. La <strong>Citro&euml;n &euml;-C3</strong>, à partir de 23 300 &euro;, confirme la viabilité du VE économique. Quant au <strong>Renault Scenic E-Tech</strong>, il profite d'un positionnement SUV familial qui répond à un besoin fort du marché.</p>
+                    <p class="text-gray-600 leading-relaxed mb-4">La <strong>Renault 5 E-Tech</strong> est la révélation de l'année. Lancée fin 2024 et montée en cadence au premier trimestre 2025, elle a séduit par son design néo-rétro, son prix contenu (à partir de 25 000 € bonus déduit) et son autonomie de 400 km. C'est le véhicule électrique le plus vendu en France en 2025, loin devant la concurrence.</p>
+                    <p class="text-gray-600 leading-relaxed mb-4">Le recul de la <strong>Tesla Model Y</strong> (-32,8 %) s'explique par l'attente du restylage (projet Juniper) et la concurrence accrue des constructeurs européens. La <strong>Citro&euml;n &euml;-C3</strong>, à partir de 23 300 €, confirme la viabilité du VE économique. Quant au <strong>Renault Scenic E-Tech</strong>, il profite d'un positionnement SUV familial qui répond à un besoin fort du marché.</p>
 
                     <!-- Section 5 : Flottes vs particuliers -->
                     <h2 id="flottes-particuliers" class="text-2xl font-bold mt-12 mb-4">Flottes d'entreprise vs particuliers</h2>
@@ -347,7 +360,7 @@
 
                     <!-- Callout -->
                     <div class="bg-amber-50 border-l-4 border-amber-400 rounded-r-xl p-5 mb-8">
-                        <p class="text-gray-700 text-sm leading-relaxed"><span class="font-semibold">Bon à savoir :</span> Le leasing social (à 100 &euro;/mois), reconduit en 2025 avec un budget de 50 000 véhicules, a permis d'élargir l'accès au VE pour les ménages modestes. Ce dispositif contribue à la démocratisation de la mobilité électrique.</p>
+                        <p class="text-gray-700 text-sm leading-relaxed"><span class="font-semibold">Bon à savoir :</span> Le leasing social (à 100 €/mois), reconduit en 2025 avec un budget de 50 000 véhicules, a permis d'élargir l'accès au VE pour les ménages modestes. Ce dispositif contribue à la démocratisation de la mobilité électrique.</p>
                     </div>
 
                     <!-- Section 6 : Parc en circulation -->
@@ -446,7 +459,7 @@
                         <picture><source srcset="../images/logo.webp" type="image/webp"><img src="../images/logo.png" alt="Logo JCSM" class="w-8 h-8" width="32" height="32" loading="lazy"></picture>
                         <span class="text-xl font-semibold text-gray-900">JCSM</span>
                     </div>
-                    <p class="text-sm text-gray-600 mb-4">Votre partenaire de confiance depuis 2018 pour le pilotage, l'installation et la maintenance de vos infrastructures de recharge.</p>
+                    <p class="text-sm text-gray-600 mb-4">Votre partenaire de confiance depuis 2019 pour le pilotage, l'installation et la maintenance de vos infrastructures de recharge.</p>
                     <p class="text-sm text-gray-500">60 rue François 1er<br>75008 Paris</p>
                     <p class="text-sm text-gray-500 mt-3"><a href="tel:+33756962758" class="hover:text-gray-900 transition-colors">+33 7 56 96 27 58</a></p>
                     <p class="text-sm text-gray-500"><a href="mailto:contact@jcsm.fr" class="hover:text-gray-900 transition-colors">contact@jcsm.fr</a></p>
@@ -519,11 +532,11 @@
     <button class="scroll-top" id="scrollTop" aria-label="Retour en haut de la page">
         <svg class="w-6 h-6 float-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" /></svg>
     </button>
-    <script src="../js/config.js?v=35" defer></script>
-    <script src="../js/utils.js?v=35" defer></script>
-    <script src="../js/public.js?v=35" defer></script>
-    <script src="../js/analytics.js?v=35" defer></script>
-    <script src="../js/wow-effects.js?v=35" defer></script>
+    <script src="../js/config.js?v=36" defer></script>
+    <script src="../js/utils.js?v=36" defer></script>
+    <script src="../js/public.js?v=36" defer></script>
+    <script src="../js/analytics.js?v=36" defer></script>
+    <script src="../js/wow-effects.js?v=36" defer></script>
     <script>if ('serviceWorker' in navigator) { window.addEventListener('load', () => { navigator.serviceWorker.register('/sw.js').catch(() => {}); }); }</script>
 </body>
 </html>

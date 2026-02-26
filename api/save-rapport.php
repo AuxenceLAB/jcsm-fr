@@ -108,7 +108,16 @@ $rapportData = [
     'dateCreation' => date('Y-m-d H:i:s'),
     'interventionId' => $data['interventionId'] ?? '',
     'photos' => $data['photos'] ?? [],
-    'signature' => $data['signature'] ?? null
+    'signature' => $data['signature'] ?? null,
+    // New optional fields
+    'client' => $data['client'] ?? '',
+    'marque' => $data['marque'] ?? '',
+    'serialNumber' => $data['serialNumber'] ?? '',
+    'commentaires' => $data['commentaires'] ?? '',
+    'prochaines_etapes' => $data['prochaines_etapes'] ?? '',
+    'a_faire' => $data['a_faire'] ?? '',
+    'risques' => $data['risques'] ?? '',
+    'duree' => $data['duree'] ?? '',
 ];
 
 // Sauvegarder le fichier JSON
@@ -169,6 +178,66 @@ if (file_put_contents($filepath, json_encode($rapportData, JSON_PRETTY_PRINT | J
         }
     }
 
+    // Google Drive upload + Sheets write-back (async, non-blocking)
+    require_once __DIR__ . '/helpers.php';
+    $sheetsUrl = loadEnvVar('GOOGLE_SHEETS_TERRAIN_URL');
+    if ($sheetsUrl && !empty($rapportData['ticket'])) {
+        // 1. Upload HTML to Drive as PDF
+        $driveUrl = '';
+        try {
+            $uploadPayload = json_encode([
+                'action' => 'uploadReport',
+                'htmlContent' => $html,
+                'fileName' => str_replace('.json', '', $filename)
+            ]);
+            $ch = curl_init($sheetsUrl);
+            curl_setopt_array($ch, [
+                CURLOPT_RETURNTRANSFER => true,
+                CURLOPT_POST => true,
+                CURLOPT_POSTFIELDS => $uploadPayload,
+                CURLOPT_HTTPHEADER => ['Content-Type: application/json'],
+                CURLOPT_TIMEOUT => 30,
+                CURLOPT_FOLLOWLOCATION => true,
+                CURLOPT_SSL_VERIFYPEER => true,
+            ]);
+            $driveResp = curl_exec($ch);
+            curl_close($ch);
+            $driveData = json_decode($driveResp, true);
+            if (!empty($driveData['driveUrl'])) {
+                $driveUrl = $driveData['driveUrl'];
+                $response['driveUrl'] = $driveUrl;
+                $response['driveFileId'] = $driveData['fileId'] ?? '';
+            }
+        } catch (Exception $e) {
+            error_log('Drive upload failed: ' . $e->getMessage());
+        }
+
+        // 2. Update Sheets status (columns P, Q, R)
+        try {
+            $statusPayload = json_encode([
+                'action' => 'updateStatus',
+                'ticket' => $rapportData['ticket'],
+                'fait' => true,
+                'reussi' => ($rapportData['statut'] === 'resolu' || $rapportData['statut'] === 'Résolu'),
+                'rapportUrl' => $driveUrl ?: $reportUrl
+            ]);
+            $ch = curl_init($sheetsUrl);
+            curl_setopt_array($ch, [
+                CURLOPT_RETURNTRANSFER => true,
+                CURLOPT_POST => true,
+                CURLOPT_POSTFIELDS => $statusPayload,
+                CURLOPT_HTTPHEADER => ['Content-Type: application/json'],
+                CURLOPT_TIMEOUT => 15,
+                CURLOPT_FOLLOWLOCATION => true,
+                CURLOPT_SSL_VERIFYPEER => true,
+            ]);
+            curl_exec($ch);
+            curl_close($ch);
+        } catch (Exception $e) {
+            error_log('Sheets update failed: ' . $e->getMessage());
+        }
+    }
+
     echo json_encode($response);
 } else {
     http_response_code(500);
@@ -178,113 +247,381 @@ if (file_put_contents($filepath, json_encode($rapportData, JSON_PRETTY_PRINT | J
 // Fonction pour générer le HTML
 function generateHTML($data)
 {
-    $date = date('d/m/Y', strtotime($data['dateIntervention']));
-    $logoPath = 'https://jcsm.fr/images/logo.png'; // URL absolue pour le rapport final
+    $date = htmlspecialchars(date('d/m/Y', strtotime($data['dateIntervention'])));
+    $logoPath = 'https://jcsm.fr/images/logo.png';
 
-    // Traitement des photos pour l'affichage
+    // Calculate duration from heureArrivee and heureDepart if not provided
+    $dureeDisplay = '';
+    if (!empty($data['duree'])) {
+        $dureeDisplay = htmlspecialchars($data['duree']);
+    } elseif (!empty($data['heureArrivee']) && !empty($data['heureDepart'])) {
+        $start = strtotime($data['heureArrivee']);
+        $end = strtotime($data['heureDepart']);
+        if ($start && $end && $end > $start) {
+            $diff = $end - $start;
+            $hours = floor($diff / 3600);
+            $mins = floor(($diff % 3600) / 60);
+            $dureeDisplay = ($hours > 0 ? $hours . 'h' : '') . str_pad($mins, 2, '0', STR_PAD_LEFT) . 'min';
+        }
+    }
+
+    // Determine status display and color
+    $statutRaw = $data['statut'] ?? '';
+    $statutLower = mb_strtolower($statutRaw);
+    $isResolved = in_array($statutLower, ['resolu', 'résolu', 'resolved']);
+    $isFollowup = in_array($statutLower, ['suivi', 'a_suivre', 'à suivre', 'follow-up']);
+    if ($isResolved) {
+        $statutColor = '#059669';
+        $statutBg = '#D1FAE5';
+        $statutLabel = 'Résolu';
+    } elseif ($isFollowup) {
+        $statutColor = '#D97706';
+        $statutBg = '#FEF3C7';
+        $statutLabel = 'À suivre';
+    } else {
+        $statutColor = '#2D8CFF';
+        $statutBg = '#DBEAFE';
+        $statutLabel = htmlspecialchars($statutRaw ?: 'N/A');
+    }
+
+    // Build observations as bullet points (split on newlines)
+    $obsRaw = $data['actionRealisee'] ?? '';
+    $obsHtml = '';
+    if (!empty($obsRaw)) {
+        $lines = preg_split('/\r?\n/', trim($obsRaw));
+        $filteredLines = array_filter($lines, function ($line) {
+            $trimmed = trim($line);
+            // Skip section headers like "DESCRIPTION :", "ACTIONS RÉALISÉES :", etc.
+            return $trimmed !== '' && !preg_match('/^[A-ZÉÈÀÊÂ\s]+\s*:$/', $trimmed);
+        });
+        if (count($filteredLines) > 0) {
+            $obsHtml = '<ul style="margin:0;padding-left:20px;list-style:disc">';
+            foreach ($filteredLines as $line) {
+                $trimmed = trim($line);
+                // Remove leading bullet chars if present
+                $trimmed = preg_replace('/^[\-\*\•\✅\⚙️\🔧\📋\🔌\⚡\🛠️\📷\✔️\❌\⚠️]+\s*/', '', $trimmed);
+                if (!empty($trimmed)) {
+                    $obsHtml .= '<li style="margin-bottom:4px;line-height:1.5">' . htmlspecialchars($trimmed) . '</li>';
+                }
+            }
+            $obsHtml .= '</ul>';
+        }
+    }
+
+    // Build commentaires section
+    $commentairesHtml = '';
+    if (!empty($data['commentaires'])) {
+        $commentairesHtml = '<p style="margin:0;line-height:1.6">' . nl2br(htmlspecialchars($data['commentaires'])) . '</p>';
+    }
+
+    // Build prochaines_etapes section
+    $etapesHtml = '';
+    if (!empty($data['prochaines_etapes'])) {
+        $etapesHtml = '<p style="margin:0;line-height:1.6">' . nl2br(htmlspecialchars($data['prochaines_etapes'])) . '</p>';
+    }
+
+    // Build a_faire as numbered list
+    $aFaireHtml = '';
+    if (!empty($data['a_faire'])) {
+        $items = preg_split('/\r?\n/', trim($data['a_faire']));
+        $items = array_filter($items, function ($l) { return trim($l) !== ''; });
+        if (count($items) > 0) {
+            $aFaireHtml = '<ol style="margin:0;padding-left:20px">';
+            foreach ($items as $item) {
+                $trimmed = trim($item);
+                $trimmed = preg_replace('/^\d+[\.\)]\s*/', '', $trimmed);
+                if (!empty($trimmed)) {
+                    $aFaireHtml .= '<li style="margin-bottom:4px;line-height:1.5">' . htmlspecialchars($trimmed) . '</li>';
+                }
+            }
+            $aFaireHtml .= '</ol>';
+        }
+    }
+
+    // Build risques section
+    $risquesHtml = '';
+    if (!empty($data['risques'])) {
+        $risquesHtml = '<p style="margin:0;line-height:1.6">' . nl2br(htmlspecialchars($data['risques'])) . '</p>';
+    }
+
+    // Photos
     $photosHtml = '';
     if (!empty($data['photos']) && is_array($data['photos'])) {
-        $photosHtml = '<div class="section"><h2 class="section-title">Photos</h2><div class="photos-grid">';
+        $validPhotos = [];
         foreach ($data['photos'] as $photo) {
-            // Only allow base64 data URIs with valid image types (no external URLs)
             if (is_string($photo) && preg_match('/^data:image\/(jpeg|png|gif|webp);base64,[A-Za-z0-9+\/=]+$/', $photo)) {
-                $photosHtml .= '<div class="photo-item"><img src="' . $photo . '" alt="Photo intervention"></div>';
+                $validPhotos[] = $photo;
             }
         }
-        $photosHtml .= '</div></div>';
+        if (count($validPhotos) > 0) {
+            $photosHtml .= '
+    <div style="margin-bottom:0">
+        <table width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse;margin-bottom:24px">
+            <tr>
+                <td style="background-color:#1B365D;color:#ffffff;padding:10px 16px;font-size:14px;font-weight:700;letter-spacing:0.5px;border-radius:4px 4px 0 0">
+                    PHOTOS
+                </td>
+            </tr>
+        </table>
+        <table width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse;border:1px solid #E5E7EB;border-radius:0 0 6px 6px">';
+            $chunks = array_chunk($validPhotos, 2);
+            foreach ($chunks as $pair) {
+                $photosHtml .= '<tr>';
+                foreach ($pair as $photo) {
+                    $photosHtml .= '<td width="50%" style="padding:12px;text-align:center;vertical-align:top;border:1px solid #E5E7EB">
+                        <img src="' . $photo . '" alt="Photo intervention" style="max-width:100%;height:auto;max-height:280px;border-radius:4px">
+                    </td>';
+                }
+                // Fill empty cell if odd number
+                if (count($pair) === 1) {
+                    $photosHtml .= '<td width="50%" style="padding:12px;border:1px solid #E5E7EB"></td>';
+                }
+                $photosHtml .= '</tr>';
+            }
+            $photosHtml .= '</table></div>';
+        }
+    }
+
+    // Escape all user data
+    $ticket = htmlspecialchars($data['ticket'] ?? '');
+    $nomSite = htmlspecialchars($data['nomSite'] ?? '');
+    $adresse = htmlspecialchars($data['adresse'] ?? '');
+    $heureArrivee = htmlspecialchars($data['heureArrivee'] ?? '');
+    $heureDepart = htmlspecialchars($data['heureDepart'] ?? '');
+    $client = htmlspecialchars($data['client'] ?? '');
+    $marque = htmlspecialchars($data['marque'] ?? '');
+    $serialNumber = htmlspecialchars($data['serialNumber'] ?? '');
+    $probleme = htmlspecialchars($data['probleme'] ?? '');
+    $piecesChangees = htmlspecialchars($data['piecesChangees'] ?? '');
+    $remarques = htmlspecialchars($data['remarques'] ?? '');
+    $generatedDate = date('d/m/Y à H:i');
+
+    // Build the fin/duree cell value
+    $finDureeValue = $heureDepart;
+    if (!empty($dureeDisplay)) {
+        $finDureeValue .= (!empty($heureDepart) ? ' (' . $dureeDisplay . ')' : $dureeDisplay);
+    }
+
+    // Helper to generate a section block (only if content is non-empty)
+    // We build optional sections as separate variables for clarity
+    $sectionsHtml = '';
+
+    // Section: Description du problème
+    if (!empty($probleme)) {
+        $sectionsHtml .= '
+    <table width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse;margin-bottom:24px">
+        <tr><td style="background-color:#1B365D;color:#ffffff;padding:10px 16px;font-size:14px;font-weight:700;letter-spacing:0.5px;border-radius:4px 4px 0 0">DESCRIPTION DU PROBLÈME</td></tr>
+    </table>
+    <div style="border:1px solid #E5E7EB;border-radius:0 0 6px 6px;padding:16px 20px;margin-top:-24px;margin-bottom:24px;background:#ffffff">
+        <p style="margin:0;line-height:1.6">' . nl2br($probleme) . '</p>
+    </div>';
+    }
+
+    // Section: Observations / Commentaires
+    if (!empty($obsHtml) || !empty($commentairesHtml)) {
+        $sectionsHtml .= '
+    <table width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse;margin-bottom:24px">
+        <tr><td style="background-color:#1B365D;color:#ffffff;padding:10px 16px;font-size:14px;font-weight:700;letter-spacing:0.5px;border-radius:4px 4px 0 0">OBSERVATIONS / COMMENTAIRES</td></tr>
+    </table>
+    <div style="border:1px solid #E5E7EB;border-radius:0 0 6px 6px;padding:16px 20px;margin-top:-24px;margin-bottom:24px;background:#ffffff">';
+        if (!empty($obsHtml)) {
+            $sectionsHtml .= $obsHtml;
+        }
+        if (!empty($commentairesHtml)) {
+            if (!empty($obsHtml)) {
+                $sectionsHtml .= '<hr style="border:none;border-top:1px solid #E5E7EB;margin:12px 0">';
+            }
+            $sectionsHtml .= $commentairesHtml;
+        }
+        $sectionsHtml .= '</div>';
+    }
+
+    // Section: Résultat / Statut (with pieces and remarks)
+    $resultContent = '<p style="margin:0 0 8px"><strong>Statut :</strong> <span style="display:inline-block;padding:3px 12px;border-radius:9999px;font-weight:600;font-size:13px;color:' . $statutColor . ';background:' . $statutBg . '">' . $statutLabel . '</span></p>';
+    if (!empty($piecesChangees)) {
+        $resultContent .= '<p style="margin:8px 0 4px"><strong>Pièces changées :</strong></p><p style="margin:0;line-height:1.6">' . nl2br($piecesChangees) . '</p>';
+    }
+    if (!empty($remarques)) {
+        $resultContent .= '<p style="margin:8px 0 4px"><strong>Remarques :</strong></p><p style="margin:0;line-height:1.6">' . nl2br($remarques) . '</p>';
+    }
+    $sectionsHtml .= '
+    <table width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse;margin-bottom:24px">
+        <tr><td style="background-color:#1B365D;color:#ffffff;padding:10px 16px;font-size:14px;font-weight:700;letter-spacing:0.5px;border-radius:4px 4px 0 0">RÉSULTAT</td></tr>
+    </table>
+    <div style="border:1px solid #E5E7EB;border-radius:0 0 6px 6px;padding:16px 20px;margin-top:-24px;margin-bottom:24px;background:#ffffff">
+        ' . $resultContent . '
+    </div>';
+
+    // Section: Prochaines étapes
+    if (!empty($etapesHtml)) {
+        $sectionsHtml .= '
+    <table width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse;margin-bottom:24px">
+        <tr><td style="background-color:#1B365D;color:#ffffff;padding:10px 16px;font-size:14px;font-weight:700;letter-spacing:0.5px;border-radius:4px 4px 0 0">PROCHAINES ÉTAPES</td></tr>
+    </table>
+    <div style="border:1px solid #E5E7EB;border-radius:0 0 6px 6px;padding:16px 20px;margin-top:-24px;margin-bottom:24px;background:#ffffff">
+        ' . $etapesHtml . '
+    </div>';
+    }
+
+    // Section: À faire
+    if (!empty($aFaireHtml)) {
+        $sectionsHtml .= '
+    <table width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse;margin-bottom:24px">
+        <tr><td style="background-color:#1B365D;color:#ffffff;padding:10px 16px;font-size:14px;font-weight:700;letter-spacing:0.5px;border-radius:4px 4px 0 0">À FAIRE</td></tr>
+    </table>
+    <div style="border:1px solid #E5E7EB;border-radius:0 0 6px 6px;padding:16px 20px;margin-top:-24px;margin-bottom:24px;background:#ffffff">
+        ' . $aFaireHtml . '
+    </div>';
+    }
+
+    // Section: Risques identifiés
+    if (!empty($risquesHtml)) {
+        $sectionsHtml .= '
+    <table width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse;margin-bottom:24px">
+        <tr><td style="background-color:#DC2626;color:#ffffff;padding:10px 16px;font-size:14px;font-weight:700;letter-spacing:0.5px;border-radius:4px 4px 0 0">RISQUES IDENTIFIÉS</td></tr>
+    </table>
+    <div style="border:1px solid #FCA5A5;border-radius:0 0 6px 6px;padding:16px 20px;margin-top:-24px;margin-bottom:24px;background:#FEF2F2">
+        ' . $risquesHtml . '
+    </div>';
     }
 
     return '<!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Rapport d\'Intervention - ' . htmlspecialchars($data['ticket']) . '</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rapport d\'Intervention - ' . $ticket . '</title>
     <style>
-        body { font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; padding: 40px; max-width: 900px; margin: 0 auto; color: #1f2937; line-height: 1.6; background-color: #ffffff; }
-        .header { display: flex; justify-content: space-between; align-items: center; border-bottom: 3px solid #000; padding-bottom: 20px; margin-bottom: 40px; }
-        .logo-container img { height: 60px; }
-        .doc-title { text-align: right; }
-        .doc-title h1 { margin: 0; font-size: 24px; text-transform: uppercase; color: #000; letter-spacing: 1px; }
-        .doc-title p { margin: 5px 0 0; color: #6b7280; font-size: 14px; }
-        
-        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-bottom: 40px; }
-        .info-box { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 8px; padding: 20px; }
-        .info-box h3 { margin-top: 0; margin-bottom: 15px; color: #0070F3; font-size: 16px; text-transform: uppercase; border-bottom: 1px solid #e5e7eb; padding-bottom: 8px; }
-        .info-row { display: flex; margin-bottom: 8px; }
-        .info-label { font-weight: 600; width: 120px; color: #4b5563; }
-        .info-value { flex: 1; color: #111827; }
-        
-        .section { margin-bottom: 30px; }
-        .section-title { background: #000; color: #fff; padding: 10px 15px; font-size: 16px; text-transform: uppercase; border-radius: 4px; margin-bottom: 20px; }
-        .content-box { border: 1px solid #e5e7eb; padding: 20px; border-radius: 8px; min-height: 100px; background: #fff; white-space: pre-wrap; }
-        
-        .photos-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
-        .photo-item { border: 1px solid #e5e7eb; padding: 10px; border-radius: 8px; text-align: center; }
-        .photo-item img { max-width: 100%; height: auto; max-height: 300px; object-fit: contain; }
-        
-        .footer { margin-top: 60px; padding-top: 20px; border-top: 1px solid #e5e7eb; text-align: center; font-size: 12px; color: #9ca3af; }
-        
-        .status-badge { display: inline-block; padding: 4px 12px; border-radius: 9999px; font-weight: 600; font-size: 14px; }
-        .status-success { background-color: #d1fae5; color: #065f46; }
-        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            color: #1F2937;
+            line-height: 1.5;
+            background-color: #ffffff;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+        .page {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0;
+        }
         @media print {
-            body { padding: 0; }
-            .info-box, .content-box { border: 1px solid #ccc; }
+            body { background: #fff; }
+            .page { max-width: 100%; padding: 0; }
+            .no-print { display: none; }
+        }
+        @media screen {
+            body { background-color: #F3F4F6; padding: 24px; }
+            .page { background: #fff; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); overflow: hidden; }
         }
     </style>
 </head>
 <body>
-    <div class="header">
-        <div class="logo-container">
-            <img src="' . htmlspecialchars($logoPath) . '" alt="JCSM Logo">
-        </div>
-        <div class="doc-title">
-            <h1>Rapport d\'Intervention</h1>
-            <p>Ticket : ' . htmlspecialchars($data['ticket']) . '</p>
-        </div>
-    </div>
+<div class="page">
 
-    <div class="grid-2">
-        <div class="info-box">
-            <h3>Informations Site</h3>
-            <div class="info-row"><span class="info-label">Site</span><span class="info-value">' . htmlspecialchars($data['nomSite']) . '</span></div>
-            <div class="info-row"><span class="info-label">Adresse</span><span class="info-value">' . htmlspecialchars($data['adresse']) . '</span></div>
-        </div>
-        <div class="info-box">
-            <h3>Détails Intervention</h3>
-            <div class="info-row"><span class="info-label">Date</span><span class="info-value">' . $date . '</span></div>
-            <div class="info-row"><span class="info-label">Arrivée</span><span class="info-value">' . htmlspecialchars($data['heureArrivee']) . '</span></div>
-            <div class="info-row"><span class="info-label">Départ</span><span class="info-value">' . htmlspecialchars($data['heureDepart']) . '</span></div>
-        </div>
-    </div>
+    <!-- HEADER -->
+    <table width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse;background-color:#1B365D">
+        <tr>
+            <td style="padding:24px 32px;vertical-align:middle" width="50%">
+                <img src="' . htmlspecialchars($logoPath) . '" alt="JCSM" style="height:48px;filter:brightness(0) invert(1)" onerror="this.style.display=\'none\'">
+            </td>
+            <td style="padding:24px 32px;text-align:right;vertical-align:middle" width="50%">
+                <div style="color:#ffffff;font-size:22px;font-weight:700;letter-spacing:0.5px">Rapport d\'intervention</div>
+                <div style="color:#93C5FD;font-size:13px;margin-top:4px">Généré le ' . $generatedDate . '</div>
+            </td>
+        </tr>
+    </table>
 
-    <div class="section">
-        <h2 class="section-title">Problème constaté</h2>
-        <div class="content-box">' . nl2br(htmlspecialchars($data['probleme'])) . '</div>
-    </div>
+    <!-- ACCENT BAR -->
+    <div style="height:4px;background:linear-gradient(90deg, #2D8CFF 0%, #1B365D 100%)"></div>
 
-    <div class="section">
-        <h2 class="section-title">Action réalisée</h2>
-        <div class="content-box">' . nl2br(htmlspecialchars($data['actionRealisee'])) . '</div>
-    </div>
+    <!-- CONTENT AREA -->
+    <div style="padding:32px">
 
-    <div class="section">
-        <h2 class="section-title">Résultat</h2>
-        <div class="content-box">
-            <p><strong>Statut :</strong> <span class="status-badge status-success">' . htmlspecialchars($data['statut']) . '</span></p>
-            ' . (!empty($data['piecesChangees']) ? '<p style="margin-top:12px"><strong>Pièces changées :</strong></p><p>' . nl2br(htmlspecialchars($data['piecesChangees'])) . '</p>' : '') . '
-            ' . (!empty($data['remarques']) ? '<p style="margin-top:12px"><strong>Remarques :</strong></p><p>' . nl2br(htmlspecialchars($data['remarques'])) . '</p>' : '') . '
-        </div>
-    </div>
+    <!-- INFO GRID -->
+    <table width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse;border:1px solid #E5E7EB;border-radius:6px;margin-bottom:28px;overflow:hidden">
+        <tr>
+            <td width="50%" style="padding:0;vertical-align:top;border-right:1px solid #E5E7EB">
+                <table width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse">
+                    <tr>
+                        <td colspan="2" style="background-color:#F8FAFC;padding:10px 16px;font-size:12px;font-weight:700;color:#1B365D;text-transform:uppercase;letter-spacing:0.5px;border-bottom:1px solid #E5E7EB">
+                            Intervention
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding:8px 16px;font-size:13px;font-weight:600;color:#6B7280;width:110px;border-bottom:1px solid #F3F4F6">Date</td>
+                        <td style="padding:8px 16px;font-size:13px;color:#111827;border-bottom:1px solid #F3F4F6">' . $date . '</td>
+                    </tr>
+                    <tr>
+                        <td style="padding:8px 16px;font-size:13px;font-weight:600;color:#6B7280;border-bottom:1px solid #F3F4F6">Début</td>
+                        <td style="padding:8px 16px;font-size:13px;color:#111827;border-bottom:1px solid #F3F4F6">' . $heureArrivee . '</td>
+                    </tr>
+                    <tr>
+                        <td style="padding:8px 16px;font-size:13px;font-weight:600;color:#6B7280;border-bottom:1px solid #F3F4F6">Fin / Durée</td>
+                        <td style="padding:8px 16px;font-size:13px;color:#111827;border-bottom:1px solid #F3F4F6">' . $finDureeValue . '</td>
+                    </tr>
+                    <tr>
+                        <td style="padding:8px 16px;font-size:13px;font-weight:600;color:#6B7280">Ticket</td>
+                        <td style="padding:8px 16px;font-size:13px;color:#111827;font-weight:600">' . $ticket . '</td>
+                    </tr>
+                </table>
+            </td>
+            <td width="50%" style="padding:0;vertical-align:top">
+                <table width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse">
+                    <tr>
+                        <td colspan="2" style="background-color:#F8FAFC;padding:10px 16px;font-size:12px;font-weight:700;color:#1B365D;text-transform:uppercase;letter-spacing:0.5px;border-bottom:1px solid #E5E7EB">
+                            Site
+                        </td>
+                    </tr>
+                    ' . (!empty($client) ? '<tr>
+                        <td style="padding:8px 16px;font-size:13px;font-weight:600;color:#6B7280;width:120px;border-bottom:1px solid #F3F4F6">Client</td>
+                        <td style="padding:8px 16px;font-size:13px;color:#111827;border-bottom:1px solid #F3F4F6">' . $client . '</td>
+                    </tr>' : '') . '
+                    <tr>
+                        <td style="padding:8px 16px;font-size:13px;font-weight:600;color:#6B7280;width:120px;border-bottom:1px solid #F3F4F6">Nom du site</td>
+                        <td style="padding:8px 16px;font-size:13px;color:#111827;border-bottom:1px solid #F3F4F6">' . $nomSite . '</td>
+                    </tr>
+                    <tr>
+                        <td style="padding:8px 16px;font-size:13px;font-weight:600;color:#6B7280;border-bottom:1px solid #F3F4F6">Adresse</td>
+                        <td style="padding:8px 16px;font-size:13px;color:#111827;border-bottom:1px solid #F3F4F6">' . $adresse . '</td>
+                    </tr>
+                    ' . (!empty($marque) ? '<tr>
+                        <td style="padding:8px 16px;font-size:13px;font-weight:600;color:#6B7280;border-bottom:1px solid #F3F4F6">Marque</td>
+                        <td style="padding:8px 16px;font-size:13px;color:#111827;border-bottom:1px solid #F3F4F6">' . $marque . '</td>
+                    </tr>' : '') . '
+                    ' . (!empty($serialNumber) ? '<tr>
+                        <td style="padding:8px 16px;font-size:13px;font-weight:600;color:#6B7280">Serial Number</td>
+                        <td style="padding:8px 16px;font-size:13px;color:#111827;font-family:monospace">' . $serialNumber . '</td>
+                    </tr>' : '') . '
+                </table>
+            </td>
+        </tr>
+    </table>
 
+    <!-- DYNAMIC SECTIONS -->
+    ' . $sectionsHtml . '
+
+    <!-- PHOTOS -->
     ' . $photosHtml . '
 
-    <div class="footer">
-        <p>JCSM — Rapport généré le ' . date('d/m/Y à H:i') . '</p>
-    </div>
+    </div><!-- end content area -->
+
+    <!-- FOOTER -->
+    <table width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse;border-top:2px solid #1B365D">
+        <tr>
+            <td style="background-color:#F8FAFC;padding:20px 32px;text-align:center">
+                <div style="font-size:13px;font-weight:700;color:#1B365D;margin-bottom:4px">JCSM SAS - Infrastructure de Recharge</div>
+                <div style="font-size:12px;color:#6B7280">
+                    contact@jcsm.com &nbsp;&middot;&nbsp; +33 7 56 96 27 58 &nbsp;&middot;&nbsp; www.jcsm.fr
+                </div>
+            </td>
+        </tr>
+    </table>
+
+</div><!-- end page -->
 </body>
 </html>';
-
 }
 
 // Fonction pour générer un document Word (.docx)

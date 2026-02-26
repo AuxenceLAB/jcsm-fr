@@ -23,7 +23,7 @@
         "datePublished": "2026-02-12",
         "dateModified": "2026-02-12",
         "author": {"@type": "Organization", "name": "JCSM", "url": "https://jcsm.fr"},
-        "publisher": {"@type": "Organization", "name": "JCSM", "url": "https://jcsm.fr", "logo": {"@type": "ImageObject", "url": "https://jcsm.fr/images/logo.png"}},
+        "publisher": {"@type": "Organization", "name": "JCSM", "url": "https://jcsm.fr", "logo": {"@type": "ImageObject", "url": "https://jcsm.fr/images/logo.png", "width": 512, "height": 512}},
         "mainEntityOfPage": "https://jcsm.fr/blog/degradations-cables-coupes-bornes-recharge",
         "image": "https://jcsm.fr/images/cablecoupe.jpg"
     }
@@ -86,6 +86,8 @@
     <meta property="og:description" content="Vandalisme, vol de câbles, dégradations sur les stations IRVE : causes, coût réel et solutions de sécurisation.">
     <meta property="og:image" content="https://jcsm.fr/images/cablecoupe.jpg">
     <meta property="og:image:alt" content="Câble de recharge sectionné - Dégradation de borne IRVE">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
     <meta property="og:locale" content="fr_FR">
     <meta property="og:site_name" content="JCSM - Infrastructure de Recharge">
     <meta property="article:published_time" content="2026-02-12">
@@ -93,6 +95,7 @@
     <meta name="twitter:title" content="Dégradations et câbles coupés sur les bornes de recharge : causes et solutions">
     <meta name="twitter:description" content="Vandalisme, vol de câbles, dégradations sur les stations IRVE : causes, coût réel et solutions de sécurisation.">
     <meta name="twitter:image" content="https://jcsm.fr/images/cablecoupe.jpg">
+    <meta name="twitter:image:alt" content="Câble de recharge sectionné - Dégradation de borne IRVE">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -102,8 +105,8 @@
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
             rel="stylesheet">
     </noscript>
-    <link rel="stylesheet" href="../css/tailwind.css?v=35">
-    <link rel="stylesheet" href="../styles.css?v=35">
+    <link rel="stylesheet" href="../css/tailwind.css?v=36">
+    <link rel="stylesheet" href="../styles.css?v=36">
     <link rel="icon" type="image/png" href="../images/logo.png">
     <link rel="manifest" href="../manifest.json">
     <link rel="apple-touch-icon" href="../images/logo.png">
@@ -114,6 +117,16 @@
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
     <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+    <div class="preloader" id="preloader" role="status" aria-label="Chargement">
+        <div class="flex flex-col items-center justify-center">
+            <picture><source srcset="../images/logo.webp" type="image/webp"><img src="../images/logo.png" alt="JCSM" width="80" height="80" class="animate-pulse"></picture>
+            <div class="mt-4 flex space-x-2">
+                <div class="w-2 h-2 bg-blue-600 rounded-full animate-bounce" style="animation-delay: 0s"></div>
+                <div class="w-2 h-2 bg-blue-600 rounded-full animate-bounce" style="animation-delay: 0.1s"></div>
+                <div class="w-2 h-2 bg-blue-600 rounded-full animate-bounce" style="animation-delay: 0.2s"></div>
+            </div>
+        </div>
+    </div>
     <div class="mobile-menu-overlay" id="mobile-menu-overlay"></div>
     <nav class="mobile-menu" id="mobile-menu" role="dialog" aria-modal="true" aria-label="Menu de navigation" aria-hidden="true">
         <div class="p-8">
@@ -161,7 +174,7 @@
         </div>
     </nav>
 
-    <main id="main-content">
+    <main id="main-content" role="main">
         <article class="pt-32 pb-16 px-6">
             <div class="max-w-3xl mx-auto">
                 <div class="mb-8">
@@ -172,7 +185,7 @@
                     <h1 class="text-3xl md:text-4xl font-bold mb-4 leading-tight">Dégradations et câbles coupés sur les bornes de recharge : un fléau qui s'aggrave</h1>
                     <div class="flex items-center text-sm text-gray-500">
                         <time datetime="2026-02-12">12 février 2026</time>
-                        <span class="mx-2">&middot;</span>
+                        <span class="mx-2">·</span>
                         <span>8 min de lecture</span>
                     </div>
                 </div>
@@ -237,11 +250,11 @@
 
                     <div class="grid sm:grid-cols-2 gap-4 mb-8">
                         <div class="bg-gray-50 rounded-xl p-5 text-center">
-                            <p class="text-3xl font-bold text-rose-600 mb-1">500 — 3 000 &euro;</p>
+                            <p class="text-3xl font-bold text-rose-600 mb-1">500 — 3 000 €</p>
                             <p class="text-sm text-gray-600">Coût de remplacement d'un câble</p>
                         </div>
                         <div class="bg-gray-50 rounded-xl p-5 text-center">
-                            <p class="text-3xl font-bold text-rose-600 mb-1">800 — 2 500 &euro;</p>
+                            <p class="text-3xl font-bold text-rose-600 mb-1">800 — 2 500 €</p>
                             <p class="text-sm text-gray-600">Remplacement d'un connecteur CCS</p>
                         </div>
                         <div class="bg-gray-50 rounded-xl p-5 text-center">
@@ -249,7 +262,7 @@
                             <p class="text-sm text-gray-600">Durée d'immobilisation moyenne</p>
                         </div>
                         <div class="bg-rose-50 rounded-xl p-5 text-center border border-rose-200">
-                            <p class="text-3xl font-bold text-rose-700 mb-1">5 000 — 15 000 &euro;</p>
+                            <p class="text-3xl font-bold text-rose-700 mb-1">5 000 — 15 000 €</p>
                             <p class="text-sm text-rose-600 font-medium">Coût total par incident (pièces + MO + pertes)</p>
                         </div>
                     </div>
@@ -261,7 +274,7 @@
                     <h2 id="pourquoi-cables" class="text-2xl font-bold mt-12 mb-4">Pourquoi les câbles sont la cible principale</h2>
                     <p class="text-gray-600 leading-relaxed mb-4">Le vol de câbles de recharge n'est pas un acte de vandalisme gratuit : c'est un vol de matière première organisé. Plusieurs facteurs expliquent pourquoi les câbles de bornes sont devenus une cible privilégiée :</p>
                     <ul class="list-disc pl-6 text-gray-600 space-y-2 mb-6">
-                        <li><strong>Valeur du cuivre</strong> : à plus de 9 000 &dollar;/tonne, un câble DC de 5 mètres peut valoir 20 à 50 &euro; en cuivre brut. C'est peu, mais le vol prend moins d'une minute avec une pince coupante</li>
+                        <li><strong>Valeur du cuivre</strong> : à plus de 9 000 &dollar;/tonne, un câble DC de 5 mètres peut valoir 20 à 50 € en cuivre brut. C'est peu, mais le vol prend moins d'une minute avec une pince coupante</li>
                         <li><strong>Accessibilité</strong> : les câbles pendent à l'extérieur des bornes, souvent dans des zones non surveillées. Contrairement aux câbles enterrés du réseau électrique, ils sont à portée de main</li>
                         <li><strong>Faible risque perçu</strong> : les stations de recharge sont souvent situées dans des parkings peu fréquentés la nuit, sans gardien ni caméra</li>
                         <li><strong>Revente facile</strong> : le cuivre se revend facilement auprès de ferrailleurs, sans traçabilité effective</li>
@@ -400,7 +413,7 @@
                         <picture><source srcset="../images/logo.webp" type="image/webp"><img src="../images/logo.png" alt="Logo JCSM" class="w-8 h-8" width="32" height="32" loading="lazy"></picture>
                         <span class="text-xl font-semibold text-gray-900">JCSM</span>
                     </div>
-                    <p class="text-sm text-gray-600 mb-4">Votre partenaire de confiance depuis 2018 pour le pilotage, l'installation et la maintenance de vos infrastructures de recharge.</p>
+                    <p class="text-sm text-gray-600 mb-4">Votre partenaire de confiance depuis 2019 pour le pilotage, l'installation et la maintenance de vos infrastructures de recharge.</p>
                     <p class="text-sm text-gray-500">60 rue François 1er<br>75008 Paris</p>
                     <p class="text-sm text-gray-500 mt-3"><a href="tel:+33756962758" class="hover:text-gray-900 transition-colors">+33 7 56 96 27 58</a></p>
                     <p class="text-sm text-gray-500"><a href="mailto:contact@jcsm.fr" class="hover:text-gray-900 transition-colors">contact@jcsm.fr</a></p>
@@ -473,11 +486,11 @@
     <button class="scroll-top" id="scrollTop" aria-label="Retour en haut de la page">
         <svg class="w-6 h-6 float-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" /></svg>
     </button>
-    <script src="../js/config.js?v=35" defer></script>
-    <script src="../js/utils.js?v=35" defer></script>
-    <script src="../js/public.js?v=35" defer></script>
-    <script src="../js/analytics.js?v=35" defer></script>
-    <script src="../js/wow-effects.js?v=35" defer></script>
+    <script src="../js/config.js?v=36" defer></script>
+    <script src="../js/utils.js?v=36" defer></script>
+    <script src="../js/public.js?v=36" defer></script>
+    <script src="../js/analytics.js?v=36" defer></script>
+    <script src="../js/wow-effects.js?v=36" defer></script>
     <script>if ('serviceWorker' in navigator) { window.addEventListener('load', () => { navigator.serviceWorker.register('/sw.js').catch(() => {}); }); }</script>
 </body>
 </html>

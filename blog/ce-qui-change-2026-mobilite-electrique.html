@@ -23,7 +23,7 @@
         "datePublished": "2026-01-06",
         "dateModified": "2026-01-06",
         "author": {"@type": "Organization", "name": "JCSM", "url": "https://jcsm.fr"},
-        "publisher": {"@type": "Organization", "name": "JCSM", "url": "https://jcsm.fr", "logo": {"@type": "ImageObject", "url": "https://jcsm.fr/images/logo.png"}},
+        "publisher": {"@type": "Organization", "name": "JCSM", "url": "https://jcsm.fr", "logo": {"@type": "ImageObject", "url": "https://jcsm.fr/images/logo.png", "width": 512, "height": 512}},
         "mainEntityOfPage": "https://jcsm.fr/blog/ce-qui-change-2026-mobilite-electrique",
         "image": "https://jcsm.fr/images/index.webp"
     }
@@ -86,6 +86,8 @@
     <meta property="og:description" content="Malus CO2, fin du CIBRE, ADVENIR prolongé, norme ISO 15118, verdissement flottes. Le point sur les évolutions 2026.">
     <meta property="og:image" content="https://jcsm.fr/images/index.webp">
     <meta property="og:image:alt" content="Infrastructure de recharge pour véhicules électriques">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
     <meta property="og:locale" content="fr_FR">
     <meta property="og:site_name" content="JCSM - Infrastructure de Recharge">
     <meta property="article:published_time" content="2026-01-06">
@@ -93,6 +95,7 @@
     <meta name="twitter:title" content="Mobilité électrique : ce qui change au 1er janvier 2026">
     <meta name="twitter:description" content="Malus CO2, fin du CIBRE, ADVENIR prolongé, norme ISO 15118, verdissement flottes. Le point sur les évolutions 2026.">
     <meta name="twitter:image" content="https://jcsm.fr/images/index.webp">
+    <meta name="twitter:image:alt" content="Infrastructure de recharge pour véhicules électriques">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -102,8 +105,8 @@
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
             rel="stylesheet">
     </noscript>
-    <link rel="stylesheet" href="../css/tailwind.css?v=35">
-    <link rel="stylesheet" href="../styles.css?v=35">
+    <link rel="stylesheet" href="../css/tailwind.css?v=36">
+    <link rel="stylesheet" href="../styles.css?v=36">
     <link rel="icon" type="image/png" href="../images/logo.png">
     <link rel="manifest" href="../manifest.json">
     <link rel="apple-touch-icon" href="../images/logo.png">
@@ -114,6 +117,16 @@
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
     <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+    <div class="preloader" id="preloader" role="status" aria-label="Chargement">
+        <div class="flex flex-col items-center justify-center">
+            <picture><source srcset="../images/logo.webp" type="image/webp"><img src="../images/logo.png" alt="JCSM" width="80" height="80" class="animate-pulse"></picture>
+            <div class="mt-4 flex space-x-2">
+                <div class="w-2 h-2 bg-blue-600 rounded-full animate-bounce" style="animation-delay: 0s"></div>
+                <div class="w-2 h-2 bg-blue-600 rounded-full animate-bounce" style="animation-delay: 0.1s"></div>
+                <div class="w-2 h-2 bg-blue-600 rounded-full animate-bounce" style="animation-delay: 0.2s"></div>
+            </div>
+        </div>
+    </div>
     <div class="mobile-menu-overlay" id="mobile-menu-overlay"></div>
     <nav class="mobile-menu" id="mobile-menu" role="dialog" aria-modal="true" aria-label="Menu de navigation" aria-hidden="true">
         <div class="p-8">
@@ -161,7 +174,7 @@
         </div>
     </nav>
 
-    <main id="main-content">
+    <main id="main-content" role="main">
         <article class="pt-32 pb-16 px-6">
             <div class="max-w-3xl mx-auto">
                 <div class="mb-8">
@@ -172,7 +185,7 @@
                     <h1 class="text-3xl md:text-4xl font-bold mb-4 leading-tight">Mobilité électrique : ce qui change au 1<sup>er</sup> janvier 2026</h1>
                     <div class="flex items-center text-sm text-gray-500">
                         <time datetime="2026-01-06">6 janvier 2026</time>
-                        <span class="mx-2">&middot;</span>
+                        <span class="mx-2">·</span>
                         <span>7 min de lecture</span>
                     </div>
                 </div>
@@ -182,7 +195,7 @@
                     <h2 class="text-lg font-bold text-amber-700 mb-4">Sommaire</h2>
                     <ol class="list-decimal pl-5 text-sm text-amber-700 space-y-2">
                         <li><a href="#malus-co2" class="hover:underline">Malus CO2 : seuil abaissé à 108 g/km</a></li>
-                        <li><a href="#malus-poids" class="hover:underline">Malus au poids : seuil réduit à 1&nbsp;500 kg</a></li>
+                        <li><a href="#malus-poids" class="hover:underline">Malus au poids : seuil réduit à 1 500 kg</a></li>
                         <li><a href="#cibre-tva" class="hover:underline">Fin du crédit d'impôt CIBRE, TVA 5,5 % maintenue</a></li>
                         <li><a href="#advenir-2027" class="hover:underline">ADVENIR prolongé jusqu'en 2027</a></li>
                         <li><a href="#iso-15118" class="hover:underline">Norme ISO 15118 obligatoire le 8 janvier 2026</a></li>
@@ -217,8 +230,8 @@
                                 </tr>
                                 <tr class="border-b border-gray-100">
                                     <td class="px-4 py-3 font-medium text-gray-900">Plafond du malus</td>
-                                    <td class="px-4 py-3">70 000 &euro;</td>
-                                    <td class="px-4 py-3 font-medium text-amber-700">80 000 &euro;</td>
+                                    <td class="px-4 py-3">70 000 €</td>
+                                    <td class="px-4 py-3 font-medium text-amber-700">80 000 €</td>
                                 </tr>
                                 <tr>
                                     <td class="px-4 py-3 font-medium text-gray-900">Seuil du plafond</td>
@@ -234,35 +247,35 @@
                     </div>
 
                     <!-- Section 2 : Malus au poids -->
-                    <h2 id="malus-poids" class="text-2xl font-bold mt-12 mb-4">Malus au poids : seuil réduit à 1&nbsp;500 kg</h2>
-                    <p class="text-gray-600 leading-relaxed mb-4">Le malus fondé sur la masse du véhicule se renforce également. Le seuil de déclenchement passe de 1&nbsp;600 à 1&nbsp;500 kg. La taxe s'applique à 10 &euro;/kg au-delà du seuil.</p>
+                    <h2 id="malus-poids" class="text-2xl font-bold mt-12 mb-4">Malus au poids : seuil réduit à 1 500 kg</h2>
+                    <p class="text-gray-600 leading-relaxed mb-4">Le malus fondé sur la masse du véhicule se renforce également. Le seuil de déclenchement passe de 1 600 à 1 500 kg. La taxe s'applique à 10 €/kg au-delà du seuil.</p>
                     <p class="text-gray-600 leading-relaxed mb-4">Le législateur a prévu des dispositions spécifiques pour les véhicules électriques, qui sont structurellement plus lourds en raison de leur batterie :</p>
 
                     <ul class="list-disc pl-6 text-gray-600 space-y-2 mb-6">
                         <li><strong>VE « faible empreinte »</strong> (produits en Europe, bilan carbone certifié) : <strong>exemption totale</strong> du malus au poids</li>
                         <li><strong>Autres VE</strong> (100 % électriques non certifiés) : abattement de <strong>600 kg</strong> sur la masse avant calcul du malus</li>
                         <li><strong>PHEV</strong> (hybrides rechargeables, autonomie électrique &ge;50 km) : abattement de <strong>200 kg</strong></li>
-                        <li><strong>Thermiques et hybrides non rechargeables</strong> : aucun abattement, seuil à 1&nbsp;500 kg</li>
+                        <li><strong>Thermiques et hybrides non rechargeables</strong> : aucun abattement, seuil à 1 500 kg</li>
                     </ul>
 
                     <div class="bg-amber-50 border-l-4 border-amber-400 rounded-r-xl p-5 mb-8">
-                        <p class="text-gray-700 text-sm leading-relaxed"><span class="font-semibold">Exemple :</span> Un VE de 2&nbsp;000 kg avec un abattement de 600 kg est taxé sur une base de 1&nbsp;400 kg, soit en dessous du seuil de 1&nbsp;500 kg : <strong>pas de malus au poids</strong>. Un SUV thermique de 1&nbsp;700 kg paiera 200 &times; 10 = 2&nbsp;000 &euro;.</p>
+                        <p class="text-gray-700 text-sm leading-relaxed"><span class="font-semibold">Exemple :</span> Un VE de 2 000 kg avec un abattement de 600 kg est taxé sur une base de 1 400 kg, soit en dessous du seuil de 1 500 kg : <strong>pas de malus au poids</strong>. Un SUV thermique de 1 700 kg paiera 200 &times; 10 = 2 000 €.</p>
                     </div>
 
                     <!-- Section 3 : CIBRE / TVA -->
                     <h2 id="cibre-tva" class="text-2xl font-bold mt-12 mb-4">Fin du crédit d'impôt CIBRE, TVA 5,5 % maintenue</h2>
-                    <p class="text-gray-600 leading-relaxed mb-4">Le crédit d'impôt pour l'installation d'un système de charge pour véhicule électrique à domicile (CIBRE) a expiré le <strong>31 décembre 2025</strong>. Ce dispositif couvrait 75 % du coût des équipements et de la pose, plafonné à 500 &euro; par point de charge (1&nbsp;000 &euro; pour un couple). Il n'est pas renouvelé en loi de finances 2026.</p>
+                    <p class="text-gray-600 leading-relaxed mb-4">Le crédit d'impôt pour l'installation d'un système de charge pour véhicule électrique à domicile (CIBRE) a expiré le <strong>31 décembre 2025</strong>. Ce dispositif couvrait 75 % du coût des équipements et de la pose, plafonné à 500 € par point de charge (1 000 € pour un couple). Il n'est pas renouvelé en loi de finances 2026.</p>
                     <p class="text-gray-600 leading-relaxed mb-4">En revanche, la <strong>TVA à taux réduit de 5,5 %</strong> reste en vigueur pour les travaux de pose, d'installation et d'entretien de bornes de recharge, sous deux conditions :</p>
                     <ul class="list-disc pl-6 text-gray-600 space-y-2 mb-6">
                         <li>Le logement doit avoir <strong>plus de 2 ans</strong> à la date des travaux</li>
-                        <li>L'installation doit &ecirc;tre réalisée par un <strong>professionnel qualifié</strong> (certification IRVE ou mention équivalente)</li>
+                        <li>L'installation doit être réalisée par un <strong>professionnel qualifié</strong> (certification IRVE ou mention équivalente)</li>
                     </ul>
 
                     <div class="grid sm:grid-cols-2 gap-4 mb-8">
                         <div class="bg-red-50 rounded-xl p-5 text-center border border-red-200">
                             <p class="text-lg font-bold text-red-700 mb-1">CIBRE</p>
                             <p class="text-sm text-red-600">Expiré le 31/12/2025</p>
-                            <p class="text-xs text-gray-500 mt-1">75 %, max 500 &euro; — non renouvelé</p>
+                            <p class="text-xs text-gray-500 mt-1">75 %, max 500 € — non renouvelé</p>
                         </div>
                         <div class="bg-green-50 rounded-xl p-5 text-center border border-green-200">
                             <p class="text-lg font-bold text-green-700 mb-1">TVA 5,5 %</p>
@@ -271,11 +284,11 @@
                         </div>
                     </div>
 
-                    <p class="text-gray-600 leading-relaxed mb-4">La disparition du CIBRE représente une perte de 300 à 500 &euro; pour les particuliers qui installent une borne à domicile. Les aides ADVENIR et la TVA réduite restent les principaux leviers financiers accessibles.</p>
+                    <p class="text-gray-600 leading-relaxed mb-4">La disparition du CIBRE représente une perte de 300 à 500 € pour les particuliers qui installent une borne à domicile. Les aides ADVENIR et la TVA réduite restent les principaux leviers financiers accessibles.</p>
 
                     <!-- Section 4 : ADVENIR -->
                     <h2 id="advenir-2027" class="text-2xl font-bold mt-12 mb-4">ADVENIR prolongé jusqu'en 2027</h2>
-                    <p class="text-gray-600 leading-relaxed mb-4">Le programme <a href="/blog/aide-advenir-subventions-irve" class="text-amber-600 hover:text-amber-800 underline">ADVENIR</a> est prolongé jusqu'en 2027, avec un budget cumulé de <strong>520 millions d'euros</strong> et un objectif de <strong>250&nbsp;000 points de recharge financés</strong>. C'est désormais le principal dispositif de soutien au déploiement de l'IRVE en France.</p>
+                    <p class="text-gray-600 leading-relaxed mb-4">Le programme <a href="/blog/aide-advenir-subventions-irve" class="text-amber-600 hover:text-amber-800 underline">ADVENIR</a> est prolongé jusqu'en 2027, avec un budget cumulé de <strong>520 millions d'euros</strong> et un objectif de <strong>250 000 points de recharge financés</strong>. C'est désormais le principal dispositif de soutien au déploiement de l'IRVE en France.</p>
 
                     <div class="overflow-x-auto mb-6">
                         <table class="w-full text-sm text-gray-600 border border-gray-200 rounded-lg">
@@ -288,11 +301,11 @@
                             <tbody>
                                 <tr class="border-b border-gray-100">
                                     <td class="px-4 py-3 font-medium text-gray-900">Point de recharge en copropriété</td>
-                                    <td class="px-4 py-3">Jusqu'à 600 &euro; HT / point</td>
+                                    <td class="px-4 py-3">Jusqu'à 600 € HT / point</td>
                                 </tr>
                                 <tr class="border-b border-gray-100">
                                     <td class="px-4 py-3 font-medium text-gray-900">Infrastructure collective copropriété</td>
-                                    <td class="px-4 py-3">Jusqu'à 8&nbsp;000 &euro; HT</td>
+                                    <td class="px-4 py-3">Jusqu'à 8 000 € HT</td>
                                 </tr>
                                 <tr class="border-b border-gray-100">
                                     <td class="px-4 py-3 font-medium text-gray-900">Parking ouvert au public</td>
@@ -306,7 +319,7 @@
                         </table>
                     </div>
 
-                    <p class="text-gray-600 leading-relaxed mb-4">Les copropriétés restent la priorité du programme : l'infrastructure collective (c&acirc;blage du parking, tableau électrique dédié) peut &ecirc;tre financée jusqu'à 8&nbsp;000 &euro; HT, et chaque point de recharge individuel bénéficie d'une aide allant jusqu'à 600 &euro; HT. Ces aides sont cumulables avec la TVA à 5,5 %.</p>
+                    <p class="text-gray-600 leading-relaxed mb-4">Les copropriétés restent la priorité du programme : l'infrastructure collective (câblage du parking, tableau électrique dédié) peut être financée jusqu'à 8 000 € HT, et chaque point de recharge individuel bénéficie d'une aide allant jusqu'à 600 € HT. Ces aides sont cumulables avec la TVA à 5,5 %.</p>
 
                     <!-- Section 5 : ISO 15118 -->
                     <h2 id="iso-15118" class="text-2xl font-bold mt-12 mb-4">Norme ISO 15118 obligatoire le 8 janvier 2026</h2>
@@ -330,7 +343,7 @@
                     <!-- Section 7 : Copropriétés -->
                     <h2 id="coproprietes" class="text-2xl font-bold mt-12 mb-4">Copropriétés : 1 immeuble sur 6</h2>
                     <p class="text-gray-600 leading-relaxed mb-4">Selon le baromètre de janvier 2026, <strong>1 immeuble en copropriété sur 6</strong> a désormais validé un projet de recharge collective en assemblée générale. Ce chiffre progresse régulièrement, porté par le droit à la prise, les aides ADVENIR et la pression des copropriétaires roulant en électrique.</p>
-                    <p class="text-gray-600 leading-relaxed mb-4">La dynamique s'accélère pour les <a href="/blog/installer-borne-copropriete" class="text-amber-600 hover:text-amber-800 underline">installations en copropriété</a>, et les syndics sont de plus en plus sollicités pour inscrire le sujet à l'ordre du jour des AG. Le modèle de l'infrastructure collective — un c&acirc;blage mutualisé avec des points individuels — s'impose comme la solution la plus efficace à long terme.</p>
+                    <p class="text-gray-600 leading-relaxed mb-4">La dynamique s'accélère pour les <a href="/blog/installer-borne-copropriete" class="text-amber-600 hover:text-amber-800 underline">installations en copropriété</a>, et les syndics sont de plus en plus sollicités pour inscrire le sujet à l'ordre du jour des AG. Le modèle de l'infrastructure collective — un câblage mutualisé avec des points individuels — s'impose comme la solution la plus efficace à long terme.</p>
 
                     <div class="grid sm:grid-cols-2 gap-4 mb-8">
                         <div class="bg-amber-50 rounded-xl p-5 text-center border border-amber-200">
@@ -338,7 +351,7 @@
                             <p class="text-sm text-amber-600 font-medium">Copropriétés équipées (janvier 2026)</p>
                         </div>
                         <div class="bg-gray-50 rounded-xl p-5 text-center">
-                            <p class="text-3xl font-bold text-amber-600 mb-1">250&nbsp;000</p>
+                            <p class="text-3xl font-bold text-amber-600 mb-1">250 000</p>
                             <p class="text-sm text-gray-600">Objectif ADVENIR (points financés)</p>
                         </div>
                     </div>
@@ -360,15 +373,15 @@
                     <div class="space-y-6 mb-8">
                         <div class="border border-gray-200 rounded-xl p-5">
                             <h3 class="font-semibold text-gray-900 mb-2">Le malus CO2 change-t-il en 2026 ?</h3>
-                            <p class="text-gray-600 text-sm leading-relaxed">Oui, le seuil de déclenchement est abaissé de 113 à 108 g CO2/km et le plafond atteint 80&nbsp;000 &euro; pour les véhicules émettant plus de 191 g/km. Les véhicules électriques et hydrogène restent totalement exemptés.</p>
+                            <p class="text-gray-600 text-sm leading-relaxed">Oui, le seuil de déclenchement est abaissé de 113 à 108 g CO2/km et le plafond atteint 80 000 € pour les véhicules émettant plus de 191 g/km. Les véhicules électriques et hydrogène restent totalement exemptés.</p>
                         </div>
                         <div class="border border-gray-200 rounded-xl p-5">
                             <h3 class="font-semibold text-gray-900 mb-2">Le crédit d'impôt CIBRE est-il reconduit en 2026 ?</h3>
-                            <p class="text-gray-600 text-sm leading-relaxed">Non, le crédit d'impôt CIBRE (75 %, plafonné à 500 &euro;) a expiré le 31 décembre 2025 et n'est pas renouvelé. En revanche, la TVA réduite à 5,5 % reste en vigueur pour l'installation par un professionnel dans un logement de plus de 2 ans.</p>
+                            <p class="text-gray-600 text-sm leading-relaxed">Non, le crédit d'impôt CIBRE (75 %, plafonné à 500 €) a expiré le 31 décembre 2025 et n'est pas renouvelé. En revanche, la TVA réduite à 5,5 % reste en vigueur pour l'installation par un professionnel dans un logement de plus de 2 ans.</p>
                         </div>
                         <div class="border border-gray-200 rounded-xl p-5">
                             <h3 class="font-semibold text-gray-900 mb-2">Le programme ADVENIR continue-t-il en 2026 ?</h3>
-                            <p class="text-gray-600 text-sm leading-relaxed">Oui, le programme <a href="/blog/aide-advenir-subventions-irve" class="text-amber-600 hover:text-amber-800 underline">ADVENIR</a> est prolongé jusqu'en 2027 avec un budget de 520 M&euro; et un objectif de 250&nbsp;000 points de recharge. Les aides en copropriété atteignent jusqu'à 600 &euro; HT par point et 8&nbsp;000 &euro; HT pour l'infrastructure collective.</p>
+                            <p class="text-gray-600 text-sm leading-relaxed">Oui, le programme <a href="/blog/aide-advenir-subventions-irve" class="text-amber-600 hover:text-amber-800 underline">ADVENIR</a> est prolongé jusqu'en 2027 avec un budget de 520 M€ et un objectif de 250 000 points de recharge. Les aides en copropriété atteignent jusqu'à 600 € HT par point et 8 000 € HT pour l'infrastructure collective.</p>
                         </div>
                         <div class="border border-gray-200 rounded-xl p-5">
                             <h3 class="font-semibold text-gray-900 mb-2">Qu'est-ce que la norme ISO 15118 obligatoire en 2026 ?</h3>
@@ -410,7 +423,7 @@
                         <picture><source srcset="../images/logo.webp" type="image/webp"><img src="../images/logo.png" alt="Logo JCSM" class="w-8 h-8" width="32" height="32" loading="lazy"></picture>
                         <span class="text-xl font-semibold text-gray-900">JCSM</span>
                     </div>
-                    <p class="text-sm text-gray-600 mb-4">Votre partenaire de confiance depuis 2018 pour le pilotage, l'installation et la maintenance de vos infrastructures de recharge.</p>
+                    <p class="text-sm text-gray-600 mb-4">Votre partenaire de confiance depuis 2019 pour le pilotage, l'installation et la maintenance de vos infrastructures de recharge.</p>
                     <p class="text-sm text-gray-500">60 rue François 1er<br>75008 Paris</p>
                     <p class="text-sm text-gray-500 mt-3"><a href="tel:+33756962758" class="hover:text-gray-900 transition-colors">+33 7 56 96 27 58</a></p>
                     <p class="text-sm text-gray-500"><a href="mailto:contact@jcsm.fr" class="hover:text-gray-900 transition-colors">contact@jcsm.fr</a></p>
@@ -483,11 +496,11 @@
     <button class="scroll-top" id="scrollTop" aria-label="Retour en haut de la page">
         <svg class="w-6 h-6 float-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" /></svg>
     </button>
-    <script src="../js/config.js?v=35" defer></script>
-    <script src="../js/utils.js?v=35" defer></script>
-    <script src="../js/public.js?v=35" defer></script>
-    <script src="../js/analytics.js?v=35" defer></script>
-    <script src="../js/wow-effects.js?v=35" defer></script>
+    <script src="../js/config.js?v=36" defer></script>
+    <script src="../js/utils.js?v=36" defer></script>
+    <script src="../js/public.js?v=36" defer></script>
+    <script src="../js/analytics.js?v=36" defer></script>
+    <script src="../js/wow-effects.js?v=36" defer></script>
     <script>if ('serviceWorker' in navigator) { window.addEventListener('load', () => { navigator.serviceWorker.register('/sw.js').catch(() => {}); }); }</script>
 </body>
 </html>
