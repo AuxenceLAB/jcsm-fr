@@ -21,14 +21,16 @@ if (!$envSecret) {
 define('AUTH_SECRET', $envSecret);
 define('TOKEN_EXPIRY', 8 * 3600); // 8 hours
 
-// User credentials loaded from .env (AUTH_HASH_N=sha256hash:role:isAdmin)
+// User credentials loaded from .env (AUTH_HASH_N=hash:role:isAdmin)
+// Supports bcrypt ($2y$...) and legacy SHA-256 hashes
 $authUsers = [];
 for ($i = 1; $i <= 20; $i++) {
     $hashLine = loadEnvVar("AUTH_HASH_{$i}");
     if ($hashLine === null) break;
     $parts = explode(':', $hashLine, 3);
     if (count($parts) === 3) {
-        $authUsers[$parts[0]] = [
+        $authUsers[] = [
+            'hash' => $parts[0],
             'role' => $parts[1],
             'isAdmin' => $parts[2] === 'true'
         ];

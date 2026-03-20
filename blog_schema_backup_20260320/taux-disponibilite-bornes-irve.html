@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <!-- Cookie Consent + GTM (chargé après acceptation) -->
+    <script src="/js/cookie-consent.js" defer></script>
+    <title>Taux Disponibilité Bornes IRVE | JCSM</title>
+    <meta name="description" content="Le taux de disponibilité moyen des bornes publiques est de 75-80%. Découvrez comment atteindre 95%+ grâce à la maintenance préventive et la supervision.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://jcsm.fr/blog/taux-disponibilite-bornes-irve">
+    <link rel="alternate" hreflang="fr" href="https://jcsm.fr/blog/taux-disponibilite-bornes-irve">
+    <link rel="alternate" hreflang="x-default" href="https://jcsm.fr/blog/taux-disponibilite-bornes-irve">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Taux de Disponibilité des Bornes IRVE : Comment Atteindre 95% et Au-Delà",
+        "description": "Le taux de disponibilité moyen des bornes publiques est de 75-80%. Découvrez comment atteindre 95%+ grâce à la maintenance préventive et la supervision.",
+        "datePublished": "2026-03-11",
+        "dateModified": "2026-03-11",
+        "author": {"@type": "Organization", "name": "JCSM", "url": "https://jcsm.fr"},
+        "publisher": {"@type": "Organization", "name": "JCSM", "url": "https://jcsm.fr", "logo": {"@type": "ImageObject", "url": "https://jcsm.fr/images/logo.png", "width": 512, "height": 512}},
+        "mainEntityOfPage": "https://jcsm.fr/blog/taux-disponibilite-bornes-irve",
+        "image": "https://jcsm.fr/images/index.webp"
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Quel est le taux de disponibilité minimum exigé par les subventions ADVENIR ?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Le programme ADVENIR impose un taux de disponibilité de 95% pour les bornes ouvertes au public bénéficiant de la prime. Ce taux est calculé sur une base annuelle, par point de charge."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Comment calculer le taux de disponibilité de mes bornes si je n'ai pas de superviseur OCPP ?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Sans supervision OCPP, le calcul repose sur les déclarations de panne et les retours terrain. Cette méthode est imprécise. La mise en place d'un système de supervision est indispensable pour mesurer objectivement la disponibilité."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Quelle est la différence entre disponibilité et taux de fonctionnement ?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Le taux de fonctionnement mesure le temps pendant lequel la borne est sous tension. Le taux de disponibilité mesure le temps pendant lequel la borne peut effectivement délivrer une session de charge. Le taux de disponibilité est le seul indicateur pertinent."
+                }
+            }
+        ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://jcsm.fr/"},
+            {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://jcsm.fr/blog"},
+            {"@type": "ListItem", "position": 3, "name": "Taux de disponibilité des bornes IRVE", "item": "https://jcsm.fr/blog/taux-disponibilite-bornes-irve"}
+        ]
+    }
+    </script>
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://jcsm.fr/blog/taux-disponibilite-bornes-irve">
+    <meta property="og:title" content="Taux Disponibilité Bornes IRVE | JCSM">
+    <meta property="og:description" content="Le taux de disponibilité moyen des bornes publiques est de 75-80%. Comment atteindre 95%+ grâce à la maintenance préventive et la supervision.">
+    <meta property="og:image" content="https://jcsm.fr/images/index.webp">
+    <meta property="og:image:alt" content="Infrastructure de recharge pour véhicules électriques">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:locale" content="fr_FR">
+    <meta property="og:site_name" content="JCSM - Infrastructure de Recharge">
+    <meta property="article:published_time" content="2026-03-11">
+    <meta property="article:modified_time" content="2026-03-11T00:00:00+01:00">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Taux Disponibilité Bornes IRVE | JCSM">
+    <meta name="twitter:description" content="Le taux de disponibilité moyen des bornes publiques est de 75-80%. Comment atteindre 95%+.">
+    <meta name="twitter:image" content="https://jcsm.fr/images/index.webp">
+    <meta name="twitter:image:alt" content="Infrastructure de recharge pour véhicules électriques">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
+    <link rel="stylesheet" href="../css/tailwind.css?v=42">
+    <link rel="stylesheet" href="../styles.css?v=42">
+    <link rel="manifest" href="../manifest.json">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+</head>
+<body class="text-gray-900 bg-white">
+    <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+    <div class="preloader" id="preloader" role="status" aria-label="Chargement">
+        <div class="flex flex-col items-center justify-center">
+            <picture><source srcset="../images/logo.webp" type="image/webp"><img src="../images/logo.png" alt="JCSM" width="80" height="80" class="animate-pulse"></picture>
+            <div class="mt-4 flex space-x-2" aria-hidden="true">
+                <div class="w-2 h-2 bg-blue-600 rounded-full animate-bounce" style="animation-delay: 0s"></div>
+                <div class="w-2 h-2 bg-blue-600 rounded-full animate-bounce" style="animation-delay: 0.1s"></div>
+                <div class="w-2 h-2 bg-blue-600 rounded-full animate-bounce" style="animation-delay: 0.2s"></div>
+            </div>
+        </div>
+    </div>
+    <div class="mobile-menu-overlay" id="mobile-menu-overlay"></div>
+    <nav class="mobile-menu" id="mobile-menu" role="dialog" aria-modal="true" aria-label="Menu de navigation" aria-hidden="true">
+        <div class="p-8">
+            <div class="flex justify-between items-center mb-12">
+                <span class="text-xl font-semibold">Menu</span>
+                <button class="text-gray-600 hover:text-gray-900" id="mobile-menu-close" aria-label="Fermer le menu de navigation">
+                    <svg class="w-6 h-6" fill="none" aria-hidden="true" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+                </button>
+            </div>
+                        <div class="flex flex-col space-y-6">
+                <a href="/pilotage-projets" class="text-base text-gray-600 hover:text-gray-900 transition-colors">Pilotage de projets</a>
+                <a href="/installation-conformite" class="text-base text-gray-600 hover:text-gray-900 transition-colors">Installation</a>
+                <a href="/exploitation" class="text-base text-gray-600 hover:text-gray-900 transition-colors">Exploitation</a>
+                <a href="/securisation-installations" class="text-base text-gray-600 hover:text-gray-900 transition-colors">Sécurisation</a>
+                <a href="/centre-appel" class="text-base text-gray-600 hover:text-gray-900 transition-colors">Support</a>
+                <a href="/solutions/" class="text-base text-gray-600 hover:text-gray-900 transition-colors">Solutions</a>
+                <a href="/a-propos" class="text-base text-gray-600 hover:text-gray-900 transition-colors">À propos</a>
+                <a href="/blog" class="text-base text-gray-600 hover:text-gray-900 transition-colors">Blog</a>
+                <a href="/contact" class="btn-primary px-6 py-3 rounded-lg text-base font-medium inline-block text-center mt-4">Contact</a>
+            </div>
+        </div>
+    </nav>
+    <nav class="fixed top-0 w-full z-50 glass-nav border-b border-gray-200" role="navigation" aria-label="Navigation principale">
+        <div class="max-w-7xl mx-auto px-6 py-5">
+            <div class="flex justify-between items-center">
+                <a href="/" class="flex items-center space-x-3 group mr-12">
+                    <picture><source srcset="../images/logo.webp" type="image/webp"><img src="../images/logo.png" alt="JCSM" class="w-9 h-9 transition-transform group-hover:scale-105 duration-300" width="36" height="36"></picture>
+                    <span class="text-xl font-bold tracking-tight">JCSM</span>
+                </a>
+                <div class="hidden lg:flex items-center space-x-6 xl:space-x-8">
+                    <a href="/pilotage-projets" class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300 whitespace-nowrap">Pilotage</a>
+                    <a href="/installation-conformite" class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300 whitespace-nowrap">Installation</a>
+                    <a href="/exploitation" class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300 whitespace-nowrap">Exploitation</a>
+                    <a href="/securisation-installations" class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300 whitespace-nowrap">Sécurisation</a>
+                    <a href="/centre-appel" class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300 whitespace-nowrap">Support</a>
+                    <a href="/solutions/" class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300 whitespace-nowrap">Solutions</a>
+                    <a href="/a-propos" class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300 whitespace-nowrap">À propos</a>
+                    <a href="/blog" class="text-base font-semibold text-blue-600 hover:text-blue-700 transition-all duration-300 whitespace-nowrap">Blog</a>
+                    <a href="/contact" class="btn-primary ml-4 px-7 py-2.5 rounded-xl text-base font-medium shadow-lg hover:shadow-xl whitespace-nowrap">Contact</a>
+                </div>
+                <button class="mobile-menu-btn text-gray-600 hover:text-gray-900" id="mobile-menu-btn" aria-label="Ouvrir le menu de navigation" aria-expanded="false" aria-controls="mobile-menu">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main id="main-content" role="main">
+        <article class="pt-32 pb-16 px-6">
+            <div class="max-w-3xl mx-auto">
+                <div class="mb-8">
+                    <a href="/blog" class="text-sm text-blue-600 hover:text-blue-800 transition-colors">&larr; Retour au blog</a>
+                </div>
+                <div class="mb-10">
+                    <span class="inline-block text-xs font-semibold text-blue-700 bg-blue-100 rounded-full px-3 py-1 mb-4">Technique</span>
+                    <h1 class="text-3xl md:text-4xl font-bold mb-4 leading-tight">Taux de Disponibilité des Bornes IRVE : Comment Atteindre 95% et Au-Delà</h1>
+                    <div class="flex items-center text-sm text-gray-500">
+                        <time datetime="2026-03-11">11 mars 2026</time>
+                        <span class="mx-2">&middot;</span>
+                        <span>14 min de lecture</span>
+                    </div>
+                </div>
+
+                <div class="bg-blue-50 rounded-2xl p-6 mb-10">
+                    <h2 class="text-lg font-bold text-blue-700 mb-4">Sommaire</h2>
+                    <ol class="list-decimal pl-5 text-sm text-blue-700 space-y-2">
+                        <li><a href="#chiffres" class="hover:underline">Chiffres clés en France</a></li>
+                        <li><a href="#causes" class="hover:underline">Les causes principales d'indisponibilité</a></li>
+                        <li><a href="#kpis" class="hover:underline">Comment mesurer la disponibilité : les KPIs</a></li>
+                        <li><a href="#leviers" class="hover:underline">Les leviers pour améliorer la disponibilité</a></li>
+                        <li><a href="#benchmark" class="hover:underline">Benchmark par type d'installation</a></li>
+                        <li><a href="#impact" class="hover:underline">L'impact financier de l'indisponibilité</a></li>
+                        <li><a href="#faq" class="hover:underline">Questions fréquentes</a></li>
+                    </ol>
+                </div>
+
+                <div class="prose prose-lg max-w-none">
+                    <p class="text-lg text-gray-600 leading-relaxed mb-8">Pour un opérateur de bornes de recharge (CPO), le taux de disponibilité est bien plus qu'un simple indicateur technique. C'est un levier de rentabilité, un facteur de confiance pour les utilisateurs et, de plus en plus, une obligation réglementaire. Une borne hors service ne génère aucun revenu, dégrade l'image du réseau et pousse les conducteurs de véhicules électriques vers la concurrence.</p>
+
+                    <p class="text-gray-600 leading-relaxed mb-4">Le constat est pourtant sévère : en France, le taux de disponibilité moyen des bornes de recharge publiques oscille entre 75 et 82%, selon les sources. Autrement dit, un point de charge sur cinq est indisponible à un instant donné.</p>
+
+                    <p class="text-gray-600 leading-relaxed mb-4">Cet article détaille les causes d'indisponibilité, les méthodes de mesure, et surtout les leviers concrets pour atteindre un taux de disponibilité supérieur à 95%. Des résultats accessibles à condition de structurer sa maintenance et sa <a href="/blog/supervision-distance-bornes-irve" class="text-blue-600 hover:text-blue-800 underline">supervision à distance</a>.</p>
+
+                    <h2 id="chiffres" class="text-2xl font-bold mt-12 mb-4">Chiffres clés : le taux de disponibilité des bornes en France</h2>
+                    <p class="text-gray-600 leading-relaxed mb-4"><strong>Taux de disponibilité moyens constatés (2025-2026) :</strong></p>
+                    <ul class="list-disc pl-6 text-gray-600 space-y-2 mb-6">
+                        <li>Bornes AC (charge normale et accélérée, 7-22 kW) : <strong>78 à 85%</strong> selon les réseaux</li>
+                        <li>Bornes DC (charge rapide, 50 kW+) : <strong>72 à 80%</strong>, avec une forte disparité entre opérateurs</li>
+                        <li>Bornes HPC (haute puissance, 150-350 kW) : <strong>80 à 88%</strong>, grâce à des contrats de maintenance plus exigeants</li>
+                        <li>Moyenne nationale toutes puissances : <strong>environ 79%</strong></li>
+                    </ul>
+                    <p class="text-gray-600 leading-relaxed mb-4">Le programme ADVENIR et les subventions publiques imposent désormais des engagements de disponibilité. La tendance réglementaire est claire : les financeurs exigent un taux minimal de 95% pour les bornes ouvertes au public, avec des pénalités en cas de non-respect.</p>
+                    <p class="text-gray-600 leading-relaxed mb-4">Le règlement AFIR (Alternative Fuels Infrastructure Regulation) européen, entré en application progressive, renforce cette exigence en imposant aux Etats membres de garantir un taux de disponibilité minimal sur les réseaux TEN-T. La France doit s'y conformer d'ici 2027.</p>
+
+                    <h2 id="causes" class="text-2xl font-bold mt-12 mb-4">Les causes principales d'indisponibilité</h2>
+                    <p class="text-gray-600 leading-relaxed mb-4">L'indisponibilité d'une borne de recharge résulte rarement d'une cause unique. L'analyse terrain révèle cinq catégories principales de pannes.</p>
+                    <div class="overflow-x-auto mb-6">
+                        <table class="w-full text-sm text-gray-600 border border-gray-200 rounded-lg">
+                            <thead>
+                                <tr class="bg-gray-50">
+                                    <th scope="col" class="text-left px-4 py-3 font-semibold text-gray-900 border-b border-gray-200">Cause</th>
+                                    <th scope="col" class="text-left px-4 py-3 font-semibold text-gray-900 border-b border-gray-200">Part estimée</th>
+                                    <th scope="col" class="text-left px-4 py-3 font-semibold text-gray-900 border-b border-gray-200">Temps moyen de résolution</th>
+                                    <th scope="col" class="text-left px-4 py-3 font-semibold text-gray-900 border-b border-gray-200">Prévisibilité</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="border-b border-gray-100"><td class="px-4 py-3 font-medium text-gray-900">Panne hardware</td><td class="px-4 py-3">30-35%</td><td class="px-4 py-3">24 à 72h</td><td class="px-4 py-3">Moyenne</td></tr>
+                                <tr class="border-b border-gray-100"><td class="px-4 py-3 font-medium text-gray-900">Bug logiciel / firmware</td><td class="px-4 py-3">20-25%</td><td class="px-4 py-3">1 à 8h</td><td class="px-4 py-3">Faible</td></tr>
+                                <tr class="border-b border-gray-100"><td class="px-4 py-3 font-medium text-gray-900">Problème réseau / communication</td><td class="px-4 py-3">15-20%</td><td class="px-4 py-3">2 à 24h</td><td class="px-4 py-3">Moyenne</td></tr>
+                                <tr class="border-b border-gray-100"><td class="px-4 py-3 font-medium text-gray-900">Système de paiement</td><td class="px-4 py-3">10-15%</td><td class="px-4 py-3">4 à 48h</td><td class="px-4 py-3">Faible</td></tr>
+                                <tr class="border-b border-gray-100"><td class="px-4 py-3 font-medium text-gray-900">Vandalisme / dégradation</td><td class="px-4 py-3">5-10%</td><td class="px-4 py-3">48h à 2 semaines</td><td class="px-4 py-3">Imprévisible</td></tr>
+                                <tr><td class="px-4 py-3 font-medium text-gray-900">Coupure électrique</td><td class="px-4 py-3">5-8%</td><td class="px-4 py-3">1 à 12h</td><td class="px-4 py-3">Variable</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <p class="text-gray-600 leading-relaxed mb-4"><strong>Panne hardware</strong> : c'est la cause la plus fréquente. L'usure des connecteurs, les défaillances de l'électronique de puissance sur les bornes DC, et les pannes d'écran tactile constituent le trio dominant.</p>
+                    <p class="text-gray-600 leading-relaxed mb-4"><strong>Bug logiciel</strong> : les bornes communiquent via le protocole OCPP avec le système de supervision central. Un firmware instable ou un conflit de sessions peuvent bloquer la borne. Ces pannes sont souvent résolvables à distance par un redémarrage OCPP, à condition de disposer d'une <a href="/blog/supervision-distance-bornes-irve" class="text-blue-600 hover:text-blue-800 underline">supervision temps réel</a>.</p>
+                    <p class="text-gray-600 leading-relaxed mb-4"><strong>Problème réseau</strong> : une borne qui perd sa connexion 4G ne peut plus traiter les paiements ni communiquer son statut. Les zones rurales et les parkings souterrains sont particulièrement exposés.</p>
+
+                    <h2 id="kpis" class="text-2xl font-bold mt-12 mb-4">Comment mesurer la disponibilité : les KPIs essentiels</h2>
+
+                    <h3 class="text-xl font-semibold mt-8 mb-3">Taux de disponibilité (Uptime)</h3>
+                    <p class="text-gray-600 leading-relaxed mb-4"><strong>Taux de disponibilité = (Temps total - Temps d'indisponibilité) / Temps total x 100</strong></p>
+                    <p class="text-gray-600 leading-relaxed mb-4">Objectif standard : 95% minimum, soit moins de 36 heures d'indisponibilité cumulée par mois.</p>
+
+                    <h3 class="text-xl font-semibold mt-8 mb-3">MTBF (Mean Time Between Failures)</h3>
+                    <p class="text-gray-600 leading-relaxed mb-4"><strong>MTBF = Temps total de fonctionnement / Nombre de pannes</strong></p>
+                    <p class="text-gray-600 leading-relaxed mb-4">Un MTBF cible pour une borne AC bien entretenue se situe autour de 2 000 à 3 000 heures (3 à 4 mois). Pour une borne DC, viser 1 500 heures est déjà un bon résultat.</p>
+
+                    <h3 class="text-xl font-semibold mt-8 mb-3">MTTR (Mean Time To Repair)</h3>
+                    <p class="text-gray-600 leading-relaxed mb-4"><strong>MTTR = Temps total d'indisponibilité / Nombre de pannes</strong></p>
+                    <p class="text-gray-600 leading-relaxed mb-4">Un MTTR de 4 heures est un objectif ambitieux mais atteignable. Un MTTR supérieur à 24 heures signale un problème d'organisation.</p>
+
+                    <h2 id="leviers" class="text-2xl font-bold mt-12 mb-4">Les leviers pour améliorer la disponibilité des bornes</h2>
+
+                    <h3 class="text-xl font-semibold mt-8 mb-3">1. Maintenance préventive planifiée</h3>
+                    <p class="text-gray-600 leading-relaxed mb-4">Un passage programmé tous les 3 à 6 mois permet de détecter et corriger les problèmes avant qu'ils ne provoquent une panne. JCSM structure ses contrats d'<a href="/exploitation" class="text-blue-600 hover:text-blue-800 underline">exploitation</a> autour de ces plans préventifs.</p>
+
+                    <h3 class="text-xl font-semibold mt-8 mb-3">2. Supervision OCPP temps réel</h3>
+                    <p class="text-gray-600 leading-relaxed mb-4">Un système de monitoring OCPP connecté en permanence permet de détecter les pannes en temps réel, diagnostiquer à distance, et résoudre certaines pannes sans intervention physique. Sans supervision, une borne peut rester en panne plusieurs jours. Avec un <a href="/centre-appel" class="text-blue-600 hover:text-blue-800 underline">centre d'appel</a> couplé à la supervision, le temps de détection tombe à quelques minutes.</p>
+
+                    <h3 class="text-xl font-semibold mt-8 mb-3">3. Intervention rapide : l'objectif des 4 heures</h3>
+                    <p class="text-gray-600 leading-relaxed mb-4">Les opérateurs qui atteignent un MTTR inférieur à 4 heures s'appuient sur des techniciens positionnés à moins de 60 km, un dispatching centralisé et une pré-qualification de la panne par la supervision.</p>
+
+                    <h3 class="text-xl font-semibold mt-8 mb-3">4. Stock de pièces détachées</h3>
+                    <p class="text-gray-600 leading-relaxed mb-4">Un stock tampon dimensionné à 5-10% du parc installé permet de couvrir la majorité des interventions curatives sans délai. Les pièces prioritaires : connecteurs Type 2 et CCS, cartes de communication, écrans tactiles, alimentations, TPE de paiement, câbles de charge.</p>
+
+                    <h3 class="text-xl font-semibold mt-8 mb-3">5. Formation des techniciens terrain</h3>
+                    <p class="text-gray-600 leading-relaxed mb-4">Un technicien bien formé résout le problème dès la première visite dans 85 à 90% des cas. Un technicien insuffisamment formé descend à 60-65%, ce qui génère des revisites et allonge le MTTR.</p>
+
+                    <h2 id="benchmark" class="text-2xl font-bold mt-12 mb-4">Benchmark : objectifs de disponibilité par type d'installation</h2>
+                    <div class="overflow-x-auto mb-6">
+                        <table class="w-full text-sm text-gray-600 border border-gray-200 rounded-lg">
+                            <thead>
+                                <tr class="bg-gray-50">
+                                    <th scope="col" class="text-left px-4 py-3 font-semibold text-gray-900 border-b border-gray-200">Type d'installation</th>
+                                    <th scope="col" class="text-left px-4 py-3 font-semibold text-gray-900 border-b border-gray-200">Objectif standard</th>
+                                    <th scope="col" class="text-left px-4 py-3 font-semibold text-gray-900 border-b border-gray-200">Objectif performant</th>
+                                    <th scope="col" class="text-left px-4 py-3 font-semibold text-gray-900 border-b border-gray-200">MTTR cible</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="border-b border-gray-100"><td class="px-4 py-3 font-medium text-gray-900">Voirie publique (AC 7-22 kW)</td><td class="px-4 py-3">90%</td><td class="px-4 py-3">95%+</td><td class="px-4 py-3">&lt; 8h</td></tr>
+                                <tr class="border-b border-gray-100"><td class="px-4 py-3 font-medium text-gray-900">Parking public / centre commercial</td><td class="px-4 py-3">92%</td><td class="px-4 py-3">96%+</td><td class="px-4 py-3">&lt; 6h</td></tr>
+                                <tr class="border-b border-gray-100"><td class="px-4 py-3 font-medium text-gray-900">Copropriété / parking privé</td><td class="px-4 py-3">88%</td><td class="px-4 py-3">93%+</td><td class="px-4 py-3">&lt; 24h</td></tr>
+                                <tr class="border-b border-gray-100"><td class="px-4 py-3 font-medium text-gray-900">Station de charge rapide (DC 50 kW+)</td><td class="px-4 py-3">93%</td><td class="px-4 py-3">97%+</td><td class="px-4 py-3">&lt; 4h</td></tr>
+                                <tr class="border-b border-gray-100"><td class="px-4 py-3 font-medium text-gray-900">Hub de charge HPC (autoroute)</td><td class="px-4 py-3">95%</td><td class="px-4 py-3">98%+</td><td class="px-4 py-3">&lt; 2h</td></tr>
+                                <tr><td class="px-4 py-3 font-medium text-gray-900">Flotte entreprise / dépôt</td><td class="px-4 py-3">94%</td><td class="px-4 py-3">97%+</td><td class="px-4 py-3">&lt; 4h</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h2 id="impact" class="text-2xl font-bold mt-12 mb-4">L'impact financier de l'indisponibilité</h2>
+                    <p class="text-gray-600 leading-relaxed mb-4">L'indisponibilité a un coût direct, mesurable et souvent sous-estimé par les CPO.</p>
+                    <div class="overflow-x-auto mb-6">
+                        <table class="w-full text-sm text-gray-600 border border-gray-200 rounded-lg">
+                            <thead>
+                                <tr class="bg-gray-50">
+                                    <th scope="col" class="text-left px-4 py-3 font-semibold text-gray-900 border-b border-gray-200">Taux de disponibilité</th>
+                                    <th scope="col" class="text-left px-4 py-3 font-semibold text-gray-900 border-b border-gray-200">Jours d'indisponibilité/an</th>
+                                    <th scope="col" class="text-left px-4 py-3 font-semibold text-gray-900 border-b border-gray-200">Manque à gagner annuel (1 PDC)</th>
+                                    <th scope="col" class="text-left px-4 py-3 font-semibold text-gray-900 border-b border-gray-200">Pour un parc de 50 PDC</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="border-b border-gray-100"><td class="px-4 py-3 font-medium text-gray-900">95%</td><td class="px-4 py-3">18 jours</td><td class="px-4 py-3">1 620 EUR</td><td class="px-4 py-3">81 000 EUR</td></tr>
+                                <tr class="border-b border-gray-100"><td class="px-4 py-3 font-medium text-gray-900">85%</td><td class="px-4 py-3">55 jours</td><td class="px-4 py-3">4 950 EUR</td><td class="px-4 py-3">247 500 EUR</td></tr>
+                                <tr><td class="px-4 py-3 font-medium text-gray-900">75%</td><td class="px-4 py-3">91 jours</td><td class="px-4 py-3">8 190 EUR</td><td class="px-4 py-3">409 500 EUR</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p class="text-gray-600 leading-relaxed mb-4">L'écart entre 75% et 95% de disponibilité représente <strong>6 570 EUR de manque à gagner par point de charge et par an</strong>. Pour un parc de 50 points de charge DC, cela représente plus de <strong>328 000 EUR de revenus perdus annuellement</strong>.</p>
+
+                    <h2 id="faq" class="text-2xl font-bold mt-12 mb-6">FAQ</h2>
+                    <div class="space-y-6 mb-8">
+                        <div class="border border-gray-200 rounded-xl p-5">
+                            <h3 class="font-semibold text-gray-900 mb-2">Quel est le taux de disponibilité minimum exigé par les subventions ADVENIR ?</h3>
+                            <p class="text-gray-600 text-sm leading-relaxed">Le programme ADVENIR impose un taux de disponibilité de 95% pour les bornes ouvertes au public bénéficiant de la prime. Ce taux est calculé sur une base annuelle, par point de charge. En cas de non-respect, l'opérateur peut être amené à rembourser tout ou partie de la subvention perçue.</p>
+                        </div>
+                        <div class="border border-gray-200 rounded-xl p-5">
+                            <h3 class="font-semibold text-gray-900 mb-2">Comment calculer le taux de disponibilité sans superviseur OCPP ?</h3>
+                            <p class="text-gray-600 text-sm leading-relaxed">Sans supervision OCPP, le calcul repose sur les déclarations de panne et les retours terrain. Cette méthode est imprécise car elle ne comptabilise que les pannes signalées. Une borne sans supervision peut rester en panne plusieurs jours sans détection. La mise en place d'un système de supervision est indispensable pour mesurer objectivement la disponibilité.</p>
+                        </div>
+                        <div class="border border-gray-200 rounded-xl p-5">
+                            <h3 class="font-semibold text-gray-900 mb-2">Quelle est la différence entre disponibilité et taux de fonctionnement ?</h3>
+                            <p class="text-gray-600 text-sm leading-relaxed">Le taux de fonctionnement mesure le temps pendant lequel la borne est alimentée et sous tension. Le taux de disponibilité mesure le temps pendant lequel la borne est effectivement capable de délivrer une session de charge. Une borne peut être "en fonctionnement" mais indisponible si son connecteur est bloqué, si le paiement ne fonctionne pas ou si la communication OCPP est coupée. Le taux de disponibilité est le seul indicateur pertinent.</p>
+                        </div>
+                    </div>
+
+                    <h2 class="text-2xl font-bold mt-12 mb-4">Conclusion</h2>
+                    <p class="text-gray-600 leading-relaxed mb-4">Passer de 75-80% (moyenne nationale) à 95%+ n'est pas un objectif théorique. C'est un résultat concret, atteignable par tout opérateur qui structure son exploitation autour de cinq piliers : maintenance préventive planifiée, supervision OCPP temps réel, intervention rapide, gestion de stock et formation continue des techniciens.</p>
+                    <p class="text-gray-600 leading-relaxed mb-4">JCSM accompagne les CPO et les gestionnaires de sites dans l'exploitation de leurs infrastructures de recharge. De la <a href="/blog/supervision-distance-bornes-irve" class="text-blue-600 hover:text-blue-800 underline">supervision à distance</a> à l'intervention terrain en passant par le <a href="/centre-appel" class="text-blue-600 hover:text-blue-800 underline">centre d'appel</a> dédié, nos équipes assurent un taux de disponibilité contractuel de 95% minimum.</p>
+                    <p class="text-gray-600 leading-relaxed mb-4"><strong>Vous souhaitez améliorer la disponibilité de vos bornes ?</strong> <a href="/exploitation" class="text-blue-600 hover:text-blue-800 underline">Contactez notre équipe exploitation</a> pour un audit gratuit de votre parc.</p>
+                </div>
+
+                <div class="mt-12 bg-blue-50 rounded-2xl p-8 text-center">
+                    <h3 class="text-xl font-bold mb-3">Améliorez la disponibilité de vos bornes</h3>
+                    <p class="text-gray-600 mb-6">JCSM garantit contractuellement un taux de disponibilité de 95% minimum.</p>
+                    <a href="/contact" class="btn-primary px-8 py-3 rounded-xl font-medium inline-block">Nous contacter</a>
+                </div>
+
+                <div class="mt-16 pt-8 border-t border-gray-100">
+                    <h3 class="text-lg font-bold mb-6">Articles similaires</h3>
+                    <div class="grid sm:grid-cols-2 gap-6">
+                        <a href="/blog/supervision-distance-bornes-irve" class="group">
+                            <h4 class="font-semibold group-hover:text-blue-600 transition-colors mb-1">Supervision à distance des bornes IRVE</h4>
+                            <p class="text-sm text-gray-500">OCPP, alertes temps réel, diagnostic remote.</p>
+                        </a>
+                        <a href="/blog/cout-maintenance-borne-recharge-2026" class="group">
+                            <h4 class="font-semibold group-hover:text-blue-600 transition-colors mb-1">Cout de maintenance d'une borne de recharge en 2026</h4>
+                            <p class="text-sm text-gray-500">Tarifs, contrats et optimisation.</p>
+                        </a>
+                        <a href="/blog/choisir-prestataire-maintenance-irve" class="group">
+                            <h4 class="font-semibold group-hover:text-blue-600 transition-colors mb-1">Comment choisir un prestataire de maintenance IRVE</h4>
+                            <p class="text-sm text-gray-500">Certifications, SLA, GTI/GTR, OCPP.</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+    </main>
+
+    <footer class="border-t border-gray-100 py-16 px-6 bg-white" role="contentinfo" aria-label="Pied de page">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid md:grid-cols-4 gap-10 mb-12">
+                <div>
+                    <div class="flex items-center space-x-3 mb-4">
+                        <picture><source srcset="../images/logo.webp" type="image/webp"><img src="../images/logo.png" alt="Logo JCSM" class="w-8 h-8" width="32" height="32" loading="lazy"></picture>
+                        <span class="text-xl font-semibold text-gray-900">JCSM</span>
+                    </div>
+                    <p class="text-sm text-gray-600 mb-4">Pilotage, installation et maintenance IRVE en France et Belgique depuis 2019.</p>
+                    <p class="text-sm text-gray-500">60 rue François 1er<br>75008 Paris</p>
+                    <p class="text-sm text-gray-500 mt-3"><a href="tel:+33183755706" class="hover:text-gray-900 transition-colors">+33 1 83 75 57 06</a></p>
+                    <p class="text-sm text-gray-500"><a href="mailto:contact@jcsm.fr" class="hover:text-gray-900 transition-colors">contact@jcsm.fr</a></p>
+                </div>
+                <div>
+                    <h3 class="text-sm font-semibold text-gray-900 mb-4 uppercase tracking-wide">Services</h3>
+                    <nav aria-label="Services">
+                        <ul class="space-y-3">
+                            <li><a href="/pilotage-projets" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Pilotage de projets</a></li>
+                            <li><a href="/installation-conformite" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Installation & conformité</a></li>
+                            <li><a href="/exploitation" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Exploitation & maintenance</a></li>
+                            <li><a href="/securisation-installations" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Sécurisation</a></li>
+                            <li><a href="/centre-appel" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Support 24/7</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div>
+                    <h3 class="text-sm font-semibold text-gray-900 mb-4 uppercase tracking-wide">Entreprise</h3>
+                    <nav aria-label="Entreprise">
+                        <ul class="space-y-3">
+                            <li><a href="/devenir-partenaire" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Devenir partenaire</a></li>
+                            <li><a href="/solutions/" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Solutions</a></li>
+                            <li><a href="/a-propos" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">À propos</a></li>
+                            <li><a href="/carrieres" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Carrières</a></li>
+                            <li><a href="/contact" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Contact</a></li>
+                            <li><a href="/blog" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Blog</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div>
+                    <h3 class="text-sm font-semibold text-gray-900 mb-4 uppercase tracking-wide">Légal</h3>
+                    <nav aria-label="Légal">
+                        <ul class="space-y-3">
+                            <li><a href="/mentions-legales" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Mentions légales</a></li>
+                            <li><a href="/confidentialite" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Confidentialité</a></li>
+                            <li><a href="/cgv" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">CGV</a></li>
+                        </ul>
+                    </nav>
+                    <h3 class="text-sm font-semibold text-gray-900 mb-4 uppercase tracking-wide mt-6">Zones</h3>
+                    <nav aria-label="Zones">
+                        <ul class="space-y-3">
+                            <li><a href="/zones/france" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">France</a></li>
+                            <li><a href="/zones/belgique" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Belgique</a></li>
+                        </ul>
+                    </nav>
+                    <div class="flex items-center gap-3 mt-4">
+                        <a href="https://www.linkedin.com/company/jcsm-elec/" target="_blank" rel="noopener noreferrer" class="text-gray-500 hover:text-gray-900 transition-colors" aria-label="LinkedIn">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                        </a>
+                        <a href="https://www.facebook.com/profile.php?id=61587992161634" target="_blank" rel="noopener noreferrer" class="text-gray-500 hover:text-gray-900 transition-colors" aria-label="Facebook">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                        </a>
+                        <a href="https://x.com/JCSM_ELEC" target="_blank" rel="noopener noreferrer" class="text-gray-500 hover:text-gray-900 transition-colors" aria-label="X (Twitter)">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                        </a>
+                        <a href="https://www.instagram.com/jcsm.elec/" target="_blank" rel="noopener noreferrer" class="text-gray-500 hover:text-gray-900 transition-colors" aria-label="Instagram">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+                        </a>
+                        <a href="https://www.youtube.com/@JCSM_ELEC" target="_blank" rel="noopener noreferrer" class="text-gray-500 hover:text-gray-900 transition-colors" aria-label="YouTube">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="pt-8 border-t border-gray-100 flex flex-col md:flex-row md:items-center md:justify-between gap-4 text-xs text-gray-500">
+                <span>© 2026 JCSM SAS - SIRET 99387429600011</span>
+                <a href="mailto:contact@jcsm.fr" class="hover:text-gray-900 transition-colors">contact@jcsm.fr</a> · <a href="tel:+33183755706" class="hover:text-gray-900 transition-colors">+33 1 83 75 57 06</a>
+            </div>
+        </div>
+    </footer>
+
+    <button class="scroll-top" id="scrollTop" aria-label="Retour en haut de la page">
+        <svg class="w-6 h-6 float-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" /></svg>
+    </button>
+    <script src="../js/i18n.js?v=42" defer></script>
+    <script src="../js/config.js?v=42" defer></script>
+    <script src="../js/utils.js?v=42" defer></script>
+    <script src="../js/public.js?v=42" defer></script>
+    <script src="../js/analytics.js?v=42" defer></script>
+    <script src="../js/wow-effects.js?v=42" defer></script>
+    <script>if ('serviceWorker' in navigator) { window.addEventListener('load', () => { navigator.serviceWorker.register('/sw.js').catch(() => {}); }); }</script>
+    <link rel="stylesheet" href="/css/chatbot.css" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="/css/chatbot.css"></noscript>
+<script src="/js/chatbot.js" defer></script>
+</body>
+</html>

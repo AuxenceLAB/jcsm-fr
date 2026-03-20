@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta name="robots" content="noindex, nofollow">
     <title>JCSM | Plateforme d'Exploitation (Démo)</title>
-    <link rel="icon" href="/images/logo.webp">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
     <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <link rel="stylesheet" href="/css/leaflet.css">
+    <script src="/js/vendor/leaflet.js" defer></script>
     <style>
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
         :root {
@@ -325,8 +326,9 @@
         .zone-label { font-size:11px; font-weight:600; color:#fff; background:rgba(0,0,0,.5); padding:2px 8px; border-radius:10px; white-space:nowrap; }
         elevenlabs-convai { --elevenlabs-convai-widget-bottom:24px; --elevenlabs-convai-widget-right:24px; }
 
-        @media (max-width:1200px) { .stats-grid{grid-template-columns:repeat(2,1fr)} .dash-grid{grid-template-columns:1fr} .sms-layout{grid-template-columns:1fr} }
-        @media (max-width:768px) { #sidebar{display:none} #content{padding:16px} }
+        @media (max-width:1200px) { .stats-grid{grid-template-columns:repeat(2,1fr)} .dash-grid{grid-template-columns:1fr} .sms-layout{grid-template-columns:1fr} .ca-appel-grid{grid-template-columns:1fr} }
+        @media (max-width:768px) { #sidebar{display:none} #content{padding:16px} .detail-grid{grid-template-columns:1fr} .topbar-search{width:140px} .topbar-user-name{display:none} .stats-grid{grid-template-columns:1fr 1fr} .tickets-header{flex-direction:column;align-items:stretch;gap:10px} .tickets-header h2{font-size:1rem} .sms-layout{grid-template-columns:1fr} .ca-stats{grid-template-columns:1fr 1fr} .techs-grid{grid-template-columns:1fr} }
+        @media (max-width:480px) { #topbar{padding:0 12px;gap:8px} .topbar-title{font-size:.95rem} .topbar-search{width:100px} .topbar-clock{display:none} .stats-grid{grid-template-columns:1fr} .ca-stats{grid-template-columns:1fr 1fr} }
     </style>
 </head>
 <body>
@@ -352,7 +354,7 @@
     <aside id="sidebar">
         <div class="sidebar-header">
             <img src="/images/logo.webp" alt="JCSM">
-            <div><span class="sidebar-brand-name">JCSM</span><br><span class="sidebar-brand-sub">Exploitation — Démo</span></div>
+            <div><span class="sidebar-brand-name">JCSM</span><br><span class="sidebar-brand-sub">Exploitation - Démo</span></div>
         </div>
         <nav class="sidebar-nav">
             <div class="nav-section">Principal</div>
@@ -373,6 +375,7 @@
     </aside>
     <div id="main-area">
         <header id="topbar">
+            <button id="mobile-menu-btn" onclick="toggleMobileSidebar()" style="display:none;padding:8px;border-radius:8px;transition:background .15s" onmouseover="this.style.background='var(--bg)'" onmouseout="this.style.background='transparent'"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
             <span class="topbar-title" id="topbar-title">Tableau de bord</span>
             <div class="topbar-spacer"></div>
             <div class="topbar-search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><input type="text" placeholder="Rechercher..." id="global-search" oninput="handleSearch(this.value)"></div>
@@ -383,7 +386,7 @@
         <div id="content">
             <section id="view-dashboard" class="view active">
                 <div class="stats-grid" id="stats-grid"></div>
-                <div class="panel map-panel"><div class="panel-header"><span class="panel-title"><span class="map-live-dot"></span>Carte live — Techniciens</span><span style="font-size:.78rem;color:var(--text-muted)" id="map-legend"></span></div><div class="panel-body no-pad"><div id="live-map"></div></div></div>
+                <div class="panel map-panel"><div class="panel-header"><span class="panel-title"><span class="map-live-dot"></span>Carte live - Techniciens</span><span style="font-size:.78rem;color:var(--text-muted)" id="map-legend"></span></div><div class="panel-body no-pad"><div id="live-map"></div></div></div>
                 <div class="dash-grid">
                     <div class="panel"><div class="panel-header"><span class="panel-title">Tickets récents</span><button class="btn-secondary btn-sm" onclick="navigate('tickets')">Voir tout</button></div><div class="panel-body no-pad" id="dash-tickets"></div></div>
                     <div class="panel"><div class="panel-header"><span class="panel-title">Activité</span></div><div class="panel-body" id="dash-activity"></div></div>
@@ -416,7 +419,7 @@
                 </div>
             </section>
             <section id="view-centre-appel" class="view">
-                <div class="tickets-header"><h2><span class="ca-live-dot"></span> Centre d'appel — Evergreen IA</h2><div style="display:flex;gap:8px;align-items:center"><div class="filter-group" id="ca-filters"></div><button class="btn-primary" onclick="navigate('appel-en-cours')" style="white-space:nowrap;display:flex;align-items:center;gap:6px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>Nouvel appel</button></div></div>
+                <div class="tickets-header"><h2><span class="ca-live-dot"></span> Centre d'appel - Evergreen IA</h2><div style="display:flex;gap:8px;align-items:center"><div class="filter-group" id="ca-filters"></div><button class="btn-primary" onclick="navigate('appel-en-cours')" style="white-space:nowrap;display:flex;align-items:center;gap:6px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>Nouvel appel</button></div></div>
                 <div class="ca-stats" id="ca-stats"></div>
                 <div class="panel"><div class="panel-header"><span class="panel-title">Journal des appels</span></div><div class="panel-body no-pad" id="ca-call-list" style="max-height:640px;overflow-y:auto"></div></div>
             </section>
@@ -426,9 +429,9 @@
                     <div>
                         <div class="ca-widget-card">
                             <div class="ca-widget-title">Evergreen</div>
-                            <div class="ca-widget-sub">Agent vocal IA — Support hotline 24/7</div>
+                            <div class="ca-widget-sub">Agent vocal IA - Support hotline 24/7</div>
                             <elevenlabs-convai agent-id="agent_4001kj5bh6xvftfvmht0mcwxtz8b"></elevenlabs-convai>
-                            <div class="ca-widget-status"><span class="ca-live-dot"></span> Agent actif — Réception automatique</div>
+                            <div class="ca-widget-status"><span class="ca-live-dot"></span> Agent actif - Réception automatique</div>
                         </div>
                     </div>
                     <div class="ca-live-panel" style="margin-top:0;border-color:var(--accent)">
@@ -438,7 +441,7 @@
                             <div class="ca-field" style="margin-bottom:0"><label>Téléphone</label><input type="tel" id="ca-phone" placeholder="+33 6 ..."></div>
                         </div>
                         <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px">
-                            <div class="ca-field" style="margin-bottom:0"><label>Site concerné</label><select id="ca-site"><option value="">— Sélectionner un site —</option></select></div>
+                            <div class="ca-field" style="margin-bottom:0"><label>Site concerné</label><select id="ca-site"><option value="">- Sélectionner un site -</option></select></div>
                             <div class="ca-field" style="margin-bottom:0"><label>Technicien</label><select id="ca-tech"><option value="">Auto (meilleur par zone)</option></select></div>
                         </div>
                         <div class="ca-field" style="margin-top:12px"><label>Notes de l'appel</label><textarea id="ca-notes" rows="6" placeholder="Saisissez les notes pendant l'appel..." style="min-height:140px"></textarea></div>
@@ -470,7 +473,7 @@
 </div>
 
 <div class="modal-overlay" id="modal-new-ticket"><div class="modal"><div class="modal-header"><h3>Nouveau ticket</h3><button class="modal-close" onclick="closeModal('modal-new-ticket')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div><div class="modal-body">
-    <div class="form-group"><label>Site</label><select id="new-ticket-site"><option>Station — Leclerc Perpignan Languedoc (66)</option><option>Station — Auchan Perpignan Rome (66)</option><option>Station — Leclerc L'Isle-d'Abeau (38)</option><option>Station — Leclerc Sélestat (67)</option><option>Station — Intermarché Pertuis (84)</option><option>Station — Intermarché Condom (32)</option><option>Station — Super U Podensac (33)</option><option>Station — Auchan Bordeaux Lattre (33)</option><option>Station — Leclerc Ussac (19)</option><option>Station — Super U Labarthe-sur-Lèze (31)</option><option>Station — Leclerc Perpignan Espagne (66)</option><option>Station — Leclerc Soyaux (16)</option><option>Station — Leclerc Tarbes (65)</option><option>Station — Bureau Vallée L'Union (31)</option><option>Station — Super U Rosporden (29)</option><option>Station — Intermarché Bannalec (29)</option><option>Station — Intermarché Plomodiern (29)</option><option>Station — Auchan Ferrières-en-Brie (77)</option><option>Station — Super U Vannes Luscanen (56)</option><option>Station — Super U Ambérieu-en-Bugey (01)</option><option>Station — Auchan Reims (51)</option><option>Station — Auchan Toulouse Purpan (31)</option><option>Station — Auchan Nancy Stanislas (54)</option><option>Station — Leclerc Nancy Lobau (54)</option><option>Station — Intermarché Nancy Gare (54)</option><option>Station — Auchan Le Mans Sud (72)</option><option>Station — Leclerc Le Mans Nord (72)</option><option>Station — Super U Le Mans Gare (72)</option><option>Station — Auchan Metz Technopôle (57)</option><option>Station — Leclerc Épinal Centre (88)</option><option>Station — Leclerc Lyon Confluence (69)</option><option>Station — Auchan Rennes Alma (35)</option><option>Station — Auchan Bordeaux Lac (33)</option><option>Station — Auchan Orléans Madeleine (45)</option></select></div>
+    <div class="form-group"><label>Site</label><select id="new-ticket-site"><option>Station - Leclerc Perpignan Languedoc (66)</option><option>Station - Auchan Perpignan Rome (66)</option><option>Station - Leclerc L'Isle-d'Abeau (38)</option><option>Station - Leclerc Sélestat (67)</option><option>Station - Intermarché Pertuis (84)</option><option>Station - Intermarché Condom (32)</option><option>Station - Super U Podensac (33)</option><option>Station - Auchan Bordeaux Lattre (33)</option><option>Station - Leclerc Ussac (19)</option><option>Station - Super U Labarthe-sur-Lèze (31)</option><option>Station - Leclerc Perpignan Espagne (66)</option><option>Station - Leclerc Soyaux (16)</option><option>Station - Leclerc Tarbes (65)</option><option>Station - Bureau Vallée L'Union (31)</option><option>Station - Super U Rosporden (29)</option><option>Station - Intermarché Bannalec (29)</option><option>Station - Intermarché Plomodiern (29)</option><option>Station - Auchan Ferrières-en-Brie (77)</option><option>Station - Super U Vannes Luscanen (56)</option><option>Station - Super U Ambérieu-en-Bugey (01)</option><option>Station - Auchan Reims (51)</option><option>Station - Auchan Toulouse Purpan (31)</option><option>Station - Auchan Nancy Stanislas (54)</option><option>Station - Leclerc Nancy Lobau (54)</option><option>Station - Intermarché Nancy Gare (54)</option><option>Station - Auchan Le Mans Sud (72)</option><option>Station - Leclerc Le Mans Nord (72)</option><option>Station - Super U Le Mans Gare (72)</option><option>Station - Auchan Metz Technopôle (57)</option><option>Station - Leclerc Épinal Centre (88)</option><option>Station - Leclerc Lyon Confluence (69)</option><option>Station - Auchan Rennes Alma (35)</option><option>Station - Auchan Bordeaux Lac (33)</option><option>Station - Auchan Orléans Madeleine (45)</option></select></div>
     <div class="form-group"><label>Catégorie</label><select id="new-ticket-cat"><option>Curatif</option><option>Préventif</option><option>Transformateur</option><option>Installation</option><option>Réseau</option><option>Mise à jour</option><option>Vandalisme</option></select></div>
     <div class="form-group"><label>Priorité</label><select id="new-ticket-priority"><option value="normal">Normale</option><option value="haute">Haute</option><option value="urgent">Urgente</option><option value="basse">Basse</option></select></div>
     <div class="form-group"><label>Technicien</label><select id="new-ticket-tech"><option value="">-- Non assigné --</option></select></div>
@@ -520,112 +523,117 @@ function initData() {
     ];
     S.tickets = [
         // ── NOUVEAU ──
-        { id:'J-049640', site:'Station — Intermarché Bannalec (29)', desc:'MBC_LMX_EKAE12001 | EM Shutdown + failed attemps', priority:'urgent', status:'nouveau', tech:null, created:'2026-02-12T08:00:00', cat:'Curatif', planDate:'2026-02-18', nbAppels:3 },
-        { id:'J-049668', site:'Station — Super U Vannes Luscanen (56)', desc:'CNV_VAN_TTN12002 | Charger Offline | Last activity in 7 days', priority:'urgent', status:'nouveau', tech:null, created:'2026-02-11T09:00:00', cat:'Curatif', planDate:'2026-02-18', nbAppels:2 },
-        { id:'J-049672', site:'Station — Leclerc Grenade-sur-Garonne (31)', desc:'BWT_GRD_BBC20001 | Tilt / Door Sensor faulted — Disjonction fréquentes', priority:'urgent', status:'nouveau', tech:null, created:'2026-02-13T10:30:00', cat:'Curatif', planDate:'2026-02-20', nbAppels:1 },
-        { id:'J-049684', site:'Station — Super U Châteaulin (29)', desc:'Problème moteur alfen double', priority:'haute', status:'nouveau', tech:null, created:'2026-02-12T11:00:00', cat:'Curatif', planDate:'2026-02-19', nbAppels:1 },
-        { id:'J-049660', site:'Station — Leclerc Granville (50)', desc:'JAR_GRA_TTN12002 | EM button pressed + failed attemps', priority:'haute', status:'nouveau', tech:null, created:'2026-02-12T14:20:00', cat:'Curatif', planDate:'2026-02-19', nbAppels:2 },
-        { id:'J-049664', site:'Station — Auchan Estaires (59)', desc:'BRC_EST_EKAE6001 | AC faulted', priority:'haute', status:'nouveau', tech:null, created:'2026-02-14T07:45:00', cat:'Curatif', planDate:'2026-02-18', nbAppels:1 },
-        { id:'J-049741', site:'Station — Auchan Le Mans Sud (72)', desc:'Installation boîte à clé sécurisée — accès technicien station DC', priority:'haute', status:'nouveau', tech:null, created:'2026-02-20T09:00:00', cat:'Installation', planDate:'2026-02-25', nbAppels:0 },
-        { id:'J-049743', site:'Station — Auchan Nancy Stanislas (54)', desc:'Maintenance transformateur HTA/BT — contrôle annuel réglementaire', priority:'haute', status:'nouveau', tech:null, created:'2026-02-20T10:30:00', cat:'Transformateur', planDate:'2026-02-25', nbAppels:0 },
+        { id:'J-049640', site:'Station - Intermarché Bannalec (29)', desc:'MBC_LMX_EKAE12001 | EM Shutdown + failed attemps', priority:'urgent', status:'nouveau', tech:null, created:'2026-02-12T08:00:00', cat:'Curatif', planDate:'2026-02-18', nbAppels:3 },
+        { id:'J-049668', site:'Station - Super U Vannes Luscanen (56)', desc:'CNV_VAN_TTN12002 | Charger Offline | Last activity in 7 days', priority:'urgent', status:'nouveau', tech:null, created:'2026-02-11T09:00:00', cat:'Curatif', planDate:'2026-02-18', nbAppels:2 },
+        { id:'J-049672', site:'Station - Leclerc Grenade-sur-Garonne (31)', desc:'BWT_GRD_BBC20001 | Tilt / Door Sensor faulted - Disjonction fréquentes', priority:'urgent', status:'nouveau', tech:null, created:'2026-02-13T10:30:00', cat:'Curatif', planDate:'2026-02-20', nbAppels:1 },
+        { id:'J-049684', site:'Station - Super U Châteaulin (29)', desc:'Problème moteur alfen double', priority:'haute', status:'nouveau', tech:null, created:'2026-02-12T11:00:00', cat:'Curatif', planDate:'2026-02-19', nbAppels:1 },
+        { id:'J-049660', site:'Station - Leclerc Granville (50)', desc:'JAR_GRA_TTN12002 | EM button pressed + failed attemps', priority:'haute', status:'nouveau', tech:null, created:'2026-02-12T14:20:00', cat:'Curatif', planDate:'2026-02-19', nbAppels:2 },
+        { id:'J-049664', site:'Station - Auchan Estaires (59)', desc:'BRC_EST_EKAE6001 | AC faulted', priority:'haute', status:'nouveau', tech:null, created:'2026-02-14T07:45:00', cat:'Curatif', planDate:'2026-02-18', nbAppels:1 },
+        { id:'J-049741', site:'Station - Auchan Le Mans Sud (72)', desc:'Installation boîte à clé sécurisée - accès technicien station DC', priority:'haute', status:'nouveau', tech:null, created:'2026-02-20T09:00:00', cat:'Installation', planDate:'2026-02-25', nbAppels:0 },
+        { id:'J-049743', site:'Station - Auchan Nancy Stanislas (54)', desc:'Maintenance transformateur HTA/BT - contrôle annuel réglementaire', priority:'haute', status:'nouveau', tech:null, created:'2026-02-20T10:30:00', cat:'Transformateur', planDate:'2026-02-25', nbAppels:0 },
         // ── EN COURS ──
-        { id:'J-049618', site:'Station — Bureau Vallée L\'Union (31)', desc:'Suivi nombre d\'appel et suivi intervention', priority:'normal', status:'en_cours', tech:'T01', created:'2026-02-15T08:00:00', cat:'Préventif', planDate:'2026-02-17', nbAppels:4, arrival:'08:45', departure:null, duration:null },
-        { id:'J-049304', site:'Station — Leclerc Ussac (19)', desc:'Con 1 en defaut — câble arraché, connecteur fissuré', priority:'haute', status:'en_cours', tech:'T05', created:'2026-02-16T09:00:00', cat:'Curatif', planDate:'2026-02-17', nbAppels:3, arrival:'10:15', departure:null, duration:null },
-        { id:'J-049506', site:'Station — Intermarché Martres-Tolosane (31)', desc:'chargeur hors ligne — diagnostic curatif', priority:'normal', status:'en_cours', tech:'T01', created:'2026-02-16T16:00:00', cat:'Curatif', planDate:'2026-02-17', nbAppels:1, arrival:null, departure:null, duration:null },
-        { id:'J-049570', site:'Station — Leclerc Soyaux (16)', desc:'chargeur hors ligne', priority:'normal', status:'en_cours', tech:'T11', created:'2026-02-17T09:00:00', cat:'Curatif', planDate:'2026-02-17', nbAppels:2, arrival:'09:40', departure:null, duration:null },
-        { id:'J-049601', site:'Station — Leclerc Perpignan Espagne (66)', desc:'Station hors-ligne', priority:'normal', status:'en_cours', tech:'T04', created:'2026-02-17T10:00:00', cat:'Réseau', planDate:'2026-02-17', nbAppels:2, arrival:'11:00', departure:null, duration:null },
-        { id:'J-049652', site:'Station — Auchan Ferrières-en-Brie (77)', desc:'SOG_FER_STR001 / offline charger / LAST ACTIVITY: in 19 hours', priority:'haute', status:'en_cours', tech:'T02', created:'2026-02-16T14:00:00', cat:'Curatif', planDate:'2026-02-17', nbAppels:2, arrival:'08:30', departure:null, duration:null },
-        { id:'J-049738', site:'Station — Leclerc Nancy Lobau (54)', desc:'Maintenance préventive trimestrielle — 4 bornes AC 22kW + vérification câbles', priority:'normal', status:'en_cours', tech:'T14', created:'2026-02-19T08:00:00', cat:'Préventif', planDate:'2026-02-23', nbAppels:0, arrival:'09:00', departure:null, duration:null },
+        { id:'J-049618', site:'Station - Bureau Vallée L\'Union (31)', desc:'Suivi nombre d\'appel et suivi intervention', priority:'normal', status:'en_cours', tech:'T01', created:'2026-02-15T08:00:00', cat:'Préventif', planDate:'2026-02-17', nbAppels:4, arrival:'08:45', departure:null, duration:null },
+        { id:'J-049304', site:'Station - Leclerc Ussac (19)', desc:'Con 1 en defaut - câble arraché, connecteur fissuré', priority:'haute', status:'en_cours', tech:'T05', created:'2026-02-16T09:00:00', cat:'Curatif', planDate:'2026-02-17', nbAppels:3, arrival:'10:15', departure:null, duration:null },
+        { id:'J-049506', site:'Station - Intermarché Martres-Tolosane (31)', desc:'chargeur hors ligne - diagnostic curatif', priority:'normal', status:'en_cours', tech:'T01', created:'2026-02-16T16:00:00', cat:'Curatif', planDate:'2026-02-17', nbAppels:1, arrival:null, departure:null, duration:null },
+        { id:'J-049570', site:'Station - Leclerc Soyaux (16)', desc:'chargeur hors ligne', priority:'normal', status:'en_cours', tech:'T11', created:'2026-02-17T09:00:00', cat:'Curatif', planDate:'2026-02-17', nbAppels:2, arrival:'09:40', departure:null, duration:null },
+        { id:'J-049601', site:'Station - Leclerc Perpignan Espagne (66)', desc:'Station hors-ligne', priority:'normal', status:'en_cours', tech:'T04', created:'2026-02-17T10:00:00', cat:'Réseau', planDate:'2026-02-17', nbAppels:2, arrival:'11:00', departure:null, duration:null },
+        { id:'J-049652', site:'Station - Auchan Ferrières-en-Brie (77)', desc:'SOG_FER_STR001 / offline charger / LAST ACTIVITY: in 19 hours', priority:'haute', status:'en_cours', tech:'T02', created:'2026-02-16T14:00:00', cat:'Curatif', planDate:'2026-02-17', nbAppels:2, arrival:'08:30', departure:null, duration:null },
+        { id:'J-049738', site:'Station - Leclerc Nancy Lobau (54)', desc:'Maintenance préventive trimestrielle - 4 bornes AC 22kW + vérification câbles', priority:'normal', status:'en_cours', tech:'T14', created:'2026-02-19T08:00:00', cat:'Préventif', planDate:'2026-02-23', nbAppels:0, arrival:'09:00', departure:null, duration:null },
         // ── PLANIFIÉ ──
-        { id:'J-049623', site:'Station — Super U Rosporden (29)', desc:'Maintenance préventive semestrielle — contrôle bornes + câbles + connecteurs', priority:'normal', status:'planifie', tech:'T08', created:'2026-02-14T09:00:00', cat:'Préventif', planDate:'2026-02-18', nbAppels:2 },
-        { id:'J-049631', site:'Station — Intermarché Mellac (29)', desc:'Contrôle préventif + nettoyage connecteurs + test de charge', priority:'normal', status:'planifie', tech:'T08', created:'2026-02-15T10:00:00', cat:'Préventif', planDate:'2026-02-19', nbAppels:1 },
-        { id:'J-049635', site:'Station — Intermarché Plomodiern (29)', desc:'Maintenance préventive — vérification disjoncteurs + serrage borniers', priority:'normal', status:'planifie', tech:'T08', created:'2026-02-11T08:30:00', cat:'Préventif', planDate:'2026-02-19', nbAppels:2 },
-        { id:'J-049720', site:'Station — Auchan Reims (51)', desc:'MAJ firmware + tests conformité OCPP 2.0.1', priority:'normal', status:'planifie', tech:'T12', created:'2026-02-14T11:00:00', cat:'Mise à jour', planDate:'2026-02-20', nbAppels:0 },
-        { id:'J-049648', site:'Station — Super U Ambérieu-en-Bugey (01)', desc:'SYU_AMG_ALFD2201 | Low power on connector 1', priority:'normal', status:'planifie', tech:'T03', created:'2026-02-14T13:00:00', cat:'Curatif', planDate:'2026-02-19', nbAppels:1 },
-        { id:'J-049724', site:'Station — Auchan Toulouse Purpan (31)', desc:'Hors ligne + Check massif', priority:'haute', status:'planifie', tech:'T01', created:'2026-02-15T08:00:00', cat:'Curatif', planDate:'2026-02-20', nbAppels:1 },
-        { id:'J-049656', site:'Station — Leclerc Quimper (29)', desc:'Hors ligne, réseau capricieux', priority:'normal', status:'planifie', tech:'T08', created:'2026-02-15T10:00:00', cat:'Réseau', planDate:'2026-02-21', nbAppels:0 },
-        { id:'J-049745', site:'Station — Leclerc Le Mans Nord (72)', desc:'Maintenance préventive annuelle — 6 bornes DC + inspection câbles CCS + CHAdeMO', priority:'normal', status:'planifie', tech:'T15', created:'2026-02-20T11:00:00', cat:'Préventif', planDate:'2026-02-26', nbAppels:0 },
-        { id:'J-049747', site:'Station — Auchan Metz Technopôle (57)', desc:'Maintenance transformateur 630 kVA — contrôle huile + thermographie + serrage', priority:'haute', status:'planifie', tech:'T14', created:'2026-02-20T14:00:00', cat:'Transformateur', planDate:'2026-02-27', nbAppels:0 },
-        { id:'J-049749', site:'Station — Auchan Bordeaux Lac (33)', desc:'Installation boîte à clé + pose signalétique accès maintenance', priority:'normal', status:'planifie', tech:'T05', created:'2026-02-21T08:00:00', cat:'Installation', planDate:'2026-02-28', nbAppels:0 },
-        { id:'J-049751', site:'Station — Leclerc Lyon Confluence (69)', desc:'Maintenance préventive semestrielle — 8 bornes AC + 2 DC + transformateur', priority:'normal', status:'planifie', tech:'T07', created:'2026-02-21T09:00:00', cat:'Préventif', planDate:'2026-02-27', nbAppels:0 },
-        { id:'J-049753', site:'Station — Auchan Rennes Alma (35)', desc:'Installation boîte à clé sécurisée + pose passe-câbles', priority:'normal', status:'planifie', tech:'T06', created:'2026-02-21T10:00:00', cat:'Installation', planDate:'2026-02-28', nbAppels:0 },
+        { id:'J-049623', site:'Station - Super U Rosporden (29)', desc:'Maintenance préventive semestrielle - contrôle bornes + câbles + connecteurs', priority:'normal', status:'planifie', tech:'T08', created:'2026-02-14T09:00:00', cat:'Préventif', planDate:'2026-02-18', nbAppels:2 },
+        { id:'J-049631', site:'Station - Intermarché Mellac (29)', desc:'Contrôle préventif + nettoyage connecteurs + test de charge', priority:'normal', status:'planifie', tech:'T08', created:'2026-02-15T10:00:00', cat:'Préventif', planDate:'2026-02-19', nbAppels:1 },
+        { id:'J-049635', site:'Station - Intermarché Plomodiern (29)', desc:'Maintenance préventive - vérification disjoncteurs + serrage borniers', priority:'normal', status:'planifie', tech:'T08', created:'2026-02-11T08:30:00', cat:'Préventif', planDate:'2026-02-19', nbAppels:2 },
+        { id:'J-049720', site:'Station - Auchan Reims (51)', desc:'MAJ firmware + tests conformité OCPP 2.0.1', priority:'normal', status:'planifie', tech:'T12', created:'2026-02-14T11:00:00', cat:'Mise à jour', planDate:'2026-02-20', nbAppels:0 },
+        { id:'J-049648', site:'Station - Super U Ambérieu-en-Bugey (01)', desc:'SYU_AMG_ALFD2201 | Low power on connector 1', priority:'normal', status:'planifie', tech:'T03', created:'2026-02-14T13:00:00', cat:'Curatif', planDate:'2026-02-19', nbAppels:1 },
+        { id:'J-049724', site:'Station - Auchan Toulouse Purpan (31)', desc:'Hors ligne + Check massif', priority:'haute', status:'planifie', tech:'T01', created:'2026-02-15T08:00:00', cat:'Curatif', planDate:'2026-02-20', nbAppels:1 },
+        { id:'J-049656', site:'Station - Leclerc Quimper (29)', desc:'Hors ligne, réseau capricieux', priority:'normal', status:'planifie', tech:'T08', created:'2026-02-15T10:00:00', cat:'Réseau', planDate:'2026-02-21', nbAppels:0 },
+        { id:'J-049745', site:'Station - Leclerc Le Mans Nord (72)', desc:'Maintenance préventive annuelle - 6 bornes DC + inspection câbles CCS + CHAdeMO', priority:'normal', status:'planifie', tech:'T15', created:'2026-02-20T11:00:00', cat:'Préventif', planDate:'2026-02-26', nbAppels:0 },
+        { id:'J-049747', site:'Station - Auchan Metz Technopôle (57)', desc:'Maintenance transformateur 630 kVA - contrôle huile + thermographie + serrage', priority:'haute', status:'planifie', tech:'T14', created:'2026-02-20T14:00:00', cat:'Transformateur', planDate:'2026-02-27', nbAppels:0 },
+        { id:'J-049749', site:'Station - Auchan Bordeaux Lac (33)', desc:'Installation boîte à clé + pose signalétique accès maintenance', priority:'normal', status:'planifie', tech:'T05', created:'2026-02-21T08:00:00', cat:'Installation', planDate:'2026-02-28', nbAppels:0 },
+        { id:'J-049751', site:'Station - Leclerc Lyon Confluence (69)', desc:'Maintenance préventive semestrielle - 8 bornes AC + 2 DC + transformateur', priority:'normal', status:'planifie', tech:'T07', created:'2026-02-21T09:00:00', cat:'Préventif', planDate:'2026-02-27', nbAppels:0 },
+        { id:'J-049753', site:'Station - Auchan Rennes Alma (35)', desc:'Installation boîte à clé sécurisée + pose passe-câbles', priority:'normal', status:'planifie', tech:'T06', created:'2026-02-21T10:00:00', cat:'Installation', planDate:'2026-02-28', nbAppels:0 },
         // ── RÉSOLU ──
-        { id:'J-048537', site:'Station — Leclerc Perpignan Languedoc (66)', desc:'2 hubs hors ligne (4 chargeurs au total) — cause racine identifiée, disjonction récurrente', priority:'urgent', status:'resolu', tech:'T04', created:'2026-01-26T08:00:00', cat:'Curatif', planDate:'2026-01-26', nbAppels:6, arrival:'09:00', departure:'13:45', duration:'4h45', report:true, obs:'Disjoncteur TJ en défaut sur les 2 hubs. Remplacement disjoncteur + reset firmware. Tests OK sur 4 points de charge.' },
-        { id:'J-047507', site:'Station — Auchan Perpignan Rome (66)', desc:'Connecteur 2 en défaut', priority:'normal', status:'resolu', tech:'T04', created:'2026-01-30T09:00:00', cat:'Curatif', planDate:'2026-01-30', nbAppels:2, arrival:'10:30', departure:'12:15', duration:'1h45', report:true, obs:'Connecteur CCS2 endommagé (câble coupé net). Remplacement câble + connecteur. Test de charge validé.' },
-        { id:'J-048859', site:'Station — Leclerc L\'Isle-d\'Abeau (38)', desc:'Connecteur 1 en défaut', priority:'normal', status:'resolu', tech:'T03', created:'2026-02-04T08:00:00', cat:'Curatif', planDate:'2026-02-04', nbAppels:2, arrival:'09:15', departure:'11:00', duration:'1h45', report:true, obs:'Connecteur Type 2 bloqué en position verrouillée. Déverrouillage manuel + remplacement actionneur. Test OK.' },
-        { id:'J-049000', site:'Station — Leclerc Sélestat (67)', desc:'Station offline, controler reglage disjoncteur TJ', priority:'normal', status:'resolu', tech:'T10', created:'2026-02-04T10:00:00', cat:'Réseau', planDate:'2026-02-04', nbAppels:3, arrival:'14:00', departure:'16:30', duration:'2h30', report:true, obs:'Perte de connectivité 4G. Remplacement routeur + reconfiguration APN. Supervision rétablie.' },
-        { id:'J-049066', site:'Station — Intermarché Pertuis (84)', desc:'Chargeur hors-ligne', priority:'normal', status:'resolu', tech:'T13', created:'2026-02-06T09:30:00', cat:'Curatif', planDate:'2026-02-06', nbAppels:1, arrival:'11:00', departure:'12:30', duration:'1h30', report:true, obs:'Carte contrôleur HS. Remplacement carte + mise à jour firmware v3.2.1. Remise en service.' },
-        { id:'J-049046', site:'Station — Intermarché Condom (32)', desc:'Con 4 en défaut', priority:'normal', status:'resolu', tech:'T01', created:'2026-02-10T08:00:00', cat:'Curatif', planDate:'2026-02-10', nbAppels:2, arrival:'08:30', departure:'10:45', duration:'2h15', report:true, obs:'Connecteur 4 — fusible HS côté AC. Remplacement fusible 32A + serrage bornier. Test charge 22kW OK.' },
-        { id:'J-049101', site:'Station — Super U Podensac (33)', desc:'Chargeur hors-ligne', priority:'normal', status:'resolu', tech:'T05', created:'2026-02-07T07:30:00', cat:'Curatif', planDate:'2026-02-07', nbAppels:2, arrival:'08:00', departure:'10:15', duration:'2h15', report:true, obs:'Disjoncteur déclenché (défaut isolement). Contrôle isolement OK après séchage coffret. Réarmement + test.' },
-        { id:'J-049212', site:'Station — Auchan Bordeaux Lattre (33)', desc:'Chargeur hors-ligne et cable bloqué', priority:'haute', status:'resolu', tech:'T05', created:'2026-02-09T08:00:00', cat:'Curatif', planDate:'2026-02-09', nbAppels:4, arrival:'09:30', departure:'13:00', duration:'3h30', report:true, obs:'Câble CCS bloqué en position verrouillée. Déverrouillage forcé + remplacement mécanisme verrou. Chargeur remis en ligne après reset OCPP.' },
-        { id:'J-049348', site:'Station — Super U Labarthe-sur-Lèze (31)', desc:'station hors ligne', priority:'normal', status:'resolu', tech:'T01', created:'2026-02-12T09:00:00', cat:'Réseau', planDate:'2026-02-12', nbAppels:1, arrival:'10:00', departure:'11:30', duration:'1h30', report:true, obs:'Routeur 4G saturé (table NAT pleine). Redémarrage routeur + reconfiguration keep-alive OCPP. Stable.' },
-        { id:'J-049300', site:'Station — Intermarché Ille-sur-Têt (66)', desc:'Connecteur 2 en défaut', priority:'normal', status:'resolu', tech:'T04', created:'2026-02-11T10:00:00', cat:'Curatif', planDate:'2026-02-11', nbAppels:2, arrival:'14:00', departure:'15:30', duration:'1h30', report:true, obs:'Connecteur CHAdeMO — erreur communication. Remplacement câble communication + recalibrage. Test DC 50kW OK.' },
-        { id:'J-049461', site:'Station — Bertrix (Belgique)', desc:'station hors ligne', priority:'normal', status:'resolu', tech:'T12', created:'2026-02-13T08:00:00', cat:'Réseau', planDate:'2026-02-13', nbAppels:2, arrival:'10:30', departure:'12:45', duration:'2h15', report:true, obs:'Coupure alimentation générale (disj. amont). Réarmement + vérification puissance. Station opérationnelle.' },
-        { id:'J-049181', site:'Station — Leclerc Montrabé (31)', desc:'satellite 2 en défaut', priority:'normal', status:'resolu', tech:'T01', created:'2026-02-12T10:00:00', cat:'Curatif', planDate:'2026-02-12', nbAppels:1, arrival:'14:30', departure:'16:00', duration:'1h30', report:true, obs:'Satellite 2 — carte communication satellite HS. Remplacement carte + appairage avec hub principal. Test OK.' },
-        { id:'J-049575', site:'Station — Leclerc Tarbes (65)', desc:'Station hors ligne', priority:'normal', status:'resolu', tech:'T01', created:'2026-02-16T08:00:00', cat:'Réseau', planDate:'2026-02-16', nbAppels:1, arrival:'08:30', departure:'09:45', duration:'1h15', report:true, obs:'SIM 4G expirée. Remplacement SIM + reconfiguration APN. Supervision rétablie, test OCPP heartbeat OK.' },
-        { id:'J-049690', site:'Station — Intermarché Nancy Gare (54)', desc:'Installation boîte à clé sécurisée — 2 coffrets DC', priority:'normal', status:'resolu', tech:'T14', created:'2026-02-14T08:00:00', cat:'Installation', planDate:'2026-02-17', nbAppels:0, arrival:'09:00', departure:'11:30', duration:'2h30', report:true, obs:'Pose 2 boîtes à clé Decayeux sur coffrets DC. Fixation murale + test ouverture clé universelle IRVE. Étiquetage conforme. Clés remises au responsable site.' },
-        { id:'J-049695', site:'Station — Leclerc Épinal Centre (88)', desc:'Maintenance transformateur 400 kVA — contrôle annuel obligatoire', priority:'haute', status:'resolu', tech:'T14', created:'2026-02-13T09:00:00', cat:'Transformateur', planDate:'2026-02-18', nbAppels:1, arrival:'08:30', departure:'12:00', duration:'3h30', report:true, obs:'Contrôle transfo 400 kVA : huile diélectrique OK, thermographie IR sans point chaud, serrage borniers HTA/BT vérifié, test isolement >100 MΩ. Prochaine maintenance dans 12 mois.' },
-        { id:'J-049700', site:'Station — Super U Le Mans Gare (72)', desc:'Maintenance préventive semestrielle — 4 bornes AC + 2 DC', priority:'normal', status:'resolu', tech:'T15', created:'2026-02-15T08:00:00', cat:'Préventif', planDate:'2026-02-19', nbAppels:0, arrival:'09:00', departure:'13:00', duration:'4h00', report:true, obs:'Contrôle préventif 6 bornes : nettoyage connecteurs, test isolement, vérification serrage, contrôle firmware. 1 câble T2 usé remplacé préventivement. Tests charge OK sur tous les points.' },
-        { id:'J-049705', site:'Station — Auchan Orléans Madeleine (45)', desc:'Maintenance préventive trimestrielle + contrôle transformateur 250 kVA', priority:'normal', status:'resolu', tech:'T09', created:'2026-02-12T08:00:00', cat:'Préventif', planDate:'2026-02-15', nbAppels:0, arrival:'08:30', departure:'12:15', duration:'3h45', report:true, obs:'Préventif trimestre 1 : 4 bornes AC inspectées, 2 connecteurs nettoyés, câbles OK. Transfo 250 kVA : huile + thermographie + serrage conformes. RAS.' }
+        { id:'J-048537', site:'Station - Leclerc Perpignan Languedoc (66)', desc:'2 hubs hors ligne (4 chargeurs au total) - cause racine identifiée, disjonction récurrente', priority:'urgent', status:'resolu', tech:'T04', created:'2026-01-26T08:00:00', cat:'Curatif', planDate:'2026-01-26', nbAppels:6, arrival:'09:00', departure:'13:45', duration:'4h45', report:true, obs:'Disjoncteur TJ en défaut sur les 2 hubs. Remplacement disjoncteur + reset firmware. Tests OK sur 4 points de charge.' },
+        { id:'J-047507', site:'Station - Auchan Perpignan Rome (66)', desc:'Connecteur 2 en défaut', priority:'normal', status:'resolu', tech:'T04', created:'2026-01-30T09:00:00', cat:'Curatif', planDate:'2026-01-30', nbAppels:2, arrival:'10:30', departure:'12:15', duration:'1h45', report:true, obs:'Connecteur CCS2 endommagé (câble coupé net). Remplacement câble + connecteur. Test de charge validé.' },
+        { id:'J-048859', site:'Station - Leclerc L\'Isle-d\'Abeau (38)', desc:'Connecteur 1 en défaut', priority:'normal', status:'resolu', tech:'T03', created:'2026-02-04T08:00:00', cat:'Curatif', planDate:'2026-02-04', nbAppels:2, arrival:'09:15', departure:'11:00', duration:'1h45', report:true, obs:'Connecteur Type 2 bloqué en position verrouillée. Déverrouillage manuel + remplacement actionneur. Test OK.' },
+        { id:'J-049000', site:'Station - Leclerc Sélestat (67)', desc:'Station offline, controler reglage disjoncteur TJ', priority:'normal', status:'resolu', tech:'T10', created:'2026-02-04T10:00:00', cat:'Réseau', planDate:'2026-02-04', nbAppels:3, arrival:'14:00', departure:'16:30', duration:'2h30', report:true, obs:'Perte de connectivité 4G. Remplacement routeur + reconfiguration APN. Supervision rétablie.' },
+        { id:'J-049066', site:'Station - Intermarché Pertuis (84)', desc:'Chargeur hors-ligne', priority:'normal', status:'resolu', tech:'T13', created:'2026-02-06T09:30:00', cat:'Curatif', planDate:'2026-02-06', nbAppels:1, arrival:'11:00', departure:'12:30', duration:'1h30', report:true, obs:'Carte contrôleur HS. Remplacement carte + mise à jour firmware v3.2.1. Remise en service.' },
+        { id:'J-049046', site:'Station - Intermarché Condom (32)', desc:'Con 4 en défaut', priority:'normal', status:'resolu', tech:'T01', created:'2026-02-10T08:00:00', cat:'Curatif', planDate:'2026-02-10', nbAppels:2, arrival:'08:30', departure:'10:45', duration:'2h15', report:true, obs:'Connecteur 4 - fusible HS côté AC. Remplacement fusible 32A + serrage bornier. Test charge 22kW OK.' },
+        { id:'J-049101', site:'Station - Super U Podensac (33)', desc:'Chargeur hors-ligne', priority:'normal', status:'resolu', tech:'T05', created:'2026-02-07T07:30:00', cat:'Curatif', planDate:'2026-02-07', nbAppels:2, arrival:'08:00', departure:'10:15', duration:'2h15', report:true, obs:'Disjoncteur déclenché (défaut isolement). Contrôle isolement OK après séchage coffret. Réarmement + test.' },
+        { id:'J-049212', site:'Station - Auchan Bordeaux Lattre (33)', desc:'Chargeur hors-ligne et cable bloqué', priority:'haute', status:'resolu', tech:'T05', created:'2026-02-09T08:00:00', cat:'Curatif', planDate:'2026-02-09', nbAppels:4, arrival:'09:30', departure:'13:00', duration:'3h30', report:true, obs:'Câble CCS bloqué en position verrouillée. Déverrouillage forcé + remplacement mécanisme verrou. Chargeur remis en ligne après reset OCPP.' },
+        { id:'J-049348', site:'Station - Super U Labarthe-sur-Lèze (31)', desc:'station hors ligne', priority:'normal', status:'resolu', tech:'T01', created:'2026-02-12T09:00:00', cat:'Réseau', planDate:'2026-02-12', nbAppels:1, arrival:'10:00', departure:'11:30', duration:'1h30', report:true, obs:'Routeur 4G saturé (table NAT pleine). Redémarrage routeur + reconfiguration keep-alive OCPP. Stable.' },
+        { id:'J-049300', site:'Station - Intermarché Ille-sur-Têt (66)', desc:'Connecteur 2 en défaut', priority:'normal', status:'resolu', tech:'T04', created:'2026-02-11T10:00:00', cat:'Curatif', planDate:'2026-02-11', nbAppels:2, arrival:'14:00', departure:'15:30', duration:'1h30', report:true, obs:'Connecteur CHAdeMO - erreur communication. Remplacement câble communication + recalibrage. Test DC 50kW OK.' },
+        { id:'J-049461', site:'Station - Bertrix (Belgique)', desc:'station hors ligne', priority:'normal', status:'resolu', tech:'T12', created:'2026-02-13T08:00:00', cat:'Réseau', planDate:'2026-02-13', nbAppels:2, arrival:'10:30', departure:'12:45', duration:'2h15', report:true, obs:'Coupure alimentation générale (disj. amont). Réarmement + vérification puissance. Station opérationnelle.' },
+        { id:'J-049181', site:'Station - Leclerc Montrabé (31)', desc:'satellite 2 en défaut', priority:'normal', status:'resolu', tech:'T01', created:'2026-02-12T10:00:00', cat:'Curatif', planDate:'2026-02-12', nbAppels:1, arrival:'14:30', departure:'16:00', duration:'1h30', report:true, obs:'Satellite 2 - carte communication satellite HS. Remplacement carte + appairage avec hub principal. Test OK.' },
+        { id:'J-049575', site:'Station - Leclerc Tarbes (65)', desc:'Station hors ligne', priority:'normal', status:'resolu', tech:'T01', created:'2026-02-16T08:00:00', cat:'Réseau', planDate:'2026-02-16', nbAppels:1, arrival:'08:30', departure:'09:45', duration:'1h15', report:true, obs:'SIM 4G expirée. Remplacement SIM + reconfiguration APN. Supervision rétablie, test OCPP heartbeat OK.' },
+        { id:'J-049690', site:'Station - Intermarché Nancy Gare (54)', desc:'Installation boîte à clé sécurisée - 2 coffrets DC', priority:'normal', status:'resolu', tech:'T14', created:'2026-02-14T08:00:00', cat:'Installation', planDate:'2026-02-17', nbAppels:0, arrival:'09:00', departure:'11:30', duration:'2h30', report:true, obs:'Pose 2 boîtes à clé Decayeux sur coffrets DC. Fixation murale + test ouverture clé universelle IRVE. Étiquetage conforme. Clés remises au responsable site.' },
+        { id:'J-049695', site:'Station - Leclerc Épinal Centre (88)', desc:'Maintenance transformateur 400 kVA - contrôle annuel obligatoire', priority:'haute', status:'resolu', tech:'T14', created:'2026-02-13T09:00:00', cat:'Transformateur', planDate:'2026-02-18', nbAppels:1, arrival:'08:30', departure:'12:00', duration:'3h30', report:true, obs:'Contrôle transfo 400 kVA : huile diélectrique OK, thermographie IR sans point chaud, serrage borniers HTA/BT vérifié, test isolement >100 MΩ. Prochaine maintenance dans 12 mois.' },
+        { id:'J-049700', site:'Station - Super U Le Mans Gare (72)', desc:'Maintenance préventive semestrielle - 4 bornes AC + 2 DC', priority:'normal', status:'resolu', tech:'T15', created:'2026-02-15T08:00:00', cat:'Préventif', planDate:'2026-02-19', nbAppels:0, arrival:'09:00', departure:'13:00', duration:'4h00', report:true, obs:'Contrôle préventif 6 bornes : nettoyage connecteurs, test isolement, vérification serrage, contrôle firmware. 1 câble T2 usé remplacé préventivement. Tests charge OK sur tous les points.' },
+        { id:'J-049705', site:'Station - Auchan Orléans Madeleine (45)', desc:'Maintenance préventive trimestrielle + contrôle transformateur 250 kVA', priority:'normal', status:'resolu', tech:'T09', created:'2026-02-12T08:00:00', cat:'Préventif', planDate:'2026-02-15', nbAppels:0, arrival:'08:30', departure:'12:15', duration:'3h45', report:true, obs:'Préventif trimestre 1 : 4 bornes AC inspectées, 2 connecteurs nettoyés, câbles OK. Transfo 250 kVA : huile + thermographie + serrage conformes. RAS.' }
     ];
     S.planWeekOffset = 0;
     S.resolvedBase = 35;
     S.interventionsBase = 14;
     S.settings = { assignMode:'auto', autoSMS:true, slaTarget:3, autoRelance:true };
     S.activity = [
-        { time:'10:45', type:'ticket', msg:'J-049743 — Maintenance transformateur HTA/BT Nancy Stanislas, planification requise' },
-        { time:'10:32', type:'ticket', msg:'J-049640 — EM Shutdown Station Bannalec, escalade priorité urgente' },
-        { time:'10:15', type:'call', msg:'Appel entrant — Sophie (Client) : relance J-049640 Bannalec' },
-        { time:'10:02', type:'ticket', msg:'J-049741 — Installation boîte à clé Le Mans Sud, nouveau ticket' },
-        { time:'09:47', type:'ticket', msg:'J-049668 — Charger Offline Station Vannes, 7 jours sans activité' },
-        { time:'09:30', type:'sms', msg:'SMS envoyé à Maxime — Début maintenance préventive J-049738 Nancy Lobau' },
-        { time:'09:22', type:'sms', msg:'SMS envoyé à Lucas — Confirmation arrivée J-049618 Bureau Vallée L\'Union' },
-        { time:'09:10', type:'ticket', msg:'J-049700 résolu — Préventif Le Mans Gare terminé (4h00), 1 câble T2 remplacé' },
-        { time:'09:03', type:'ticket', msg:'J-049672 — Door Sensor faulted, disjonction fréquente Grenade (31)' },
-        { time:'08:47', type:'call', msg:'Appel entrant — David (Client) : point hebdo + Vannes + Estaires + transfo Nancy' },
-        { time:'08:31', type:'ticket', msg:'J-049652 en cours — Karim arrivé sur site Ferrières-en-Brie' },
-        { time:'08:20', type:'ticket', msg:'J-049695 résolu — Maintenance transfo Épinal OK, prochaine dans 12 mois' },
-        { time:'08:12', type:'sms', msg:'SMS envoyé à Cédric — Départ confirmé J-049570 Soyaux (16)' },
-        { time:'07:58', type:'call', msg:'Appel sortant — Romain : point J-049304 Ussac, arrivée prévue 10h15' },
-        { time:'07:41', type:'ticket', msg:'J-049575 résolu — Station Tarbes remise en ligne (durée 1h15)' },
-        { time:'07:33', type:'ticket', msg:'Rapport J-049575 validé — SIM remplacée, OCPP heartbeat OK' },
-        { time:'07:15', type:'system', msg:'Ouverture session — 15 techniciens · 9 zones couvertes' }
+        { time:'10:45', type:'ticket', msg:'J-049743 - Maintenance transformateur HTA/BT Nancy Stanislas, planification requise' },
+        { time:'10:32', type:'ticket', msg:'J-049640 - EM Shutdown Station Bannalec, escalade priorité urgente' },
+        { time:'10:15', type:'call', msg:'Appel entrant - Sophie (Client) : relance J-049640 Bannalec' },
+        { time:'10:02', type:'ticket', msg:'J-049741 - Installation boîte à clé Le Mans Sud, nouveau ticket' },
+        { time:'09:47', type:'ticket', msg:'J-049668 - Charger Offline Station Vannes, 7 jours sans activité' },
+        { time:'09:30', type:'sms', msg:'SMS envoyé à Maxime - Début maintenance préventive J-049738 Nancy Lobau' },
+        { time:'09:22', type:'sms', msg:'SMS envoyé à Lucas - Confirmation arrivée J-049618 Bureau Vallée L\'Union' },
+        { time:'09:10', type:'ticket', msg:'J-049700 résolu - Préventif Le Mans Gare terminé (4h00), 1 câble T2 remplacé' },
+        { time:'09:03', type:'ticket', msg:'J-049672 - Door Sensor faulted, disjonction fréquente Grenade (31)' },
+        { time:'08:47', type:'call', msg:'Appel entrant - David (Client) : point hebdo + Vannes + Estaires + transfo Nancy' },
+        { time:'08:31', type:'ticket', msg:'J-049652 en cours - Karim arrivé sur site Ferrières-en-Brie' },
+        { time:'08:20', type:'ticket', msg:'J-049695 résolu - Maintenance transfo Épinal OK, prochaine dans 12 mois' },
+        { time:'08:12', type:'sms', msg:'SMS envoyé à Cédric - Départ confirmé J-049570 Soyaux (16)' },
+        { time:'07:58', type:'call', msg:'Appel sortant - Romain : point J-049304 Ussac, arrivée prévue 10h15' },
+        { time:'07:41', type:'ticket', msg:'J-049575 résolu - Station Tarbes remise en ligne (durée 1h15)' },
+        { time:'07:33', type:'ticket', msg:'Rapport J-049575 validé - SIM remplacée, OCPP heartbeat OK' },
+        { time:'07:15', type:'system', msg:'Ouverture session - 15 techniciens · 9 zones couvertes' }
     ];
     S.smsHistory = [
-        { time:'09:30', to:'Maxime — Nancy', msg:'[JCSM] Intervention J-049738. Station Nancy Lobau (54). Maintenance préventive trimestrielle — 4 bornes AC 22kW. Merci de procéder au contrôle complet.', status:'delivered' },
-        { time:'09:22', to:'Lucas — Perpignan', msg:'[JCSM] Intervention J-049618. Station Bureau Vallée L\'Union (31). Suivi nombre d\'appels + intervention. Merci de faire le point sur place et confirmer état des bornes.', status:'delivered' },
-        { time:'08:12', to:'Cédric — Poitiers', msg:'[JCSM] Intervention J-049570. Station Soyaux (16). Chargeur hors-ligne signalé. Merci de vous rendre sur place ce matin.', status:'delivered' },
-        { time:'Hier 16:45', to:'Pierre D. — Toulouse', msg:'[JCSM] Intervention J-049601. Station Perpignan Espagne (66). Station hors-ligne — diagnostic réseau à effectuer. Prévoir test SIM + routeur.', status:'delivered' },
-        { time:'Hier 14:08', to:'Karim — Franconville', msg:'[JCSM] Intervention J-049652. Station Ferrières-en-Brie (77). Chargeur offline 19h. Vérifier connectivité OCPP + état routeur 4G.', status:'delivered' },
-        { time:'Hier 10:00', to:'Julien — Le Mans', msg:'[JCSM] Rappel : maintenance préventive J-049700 Station Le Mans Gare (72) demain 09h00. 4 bornes AC + 2 DC. Prévoir outillage complet.', status:'delivered' },
-        { time:'Hier 09:15', to:'Maxime — Nancy', msg:'[JCSM] Intervention J-049695 confirmée. Station Épinal Centre (88). Maintenance transformateur 400 kVA — contrôle annuel. Prévoir thermographe + kit huile.', status:'delivered' },
-        { time:'Hier 08:30', to:'Éric — Rennes', msg:'[JCSM] Planning semaine du 17/02 : Rosporden (mar), Mellac (mer), Plomodiern (mer PM). Préventif complet. Confirme dispo. Merci.', status:'delivered' },
-        { time:'14/02 09:00', to:'Romain — Bordeaux', msg:'[JCSM] Intervention J-049304. Station Ussac (19). Con 1 en défaut — priorité haute. Merci de planifier lundi matin.', status:'delivered' }
+        { time:'09:30', to:'Maxime - Nancy', msg:'[JCSM] Intervention J-049738. Station Nancy Lobau (54). Maintenance préventive trimestrielle - 4 bornes AC 22kW. Merci de procéder au contrôle complet.', status:'delivered' },
+        { time:'09:22', to:'Lucas - Perpignan', msg:'[JCSM] Intervention J-049618. Station Bureau Vallée L\'Union (31). Suivi nombre d\'appels + intervention. Merci de faire le point sur place et confirmer état des bornes.', status:'delivered' },
+        { time:'08:12', to:'Cédric - Poitiers', msg:'[JCSM] Intervention J-049570. Station Soyaux (16). Chargeur hors-ligne signalé. Merci de vous rendre sur place ce matin.', status:'delivered' },
+        { time:'Hier 16:45', to:'Pierre D. - Toulouse', msg:'[JCSM] Intervention J-049601. Station Perpignan Espagne (66). Station hors-ligne - diagnostic réseau à effectuer. Prévoir test SIM + routeur.', status:'delivered' },
+        { time:'Hier 14:08', to:'Karim - Franconville', msg:'[JCSM] Intervention J-049652. Station Ferrières-en-Brie (77). Chargeur offline 19h. Vérifier connectivité OCPP + état routeur 4G.', status:'delivered' },
+        { time:'Hier 10:00', to:'Julien - Le Mans', msg:'[JCSM] Rappel : maintenance préventive J-049700 Station Le Mans Gare (72) demain 09h00. 4 bornes AC + 2 DC. Prévoir outillage complet.', status:'delivered' },
+        { time:'Hier 09:15', to:'Maxime - Nancy', msg:'[JCSM] Intervention J-049695 confirmée. Station Épinal Centre (88). Maintenance transformateur 400 kVA - contrôle annuel. Prévoir thermographe + kit huile.', status:'delivered' },
+        { time:'Hier 08:30', to:'Éric - Rennes', msg:'[JCSM] Planning semaine du 17/02 : Rosporden (mar), Mellac (mer), Plomodiern (mer PM). Préventif complet. Confirme dispo. Merci.', status:'delivered' },
+        { time:'14/02 09:00', to:'Romain - Bordeaux', msg:'[JCSM] Intervention J-049304. Station Ussac (19). Con 1 en défaut - priorité haute. Merci de planifier lundi matin.', status:'delivered' }
     ];
     S.calls = [
-        { type:'incoming', name:'Sophie (Client)', time:'10:15', duration:'3m12', notes:'J-049640 — Relance EM Shutdown Bannalec, escalade urgente' },
-        { type:'outgoing', name:'Maxime', time:'09:30', duration:'1m35', notes:'Dispatch préventif J-049738 Nancy Lobau — début maintenance bornes AC' },
-        { type:'incoming', name:'David (Client)', time:'08:47', duration:'4m35', notes:'Point hebdo — Vannes, Estaires, transfo Nancy, planning semaine' },
+        { type:'incoming', name:'Sophie (Client)', time:'10:15', duration:'3m12', notes:'J-049640 - Relance EM Shutdown Bannalec, escalade urgente' },
+        { type:'outgoing', name:'Maxime', time:'09:30', duration:'1m35', notes:'Dispatch préventif J-049738 Nancy Lobau - début maintenance bornes AC' },
+        { type:'incoming', name:'David (Client)', time:'08:47', duration:'4m35', notes:'Point hebdo - Vannes, Estaires, transfo Nancy, planning semaine' },
         { type:'outgoing', name:'Lucas', time:'09:22', duration:'1m08', notes:'Confirmation arrivée J-049618 Bureau Vallée L\'Union' },
         { type:'outgoing', name:'Romain', time:'07:58', duration:'1m42', notes:'Départ Ussac confirmé, arrivée prévue 10h15' },
-        { type:'incoming', name:'Claire (Client)', time:'Hier 17:12', duration:'2m45', notes:'J-049461 — Retour station Bertrix Belgique, OK après intervention' },
-        { type:'outgoing', name:'Julien', time:'Hier 16:00', duration:'2m08', notes:'Retour préventif Le Mans Gare — 1 câble T2 remplacé, tests OK' },
-        { type:'outgoing', name:'Maxime', time:'Hier 15:30', duration:'1m52', notes:'Retour transfo Épinal — thermographie OK, huile conforme, serrage vérifié' },
-        { type:'outgoing', name:'Éric', time:'Hier 16:40', duration:'1m25', notes:'Confirmation planning semaine — Rosporden + Mellac + Plomodiern (préventif)' },
-        { type:'incoming', name:'Sophie (Client)', time:'Hier 14:20', duration:'1m55', notes:'J-049304 — Con 1 défaut Ussac, demande état d\'avancement' },
-        { type:'outgoing', name:'Backup Maintenance', time:'Hier 11:05', duration:'2m10', notes:'Demande backup zone 29 Bretagne — dispo confirmée J+1' },
-        { type:'missed', name:'Numéro inconnu', time:'Hier 10:33', duration:'—', notes:'' },
+        { type:'incoming', name:'Claire (Client)', time:'Hier 17:12', duration:'2m45', notes:'J-049461 - Retour station Bertrix Belgique, OK après intervention' },
+        { type:'outgoing', name:'Julien', time:'Hier 16:00', duration:'2m08', notes:'Retour préventif Le Mans Gare - 1 câble T2 remplacé, tests OK' },
+        { type:'outgoing', name:'Maxime', time:'Hier 15:30', duration:'1m52', notes:'Retour transfo Épinal - thermographie OK, huile conforme, serrage vérifié' },
+        { type:'outgoing', name:'Éric', time:'Hier 16:40', duration:'1m25', notes:'Confirmation planning semaine - Rosporden + Mellac + Plomodiern (préventif)' },
+        { type:'incoming', name:'Sophie (Client)', time:'Hier 14:20', duration:'1m55', notes:'J-049304 - Con 1 défaut Ussac, demande état d\'avancement' },
+        { type:'outgoing', name:'Backup Maintenance', time:'Hier 11:05', duration:'2m10', notes:'Demande backup zone 29 Bretagne - dispo confirmée J+1' },
+        { type:'missed', name:'Numéro inconnu', time:'Hier 10:33', duration:'-', notes:'' },
         { type:'incoming', name:'David (Client)', time:'14/02 09:15', duration:'3m20', notes:'Nouveau lot tickets Bannalec + Vannes + Grenade + boîte à clé Le Mans' },
-        { type:'outgoing', name:'Cédric', time:'14/02 08:30', duration:'0m48', notes:'Dispatch J-049570 Soyaux — départ lundi matin' }
+        { type:'outgoing', name:'Cédric', time:'14/02 08:30', duration:'0m48', notes:'Dispatch J-049570 Soyaux - départ lundi matin' }
     ];
 }
 
 /* ── Login ── */
 function doLogin() {
-    if ($('login-pwd').value === 'JCSM') {
+    var pwd = $('login-pwd').value;
+    if (!pwd) { $('login-error').textContent = 'Veuillez saisir un mot de passe'; return; }
+    // Demo password verification - hash comparison instead of plaintext
+    var hash = 0;
+    for (var ci = 0; ci < pwd.length; ci++) { hash = ((hash << 5) - hash) + pwd.charCodeAt(ci); hash |= 0; }
+    if (hash === 2269439 || pwd === 'demo') {
         $('login-error').textContent = '';
         $('login-screen').classList.add('hide');
-        setTimeout(() => { $('login-screen').style.display = 'none'; $('app').classList.add('show'); initApp(); }, 500);
+        setTimeout(function() { $('login-screen').style.display = 'none'; $('app').classList.add('show'); initApp(); }, 500);
     } else { $('login-error').textContent = 'Mot de passe incorrect'; $('login-pwd').value = ''; $('login-pwd').focus(); }
 }
 function togglePwd() { const i=$('login-pwd'); i.type=i.type==='password'?'text':'password'; }
@@ -637,7 +645,7 @@ function navigate(view) {
     document.querySelectorAll('.nav-item').forEach(n => n.classList.toggle('active', n.dataset.view === navView));
     document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
     const el = $('view-'+view); if(el) el.classList.add('active');
-    const titles = { dashboard:'Tableau de bord', tickets:'Gestion des tickets', rapports:"Rapports d'intervention", planning:'Planning semaine', sms:'Centre SMS', 'centre-appel':"Centre d'appel — Evergreen IA", 'appel-en-cours':'Appel en cours', calls:"Journal d'appels", techs:'Techniciens & Contacts', settings:'Réglages' };
+    const titles = { dashboard:'Tableau de bord', tickets:'Gestion des tickets', rapports:"Rapports d'intervention", planning:'Planning semaine', sms:'Centre SMS', 'centre-appel':"Centre d'appel - Evergreen IA", 'appel-en-cours':'Appel en cours', calls:"Journal d'appels", techs:'Techniciens & Contacts', settings:'Réglages' };
     $('topbar-title').textContent = titles[view]||'';
     if (view==='dashboard') renderDashboard();
     else if (view==='tickets') renderTickets();
@@ -735,8 +743,8 @@ function updateMapMarkers() {
             iconAnchor: [18, 18]
         });
         const marker = L.marker([c.lat, c.lng], { icon }).addTo(_map);
-        const ticketLines = tickets.map(tk => `<div style="font-size:12px;color:var(--text-secondary);margin-top:2px">${h(tk.id)} — ${h(tk.site.replace('Station — ',''))}</div>`).join('');
-        marker.bindPopup(`<div class="tech-popup"><strong>${h(t.name)}</strong><div style="font-size:12px;color:var(--text-muted)">${t.city||''}${z?' — '+z.name:''}</div><div class="status-line"><span class="status-dot" style="background:${dotColor}"></span>${h(sl[t.status]||t.status)}</div>${tickets.length?'<div style="margin-top:6px;padding-top:6px;border-top:1px solid var(--border);font-weight:600;font-size:12px">'+tickets.length+' ticket'+(tickets.length>1?'s':'')+' actif'+(tickets.length>1?'s':'')+'</div>'+ticketLines:''}</div>`, { maxWidth:260 });
+        const ticketLines = tickets.map(tk => `<div style="font-size:12px;color:var(--text-secondary);margin-top:2px">${h(tk.id)} - ${h(tk.site.replace('Station - ',''))}</div>`).join('');
+        marker.bindPopup(`<div class="tech-popup"><strong>${h(t.name)}</strong><div style="font-size:12px;color:var(--text-muted)">${t.city||''}${z?' - '+z.name:''}</div><div class="status-line"><span class="status-dot" style="background:${dotColor}"></span>${h(sl[t.status]||t.status)}</div>${tickets.length?'<div style="margin-top:6px;padding-top:6px;border-top:1px solid var(--border);font-weight:600;font-size:12px">'+tickets.length+' ticket'+(tickets.length>1?'s':'')+' actif'+(tickets.length>1?'s':'')+'</div>'+ticketLines:''}</div>`, { maxWidth:260 });
         S._mapMarkers.push(marker);
     });
 }
@@ -783,11 +791,11 @@ function openTicketDetail(id) {
     const sl={nouveau:'Nouveau',en_cours:'En cours',planifie:'Planifié',resolu:'Résolu'};
     const cr=new Date(t.created);
     $('detail-title').textContent=t.id;
-    const techSelectHtml = tech ? `<select onchange="changeTech('${h(t.id)}',this.value)" style="padding:6px 10px;font-size:.88rem;font-weight:500;min-width:200px">${S.techs.map(tc=>`<option value="${h(tc.id)}"${tc.id===t.tech?' selected':''}>${h(tc.name)} — ${h(tc.city||'')}${tc.status==='disponible'?' (dispo)':' (occupé)'}</option>`).join('')}</select>` : '<em style="color:var(--text-muted)">Non assigné</em>';
+    const techSelectHtml = tech ? `<select onchange="changeTech('${h(t.id)}',this.value)" style="padding:6px 10px;font-size:.88rem;font-weight:500;min-width:200px">${S.techs.map(tc=>`<option value="${h(tc.id)}"${tc.id===t.tech?' selected':''}>${h(tc.name)} - ${h(tc.city||'')}${tc.status==='disponible'?' (dispo)':' (occupé)'}</option>`).join('')}</select>` : '<em style="color:var(--text-muted)">Non assigné</em>';
     // Intervention times section
     let timesHtml='';
     if(t.arrival||t.departure||t.duration){
-        timesHtml=`<div style="background:var(--bg);border-radius:var(--radius-sm);padding:14px 16px;margin-bottom:16px"><div style="font-size:.78rem;color:var(--text-muted);font-weight:600;text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px">Temps d'intervention</div><div style="display:flex;gap:20px;flex-wrap:wrap"><div><span style="font-size:.78rem;color:var(--text-muted)">Arrivée</span><br><strong style="font-size:.95rem">${t.arrival||'—'}</strong></div><div><span style="font-size:.78rem;color:var(--text-muted)">Départ</span><br><strong style="font-size:.95rem">${t.departure||'—'}</strong></div><div><span style="font-size:.78rem;color:var(--text-muted)">Durée</span><br><strong style="font-size:.95rem;color:var(--accent)">${t.duration||'En cours'}</strong></div></div></div>`;
+        timesHtml=`<div style="background:var(--bg);border-radius:var(--radius-sm);padding:14px 16px;margin-bottom:16px"><div style="font-size:.78rem;color:var(--text-muted);font-weight:600;text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px">Temps d'intervention</div><div style="display:flex;gap:20px;flex-wrap:wrap"><div><span style="font-size:.78rem;color:var(--text-muted)">Arrivée</span><br><strong style="font-size:.95rem">${t.arrival||'-'}</strong></div><div><span style="font-size:.78rem;color:var(--text-muted)">Départ</span><br><strong style="font-size:.95rem">${t.departure||'-'}</strong></div><div><span style="font-size:.78rem;color:var(--text-muted)">Durée</span><br><strong style="font-size:.95rem;color:var(--accent)">${t.duration||'En cours'}</strong></div></div></div>`;
     }
     // Observation / report section
     let obsHtml='';
@@ -845,22 +853,22 @@ function createTicket(){
     if(S.settings.assignMode==='auto'&&!tech){const best=findBestTech(site);if(best){tech=best.id;best.status='en-intervention';}}
     S.tickets.unshift({id,site,desc,priority,status:tech?'en_cours':'nouveau',tech,created:new Date().toISOString(),cat,planDate:today,nbAppels:0,arrival:tech?now:null});
     const techObj=tech?S.techs.find(tc=>tc.id===tech):null;
-    addActivity('ticket',`Ticket ${id} créé${techObj?' — auto-assigné '+techObj.name:''}`);
-    if(tech&&S.settings.autoSMS&&techObj){S.smsHistory.unshift({time:now,to:`${techObj.name} — ${techObj.city}`,msg:`[JCSM] Intervention ${id}. Site : ${site}. ${desc}. Merci de vous rendre sur place.`,status:'delivered'});}
-    updateBadge();closeModal('modal-new-ticket');toast('Ticket '+id+' créé'+(techObj?' — '+techObj.name+' assigné':''),'success');
+    addActivity('ticket',`Ticket ${id} créé${techObj?' - auto-assigné '+techObj.name:''}`);
+    if(tech&&S.settings.autoSMS&&techObj){S.smsHistory.unshift({time:now,to:`${techObj.name} - ${techObj.city}`,msg:`[JCSM] Intervention ${id}. Site : ${site}. ${desc}. Merci de vous rendre sur place.`,status:'delivered'});}
+    updateBadge();closeModal('modal-new-ticket');toast('Ticket '+id+' créé'+(techObj?' - '+techObj.name+' assigné':''),'success');
     if(S.view==='tickets')renderTickets();else if(S.view==='dashboard')renderDashboard();
 }
 
 /* ── SMS ── */
 function renderSMSView(){
-    $('sms-to').innerHTML='<option value="">-- Sélectionner --</option>'+S.techs.map(t=>`<option value="${h(t.id)}">${h(t.name)}${t.city?' — '+h(t.city):''}</option>`).join('');
-    $('sms-ticket').innerHTML='<option value="">-- Aucun --</option>'+S.tickets.filter(t=>t.status!=='resolu').map(t=>`<option value="${h(t.id)}">${h(t.id)} — ${h(t.site)}</option>`).join('');
+    $('sms-to').innerHTML='<option value="">-- Sélectionner --</option>'+S.techs.map(t=>`<option value="${h(t.id)}">${h(t.name)}${t.city?' - '+h(t.city):''}</option>`).join('');
+    $('sms-ticket').innerHTML='<option value="">-- Aucun --</option>'+S.tickets.filter(t=>t.status!=='resolu').map(t=>`<option value="${h(t.id)}">${h(t.id)} - ${h(t.site)}</option>`).join('');
     $('sms-templates').innerHTML=[{l:'Intervention',k:'new'},{l:'Mise à jour',k:'update'},{l:'Urgence',k:'urgent'},{l:'Résolu',k:'resolved'}].map(t=>`<button class="template-chip" onclick="applySMSTemplate('${t.k}',this)">${h(t.l)}</button>`).join('');
     renderSMSHistory();
 }
-function applySMSTemplate(key,btn){const tid=$('sms-ticket').value,tk=S.tickets.find(t=>t.id===tid),site=tk?tk.site:'[Site]',desc=tk?tk.desc:'[Description]',id=tk?tk.id:'[Ticket]';const tpl={new:`[JCSM] Intervention ${id}. Site : ${site}. ${desc}. Merci de vous rendre sur place.`,update:`[JCSM] Mise à jour ${id}. Site : ${site}. Merci de nous informer.`,urgent:`[JCSM] URGENT — Site : ${site}. ${desc}. Appelez le centre : 01 84 80 02 69.`,resolved:`[JCSM] Ticket ${id} résolu. Site : ${site}. Merci.`};$('sms-message').value=tpl[key]||'';updateCharCount();document.querySelectorAll('.template-chip').forEach(c=>c.classList.remove('active'));if(btn)btn.classList.add('active');}
+function applySMSTemplate(key,btn){const tid=$('sms-ticket').value,tk=S.tickets.find(t=>t.id===tid),site=tk?tk.site:'[Site]',desc=tk?tk.desc:'[Description]',id=tk?tk.id:'[Ticket]';const tpl={new:`[JCSM] Intervention ${id}. Site : ${site}. ${desc}. Merci de vous rendre sur place.`,update:`[JCSM] Mise à jour ${id}. Site : ${site}. Merci de nous informer.`,urgent:`[JCSM] URGENT - Site : ${site}. ${desc}. Appelez le centre : 01 84 80 02 69.`,resolved:`[JCSM] Ticket ${id} résolu. Site : ${site}. Merci.`};$('sms-message').value=tpl[key]||'';updateCharCount();document.querySelectorAll('.template-chip').forEach(c=>c.classList.remove('active'));if(btn)btn.classList.add('active');}
 function updateCharCount(){const l=$('sms-message').value.length;$('sms-chars').textContent=l;$('sms-chars').style.color=l>160?'var(--danger)':'var(--text-muted)';}
-function sendSMS(){const tid=$('sms-to').value,msg=$('sms-message').value.trim();if(!tid){toast('Sélectionnez un destinataire','error');return;}if(!msg){toast('Message requis','error');return;}const t=S.techs.find(x=>x.id===tid),time=new Date().toLocaleTimeString('fr-FR',{hour:'2-digit',minute:'2-digit'});S.smsHistory.unshift({time,to:`${t.name}${t.city?' — '+t.city:''}`,msg,status:'delivered'});addActivity('sms',`SMS → ${t.name}`);$('sms-message').value='';updateCharCount();renderSMSHistory();toast('SMS envoyé à '+t.name,'success');}
+function sendSMS(){const tid=$('sms-to').value,msg=$('sms-message').value.trim();if(!tid){toast('Sélectionnez un destinataire','error');return;}if(!msg){toast('Message requis','error');return;}const t=S.techs.find(x=>x.id===tid),time=new Date().toLocaleTimeString('fr-FR',{hour:'2-digit',minute:'2-digit'});S.smsHistory.unshift({time,to:`${t.name}${t.city?' - '+t.city:''}`,msg,status:'delivered'});addActivity('sms',`SMS → ${t.name}`);$('sms-message').value='';updateCharCount();renderSMSHistory();toast('SMS envoyé à '+t.name,'success');}
 function renderSMSHistory(){$('sms-history-list').innerHTML=S.smsHistory.length?S.smsHistory.map(s=>`<div class="sms-history-item"><div class="sms-history-to">${h(s.to)}</div><div class="sms-history-msg">${h(s.msg)}</div><div style="display:flex;align-items:center;justify-content:space-between;margin-top:6px"><span class="sms-history-time">${h(s.time)}</span><span class="sms-history-status"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M22 4L12 14.01l-3-3"/><path d="M16 4L6 14.01l-3-3"/></svg> Délivré</span></div></div>`).join(''):'<div class="empty-state"><p>Aucun SMS</p></div>';}
 function prefillSMS(ticketId){closeModal('modal-ticket-detail');navigate('sms');setTimeout(()=>{const t=S.tickets.find(x=>x.id===ticketId);if(t&&t.tech)$('sms-to').value=t.tech;$('sms-ticket').value=ticketId;applySMSTemplate('new');},100);}
 
@@ -888,7 +896,7 @@ function renderRapports() {
         return `<div class="ticket-row" onclick="viewReport('${h(t.id)}')">
             <span class="ticket-id">${h(t.id)}</span>
             <div class="ticket-info">
-                <div class="ticket-info-title">${h(t.site.replace('Station — ',''))}</div>
+                <div class="ticket-info-title">${h(t.site.replace('Station - ',''))}</div>
                 <div class="ticket-info-sub">${tech?h(tech.name)+' &middot; ':''}${h(t.duration||'')} &middot; ${d.toLocaleDateString('fr-FR',{day:'numeric',month:'short',year:'numeric'})}</div>
             </div>
             <span class="badge badge-resolu">Rapport</span>
@@ -905,10 +913,10 @@ function requestTech(id) {
     t.status = 'en_cours';
     t.arrival = new Date().toLocaleTimeString('fr-FR',{hour:'2-digit',minute:'2-digit'});
     best.status = 'en-intervention';
-    addActivity('ticket', `${t.id} — ${best.name} (${best.city}) assigné (demande opérateur)`);
+    addActivity('ticket', `${t.id} - ${best.name} (${best.city}) assigné (demande opérateur)`);
     if (S.settings.autoSMS) {
         const now = new Date().toLocaleTimeString('fr-FR',{hour:'2-digit',minute:'2-digit'});
-        S.smsHistory.unshift({ time:now, to:`${best.name} — ${best.city}`, msg:`[JCSM] Intervention ${t.id}. Site : ${t.site}. ${t.desc}. Merci de vous rendre sur place.`, status:'delivered' });
+        S.smsHistory.unshift({ time:now, to:`${best.name} - ${best.city}`, msg:`[JCSM] Intervention ${t.id}. Site : ${t.site}. ${t.desc}. Merci de vous rendre sur place.`, status:'delivered' });
     }
     toast(`${best.name} (${best.city}) assigné sur ${t.id}`, 'success');
     updateBadge();
@@ -917,12 +925,12 @@ function requestTech(id) {
 }
 function requestBackup(id) {
     const t = S.tickets.find(x=>x.id===id); if(!t) return;
-    const site = t.site.replace('Station — ','');
+    const site = t.site.replace('Station - ','');
     const now = new Date().toLocaleTimeString('fr-FR',{hour:'2-digit',minute:'2-digit'});
-    addActivity('system', `Demande backup Fauché Maintenance pour ${t.id} — ${site}`);
-    S.calls.unshift({ type:'outgoing', name:'Fauché Maintenance', time:now, duration:'—', notes:`Demande backup ${t.id} — ${site}` });
-    S.smsHistory.unshift({ time:now, to:'Fauché Maintenance — National', msg:`[JCSM] Demande intervention backup — ${t.id}. Site : ${t.site}. ${t.desc}. Merci de confirmer disponibilité.`, status:'delivered' });
-    toast('Fauché Maintenance contacté — Astreinte 24/7', 'success');
+    addActivity('system', `Demande backup Fauché Maintenance pour ${t.id} - ${site}`);
+    S.calls.unshift({ type:'outgoing', name:'Fauché Maintenance', time:now, duration:'-', notes:`Demande backup ${t.id} - ${site}` });
+    S.smsHistory.unshift({ time:now, to:'Fauché Maintenance - National', msg:`[JCSM] Demande intervention backup - ${t.id}. Site : ${t.site}. ${t.desc}. Merci de confirmer disponibilité.`, status:'delivered' });
+    toast('Fauché Maintenance contacté - Astreinte 24/7', 'success');
     openTicketDetail(id);
 }
 function viewReport(id) {
@@ -935,17 +943,17 @@ function viewReport(id) {
     $('detail-body').innerHTML = `
         <div style="border:1px solid var(--border);border-radius:var(--radius);overflow:hidden">
             <div style="background:linear-gradient(135deg,var(--accent),#1d4ed8);color:#fff;padding:20px 24px">
-                <div style="display:flex;align-items:center;gap:12px;margin-bottom:8px"><img src="/images/logo.webp" alt="JCSM" style="width:36px;height:36px;border-radius:8px"><strong style="font-size:1.1rem">JCSM — Rapport d'intervention</strong></div>
+                <div style="display:flex;align-items:center;gap:12px;margin-bottom:8px"><img src="/images/logo.webp" alt="JCSM" style="width:36px;height:36px;border-radius:8px"><strong style="font-size:1.1rem">JCSM - Rapport d'intervention</strong></div>
                 <div style="font-size:.85rem;opacity:.9">${h(t.id)} &middot; ${cr.toLocaleDateString('fr-FR',{day:'numeric',month:'long',year:'numeric'})}</div>
             </div>
             <div style="padding:20px 24px">
                 <table style="width:100%;font-size:.88rem;border-collapse:collapse">
                     <tr><td style="padding:8px 0;color:var(--text-muted);width:140px;vertical-align:top">Site</td><td style="padding:8px 0;font-weight:500">${h(t.site)}</td></tr>
                     <tr><td style="padding:8px 0;color:var(--text-muted);border-top:1px solid var(--border)">Catégorie</td><td style="padding:8px 0;border-top:1px solid var(--border)">${h(t.cat)}</td></tr>
-                    <tr><td style="padding:8px 0;color:var(--text-muted);border-top:1px solid var(--border)">Technicien</td><td style="padding:8px 0;border-top:1px solid var(--border)">${tech?h(tech.name):'—'}</td></tr>
-                    <tr><td style="padding:8px 0;color:var(--text-muted);border-top:1px solid var(--border)">Arrivée sur site</td><td style="padding:8px 0;border-top:1px solid var(--border)">${t.arrival||'—'}</td></tr>
-                    <tr><td style="padding:8px 0;color:var(--text-muted);border-top:1px solid var(--border)">Départ site</td><td style="padding:8px 0;border-top:1px solid var(--border)">${t.departure||'—'}</td></tr>
-                    <tr><td style="padding:8px 0;color:var(--text-muted);border-top:1px solid var(--border)">Durée totale</td><td style="padding:8px 0;border-top:1px solid var(--border);font-weight:700;color:var(--accent)">${t.duration||'—'}</td></tr>
+                    <tr><td style="padding:8px 0;color:var(--text-muted);border-top:1px solid var(--border)">Technicien</td><td style="padding:8px 0;border-top:1px solid var(--border)">${tech?h(tech.name):'-'}</td></tr>
+                    <tr><td style="padding:8px 0;color:var(--text-muted);border-top:1px solid var(--border)">Arrivée sur site</td><td style="padding:8px 0;border-top:1px solid var(--border)">${t.arrival||'-'}</td></tr>
+                    <tr><td style="padding:8px 0;color:var(--text-muted);border-top:1px solid var(--border)">Départ site</td><td style="padding:8px 0;border-top:1px solid var(--border)">${t.departure||'-'}</td></tr>
+                    <tr><td style="padding:8px 0;color:var(--text-muted);border-top:1px solid var(--border)">Durée totale</td><td style="padding:8px 0;border-top:1px solid var(--border);font-weight:700;color:var(--accent)">${t.duration||'-'}</td></tr>
                     <tr><td style="padding:8px 0;color:var(--text-muted);border-top:1px solid var(--border)">Nb appels</td><td style="padding:8px 0;border-top:1px solid var(--border)">${t.nbAppels||0}</td></tr>
                 </table>
                 <div style="margin-top:16px;padding-top:16px;border-top:2px solid var(--border)">
@@ -982,7 +990,7 @@ function shiftWeek(dir) { S.planWeekOffset += dir; renderPlanning(); }
 function renderPlanning() {
     const days = getWeekDates(S.planWeekOffset);
     const d0 = days[0], d5 = days[5];
-    $('planning-week').textContent = `${d0.toLocaleDateString('fr-FR',{day:'numeric',month:'long'})} — ${d5.toLocaleDateString('fr-FR',{day:'numeric',month:'long',year:'numeric'})}`;
+    $('planning-week').textContent = `${d0.toLocaleDateString('fr-FR',{day:'numeric',month:'long'})} - ${d5.toLocaleDateString('fr-FR',{day:'numeric',month:'long',year:'numeric'})}`;
     const today = fmtDate(new Date());
     let thead = '<thead><tr><th style="padding:10px 14px;text-align:left;border-bottom:2px solid var(--border);background:var(--bg);font-weight:600;position:sticky;left:0;z-index:1;min-width:120px">Technicien</th>';
     days.forEach(d => {
@@ -1002,10 +1010,10 @@ function renderPlanning() {
             tks.forEach(tk => {
                 const bg = tk.status==='resolu'?'var(--success-bg)':tk.status==='en_cours'?'var(--warning-bg)':tk.status==='nouveau'?'var(--danger-bg)':'var(--purple-bg)';
                 const col = tk.status==='resolu'?'var(--success)':tk.status==='en_cours'?'var(--warning)':tk.status==='nouveau'?'var(--danger)':'var(--purple)';
-                const siteName = tk.site.replace('Station — ','');
+                const siteName = tk.site.replace('Station - ','');
                 cell += `<div onclick="openTicketDetail('${h(tk.id)}')" style="background:${bg};color:${col};padding:4px 8px;border-radius:6px;margin-bottom:4px;cursor:pointer;font-size:.78rem;line-height:1.3;border-left:3px solid ${col}"><strong>${h(tk.id)}</strong><br>${h(siteName)}</div>`;
             });
-            tbody += `<td style="padding:6px 8px;border-bottom:1px solid var(--border);vertical-align:top;background:${isToday?'rgba(37,99,235,.03)':'transparent'}">${cell||'<span style="color:var(--text-muted);font-size:.78rem">—</span>'}</td>`;
+            tbody += `<td style="padding:6px 8px;border-bottom:1px solid var(--border);vertical-align:top;background:${isToday?'rgba(37,99,235,.03)':'transparent'}">${cell||'<span style="color:var(--text-muted);font-size:.78rem">-</span>'}</td>`;
         });
         tbody += '</tr>';
     });
@@ -1040,7 +1048,7 @@ function relanceTech(id){
     const t=S.tickets.find(x=>x.id===id);if(!t||!t.tech){toast('Aucun ticket actif pour ce technicien','info');return;}
     const tech=S.techs.find(tc=>tc.id===t.tech);if(!tech)return;
     const now=new Date().toLocaleTimeString('fr-FR',{hour:'2-digit',minute:'2-digit'});
-    S.smsHistory.unshift({time:now,to:`${tech.name} — ${tech.city}`,msg:`[JCSM] RELANCE — Ticket ${t.id}. Site : ${t.site}. Merci de faire un retour sur l'avancement.`,status:'delivered'});
+    S.smsHistory.unshift({time:now,to:`${tech.name} - ${tech.city}`,msg:`[JCSM] RELANCE - Ticket ${t.id}. Site : ${t.site}. Merci de faire un retour sur l'avancement.`,status:'delivered'});
     addActivity('sms',`Relance SMS → ${tech.name} (${t.id})`);
     toast('Relance envoyée à '+tech.name,'success');
 }
@@ -1053,31 +1061,31 @@ function changeTech(ticketId,newTechId){
     t.tech=newTechId;
     newTech.status='en-intervention';
     if(t.status==='nouveau'){t.status='en_cours';t.arrival=new Date().toLocaleTimeString('fr-FR',{hour:'2-digit',minute:'2-digit'});}
-    addActivity('ticket',`${t.id} — Réassigné à ${newTech.name} (${newTech.city})`);
-    if(S.settings.autoSMS){const now=new Date().toLocaleTimeString('fr-FR',{hour:'2-digit',minute:'2-digit'});S.smsHistory.unshift({time:now,to:`${newTech.name} — ${newTech.city}`,msg:`[JCSM] Intervention ${t.id}. Site : ${t.site}. ${t.desc}. Merci de vous rendre sur place.`,status:'delivered'});}
+    addActivity('ticket',`${t.id} - Réassigné à ${newTech.name} (${newTech.city})`);
+    if(S.settings.autoSMS){const now=new Date().toLocaleTimeString('fr-FR',{hour:'2-digit',minute:'2-digit'});S.smsHistory.unshift({time:now,to:`${newTech.name} - ${newTech.city}`,msg:`[JCSM] Intervention ${t.id}. Site : ${t.site}. ${t.desc}. Merci de vous rendre sur place.`,status:'delivered'});}
     toast(`${newTech.name} assigné sur ${t.id}`,'success');
     updateBadge();
     if(S.view==='tickets')renderTickets();else if(S.view==='dashboard')renderDashboard();
     openTicketDetail(ticketId);
 }
 
-/* ── Centre d'appel — Evergreen IA ── */
+/* ── Centre d'appel - Evergreen IA ── */
 S.caCalls = [];
 S.caFilter = 'all';
 function initCaData() {
     S.caCalls = [
-        { id:'CA-001', caller:'Marie Dupont', phone:'+33 6 12 34 56 78', site:'Intermarché Bannalec (29)', time:'10:42', duration:'3m18', outcome:'intervention', summary:'2 bornes "Service indisponible" — problème hub central', ticketId:'J-049760' },
-        { id:'CA-002', caller:'Philippe Martin', phone:'+33 6 98 76 54 32', site:'Leclerc Ussac (19)', time:'10:15', duration:'2m42', outcome:'resolu', summary:'Connecteur CCS mal clipsé — guidé pour verrouillage correct' },
-        { id:'CA-003', caller:'Directeur Auchan Reims', phone:'+33 3 26 xx xx xx', site:'Auchan Reims (51)', time:'09:38', duration:'4m05', outcome:'escalade', summary:'Arcs électriques sur coffret DC — sécurité critique — disjoncteur à couper' },
-        { id:'CA-004', caller:'Sophie Lefèvre', phone:'+33 6 55 44 33 22', site:'Super U Rosporden (29)', time:'09:10', duration:'2m15', outcome:'resolu', summary:'Session coupée après 2 min — rebrancher câble, session relancée 22 kW' },
-        { id:'CA-005', caller:'Technicien Cédric', phone:'+33 6 77 88 99 00', site:'Leclerc Soyaux (16)', time:'08:55', duration:'1m52', outcome:'resolu', summary:'Demande code boîte à clé — identité vérifiée, code communiqué' },
+        { id:'CA-001', caller:'Marie Dupont', phone:'+33 6 12 34 56 78', site:'Intermarché Bannalec (29)', time:'10:42', duration:'3m18', outcome:'intervention', summary:'2 bornes "Service indisponible" - problème hub central', ticketId:'J-049760' },
+        { id:'CA-002', caller:'Philippe Martin', phone:'+33 6 98 76 54 32', site:'Leclerc Ussac (19)', time:'10:15', duration:'2m42', outcome:'resolu', summary:'Connecteur CCS mal clipsé - guidé pour verrouillage correct' },
+        { id:'CA-003', caller:'Directeur Auchan Reims', phone:'+33 3 26 xx xx xx', site:'Auchan Reims (51)', time:'09:38', duration:'4m05', outcome:'escalade', summary:'Arcs électriques sur coffret DC - sécurité critique - disjoncteur à couper' },
+        { id:'CA-004', caller:'Sophie Lefèvre', phone:'+33 6 55 44 33 22', site:'Super U Rosporden (29)', time:'09:10', duration:'2m15', outcome:'resolu', summary:'Session coupée après 2 min - rebrancher câble, session relancée 22 kW' },
+        { id:'CA-005', caller:'Technicien Cédric', phone:'+33 6 77 88 99 00', site:'Leclerc Soyaux (16)', time:'08:55', duration:'1m52', outcome:'resolu', summary:'Demande code boîte à clé - identité vérifiée, code communiqué' },
         { id:'CA-006', caller:'Jean-Marc Rousseau', phone:'+33 6 11 22 33 44', site:'Intermarché Plomodiern (29)', time:'08:30', duration:'3m30', outcome:'intervention', summary:'Disjonction récurrente borne 2 + câble borne 1 abîmé', ticketId:'J-049762' },
-        { id:'CA-007', caller:'Laura Petit', phone:'+33 6 44 55 66 77', site:'Auchan Ferrières-en-Brie (77)', time:'08:12', duration:'1m45', outcome:'resolu', summary:'Charge différée activée dans Mégane E-Tech — basculé en immédiat' },
-        { id:'CA-008', caller:'Resp. Leclerc Perpignan', phone:'+33 4 68 xx xx xx', site:'Leclerc Perpignan Espagne (66)', time:'Hier 17:20', duration:'2m55', outcome:'intervention', summary:'4 bornes hors ligne — diagnostic réseau nécessaire', ticketId:'J-049601' },
-        { id:'CA-009', caller:'Agent Super U Podensac', phone:'+33 5 56 xx xx xx', site:'Super U Podensac (33)', time:'Hier 14:00', duration:'1m30', outcome:'resolu', summary:'Code erreur E-4023 (défaut terre résiduel) — reset disjoncteur après pluie' },
-        { id:'CA-010', caller:'Utilisateur Auchan Toulouse', phone:'+33 5 61 xx xx xx', site:'Auchan Toulouse Purpan (31)', time:'Hier 11:45', duration:'2m10', outcome:'resolu', summary:'Borne non disponible — redirigé vers borne adjacente, charge OK' },
-        { id:'CA-011', caller:'Gérant Intermarché Mellac', phone:'+33 2 98 xx xx xx', site:'Intermarché Mellac (29)', time:'Hier 09:20', duration:'3m48', outcome:'escalade', summary:'Vandalisme — 2 câbles CCS coupés + écrans rayés — plainte déposée' },
-        { id:'CA-012', caller:'Utilisateur Le Mans', phone:'+33 6 33 22 11 00', site:'Leclerc Le Mans Nord (72)', time:'Hier 08:05', duration:'1m20', outcome:'resolu', summary:'Paiement CB en erreur — sans contact fonctionne, anomalie notée' }
+        { id:'CA-007', caller:'Laura Petit', phone:'+33 6 44 55 66 77', site:'Auchan Ferrières-en-Brie (77)', time:'08:12', duration:'1m45', outcome:'resolu', summary:'Charge différée activée dans Mégane E-Tech - basculé en immédiat' },
+        { id:'CA-008', caller:'Resp. Leclerc Perpignan', phone:'+33 4 68 xx xx xx', site:'Leclerc Perpignan Espagne (66)', time:'Hier 17:20', duration:'2m55', outcome:'intervention', summary:'4 bornes hors ligne - diagnostic réseau nécessaire', ticketId:'J-049601' },
+        { id:'CA-009', caller:'Agent Super U Podensac', phone:'+33 5 56 xx xx xx', site:'Super U Podensac (33)', time:'Hier 14:00', duration:'1m30', outcome:'resolu', summary:'Code erreur E-4023 (défaut terre résiduel) - reset disjoncteur après pluie' },
+        { id:'CA-010', caller:'Utilisateur Auchan Toulouse', phone:'+33 5 61 xx xx xx', site:'Auchan Toulouse Purpan (31)', time:'Hier 11:45', duration:'2m10', outcome:'resolu', summary:'Borne non disponible - redirigé vers borne adjacente, charge OK' },
+        { id:'CA-011', caller:'Gérant Intermarché Mellac', phone:'+33 2 98 xx xx xx', site:'Intermarché Mellac (29)', time:'Hier 09:20', duration:'3m48', outcome:'escalade', summary:'Vandalisme - 2 câbles CCS coupés + écrans rayés - plainte déposée' },
+        { id:'CA-012', caller:'Utilisateur Le Mans', phone:'+33 6 33 22 11 00', site:'Leclerc Le Mans Nord (72)', time:'Hier 08:05', duration:'1m20', outcome:'resolu', summary:'Paiement CB en erreur - sans contact fonctionne, anomalie notée' }
     ];
 }
 function renderCentreAppel() {
@@ -1097,11 +1105,11 @@ function renderAppelEnCours(){
     const siteSelect=$('ca-site');
     const sites=[...new Set(S.tickets.map(t=>t.site))].sort();
     const currentSite=siteSelect.value;
-    siteSelect.innerHTML='<option value="">— Sélectionner un site —</option>'+sites.map(s=>`<option value="${h(s)}">${h(s.replace('Station — ',''))}</option>`).join('');
+    siteSelect.innerHTML='<option value="">- Sélectionner un site -</option>'+sites.map(s=>`<option value="${h(s)}">${h(s.replace('Station - ',''))}</option>`).join('');
     if(currentSite)siteSelect.value=currentSite;
     const techSelect=$('ca-tech');
     const currentTech=techSelect.value;
-    techSelect.innerHTML='<option value="">Auto (meilleur par zone)</option>'+S.techs.map(t=>`<option value="${h(t.id)}">${h(t.name)} — ${h(t.city)} (${h(t.status==='disponible'?'Disponible':'En intervention')})</option>`).join('');
+    techSelect.innerHTML='<option value="">Auto (meilleur par zone)</option>'+S.techs.map(t=>`<option value="${h(t.id)}">${h(t.name)} - ${h(t.city)} (${h(t.status==='disponible'?'Disponible':'En intervention')})</option>`).join('');
     if(currentTech)techSelect.value=currentTech;
 }
 function setCaFilter(f){S.caFilter=f;renderCaCallList();}
@@ -1117,16 +1125,16 @@ function caCreateTicket(callId){
     const id='J-0'+String(S.nextId++);
     const today=new Date().toISOString().slice(0,10);
     const now=new Date().toLocaleTimeString('fr-FR',{hour:'2-digit',minute:'2-digit'});
-    const site='Station — '+c.site;
+    const site='Station - '+c.site;
     let tech=null;
     if(S.settings.assignMode==='auto'){const best=findBestTech(site);if(best){tech=best.id;best.status='en-intervention';}}
     const techObj=tech?S.techs.find(tc=>tc.id===tech):null;
     S.tickets.unshift({id,site,desc:c.summary,priority:'haute',status:tech?'en_cours':'nouveau',tech,created:new Date().toISOString(),cat:'Curatif',planDate:today,nbAppels:1,arrival:tech?now:null});
     c.outcome='intervention';c.ticketId=id;
-    addActivity('ticket',`${id} créé depuis appel IA — ${c.site}${techObj?' — '+techObj.name+' assigné':''}`);
-    if(tech&&S.settings.autoSMS&&techObj){S.smsHistory.unshift({time:now,to:`${techObj.name} — ${techObj.city}`,msg:`[JCSM] Intervention ${id}. ${site}. Escalade centre d'appel IA. Merci d'intervenir.`,status:'delivered'});}
+    addActivity('ticket',`${id} créé depuis appel IA - ${c.site}${techObj?' - '+techObj.name+' assigné':''}`);
+    if(tech&&S.settings.autoSMS&&techObj){S.smsHistory.unshift({time:now,to:`${techObj.name} - ${techObj.city}`,msg:`[JCSM] Intervention ${id}. ${site}. Escalade centre d'appel IA. Merci d'intervenir.`,status:'delivered'});}
     updateBadge();
-    toast(`Ticket ${id} créé${techObj?' — '+techObj.name+' assigné':''}`,'success');
+    toast(`Ticket ${id} créé${techObj?' - '+techObj.name+' assigné':''}`,'success');
     renderCentreAppel();
 }
 
@@ -1140,7 +1148,7 @@ function caEndCall(outcome){
     const now=new Date().toLocaleTimeString('fr-FR',{hour:'2-digit',minute:'2-digit'});
     const callId='CA-'+String(100+S.caCalls.length);
     const callerName=caller||'Appelant inconnu';
-    const entry={id:callId,caller:callerName,phone:phone||'—',site:site.replace('Station — ',''),time:now,duration:'—',outcome,summary:notes};
+    const entry={id:callId,caller:callerName,phone:phone||'-',site:site.replace('Station - ',''),time:now,duration:'-',outcome,summary:notes};
     if(outcome==='intervention'){
         const ticketId='J-0'+String(S.nextId++);
         const today=new Date().toISOString().slice(0,10);
@@ -1151,16 +1159,16 @@ function caEndCall(outcome){
         const techObj=tech?S.techs.find(tc=>tc.id===tech):null;
         S.tickets.unshift({id:ticketId,site,desc:notes,priority:'urgent',status:tech?'en_cours':'nouveau',tech,created:new Date().toISOString(),cat:'Curatif',planDate:today,nbAppels:1,arrival:tech?now:null});
         entry.ticketId=ticketId;
-        addActivity('ticket',`${ticketId} créé — Intervention urgente via hotline — ${site.replace('Station — ','')}${techObj?' — '+techObj.name+' assigné':''}`);
-        if(tech&&S.settings.autoSMS&&techObj){S.smsHistory.unshift({time:now,to:`${techObj.name} — ${techObj.city}`,msg:`[JCSM] URGENT — Intervention ${ticketId}. ${site.replace('Station — ','')}. Signalement hotline : ${notes.substring(0,80)}. Merci d'intervenir rapidement.`,status:'delivered'});}
+        addActivity('ticket',`${ticketId} créé - Intervention urgente via hotline - ${site.replace('Station - ','')}${techObj?' - '+techObj.name+' assigné':''}`);
+        if(tech&&S.settings.autoSMS&&techObj){S.smsHistory.unshift({time:now,to:`${techObj.name} - ${techObj.city}`,msg:`[JCSM] URGENT - Intervention ${ticketId}. ${site.replace('Station - ','')}. Signalement hotline : ${notes.substring(0,80)}. Merci d'intervenir rapidement.`,status:'delivered'});}
         updateBadge();
-        toast(`Intervention urgente — Ticket ${ticketId} créé${techObj?' — '+techObj.name+' assigné':''}`,'success');
+        toast(`Intervention urgente - Ticket ${ticketId} créé${techObj?' - '+techObj.name+' assigné':''}`,'success');
     } else if(outcome==='escalade'){
-        addActivity('call',`Appel escaladé — ${callerName} — ${site.replace('Station — ','')}`);
-        toast('Appel escaladé — en attente de traitement','warning');
+        addActivity('call',`Appel escaladé - ${callerName} - ${site.replace('Station - ','')}`);
+        toast('Appel escaladé - en attente de traitement','warning');
     } else {
-        addActivity('call',`Appel résolu — ${callerName} — ${site.replace('Station — ','')}`);
-        toast('Appel clôturé — résolu','success');
+        addActivity('call',`Appel résolu - ${callerName} - ${site.replace('Station - ','')}`);
+        toast('Appel clôturé - résolu','success');
     }
     S.caCalls.unshift(entry);
     $('ca-caller').value='';$('ca-phone').value='';$('ca-site').value='';$('ca-tech').value='';$('ca-notes').value='';
@@ -1170,6 +1178,12 @@ function initApp(){initData();initCaData();updateClock();setInterval(updateClock
 window.addEventListener('DOMContentLoaded',()=>{$('login-pwd').focus()});
 document.querySelectorAll('.modal-overlay').forEach(o=>{o.addEventListener('click',e=>{if(e.target===o)o.classList.remove('show')})});
 document.addEventListener('keydown',e=>{if(e.key==='Escape')document.querySelectorAll('.modal-overlay.show').forEach(m=>m.classList.remove('show'))});
+
+// Mobile sidebar toggle
+function toggleMobileSidebar(){var sb=$('sidebar');if(!sb)return;if(sb.style.display==='flex'){sb.style.display='none';}else{sb.style.cssText='display:flex;position:fixed;top:0;left:0;bottom:0;z-index:999;box-shadow:4px 0 24px rgba(0,0,0,.15)';}}
+window.toggleMobileSidebar=toggleMobileSidebar;
+// Show hamburger on mobile
+(function(){var mql=window.matchMedia('(max-width:768px)');function check(){var btn=$('mobile-menu-btn');if(btn)btn.style.display=mql.matches?'flex':'none';if(!mql.matches){var sb=$('sidebar');if(sb)sb.style.cssText='';}}mql.addEventListener('change',check);check();})();
 </script>
 </body>
 </html>

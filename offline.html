@@ -4,179 +4,190 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-KKMQQVCF');</script>
-    <!-- End Google Tag Manager -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
     <title>Hors ligne | JCSM</title>
-    <meta name="description" content="Vous êtes actuellement hors ligne. Reconnectez-vous pour accéder aux services JCSM : installation, maintenance et exploitation de bornes de recharge IRVE.">
+    <meta name="description" content="Vous êtes actuellement hors ligne. Reconnectez-vous pour accéder aux services JCSM.">
     <meta name="robots" content="noindex, nofollow">
     <meta property="og:site_name" content="JCSM - Infrastructure de Recharge">
-    <link rel="icon" type="image/png" href="images/logo.png">
-    <link rel="manifest" href="manifest.json">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"
+        media="print" onload="this.media='all'">
+    <noscript>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+            rel="stylesheet">
+    </noscript>
+    <link rel="stylesheet" href="/css/critical.css?v=44">
+    <link rel="stylesheet" href="/css/tailwind.css?v=44" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="/css/tailwind.css?v=44"></noscript>
+    <link rel="stylesheet" href="/styles.css?v=44" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="/styles.css?v=44"></noscript>
+    <link rel="manifest" href="/manifest.json">
     <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="theme-color" content="#2563EB">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        /* Critical inline styles - nav, preloader, mobile menu, skip-link */
+        .glass-nav {
+            background: rgba(255,255,255,.97) !important;
+            border-bottom: 1px solid rgba(0,0,0,.08) !important;
+            box-shadow: 0 1px 4px rgba(0,0,0,.04) !important;
+            transition: background 0.3s ease, box-shadow 0.3s ease, padding 0.3s ease;
         }
-
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: linear-gradient(135deg, #FAFAFA 0%, #E5E7EB 100%);
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
+        h1, h2, h3, h4, h5, h6 { color: #111827; }
+        html, body { overflow-x: hidden; color: #111827; }
+        .preloader {
+            position: fixed; inset: 0; background: #fafafa;
+            display: flex; align-items: center; justify-content: center;
+            z-index: 10000; transition: opacity .4s cubic-bezier(0.16, 1, 0.3, 1), transform .4s cubic-bezier(0.16, 1, 0.3, 1);
         }
-
+        .preloader.hide { opacity: 0; pointer-events: none; transform: scale(1.02); }
+        .mobile-menu {
+            position: fixed; top: 0; right: -100%;
+            width: 100%; max-width: 400px; height: 100vh; height: 100dvh;
+            background: rgba(250,250,250,.98); backdrop-filter: blur(12px);
+            z-index: 200; transition: right .35s cubic-bezier(0.16, 1, 0.3, 1);
+            overflow-y: auto;
+        }
+        .mobile-menu.active { right: 0; }
+        .mobile-menu-overlay {
+            position: fixed; inset: 0; background: rgba(0,0,0,.4);
+            z-index: 199; opacity: 0; pointer-events: none;
+            transition: opacity .35s ease;
+        }
+        .mobile-menu-overlay.active { opacity: 1; pointer-events: auto; }
+        .mobile-menu-btn { display: block; }
+        @media (min-width: 1024px) { .mobile-menu-btn { display: none; } }
         .skip-link {
-            position: absolute;
-            top: -100px;
-            left: 0;
-            background: #2563EB;
-            color: #fff;
-            padding: 8px 16px;
-            z-index: 100;
-            font-size: 14px;
-            text-decoration: none;
-            border-radius: 0 0 8px 0;
+            position: absolute; top: -100%; left: 16px;
+            background: #2563eb; color: #fff; padding: 12px 24px;
+            border-radius: 0.75rem; font-weight: 600; z-index: 10001;
+            transition: top .2s ease; text-decoration: none;
         }
-
-        .skip-link:focus {
-            top: 0;
+        .skip-link:focus { top: 16px; }
+        .btn-primary {
+            background: linear-gradient(135deg, #2563eb, #1d4ed8) !important;
+            box-shadow: 0 2px 8px rgba(37,99,235,0.3);
+            transition: box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1), transform 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
         }
-
-        .container {
-            background: #fff;
-            padding: 40px;
-            border-radius: 24px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
-            text-align: center;
-            max-width: 400px;
-            width: 100%;
-        }
-
-        .icon {
-            width: 64px;
-            height: 64px;
-            background: #F3F4F6;
-            border-radius: 16px;
-            margin: 0 auto 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #6B7280;
-        }
-
-        .icon svg {
-            width: 32px;
-            height: 32px;
-        }
-
-        h1 {
-            font-size: 24px;
-            font-weight: 700;
-            color: #111827;
-            margin-bottom: 12px;
-        }
-
-        p {
-            color: #6B7280;
-            line-height: 1.6;
-            margin-bottom: 32px;
-        }
-
-        .btn {
-            display: inline-block;
-            background: #000;
-            color: #fff;
-            padding: 12px 24px;
-            border-radius: 12px;
-            text-decoration: none;
-            font-weight: 500;
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-
-        .btn:hover {
+        .btn-primary:hover {
+            box-shadow: 0 4px 16px rgba(37,99,235,0.4) !important;
             transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
         }
-
-        .btn:focus-visible {
-            outline: 3px solid #2563EB;
-            outline-offset: 2px;
+        .btn-primary:active { transform: translateY(1px) scale(0.98); }
+        /* Pulse animation for status dot */
+        .pulse-dot {
+            animation: pulse-ring 2s ease-in-out infinite;
         }
-
-        .status {
-            margin-top: 24px;
-            padding: 12px;
-            background: rgba(239, 68, 68, 0.1);
-            border-radius: 8px;
-            color: #DC2626;
-            font-size: 14px;
-        }
-
-        .status.online {
-            background: rgba(16, 185, 129, 0.1);
-            color: #059669;
-        }
-
-        footer {
-            margin-top: 32px;
-            text-align: center;
+        @keyframes pulse-ring {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
         }
     </style>
 </head>
 
-<body>
-    <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KKMQQVCF"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
+<body class="text-gray-900">
     <a href="#main-content" class="skip-link">Aller au contenu principal</a>
 
-    <main id="main-content" role="main">
-        <div class="container">
-            <div class="icon" aria-hidden="true">
-                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M18.364 5.636a9 9 0 010 12.728m0 0l-2.829-2.829m2.829 2.829L21 21M15.536 8.464a5 5 0 010 7.072m0 0l-2.829-2.829m-4.243 2.829a4.978 4.978 0 01-1.414-2.83m-1.414 5.658a9 9 0 01-2.167-9.238m7.824 2.167a1 1 0 111.414 1.414m-1.414-1.414L3 3m8.293 8.293l1.414 1.414" />
-                </svg>
+    <div class="preloader" id="preloader" role="status" aria-label="Chargement">
+        <div class="flex flex-col items-center justify-center">
+            <picture><source srcset="images/logo.webp" type="image/webp"><img src="images/logo.png" alt="JCSM" width="80" height="80" class="animate-pulse"></picture>
+            <div class="mt-4 flex space-x-2" aria-hidden="true">
+                <div class="w-2 h-2 bg-blue-600 rounded-full animate-bounce" style="animation-delay: 0s"></div>
+                <div class="w-2 h-2 bg-blue-600 rounded-full animate-bounce" style="animation-delay: 0.1s"></div>
+                <div class="w-2 h-2 bg-blue-600 rounded-full animate-bounce" style="animation-delay: 0.2s"></div>
             </div>
-            <h1>Vous êtes hors ligne</h1>
-            <p>Pas de connexion internet. Vérifiez votre réseau et réessayez.</p>
-            <a href="/" class="btn" onclick="location.reload()">Réessayer</a>
-            <div class="status" id="status" role="status" aria-live="polite">Hors ligne</div>
         </div>
+    </div>
+
+    <nav class="fixed top-0 w-full z-50 glass-nav border-b border-gray-200" role="navigation" aria-label="Navigation principale">
+        <div class="max-w-7xl mx-auto px-6 py-5">
+            <div class="flex justify-between items-center">
+                <a href="/" class="flex items-center space-x-3 group">
+                    <picture><source srcset="images/logo.webp" type="image/webp"><img src="images/logo.png" alt="JCSM" class="w-9 h-9 transition-transform group-hover:scale-105 duration-300" width="36" height="36"></picture>
+                    <span class="text-xl font-bold tracking-tight">JCSM</span>
+                </a>
+                <div class="flex items-center gap-2 text-sm text-gray-500">
+                    <span class="w-2 h-2 bg-red-500 rounded-full pulse-dot" aria-hidden="true"></span>
+                    <span>Hors ligne</span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main id="main-content" role="main">
+        <section class="min-h-screen flex items-center justify-center px-6 bg-white pt-24 pb-16">
+            <div class="max-w-lg mx-auto text-center">
+                <div class="mb-8">
+                    <div class="w-20 h-20 bg-gray-100 rounded-2xl flex items-center justify-center mx-auto">
+                        <svg class="w-10 h-10 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M18.364 5.636a9 9 0 010 12.728m0 0l-2.829-2.829m2.829 2.829L21 21M15.536 8.464a5 5 0 010 7.072m0 0l-2.829-2.829m-4.243 2.829a4.978 4.978 0 01-1.414-2.83m-1.414 5.658a9 9 0 01-2.167-9.238m7.824 2.167a1 1 0 111.414 1.414m-1.414-1.414L3 3m8.293 8.293l1.414 1.414" />
+                        </svg>
+                    </div>
+                </div>
+
+                <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Vous &ecirc;tes hors ligne</h1>
+
+                <p class="text-gray-600 text-lg mb-10 max-w-md mx-auto leading-relaxed">
+                    Pas de connexion internet. V&eacute;rifiez votre r&eacute;seau et r&eacute;essayez.
+                </p>
+
+                <button onclick="location.reload()"
+                    class="btn-primary px-8 py-4 rounded-xl text-base font-medium text-white shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer border-0">
+                    R&eacute;essayer
+                </button>
+
+                <div class="mt-8 p-4 bg-red-50 rounded-xl" id="status" role="status" aria-live="polite">
+                    <div class="flex items-center justify-center gap-2 text-sm text-red-600 font-medium">
+                        <span class="w-2 h-2 bg-red-500 rounded-full pulse-dot" aria-hidden="true"></span>
+                        <span id="status-text">Hors ligne</span>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 
-    <footer role="contentinfo" aria-label="Pied de page">
-        <p style="font-size:12px;color:#9CA3AF;">© 2026 JCSM SAS</p>
+    <footer class="border-t border-gray-100 py-8 px-6 bg-white" role="contentinfo" aria-label="Pied de page">
+        <div class="max-w-6xl mx-auto text-center">
+            <div class="flex items-center justify-center space-x-3 mb-4">
+                <picture><source srcset="images/logo.webp" type="image/webp"><img src="images/logo.png" alt="Logo JCSM" class="w-8 h-8" width="32" height="32" loading="lazy" decoding="async"></picture>
+                <span class="text-xl font-semibold text-gray-900">JCSM</span>
+            </div>
+            <p class="text-sm text-gray-600 mb-3">Expert IRVE depuis 2019</p>
+            <p class="text-xs text-gray-500">&copy; 2026 JCSM SAS - SIRET 99387429600011</p>
+        </div>
     </footer>
 
-    <button class="scroll-top" id="scrollTop" aria-label="Retour en haut de la page">
-        <svg class="w-6 h-6 float-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
-        </svg>
-    </button>
-
-    <noscript><p style="text-align:center;color:#6B7280;margin-top:1rem;">Activez JavaScript pour détecter automatiquement le retour en ligne.</p></noscript>
+    <noscript><p style="text-align:center;color:#6B7280;margin-top:1rem;">Activez JavaScript pour d&eacute;tecter automatiquement le retour en ligne.</p></noscript>
     <script>
         // Auto-detect when back online
         window.addEventListener('online', () => {
             const status = document.getElementById('status');
-            if (status) {
-                status.textContent = 'Connexion rétablie !';
-                status.classList.add('online');
+            const statusText = document.getElementById('status-text');
+            if (status && statusText) {
+                status.classList.remove('bg-red-50');
+                status.classList.add('bg-green-50');
+                statusText.textContent = 'Connexion r\u00e9tablie\u00a0!';
+                statusText.closest('.flex').querySelector('.pulse-dot').classList.remove('bg-red-500');
+                statusText.closest('.flex').querySelector('.pulse-dot').classList.add('bg-green-500');
+                statusText.classList.remove('text-red-600');
+                statusText.classList.add('text-green-600');
             }
             setTimeout(() => location.reload(), 1500);
+        });
+        // Dismiss preloader (no public.js to handle it offline)
+        window.addEventListener('load', () => {
+            const preloader = document.getElementById('preloader');
+            if (preloader) {
+                setTimeout(() => {
+                    preloader.classList.add('hide');
+                    setTimeout(() => preloader.remove(), 500);
+                }, 300);
+            }
         });
     </script>
     <!-- Service Worker Registration -->

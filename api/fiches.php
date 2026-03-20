@@ -14,12 +14,14 @@ ini_set('log_errors', '1');
 
 header('Content-Type: application/json; charset=utf-8');
 require_once __DIR__ . '/auth.php';
+require_once __DIR__ . '/helpers.php';
 
 // CORS restreint
 $allowedOrigins = ['https://jcsm.fr', 'https://www.jcsm.fr'];
 $origin = $_SERVER['HTTP_ORIGIN'] ?? '';
 if (in_array($origin, $allowedOrigins)) {
     header("Access-Control-Allow-Origin: $origin");
+    header('Vary: Origin');
 }
 header('Access-Control-Allow-Methods: GET, POST, DELETE, OPTIONS');
 header('Access-Control-Allow-Headers: Content-Type, Authorization, X-Requested-With');
@@ -110,7 +112,7 @@ function saveImage($base64Data, $imageId, $imagesDir)
         $realDir = realpath($imagesDir);
         if ($realDir === false) return null;
         $realPath = realpath(dirname($filepath));
-        if ($realPath === false || strpos($realPath, $realDir) !== 0) return null;
+        if ($realPath === false || !str_starts_with($realPath, $realDir . DIRECTORY_SEPARATOR)) return null;
 
         if (file_put_contents($filepath, $imageData)) {
             return 'api/images_fiches/' . $filename;
@@ -149,6 +151,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 // POST : Créer ou modifier une fiche (authentification requise)
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     requireAuth();
+
+    // Rate limiting (30 req/min par IP)
+    if (!checkRateLimit('fiches_write', 30, 60)) {
+        http_response_code(429);
+        echo json_encode(['error' => 'Trop de requêtes. Réessayez dans quelques secondes.']);
+        exit;
+    }
     $input = json_decode(file_get_contents('php://input'), true);
 
     if (!$input) {
@@ -194,8 +203,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $fiches[$index] = array_merge($fiches[$index], $input);
                 $fiches[$index]['dateModified'] = date('c');
             } else {
-                flock($lockFp, LOCK_UN);
-                fclose($lockFp);
                 http_response_code(404);
                 echo json_encode(['error' => 'Fiche non trouvée']);
                 exit;
@@ -231,6 +238,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 if ($_SERVER['REQUEST_METHOD'] === 'DELETE') {
     requireAuth();
     $ficheId = $_GET['id'] ?? null;
+    // Sanitize ficheId to prevent injection
+    if ($ficheId) $ficheId = preg_replace('/[^a-zA-Z0-9_\-]/', '', substr($ficheId, 0, 64));
 
     if (!$ficheId) {
         http_response_code(400);
@@ -261,7 +270,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'DELETE') {
                     if (isset($img['data']) && str_contains($img['data'], 'api/images_fiches/')) {
                         $imagePath = __DIR__ . '/' . str_replace('https://' . SITE_HOST . '/api/', '', $img['data']);
                         $realImagePath = realpath($imagePath);
-                        if ($realImagePath && $realImagesDir && strpos($realImagePath, $realImagesDir) === 0 && file_exists($realImagePath)) {
+                        if ($realImagePath && $realImagesDir && strpos($realImagePath, $realImagesDir . DIRECTORY_SEPARATOR) === 0 && file_exists($realImagePath)) {
                             @unlink($realImagePath);
                         }
                     }

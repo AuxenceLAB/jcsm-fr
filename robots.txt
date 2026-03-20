@@ -11,7 +11,7 @@ Sitemap: https://jcsm.fr/sitemap.xml
 Disallow: /interne
 Disallow: /admin
 Disallow: /api/
-Disallow: /*.json$
+Disallow: /*.json
 Disallow: /offline
 Disallow: /404
 
@@ -20,6 +20,15 @@ Disallow: /securisation
 Disallow: /interventions
 Disallow: /support-client
 Disallow: /mise-en-service
+
+# Disallow backup, reports & internal pages
+Disallow: /blog_backup_faq/
+Disallow: /rapports/
+Disallow: /internedemo
+Disallow: /ca
+Disallow: /ca1
+Disallow: /ca2
+Disallow: /evergreen
 
 # Disallow admin assets
 Disallow: /js/map.js

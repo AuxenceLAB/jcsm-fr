@@ -1,0 +1,1221 @@
+<!DOCTYPE html>
+<html lang="en" class="js-enabled">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <!-- Cookie Consent + GTM (loaded after acceptance) -->
+    <script src="/js/cookie-consent.js" defer></script>
+    <title>EV Charger & HV/LV Transformer Maintenance | JCSM</title>
+    <meta name="description"
+        content="EV charging station operations and maintenance, plus HV/LV transformer servicing. Commissioning, preventive and corrective maintenance across France and Belgium.">
+    <meta name="robots" content="index, follow">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "name": "EV Charging Operations & Maintenance",
+        "description": "Operations and maintenance of EV charging infrastructure and HV/LV transformers. Commissioning, preventive and corrective maintenance across France and Belgium.",
+        "provider": {
+            "@type": "Organization",
+            "name": "JCSM",
+            "url": "https://jcsm.fr"
+        },
+        "areaServed": ["FR", "BE"],
+        "serviceType": "EV Charging Maintenance",
+        "url": "https://jcsm.fr/en/operations-maintenance",
+        "image": "https://jcsm.fr/images/maintenance.jpeg",
+        "category": "Infrastructure Maintenance"
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://jcsm.fr/en/"},
+            {"@type": "ListItem", "position": 2, "name": "EV Charging Operations & Maintenance", "item": "https://jcsm.fr/en/operations-maintenance"}
+        ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What types of chargers do you maintain?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "We maintain all AC chargers (3.7 to 22 kW) and DC chargers (50 to 350 kW) from leading brands: ABB, Schneider, EVBox, Alfen, Kempower, Tritium and more. We also service the associated HV/LV transformers."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is your response time?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Our contractual commitment is 4 hours in urban areas and 8 hours in rural areas for critical interventions. Our 24/7 support enables immediate remote diagnostics, resolving 40% of faults without an on-site visit."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Do you offer preventive maintenance?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, our contracts include scheduled preventive visits (quarterly or biannual depending on the contract). We inspect connectors, electrical supply, firmware updates and equipment cleaning."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Do you operate in Belgium?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, we cover mainland France and Belgium (Brussels, Wallonia, Flanders). Our teams are deployed across the territory to ensure fast response times."
+                }
+            }
+        ]
+    }
+    </script>
+    <link rel="canonical" href="https://jcsm.fr/en/operations-maintenance">
+    <link rel="alternate" hreflang="fr" href="https://jcsm.fr/exploitation">
+    <link rel="alternate" hreflang="en" href="https://jcsm.fr/en/operations-maintenance">
+    <link rel="alternate" hreflang="es" href="https://jcsm.fr/es/operacion-mantenimiento">
+    <link rel="alternate" hreflang="de" href="https://jcsm.fr/de/betrieb-wartung">
+    <link rel="alternate" hreflang="pt" href="https://jcsm.fr/pt/operacao-manutencao">
+    <link rel="alternate" hreflang="nl" href="https://jcsm.fr/nl/exploitatie-onderhoud">
+    <link rel="alternate" hreflang="pl" href="https://jcsm.fr/pl/eksploatacja-konserwacja">
+    <link rel="alternate" hreflang="it" href="https://jcsm.fr/it/gestione-manutenzione">
+    <link rel="alternate" hreflang="x-default" href="https://jcsm.fr/exploitation">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://jcsm.fr/en/operations-maintenance">
+    <meta property="og:title" content="EV Charger & HV/LV Transformer Maintenance | JCSM">
+    <meta property="og:description"
+        content="EV charging infrastructure operations and maintenance, plus HV/LV transformer servicing. Commissioning, preventive and corrective maintenance across France and Belgium.">
+    <meta property="og:image" content="https://jcsm.fr/images/maintenance.jpeg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="JCSM technician performing EV charger maintenance">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:site_name" content="JCSM - EV Charging Infrastructure">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="EV Charger & HV/LV Transformer Maintenance | JCSM">
+    <meta name="twitter:description"
+        content="EV charging infrastructure operations and maintenance, plus HV/LV transformer servicing across France and Belgium.">
+    <meta name="twitter:image" content="https://jcsm.fr/images/maintenance.jpeg">
+    <meta name="twitter:image:alt" content="JCSM technician performing EV charger maintenance">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"
+        media="print" onload="this.media='all'">
+    <noscript>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+            rel="stylesheet">
+    </noscript>
+    <link rel="stylesheet" href="../css/critical.css?v=44">
+    <link rel="stylesheet" href="../css/tailwind.css?v=44" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="../css/tailwind.css?v=44"></noscript>
+    <link rel="stylesheet" href="../styles.css?v=44" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="../styles.css?v=44"></noscript>
+    <link rel="manifest" href="../manifest.json">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+    <link rel="stylesheet" href="../css/leaflet.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="../css/leaflet.css"></noscript>
+    <script src="../js/vendor/leaflet.js" defer></script>
+
+
+</head>
+
+<body class="text-gray-900">
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+        <div class="preloader" id="preloader" role="status" aria-label="Loading">
+        <div class="flex flex-col items-center justify-center">
+            <picture><source srcset="../images/logo.webp" type="image/webp"><img src="../images/logo.png" alt="JCSM" width="80" height="80" class="animate-pulse"></picture>
+            <div class="mt-4 flex space-x-2" aria-hidden="true">
+                <div class="w-2 h-2 bg-blue-600 rounded-full animate-bounce" style="animation-delay: 0s"></div>
+                <div class="w-2 h-2 bg-blue-600 rounded-full animate-bounce" style="animation-delay: 0.1s"></div>
+                <div class="w-2 h-2 bg-blue-600 rounded-full animate-bounce" style="animation-delay: 0.2s"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="mobile-menu-overlay" id="mobile-menu-overlay"></div>
+    <nav class="mobile-menu" id="mobile-menu" role="dialog" aria-modal="true" aria-label="Navigation menu" aria-hidden="true">
+        <div class="p-8">
+            <div class="flex justify-between items-center mb-12">
+                <span class="text-xl font-semibold">Menu</span>
+                <button class="text-gray-600 hover:text-gray-900" id="mobile-menu-close" aria-label="Close navigation menu">
+                    <svg class="w-6 h-6" fill="none" aria-hidden="true" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+                        <div class="flex flex-col space-y-6">
+                <a href="/en/" class="text-base text-gray-600 hover:text-gray-900 transition-colors">Home</a>
+                <a href="/en/project-management" class="text-base text-gray-600 hover:text-gray-900 transition-colors">Project Management</a>
+                <a href="/en/installation-compliance" class="text-base text-gray-600 hover:text-gray-900 transition-colors">Installation</a>
+                <a href="/en/operations-maintenance" class="text-base text-gray-600 hover:text-gray-900 transition-colors">Operations</a>
+                <a href="/en/installation-security" class="text-base text-gray-600 hover:text-gray-900 transition-colors">Security</a>
+                <a href="/en/call-center" class="text-base text-gray-600 hover:text-gray-900 transition-colors">Support</a>
+                <a href="/en/about" class="text-base text-gray-600 hover:text-gray-900 transition-colors">About</a>
+                <div class="lang-selector relative"></div>
+                <a href="/en/contact" class="btn-primary px-6 py-3 rounded-lg text-base font-medium inline-block text-center mt-4">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Scroll progress bar -->
+    <div id="scroll-progress"
+        class="fixed top-0 left-0 h-1 bg-blue-600 z-[60] transition-all duration-150"
+        style="width: 0%;"></div>
+
+    <nav class="fixed top-0 w-full z-50 glass-nav" role="navigation" aria-label="Main navigation">
+        <div class="max-w-7xl mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <a href="/en/" class="flex items-center space-x-3 group">
+                    <picture><source srcset="../images/logo.webp" type="image/webp"><img src="../images/logo.png" alt="JCSM" class="w-9 h-9 transition-transform group-hover:scale-105 duration-300" width="36" height="36"></picture>
+                    <span class="text-xl font-bold tracking-tight">JCSM</span>
+                </a>
+                <div class="hidden lg:flex items-center space-x-10">
+                    <a href="/en/" class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300">Home</a>
+                    <a href="/en/project-management" class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300">Project Management</a>
+                    <a href="/en/installation-compliance" class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300">Installation</a>
+                    <a href="/en/operations-maintenance" class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300">Operations</a>
+                    <a href="/en/installation-security" class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300">Security</a>
+                    <a href="/en/call-center" class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300">Support</a>
+                    <a href="/en/about" class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300">About</a>
+                    <div class="lang-selector relative"></div>
+                    <a href="/en/contact" class="btn-primary px-7 py-2.5 rounded-xl text-base font-medium shadow-lg hover:shadow-xl">Contact</a>
+                </div>
+                <button class="mobile-menu-btn text-gray-600 hover:text-gray-900" id="mobile-menu-btn" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-menu">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Subtle background particles -->
+    <div class="particles-bg" id="particles-bg"></div>
+
+    <main id="main-content" role="main">
+        <!-- Hero -->
+        <section class="pt-8 pb-6 px-4 sm:px-6 min-h-[calc(100vh-5rem)] flex items-center">
+            <div class="max-w-7xl mx-auto w-full">
+                <div class="grid lg:grid-cols-2 gap-5 sm:gap-7 lg:gap-10 items-center">
+                    <div class="space-y-4 sm:space-y-5 md:space-y-6 order-1 lg:order-1">
+                        <div
+                            class="inline-flex items-center space-x-2 glass-badge rounded-full px-3 py-1.5 sm:px-4 sm:py-2 section-appear">
+                            <span
+                                class="text-[10px] sm:text-xs font-semibold text-gray-600 uppercase tracking-wide">EV Charging Operational Excellence</span>
+                        </div>
+                        <h1
+                            class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight tracking-tight section-appear">
+                            Your chargers always <span class="gradient-text">available and performing</span>
+                        </h1>
+                        <p class="text-sm sm:text-base md:text-lg text-gray-600 leading-snug section-appear">
+                            From commissioning to daily ops, we guarantee the reliability and performance of every charging point. Fast field response, continuous monitoring, no compromises.
+                        </p>
+                        <div class="flex flex-wrap gap-2 sm:gap-3 section-appear">
+                            <a href="/en/contact"
+                                class="btn-primary px-4 py-2 sm:px-6 sm:py-3 rounded-xl font-medium text-xs sm:text-sm">
+                                Get a free audit
+                            </a>
+                            <a href="#services"
+                                class="btn-secondary px-4 py-2 sm:px-6 sm:py-3 rounded-xl font-medium text-xs sm:text-sm">
+                                Discover our commitments
+                            </a>
+                        </div>
+                    </div>
+                    <div class="section-appear order-2 lg:order-2 mb-4 lg:mb-0">
+                        <div class="relative w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg mx-auto overflow-hidden rounded-2xl">
+                            <picture>
+                                <source srcset="../images/maintenance.webp" type="image/webp">
+                                <img id="hero-image" src="../images/maintenance.jpeg" fetchpriority="high"
+                                    alt="Certified JCSM technician performing EV charging infrastructure maintenance"
+                                    class="w-full h-auto max-h-[200px] sm:max-h-[300px] md:max-h-[400px] lg:max-h-[500px] object-cover rounded-2xl shadow-2xl"
+                                    width="826" height="1298">
+                            </picture>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services -->
+        <section id="services" class="py-20 px-6 bg-white">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center mb-20 section-appear">
+                    <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-6">
+                        A foundation of excellence for every charger
+                    </h2>
+                    <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                        Six performance pillars to maximize your infrastructure's uptime, cut operating costs, and deliver a flawless charging experience.
+                    </p>
+                </div>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="card-hover bg-white border border-gray-200 rounded-2xl overflow-hidden section-appear">
+                        <div class="p-10">
+                            <div
+                                class="w-14 h-14 bg-blue-600 rounded-xl flex items-center justify-center text-white mb-8">
+                                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M13 10V3L4 14h7v7l9-11h-7z" />
+                                </svg>
+                            </div>
+                            <h3 class="text-2xl font-bold mb-4">Commissioning</h3>
+                            <p class="text-gray-600 leading-relaxed mb-4">Charger activation and configuration, charge testing, team training and production rollout.</p>
+                            <ul class="space-y-2 text-gray-600 text-sm">
+                                <li class="flex items-start">
+                                    <svg class="w-4 h-4 mr-2 text-green-600 flex-shrink-0 mt-0.5" fill="none"
+                                        stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M5 13l4 4L19 7" />
+                                    </svg>
+                                    <span>Supervisor configuration</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="w-4 h-4 mr-2 text-green-600 flex-shrink-0 mt-0.5" fill="none"
+                                        stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M5 13l4 4L19 7" />
+                                    </svg>
+                                    <span>Full charge testing</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="w-4 h-4 mr-2 text-green-600 flex-shrink-0 mt-0.5" fill="none"
+                                        stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M5 13l4 4L19 7" />
+                                    </svg>
+                                    <span>Technical documentation</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="card-hover bg-white border border-gray-200 rounded-2xl overflow-hidden section-appear">
+                        <div class="p-10">
+                            <div
+                                class="w-14 h-14 bg-blue-600 rounded-xl flex items-center justify-center text-white mb-8">
+                                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                </svg>
+                            </div>
+                            <h3 class="text-2xl font-bold mb-4">Preventive Maintenance</h3>
+                            <p class="text-gray-600 leading-relaxed mb-4">Scheduled regular servicing to prevent failures and maintain optimal performance.</p>
+                            <ul class="space-y-2 text-gray-600 text-sm">
+                                <li class="flex items-start">
+                                    <svg class="w-4 h-4 mr-2 text-green-600 flex-shrink-0 mt-0.5" fill="none"
+                                        stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M5 13l4 4L19 7" />
+                                    </svg>
+                                    <span>Scheduled visits</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="w-4 h-4 mr-2 text-green-600 flex-shrink-0 mt-0.5" fill="none"
+                                        stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M5 13l4 4L19 7" />
+                                    </svg>
+                                    <span>Electrical checks</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="w-4 h-4 mr-2 text-green-600 flex-shrink-0 mt-0.5" fill="none"
+                                        stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M5 13l4 4L19 7" />
+                                    </svg>
+                                    <span>Firmware updates</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="card-hover bg-white border border-gray-200 rounded-2xl overflow-hidden section-appear">
+                        <div class="p-10">
+                            <div
+                                class="w-14 h-14 bg-blue-600 rounded-xl flex items-center justify-center text-white mb-8">
+                                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37-2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                </svg>
+                            </div>
+                            <h3 class="text-2xl font-bold mb-4">Corrective Maintenance</h3>
+                            <p class="text-gray-600 leading-relaxed mb-4">Rapid fault repair with on-site intervention within 4 hours.</p>
+                            <ul class="space-y-2 text-gray-600 text-sm">
+                                <li class="flex items-start">
+                                    <svg class="w-4 h-4 mr-2 text-green-600 flex-shrink-0 mt-0.5" fill="none"
+                                        stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M5 13l4 4L19 7" />
+                                    </svg>
+                                    <span>Remote diagnostics</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="w-4 h-4 mr-2 text-green-600 flex-shrink-0 mt-0.5" fill="none"
+                                        stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M5 13l4 4L19 7" />
+                                    </svg>
+                                    <span>Rapid intervention</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="w-4 h-4 mr-2 text-green-600 flex-shrink-0 mt-0.5" fill="none"
+                                        stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M5 13l4 4L19 7" />
+                                    </svg>
+                                    <span>Spare parts</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="card-hover bg-white border border-gray-200 rounded-2xl overflow-hidden section-appear">
+                        <div class="p-10">
+                            <div
+                                class="w-14 h-14 bg-blue-600 rounded-xl flex items-center justify-center text-white mb-8">
+                                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                                </svg>
+                            </div>
+                            <h3 class="text-2xl font-bold mb-4">24/7 Monitoring</h3>
+                            <p class="text-gray-600 leading-relaxed mb-4">Real-time fleet monitoring with automatic alerts on any anomaly.</p>
+                            <ul class="space-y-2 text-gray-600 text-sm">
+                                <li class="flex items-start">
+                                    <svg class="w-4 h-4 mr-2 text-green-600 flex-shrink-0 mt-0.5" fill="none"
+                                        stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M5 13l4 4L19 7" />
+                                    </svg>
+                                    <span>Real-time dashboard</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="w-4 h-4 mr-2 text-green-600 flex-shrink-0 mt-0.5" fill="none"
+                                        stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M5 13l4 4L19 7" />
+                                    </svg>
+                                    <span>Proactive alerts</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="w-4 h-4 mr-2 text-green-600 flex-shrink-0 mt-0.5" fill="none"
+                                        stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M5 13l4 4L19 7" />
+                                    </svg>
+                                    <span>Monthly reports</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="card-hover bg-white border border-gray-200 rounded-2xl overflow-hidden section-appear">
+                        <div class="p-10">
+                            <div
+                                class="w-14 h-14 bg-blue-600 rounded-xl flex items-center justify-center text-white mb-8">
+                                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                                </svg>
+                            </div>
+                            <h3 class="text-2xl font-bold mb-4">Fleet Management</h3>
+                            <p class="text-gray-600 leading-relaxed mb-4">Continuous optimisation of your infrastructure to maximise profitability and user experience.</p>
+                            <ul class="space-y-2 text-gray-600 text-sm">
+                                <li class="flex items-start">
+                                    <svg class="w-4 h-4 mr-2 text-green-600 flex-shrink-0 mt-0.5" fill="none"
+                                        stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M5 13l4 4L19 7" />
+                                    </svg>
+                                    <span>Usage analysis</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="w-4 h-4 mr-2 text-green-600 flex-shrink-0 mt-0.5" fill="none"
+                                        stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M5 13l4 4L19 7" />
+                                    </svg>
+                                    <span>Upgrade recommendations</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="w-4 h-4 mr-2 text-green-600 flex-shrink-0 mt-0.5" fill="none"
+                                        stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M5 13l4 4L19 7" />
+                                    </svg>
+                                    <span>Access management</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="card-hover bg-white border border-gray-200 rounded-2xl overflow-hidden section-appear">
+                        <div class="p-10">
+                            <div
+                                class="w-14 h-14 bg-blue-600 rounded-xl flex items-center justify-center text-white mb-8">
+                                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                                </svg>
+                            </div>
+                            <h3 class="text-2xl font-bold mb-4">User Support</h3>
+                            <p class="text-gray-600 leading-relaxed mb-4">24/7 technical assistance for your end users via a dedicated hotline.</p>
+                            <ul class="space-y-2 text-gray-600 text-sm">
+                                <li class="flex items-start">
+                                    <svg class="w-4 h-4 mr-2 text-green-600 flex-shrink-0 mt-0.5" fill="none"
+                                        stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M5 13l4 4L19 7" />
+                                    </svg>
+                                    <span>24/7 hotline</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="w-4 h-4 mr-2 text-green-600 flex-shrink-0 mt-0.5" fill="none"
+                                        stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M5 13l4 4L19 7" />
+                                    </svg>
+                                    <span>Real-time chat</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="w-4 h-4 mr-2 text-green-600 flex-shrink-0 mt-0.5" fill="none"
+                                        stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M5 13l4 4L19 7" />
+                                    </svg>
+                                    <span>Multilingual support</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Transformer Maintenance - Intro -->
+        <section class="py-20 px-6 bg-gray-50">
+            <div class="max-w-7xl mx-auto">
+                <div class="grid lg:grid-cols-2 gap-16 items-center">
+                    <div class="section-appear">
+                        <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-6">
+                            <span class="text-blue-600">Transformer</span> Maintenance HV/LV
+                        </h2>
+                        <p class="text-lg text-gray-600 leading-relaxed mb-6">
+                            JCSM provides preventive and corrective maintenance for your high and low voltage transformers across France and Belgium. A high-performing charger fleet depends on a reliable power supply.
+                        </p>
+                        <p class="text-gray-600 leading-relaxed mb-8">
+                            Our certified technicians service the entire HV/LV chain: switchgear cells, cable compartments, busbars, main distribution boards, oil and dry transformers, capacitor banks and circuit breaker disconnectors.
+                        </p>
+                        <div class="grid sm:grid-cols-3 gap-4 mb-8">
+                            <div class="bg-white rounded-xl p-4 text-center border border-gray-200">
+                                <div class="text-3xl font-bold text-blue-600 mb-1">70%</div>
+                                <p class="text-xs text-gray-600">of charger faults linked to upstream power supply</p>
+                            </div>
+                            <div class="bg-white rounded-xl p-4 text-center border border-gray-200">
+                                <div class="text-3xl font-bold text-blue-600 mb-1">x3</div>
+                                <p class="text-xs text-gray-600">extended lifespan with preventive maintenance</p>
+                            </div>
+                            <div class="bg-white rounded-xl p-4 text-center border border-gray-200">
+                                <div class="text-3xl font-bold text-blue-600 mb-1">0</div>
+                                <p class="text-xs text-gray-600">unplanned outages thanks to continuous monitoring</p>
+                            </div>
+                        </div>
+                        <div class="flex flex-wrap gap-3">
+                            <a href="/en/contact" class="btn-primary px-8 py-3 rounded-xl font-medium text-sm inline-block">
+                                Request a transformer quote
+                            </a>
+                            <a href="/blog/raccordement-electrique-bornes-dc" class="inline-flex items-center px-6 py-3 rounded-xl font-medium text-sm text-blue-600 border border-blue-200 hover:bg-blue-50 transition-colors">
+                                Read our article
+                                <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="section-appear">
+                        <div class="bg-white rounded-2xl p-8 border border-gray-200 shadow-lg">
+                            <div class="text-center mb-6">
+                                <div class="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                                    <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                                    </svg>
+                                </div>
+                                <h3 class="text-xl font-bold mb-2">Our areas of expertise</h3>
+                            </div>
+                            <div class="space-y-3">
+                                <div class="flex items-center space-x-3 p-3 bg-gray-50 rounded-xl">
+                                    <svg class="w-5 h-5 text-blue-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                                    <p class="text-sm text-gray-700">HV switchgear cells &amp; cable compartments</p>
+                                </div>
+                                <div class="flex items-center space-x-3 p-3 bg-gray-50 rounded-xl">
+                                    <svg class="w-5 h-5 text-blue-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                                    <p class="text-sm text-gray-700">Oil &amp; dry-type transformers</p>
+                                </div>
+                                <div class="flex items-center space-x-3 p-3 bg-gray-50 rounded-xl">
+                                    <svg class="w-5 h-5 text-blue-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                                    <p class="text-sm text-gray-700">Main distribution boards &amp; busbars</p>
+                                </div>
+                                <div class="flex items-center space-x-3 p-3 bg-gray-50 rounded-xl">
+                                    <svg class="w-5 h-5 text-blue-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                                    <p class="text-sm text-gray-700">Circuit breaker disconnectors &amp; fuses</p>
+                                </div>
+                                <div class="flex items-center space-x-3 p-3 bg-gray-50 rounded-xl">
+                                    <svg class="w-5 h-5 text-blue-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                                    <p class="text-sm text-gray-700">Capacitor banks</p>
+                                </div>
+                                <div class="flex items-center space-x-3 p-3 bg-gray-50 rounded-xl">
+                                    <svg class="w-5 h-5 text-blue-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                                    <p class="text-sm text-gray-700">Dielectric analysis &amp; thermography</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Detailed services - Chargers / Transformers -->
+        <section class="py-20 px-6 bg-white">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-12 section-appear">
+                    <span class="inline-block px-4 py-1 bg-blue-100 text-blue-700 rounded-full text-sm font-semibold mb-4">Detailed Services</span>
+                    <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-4">Comprehensive Maintenance Programme</h2>
+                    <p class="text-gray-600 text-lg max-w-3xl mx-auto">Select the area that applies to you to see the full details of our services</p>
+                </div>
+                <div class="space-y-4 section-appear">
+
+                    <!-- EV Chargers -->
+                    <details class="bg-gray-50 rounded-2xl border border-gray-200 overflow-hidden" open>
+                        <summary class="flex items-center justify-between p-6 cursor-pointer">
+                            <div class="flex items-center space-x-4">
+                                <div class="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                                    <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+                                </div>
+                                <div>
+                                    <h3 class="text-xl font-bold">EV Chargers</h3>
+                                    <p class="text-sm text-gray-500">AC maintenance (3.7-22 kW) &amp; DC (50-350 kW)</p>
+                                </div>
+                            </div>
+                        </summary>
+                        <div class="px-6 pb-6">
+                            <div class="grid md:grid-cols-2 gap-4">
+                                <details class="bg-white rounded-xl p-5 border border-gray-100">
+                                    <summary class="font-semibold cursor-pointer">Commissioning</summary>
+                                    <ul class="mt-4 space-y-2 text-sm text-gray-600">
+                                        <li class="flex items-start space-x-2"><span class="text-blue-600 mt-0.5">&#8226;</span><span>Electrical installation check (NFC 15-100 compliance)</span></li>
+                                        <li class="flex items-start space-x-2"><span class="text-blue-600 mt-0.5">&#8226;</span><span>Charger setup and configuration</span></li>
+                                        <li class="flex items-start space-x-2"><span class="text-blue-600 mt-0.5">&#8226;</span><span>AC/DC charge testing and OCPP protocol validation</span></li>
+                                        <li class="flex items-start space-x-2"><span class="text-blue-600 mt-0.5">&#8226;</span><span>Supervision setup and management system integration</span></li>
+                                    </ul>
+                                </details>
+                                <details class="bg-white rounded-xl p-5 border border-gray-100">
+                                    <summary class="font-semibold cursor-pointer">Preventive maintenance</summary>
+                                    <ul class="mt-4 space-y-2 text-sm text-gray-600">
+                                        <li class="flex items-start space-x-2"><span class="text-blue-600 mt-0.5">&#8226;</span><span>General visual inspection (casing, screen, connectors)</span></li>
+                                        <li class="flex items-start space-x-2"><span class="text-blue-600 mt-0.5">&#8226;</span><span>Cleaning of charging plugs and connectors</span></li>
+                                        <li class="flex items-start space-x-2"><span class="text-blue-600 mt-0.5">&#8226;</span><span>Torque check on electrical connections</span></li>
+                                        <li class="flex items-start space-x-2"><span class="text-blue-600 mt-0.5">&#8226;</span><span>RCD and circuit breaker testing</span></li>
+                                        <li class="flex items-start space-x-2"><span class="text-blue-600 mt-0.5">&#8226;</span><span>Infrared thermography of power components</span></li>
+                                        <li class="flex items-start space-x-2"><span class="text-blue-600 mt-0.5">&#8226;</span><span>Firmware and embedded software updates</span></li>
+                                    </ul>
+                                </details>
+                                <details class="bg-white rounded-xl p-5 border border-gray-100">
+                                    <summary class="font-semibold cursor-pointer">Corrective maintenance</summary>
+                                    <ul class="mt-4 space-y-2 text-sm text-gray-600">
+                                        <li class="flex items-start space-x-2"><span class="text-blue-600 mt-0.5">&#8226;</span><span>Fault diagnosis (error codes, OCPP logs)</span></li>
+                                        <li class="flex items-start space-x-2"><span class="text-blue-600 mt-0.5">&#8226;</span><span>Component replacement (motherboard, screen, connector, cable)</span></li>
+                                        <li class="flex items-start space-x-2"><span class="text-blue-600 mt-0.5">&#8226;</span><span>AC/DC power module repair</span></li>
+                                        <li class="flex items-start space-x-2"><span class="text-blue-600 mt-0.5">&#8226;</span><span>RFID reader and payment system replacement</span></li>
+                                        <li class="flex items-start space-x-2"><span class="text-blue-600 mt-0.5">&#8226;</span><span>Recommissioning and full functional testing</span></li>
+                                    </ul>
+                                </details>
+                                <details class="bg-white rounded-xl p-5 border border-gray-100">
+                                    <summary class="font-semibold cursor-pointer">Connectors &amp; cabling</summary>
+                                    <ul class="mt-4 space-y-2 text-sm text-gray-600">
+                                        <li class="flex items-start space-x-2"><span class="text-blue-600 mt-0.5">&#8226;</span><span>Charging cable condition check (Type 2, CCS, CHAdeMO)</span></li>
+                                        <li class="flex items-start space-x-2"><span class="text-blue-600 mt-0.5">&#8226;</span><span>Plug locking and retraction mechanism check</span></li>
+                                        <li class="flex items-start space-x-2"><span class="text-blue-600 mt-0.5">&#8226;</span><span>Worn cable and connector replacement</span></li>
+                                        <li class="flex items-start space-x-2"><span class="text-blue-600 mt-0.5">&#8226;</span><span>Internal wiring and terminal block inspection</span></li>
+                                    </ul>
+                                </details>
+                                <details class="bg-white rounded-xl p-5 border border-gray-100">
+                                    <summary class="font-semibold cursor-pointer">Monitoring &amp; remote management</summary>
+                                    <ul class="mt-4 space-y-2 text-sm text-gray-600">
+                                        <li class="flex items-start space-x-2"><span class="text-blue-600 mt-0.5">&#8226;</span><span>Remote diagnosis via monitoring platform</span></li>
+                                        <li class="flex items-start space-x-2"><span class="text-blue-600 mt-0.5">&#8226;</span><span>Remote restart and error reset</span></li>
+                                        <li class="flex items-start space-x-2"><span class="text-blue-600 mt-0.5">&#8226;</span><span>OTA (Over-The-Air) firmware updates</span></li>
+                                        <li class="flex items-start space-x-2"><span class="text-blue-600 mt-0.5">&#8226;</span><span>Charging session monitoring and real-time alerts</span></li>
+                                    </ul>
+                                </details>
+                                <details class="bg-white rounded-xl p-5 border border-gray-100">
+                                    <summary class="font-semibold cursor-pointer">Electrical protection</summary>
+                                    <ul class="mt-4 space-y-2 text-sm text-gray-600">
+                                        <li class="flex items-start space-x-2"><span class="text-blue-600 mt-0.5">&#8226;</span><span>RCD testing (Type A, Type B)</span></li>
+                                        <li class="flex items-start space-x-2"><span class="text-blue-600 mt-0.5">&#8226;</span><span>Surge protector and overvoltage protection check</span></li>
+                                        <li class="flex items-start space-x-2"><span class="text-blue-600 mt-0.5">&#8226;</span><span>Earthing check and resistance measurement</span></li>
+                                        <li class="flex items-start space-x-2"><span class="text-blue-600 mt-0.5">&#8226;</span><span>Phase balancing check (three-phase)</span></li>
+                                    </ul>
+                                </details>
+                            </div>
+                        </div>
+                    </details>
+
+                    <!-- HV/LV Transformers -->
+                    <details class="bg-gray-50 rounded-2xl border border-gray-200 overflow-hidden" open>
+                        <summary class="flex items-center justify-between p-6 cursor-pointer">
+                            <div class="flex items-center space-x-4">
+                                <div class="w-12 h-12 bg-amber-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                                    <svg class="w-6 h-6 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" /></svg>
+                                </div>
+                                <div>
+                                    <h3 class="text-xl font-bold">HV/LV Transformers</h3>
+                                    <p class="text-sm text-gray-500">Switchgear, main distribution boards, oil &amp; dry transformers, circuit breakers</p>
+                                </div>
+                            </div>
+                        </summary>
+                        <div class="px-6 pb-6">
+                            <div class="grid md:grid-cols-2 gap-4">
+                                <details class="bg-white rounded-xl p-5 border border-gray-100">
+                                    <summary class="font-semibold cursor-pointer">HV switchgear cells</summary>
+                                    <ul class="mt-4 space-y-2 text-sm text-gray-600">
+                                        <li class="flex items-start space-x-2"><span class="text-blue-600 mt-0.5">&#8226;</span><span>Visual inspection (chalking, cracks, heat marks)</span></li>
+                                        <li class="flex items-start space-x-2"><span class="text-blue-600 mt-0.5">&#8226;</span><span>Dust removal and general cleaning</span></li>
+                                        <li class="flex items-start space-x-2"><span class="text-blue-600 mt-0.5">&#8226;</span><span>Interlock check</span></li>
+                                        <li class="flex items-start space-x-2"><span class="text-blue-600 mt-0.5">&#8226;</span><span>Control compartment: switching test and operation check</span></li>
+                                        <li class="flex items-start space-x-2"><span class="text-blue-600 mt-0.5">&#8226;</span><span>Control mechanism and earthing switch cleaning</span></li>
+                                        <li class="flex items-start space-x-2"><span class="text-blue-600 mt-0.5">&#8226;</span><span>Earthing control check</span></li>
+                                        <li class="flex items-start space-x-2"><span class="text-blue-600 mt-0.5">&#8226;</span><span>Electrical auxiliary equipment check</span></li>
+                                    </ul>
+                                </details>
+                                <details class="bg-white rounded-xl p-5 border border-gray-100">
+                                    <summary class="font-semibold cursor-pointer">Cable compartment</summary>
+                                    <ul class="mt-4 space-y-2 text-sm text-gray-600">
+                                        <li class="flex items-start space-x-2"><span class="text-blue-600 mt-0.5">&#8226;</span><span>Enclosure visual inspection (chalking, cracks, heat marks)</span></li>
+                                        <li class="flex items-start space-x-2"><span class="text-blue-600 mt-0.5">&#8226;</span><span>Connection check (torque, chalking, heat marks)</span></li>
+                                        <li class="flex items-start space-x-2"><span class="text-blue-600 mt-0.5">&#8226;</span><span>Cable inspection (chalking, heat marks)</span></li>
+                                        <li class="flex items-start space-x-2"><span class="text-blue-600 mt-0.5">&#8226;</span><span>Cable termination check (torque, fixation)</span></li>
+                                    </ul>
+                                </details>
+                                <details class="bg-white rounded-xl p-5 border border-gray-100">
+                                    <summary class="font-semibold cursor-pointer">PASA cabinet</summary>
+                                    <ul class="mt-4 space-y-2 text-sm text-gray-600">
+                                        <li class="flex items-start space-x-2"><span class="text-blue-600 mt-0.5">&#8226;</span><span>Cell mechanical interlock check and testing</span></li>
+                                        <li class="flex items-start space-x-2"><span class="text-blue-600 mt-0.5">&#8226;</span><span>Electrical testing and transfer switch (NSM) check</span></li>
+                                        <li class="flex items-start space-x-2"><span class="text-blue-600 mt-0.5">&#8226;</span><span>Battery charge level check</span></li>
+                                    </ul>
+                                </details>
+                                <details class="bg-white rounded-xl p-5 border border-gray-100">
+                                    <summary class="font-semibold cursor-pointer">Busbars (de-energised)</summary>
+                                    <ul class="mt-4 space-y-2 text-sm text-gray-600">
+                                        <li class="flex items-start space-x-2"><span class="text-blue-600 mt-0.5">&#8226;</span><span>Busbar inspection</span></li>
+                                        <li class="flex items-start space-x-2"><span class="text-blue-600 mt-0.5">&#8226;</span><span>Torque check (heat marks)</span></li>
+                                        <li class="flex items-start space-x-2"><span class="text-blue-600 mt-0.5">&#8226;</span><span>Insulator check (chalking, heat marks)</span></li>
+                                    </ul>
+                                </details>
+                                <details class="bg-white rounded-xl p-5 border border-gray-100">
+                                    <summary class="font-semibold cursor-pointer">HV substation main distribution board</summary>
+                                    <ul class="mt-4 space-y-2 text-sm text-gray-600">
+                                        <li class="flex items-start space-x-2"><span class="text-blue-600 mt-0.5">&#8226;</span><span>Connection check (torque, chalking, heat marks)</span></li>
+                                        <li class="flex items-start space-x-2"><span class="text-blue-600 mt-0.5">&#8226;</span><span>Cable and termination check (torque, fixation)</span></li>
+                                        <li class="flex items-start space-x-2"><span class="text-blue-600 mt-0.5">&#8226;</span><span>LV main circuit breaker operations</span></li>
+                                        <li class="flex items-start space-x-2"><span class="text-blue-600 mt-0.5">&#8226;</span><span>General cleaning and torque check</span></li>
+                                        <li class="flex items-start space-x-2"><span class="text-blue-600 mt-0.5">&#8226;</span><span>Earthing and interlock check</span></li>
+                                        <li class="flex items-start space-x-2"><span class="text-blue-600 mt-0.5">&#8226;</span><span>Transformer protection check</span></li>
+                                        <li class="flex items-start space-x-2"><span class="text-blue-600 mt-0.5">&#8226;</span><span>Insulation measurement and transformation ratio testing</span></li>
+                                    </ul>
+                                </details>
+                                <details class="bg-white rounded-xl p-5 border border-gray-100">
+                                    <summary class="font-semibold cursor-pointer">Oil transformer</summary>
+                                    <ul class="mt-4 space-y-2 text-sm text-gray-600">
+                                        <li class="flex items-start space-x-2"><span class="text-blue-600 mt-0.5">&#8226;</span><span>Dielectric oil sampling and analysis</span></li>
+                                        <li class="flex items-start space-x-2"><span class="text-blue-600 mt-0.5">&#8226;</span><span>Full visual inspection</span></li>
+                                        <li class="flex items-start space-x-2"><span class="text-blue-600 mt-0.5">&#8226;</span><span>General cleaning</span></li>
+                                        <li class="flex items-start space-x-2"><span class="text-blue-600 mt-0.5">&#8226;</span><span>Leak check</span></li>
+                                        <li class="flex items-start space-x-2"><span class="text-blue-600 mt-0.5">&#8226;</span><span>Connection torque check</span></li>
+                                    </ul>
+                                </details>
+                                <details class="bg-white rounded-xl p-5 border border-gray-100">
+                                    <summary class="font-semibold cursor-pointer">Dry transformer</summary>
+                                    <ul class="mt-4 space-y-2 text-sm text-gray-600">
+                                        <li class="flex items-start space-x-2"><span class="text-blue-600 mt-0.5">&#8226;</span><span>Dry air pressure cleaning (dust particle removal)</span></li>
+                                        <li class="flex items-start space-x-2"><span class="text-blue-600 mt-0.5">&#8226;</span><span>Visual inspection of insulators and conductive parts</span></li>
+                                        <li class="flex items-start space-x-2"><span class="text-blue-600 mt-0.5">&#8226;</span><span>Electrical connection torque check</span></li>
+                                        <li class="flex items-start space-x-2"><span class="text-blue-600 mt-0.5">&#8226;</span><span>Earthing continuity check (TIT neutral, metal frames)</span></li>
+                                        <li class="flex items-start space-x-2"><span class="text-blue-600 mt-0.5">&#8226;</span><span>Earth resistance measurement (value &le; 1 &Omega;)</span></li>
+                                    </ul>
+                                </details>
+                                <details class="bg-white rounded-xl p-5 border border-gray-100">
+                                    <summary class="font-semibold cursor-pointer">Circuit breaker disconnector (Master Pack)</summary>
+                                    <ul class="mt-4 space-y-2 text-sm text-gray-600">
+                                        <li class="flex items-start space-x-2"><span class="text-blue-600 mt-0.5">&#8226;</span><span>Cleaning and dust removal</span></li>
+                                        <li class="flex items-start space-x-2"><span class="text-blue-600 mt-0.5">&#8226;</span><span>Moving parts wear inspection</span></li>
+                                        <li class="flex items-start space-x-2"><span class="text-blue-600 mt-0.5">&#8226;</span><span>Line disconnector cleaning and lubrication</span></li>
+                                        <li class="flex items-start space-x-2"><span class="text-blue-600 mt-0.5">&#8226;</span><span>Insulator check (chalking, heat marks)</span></li>
+                                        <li class="flex items-start space-x-2"><span class="text-blue-600 mt-0.5">&#8226;</span><span>Circuit breaker interlock and contact resistance check</span></li>
+                                        <li class="flex items-start space-x-2"><span class="text-blue-600 mt-0.5">&#8226;</span><span>Plug-in contact inspection (if withdrawable)</span></li>
+                                    </ul>
+                                </details>
+                                <details class="bg-white rounded-xl p-5 border border-gray-100">
+                                    <summary class="font-semibold cursor-pointer">HV fuses</summary>
+                                    <ul class="mt-4 space-y-2 text-sm text-gray-600">
+                                        <li class="flex items-start space-x-2"><span class="text-blue-600 mt-0.5">&#8226;</span><span>Visual fuse inspection (chalking, colour, cracks, corrosion)</span></li>
+                                        <li class="flex items-start space-x-2"><span class="text-blue-600 mt-0.5">&#8226;</span><span>Fixation and signalling check</span></li>
+                                        <li class="flex items-start space-x-2"><span class="text-blue-600 mt-0.5">&#8226;</span><span>Fuse-blow tripping check</span></li>
+                                        <li class="flex items-start space-x-2"><span class="text-blue-600 mt-0.5">&#8226;</span><span>Fuse impedance check</span></li>
+                                        <li class="flex items-start space-x-2"><span class="text-blue-600 mt-0.5">&#8226;</span><span>Replacement if &gt; 10 years (additional quote)</span></li>
+                                    </ul>
+                                </details>
+                                <details class="bg-white rounded-xl p-5 border border-gray-100">
+                                    <summary class="font-semibold cursor-pointer">Capacitor bank (option)</summary>
+                                    <ul class="mt-4 space-y-2 text-sm text-gray-600">
+                                        <li class="flex items-start space-x-2"><span class="text-blue-600 mt-0.5">&#8226;</span><span>Cabinet ambient temperature check (&lt; 50 &deg;C)</span></li>
+                                        <li class="flex items-start space-x-2"><span class="text-blue-600 mt-0.5">&#8226;</span><span>Unbalance current check and protection relay adjustment</span></li>
+                                        <li class="flex items-start space-x-2"><span class="text-blue-600 mt-0.5">&#8226;</span><span>Varmetric regulator check (cos &phi;, timing, C/K, steps)</span></li>
+                                        <li class="flex items-start space-x-2"><span class="text-blue-600 mt-0.5">&#8226;</span><span>Capacitor discharge check after lockout</span></li>
+                                        <li class="flex items-start space-x-2"><span class="text-blue-600 mt-0.5">&#8226;</span><span>Full cleaning, ventilation dusting and bank cleaning</span></li>
+                                        <li class="flex items-start space-x-2"><span class="text-blue-600 mt-0.5">&#8226;</span><span>Visual capacitor inspection (leaks, swelling)</span></li>
+                                        <li class="flex items-start space-x-2"><span class="text-blue-600 mt-0.5">&#8226;</span><span>Capacitance measurement and fuse impedance testing</span></li>
+                                    </ul>
+                                </details>
+                                <details class="bg-white rounded-xl p-5 border border-gray-100">
+                                    <summary class="font-semibold cursor-pointer">Transformer dielectric analysis</summary>
+                                    <ul class="mt-4 space-y-2 text-sm text-gray-600">
+                                        <li class="flex items-start space-x-2"><span class="text-blue-600 mt-0.5">&#8226;</span><span>Transformer contamination level measurement</span></li>
+                                        <li class="flex items-start space-x-2"><span class="text-blue-600 mt-0.5">&#8226;</span><span>Liquid dielectric quality characterisation</span></li>
+                                        <li class="flex items-start space-x-2"><span class="text-blue-600 mt-0.5">&#8226;</span><span>Internal condition assessment for electrical incident prevention</span></li>
+                                        <li class="flex items-start space-x-2"><span class="text-blue-600 mt-0.5">&#8226;</span><span>Complete transformer health check for maximum safety</span></li>
+                                    </ul>
+                                </details>
+                                <details class="bg-white rounded-xl p-5 border border-gray-100">
+                                    <summary class="font-semibold cursor-pointer">Level 2 main distribution board revision</summary>
+                                    <ul class="mt-4 space-y-2 text-sm text-gray-600">
+                                        <li class="flex items-start space-x-2"><span class="text-blue-600 mt-0.5">&#8226;</span><span>Technician visit and risk identification</span></li>
+                                        <li class="flex items-start space-x-2"><span class="text-blue-600 mt-0.5">&#8226;</span><span>HV / transformer / LV circuit breaker equipment identification</span></li>
+                                        <li class="flex items-start space-x-2"><span class="text-blue-600 mt-0.5">&#8226;</span><span>Equipment obsolescence and safety accessories review</span></li>
+                                        <li class="flex items-start space-x-2"><span class="text-blue-600 mt-0.5">&#8226;</span><span>Fuse check (chalking, colour, cracks, corrosion) and leak testing</span></li>
+                                        <li class="flex items-start space-x-2"><span class="text-blue-600 mt-0.5">&#8226;</span><span>Renovation and anticipation of age-related degradation</span></li>
+                                        <li class="flex items-start space-x-2"><span class="text-blue-600 mt-0.5">&#8226;</span><span>Tailored solutions based on HV substation age</span></li>
+                                    </ul>
+                                </details>
+                            </div>
+
+                        </div>
+                    </details>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats -->
+        <section class="py-20 px-6 bg-white">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center mb-16 section-appear">
+                    <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-4">
+                        Results that speak for themselves
+                    </h2>
+                </div>
+                <div class="grid md:grid-cols-4 gap-12 text-center">
+                    <div class="section-appear">
+                        <div class="text-6xl font-bold mb-3">98<span class="text-4xl text-gray-500">%</span></div>
+                        <p class="text-sm text-gray-600 font-semibold uppercase tracking-wide">Uptime rate</p>
+                    </div>
+                    <div class="section-appear">
+                        <div class="text-6xl font-bold mb-3">&lt;4<span class="text-4xl text-gray-500">h</span></div>
+                        <p class="text-sm text-gray-600 font-semibold uppercase tracking-wide">Response time</p>
+                    </div>
+                    <div class="section-appear">
+                        <div class="text-6xl font-bold mb-3">24<span class="text-4xl text-gray-500">/7</span></div>
+                        <p class="text-sm text-gray-600 font-semibold uppercase tracking-wide">Continuous monitoring</p>
+                    </div>
+                    <div class="section-appear">
+                        <div class="text-6xl font-bold mb-3">1<span
+                                class="text-4xl text-gray-500 font-bold">500</span><span
+                                class="text-4xl text-gray-500">+</span></div>
+                        <p class="text-sm text-gray-600 font-semibold uppercase tracking-wide">Field interventions</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Managed brands - EV Chargers -->
+        <section class="py-20 px-6 bg-white">
+            <div class="max-w-5xl mx-auto">
+                <div class="text-center mb-12 section-appear">
+                    <span class="inline-block px-4 py-1 bg-blue-100 text-blue-700 rounded-full text-sm font-semibold mb-4">Multi-brand</span>
+                    <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-4">Managed Brands - EV Chargers</h2>
+                    <p class="text-gray-600 text-lg max-w-2xl mx-auto">Certified expertise across all major EV charger brands on the market</p>
+                </div>
+                <div class="section-appear">
+                    <div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-4">
+                        <div class="flex items-center justify-center p-4">
+                            <picture><source srcset="../images/schneider.webp?v=44" type="image/webp"><img src="../images/schneider.png?v=44" alt="Schneider Electric" class="h-8 w-auto brand-logo" width="120" height="48" loading="lazy"></picture>
+                        </div>
+                        <div class="flex items-center justify-center p-4">
+                            <picture><source srcset="../images/abb.webp?v=44" type="image/webp"><img src="../images/abb.png?v=44" alt="ABB" class="h-8 w-auto brand-logo" width="120" height="48" loading="lazy"></picture>
+                        </div>
+                        <div class="flex items-center justify-center p-4">
+                            <picture><source srcset="../images/alfen.webp?v=44" type="image/webp"><img src="../images/alfen.png?v=44" alt="Alfen" class="h-8 w-auto brand-logo" width="120" height="48" loading="lazy"></picture>
+                        </div>
+                        <div class="flex items-center justify-center p-4">
+                            <picture><source srcset="../images/autel.webp?v=44" type="image/webp"><img src="../images/autel.png?v=44" alt="Autel" class="h-8 w-auto brand-logo" width="120" height="48" loading="lazy"></picture>
+                        </div>
+                        <div class="flex items-center justify-center p-4">
+                            <picture><source srcset="../images/kempower.webp?v=44" type="image/webp"><img src="../images/kempower.png?v=44" alt="Kempower" class="h-8 w-auto brand-logo" width="120" height="48" loading="lazy"></picture>
+                        </div>
+                        <div class="flex items-center justify-center p-4">
+                            <picture><source srcset="../images/delta.webp?v=44" type="image/webp"><img src="../images/delta.png?v=44" alt="Delta" class="h-8 w-auto brand-logo" width="120" height="48" loading="lazy"></picture>
+                        </div>
+                        <div class="flex items-center justify-center p-4">
+                            <picture><source srcset="../images/evbox.webp?v=44" type="image/webp"><img src="../images/evbox.png?v=44" alt="EVBox" class="h-8 w-auto brand-logo" width="120" height="48" loading="lazy"></picture>
+                        </div>
+                        <div class="flex items-center justify-center p-4">
+                            <picture><source srcset="../images/wallbox.webp?v=44" type="image/webp"><img src="../images/wallbox.png?v=44" alt="Wallbox" class="h-8 w-auto brand-logo" width="120" height="48" loading="lazy"></picture>
+                        </div>
+                        <div class="flex items-center justify-center p-4">
+                            <picture><source srcset="../images/legrand.webp?v=44" type="image/webp"><img src="../images/legrand.png?v=44" alt="Legrand" class="h-8 w-auto brand-logo" width="120" height="48" loading="lazy"></picture>
+                        </div>
+                        <div class="flex items-center justify-center p-4">
+                            <picture><source srcset="../images/hager.webp?v=44" type="image/webp"><img src="../images/hager.png?v=44" alt="Hager" class="h-8 w-auto brand-logo" width="120" height="48" loading="lazy"></picture>
+                        </div>
+                        <div class="flex items-center justify-center p-4">
+                            <picture><source srcset="../images/siemens.webp?v=44" type="image/webp"><img src="../images/siemens.png?v=44" alt="Siemens" class="h-8 w-auto brand-logo" width="120" height="48" loading="lazy"></picture>
+                        </div>
+                        <div class="flex items-center justify-center p-4">
+                            <picture><source srcset="../images/alpi.webp?v=44" type="image/webp"><img src="../images/alpi.png?v=44" alt="Alpitronic" class="h-8 w-auto brand-logo" width="120" height="48" loading="lazy"></picture>
+                        </div>
+                        <div class="flex items-center justify-center p-4">
+                            <picture><source srcset="../images/ingeteam.webp?v=44" type="image/webp"><img src="../images/ingeteam.png?v=44" alt="Ingeteam" class="h-8 w-auto brand-logo" width="120" height="48" loading="lazy"></picture>
+                        </div>
+                        <div class="flex items-center justify-center p-4">
+                            <picture><source srcset="../images/circontrol.webp?v=44" type="image/webp"><img src="../images/circontrol.png?v=44" alt="Circontrol" class="h-8 w-auto brand-logo" width="120" height="48" loading="lazy"></picture>
+                        </div>
+                        <div class="flex items-center justify-center p-4">
+                            <picture><source srcset="../images/dbt.webp?v=44" type="image/webp"><img src="../images/dbt.png?v=44" alt="DBT" class="h-8 w-auto brand-logo" width="120" height="48" loading="lazy"></picture>
+                        </div>
+                        <div class="flex items-center justify-center p-4">
+                            <picture><source srcset="../images/icharging.webp?v=44" type="image/webp"><img src="../images/icharging.png?v=44" alt="i-Charging" class="h-8 w-auto brand-logo" width="120" height="48" loading="lazy"></picture>
+                        </div>
+                        <div class="flex items-center justify-center p-4">
+                            <picture><source srcset="../images/eko-logo.webp?v=44" type="image/webp"><img src="../images/eko-logo.png?v=44" alt="EKO" class="h-8 w-auto brand-logo" width="120" height="48" loading="lazy"></picture>
+                        </div>
+                        <div class="flex items-center justify-center p-4">
+                            <picture><source srcset="../images/anyos-logo.webp?v=44" type="image/webp"><img src="../images/anyos-logo.png?v=44" alt="Anyos" class="h-8 w-auto brand-logo" width="120" height="48" loading="lazy"></picture>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Coverage Map -->
+        <section class="py-20 px-6 bg-white">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center mb-16 section-appear">
+                    <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-6">
+                        Nationwide Coverage
+                    </h2>
+                    <p class="text-xl text-gray-600">
+                        Our certified technicians operate across more than 25 strategic cities to ensure rapid response anywhere in France and Belgium.
+                    </p>
+                </div>
+                <div class="section-appear">
+                    <div id="map" class="shadow-lg"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Other services -->
+        <section class="py-16 px-6 bg-gray-50">
+            <div class="max-w-6xl mx-auto">
+                <h2 class="text-2xl font-bold text-center mb-8">Discover our other services</h2>
+                <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <a href="/en/project-management" class="bg-white rounded-xl p-5 hover:shadow-lg transition-shadow text-center">
+                        <h3 class="font-bold text-sm mb-1">Project Management</h3>
+                        <p class="text-gray-500 text-xs">Coordination and monitoring of your EV charging projects</p>
+                    </a>
+                    <a href="/en/installation-compliance" class="bg-white rounded-xl p-5 hover:shadow-lg transition-shadow text-center">
+                        <h3 class="font-bold text-sm mb-1">Installation</h3>
+                        <p class="text-gray-500 text-xs">Qualifelec-certified installation</p>
+                    </a>
+                    <a href="/en/installation-security" class="bg-white rounded-xl p-5 hover:shadow-lg transition-shadow text-center">
+                        <h3 class="font-bold text-sm mb-1">Security</h3>
+                        <p class="text-gray-500 text-xs">Anti-vandalism protection</p>
+                    </a>
+                    <a href="/en/call-center" class="bg-white rounded-xl p-5 hover:shadow-lg transition-shadow text-center">
+                        <h3 class="font-bold text-sm mb-1">Support 24/7</h3>
+                        <p class="text-gray-500 text-xs">Hotline and remote management</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section class="py-20 px-6 bg-white">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-12 text-center">Frequently Asked Questions</h2>
+                <div class="space-y-6">
+                    <details class="bg-white rounded-xl p-6 shadow-sm border border-gray-100" open>
+                        <summary class="font-semibold text-lg cursor-pointer">What types of chargers do you maintain?</summary>
+                        <p class="mt-4 text-gray-600 leading-relaxed">We maintain all AC chargers (3.7 to 22 kW) and DC chargers (50 to 350 kW) from leading brands: ABB, Schneider, EVBox, Alfen, Kempower, Tritium and more. We also service the associated HV/LV transformers.</p>
+                    </details>
+                    <details class="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+                        <summary class="font-semibold text-lg cursor-pointer">What is your response time?</summary>
+                        <p class="mt-4 text-gray-600 leading-relaxed">Our contractual commitment is 4 hours in urban areas and 8 hours in rural areas for critical interventions. Our 24/7 support enables immediate remote diagnostics, resolving 40% of faults without an on-site visit.</p>
+                    </details>
+                    <details class="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+                        <summary class="font-semibold text-lg cursor-pointer">Do you offer preventive maintenance?</summary>
+                        <p class="mt-4 text-gray-600 leading-relaxed">Yes, our contracts include scheduled preventive visits (quarterly or biannual depending on the contract). We inspect connectors, electrical supply, firmware updates and equipment cleaning.</p>
+                    </details>
+                    <details class="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+                        <summary class="font-semibold text-lg cursor-pointer">Do you operate in Belgium?</summary>
+                        <p class="mt-4 text-gray-600 leading-relaxed">Yes, we cover mainland France and Belgium (Brussels, Wallonia, Flanders). Our teams are deployed across the territory to ensure fast response times.</p>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="py-20 px-6 bg-gray-50">
+            <div class="max-w-4xl mx-auto text-center section-appear">
+                <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-6">
+                    Step up to operational excellence today
+                </h2>
+                <p class="text-xl text-gray-600 mb-10 leading-relaxed max-w-3xl mx-auto">
+                    Our tailored contracts guarantee the uptime, performance and profitability of your EV charging infrastructure. Let us discuss your goals.
+                </p>
+                <a href="/en/contact"
+                    class="btn-primary px-10 py-5 rounded-xl font-medium text-lg inline-block transition-transform">
+                    Request a personalised audit
+                </a>
+            </div>
+        </section>
+
+        <!-- Blog articles -->
+        <section class="py-16 bg-white">
+            <div class="max-w-5xl mx-auto px-6">
+                <h2 class="text-2xl font-bold text-center mb-8">Related articles</h2>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <a href="/blog/maintenance-bornes-recharge-guide" class="bg-white rounded-xl p-6 border border-gray-100 hover:shadow-lg transition-all hover:-translate-y-1 group">
+                        <span class="text-xs font-semibold text-rose-600 uppercase tracking-wider">Maintenance</span>
+                        <h3 class="font-semibold text-gray-900 mt-2 group-hover:text-rose-600 transition-colors">EV charger maintenance: why, when and how?</h3>
+                    </a>
+                    <a href="/blog/record-recharge-ete-2025" class="bg-white rounded-xl p-6 border border-gray-100 hover:shadow-lg transition-all hover:-translate-y-1 group">
+                        <span class="text-xs font-semibold text-rose-600 uppercase tracking-wider">Market</span>
+                        <h3 class="font-semibold text-gray-900 mt-2 group-hover:text-rose-600 transition-colors">Summer 2025: record-breaking EV charger usage in France</h3>
+                    </a>
+                    <a href="/blog/recharge-poids-lourds-france-afir" class="bg-white rounded-xl p-6 border border-gray-100 hover:shadow-lg transition-all hover:-translate-y-1 group">
+                        <span class="text-xs font-semibold text-rose-600 uppercase tracking-wider">Infrastructure</span>
+                        <h3 class="font-semibold text-gray-900 mt-2 group-hover:text-rose-600 transition-colors">Electric heavy-duty vehicle charging: where does France stand?</h3>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="border-t border-gray-100 py-16 px-6 bg-white" role="contentinfo" aria-label="Footer">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid md:grid-cols-4 gap-10 mb-12">
+                <div>
+                    <div class="flex items-center space-x-3 mb-4">
+                        <picture><source srcset="../images/logo.webp" type="image/webp"><img src="../images/logo.png" alt="JCSM Logo" class="w-8 h-8" width="32" height="32" loading="lazy"></picture>
+                        <span class="text-xl font-semibold text-gray-900">JCSM</span>
+                    </div>
+                    <p class="text-sm text-gray-600 mb-4">Your trusted EV charging partner since 2019 - installation, operations, and maintenance across France and Belgium.</p>
+                    <p class="text-sm text-gray-500">60 rue François 1er<br>75008 Paris</p>
+                    <p class="text-sm text-gray-500 mt-3"><a href="tel:+33183755706" class="hover:text-gray-900 transition-colors">+33 1 83 75 57 06</a></p>
+                    <p class="text-sm text-gray-500"><a href="mailto:contact@jcsm.fr" class="hover:text-gray-900 transition-colors">contact@jcsm.fr</a></p>
+                </div>
+                <div>
+                    <h3 class="text-sm font-semibold text-gray-900 mb-4 uppercase tracking-wide">Services</h3>
+                    <nav aria-label="Services">
+                        <ul class="space-y-3">
+                            <li><a href="/en/project-management" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Project Management</a></li>
+                            <li><a href="/en/installation-compliance" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Installation & Compliance</a></li>
+                            <li><a href="/en/operations-maintenance" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Operations & Maintenance</a></li>
+                            <li><a href="/en/installation-security" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Security</a></li>
+                            <li><a href="/en/call-center" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Support 24/7</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div>
+                    <h3 class="text-sm font-semibold text-gray-900 mb-4 uppercase tracking-wide">Company</h3>
+                    <nav aria-label="Company">
+                        <ul class="space-y-3">
+                            <li><a href="/en/about" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">About</a></li>
+                            <li><a href="/en/careers" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Careers</a></li>
+                            <li><a href="/en/contact" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Contact</a></li>
+                            <li><a href="/blog" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Blog</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div>
+                    <h3 class="text-sm font-semibold text-gray-900 mb-4 uppercase tracking-wide">Legal</h3>
+                    <nav aria-label="Legal">
+                        <ul class="space-y-3">
+                            <li><a href="/en/legal-notice" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Legal Notice</a></li>
+                            <li><a href="/en/privacy" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Privacy Policy</a></li>
+                            <li><a href="/en/terms" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Terms & Conditions</a></li>
+                        </ul>
+                    </nav>
+                    <h3 class="text-sm font-semibold text-gray-900 mb-4 uppercase tracking-wide mt-6">Zones</h3>
+                    <nav aria-label="Zones">
+                        <ul class="space-y-3">
+                            <li><a href="/zones/france" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">France</a></li>
+                            <li><a href="/zones/belgique" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Belgium</a></li>
+                        </ul>
+                    </nav>
+                    <div class="flex items-center gap-3 mt-4">
+                        <a href="https://www.linkedin.com/company/jcsm-elec/" target="_blank" rel="noopener noreferrer" class="text-gray-500 hover:text-gray-900 transition-colors" aria-label="LinkedIn"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+                        <a href="https://www.facebook.com/profile.php?id=61587992161634" target="_blank" rel="noopener noreferrer" class="text-gray-500 hover:text-gray-900 transition-colors" aria-label="Facebook"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+                        <a href="https://x.com/JCSM_ELEC" target="_blank" rel="noopener noreferrer" class="text-gray-500 hover:text-gray-900 transition-colors" aria-label="X (Twitter)"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+                        <a href="https://www.instagram.com/jcsm.elec/" target="_blank" rel="noopener noreferrer" class="text-gray-500 hover:text-gray-900 transition-colors" aria-label="Instagram"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+                        <a href="https://www.youtube.com/@JCSM_ELEC" target="_blank" rel="noopener noreferrer" class="text-gray-500 hover:text-gray-900 transition-colors" aria-label="YouTube"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+                    </div>
+                </div>
+            </div>
+            <div class="pt-8 border-t border-gray-100 flex flex-col md:flex-row md:items-center md:justify-between gap-4 text-xs text-gray-500">
+                <span>&copy; 2026 JCSM SAS &mdash; SIRET 99387429600011</span>
+                <a href="mailto:contact@jcsm.fr" class="hover:text-gray-900 transition-colors">contact@jcsm.fr</a> &middot; <a href="tel:+33183755706" class="hover:text-gray-900 transition-colors">+33 1 83 75 57 06</a>
+            </div>
+        </div>
+    </footer>
+
+    <button class="scroll-top" id="scrollTop" aria-label="Back to top">
+        <svg class="w-6 h-6 float-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+        </svg>
+    </button>
+
+    <style>
+        /* === Tailwind CDN preflight overrides for Leaflet === */
+        #map .leaflet-container img { max-width: none; max-height: none; }
+        #map .leaflet-container a { color: inherit; text-decoration: none; }
+        #map .leaflet-control-attribution { color: #333; background: rgba(255,255,255,0.85); font-size: 11px; padding: 2px 6px; }
+        #map .leaflet-control-attribution a { color: #0078A8; text-decoration: underline; }
+        #map .leaflet-control-zoom a { color: #333; background: #fff; text-decoration: none; }
+        #map .leaflet-div-icon { background: transparent; border: none; }
+
+        #map { height: 550px; width: 100%; border-radius: 1rem; z-index: 1; }
+
+        #map .leaflet-interactive { cursor: pointer; }
+
+        #map .leaflet-popup-content-wrapper { border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); padding: 0; }
+        #map .leaflet-popup-content { margin: 0; min-width: 180px; }
+        .popup-content { padding: 14px 18px; }
+        .popup-content h3 { font-size: 15px; font-weight: 700; color: #1e293b; margin-bottom: 4px; }
+        .popup-content p { font-size: 12px; color: #64748b; margin: 0; }
+        .popup-content .popup-badge { display: inline-block; margin-top: 6px; padding: 2px 8px; background: #EFF6FF; color: #2563EB; border-radius: 8px; font-size: 10px; font-weight: 600; }
+    </style>
+
+    <script src="../js/i18n.js?v=44" defer></script>
+    <script src="../js/config.js?v=44" defer></script>
+    <script src="../js/utils.js?v=44" defer></script>
+    <script src="../js/public.js?v=44" defer></script>
+    <script src="../js/analytics.js?v=44" defer></script>
+    <script src="../js/wow-effects.js?v=44" defer></script>
+
+    <script>
+        // JCSM nationwide coverage map
+        document.addEventListener('DOMContentLoaded', function () {
+            const mapContainer = document.getElementById('map');
+            if (!mapContainer || typeof L === 'undefined') return;
+
+            const map = L.map('map', {
+                zoomControl: false,
+                scrollWheelZoom: false
+            }).setView([47.5, 2.5], 6);
+
+            L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+                attribution: '&copy; OpenStreetMap &copy; CARTO',
+                subdomains: 'abcd',
+                maxZoom: 19
+            }).addTo(map);
+
+            L.control.zoom({ position: 'bottomright' }).addTo(map);
+
+            // Strategic coverage cities
+            const cities = [
+                { name: 'Paris', lat: 48.8566, lng: 2.3522 },
+                { name: 'Lyon', lat: 45.7640, lng: 4.8357 },
+                { name: 'Marseille', lat: 43.2965, lng: 5.3698 },
+                { name: 'Toulouse', lat: 43.6047, lng: 1.4442 },
+                { name: 'Nice', lat: 43.7102, lng: 7.2620 },
+                { name: 'Nantes', lat: 47.2184, lng: -1.5536 },
+                { name: 'Montpellier', lat: 43.6110, lng: 3.8767 },
+                { name: 'Strasbourg', lat: 48.5734, lng: 7.7521 },
+                { name: 'Bordeaux', lat: 44.8378, lng: -0.5792 },
+                { name: 'Lille', lat: 50.6292, lng: 3.0573 },
+                { name: 'Rennes', lat: 48.1173, lng: -1.6778 },
+                { name: 'Reims', lat: 49.2583, lng: 4.0317 },
+                { name: 'Toulon', lat: 43.1242, lng: 5.9280 },
+                { name: 'Grenoble', lat: 45.1885, lng: 5.7245 },
+                { name: 'Dijon', lat: 47.3220, lng: 5.0415 },
+                { name: 'Angers', lat: 47.4784, lng: -0.5632 },
+                { name: 'Nimes', lat: 43.8367, lng: 4.3601 },
+                { name: 'Clermont-Ferrand', lat: 45.7772, lng: 3.0870 },
+                { name: 'Tours', lat: 47.3941, lng: 0.6848 },
+                { name: 'Metz', lat: 49.1193, lng: 6.1757 },
+                { name: 'Perpignan', lat: 42.6986, lng: 2.8956 },
+                { name: 'Orleans', lat: 47.9029, lng: 1.9039 },
+                { name: 'Rouen', lat: 49.4432, lng: 1.0999 },
+                { name: 'Caen', lat: 49.1829, lng: -0.3707 },
+                { name: 'Nancy', lat: 48.6921, lng: 6.1844 },
+                { name: 'Avignon', lat: 43.9493, lng: 4.8055 },
+                { name: 'Brest', lat: 48.3904, lng: -4.4861 },
+                { name: 'Quimper', lat: 47.9960, lng: -4.1024 },
+                { name: 'Liege', lat: 50.6326, lng: 5.5797 },
+                { name: 'Brussels', lat: 50.8503, lng: 4.3517 }
+            ];
+
+            cities.forEach(city => {
+                L.circleMarker([city.lat, city.lng], {
+                    radius: 7,
+                    fillColor: '#2563EB',
+                    fillOpacity: 1,
+                    color: '#fff',
+                    weight: 2.5,
+                    opacity: 1
+                })
+                    .bindPopup(`<div class="popup-content">
+                        <h3>${city.name}</h3>
+                        <p>JCSM service area</p>
+                        <span class="popup-badge">Operations & Maintenance</span>
+                    </div>`)
+                    .addTo(map);
+            });
+        });
+    </script>
+
+    <!-- Service Worker Registration -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                    .catch(() => {});
+            });
+        }
+    </script>
+</body>
+
+</html>

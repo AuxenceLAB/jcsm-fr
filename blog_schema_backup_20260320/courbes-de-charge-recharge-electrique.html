@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <!-- Cookie Consent + GTM (chargé après acceptation) -->
+    <script src="/js/cookie-consent.js" defer></script>
+    <title>Courbes de charge : comprendre la recharge VE | JCSM</title>
+    <meta name="description" content="Courbes de charge AC et DC : puissance, temps de recharge et optimisation. Comprendre la recharge d&#x27;un VE. Guide technique JCSM.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://jcsm.fr/blog/courbes-de-charge-recharge-electrique">
+    <link rel="alternate" hreflang="fr" href="https://jcsm.fr/blog/courbes-de-charge-recharge-electrique">
+    <link rel="alternate" hreflang="x-default" href="https://jcsm.fr/blog/courbes-de-charge-recharge-electrique">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Courbes de charge : comprendre la recharge de votre v\u00e9hicule \u00e9lectrique",
+        "description": "Comment fonctionne la recharge d'un v\u00e9hicule \u00e9lectrique ? Courbes de charge AC et DC, puissance, temps de recharge et optimisation. Guide technique JCSM.",
+        "datePublished": "2025-03-12",
+        "dateModified": "2025-03-12",
+        "author": {"@type": "Organization", "name": "JCSM", "url": "https://jcsm.fr"},
+        "publisher": {"@type": "Organization", "name": "JCSM", "url": "https://jcsm.fr", "logo": {"@type": "ImageObject", "url": "https://jcsm.fr/images/logo.png", "width": 512, "height": 512}},
+        "mainEntityOfPage": "https://jcsm.fr/blog/courbes-de-charge-recharge-electrique",
+        "image": "https://jcsm.fr/images/index.webp"
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://jcsm.fr/"},
+            {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://jcsm.fr/blog"},
+            {"@type": "ListItem", "position": 3, "name": "Courbes de charge", "item": "https://jcsm.fr/blog/courbes-de-charge-recharge-electrique"}
+        ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Pourquoi la recharge ralentit-elle apr\u00e8s 80\u00a0% ?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Le BMS r\u00e9duit le courant quand les cellules approchent de leur tension maximale, pour \u00e9viter la surchauffe et la d\u00e9gradation. Sur une DC 150 kW, la puissance r\u00e9elle chute souvent \u00e0 50-70 kW pass\u00e9 70 % de batterie."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Quelle puissance de borne choisir pour un parking ?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Tout d\u00e9pend du temps de stationnement. Parking r\u00e9sidentiel (8-12h la nuit) : AC 7 kW. Parking d'entreprise (8h le jour) : AC 11-22 kW. Station publique (30 min) : DC 50 kW minimum."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "La recharge rapide DC ab\u00eeme-t-elle la batterie ?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "N\u00e9gligeable avec les BMS modernes. Les constructeurs dimensionnent les batteries pour 1 000+ cycles DC rapides. La garantie couvre g\u00e9n\u00e9ralement 70 % de capacit\u00e9 apr\u00e8s 160 000 km."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Combien de temps pour recharger compl\u00e8tement un v\u00e9hicule \u00e9lectrique ?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Formule simple : capacit\u00e9 batterie (kWh) divis\u00e9e par puissance borne (kW) = temps en heures. Exemple : 60 kWh / 11 kW = 5h30. En DC, ajoutez 20-30 % car la puissance chute avec le remplissage."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Qu'est-ce que le pr\u00e9-conditionnement de la batterie ?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Le v\u00e9hicule chauffe (ou refroidit) sa batterie \u00e0 la temp\u00e9rature optimale avant d'arriver \u00e0 la borne. R\u00e9sultat : la courbe de charge d\u00e9marre au maximum d\u00e8s le branchement. Tous les VE r\u00e9cents l'int\u00e8grent."
+                }
+            }
+        ]
+    }
+    </script>
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://jcsm.fr/blog/courbes-de-charge-recharge-electrique">
+    <meta property="og:title" content="Courbes de charge : comprendre la recharge de votre v&#233;hicule &#233;lectrique">
+    <meta property="og:description" content="Courbes de charge AC et DC, puissance, temps de recharge et optimisation. Guide technique complet pour comprendre la recharge &#233;lectrique.">
+    <meta property="og:image" content="https://jcsm.fr/images/index.webp">
+    <meta property="og:image:alt" content="Infrastructure de recharge pour véhicules électriques">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:locale" content="fr_FR">
+    <meta property="og:site_name" content="JCSM - Infrastructure de Recharge">
+    <meta property="article:published_time" content="2025-03-12">
+    <meta property="article:modified_time" content="2025-03-12T00:00:00+01:00">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Courbes de charge : comprendre la recharge de votre v&#233;hicule &#233;lectrique">
+    <meta name="twitter:description" content="Courbes de charge AC et DC, puissance, temps de recharge et optimisation. Guide technique JCSM.">
+    <meta name="twitter:image" content="https://jcsm.fr/images/index.webp">
+    <meta name="twitter:image:alt" content="Infrastructure de recharge pour véhicules électriques">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"
+        media="print" onload="this.media='all'">
+    <noscript>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+            rel="stylesheet">
+    </noscript>
+    <link rel="stylesheet" href="../css/tailwind.css?v=42">
+    <link rel="stylesheet" href="../styles.css?v=42">
+    <link rel="manifest" href="../manifest.json">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+</head>
+<body class="text-gray-900 bg-white">
+    <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+    <div class="preloader" id="preloader" role="status" aria-label="Chargement">
+        <div class="flex flex-col items-center justify-center">
+            <picture><source srcset="../images/logo.webp" type="image/webp"><img src="../images/logo.png" alt="JCSM" width="80" height="80" class="animate-pulse"></picture>
+            <div class="mt-4 flex space-x-2" aria-hidden="true">
+                <div class="w-2 h-2 bg-blue-600 rounded-full animate-bounce" style="animation-delay: 0s"></div>
+                <div class="w-2 h-2 bg-blue-600 rounded-full animate-bounce" style="animation-delay: 0.1s"></div>
+                <div class="w-2 h-2 bg-blue-600 rounded-full animate-bounce" style="animation-delay: 0.2s"></div>
+            </div>
+        </div>
+    </div>
+    <div class="mobile-menu-overlay" id="mobile-menu-overlay"></div>
+    <nav class="mobile-menu" id="mobile-menu" role="dialog" aria-modal="true" aria-label="Menu de navigation" aria-hidden="true">
+        <div class="p-8">
+            <div class="flex justify-between items-center mb-12">
+                <span class="text-xl font-semibold">Menu</span>
+                <button class="text-gray-600 hover:text-gray-900" id="mobile-menu-close" aria-label="Fermer le menu de navigation">
+                    <svg class="w-6 h-6" fill="none" aria-hidden="true" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+                </button>
+            </div>
+                        <div class="flex flex-col space-y-6">
+                <a href="/pilotage-projets" class="text-base text-gray-600 hover:text-gray-900 transition-colors">Pilotage de projets</a>
+                <a href="/installation-conformite" class="text-base text-gray-600 hover:text-gray-900 transition-colors">Installation</a>
+                <a href="/exploitation" class="text-base text-gray-600 hover:text-gray-900 transition-colors">Exploitation</a>
+                <a href="/securisation-installations" class="text-base text-gray-600 hover:text-gray-900 transition-colors">Sécurisation</a>
+                <a href="/centre-appel" class="text-base text-gray-600 hover:text-gray-900 transition-colors">Support</a>
+                <a href="/solutions/" class="text-base text-gray-600 hover:text-gray-900 transition-colors">Solutions</a>
+                <a href="/a-propos" class="text-base text-gray-600 hover:text-gray-900 transition-colors">À propos</a>
+                <a href="/blog" class="text-base text-gray-600 hover:text-gray-900 transition-colors">Blog</a>
+                <a href="/contact" class="btn-primary px-6 py-3 rounded-lg text-base font-medium inline-block text-center mt-4">Contact</a>
+            </div>
+        </div>
+    </nav>
+    <nav class="fixed top-0 w-full z-50 glass-nav border-b border-gray-200" role="navigation" aria-label="Navigation principale">
+        <div class="max-w-7xl mx-auto px-6 py-5">
+            <div class="flex justify-between items-center">
+                <a href="/" class="flex items-center space-x-3 group mr-12">
+                    <picture><source srcset="../images/logo.webp" type="image/webp"><img src="../images/logo.png" alt="JCSM" class="w-9 h-9 transition-transform group-hover:scale-105 duration-300" width="36" height="36"></picture>
+                    <span class="text-xl font-bold tracking-tight">JCSM</span>
+                </a>
+                <div class="hidden lg:flex items-center space-x-6 xl:space-x-8">
+                    <a href="/pilotage-projets" class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300 whitespace-nowrap">Pilotage</a>
+                    <a href="/installation-conformite" class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300 whitespace-nowrap">Installation</a>
+                    <a href="/exploitation" class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300 whitespace-nowrap">Exploitation</a>
+                    <a href="/securisation-installations" class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300 whitespace-nowrap">Sécurisation</a>
+                    <a href="/centre-appel" class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300 whitespace-nowrap">Support</a>
+                    <a href="/solutions/" class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300 whitespace-nowrap">Solutions</a>
+                    <a href="/a-propos" class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300 whitespace-nowrap">À propos</a>
+                    <a href="/blog" class="text-base font-semibold text-blue-600 hover:text-blue-700 transition-all duration-300 whitespace-nowrap">Blog</a>
+                    <a href="/contact" class="btn-primary ml-4 px-7 py-2.5 rounded-xl text-base font-medium shadow-lg hover:shadow-xl whitespace-nowrap">Contact</a>
+                </div>
+                <button class="mobile-menu-btn text-gray-600 hover:text-gray-900" id="mobile-menu-btn" aria-label="Ouvrir le menu de navigation" aria-expanded="false" aria-controls="mobile-menu">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main id="main-content" role="main">
+        <article class="pt-32 pb-16 px-6">
+            <div class="max-w-3xl mx-auto">
+                <div class="mb-8">
+                    <a href="/blog" class="text-sm text-blue-600 hover:text-blue-800 transition-colors">&larr; Retour au blog</a>
+                </div>
+                <div class="mb-10">
+                    <span class="inline-block text-xs font-semibold text-amber-800 bg-amber-100 rounded-full px-3 py-1 mb-4">Technique</span>
+                    <h1 class="text-3xl md:text-4xl font-bold mb-4 leading-tight">Courbes de charge : comprendre la recharge de votre v&#233;hicule &#233;lectrique</h1>
+                    <div class="flex items-center text-sm text-gray-500">
+                        <time datetime="2025-03-12">12 mars 2025</time>
+                        <span class="mx-2">·</span>
+                        <span>8 min de lecture</span>
+                    </div>
+                </div>
+
+                <!-- Sommaire -->
+                <nav class="bg-amber-50 border border-amber-200 rounded-2xl p-6 mb-10" aria-label="Sommaire de l'article">
+                    <h2 class="text-sm font-semibold text-amber-800 uppercase tracking-wide mb-3">Sommaire</h2>
+                    <ol class="space-y-2 text-sm">
+                        <li><a href="#courbe-de-charge" class="text-amber-700 hover:text-amber-900 transition-colors">1. Qu&#8217;est-ce qu&#8217;une courbe de charge ?</a></li>
+                        <li><a href="#recharge-ac" class="text-amber-700 hover:text-amber-900 transition-colors">2. Recharge AC : une puissance constante</a></li>
+                        <li><a href="#recharge-dc" class="text-amber-700 hover:text-amber-900 transition-colors">3. Recharge DC : la courbe en cloche</a></li>
+                        <li><a href="#exemples-vehicules" class="text-amber-700 hover:text-amber-900 transition-colors">4. Exemples concrets par v&#233;hicule</a></li>
+                        <li><a href="#facteurs-influence" class="text-amber-700 hover:text-amber-900 transition-colors">5. Les facteurs qui influencent la courbe</a></li>
+                        <li><a href="#optimiser-recharge" class="text-amber-700 hover:text-amber-900 transition-colors">6. Optimiser ses sessions de recharge</a></li>
+                        <li><a href="#choix-infrastructure" class="text-amber-700 hover:text-amber-900 transition-colors">7. Impact sur le choix de l&#8217;infrastructure IRVE</a></li>
+                        <li><a href="#faq" class="text-amber-700 hover:text-amber-900 transition-colors">8. Questions fr&#233;quentes</a></li>
+                    </ol>
+                </nav>
+
+                <div class="prose prose-lg max-w-none">
+                    <p class="text-lg text-gray-600 leading-relaxed mb-8">Brancher son v&#233;hicule &#233;lectrique et attendre que la batterie se remplisse : en apparence, c&#8217;est simple. En r&#233;alit&#233;, la puissance d&#233;livr&#233;e varie consid&#233;rablement au cours d&#8217;une session de recharge. Comprendre ces variations - les fameuses <strong>courbes de charge</strong> - permet de mieux planifier ses trajets, de pr&#233;server sa batterie et de dimensionner correctement une infrastructure de recharge.</p>
+
+                    <!-- Section 1 -->
+                    <h2 id="courbe-de-charge" class="text-2xl font-bold mt-12 mb-4">Qu&#8217;est-ce qu&#8217;une courbe de charge ?</h2>
+                    <p class="text-gray-600 leading-relaxed mb-4">Une courbe de charge repr&#233;sente l&#8217;&#233;volution de la <strong>puissance de recharge</strong> (en kW) en fonction du <strong>niveau de batterie</strong> (SOC - State of Charge, exprim&#233; en pourcentage). Contrairement &#224; ce que l&#8217;on pourrait croire, la recharge d&#8217;un v&#233;hicule &#233;lectrique n&#8217;est pas lin&#233;aire : la puissance accept&#233;e par la batterie change tout au long de la session.</p>
+                    <p class="text-gray-600 leading-relaxed mb-4">Trois facteurs principaux d&#233;terminent la forme de cette courbe :</p>
+                    <ul class="list-disc pl-6 text-gray-600 space-y-2 mb-6">
+                        <li><strong>Le niveau de charge (SOC)</strong> : une batterie presque vide accepte g&#233;n&#233;ralement plus de puissance qu&#8217;une batterie presque pleine</li>
+                        <li><strong>La temp&#233;rature</strong> : le lithium-ion fonctionne de mani&#232;re optimale entre 20 et 35 &#176;C. En dessous de 10 &#176;C, la r&#233;sistance interne augmente et la puissance accept&#233;e diminue</li>
+                        <li><strong>La chimie de la batterie</strong> : NMC (nickel-mangan&#232;se-cobalt) et LFP (lithium-fer-phosphate) n&#8217;ont pas le m&#234;me profil de charge</li>
+                    </ul>
+                    <p class="text-gray-600 leading-relaxed mb-4">La distinction fondamentale se fait entre la recharge en courant alternatif (AC) et en courant continu (DC), qui produisent des courbes radicalement diff&#233;rentes. Pour approfondir la diff&#233;rence entre ces deux types de courant, consultez notre article sur les <a href="/blog/borne-ac-dc-difference" class="text-blue-600 hover:text-blue-800 underline">bornes AC vs DC</a>.</p>
+
+                    <!-- Section 2 -->
+                    <h2 id="recharge-ac" class="text-2xl font-bold mt-12 mb-4">Recharge AC : une puissance constante</h2>
+                    <p class="text-gray-600 leading-relaxed mb-4">En recharge AC, le courant alternatif du r&#233;seau est converti en courant continu par le <strong>chargeur embarqu&#233;</strong> (OBC - On-Board Charger) du v&#233;hicule. Ce composant est le facteur limitant : sa puissance maximale d&#233;termine le d&#233;bit de recharge, quelle que soit la puissance de la borne.</p>
+                    <p class="text-gray-600 leading-relaxed mb-4">La bonne nouvelle : la courbe AC est quasi plate. La puissance reste constante de 0 &#224; 100 % de SOC (avec une l&#233;g&#232;re r&#233;duction au-dessus de 95 %). Cela rend le calcul du temps de recharge tr&#232;s simple.</p>
+
+                    <div class="overflow-x-auto mb-6">
+                        <table class="w-full border-collapse text-sm">
+                            <thead>
+                                <tr class="bg-gray-50">
+                                    <th scope="col" class="text-left py-3 px-4 font-semibold text-gray-900 border-b border-gray-200">Puissance AC</th>
+                                    <th scope="col" class="text-left py-3 px-4 font-semibold text-gray-900 border-b border-gray-200">Configuration</th>
+                                    <th scope="col" class="text-left py-3 px-4 font-semibold text-gray-900 border-b border-gray-200">Temps pour 60 kWh</th>
+                                    <th scope="col" class="text-left py-3 px-4 font-semibold text-gray-900 border-b border-gray-200">Usage type</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="border-b border-gray-100">
+                                    <td class="py-3 px-4 text-gray-600 font-medium">3,7 kW</td>
+                                    <td class="py-3 px-4 text-gray-600">Monophas&#233; 16 A</td>
+                                    <td class="py-3 px-4 text-gray-600">~16 h</td>
+                                    <td class="py-3 px-4 text-gray-600">Prise renforc&#233;e</td>
+                                </tr>
+                                <tr class="border-b border-gray-100 bg-gray-50">
+                                    <td class="py-3 px-4 text-gray-600 font-medium">7,4 kW</td>
+                                    <td class="py-3 px-4 text-gray-600">Monophas&#233; 32 A</td>
+                                    <td class="py-3 px-4 text-gray-600">~8 h</td>
+                                    <td class="py-3 px-4 text-gray-600">Domicile / copropri&#233;t&#233;</td>
+                                </tr>
+                                <tr class="border-b border-gray-100">
+                                    <td class="py-3 px-4 text-gray-600 font-medium">11 kW</td>
+                                    <td class="py-3 px-4 text-gray-600">Triphas&#233; 16 A</td>
+                                    <td class="py-3 px-4 text-gray-600">~5,5 h</td>
+                                    <td class="py-3 px-4 text-gray-600">Entreprise / parking</td>
+                                </tr>
+                                <tr class="bg-gray-50">
+                                    <td class="py-3 px-4 text-gray-600 font-medium">22 kW</td>
+                                    <td class="py-3 px-4 text-gray-600">Triphas&#233; 32 A</td>
+                                    <td class="py-3 px-4 text-gray-600">~3 h</td>
+                                    <td class="py-3 px-4 text-gray-600">Voirie / commerce</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p class="text-gray-600 leading-relaxed mb-4">&#192; noter : la majorit&#233; des v&#233;hicules &#233;lectriques vendus en Europe disposent d&#8217;un OBC de 11 kW. M&#234;me branch&#233;e sur une borne 22 kW, une voiture limit&#233;e &#224; 11 kW ne chargera qu&#8217;&#224; 11 kW. V&#233;rifiez toujours la capacit&#233; du chargeur embarqu&#233; de votre v&#233;hicule avant de choisir votre borne. Pour aller plus loin sur le sujet de l&#8217;<a href="/installation-conformite" class="text-blue-600 hover:text-blue-800 underline">installation de bornes</a>, consultez notre page d&#233;di&#233;e.</p>
+
+                    <!-- Section 3 -->
+                    <h2 id="recharge-dc" class="text-2xl font-bold mt-12 mb-4">Recharge DC : la courbe en cloche</h2>
+                    <p class="text-gray-600 leading-relaxed mb-4">La recharge rapide DC contourne le chargeur embarqu&#233; : le courant continu est inject&#233; directement dans la batterie par le chargeur externe. Les puissances en jeu sont bien sup&#233;rieures (50 &#224; 350 kW), mais la courbe de charge prend une forme caract&#233;ristique de <strong>cloche</strong>.</p>
+                    <p class="text-gray-600 leading-relaxed mb-4">Le BMS (Battery Management System) du v&#233;hicule contr&#244;le en permanence la tension, la temp&#233;rature et le courant de chaque cellule. Il ajuste la puissance accept&#233;e pour prot&#233;ger la batterie :</p>
+
+                    <!-- Visualisation de la courbe DC -->
+                    <div class="bg-gray-50 rounded-2xl p-6 mb-6">
+                        <h3 class="text-lg font-semibold mb-4 text-gray-900">Profil de puissance type en recharge DC</h3>
+                        <div class="space-y-3">
+                            <div class="flex items-center">
+                                <span class="text-sm font-medium text-gray-500 w-20 shrink-0">0-20 %</span>
+                                <div class="flex-1 mx-3">
+                                    <div class="bg-amber-300 rounded-full h-6 flex items-center px-3" style="width: 70%">
+                                        <span class="text-xs font-semibold text-amber-900">Mont&#233;e en puissance</span>
+                                    </div>
+                                </div>
+                                <span class="text-xs text-gray-500 w-28 text-right shrink-0">50-80 % de P<sub>max</sub></span>
+                            </div>
+                            <div class="flex items-center">
+                                <span class="text-sm font-medium text-gray-500 w-20 shrink-0">20-50 %</span>
+                                <div class="flex-1 mx-3">
+                                    <div class="bg-amber-500 rounded-full h-6 flex items-center px-3" style="width: 100%">
+                                        <span class="text-xs font-semibold text-white">Puissance maximale</span>
+                                    </div>
+                                </div>
+                                <span class="text-xs text-gray-500 w-28 text-right shrink-0">100 % de P<sub>max</sub></span>
+                            </div>
+                            <div class="flex items-center">
+                                <span class="text-sm font-medium text-gray-500 w-20 shrink-0">50-80 %</span>
+                                <div class="flex-1 mx-3">
+                                    <div class="bg-amber-300 rounded-full h-6 flex items-center px-3" style="width: 55%">
+                                        <span class="text-xs font-semibold text-amber-900">R&#233;duction progressive</span>
+                                    </div>
+                                </div>
+                                <span class="text-xs text-gray-500 w-28 text-right shrink-0">40-70 % de P<sub>max</sub></span>
+                            </div>
+                            <div class="flex items-center">
+                                <span class="text-sm font-medium text-gray-500 w-20 shrink-0">80-100 %</span>
+                                <div class="flex-1 mx-3">
+                                    <div class="bg-amber-200 rounded-full h-6 flex items-center px-3" style="width: 20%">
+                                        <span class="text-xs font-semibold text-amber-900 whitespace-nowrap">Lente</span>
+                                    </div>
+                                </div>
+                                <span class="text-xs text-gray-500 w-28 text-right shrink-0">10-20 % de P<sub>max</sub></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p class="text-gray-600 leading-relaxed mb-4">Pourquoi cette forme ? Lorsque les cellules lithium-ion se chargent, leur tension interne augmente. &#192; mesure que chaque cellule approche de sa tension maximale (typiquement 4,2 V pour le NMC), la diff&#233;rence de potentiel avec le chargeur diminue. Pour maintenir un flux de courant sans endommager les cellules, le BMS r&#233;duit progressivement l&#8217;intensit&#233;. C&#8217;est un peu comme remplir un verre d&#8217;eau : on verse vite au d&#233;but, puis on ralentit pour ne pas d&#233;border.</p>
+
+                    <!-- Section 4 -->
+                    <h2 id="exemples-vehicules" class="text-2xl font-bold mt-12 mb-4">Exemples concrets par v&#233;hicule</h2>
+                    <p class="text-gray-600 leading-relaxed mb-6">Chaque v&#233;hicule &#233;lectrique poss&#232;de son propre profil de charge, d&#233;fini par la capacit&#233; de la batterie, l&#8217;architecture &#233;lectrique (400 V ou 800 V) et la strat&#233;gie du BMS. Voici quatre mod&#232;les populaires :</p>
+
+                    <div class="grid sm:grid-cols-2 gap-4 mb-8">
+                        <!-- Tesla Model 3 LR -->
+                        <div class="border border-gray-200 rounded-xl p-5">
+                            <h3 class="font-bold text-gray-900 mb-1">Tesla Model 3 Long Range</h3>
+                            <p class="text-xs text-gray-500 mb-3">Batterie 75 kWh · Architecture 400 V</p>
+                            <div class="space-y-2 text-sm text-gray-600">
+                                <div class="flex justify-between"><span>Puissance pic DC</span><span class="font-semibold text-gray-900">250 kW</span></div>
+                                <div class="flex justify-between"><span>10 &rarr; 80 %</span><span class="font-semibold text-gray-900">~15 min</span></div>
+                                <div class="flex justify-between"><span>OBC (AC)</span><span class="font-semibold text-gray-900">11 kW</span></div>
+                            </div>
+                        </div>
+                        <!-- Hyundai Ioniq 5 -->
+                        <div class="border border-gray-200 rounded-xl p-5">
+                            <h3 class="font-bold text-gray-900 mb-1">Hyundai Ioniq 5</h3>
+                            <p class="text-xs text-gray-500 mb-3">Batterie 77 kWh · Architecture 800 V</p>
+                            <div class="space-y-2 text-sm text-gray-600">
+                                <div class="flex justify-between"><span>Puissance pic DC</span><span class="font-semibold text-gray-900">240 kW</span></div>
+                                <div class="flex justify-between"><span>10 &rarr; 80 %</span><span class="font-semibold text-gray-900">~18 min</span></div>
+                                <div class="flex justify-between"><span>OBC (AC)</span><span class="font-semibold text-gray-900">11 kW</span></div>
+                            </div>
+                        </div>
+                        <!-- Renault M&#233;gane E-Tech -->
+                        <div class="border border-gray-200 rounded-xl p-5">
+                            <h3 class="font-bold text-gray-900 mb-1">Renault M&#233;gane E-Tech</h3>
+                            <p class="text-xs text-gray-500 mb-3">Batterie 60 kWh · Architecture 400 V</p>
+                            <div class="space-y-2 text-sm text-gray-600">
+                                <div class="flex justify-between"><span>Puissance pic DC</span><span class="font-semibold text-gray-900">130 kW</span></div>
+                                <div class="flex justify-between"><span>10 &rarr; 80 %</span><span class="font-semibold text-gray-900">~30 min</span></div>
+                                <div class="flex justify-between"><span>OBC (AC)</span><span class="font-semibold text-gray-900">22 kW</span></div>
+                            </div>
+                        </div>
+                        <!-- Peugeot e-208 -->
+                        <div class="border border-gray-200 rounded-xl p-5">
+                            <h3 class="font-bold text-gray-900 mb-1">Peugeot e-208</h3>
+                            <p class="text-xs text-gray-500 mb-3">Batterie 50 kWh · Architecture 400 V</p>
+                            <div class="space-y-2 text-sm text-gray-600">
+                                <div class="flex justify-between"><span>Puissance pic DC</span><span class="font-semibold text-gray-900">100 kW</span></div>
+                                <div class="flex justify-between"><span>20 &rarr; 80 %</span><span class="font-semibold text-gray-900">~25 min</span></div>
+                                <div class="flex justify-between"><span>OBC (AC)</span><span class="font-semibold text-gray-900">11 kW</span></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p class="text-gray-600 leading-relaxed mb-4">L&#8217;architecture 800 V du Ioniq 5 explique sa courbe de charge particuli&#232;rement plate entre 10 et 70 % : la tension plus &#233;lev&#233;e permet de maintenir un courant &#233;lev&#233; plus longtemps, ce qui se traduit par une puissance soutenue sur une plage de SOC plus large. Pour en savoir plus sur les batteries et leur fonctionnement, consultez notre article sur le <a href="/blog/vehicule-electrique-batterie-guide" class="text-blue-600 hover:text-blue-800 underline">guide des batteries de v&#233;hicules &#233;lectriques</a>.</p>
+
+                    <!-- Section 5 -->
+                    <h2 id="facteurs-influence" class="text-2xl font-bold mt-12 mb-4">Les facteurs qui influencent la courbe</h2>
+                    <p class="text-gray-600 leading-relaxed mb-4">Au-del&#224; du SOC, plusieurs variables modifient la forme de la courbe de charge en conditions r&#233;elles :</p>
+
+                    <h3 class="text-xl font-semibold mt-8 mb-3">Temp&#233;rature de la batterie</h3>
+                    <p class="text-gray-600 leading-relaxed mb-4">C&#8217;est le facteur le plus impactant. Par temps froid (en dessous de 10 &#176;C), la r&#233;sistance interne des cellules augmente significativement. Le BMS limite alors la puissance pour &#233;viter le d&#233;p&#244;t de lithium m&#233;tallique sur les anodes - un ph&#233;nom&#232;ne irr&#233;versible qui d&#233;grade la capacit&#233;. En hiver, il n&#8217;est pas rare de ne charger qu&#8217;&#224; 50-60 % de la puissance nominale sur une borne DC.</p>
+
+                    <h3 class="text-xl font-semibold mt-8 mb-3">SOC initial</h3>
+                    <p class="text-gray-600 leading-relaxed mb-4">Arriver &#224; une borne rapide avec un SOC de 10 % est beaucoup plus efficace qu&#8217;&#224; 50 %. La puissance maximale est atteinte plus vite et maintenue plus longtemps. C&#8217;est pourquoi les planificateurs d&#8217;itin&#233;raire des v&#233;hicules &#233;lectriques recommandent souvent d&#8217;arriver aux bornes avec un SOC bas.</p>
+
+                    <h3 class="text-xl font-semibold mt-8 mb-3">&#194;ge et sant&#233; de la batterie (SOH)</h3>
+                    <p class="text-gray-600 leading-relaxed mb-4">Avec le temps et les cycles, la r&#233;sistance interne des cellules augmente l&#233;g&#232;rement. Un v&#233;hicule avec un SOH (State of Health) de 90 % chargera un peu moins vite qu&#8217;un v&#233;hicule neuf. Cette d&#233;gradation reste toutefois modeste sur les batteries modernes : environ 2 &#224; 3 % de capacit&#233; perdue par an en usage normal.</p>
+
+                    <h3 class="text-xl font-semibold mt-8 mb-3">Puissance disponible du chargeur</h3>
+                    <p class="text-gray-600 leading-relaxed mb-4">Si la borne DC est limit&#233;e &#224; 50 kW, m&#234;me un v&#233;hicule capable de 250 kW ne d&#233;passera pas 50 kW. Inversement, un chargeur 350 kW ne forcera jamais un v&#233;hicule au-del&#224; de sa capacit&#233; - c&#8217;est toujours le BMS du v&#233;hicule qui d&#233;cide.</p>
+
+                    <h3 class="text-xl font-semibold mt-8 mb-3">Pr&#233;-conditionnement</h3>
+                    <p class="text-gray-600 leading-relaxed mb-4">Les v&#233;hicules r&#233;cents (Tesla, Hyundai, Kia, BMW) peuvent chauffer ou refroidir la batterie en route vers une borne rapide. Ce pr&#233;-conditionnement permet d&#8217;atteindre la plage de temp&#233;rature optimale (20-35 &#176;C) &#224; l&#8217;arriv&#233;e, garantissant une puissance de charge maximale d&#232;s le branchement.</p>
+
+                    <!-- Callout 1 -->
+                    <div class="bg-amber-50 border-l-4 border-amber-400 rounded-r-xl p-5 my-8">
+                        <p class="text-sm font-semibold text-amber-800 mb-1">&#128161; Bon &#224; savoir : la r&#232;gle des 20-80 %</p>
+                        <p class="text-sm text-amber-700">En rechargeant entre 20 % et 80 %, vous utilisez la zone o&#249; la puissance est maximale et vous pr&#233;servez la dur&#233;e de vie de la batterie. Les 20 derniers pourcents (80-100 %) prennent autant de temps que les 60 premiers (20-80 %) en recharge rapide DC.</p>
+                    </div>
+
+                    <!-- Section 6 -->
+                    <h2 id="optimiser-recharge" class="text-2xl font-bold mt-12 mb-4">Optimiser ses sessions de recharge</h2>
+                    <p class="text-gray-600 leading-relaxed mb-4">Quelques pratiques simples permettent de tirer le meilleur parti de chaque session :</p>
+                    <ul class="list-disc pl-6 text-gray-600 space-y-3 mb-6">
+                        <li><strong>Charger entre 20 % et 80 % au quotidien</strong> : c&#8217;est la plage de confort pour la batterie et la plus rapide en DC. La plupart des constructeurs recommandent de limiter la charge &#224; 80 % pour l&#8217;usage courant et de ne monter &#224; 100 % que pour les longs trajets.</li>
+                        <li><strong>Utiliser le pr&#233;-conditionnement si disponible</strong> : programmez votre arr&#234;t de charge dans le GPS du v&#233;hicule. Le syst&#232;me chauffera la batterie en route pour optimiser la puissance &#224; l&#8217;arriv&#233;e. Le gain peut atteindre 30 &#224; 40 % de temps en hiver.</li>
+                        <li><strong>&#201;viter la recharge rapide par grand froid</strong> : si votre v&#233;hicule ne dispose pas de pr&#233;-conditionnement et que la temp&#233;rature est inf&#233;rieure &#224; 5 &#176;C, privil&#233;giez la recharge AC en int&#233;rieur (garage). La puissance AC plus faible m&#233;nage la batterie froide.</li>
+                        <li><strong>Planifier les longs trajets avec des arr&#234;ts &#224; 10-20 %</strong> : plut&#244;t que de charger &#224; 100 % au d&#233;part et de rouler jusqu&#8217;&#224; l&#8217;&#233;puisement, fractionnez en arr&#234;ts courts (20 min) en arrivant &#224; la borne entre 10 et 20 % de SOC. Le temps total de trajet sera plus court gr&#226;ce &#224; la puissance de charge maximale.</li>
+                    </ul>
+
+                    <!-- Section 7 -->
+                    <h2 id="choix-infrastructure" class="text-2xl font-bold mt-12 mb-4">Impact sur le choix de l&#8217;infrastructure IRVE</h2>
+                    <p class="text-gray-600 leading-relaxed mb-4">Comprendre les courbes de charge est essentiel pour <strong>dimensionner correctement</strong> une infrastructure de recharge. Le type d&#8217;usage d&#233;termine le besoin en puissance :</p>
+
+                    <div class="overflow-x-auto mb-6">
+                        <table class="w-full border-collapse text-sm">
+                            <thead>
+                                <tr class="bg-gray-50">
+                                    <th scope="col" class="text-left py-3 px-4 font-semibold text-gray-900 border-b border-gray-200">Lieu</th>
+                                    <th scope="col" class="text-left py-3 px-4 font-semibold text-gray-900 border-b border-gray-200">Puissance recommand&#233;e</th>
+                                    <th scope="col" class="text-left py-3 px-4 font-semibold text-gray-900 border-b border-gray-200">Logique</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="border-b border-gray-100">
+                                    <td class="py-3 px-4 text-gray-600 font-medium">Parking r&#233;sidentiel</td>
+                                    <td class="py-3 px-4 text-gray-600">AC 7-22 kW</td>
+                                    <td class="py-3 px-4 text-gray-600">Recharge nocturne (8-12 h), courbe plate, puissance modeste suffisante</td>
+                                </tr>
+                                <tr class="border-b border-gray-100 bg-gray-50">
+                                    <td class="py-3 px-4 text-gray-600 font-medium">Parking de bureau</td>
+                                    <td class="py-3 px-4 text-gray-600">AC 7-22 kW</td>
+                                    <td class="py-3 px-4 text-gray-600">Journ&#233;e de travail (8-10 h), m&#234;me logique que le r&#233;sidentiel</td>
+                                </tr>
+                                <tr class="border-b border-gray-100">
+                                    <td class="py-3 px-4 text-gray-600 font-medium">Station publique</td>
+                                    <td class="py-3 px-4 text-gray-600">DC 50-150 kW</td>
+                                    <td class="py-3 px-4 text-gray-600">Rotation rapide (30 min-2 h), exploiter la zone 10-80 % de la courbe DC</td>
+                                </tr>
+                                <tr class="bg-gray-50">
+                                    <td class="py-3 px-4 text-gray-600 font-medium">Autoroute</td>
+                                    <td class="py-3 px-4 text-gray-600">DC 150-350 kW</td>
+                                    <td class="py-3 px-4 text-gray-600">Arr&#234;ts courts (15-30 min), puissance maximale pour recharger 200+ km rapidement</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- Callout 2 -->
+                    <div class="bg-amber-50 border-l-4 border-amber-400 rounded-r-xl p-5 my-8">
+                        <p class="text-sm font-semibold text-amber-800 mb-1">&#128161; Pour les gestionnaires</p>
+                        <p class="text-sm text-amber-700">En AC, un parking de 20 places avec bornes 7 kW consomme au maximum 140 kW - soit autant qu&#8217;un seul point DC de 150 kW. Le choix entre AC et DC n&#8217;est pas qu&#8217;une question de vitesse de recharge, c&#8217;est aussi une question de dimensionnement &#233;lectrique. <a href="/exploitation" class="text-amber-800 underline hover:text-amber-900">D&#233;couvrez nos solutions d&#8217;exploitation</a>.</p>
+                    </div>
+
+                    <p class="text-gray-600 leading-relaxed mb-4">Pour un projet d&#8217;installation, le dimensionnement &#233;lectrique doit tenir compte de la puissance maximale simultan&#233;e, du taux de foisonnement (tous les v&#233;hicules ne chargent pas &#224; pleine puissance en m&#234;me temps) et des possibilit&#233;s de gestion dynamique de la charge (load balancing). JCSM accompagne les ma&#238;tres d&#8217;ouvrage dans ce calcul pour chaque projet - de l&#8217;&#233;tude &#224; la <a href="/installation-conformite" class="text-blue-600 hover:text-blue-800 underline">mise en conformit&#233;</a>.</p>
+
+                    <!-- FAQ -->
+                    <h2 id="faq" class="text-2xl font-bold mt-12 mb-6">Questions fr&#233;quentes</h2>
+
+                    <div class="space-y-6 mb-8">
+                        <div class="border border-gray-200 rounded-xl p-5">
+                            <h3 class="font-semibold text-gray-900 mb-2">Pourquoi la recharge ralentit-elle apr&#232;s 80 % ?</h3>
+                            <p class="text-sm text-gray-600 leading-relaxed">Le BMS (Battery Management System) r&#233;duit progressivement le courant de charge lorsque les cellules approchent de leur tension maximale (4,2 V pour le NMC). Au-del&#224; de 80 %, injecter du courant trop rapidement risquerait de provoquer un d&#233;p&#244;t de lithium m&#233;tallique sur les anodes, ce qui d&#233;graderait irr&#233;versiblement la batterie. Le BMS diminue donc le courant pour garantir la s&#233;curit&#233; et la long&#233;vit&#233; des cellules.</p>
+                        </div>
+
+                        <div class="border border-gray-200 rounded-xl p-5">
+                            <h3 class="font-semibold text-gray-900 mb-2">Quelle puissance de borne choisir pour un parking ?</h3>
+                            <p class="text-sm text-gray-600 leading-relaxed">Tout d&#233;pend du temps de stationnement moyen. Pour un parking r&#233;sidentiel (8-12 h de nuit), des bornes AC 7 kW suffisent. Pour un parking de bureau (8-10 h), le 11 &#224; 22 kW AC est id&#233;al. Pour un parking public avec rotation rapide, optez pour du DC 50 kW et plus. Sur autoroute, des chargeurs DC 150 &#224; 350 kW sont n&#233;cessaires pour des arr&#234;ts de 15 &#224; 30 minutes.</p>
+                        </div>
+
+                        <div class="border border-gray-200 rounded-xl p-5">
+                            <h3 class="font-semibold text-gray-900 mb-2">La recharge rapide DC ab&#238;me-t-elle la batterie ?</h3>
+                            <p class="text-sm text-gray-600 leading-relaxed">Avec les BMS modernes, l&#8217;impact de la recharge rapide DC occasionnelle est n&#233;gligeable. Les constructeurs dimensionnent leurs batteries pour supporter des milliers de cycles de recharge rapide. En revanche, une utilisation exclusive de la recharge DC peut acc&#233;l&#233;rer la d&#233;gradation &#224; long terme. L&#8217;id&#233;al : privil&#233;gier la recharge AC au quotidien et r&#233;server le DC aux longs trajets. Pour en savoir plus sur la maintenance des bornes, consultez notre <a href="/blog/maintenance-bornes-recharge-guide" class="text-blue-600 hover:text-blue-800 underline">guide de maintenance</a>.</p>
+                        </div>
+
+                        <div class="border border-gray-200 rounded-xl p-5">
+                            <h3 class="font-semibold text-gray-900 mb-2">Combien de temps pour recharger compl&#232;tement un v&#233;hicule &#233;lectrique ?</h3>
+                            <p class="text-sm text-gray-600 leading-relaxed">Le temps d&#233;pend de la capacit&#233; de la batterie et de la puissance de la borne. En AC 7 kW, comptez environ 8 heures pour une batterie de 60 kWh (0-100 %). En DC rapide, 20 &#224; 40 minutes suffisent pour passer de 10 &#224; 80 %. La recharge de 80 &#224; 100 % en DC est volontairement lente et prend presque autant de temps que les 10-80 %.</p>
+                        </div>
+
+                        <div class="border border-gray-200 rounded-xl p-5">
+                            <h3 class="font-semibold text-gray-900 mb-2">Qu&#8217;est-ce que le pr&#233;-conditionnement de la batterie ?</h3>
+                            <p class="text-sm text-gray-600 leading-relaxed">Le pr&#233;-conditionnement est une fonction int&#233;gr&#233;e aux v&#233;hicules r&#233;cents qui chauffe (ou refroidit) la batterie avant une session de recharge rapide. Lorsque vous programmez un arr&#234;t sur une borne DC via le GPS du v&#233;hicule, le syst&#232;me ajuste la temp&#233;rature de la batterie pour qu&#8217;elle soit dans sa plage optimale (20-35 &#176;C) &#224; l&#8217;arriv&#233;e. Le gain de temps peut atteindre 30 &#224; 40 % en hiver.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CTA -->
+                <div class="mt-12 bg-blue-50 rounded-2xl p-8 text-center">
+                    <h3 class="text-xl font-bold mb-3">Besoin de dimensionner votre infrastructure de recharge ?</h3>
+                    <p class="text-gray-600 mb-6">JCSM vous accompagne du diagnostic &#224; l&#8217;installation, en tenant compte des courbes de charge r&#233;elles de vos utilisateurs.</p>
+                    <a href="/contact" class="btn-primary px-8 py-3 rounded-xl font-medium inline-block">Demander un devis</a>
+                </div>
+
+                <!-- Articles li&#233;s -->
+                <div class="mt-16 pt-8 border-t border-gray-100">
+                    <h3 class="text-lg font-bold mb-6">Articles similaires</h3>
+                    <div class="grid sm:grid-cols-2 gap-6">
+                        <a href="/blog/borne-ac-dc-difference" class="group">
+                            <h4 class="font-semibold group-hover:text-blue-600 transition-colors mb-1">Borne AC vs DC : comment choisir ?</h4>
+                            <p class="text-sm text-gray-500">Puissance, temps de charge, co&#251;t.</p>
+                        </a>
+                        <a href="/blog/vehicule-electrique-batterie-guide" class="group">
+                            <h4 class="font-semibold group-hover:text-blue-600 transition-colors mb-1">Guide des batteries de v&#233;hicules &#233;lectriques</h4>
+                            <p class="text-sm text-gray-500">Chimie, capacit&#233;, d&#233;gradation et entretien.</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <footer class="border-t border-gray-100 py-16 px-6 bg-white" role="contentinfo" aria-label="Pied de page">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid md:grid-cols-4 gap-10 mb-12">
+                <div>
+                    <div class="flex items-center space-x-3 mb-4">
+                        <picture><source srcset="../images/logo.webp" type="image/webp"><img src="../images/logo.png" alt="Logo JCSM" class="w-8 h-8" width="32" height="32" loading="lazy"></picture>
+                        <span class="text-xl font-semibold text-gray-900">JCSM</span>
+                    </div>
+                    <p class="text-sm text-gray-600 mb-4">Pilotage, installation et maintenance IRVE en France et Belgique depuis 2019.</p>
+                    <p class="text-sm text-gray-500">60 rue François 1er<br>75008 Paris</p>
+                    <p class="text-sm text-gray-500 mt-3"><a href="tel:+33183755706" class="hover:text-gray-900 transition-colors">+33 1 83 75 57 06</a></p>
+                    <p class="text-sm text-gray-500"><a href="mailto:contact@jcsm.fr" class="hover:text-gray-900 transition-colors">contact@jcsm.fr</a></p>
+                </div>
+                <div>
+                    <h3 class="text-sm font-semibold text-gray-900 mb-4 uppercase tracking-wide">Services</h3>
+                    <nav aria-label="Services">
+                        <ul class="space-y-3">
+                            <li><a href="/pilotage-projets" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Pilotage de projets</a></li>
+                            <li><a href="/installation-conformite" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Installation & conformité</a></li>
+                            <li><a href="/exploitation" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Exploitation & maintenance</a></li>
+                            <li><a href="/securisation-installations" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Sécurisation</a></li>
+                            <li><a href="/centre-appel" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Support 24/7</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div>
+                    <h3 class="text-sm font-semibold text-gray-900 mb-4 uppercase tracking-wide">Entreprise</h3>
+                    <nav aria-label="Entreprise">
+                        <ul class="space-y-3">
+                            <li><a href="/devenir-partenaire" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Devenir partenaire</a></li>
+                            <li><a href="/a-propos" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">À propos</a></li>
+                            <li><a href="/carrieres" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Carrières</a></li>
+                            <li><a href="/contact" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Contact</a></li>
+                            <li><a href="/blog" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Blog</a></li>
+                            <li><a href="/solutions/" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Solutions</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div>
+                    <h3 class="text-sm font-semibold text-gray-900 mb-4 uppercase tracking-wide">Légal</h3>
+                    <nav aria-label="Légal">
+                        <ul class="space-y-3">
+                            <li><a href="/mentions-legales" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Mentions légales</a></li>
+                            <li><a href="/confidentialite" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Confidentialité</a></li>
+                            <li><a href="/cgv" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">CGV</a></li>
+                        </ul>
+                    </nav>
+                    <h3 class="text-sm font-semibold text-gray-900 mb-4 uppercase tracking-wide mt-6">Zones</h3>
+                    <nav aria-label="Zones">
+                        <ul class="space-y-3">
+                            <li><a href="/zones/france" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">France</a></li>
+                            <li><a href="/zones/belgique" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Belgique</a></li>
+                        </ul>
+                    </nav>
+                    <div class="flex items-center gap-3 mt-4">
+                        <a href="https://www.linkedin.com/company/jcsm-elec/" target="_blank" rel="noopener noreferrer" class="text-gray-500 hover:text-gray-900 transition-colors" aria-label="LinkedIn">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                        </a>
+                        <a href="https://www.facebook.com/profile.php?id=61587992161634" target="_blank" rel="noopener noreferrer" class="text-gray-500 hover:text-gray-900 transition-colors" aria-label="Facebook">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                        </a>
+                        <a href="https://x.com/JCSM_ELEC" target="_blank" rel="noopener noreferrer" class="text-gray-500 hover:text-gray-900 transition-colors" aria-label="X (Twitter)">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                        </a>
+                        <a href="https://www.instagram.com/jcsm.elec/" target="_blank" rel="noopener noreferrer" class="text-gray-500 hover:text-gray-900 transition-colors" aria-label="Instagram">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+                        </a>
+                        <a href="https://www.youtube.com/@JCSM_ELEC" target="_blank" rel="noopener noreferrer" class="text-gray-500 hover:text-gray-900 transition-colors" aria-label="YouTube">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="pt-8 border-t border-gray-100 flex flex-col md:flex-row md:items-center md:justify-between gap-4 text-xs text-gray-500">
+                <span>© 2026 JCSM SAS - SIRET 99387429600011</span>
+                <a href="mailto:contact@jcsm.fr" class="hover:text-gray-900 transition-colors">contact@jcsm.fr</a> · <a href="tel:+33183755706" class="hover:text-gray-900 transition-colors">+33 1 83 75 57 06</a>
+            </div>
+        </div>
+    </footer>
+
+    <button class="scroll-top" id="scrollTop" aria-label="Retour en haut de la page">
+        <svg class="w-6 h-6 float-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" /></svg>
+    </button>
+    <script src="../js/i18n.js?v=42" defer></script>
+    <script src="../js/config.js?v=42" defer></script>
+    <script src="../js/utils.js?v=42" defer></script>
+    <script src="../js/public.js?v=42" defer></script>
+    <script src="../js/analytics.js?v=42" defer></script>
+    <script src="../js/wow-effects.js?v=42" defer></script>
+    <script>if ('serviceWorker' in navigator) { window.addEventListener('load', () => { navigator.serviceWorker.register('/sw.js').catch(() => {}); }); }</script>
+    <link rel="stylesheet" href="/css/chatbot.css" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="/css/chatbot.css"></noscript>
+<script src="/js/chatbot.js" defer></script>
+</body>
+</html>

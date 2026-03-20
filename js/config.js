@@ -1,196 +1,114 @@
-/**
- * JCSM Configuration Centralisée
- * Gestion des API, authentification et paramètres globaux
- */
-
 const JCSM_CONFIG = {
-    // ==========================================
-    // API Endpoints
-    // ==========================================
     api: {
-        // Google Sheets via proxy serveur (URL masquée côté serveur)
-        googleSheets: '/api/proxy-sheets.php',
-
-        // API locales PHP
-        loginEndpoint: '/api/login.php',
-        interventions: '/api/interventions.php',
-        fiches: '/api/fiches.php',
-        rapports: '/api/save-rapport.php',
-        listRapports: '/api/list-rapports.php',
-
-        // Webhook proxy (URLs n8n masquées côté serveur)
-        webhookProxy: '/api/webhook-proxy.php',
-
-        // IA reformulation (Claude API côté serveur)
-        aiReformulate: '/api/ai-reformulate.php',
-
-        // Twilio SMS/WhatsApp (credentials côté serveur)
-        twilioProxy: '/api/twilio-proxy.php',
-
-        // Twilio Voice (appels navigateur)
-        twilioVoiceToken: '/api/twilio-voice-token.php',
-
-        // Conversations SMS bidirectionnelles
-        conversations: '/api/conversations.php',
-
-        // Logs d'appels
-        callLogs: '/api/call-logs.php',
-
-        // Liens d'intervention (rapports techniciens)
-        interventionLink: '/api/intervention-link.php'
+        googleSheets: "/api/proxy-sheets.php",
+        loginEndpoint: "/api/login.php",
+        interventions: "/api/interventions.php",
+        fiches: "/api/fiches.php",
+        rapports: "/api/save-rapport.php",
+        listRapports: "/api/list-rapports.php",
+        webhookProxy: "/api/webhook-proxy.php",
+        aiReformulate: "/api/ai-reformulate.php",
+        twilioProxy: "/api/twilio-proxy.php",
+        twilioVoiceToken: "/api/twilio-voice-token.php",
+        conversations: "/api/conversations.php",
+        callLogs: "/api/call-logs.php",
+        interventionLink: "/api/intervention-link.php"
     },
-
-    // ==========================================
-    // Authentification sécurisée
-    // ==========================================
     auth: {
-        // Server-side authentication endpoint
-        loginEndpoint: '/api/login.php',
-
-        // Clé de session
-        sessionKey: 'jcsm_auth_session',
-        sessionDuration: 8 * 60 * 60 * 1000, // 8 heures
+        loginEndpoint: "/api/login.php",
+        sessionKey: "jcsm_auth_session",
+        sessionDuration: 8 * 60 * 60 * 1000   /* 8 hours in ms */
     },
-
-    // ==========================================
-    // Cache et synchronisation
-    // ==========================================
     cache: {
-        prefix: 'jcsm_',
-        interventionsTTL: 60 * 60 * 1000, // 1 heure
-        fichesTTL: 30 * 60 * 1000 // 30 minutes
+        prefix: "jcsm_",
+        interventionsTTL: 60 * 60 * 1000,      /* 1 hour */
+        fichesTTL: 30 * 60 * 1000               /* 30 minutes */
     },
-
-    // ==========================================
-    // Auto-refresh
-    // ==========================================
     refresh: {
-        interval: 60 * 60 * 1000, // 1 heure
+        interval: 60 * 60 * 1000,               /* 1 hour */
         backgroundSync: true
     },
-
-    // ==========================================
-    // Version
-    // ==========================================
-    version: '2.31.0',
-    buildDate: '2026-02-20'
+    chatbot: {
+        apiEndpoint: "/api/chatbot.php",
+        apiTimeout: 35000,                       /* 35s (must exceed backend 30s curl timeout) */
+        maxMessageLength: 1000,
+        leadThreshold: 3,                        /* show lead form after N user messages */
+        historyLimit: 20,                        /* max messages sent to API for context */
+        sessionKey: "jcsm_chatbot",
+        hintDelay: 15000,                        /* ms before showing notification badge */
+        greeting: "Bonjour ! Je suis l'assistant JCSM, sp\u00e9cialiste en bornes de recharge \u00e9lectrique (IRVE). Comment puis-je vous aider ?"
+    },
+    version: "2.38.0",
+    buildDate: "2026-03-20"
 };
 
-// ==========================================
-// FONCTIONS UTILITAIRES D'AUTHENTIFICATION
-// ==========================================
-
-/**
- * Vérifie un mot de passe via l'API serveur
- * @param {string} password - Mot de passe en clair
- * @returns {Promise<object|null>} Infos utilisateur { role, isAdmin, token } ou null si invalide
- */
-async function verifyPassword(password) {
+async function verifyPassword(e) {
     try {
-        const response = await fetch(JCSM_CONFIG.api.loginEndpoint || '/api/login.php', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ password })
+        const t = await fetch(JCSM_CONFIG.api.loginEndpoint || "/api/login.php", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ password: e })
         });
-        if (!response.ok) return null;
-        const data = await response.json();
-        if (data.success && data.token) {
-            return { role: data.role, isAdmin: data.isAdmin, token: data.token };
-        }
-    } catch (e) {
-        console.error('Auth verification failed:', e.message);
-    }
+        if (!t.ok) return null;
+        const o = await t.json();
+        if (o.success && o.token) return { role: o.role, isAdmin: o.isAdmin, token: o.token };
+    } catch (e) { /* auth error */ }
     return null;
 }
 
-/**
- * Retourne les headers d'authentification pour les appels API protégés
- * @returns {object} Headers avec Authorization Bearer
- */
 function getAuthHeaders() {
-    const session = localStorage.getItem(JCSM_CONFIG.auth.sessionKey);
-    if (!session) return {};
+    const e = localStorage.getItem(JCSM_CONFIG.auth.sessionKey);
+    if (!e) return {};
     try {
-        const data = JSON.parse(session);
-        if (data.token) {
-            return { 'Authorization': 'Bearer ' + data.token, 'X-Requested-With': 'XMLHttpRequest' };
-        }
-    } catch (e) {
-        console.error('Auth headers parse failed:', e.message);
-    }
+        const t = JSON.parse(e);
+        if (t.token) return { Authorization: "Bearer " + t.token, "X-Requested-With": "XMLHttpRequest" };
+    } catch (e) { /* parse error */ }
     return {};
 }
 
-/**
- * Vérifie si une session est valide
- * @returns {object|false} Données de session ou false
- */
 function isSessionValid() {
-    const session = localStorage.getItem(JCSM_CONFIG.auth.sessionKey);
-    if (!session) return false;
-
+    const e = localStorage.getItem(JCSM_CONFIG.auth.sessionKey);
+    if (!e) return false;
     try {
-        const data = JSON.parse(session);
-        const now = Date.now();
-
-        if (now > data.expires) {
+        const t = JSON.parse(e);
+        if (Date.now() > t.expires) {
             localStorage.removeItem(JCSM_CONFIG.auth.sessionKey);
             return false;
         }
-
-        return data;
+        return t;
     } catch (e) {
         localStorage.removeItem(JCSM_CONFIG.auth.sessionKey);
         return false;
     }
 }
 
-/**
- * Crée une nouvelle session
- * @param {string} role - Rôle de l'utilisateur
- * @param {boolean} isAdmin - Est administrateur
- * @returns {object} Données de session
- */
-function createSession(role, isAdmin, serverToken) {
-    const session = {
-        role: role,
-        isAdmin: isAdmin,
+function createSession(e, t, o) {
+    const n = {
+        role: e,
+        isAdmin: t,
         created: Date.now(),
         expires: Date.now() + JCSM_CONFIG.auth.sessionDuration,
-        token: serverToken || (typeof crypto.randomUUID === 'function' ? crypto.randomUUID() : Array.from(crypto.getRandomValues(new Uint8Array(16)), b => b.toString(16).padStart(2, '0')).join(''))
+        token: o || (typeof crypto.randomUUID === "function"
+            ? crypto.randomUUID()
+            : Array.from(crypto.getRandomValues(new Uint8Array(16)), e => e.toString(16).padStart(2, "0")).join(""))
     };
-
-    localStorage.setItem(JCSM_CONFIG.auth.sessionKey, JSON.stringify(session));
-    return session;
+    localStorage.setItem(JCSM_CONFIG.auth.sessionKey, JSON.stringify(n));
+    return n;
 }
 
-/**
- * Détruit la session courante
- */
 function destroySession() {
-    localStorage.removeItem(JCSM_CONFIG.auth.sessionKey);
-    localStorage.removeItem('tech_region');
-    localStorage.removeItem('is_admin');
-    localStorage.removeItem('user_role');
-    localStorage.removeItem('jcsm_user');
-}
-
-/**
- * Affiche une notification toast
- * Délègue à window.showToast (défini dans utils.js)
- * @param {string} message - Message à afficher
- * @param {string} type - Type: success, error, warning, info
- * @param {number} duration - Durée en ms
- */
-function showToast(message, type = 'info', duration = 3000) {
-    if (typeof window.showToast === 'function' && window.showToast !== showToast) {
-        window.showToast(message, type, duration);
+    try {
+        localStorage.removeItem(JCSM_CONFIG.auth.sessionKey);
+        localStorage.removeItem("tech_region");
+        localStorage.removeItem("is_admin");
+        localStorage.removeItem("user_role");
+        localStorage.removeItem("jcsm_user");
+        Object.keys(localStorage).filter(k => k.startsWith("jcsm_")).forEach(k => localStorage.removeItem(k));
+    } catch (e) {
+        console.error("destroySession error:", e);
     }
 }
 
-// ==========================================
-// EXPORT GLOBAL
-// ==========================================
 window.JCSM_CONFIG = JCSM_CONFIG;
 window.verifyPassword = verifyPassword;
 window.isSessionValid = isSessionValid;
@@ -198,21 +116,9 @@ window.createSession = createSession;
 window.destroySession = destroySession;
 window.getAuthHeaders = getAuthHeaders;
 
-// Style pour les toasts
-if (!document.querySelector('#jcsm-toast-styles')) {
-    const style = document.createElement('style');
-    style.id = 'jcsm-toast-styles';
-    style.textContent = `
-        @keyframes slideIn {
-            from { transform: translateX(100%); opacity: 0; }
-            to { transform: translateX(0); opacity: 1; }
-        }
-        @keyframes slideOut {
-            from { transform: translateX(0); opacity: 1; }
-            to { transform: translateX(100%); opacity: 0; }
-        }
-    `;
-    document.head.appendChild(style);
+if (!document.querySelector("#jcsm-toast-styles")) {
+    const e = document.createElement("style");
+    e.id = "jcsm-toast-styles";
+    e.textContent = "\n        @keyframes slideIn {\n            from { transform: translateX(100%); opacity: 0; }\n            to { transform: translateX(0); opacity: 1; }\n        }\n        @keyframes slideOut {\n            from { transform: translateX(0); opacity: 1; }\n            to { transform: translateX(100%); opacity: 0; }\n        }\n    ";
+    document.head.appendChild(e);
 }
-
-// Config loaded

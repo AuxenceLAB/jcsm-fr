@@ -20,6 +20,7 @@ $allowedOrigins = ['https://jcsm.fr', 'https://www.jcsm.fr'];
 $origin = $_SERVER['HTTP_ORIGIN'] ?? '';
 if (in_array($origin, $allowedOrigins)) {
     header("Access-Control-Allow-Origin: $origin");
+    header('Vary: Origin');
 }
 header('Access-Control-Allow-Methods: GET, POST, OPTIONS');
 header('Access-Control-Allow-Headers: Content-Type, Authorization, X-Requested-With');
@@ -33,6 +34,10 @@ requireAuth();
 
 $logFile  = __DIR__ . '/data/calls/call_logs.json';
 $lockFile = $logFile . '.lock';
+
+// Ensure data directory exists
+$callsDir = dirname($logFile);
+if (!is_dir($callsDir)) @mkdir($callsDir, 0775, true);
 
 // GET: Liste des logs
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {

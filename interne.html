@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>JCSM Interne</title>
@@ -9,8 +11,6 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <meta name="robots" content="noindex, nofollow">
     <meta property="og:site_name" content="JCSM - Infrastructure de Recharge">
-    <link rel="icon" href="https://jcsm.fr/images/logo.png">
-    <link rel="apple-touch-icon" href="https://jcsm.fr/images/logo.png">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"
         media="print" onload="this.media='all'">
     <noscript>
@@ -22,9 +22,9 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css" integrity="sha384-pmjIAcz2bAn0xukfxADbZIb3t8oRT9Sv0rvO+BR5Csr6Dhqq+nZs59P0pPKQJkEV" crossorigin="anonymous"/>
     <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css" integrity="sha384-wgw+aLYNQ7dlhK47ZPK7FRACiq7ROZwgFNg0m04avm4CaXS+Z9Y7nMu8yNjBKYC+" crossorigin="anonymous"/>
     <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js" integrity="sha384-eXVCORTRlv4FUUgS/xmOyr66XBVraen8ATNLMESp92FKXLAMiKkerixTiBvXriZr" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js" integrity="sha384-jb8JQMbMoBUzgWatfe6COACi2ljcDdZQ2OxczGA3bGNeWe+6DChMTBJemed7ZnvJ" crossorigin="anonymous"></script>
-    <script src="https://sdk.twilio.com/js/voice/releases/2.12/twilio.min.js" crossorigin="anonymous"></script>
-    <script src="js/config.js?v=42"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.5.1/dist/chart.umd.min.js" integrity="sha384-jb8JQMbMoBUzgWatfe6COACi2ljcDdZQ2OxczGA3bGNeWe+6DChMTBJemed7ZnvJ" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@twilio/voice-sdk@2.18.1/dist/twilio.min.js" integrity="sha384-LzKz9y+8WXmqRYaRNg0w7zDvcSqdT8LEPxjo01Ing3j3062CP8S56jjsb5cpffiF" crossorigin="anonymous"></script>
+    <script src="/js/config.js?v=44"></script>
     <style>
         :root {
             --primary: #1B365D;
@@ -88,7 +88,7 @@
         .st-facturee { background:var(--amber-light);color:#92400E; }
         .st-payee { background:var(--bg3);color:var(--muted); }
 
-        /* Reduced motion — :root body prefix (0,1,1) beats class selectors */
+        /* Reduced motion - :root body prefix (0,1,1) beats class selectors */
         @media (prefers-reduced-motion: reduce) {
             :root body *, :root body *::before, :root body *::after { animation-duration: 0.01ms; animation-iteration-count: 1; transition-duration: 0.01ms; }
         }
@@ -308,8 +308,9 @@
         .hidden { display: none; }
         .container { padding: 20px; padding-bottom: 100px; max-width: 600px; margin: 0 auto; }
         body.role-admin .container { max-width: 1400px; }
-        @media (max-width: 768px) { body.role-admin .container { max-width: 100%; padding: 12px; } .kpi-grid { grid-template-columns: repeat(2, 1fr); } .admin-header { flex-direction: column; gap: 12px; align-items: flex-start; } .admin-filters { width: 100%; } }
+        @media (max-width: 768px) { body.role-admin .container { max-width: 100%; padding: 12px; } .kpi-grid { grid-template-columns: repeat(2, 1fr); } .admin-header { flex-direction: column; gap: 12px; align-items: flex-start; } .admin-filters { width: 100%; } .admin-tab-bar { gap: 0; } .admin-tab { padding: 10px 12px; font-size: 12px; } .detail-sidebar { width: 100%; max-width: 100vw; } .crm-table-wrap { -webkit-overflow-scrolling: touch; } .nav-actions { flex-direction: column; } .status-grid { grid-template-columns: 1fr; } .stats-dashboard { grid-template-columns: 1fr 1fr; } .site-action-bar { flex-direction: column; } .tech-action-bar { flex-direction: column; } }
         @media (min-width: 769px) and (max-width: 1200px) { body.role-admin .container { max-width: 100%; padding: 16px; } .kpi-grid { grid-template-columns: repeat(3, 1fr); } }
+        @media (max-width: 480px) { .kpi-grid { grid-template-columns: 1fr; } .stats-dashboard { grid-template-columns: 1fr; } .header-main { padding: 10px 14px; } .header-main .app-title { font-size: 15px; } .wizard-footer { padding: 10px 14px calc(10px + env(safe-area-inset-bottom)); } .wizard-footer .btn { padding: 14px 12px; font-size: 14px; } .quick-actions { grid-template-columns: repeat(2, 1fr); } }
         .section-title { font-size: 13px; font-weight: 800; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 16px; display: flex; align-items: center; gap: 10px; }
         .divider { height: 1px; background: var(--border); margin: 24px 0; }
         
@@ -494,14 +495,14 @@
         .wiz-skip-btn { background: var(--bg3); color: var(--muted); border: 1px solid var(--border); padding: 10px 20px; border-radius: 12px; font-weight: 700; font-size: 13px; cursor: pointer; transition: all .15s; }
         .wiz-skip-btn:active { transform: scale(.97); }
 
-        /* A8 — Card redesign */
+        /* A8 - Card redesign */
         .intv-ticket { font-family: 'SF Mono', SFMono-Regular, Consolas, monospace; font-size: 16px; font-weight: 800; color: var(--primary-dark); background: var(--primary-light); padding: 6px 12px; border-radius: 8px; letter-spacing: .5px; }
         .intv-address { font-weight: 600; font-size: 14px; color: var(--muted); display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; line-height: 1.5; margin-bottom: 14px; }
         .intv-distance { background: linear-gradient(135deg, var(--primary-light), var(--purple-light)); color: var(--primary-dark); padding: 4px 10px; border-radius: 8px; font-size: 13px; font-weight: 700; font-family: 'SF Mono', monospace; white-space: nowrap; }
         .intv-copy-btn { position: absolute; top: 12px; right: 12px; background: var(--bg3); border: none; width: 44px; height: 44px; border-radius: 10px; cursor: pointer; font-size: 16px; display: flex; align-items: center; justify-content: center; transition: all .15s; z-index: 2; }
         .intv-copy-btn:active { transform: scale(.9); background: var(--primary-light); }
 
-        /* A2 — GPS navigation buttons */
+        /* A2 - GPS navigation buttons */
         .nav-actions { display: flex; gap: 10px; margin-top: 12px; }
         .nav-action-btn { flex: 1; min-height: 48px; display: flex; align-items: center; justify-content: center; gap: 8px; padding: 12px 16px; border-radius: 14px; border: none; font-weight: 800; font-size: 14px; cursor: pointer; transition: all .15s; }
         .nav-action-btn:active { transform: scale(.96); }
@@ -509,7 +510,7 @@
         .nav-action-btn.maps { background: linear-gradient(135deg, #4285F4, #34A853); color: #fff; }
         .nav-action-btn.waze { background: linear-gradient(135deg, #33CCFF, #00AAFF); color: #fff; }
 
-        /* A4 — Site arrival/departure bar */
+        /* A4 - Site arrival/departure bar */
         .site-action-bar { display: flex; gap: 10px; margin-bottom: 20px; }
         .site-action-btn { flex: 1; min-height: 56px; display: flex; align-items: center; justify-content: center; gap: 8px; padding: 14px 16px; border-radius: 16px; border: none; font-weight: 800; font-size: 15px; cursor: pointer; transition: all .15s; }
         .site-action-btn:active { transform: scale(.96); }
@@ -518,12 +519,12 @@
         .site-action-btn.depart { background: linear-gradient(135deg, var(--primary), var(--purple)); color: #fff; }
         .site-action-btn.depart.done { background: var(--bg3); color: var(--primary); cursor: default; }
 
-        /* A6 — Submit FAB */
+        /* A6 - Submit FAB */
         .submit-fab { position: fixed; bottom: 90px; right: 20px; background: linear-gradient(135deg, var(--green), #16a34a); color: #fff; border: none; padding: 16px 24px; border-radius: 20px; font-weight: 800; font-size: 15px; cursor: pointer; box-shadow: 0 6px 24px rgba(34,197,94,.4); z-index: 100; display: none; transition: all .2s; animation: fabPulse 2s infinite; }
         .submit-fab:active { transform: scale(.94); }
         @keyframes fabPulse { 0%, 100% { box-shadow: 0 6px 24px rgba(34,197,94,.4); } 50% { box-shadow: 0 6px 32px rgba(34,197,94,.6); } }
 
-        /* A3 — Sort select */
+        /* A3 - Sort select */
         .sort-select { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 8px 14px; font-size: 13px; font-weight: 600; color: var(--text); cursor: pointer; appearance: none; -webkit-appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 10px center; padding-right: 30px; }
 
         /* Admin Dashboard - Underline tabs (inspired by prototype) */
@@ -692,7 +693,7 @@
     <header id="header-tech" style="position:sticky;top:0;z-index:100">
         <div class="contact-bar">
             <span style="font-size:12px;opacity:.8">📞 Support Powerdot</span>
-            <a href="tel:+33756962758">+33 7 56 96 27 58</a>
+            <a href="tel:+33183755706">+33 1 83 75 57 06</a>
         </div>
         <div class="header-main">
             <div class="logo-area">
@@ -1694,7 +1695,7 @@ const CHECKLIST = [
     { id: 'outils', text: 'Outillage vérifié', sub: 'Multimètre, VAT, clés' },
     { id: 'keys', text: 'Clés fabricant', sub: 'Selon marque' },
     { id: 'docs', text: 'Documentation', sub: 'Schémas, notice' },
-    { id: 'contact', text: 'Contact Powerdot', sub: '+33 7 56 96 27 58' }
+    { id: 'contact', text: 'Contact Powerdot', sub: '+33 1 83 75 57 06' }
 ];
 
 // ==========================================
@@ -1816,7 +1817,7 @@ function calculateDistance(lat1, lng1, lat2, lng2) {
     return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
 }
 
-// A7 — Geocode cache for distances
+// A7 - Geocode cache for distances
 S.geocodeCache = {};
 S.sortMode = 'priority';
 S.siteArrival = null;
@@ -1997,7 +1998,9 @@ function init() {
     initSearchFilters();
     showView('list');
     showLoading(true);
-    loadData().finally(() => showLoading(false));
+    // Failsafe: hide loading after 15s even if loadData hangs
+    var _loadingTimeout = setTimeout(function() { showLoading(false); }, 15000);
+    loadData().finally(function() { clearTimeout(_loadingTimeout); showLoading(false); });
     if (S.syncTimer) clearInterval(S.syncTimer);
     S.syncTimer = setInterval(() => loadData(true), SYNC_INTERVAL);
     if (S.isOnline && S.pendingSync.length) setTimeout(syncPendingData, 2000);
@@ -2191,7 +2194,7 @@ function renderList() {
     }
 
     if (!list.length) {
-        $('list').innerHTML = `<div class="empty-state"><div class="icon">📋</div><div class="title">Aucune intervention</div><div class="desc">${S.brandFilter ? 'Essayez un autre filtre' : f === 'late' ? 'Aucune intervention en retard' : 'Toutes les interventions sont terminées'}</div></div>`;
+        $('list').innerHTML = `<div class="empty-state"><div class="icon">📋</div><div class="title">Aucune intervention</div><div class="desc">${S.brandFilter ? 'Essayez un autre filtre' : S.filter === 'late' ? 'Aucune intervention en retard' : S.filter === 'today' ? 'Aucune intervention aujourd\'hui' : 'Toutes les interventions sont terminées'}</div></div>`;
         return;
     }
 
@@ -2285,7 +2288,7 @@ window.selectIntv = id => {
     // Detail header
     if ($('d-header-site')) $('d-header-site').textContent = i.site || '-';
     if ($('d-header-ticket')) $('d-header-ticket').textContent = '#' + (i.ticket || '-');
-    // Distance badge — use geocode cache first, fallback to fetch
+    // Distance badge - use geocode cache first, fallback to fetch
     const distBadge = $('d-header-distance');
     if (distBadge && S.userLocation && i.address) {
         const cached = S.geocodeCache[i.id];
@@ -2299,10 +2302,10 @@ window.selectIntv = id => {
         }
     } else if (distBadge) { distBadge.classList.add('hidden'); }
 
-    // A5 — Auto-fill: today + current HH:MM + end empty
+    // A5 - Auto-fill: today + current HH:MM + end empty
     $('f-date').value = iso(); const now = new Date(); $('f-start').value = String(now.getHours()).padStart(2, '0') + ':' + String(now.getMinutes()).padStart(2, '0'); $('f-end').value = '';
     $('f-obs').value = ''; S.photos = { borne: [], site: [], nc: [], avap: [] }; S.status = null; S.checklist = {}; S.timerElapsed = 0; S.timerStart = null; clearInterval(S.timerInterval); updateTimerDisplay(); restoreTimerState();
-    // A4 — Reset site arrival/departure
+    // A4 - Reset site arrival/departure
     S.siteArrival = null; S.siteDeparture = null; updateSiteButtons();
     $$('.status-opt').forEach(o => o.classList.remove('selected')); genChips(); updatePhotosSummary(); checkSubmitReady();
     // Render status badge + tech action buttons
@@ -2381,7 +2384,7 @@ function genChips() {
 
 window.addChip = c => { vibrate(); $('f-obs').value += ($('f-obs').value ? '\n' : '') + c; checkSubmitReady(); };
 
-// A6 — FAB visibility check
+// A6 - FAB visibility check
 function checkSubmitReady() {
     const fab = $('submit-fab');
     if (!fab) return;
@@ -2404,7 +2407,7 @@ window.timerStart = () => { vibrate([20, 10, 20]); S.timerStart = Date.now() - S
 window.timerStop = () => { vibrate([20, 10, 20]); clearInterval(S.timerInterval); S.timerElapsed = Date.now() - S.timerStart; S.timerStart = null; $('timer-start').classList.remove('hidden'); $('timer-stop').classList.add('hidden'); $('timer-card').classList.remove('running'); if ($('wiz-timer-start')) $('wiz-timer-start').classList.remove('hidden'); if ($('wiz-timer-stop')) $('wiz-timer-stop').classList.add('hidden'); if ($('wiz-timer-card')) $('wiz-timer-card').classList.remove('running'); const now = new Date(); const timeStr = String(now.getHours()).padStart(2, '0') + ':' + String(now.getMinutes()).padStart(2, '0'); $('f-end').value = timeStr; if ($('wiz-end')) $('wiz-end').value = timeStr; clearTimerState(); renderTimerBadge(); };
 function updateTimerDisplay() { const elapsed = S.timerStart ? Date.now() - S.timerStart : S.timerElapsed; const s = Math.floor(elapsed / 1000); const display = `${String(Math.floor(s / 3600)).padStart(2, '0')}:${String(Math.floor((s % 3600) / 60)).padStart(2, '0')}:${String(s % 60).padStart(2, '0')}`; $('timer-display').textContent = display; if ($('wiz-timer-display')) $('wiz-timer-display').textContent = display; if (S.timerStart) saveTimerState(); renderTimerBadge(); }
 
-// A4 — Site arrival / departure
+// A4 - Site arrival / departure
 window.siteArrive = () => {
     if (S.siteArrival) return;
     vibrate([20, 10, 20]);
@@ -2442,7 +2445,7 @@ function updateSiteButtons() {
 }
 
 window.openMaps = () => { vibrate(); const a = S.sel?.address || S.sel?.site; if (a) window.open('https://www.google.com/maps/search/' + encodeURIComponent(a), '_blank'); };
-window.callPowerdot = () => { vibrate(); window.location.href = 'tel:+33756962758'; };
+window.callPowerdot = () => { vibrate(); window.location.href = 'tel:+33183755706'; };
 window.callTechnicien = () => { vibrate(); if (S.currentTechPhone) window.location.href = 'tel:' + S.currentTechPhone; else toast('❌ Pas de numéro', 'error'); };
 
 window.showChecklist = () => { vibrate(); renderChecklist(); openModal('checklist'); };
@@ -3980,8 +3983,8 @@ function renderAdminReports() {
                             <div style="font-size:12px;color:var(--muted);margin-top:2px">${esc(site)} ${tech ? '• ' + esc(tech) : ''} ${date ? '• ' + esc(date) : ''}</div>
                         </div>
                         <div style="display:flex;gap:6px;flex-shrink:0">
-                            ${htmlUrl ? '<a href="' + esc(htmlUrl) + '" target="_blank" class="btn btn-ghost btn-sm" style="padding:6px 10px;font-size:12px">HTML</a>' : ''}
-                            ${docxUrl ? '<a href="' + esc(docxUrl) + '" target="_blank" class="btn btn-primary btn-sm" style="padding:6px 10px;font-size:12px">DOCX</a>' : ''}
+                            ${htmlUrl ? '<a href="' + esc(htmlUrl) + '" target="_blank" rel="noopener noreferrer" class="btn btn-ghost btn-sm" style="padding:6px 10px;font-size:12px">HTML</a>' : ''}
+                            ${docxUrl ? '<a href="' + esc(docxUrl) + '" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm" style="padding:6px 10px;font-size:12px">DOCX</a>' : ''}
                         </div>
                     </div>`;
                 }).join('');

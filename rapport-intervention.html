@@ -1,12 +1,16 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta name="robots" content="noindex, nofollow">
+    <meta name="description" content="Formulaire de rapport d'intervention IRVE pour techniciens JCSM.">
     <title>Rapport d'intervention | JCSM</title>
-    <link rel="stylesheet" href="css/tailwind.css">
-    <link rel="icon" href="images/logo.png">
+    <link rel="stylesheet" href="/css/critical.css?v=44">
+    <link rel="stylesheet" href="/css/tailwind.css?v=44" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="/css/tailwind.css?v=44"></noscript>
     <style>
         :root {
             --primary: #2563EB;
@@ -76,13 +80,13 @@
 </head>
 <body>
 
-<div class="container" id="app">
+<main class="container" id="app">
     <!-- Loading -->
     <div class="loading-overlay" id="loading-state">
         <div class="spinner"></div>
         <p style="margin-top:16px;font-weight:600;color:#6b7280">Chargement de l'intervention...</p>
     </div>
-</div>
+</main>
 
 <script>
 (function() {
@@ -100,28 +104,28 @@
     let selectedStatus = null;
 
     const PHOTO_CATS = [
-        { id: 'borne', icon: '\uD83D\uDCE6', title: 'Interieur borne / TGBT', required: true },
+        { id: 'borne', icon: '\uD83D\uDCE6', title: 'Intérieur borne / TGBT', required: true },
         { id: 'site', icon: '\uD83C\uDFE2', title: 'Vue globale', required: true },
-        { id: 'nc', icon: '\u26A0\uFE0F', title: 'Non-conformites', required: false },
-        { id: 'avap', icon: '\uD83D\uDD04', title: 'Avant / Apres', required: false }
+        { id: 'nc', icon: '\u26A0\uFE0F', title: 'Non-conformités', required: false },
+        { id: 'avap', icon: '\uD83D\uDD04', title: 'Avant / Après', required: false }
     ];
 
     const CHECKLIST = [
         { id: 'epi', text: 'EPI complet', sub: 'Chaussures, gants, lunettes' },
-        { id: 'outils', text: 'Outillage verifie', sub: 'Multimetre, VAT, cles' },
-        { id: 'keys', text: 'Cles fabricant', sub: 'Selon marque' },
-        { id: 'docs', text: 'Documentation', sub: 'Schemas, notice' }
+        { id: 'outils', text: 'Outillage vérifié', sub: 'Multimètre, VAT, clés' },
+        { id: 'keys', text: 'Clés fabricant', sub: 'Selon marque' },
+        { id: 'docs', text: 'Documentation', sub: 'Schémas, notice' }
     ];
 
     const SMART_OBS = [
-        { patterns: ['disjonc', 'ir ', 'ir/', 'relais'], obs: ['Ir regle', 'Disjoncteur verifie'] },
-        { patterns: ['hors ligne', 'offline', 'communication', 'comm'], obs: ['SIM verifiee', 'Reboot effectue', 'Communication retablie'] },
-        { patterns: ['cable', 'connecteur'], obs: ['Cable verifie/remplace', 'Test charge OK'] },
-        { patterns: ['ecran', 'affichage', 'display'], obs: ['Ecran verifie', 'Interface fonctionnelle'] },
-        { patterns: ['terre', 'isolement'], obs: ['Terre mesuree OK', 'Isolement conforme'] },
-        { patterns: ['session', 'charge', 'echec'], obs: ['Tensions verifiees', 'Connecteurs OK', 'Test charge reussi'] },
-        { patterns: ['badge', 'rfid', 'lecteur'], obs: ['Lecteur RFID verifie', 'Badge test OK'] },
-        { patterns: ['puissance', 'kw', 'watt'], obs: ['Puissance mesuree conforme', 'Calibration OK'] }
+        { patterns: ['disjonc', 'ir ', 'ir/', 'relais'], obs: ['Ir réglé', 'Disjoncteur vérifié'] },
+        { patterns: ['hors ligne', 'offline', 'communication', 'comm'], obs: ['SIM vérifiée', 'Reboot effectué', 'Communication rétablie'] },
+        { patterns: ['cable', 'connecteur'], obs: ['Câble vérifié/remplacé', 'Test charge OK'] },
+        { patterns: ['ecran', 'affichage', 'display'], obs: ['Écran vérifié', 'Interface fonctionnelle'] },
+        { patterns: ['terre', 'isolement'], obs: ['Terre mesurée OK', 'Isolement conforme'] },
+        { patterns: ['session', 'charge', 'echec'], obs: ['Tensions vérifiées', 'Connecteurs OK', 'Test charge réussi'] },
+        { patterns: ['badge', 'rfid', 'lecteur'], obs: ['Lecteur RFID vérifié', 'Badge test OK'] },
+        { patterns: ['puissance', 'kw', 'watt'], obs: ['Puissance mesurée conforme', 'Calibration OK'] }
     ];
 
     const esc = (s) => {
@@ -141,7 +145,7 @@
     // Validate and load
     async function init() {
         if (!TOKEN || !INTV_ID || !PHONE || !EXPIRES) {
-            showError('Lien invalide', 'Les parametres du lien sont manquants ou incorrects.');
+            showError('Lien invalide', 'Les paramètres du lien sont manquants ou incorrects.');
             return;
         }
 
@@ -157,12 +161,12 @@
             intervention = data.intervention;
             renderForm();
         } catch (e) {
-            showError('Erreur de connexion', 'Impossible de charger l\'intervention. Verifiez votre connexion internet.');
+            showError('Erreur de connexion', 'Impossible de charger l\'intervention. Vérifiez votre connexion internet.');
         }
     }
 
     function showError(title, message) {
-        document.getElementById('app').innerHTML = '<div class="error-page"><div style="font-size:48px;margin-bottom:16px">&#x26A0;&#xFE0F;</div><h2>' + esc(title) + '</h2><p>' + esc(message) + '</p><a href="tel:+33756962758" style="display:inline-block;margin-top:20px;padding:10px 24px;background:var(--primary);color:#fff;border-radius:10px;text-decoration:none;font-weight:700">Appeler JCSM</a></div>';
+        document.getElementById('app').innerHTML = '<div class="error-page"><div style="font-size:48px;margin-bottom:16px">&#x26A0;&#xFE0F;</div><h2>' + esc(title) + '</h2><p>' + esc(message) + '</p><a href="tel:+33183755706" style="display:inline-block;margin-top:20px;padding:10px 24px;background:var(--primary);color:#fff;border-radius:10px;text-decoration:none;font-weight:700">Appeler JCSM</a></div>';
     }
 
     function generateChips() {
@@ -175,7 +179,7 @@
             }
         });
         if (!chips.length) {
-            chips.push('Verification complete', 'Test charge OK', 'Remise en service');
+            chips.push('Vérification complète', 'Test charge OK', 'Remise en service');
         }
         return [...new Set(chips)];
     }
@@ -202,9 +206,9 @@
                     <div class="info-item"><label>Client</label><span>${esc(i.client)}</span></div>
                     <div class="info-item"><label>Adresse</label><span>${esc(i.address)}</span></div>
                     <div class="info-item"><label>Marque</label><span>${esc(i.brand)}</span></div>
-                    <div class="info-item" style="grid-column:1/-1"><label>Probleme signale</label><span>${esc(i.problem)}</span></div>
+                    <div class="info-item" style="grid-column:1/-1"><label>Problème signalé</label><span>${esc(i.problem)}</span></div>
                 </div>
-                <a class="link-app" href="interne.html?intv=${encodeURIComponent(i.id)}" target="_blank">Ouvrir dans l'app complete &rarr;</a>
+                <a class="link-app" href="interne.html?intv=${encodeURIComponent(i.id)}" target="_blank" rel="noopener noreferrer">Ouvrir dans l'app complète &rarr;</a>
             </div>
 
             <div class="card">
@@ -215,11 +219,11 @@
                         <input type="date" id="r-date" class="field-input" value="${todayStr}">
                     </div>
                     <div class="field-group" style="margin:0">
-                        <label>Arrivee <span class="req">*</span></label>
+                        <label>Arrivée <span class="req">*</span></label>
                         <input type="time" id="r-start" class="field-input" value="${timeStr}">
                     </div>
                     <div class="field-group" style="margin:0">
-                        <label>Depart</label>
+                        <label>Départ</label>
                         <input type="time" id="r-end" class="field-input">
                     </div>
                 </div>
@@ -250,7 +254,7 @@
 
             <div class="card">
                 <h3 style="font-size:16px;font-weight:800;margin:0 0 16px;color:#1f2937">Observations <span class="req">*</span></h3>
-                <textarea id="r-obs" class="field-input" placeholder="Decrivez les actions realisees..."></textarea>
+                <textarea id="r-obs" class="field-input" placeholder="Décrivez les actions réalisées..."></textarea>
                 <div class="chips" id="obs-chips">
                     ${chips.map(c => `<span class="chip" onclick="addChip(this)">${esc(c)}</span>`).join('')}
                 </div>
@@ -259,19 +263,19 @@
             <div class="card">
                 <h3 style="font-size:16px;font-weight:800;margin:0 0 16px;color:#1f2937">Statut <span class="req">*</span></h3>
                 <div class="status-toggle">
-                    <div class="status-opt" onclick="selectStatus('resolu', this)" id="status-ok">Resolu</div>
+                    <div class="status-opt" onclick="selectStatus('resolu', this)" id="status-ok">Résolu</div>
                     <div class="status-opt" onclick="selectStatus('a_suivre', this)" id="status-pending">A suivre</div>
                 </div>
             </div>
 
             <div class="card">
                 <div class="field-group">
-                    <label>Pieces changees</label>
+                    <label>Pièces changées</label>
                     <input type="text" id="r-pieces" class="field-input" placeholder="Ex: disjoncteur 32A, cable T2...">
                 </div>
                 <div class="field-group" style="margin-bottom:0">
                     <label>Remarques</label>
-                    <textarea id="r-remarks" class="field-input" style="min-height:60px" placeholder="Informations complementaires..."></textarea>
+                    <textarea id="r-remarks" class="field-input" style="min-height:60px" placeholder="Informations complémentaires..."></textarea>
                 </div>
             </div>
 
@@ -284,7 +288,7 @@
     window.addPhotos = function(catId, files) {
         Array.from(files).forEach(file => {
             if (!file.type.startsWith('image/')) return;
-            if (photos[catId].length >= 5) { showToast('Maximum 5 photos par categorie', 'error'); return; }
+            if (photos[catId].length >= 5) { showToast('Maximum 5 photos par catégorie', 'error'); return; }
 
             const reader = new FileReader();
             reader.onload = function(e) {
@@ -304,7 +308,7 @@
     function renderPhotoGrid(catId) {
         const grid = document.getElementById('photos-' + catId);
         if (!grid) return;
-        const thumbs = photos[catId].map(p => `<div class="photo-thumb"><img src="${p.data}" alt=""><button class="photo-remove" onclick="removePhoto('${catId}','${p.id}')">&times;</button></div>`).join('');
+        const thumbs = photos[catId].map(p => `<div class="photo-thumb"><img src="${p.data}" alt="Photo intervention"><button class="photo-remove" onclick="removePhoto('${catId}','${p.id}')">&times;</button></div>`).join('');
         grid.innerHTML = thumbs + `<label class="photo-add"><span>+</span><small>Ajouter</small><input type="file" accept="image/*" capture="environment" multiple hidden onchange="addPhotos('${catId}', this.files)"></label>`;
     }
 
@@ -336,9 +340,9 @@
 
         // Validation
         if (!date) { showToast('Date requise', 'error'); return; }
-        if (!start) { showToast('Heure d\'arrivee requise', 'error'); return; }
+        if (!start) { showToast('Heure d\'arrivée requise', 'error'); return; }
         if (!obs) { showToast('Observations requises', 'error'); return; }
-        if (!selectedStatus) { showToast('Selectionnez un statut', 'error'); return; }
+        if (!selectedStatus) { showToast('Sélectionnez un statut', 'error'); return; }
 
         // Calculer duree
         let duree = '';
@@ -407,10 +411,10 @@
         document.getElementById('app').innerHTML = `
             <div class="card success-page">
                 <div class="check-circle">&#x2705;</div>
-                <h2 style="font-size:22px;font-weight:800;margin:0 0 8px">Rapport envoye !</h2>
-                <p style="color:#6b7280;margin:0 0 8px">Votre rapport a ete soumis avec succes.</p>
-                <p style="font-size:13px;color:#9ca3af">Reference : ${esc(filename)}</p>
-                <a class="link-app" href="interne.html?intv=${encodeURIComponent(INTV_ID)}" target="_blank">Ouvrir dans l'app complete &rarr;</a>
+                <h2 style="font-size:22px;font-weight:800;margin:0 0 8px">Rapport envoyé !</h2>
+                <p style="color:#6b7280;margin:0 0 8px">Votre rapport a été soumis avec succès.</p>
+                <p style="font-size:13px;color:#9ca3af">Référence : ${esc(filename)}</p>
+                <a class="link-app" href="interne.html?intv=${encodeURIComponent(INTV_ID)}" target="_blank" rel="noopener noreferrer">Ouvrir dans l'app complète &rarr;</a>
             </div>
             <p style="text-align:center;font-size:11px;color:#9ca3af;margin-top:24px">JCSM - Infrastructure de Recharge</p>
         `;

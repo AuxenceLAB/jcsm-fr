@@ -21,7 +21,18 @@ function loadEnvVar(string $key): ?string
                 if (str_starts_with(trim($line), '#')) continue;
                 $eqPos = strpos($line, '=');
                 if ($eqPos !== false) {
-                    $envCache[substr($line, 0, $eqPos)] = substr($line, $eqPos + 1);
+                    $key = trim(substr($line, 0, $eqPos));
+                    $val = trim(substr($line, $eqPos + 1));
+                    // Strip inline comments (but not inside quotes)
+                    if (($commentPos = strpos($val, ' #')) !== false) {
+                        $val = trim(substr($val, 0, $commentPos));
+                    }
+                    // Strip surrounding quotes
+                    if ((str_starts_with($val, '"') && str_ends_with($val, '"')) ||
+                        (str_starts_with($val, "'") && str_ends_with($val, "'"))) {
+                        $val = substr($val, 1, -1);
+                    }
+                    $envCache[$key] = $val;
                 }
             }
         }
@@ -74,6 +85,7 @@ function checkRateLimit(string $namespace, int $maxRequests = 100, int $periodSe
         fclose($fp);
     } else {
         if ($fp) fclose($fp);
+        return false;
     }
 
     return true;

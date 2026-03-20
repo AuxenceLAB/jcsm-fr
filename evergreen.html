@@ -1,12 +1,25 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#2563EB">
     <meta name="robots" content="noindex, nofollow">
     <title>JCSM | Plateforme d'Exploitation</title>
-    <link rel="icon" href="/images/logo.webp">
+    <meta name="description" content="Plateforme d'exploitation JCSM : gestion des tickets, dispatching techniciens, suivi des interventions IRVE en temps reel.">
+    <link rel="canonical" href="https://jcsm.fr/evergreen">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://jcsm.fr/evergreen">
+    <meta property="og:title" content="JCSM | Plateforme d'Exploitation">
+    <meta property="og:description" content="Plateforme d'exploitation JCSM : gestion des tickets, dispatching techniciens, suivi des interventions IRVE.">
+    <meta property="og:image" content="https://jcsm.fr/images/logo.png">
+    <meta property="og:locale" content="fr_FR">
+    <meta property="og:site_name" content="JCSM - Infrastructure de Recharge">
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
     <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
@@ -35,8 +48,8 @@
             --danger-bg: rgba(220,38,38,.1);
             --info: #0891b2;
             --info-bg: rgba(8,145,178,.1);
-            --purple: #7c3aed;
-            --purple-bg: rgba(124,58,237,.1);
+            --purple: #2563eb;
+            --purple-bg: rgba(37,99,235,.1);
             --sidebar-w: 272px;
             --topbar-h: 64px;
             --radius: 12px;
@@ -56,7 +69,7 @@
         ::-webkit-scrollbar { width:6px; } ::-webkit-scrollbar-track { background:transparent; } ::-webkit-scrollbar-thumb { background:#cbd5e1; border-radius:3px; } ::-webkit-scrollbar-thumb:hover { background:#94a3b8; }
 
         /* ── Login ── */
-        #login-screen { position:fixed; inset:0; z-index:9999; display:flex; align-items:center; justify-content:center; background:linear-gradient(135deg,#eef2ff 0%,#e0e7ff 40%,#dbeafe 100%); transition:opacity .6s ease,transform .6s ease; }
+        #login-screen { position:fixed; inset:0; z-index:9999; display:flex; align-items:center; justify-content:center; background:#f9fafb; transition:opacity .6s ease,transform .6s ease; }
         #login-screen.hide { opacity:0; transform:scale(1.05); pointer-events:none; }
         .login-grid { position:absolute; inset:0; background-image:radial-gradient(circle at 1px 1px,rgba(37,99,235,.06) 1px,transparent 0); background-size:40px 40px; }
         .login-glow { position:absolute; width:500px; height:500px; border-radius:50%; background:radial-gradient(circle,rgba(37,99,235,.1) 0%,transparent 70%); top:50%; left:50%; transform:translate(-50%,-50%); animation:glowPulse 4s ease-in-out infinite; }
@@ -113,7 +126,7 @@
         .topbar-notif svg { width:20px; height:20px; color:var(--text-secondary); }
         .topbar-notif-dot { position:absolute; top:6px; right:6px; width:8px; height:8px; border-radius:50%; background:var(--danger); border:2px solid var(--bg-surface); }
         .topbar-user { display:flex; align-items:center; gap:8px; padding:6px 12px 6px 6px; border-radius:20px; background:var(--bg); }
-        .topbar-avatar { width:32px; height:32px; border-radius:50%; background:linear-gradient(135deg,var(--accent),var(--purple)); display:flex; align-items:center; justify-content:center; font-size:.8rem; font-weight:700; color:#fff; }
+        .topbar-avatar { width:32px; height:32px; border-radius:50%; background:var(--accent); display:flex; align-items:center; justify-content:center; font-size:.8rem; font-weight:700; color:#fff; }
         .topbar-user-name { font-size:.85rem; font-weight:500; }
 
         /* ── Content ── */
@@ -208,7 +221,7 @@
         .techs-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:16px; }
         .tech-card { background:var(--bg-card); border:1px solid var(--border); border-radius:var(--radius); padding:20px; box-shadow:var(--shadow); transition:transform var(--transition),box-shadow var(--transition); }
         .tech-card:hover { transform:translateY(-2px); box-shadow:var(--shadow-lg); }
-        .tech-card.backup { border:2px solid var(--warning); background:linear-gradient(135deg,#fffbeb,#fef3c7); }
+        .tech-card.backup { border:2px solid var(--border-light); background:var(--bg-card); }
         .tech-avatar-row { display:flex; align-items:center; gap:12px; margin-bottom:14px; }
         .tech-avatar { width:44px; height:44px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:.95rem; font-weight:700; color:#fff; }
         .tech-name { font-size:.95rem; font-weight:600; }
@@ -369,7 +382,7 @@
 </div>
 
 <div class="modal-overlay" id="modal-new-ticket"><div class="modal"><div class="modal-header"><h3>Nouveau ticket</h3><button class="modal-close" onclick="closeModal('modal-new-ticket')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div><div class="modal-body">
-    <div class="form-group"><label>Site</label><select id="new-ticket-site"><option>Station PowerDot — Perpignan Languedoc (66)</option><option>Station PowerDot — Perpignan Rome (66)</option><option>Station PowerDot — L'Isle-d'Abeau (38)</option><option>Station PowerDot — Sélestat (67)</option><option>Station PowerDot — Pertuis (84)</option><option>Station PowerDot — Condom (32)</option><option>Station PowerDot — Super U Podensac (33)</option><option>Station PowerDot — Bordeaux Lattre (33)</option><option>Station PowerDot — Ussac (19)</option><option>Station PowerDot — Labarthe-sur-Lèze (31)</option><option>Station PowerDot — Perpignan Espagne (66)</option><option>Station PowerDot — Soyaux (16)</option><option>Station PowerDot — Tarbes (65)</option><option>Station PowerDot — Bureau Vallée L'Union (31)</option><option>Station PowerDot — Super U Rosporden (29)</option><option>Station PowerDot — Intermarché Bannalec (29)</option><option>Station PowerDot — Intermarché Plomodiern (29)</option><option>Station PowerDot — Ferrières-en-Brie (77)</option><option>Station PowerDot — Vannes Luscanen (56)</option><option>Station PowerDot — Ambérieu-en-Bugey (01)</option><option>Station PowerDot — Reims (51)</option><option>Station PowerDot — Toulouse Purpan (31)</option></select></div>
+    <div class="form-group"><label>Site</label><select id="new-ticket-site"><option>Station PowerDot - Perpignan Languedoc (66)</option><option>Station PowerDot - Perpignan Rome (66)</option><option>Station PowerDot - L'Isle-d'Abeau (38)</option><option>Station PowerDot - Sélestat (67)</option><option>Station PowerDot - Pertuis (84)</option><option>Station PowerDot - Condom (32)</option><option>Station PowerDot - Super U Podensac (33)</option><option>Station PowerDot - Bordeaux Lattre (33)</option><option>Station PowerDot - Ussac (19)</option><option>Station PowerDot - Labarthe-sur-Lèze (31)</option><option>Station PowerDot - Perpignan Espagne (66)</option><option>Station PowerDot - Soyaux (16)</option><option>Station PowerDot - Tarbes (65)</option><option>Station PowerDot - Bureau Vallée L'Union (31)</option><option>Station PowerDot - Super U Rosporden (29)</option><option>Station PowerDot - Intermarché Bannalec (29)</option><option>Station PowerDot - Intermarché Plomodiern (29)</option><option>Station PowerDot - Ferrières-en-Brie (77)</option><option>Station PowerDot - Vannes Luscanen (56)</option><option>Station PowerDot - Ambérieu-en-Bugey (01)</option><option>Station PowerDot - Reims (51)</option><option>Station PowerDot - Toulouse Purpan (31)</option></select></div>
     <div class="form-group"><label>Catégorie</label><select id="new-ticket-cat"><option>Panne</option><option>Maintenance</option><option>Vandalisme</option><option>Réseau</option><option>Paiement</option><option>Mise à jour</option><option>Installation</option></select></div>
     <div class="form-group"><label>Priorité</label><select id="new-ticket-priority"><option value="normal">Normale</option><option value="haute">Haute</option><option value="urgent">Urgente</option><option value="basse">Basse</option></select></div>
     <div class="form-group"><label>Technicien</label><select id="new-ticket-tech"><option value="">-- Non assigné --</option></select></div>
@@ -389,14 +402,14 @@ const h = s => { const d = document.createElement('div'); d.textContent = s; ret
 
 const ZONES = [
     { id:'idf', name:'Île-de-France', lat:48.9882, lng:2.2299, radius:50000, color:'#2563eb' },
-    { id:'ge',  name:'Nord / Grand Est', lat:49.2500, lng:3.5000, radius:110000, color:'#7c3aed' },
-    { id:'ara', name:'Auvergne-Rhône-Alpes', lat:45.5500, lng:4.6000, radius:80000, color:'#16a34a' },
-    { id:'bre', name:'Bretagne', lat:48.2000, lng:-3.2000, radius:80000, color:'#ea580c' },
-    { id:'occ', name:'Occitanie', lat:43.3000, lng:1.8000, radius:90000, color:'#dc2626' },
-    { id:'naq', name:'Nouvelle-Aquitaine', lat:45.5000, lng:-0.2000, radius:90000, color:'#0891b2' },
-    { id:'paca', name:'PACA', lat:43.2965, lng:5.3698, radius:70000, color:'#0d9488' },
-    { id:'cvl', name:'Centre-Val de Loire', lat:47.9029, lng:1.9093, radius:60000, color:'#059669' },
-    { id:'be',  name:'Belgique', lat:50.5039, lng:4.4699, radius:70000, color:'#ca8a04' }
+    { id:'ge',  name:'Nord / Grand Est', lat:49.2500, lng:3.5000, radius:110000, color:'#1d4ed8' },
+    { id:'ara', name:'Auvergne-Rhône-Alpes', lat:45.5500, lng:4.6000, radius:80000, color:'#3b82f6' },
+    { id:'bre', name:'Bretagne', lat:48.2000, lng:-3.2000, radius:80000, color:'#1e40af' },
+    { id:'occ', name:'Occitanie', lat:43.3000, lng:1.8000, radius:90000, color:'#1e3a8a' },
+    { id:'naq', name:'Nouvelle-Aquitaine', lat:45.5000, lng:-0.2000, radius:90000, color:'#2563eb' },
+    { id:'paca', name:'PACA', lat:43.2965, lng:5.3698, radius:70000, color:'#1d4ed8' },
+    { id:'cvl', name:'Centre-Val de Loire', lat:47.9029, lng:1.9093, radius:60000, color:'#3b82f6' },
+    { id:'be',  name:'Belgique', lat:50.5039, lng:4.4699, radius:70000, color:'#1e40af' }
 ];
 
 function initData() {
@@ -417,80 +430,80 @@ function initData() {
     ];
     S.tickets = [
         // ── NOUVEAU ──
-        { id:'J-049640', site:'Station PowerDot — Intermarché Bannalec (29)', desc:'MBC_LMX_EKAE12001 | EM Shutdown + failed attemps', priority:'urgent', status:'nouveau', tech:null, created:'2026-02-12T08:00:00', cat:'Panne', planDate:'2026-02-18', nbAppels:3 },
-        { id:'J-049668', site:'Station PowerDot — Vannes Luscanen (56)', desc:'CNV_VAN_TTN12002 | Charger Offline | Last activity in 7 days', priority:'urgent', status:'nouveau', tech:null, created:'2026-02-11T09:00:00', cat:'Panne', planDate:'2026-02-18', nbAppels:2 },
-        { id:'J-049672', site:'Station PowerDot — Grenade-sur-Garonne (31)', desc:'BWT_GRD_BBC20001 | Tilt / Door Sensor faulted — Disjonction fréquentes', priority:'urgent', status:'nouveau', tech:null, created:'2026-02-13T10:30:00', cat:'Panne', planDate:'2026-02-20', nbAppels:1 },
-        { id:'J-049684', site:'Station PowerDot — Châteaulin (29)', desc:'Problème moteur alfen double', priority:'haute', status:'nouveau', tech:null, created:'2026-02-12T11:00:00', cat:'Panne', planDate:'2026-02-19', nbAppels:1 },
-        { id:'J-049660', site:'Station PowerDot — Granville (50)', desc:'JAR_GRA_TTN12002 | EM button pressed + failed attemps', priority:'haute', status:'nouveau', tech:null, created:'2026-02-12T14:20:00', cat:'Panne', planDate:'2026-02-19', nbAppels:2 },
-        { id:'J-049664', site:'Station PowerDot — Estaires (59)', desc:'BRC_EST_EKAE6001 | AC faulted', priority:'haute', status:'nouveau', tech:null, created:'2026-02-14T07:45:00', cat:'Panne', planDate:'2026-02-18', nbAppels:1 },
+        { id:'J-049640', site:'Station PowerDot - Intermarché Bannalec (29)', desc:'MBC_LMX_EKAE12001 | EM Shutdown + failed attemps', priority:'urgent', status:'nouveau', tech:null, created:'2026-02-12T08:00:00', cat:'Panne', planDate:'2026-02-18', nbAppels:3 },
+        { id:'J-049668', site:'Station PowerDot - Vannes Luscanen (56)', desc:'CNV_VAN_TTN12002 | Charger Offline | Last activity in 7 days', priority:'urgent', status:'nouveau', tech:null, created:'2026-02-11T09:00:00', cat:'Panne', planDate:'2026-02-18', nbAppels:2 },
+        { id:'J-049672', site:'Station PowerDot - Grenade-sur-Garonne (31)', desc:'BWT_GRD_BBC20001 | Tilt / Door Sensor faulted - Disjonction fréquentes', priority:'urgent', status:'nouveau', tech:null, created:'2026-02-13T10:30:00', cat:'Panne', planDate:'2026-02-20', nbAppels:1 },
+        { id:'J-049684', site:'Station PowerDot - Châteaulin (29)', desc:'Problème moteur alfen double', priority:'haute', status:'nouveau', tech:null, created:'2026-02-12T11:00:00', cat:'Panne', planDate:'2026-02-19', nbAppels:1 },
+        { id:'J-049660', site:'Station PowerDot - Granville (50)', desc:'JAR_GRA_TTN12002 | EM button pressed + failed attemps', priority:'haute', status:'nouveau', tech:null, created:'2026-02-12T14:20:00', cat:'Panne', planDate:'2026-02-19', nbAppels:2 },
+        { id:'J-049664', site:'Station PowerDot - Estaires (59)', desc:'BRC_EST_EKAE6001 | AC faulted', priority:'haute', status:'nouveau', tech:null, created:'2026-02-14T07:45:00', cat:'Panne', planDate:'2026-02-18', nbAppels:1 },
         // ── EN COURS ──
-        { id:'J-049618', site:'Station PowerDot — Bureau Vallée L\'Union (31)', desc:'Suivi nombre d\'appel et suivi intervention', priority:'normal', status:'en_cours', tech:'T01', created:'2026-02-15T08:00:00', cat:'Maintenance', planDate:'2026-02-17', nbAppels:4, arrival:'08:45', departure:null, duration:null },
-        { id:'J-049304', site:'Station PowerDot — Ussac (19)', desc:'Con 1 en defaut', priority:'haute', status:'en_cours', tech:'T05', created:'2026-02-16T09:00:00', cat:'Panne', planDate:'2026-02-17', nbAppels:3, arrival:'10:15', departure:null, duration:null },
-        { id:'J-049506', site:'Station PowerDot — Martres-Tolosane (31)', desc:'chargeur hors ligne', priority:'normal', status:'en_cours', tech:'T01', created:'2026-02-16T16:00:00', cat:'Panne', planDate:'2026-02-17', nbAppels:1, arrival:null, departure:null, duration:null },
-        { id:'J-049570', site:'Station PowerDot — Soyaux (16)', desc:'chargeur hors ligne', priority:'normal', status:'en_cours', tech:'T11', created:'2026-02-17T09:00:00', cat:'Panne', planDate:'2026-02-17', nbAppels:2, arrival:'09:40', departure:null, duration:null },
-        { id:'J-049601', site:'Station PowerDot — Perpignan Espagne (66)', desc:'Station hors-ligne', priority:'normal', status:'en_cours', tech:'T04', created:'2026-02-17T10:00:00', cat:'Réseau', planDate:'2026-02-17', nbAppels:2, arrival:'11:00', departure:null, duration:null },
-        { id:'J-049652', site:'Station PowerDot — Ferrières-en-Brie (77)', desc:'SOG_FER_STR001 / offline charger / LAST ACTIVITY: in 19 hours', priority:'haute', status:'en_cours', tech:'T02', created:'2026-02-16T14:00:00', cat:'Réseau', planDate:'2026-02-17', nbAppels:2, arrival:'08:30', departure:null, duration:null },
+        { id:'J-049618', site:'Station PowerDot - Bureau Vallée L\'Union (31)', desc:'Suivi nombre d\'appel et suivi intervention', priority:'normal', status:'en_cours', tech:'T01', created:'2026-02-15T08:00:00', cat:'Maintenance', planDate:'2026-02-17', nbAppels:4, arrival:'08:45', departure:null, duration:null },
+        { id:'J-049304', site:'Station PowerDot - Ussac (19)', desc:'Con 1 en defaut', priority:'haute', status:'en_cours', tech:'T05', created:'2026-02-16T09:00:00', cat:'Panne', planDate:'2026-02-17', nbAppels:3, arrival:'10:15', departure:null, duration:null },
+        { id:'J-049506', site:'Station PowerDot - Martres-Tolosane (31)', desc:'chargeur hors ligne', priority:'normal', status:'en_cours', tech:'T01', created:'2026-02-16T16:00:00', cat:'Panne', planDate:'2026-02-17', nbAppels:1, arrival:null, departure:null, duration:null },
+        { id:'J-049570', site:'Station PowerDot - Soyaux (16)', desc:'chargeur hors ligne', priority:'normal', status:'en_cours', tech:'T11', created:'2026-02-17T09:00:00', cat:'Panne', planDate:'2026-02-17', nbAppels:2, arrival:'09:40', departure:null, duration:null },
+        { id:'J-049601', site:'Station PowerDot - Perpignan Espagne (66)', desc:'Station hors-ligne', priority:'normal', status:'en_cours', tech:'T04', created:'2026-02-17T10:00:00', cat:'Réseau', planDate:'2026-02-17', nbAppels:2, arrival:'11:00', departure:null, duration:null },
+        { id:'J-049652', site:'Station PowerDot - Ferrières-en-Brie (77)', desc:'SOG_FER_STR001 / offline charger / LAST ACTIVITY: in 19 hours', priority:'haute', status:'en_cours', tech:'T02', created:'2026-02-16T14:00:00', cat:'Réseau', planDate:'2026-02-17', nbAppels:2, arrival:'08:30', departure:null, duration:null },
         // ── PLANIFIÉ ──
-        { id:'J-049623', site:'Station PowerDot — Super U Rosporden (29)', desc:'Suivi nombre d\'appel et suivi intervention', priority:'normal', status:'planifie', tech:'T08', created:'2026-02-14T09:00:00', cat:'Maintenance', planDate:'2026-02-18', nbAppels:2 },
-        { id:'J-049631', site:'Station PowerDot — Ibis Mellac (29)', desc:'Suivi nombre d\'appel et suivi intervention', priority:'normal', status:'planifie', tech:'T08', created:'2026-02-15T10:00:00', cat:'Maintenance', planDate:'2026-02-19', nbAppels:1 },
-        { id:'J-049635', site:'Station PowerDot — Intermarché Plomodiern (29)', desc:'Suivi nombre d\'appel et suivi intervention', priority:'normal', status:'planifie', tech:'T08', created:'2026-02-11T08:30:00', cat:'Maintenance', planDate:'2026-02-19', nbAppels:2 },
-        { id:'J-049720', site:'Station PowerDot — Reims (51)', desc:'MAJ et tests', priority:'normal', status:'planifie', tech:'T12', created:'2026-02-14T11:00:00', cat:'Mise à jour', planDate:'2026-02-20', nbAppels:0 },
-        { id:'J-049648', site:'Station PowerDot — Ambérieu-en-Bugey (01)', desc:'SYU_AMG_ALFD2201 | Low power on connector 1', priority:'normal', status:'planifie', tech:'T03', created:'2026-02-14T13:00:00', cat:'Panne', planDate:'2026-02-19', nbAppels:1 },
-        { id:'J-049724', site:'Station PowerDot — Toulouse Purpan (31)', desc:'Hors ligne + Check massif', priority:'haute', status:'planifie', tech:'T01', created:'2026-02-15T08:00:00', cat:'Panne', planDate:'2026-02-20', nbAppels:1 },
-        { id:'J-049656', site:'Station PowerDot — Quimper (29)', desc:'Hors ligne, réseau capricieux', priority:'normal', status:'planifie', tech:'T08', created:'2026-02-15T10:00:00', cat:'Réseau', planDate:'2026-02-21', nbAppels:0 },
+        { id:'J-049623', site:'Station PowerDot - Super U Rosporden (29)', desc:'Suivi nombre d\'appel et suivi intervention', priority:'normal', status:'planifie', tech:'T08', created:'2026-02-14T09:00:00', cat:'Maintenance', planDate:'2026-02-18', nbAppels:2 },
+        { id:'J-049631', site:'Station PowerDot - Ibis Mellac (29)', desc:'Suivi nombre d\'appel et suivi intervention', priority:'normal', status:'planifie', tech:'T08', created:'2026-02-15T10:00:00', cat:'Maintenance', planDate:'2026-02-19', nbAppels:1 },
+        { id:'J-049635', site:'Station PowerDot - Intermarché Plomodiern (29)', desc:'Suivi nombre d\'appel et suivi intervention', priority:'normal', status:'planifie', tech:'T08', created:'2026-02-11T08:30:00', cat:'Maintenance', planDate:'2026-02-19', nbAppels:2 },
+        { id:'J-049720', site:'Station PowerDot - Reims (51)', desc:'MAJ et tests', priority:'normal', status:'planifie', tech:'T12', created:'2026-02-14T11:00:00', cat:'Mise à jour', planDate:'2026-02-20', nbAppels:0 },
+        { id:'J-049648', site:'Station PowerDot - Ambérieu-en-Bugey (01)', desc:'SYU_AMG_ALFD2201 | Low power on connector 1', priority:'normal', status:'planifie', tech:'T03', created:'2026-02-14T13:00:00', cat:'Panne', planDate:'2026-02-19', nbAppels:1 },
+        { id:'J-049724', site:'Station PowerDot - Toulouse Purpan (31)', desc:'Hors ligne + Check massif', priority:'haute', status:'planifie', tech:'T01', created:'2026-02-15T08:00:00', cat:'Panne', planDate:'2026-02-20', nbAppels:1 },
+        { id:'J-049656', site:'Station PowerDot - Quimper (29)', desc:'Hors ligne, réseau capricieux', priority:'normal', status:'planifie', tech:'T08', created:'2026-02-15T10:00:00', cat:'Réseau', planDate:'2026-02-21', nbAppels:0 },
         // ── RÉSOLU ──
-        { id:'J-048537', site:'Station PowerDot — Perpignan Languedoc (66)', desc:'2 hubs hors ligne (4 chargeurs au total) — cause racine identifiée, disjonction récurrente', priority:'urgent', status:'resolu', tech:'T04', created:'2026-01-26T08:00:00', cat:'Panne', planDate:'2026-01-26', nbAppels:6, arrival:'09:00', departure:'13:45', duration:'4h45', report:true, obs:'Disjoncteur TJ en défaut sur les 2 hubs. Remplacement disjoncteur + reset firmware. Tests OK sur 4 points de charge.' },
-        { id:'J-047507', site:'Station PowerDot — Perpignan Rome (66)', desc:'Connecteur 2 en défaut', priority:'normal', status:'resolu', tech:'T04', created:'2026-01-30T09:00:00', cat:'Panne', planDate:'2026-01-30', nbAppels:2, arrival:'10:30', departure:'12:15', duration:'1h45', report:true, obs:'Connecteur CCS2 endommagé (câble coupé net). Remplacement câble + connecteur. Test de charge validé.' },
-        { id:'J-048859', site:'Station PowerDot — L\'Isle-d\'Abeau (38)', desc:'Connecteur 1 en défaut', priority:'normal', status:'resolu', tech:'T03', created:'2026-02-04T08:00:00', cat:'Panne', planDate:'2026-02-04', nbAppels:2, arrival:'09:15', departure:'11:00', duration:'1h45', report:true, obs:'Connecteur Type 2 bloqué en position verrouillée. Déverrouillage manuel + remplacement actionneur. Test OK.' },
-        { id:'J-049000', site:'Station PowerDot — Sélestat (67)', desc:'Station offline, controler reglage disjoncteur TJ', priority:'normal', status:'resolu', tech:'T10', created:'2026-02-04T10:00:00', cat:'Réseau', planDate:'2026-02-04', nbAppels:3, arrival:'14:00', departure:'16:30', duration:'2h30', report:true, obs:'Perte de connectivité 4G. Remplacement routeur + reconfiguration APN. Supervision rétablie.' },
-        { id:'J-049066', site:'Station PowerDot — Pertuis (84)', desc:'Chargeur hors-ligne', priority:'normal', status:'resolu', tech:'T13', created:'2026-02-06T09:30:00', cat:'Panne', planDate:'2026-02-06', nbAppels:1, arrival:'11:00', departure:'12:30', duration:'1h30', report:true, obs:'Carte contrôleur HS. Remplacement carte + mise à jour firmware v3.2.1. Remise en service.' },
-        { id:'J-049046', site:'Station PowerDot — Condom (32)', desc:'Con 4 en défaut', priority:'normal', status:'resolu', tech:'T01', created:'2026-02-10T08:00:00', cat:'Panne', planDate:'2026-02-10', nbAppels:2, arrival:'08:30', departure:'10:45', duration:'2h15', report:true, obs:'Connecteur 4 — fusible HS côté AC. Remplacement fusible 32A + serrage bornier. Test charge 22kW OK.' },
-        { id:'J-049101', site:'Station PowerDot — Super U Podensac (33)', desc:'Chargeur hors-ligne', priority:'normal', status:'resolu', tech:'T05', created:'2026-02-07T07:30:00', cat:'Panne', planDate:'2026-02-07', nbAppels:2, arrival:'08:00', departure:'10:15', duration:'2h15', report:true, obs:'Disjoncteur déclenché (défaut isolement). Contrôle isolement OK après séchage coffret. Réarmement + test.' },
-        { id:'J-049212', site:'Station PowerDot — Bordeaux Lattre (33)', desc:'Chargeur hors-ligne et cable bloqué', priority:'haute', status:'resolu', tech:'T05', created:'2026-02-09T08:00:00', cat:'Panne', planDate:'2026-02-09', nbAppels:4, arrival:'09:30', departure:'13:00', duration:'3h30', report:true, obs:'Câble CCS bloqué en position verrouillée. Déverrouillage forcé + remplacement mécanisme verrou. Chargeur remis en ligne après reset OCPP.' },
-        { id:'J-049348', site:'Station PowerDot — Labarthe-sur-Lèze (31)', desc:'station hors ligne', priority:'normal', status:'resolu', tech:'T01', created:'2026-02-12T09:00:00', cat:'Réseau', planDate:'2026-02-12', nbAppels:1, arrival:'10:00', departure:'11:30', duration:'1h30', report:true, obs:'Routeur 4G saturé (table NAT pleine). Redémarrage routeur + reconfiguration keep-alive OCPP. Stable.' },
-        { id:'J-049300', site:'Station PowerDot — Ille-sur-Têt (66)', desc:'Connecteur 2 en défaut', priority:'normal', status:'resolu', tech:'T04', created:'2026-02-11T10:00:00', cat:'Panne', planDate:'2026-02-11', nbAppels:2, arrival:'14:00', departure:'15:30', duration:'1h30', report:true, obs:'Connecteur CHAdeMO — erreur communication. Remplacement câble communication + recalibrage. Test DC 50kW OK.' },
-        { id:'J-049461', site:'Station PowerDot — Bertrix (Belgique)', desc:'station hors ligne', priority:'normal', status:'resolu', tech:'T12', created:'2026-02-13T08:00:00', cat:'Réseau', planDate:'2026-02-13', nbAppels:2, arrival:'10:30', departure:'12:45', duration:'2h15', report:true, obs:'Coupure alimentation générale (disj. amont). Réarmement + vérification puissance. Station opérationnelle.' },
-        { id:'J-049181', site:'Station PowerDot — Montrabé (31)', desc:'satellite 2 en défaut', priority:'normal', status:'resolu', tech:'T01', created:'2026-02-12T10:00:00', cat:'Panne', planDate:'2026-02-12', nbAppels:1, arrival:'14:30', departure:'16:00', duration:'1h30', report:true, obs:'Satellite 2 — carte communication satellite HS. Remplacement carte + appairage avec hub principal. Test OK.' },
-        { id:'J-049575', site:'Station PowerDot — Tarbes (65)', desc:'Station hors ligne', priority:'normal', status:'resolu', tech:'T01', created:'2026-02-16T08:00:00', cat:'Réseau', planDate:'2026-02-16', nbAppels:1, arrival:'08:30', departure:'09:45', duration:'1h15', report:true, obs:'SIM 4G expirée. Remplacement SIM + reconfiguration APN. Supervision rétablie, test OCPP heartbeat OK.' }
+        { id:'J-048537', site:'Station PowerDot - Perpignan Languedoc (66)', desc:'2 hubs hors ligne (4 chargeurs au total) - cause racine identifiée, disjonction récurrente', priority:'urgent', status:'resolu', tech:'T04', created:'2026-01-26T08:00:00', cat:'Panne', planDate:'2026-01-26', nbAppels:6, arrival:'09:00', departure:'13:45', duration:'4h45', report:true, obs:'Disjoncteur TJ en défaut sur les 2 hubs. Remplacement disjoncteur + reset firmware. Tests OK sur 4 points de charge.' },
+        { id:'J-047507', site:'Station PowerDot - Perpignan Rome (66)', desc:'Connecteur 2 en défaut', priority:'normal', status:'resolu', tech:'T04', created:'2026-01-30T09:00:00', cat:'Panne', planDate:'2026-01-30', nbAppels:2, arrival:'10:30', departure:'12:15', duration:'1h45', report:true, obs:'Connecteur CCS2 endommagé (câble coupé net). Remplacement câble + connecteur. Test de charge validé.' },
+        { id:'J-048859', site:'Station PowerDot - L\'Isle-d\'Abeau (38)', desc:'Connecteur 1 en défaut', priority:'normal', status:'resolu', tech:'T03', created:'2026-02-04T08:00:00', cat:'Panne', planDate:'2026-02-04', nbAppels:2, arrival:'09:15', departure:'11:00', duration:'1h45', report:true, obs:'Connecteur Type 2 bloqué en position verrouillée. Déverrouillage manuel + remplacement actionneur. Test OK.' },
+        { id:'J-049000', site:'Station PowerDot - Sélestat (67)', desc:'Station offline, controler reglage disjoncteur TJ', priority:'normal', status:'resolu', tech:'T10', created:'2026-02-04T10:00:00', cat:'Réseau', planDate:'2026-02-04', nbAppels:3, arrival:'14:00', departure:'16:30', duration:'2h30', report:true, obs:'Perte de connectivité 4G. Remplacement routeur + reconfiguration APN. Supervision rétablie.' },
+        { id:'J-049066', site:'Station PowerDot - Pertuis (84)', desc:'Chargeur hors-ligne', priority:'normal', status:'resolu', tech:'T13', created:'2026-02-06T09:30:00', cat:'Panne', planDate:'2026-02-06', nbAppels:1, arrival:'11:00', departure:'12:30', duration:'1h30', report:true, obs:'Carte contrôleur HS. Remplacement carte + mise à jour firmware v3.2.1. Remise en service.' },
+        { id:'J-049046', site:'Station PowerDot - Condom (32)', desc:'Con 4 en défaut', priority:'normal', status:'resolu', tech:'T01', created:'2026-02-10T08:00:00', cat:'Panne', planDate:'2026-02-10', nbAppels:2, arrival:'08:30', departure:'10:45', duration:'2h15', report:true, obs:'Connecteur 4 - fusible HS côté AC. Remplacement fusible 32A + serrage bornier. Test charge 22kW OK.' },
+        { id:'J-049101', site:'Station PowerDot - Super U Podensac (33)', desc:'Chargeur hors-ligne', priority:'normal', status:'resolu', tech:'T05', created:'2026-02-07T07:30:00', cat:'Panne', planDate:'2026-02-07', nbAppels:2, arrival:'08:00', departure:'10:15', duration:'2h15', report:true, obs:'Disjoncteur déclenché (défaut isolement). Contrôle isolement OK après séchage coffret. Réarmement + test.' },
+        { id:'J-049212', site:'Station PowerDot - Bordeaux Lattre (33)', desc:'Chargeur hors-ligne et cable bloqué', priority:'haute', status:'resolu', tech:'T05', created:'2026-02-09T08:00:00', cat:'Panne', planDate:'2026-02-09', nbAppels:4, arrival:'09:30', departure:'13:00', duration:'3h30', report:true, obs:'Câble CCS bloqué en position verrouillée. Déverrouillage forcé + remplacement mécanisme verrou. Chargeur remis en ligne après reset OCPP.' },
+        { id:'J-049348', site:'Station PowerDot - Labarthe-sur-Lèze (31)', desc:'station hors ligne', priority:'normal', status:'resolu', tech:'T01', created:'2026-02-12T09:00:00', cat:'Réseau', planDate:'2026-02-12', nbAppels:1, arrival:'10:00', departure:'11:30', duration:'1h30', report:true, obs:'Routeur 4G saturé (table NAT pleine). Redémarrage routeur + reconfiguration keep-alive OCPP. Stable.' },
+        { id:'J-049300', site:'Station PowerDot - Ille-sur-Têt (66)', desc:'Connecteur 2 en défaut', priority:'normal', status:'resolu', tech:'T04', created:'2026-02-11T10:00:00', cat:'Panne', planDate:'2026-02-11', nbAppels:2, arrival:'14:00', departure:'15:30', duration:'1h30', report:true, obs:'Connecteur CHAdeMO - erreur communication. Remplacement câble communication + recalibrage. Test DC 50kW OK.' },
+        { id:'J-049461', site:'Station PowerDot - Bertrix (Belgique)', desc:'station hors ligne', priority:'normal', status:'resolu', tech:'T12', created:'2026-02-13T08:00:00', cat:'Réseau', planDate:'2026-02-13', nbAppels:2, arrival:'10:30', departure:'12:45', duration:'2h15', report:true, obs:'Coupure alimentation générale (disj. amont). Réarmement + vérification puissance. Station opérationnelle.' },
+        { id:'J-049181', site:'Station PowerDot - Montrabé (31)', desc:'satellite 2 en défaut', priority:'normal', status:'resolu', tech:'T01', created:'2026-02-12T10:00:00', cat:'Panne', planDate:'2026-02-12', nbAppels:1, arrival:'14:30', departure:'16:00', duration:'1h30', report:true, obs:'Satellite 2 - carte communication satellite HS. Remplacement carte + appairage avec hub principal. Test OK.' },
+        { id:'J-049575', site:'Station PowerDot - Tarbes (65)', desc:'Station hors ligne', priority:'normal', status:'resolu', tech:'T01', created:'2026-02-16T08:00:00', cat:'Réseau', planDate:'2026-02-16', nbAppels:1, arrival:'08:30', departure:'09:45', duration:'1h15', report:true, obs:'SIM 4G expirée. Remplacement SIM + reconfiguration APN. Supervision rétablie, test OCPP heartbeat OK.' }
     ];
     S.planWeekOffset = 0;
     S.resolvedBase = 31;
     S.interventionsBase = 11;
     S.settings = { assignMode:'auto', autoSMS:true, slaTarget:3, autoRelance:true };
     S.activity = [
-        { time:'10:32', type:'ticket', msg:'J-049640 — EM Shutdown Station Bannalec, escalade priorité urgente' },
-        { time:'10:15', type:'call', msg:'Appel entrant — Oumnia (PowerDot) : relance J-049640 Bannalec' },
-        { time:'09:47', type:'ticket', msg:'J-049668 — Charger Offline Station Vannes, 7 jours sans activité' },
-        { time:'09:22', type:'sms', msg:'SMS envoyé à Adil — Confirmation arrivée J-049618 Bureau Vallée L\'Union' },
-        { time:'09:03', type:'ticket', msg:'J-049672 — Door Sensor faulted, disjonction fréquente Grenade (31)' },
-        { time:'08:47', type:'call', msg:'Appel entrant — Martin (PowerDot) : point hebdo + Vannes + Estaires' },
-        { time:'08:31', type:'ticket', msg:'J-049652 en cours — Marouane arrivé sur site Ferrières-en-Brie' },
-        { time:'08:12', type:'sms', msg:'SMS envoyé à Dominique — Départ confirmé J-049570 Soyaux (16)' },
-        { time:'07:58', type:'call', msg:'Appel sortant — Fabien : point J-049304 Ussac, arrivée prévue 10h15' },
-        { time:'07:41', type:'ticket', msg:'J-049575 résolu — Station Tarbes remise en ligne (durée 1h15)' },
-        { time:'07:33', type:'ticket', msg:'Rapport J-049575 validé — SIM remplacée, OCPP heartbeat OK' },
-        { time:'07:15', type:'system', msg:'Ouverture session Julien — 13 techniciens · 9 zones couvertes' }
+        { time:'10:32', type:'ticket', msg:'J-049640 - EM Shutdown Station Bannalec, escalade priorité urgente' },
+        { time:'10:15', type:'call', msg:'Appel entrant - Oumnia (PowerDot) : relance J-049640 Bannalec' },
+        { time:'09:47', type:'ticket', msg:'J-049668 - Charger Offline Station Vannes, 7 jours sans activité' },
+        { time:'09:22', type:'sms', msg:'SMS envoyé à Adil - Confirmation arrivée J-049618 Bureau Vallée L\'Union' },
+        { time:'09:03', type:'ticket', msg:'J-049672 - Door Sensor faulted, disjonction fréquente Grenade (31)' },
+        { time:'08:47', type:'call', msg:'Appel entrant - Martin (PowerDot) : point hebdo + Vannes + Estaires' },
+        { time:'08:31', type:'ticket', msg:'J-049652 en cours - Marouane arrivé sur site Ferrières-en-Brie' },
+        { time:'08:12', type:'sms', msg:'SMS envoyé à Dominique - Départ confirmé J-049570 Soyaux (16)' },
+        { time:'07:58', type:'call', msg:'Appel sortant - Fabien : point J-049304 Ussac, arrivée prévue 10h15' },
+        { time:'07:41', type:'ticket', msg:'J-049575 résolu - Station Tarbes remise en ligne (durée 1h15)' },
+        { time:'07:33', type:'ticket', msg:'Rapport J-049575 validé - SIM remplacée, OCPP heartbeat OK' },
+        { time:'07:15', type:'system', msg:'Ouverture session Julien - 13 techniciens · 9 zones couvertes' }
     ];
     S.smsHistory = [
-        { time:'09:22', to:'Adil — Perpignan', msg:'[JCSM] Intervention J-049618. Station PowerDot Bureau Vallée L\'Union (31). Suivi nombre d\'appels + intervention. Merci de faire le point sur place et confirmer état des bornes.', status:'delivered' },
-        { time:'08:12', to:'Dominique — Poitiers', msg:'[JCSM] Intervention J-049570. Station PowerDot Soyaux (16). Chargeur hors-ligne signalé. Merci de vous rendre sur place ce matin.', status:'delivered' },
-        { time:'Hier 16:45', to:'Julien LG — Toulouse', msg:'[JCSM] Intervention J-049601. Station PowerDot Perpignan Espagne (66). Station hors-ligne — diagnostic réseau à effectuer. Prévoir test SIM + routeur.', status:'delivered' },
-        { time:'Hier 14:08', to:'Marouane — Franconville', msg:'[JCSM] Intervention J-049652. Station PowerDot Ferrières-en-Brie (77). Chargeur offline 19h. Vérifier connectivité OCPP + état routeur 4G.', status:'delivered' },
-        { time:'Hier 08:30', to:'Saïd — Rennes', msg:'[JCSM] Planning semaine du 17/02 : Rosporden (mar), Mellac (mer), Plomodiern (mer PM). Confirme dispo. Merci.', status:'delivered' },
-        { time:'14/02 09:00', to:'Fabien — Bordeaux', msg:'[JCSM] Intervention J-049304. Station PowerDot Ussac (19). Con 1 en défaut — priorité haute. Merci de planifier lundi matin.', status:'delivered' }
+        { time:'09:22', to:'Adil - Perpignan', msg:'[JCSM] Intervention J-049618. Station PowerDot Bureau Vallée L\'Union (31). Suivi nombre d\'appels + intervention. Merci de faire le point sur place et confirmer état des bornes.', status:'delivered' },
+        { time:'08:12', to:'Dominique - Poitiers', msg:'[JCSM] Intervention J-049570. Station PowerDot Soyaux (16). Chargeur hors-ligne signalé. Merci de vous rendre sur place ce matin.', status:'delivered' },
+        { time:'Hier 16:45', to:'Julien LG - Toulouse', msg:'[JCSM] Intervention J-049601. Station PowerDot Perpignan Espagne (66). Station hors-ligne - diagnostic réseau à effectuer. Prévoir test SIM + routeur.', status:'delivered' },
+        { time:'Hier 14:08', to:'Marouane - Franconville', msg:'[JCSM] Intervention J-049652. Station PowerDot Ferrières-en-Brie (77). Chargeur offline 19h. Vérifier connectivité OCPP + état routeur 4G.', status:'delivered' },
+        { time:'Hier 08:30', to:'Saïd - Rennes', msg:'[JCSM] Planning semaine du 17/02 : Rosporden (mar), Mellac (mer), Plomodiern (mer PM). Confirme dispo. Merci.', status:'delivered' },
+        { time:'14/02 09:00', to:'Fabien - Bordeaux', msg:'[JCSM] Intervention J-049304. Station PowerDot Ussac (19). Con 1 en défaut - priorité haute. Merci de planifier lundi matin.', status:'delivered' }
     ];
     S.calls = [
-        { type:'incoming', name:'Oumnia (PowerDot)', time:'10:15', duration:'3m12', notes:'J-049640 — Relance EM Shutdown Bannalec, escalade urgente' },
-        { type:'incoming', name:'Martin (PowerDot)', time:'08:47', duration:'4m35', notes:'Point hebdo — Vannes, Estaires, planning semaine prochaine' },
+        { type:'incoming', name:'Oumnia (PowerDot)', time:'10:15', duration:'3m12', notes:'J-049640 - Relance EM Shutdown Bannalec, escalade urgente' },
+        { type:'incoming', name:'Martin (PowerDot)', time:'08:47', duration:'4m35', notes:'Point hebdo - Vannes, Estaires, planning semaine prochaine' },
         { type:'outgoing', name:'Adil', time:'09:22', duration:'1m08', notes:'Confirmation arrivée J-049618 Bureau Vallée L\'Union' },
         { type:'outgoing', name:'Fabien', time:'07:58', duration:'1m42', notes:'Départ Ussac confirmé, arrivée prévue 10h15' },
-        { type:'incoming', name:'Florent (PowerDot)', time:'Hier 17:12', duration:'2m45', notes:'J-049461 — Retour station Bertrix Belgique, OK après intervention' },
-        { type:'outgoing', name:'Saïd', time:'Hier 16:40', duration:'1m25', notes:'Confirmation planning semaine — Rosporden + Mellac + Plomodiern' },
-        { type:'incoming', name:'Oumnia (PowerDot)', time:'Hier 14:20', duration:'1m55', notes:'J-049304 — Con 1 défaut Ussac, demande état d\'avancement' },
-        { type:'outgoing', name:'Fauché Maintenance', time:'Hier 11:05', duration:'2m10', notes:'Demande backup zone 29 Bretagne — dispo confirmée J+1' },
-        { type:'missed', name:'Numéro inconnu', time:'Hier 10:33', duration:'—', notes:'' },
+        { type:'incoming', name:'Florent (PowerDot)', time:'Hier 17:12', duration:'2m45', notes:'J-049461 - Retour station Bertrix Belgique, OK après intervention' },
+        { type:'outgoing', name:'Saïd', time:'Hier 16:40', duration:'1m25', notes:'Confirmation planning semaine - Rosporden + Mellac + Plomodiern' },
+        { type:'incoming', name:'Oumnia (PowerDot)', time:'Hier 14:20', duration:'1m55', notes:'J-049304 - Con 1 défaut Ussac, demande état d\'avancement' },
+        { type:'outgoing', name:'Fauché Maintenance', time:'Hier 11:05', duration:'2m10', notes:'Demande backup zone 29 Bretagne - dispo confirmée J+1' },
+        { type:'missed', name:'Numéro inconnu', time:'Hier 10:33', duration:'-', notes:'' },
         { type:'incoming', name:'Martin (PowerDot)', time:'14/02 09:15', duration:'3m20', notes:'Nouveau lot tickets Bannalec + Vannes + Grenade' },
-        { type:'outgoing', name:'Dominique', time:'14/02 08:30', duration:'0m48', notes:'Dispatch J-049570 Soyaux — départ lundi matin' }
+        { type:'outgoing', name:'Dominique', time:'14/02 08:30', duration:'0m48', notes:'Dispatch J-049570 Soyaux - départ lundi matin' }
     ];
 }
 
@@ -582,11 +595,11 @@ function openTicketDetail(id) {
     const sl={nouveau:'Nouveau',en_cours:'En cours',planifie:'Planifié',resolu:'Résolu'};
     const cr=new Date(t.created);
     $('detail-title').textContent=t.id;
-    const techSelectHtml = tech ? `<select onchange="changeTech('${h(t.id)}',this.value)" style="padding:6px 10px;font-size:.88rem;font-weight:500;min-width:200px">${S.techs.map(tc=>`<option value="${h(tc.id)}"${tc.id===t.tech?' selected':''}>${h(tc.name)} — ${h(tc.city||'')}${tc.status==='disponible'?' (dispo)':' (occupé)'}</option>`).join('')}</select>` : '<em style="color:var(--text-muted)">Non assigné</em>';
+    const techSelectHtml = tech ? `<select onchange="changeTech('${h(t.id)}',this.value)" style="padding:6px 10px;font-size:.88rem;font-weight:500;min-width:200px">${S.techs.map(tc=>`<option value="${h(tc.id)}"${tc.id===t.tech?' selected':''}>${h(tc.name)} - ${h(tc.city||'')}${tc.status==='disponible'?' (dispo)':' (occupé)'}</option>`).join('')}</select>` : '<em style="color:var(--text-muted)">Non assigné</em>';
     // Intervention times section
     let timesHtml='';
     if(t.arrival||t.departure||t.duration){
-        timesHtml=`<div style="background:var(--bg);border-radius:var(--radius-sm);padding:14px 16px;margin-bottom:16px"><div style="font-size:.78rem;color:var(--text-muted);font-weight:600;text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px">Temps d'intervention</div><div style="display:flex;gap:20px;flex-wrap:wrap"><div><span style="font-size:.78rem;color:var(--text-muted)">Arrivée</span><br><strong style="font-size:.95rem">${t.arrival||'—'}</strong></div><div><span style="font-size:.78rem;color:var(--text-muted)">Départ</span><br><strong style="font-size:.95rem">${t.departure||'—'}</strong></div><div><span style="font-size:.78rem;color:var(--text-muted)">Durée</span><br><strong style="font-size:.95rem;color:var(--accent)">${t.duration||'En cours'}</strong></div></div></div>`;
+        timesHtml=`<div style="background:var(--bg);border-radius:var(--radius-sm);padding:14px 16px;margin-bottom:16px"><div style="font-size:.78rem;color:var(--text-muted);font-weight:600;text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px">Temps d'intervention</div><div style="display:flex;gap:20px;flex-wrap:wrap"><div><span style="font-size:.78rem;color:var(--text-muted)">Arrivée</span><br><strong style="font-size:.95rem">${t.arrival||'-'}</strong></div><div><span style="font-size:.78rem;color:var(--text-muted)">Départ</span><br><strong style="font-size:.95rem">${t.departure||'-'}</strong></div><div><span style="font-size:.78rem;color:var(--text-muted)">Durée</span><br><strong style="font-size:.95rem;color:var(--accent)">${t.duration||'En cours'}</strong></div></div></div>`;
     }
     // Observation / report section
     let obsHtml='';
@@ -644,22 +657,22 @@ function createTicket(){
     if(S.settings.assignMode==='auto'&&!tech){const best=findBestTech(site);if(best){tech=best.id;best.status='en-intervention';}}
     S.tickets.unshift({id,site,desc,priority,status:tech?'en_cours':'nouveau',tech,created:new Date().toISOString(),cat,planDate:today,nbAppels:0,arrival:tech?now:null});
     const techObj=tech?S.techs.find(tc=>tc.id===tech):null;
-    addActivity('ticket',`Ticket ${id} créé${techObj?' — auto-assigné '+techObj.name:''}`);
-    if(tech&&S.settings.autoSMS&&techObj){S.smsHistory.unshift({time:now,to:`${techObj.name} — ${techObj.city}`,msg:`[JCSM] Intervention ${id}. Site : ${site}. ${desc}. Merci de vous rendre sur place.`,status:'delivered'});}
-    updateBadge();closeModal('modal-new-ticket');toast('Ticket '+id+' créé'+(techObj?' — '+techObj.name+' assigné':''),'success');
+    addActivity('ticket',`Ticket ${id} créé${techObj?' - auto-assigné '+techObj.name:''}`);
+    if(tech&&S.settings.autoSMS&&techObj){S.smsHistory.unshift({time:now,to:`${techObj.name} - ${techObj.city}`,msg:`[JCSM] Intervention ${id}. Site : ${site}. ${desc}. Merci de vous rendre sur place.`,status:'delivered'});}
+    updateBadge();closeModal('modal-new-ticket');toast('Ticket '+id+' créé'+(techObj?' - '+techObj.name+' assigné':''),'success');
     if(S.view==='tickets')renderTickets();else if(S.view==='dashboard')renderDashboard();
 }
 
 /* ── SMS ── */
 function renderSMSView(){
-    $('sms-to').innerHTML='<option value="">-- Sélectionner --</option>'+S.techs.map(t=>`<option value="${h(t.id)}">${h(t.name)}${t.city?' — '+h(t.city):''}</option>`).join('');
-    $('sms-ticket').innerHTML='<option value="">-- Aucun --</option>'+S.tickets.filter(t=>t.status!=='resolu').map(t=>`<option value="${h(t.id)}">${h(t.id)} — ${h(t.site)}</option>`).join('');
+    $('sms-to').innerHTML='<option value="">-- Sélectionner --</option>'+S.techs.map(t=>`<option value="${h(t.id)}">${h(t.name)}${t.city?' - '+h(t.city):''}</option>`).join('');
+    $('sms-ticket').innerHTML='<option value="">-- Aucun --</option>'+S.tickets.filter(t=>t.status!=='resolu').map(t=>`<option value="${h(t.id)}">${h(t.id)} - ${h(t.site)}</option>`).join('');
     $('sms-templates').innerHTML=[{l:'Intervention',k:'new'},{l:'Mise à jour',k:'update'},{l:'Urgence',k:'urgent'},{l:'Résolu',k:'resolved'}].map(t=>`<button class="template-chip" onclick="applySMSTemplate('${t.k}',this)">${h(t.l)}</button>`).join('');
     renderSMSHistory();
 }
-function applySMSTemplate(key,btn){const tid=$('sms-ticket').value,tk=S.tickets.find(t=>t.id===tid),site=tk?tk.site:'[Site]',desc=tk?tk.desc:'[Description]',id=tk?tk.id:'[Ticket]';const tpl={new:`[JCSM] Intervention ${id}. Site : ${site}. ${desc}. Merci de vous rendre sur place.`,update:`[JCSM] Mise à jour ${id}. Site : ${site}. Merci de nous informer.`,urgent:`[JCSM] URGENT — Site : ${site}. ${desc}. Appelez le centre : 01 84 80 02 69.`,resolved:`[JCSM] Ticket ${id} résolu. Site : ${site}. Merci.`};$('sms-message').value=tpl[key]||'';updateCharCount();document.querySelectorAll('.template-chip').forEach(c=>c.classList.remove('active'));if(btn)btn.classList.add('active');}
+function applySMSTemplate(key,btn){const tid=$('sms-ticket').value,tk=S.tickets.find(t=>t.id===tid),site=tk?tk.site:'[Site]',desc=tk?tk.desc:'[Description]',id=tk?tk.id:'[Ticket]';const tpl={new:`[JCSM] Intervention ${id}. Site : ${site}. ${desc}. Merci de vous rendre sur place.`,update:`[JCSM] Mise à jour ${id}. Site : ${site}. Merci de nous informer.`,urgent:`[JCSM] URGENT - Site : ${site}. ${desc}. Appelez le centre : 01 84 80 02 69.`,resolved:`[JCSM] Ticket ${id} résolu. Site : ${site}. Merci.`};$('sms-message').value=tpl[key]||'';updateCharCount();document.querySelectorAll('.template-chip').forEach(c=>c.classList.remove('active'));if(btn)btn.classList.add('active');}
 function updateCharCount(){const l=$('sms-message').value.length;$('sms-chars').textContent=l;$('sms-chars').style.color=l>160?'var(--danger)':'var(--text-muted)';}
-function sendSMS(){const tid=$('sms-to').value,msg=$('sms-message').value.trim();if(!tid){toast('Sélectionnez un destinataire','error');return;}if(!msg){toast('Message requis','error');return;}const t=S.techs.find(x=>x.id===tid),time=new Date().toLocaleTimeString('fr-FR',{hour:'2-digit',minute:'2-digit'});S.smsHistory.unshift({time,to:`${t.name}${t.city?' — '+t.city:''}`,msg,status:'delivered'});addActivity('sms',`SMS → ${t.name}`);$('sms-message').value='';updateCharCount();renderSMSHistory();toast('SMS envoyé à '+t.name,'success');}
+function sendSMS(){const tid=$('sms-to').value,msg=$('sms-message').value.trim();if(!tid){toast('Sélectionnez un destinataire','error');return;}if(!msg){toast('Message requis','error');return;}const t=S.techs.find(x=>x.id===tid),time=new Date().toLocaleTimeString('fr-FR',{hour:'2-digit',minute:'2-digit'});S.smsHistory.unshift({time,to:`${t.name}${t.city?' - '+t.city:''}`,msg,status:'delivered'});addActivity('sms',`SMS → ${t.name}`);$('sms-message').value='';updateCharCount();renderSMSHistory();toast('SMS envoyé à '+t.name,'success');}
 function renderSMSHistory(){$('sms-history-list').innerHTML=S.smsHistory.length?S.smsHistory.map(s=>`<div class="sms-history-item"><div class="sms-history-to">${h(s.to)}</div><div class="sms-history-msg">${h(s.msg)}</div><div style="display:flex;align-items:center;justify-content:space-between;margin-top:6px"><span class="sms-history-time">${h(s.time)}</span><span class="sms-history-status"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M22 4L12 14.01l-3-3"/><path d="M16 4L6 14.01l-3-3"/></svg> Délivré</span></div></div>`).join(''):'<div class="empty-state"><p>Aucun SMS</p></div>';}
 function prefillSMS(ticketId){closeModal('modal-ticket-detail');navigate('sms');setTimeout(()=>{const t=S.tickets.find(x=>x.id===ticketId);if(t&&t.tech)$('sms-to').value=t.tech;$('sms-ticket').value=ticketId;applySMSTemplate('new');},100);}
 
@@ -687,7 +700,7 @@ function renderRapports() {
         return `<div class="ticket-row" onclick="viewReport('${h(t.id)}')">
             <span class="ticket-id">${h(t.id)}</span>
             <div class="ticket-info">
-                <div class="ticket-info-title">${h(t.site.replace('Station PowerDot — ',''))}</div>
+                <div class="ticket-info-title">${h(t.site.replace('Station PowerDot - ',''))}</div>
                 <div class="ticket-info-sub">${tech?h(tech.name)+' &middot; ':''}${h(t.duration||'')} &middot; ${d.toLocaleDateString('fr-FR',{day:'numeric',month:'short',year:'numeric'})}</div>
             </div>
             <span class="badge badge-resolu">Rapport</span>
@@ -704,10 +717,10 @@ function requestTech(id) {
     t.status = 'en_cours';
     t.arrival = new Date().toLocaleTimeString('fr-FR',{hour:'2-digit',minute:'2-digit'});
     best.status = 'en-intervention';
-    addActivity('ticket', `${t.id} — ${best.name} (${best.city}) assigné (demande opérateur)`);
+    addActivity('ticket', `${t.id} - ${best.name} (${best.city}) assigné (demande opérateur)`);
     if (S.settings.autoSMS) {
         const now = new Date().toLocaleTimeString('fr-FR',{hour:'2-digit',minute:'2-digit'});
-        S.smsHistory.unshift({ time:now, to:`${best.name} — ${best.city}`, msg:`[JCSM] Intervention ${t.id}. Site : ${t.site}. ${t.desc}. Merci de vous rendre sur place.`, status:'delivered' });
+        S.smsHistory.unshift({ time:now, to:`${best.name} - ${best.city}`, msg:`[JCSM] Intervention ${t.id}. Site : ${t.site}. ${t.desc}. Merci de vous rendre sur place.`, status:'delivered' });
     }
     toast(`${best.name} (${best.city}) assigné sur ${t.id}`, 'success');
     updateBadge();
@@ -716,12 +729,12 @@ function requestTech(id) {
 }
 function requestBackup(id) {
     const t = S.tickets.find(x=>x.id===id); if(!t) return;
-    const site = t.site.replace('Station PowerDot — ','');
+    const site = t.site.replace('Station PowerDot - ','');
     const now = new Date().toLocaleTimeString('fr-FR',{hour:'2-digit',minute:'2-digit'});
-    addActivity('system', `Demande backup Fauché Maintenance pour ${t.id} — ${site}`);
-    S.calls.unshift({ type:'outgoing', name:'Fauché Maintenance', time:now, duration:'—', notes:`Demande backup ${t.id} — ${site}` });
-    S.smsHistory.unshift({ time:now, to:'Fauché Maintenance — National', msg:`[JCSM] Demande intervention backup — ${t.id}. Site : ${t.site}. ${t.desc}. Merci de confirmer disponibilité.`, status:'delivered' });
-    toast('Fauché Maintenance contacté — Astreinte 24/7', 'success');
+    addActivity('system', `Demande backup Fauché Maintenance pour ${t.id} - ${site}`);
+    S.calls.unshift({ type:'outgoing', name:'Fauché Maintenance', time:now, duration:'-', notes:`Demande backup ${t.id} - ${site}` });
+    S.smsHistory.unshift({ time:now, to:'Fauché Maintenance - National', msg:`[JCSM] Demande intervention backup - ${t.id}. Site : ${t.site}. ${t.desc}. Merci de confirmer disponibilité.`, status:'delivered' });
+    toast('Fauché Maintenance contacté - Astreinte 24/7', 'success');
     openTicketDetail(id);
 }
 function viewReport(id) {
@@ -734,17 +747,17 @@ function viewReport(id) {
     $('detail-body').innerHTML = `
         <div style="border:1px solid var(--border);border-radius:var(--radius);overflow:hidden">
             <div style="background:linear-gradient(135deg,var(--accent),#1d4ed8);color:#fff;padding:20px 24px">
-                <div style="display:flex;align-items:center;gap:12px;margin-bottom:8px"><img src="/images/logo.webp" alt="JCSM" style="width:36px;height:36px;border-radius:8px"><strong style="font-size:1.1rem">JCSM — Rapport d'intervention</strong></div>
+                <div style="display:flex;align-items:center;gap:12px;margin-bottom:8px"><img src="/images/logo.webp" alt="JCSM" style="width:36px;height:36px;border-radius:8px"><strong style="font-size:1.1rem">JCSM - Rapport d'intervention</strong></div>
                 <div style="font-size:.85rem;opacity:.9">${h(t.id)} &middot; ${cr.toLocaleDateString('fr-FR',{day:'numeric',month:'long',year:'numeric'})}</div>
             </div>
             <div style="padding:20px 24px">
                 <table style="width:100%;font-size:.88rem;border-collapse:collapse">
                     <tr><td style="padding:8px 0;color:var(--text-muted);width:140px;vertical-align:top">Site</td><td style="padding:8px 0;font-weight:500">${h(t.site)}</td></tr>
                     <tr><td style="padding:8px 0;color:var(--text-muted);border-top:1px solid var(--border)">Catégorie</td><td style="padding:8px 0;border-top:1px solid var(--border)">${h(t.cat)}</td></tr>
-                    <tr><td style="padding:8px 0;color:var(--text-muted);border-top:1px solid var(--border)">Technicien</td><td style="padding:8px 0;border-top:1px solid var(--border)">${tech?h(tech.name):'—'}</td></tr>
-                    <tr><td style="padding:8px 0;color:var(--text-muted);border-top:1px solid var(--border)">Arrivée sur site</td><td style="padding:8px 0;border-top:1px solid var(--border)">${t.arrival||'—'}</td></tr>
-                    <tr><td style="padding:8px 0;color:var(--text-muted);border-top:1px solid var(--border)">Départ site</td><td style="padding:8px 0;border-top:1px solid var(--border)">${t.departure||'—'}</td></tr>
-                    <tr><td style="padding:8px 0;color:var(--text-muted);border-top:1px solid var(--border)">Durée totale</td><td style="padding:8px 0;border-top:1px solid var(--border);font-weight:700;color:var(--accent)">${t.duration||'—'}</td></tr>
+                    <tr><td style="padding:8px 0;color:var(--text-muted);border-top:1px solid var(--border)">Technicien</td><td style="padding:8px 0;border-top:1px solid var(--border)">${tech?h(tech.name):'-'}</td></tr>
+                    <tr><td style="padding:8px 0;color:var(--text-muted);border-top:1px solid var(--border)">Arrivée sur site</td><td style="padding:8px 0;border-top:1px solid var(--border)">${t.arrival||'-'}</td></tr>
+                    <tr><td style="padding:8px 0;color:var(--text-muted);border-top:1px solid var(--border)">Départ site</td><td style="padding:8px 0;border-top:1px solid var(--border)">${t.departure||'-'}</td></tr>
+                    <tr><td style="padding:8px 0;color:var(--text-muted);border-top:1px solid var(--border)">Durée totale</td><td style="padding:8px 0;border-top:1px solid var(--border);font-weight:700;color:var(--accent)">${t.duration||'-'}</td></tr>
                     <tr><td style="padding:8px 0;color:var(--text-muted);border-top:1px solid var(--border)">Nb appels</td><td style="padding:8px 0;border-top:1px solid var(--border)">${t.nbAppels||0}</td></tr>
                 </table>
                 <div style="margin-top:16px;padding-top:16px;border-top:2px solid var(--border)">
@@ -781,7 +794,7 @@ function shiftWeek(dir) { S.planWeekOffset += dir; renderPlanning(); }
 function renderPlanning() {
     const days = getWeekDates(S.planWeekOffset);
     const d0 = days[0], d5 = days[5];
-    $('planning-week').textContent = `${d0.toLocaleDateString('fr-FR',{day:'numeric',month:'long'})} — ${d5.toLocaleDateString('fr-FR',{day:'numeric',month:'long',year:'numeric'})}`;
+    $('planning-week').textContent = `${d0.toLocaleDateString('fr-FR',{day:'numeric',month:'long'})} - ${d5.toLocaleDateString('fr-FR',{day:'numeric',month:'long',year:'numeric'})}`;
     const today = fmtDate(new Date());
     let thead = '<thead><tr><th style="padding:10px 14px;text-align:left;border-bottom:2px solid var(--border);background:var(--bg);font-weight:600;position:sticky;left:0;z-index:1;min-width:120px">Technicien</th>';
     days.forEach(d => {
@@ -801,10 +814,10 @@ function renderPlanning() {
             tks.forEach(tk => {
                 const bg = tk.status==='resolu'?'var(--success-bg)':tk.status==='en_cours'?'var(--warning-bg)':tk.status==='nouveau'?'var(--danger-bg)':'var(--purple-bg)';
                 const col = tk.status==='resolu'?'var(--success)':tk.status==='en_cours'?'var(--warning)':tk.status==='nouveau'?'var(--danger)':'var(--purple)';
-                const siteName = tk.site.replace('Station PowerDot — ','');
+                const siteName = tk.site.replace('Station PowerDot - ','');
                 cell += `<div onclick="openTicketDetail('${h(tk.id)}')" style="background:${bg};color:${col};padding:4px 8px;border-radius:6px;margin-bottom:4px;cursor:pointer;font-size:.78rem;line-height:1.3;border-left:3px solid ${col}"><strong>${h(tk.id)}</strong><br>${h(siteName)}</div>`;
             });
-            tbody += `<td style="padding:6px 8px;border-bottom:1px solid var(--border);vertical-align:top;background:${isToday?'rgba(37,99,235,.03)':'transparent'}">${cell||'<span style="color:var(--text-muted);font-size:.78rem">—</span>'}</td>`;
+            tbody += `<td style="padding:6px 8px;border-bottom:1px solid var(--border);vertical-align:top;background:${isToday?'rgba(37,99,235,.03)':'transparent'}">${cell||'<span style="color:var(--text-muted);font-size:.78rem">-</span>'}</td>`;
         });
         tbody += '</tr>';
     });
@@ -839,7 +852,7 @@ function relanceTech(id){
     const t=S.tickets.find(x=>x.id===id);if(!t||!t.tech){toast('Aucun ticket actif pour ce technicien','info');return;}
     const tech=S.techs.find(tc=>tc.id===t.tech);if(!tech)return;
     const now=new Date().toLocaleTimeString('fr-FR',{hour:'2-digit',minute:'2-digit'});
-    S.smsHistory.unshift({time:now,to:`${tech.name} — ${tech.city}`,msg:`[JCSM] RELANCE — Ticket ${t.id}. Site : ${t.site}. Merci de faire un retour sur l'avancement.`,status:'delivered'});
+    S.smsHistory.unshift({time:now,to:`${tech.name} - ${tech.city}`,msg:`[JCSM] RELANCE - Ticket ${t.id}. Site : ${t.site}. Merci de faire un retour sur l'avancement.`,status:'delivered'});
     addActivity('sms',`Relance SMS → ${tech.name} (${t.id})`);
     toast('Relance envoyée à '+tech.name,'success');
 }
@@ -852,8 +865,8 @@ function changeTech(ticketId,newTechId){
     t.tech=newTechId;
     newTech.status='en-intervention';
     if(t.status==='nouveau'){t.status='en_cours';t.arrival=new Date().toLocaleTimeString('fr-FR',{hour:'2-digit',minute:'2-digit'});}
-    addActivity('ticket',`${t.id} — Réassigné à ${newTech.name} (${newTech.city})`);
-    if(S.settings.autoSMS){const now=new Date().toLocaleTimeString('fr-FR',{hour:'2-digit',minute:'2-digit'});S.smsHistory.unshift({time:now,to:`${newTech.name} — ${newTech.city}`,msg:`[JCSM] Intervention ${t.id}. Site : ${t.site}. ${t.desc}. Merci de vous rendre sur place.`,status:'delivered'});}
+    addActivity('ticket',`${t.id} - Réassigné à ${newTech.name} (${newTech.city})`);
+    if(S.settings.autoSMS){const now=new Date().toLocaleTimeString('fr-FR',{hour:'2-digit',minute:'2-digit'});S.smsHistory.unshift({time:now,to:`${newTech.name} - ${newTech.city}`,msg:`[JCSM] Intervention ${t.id}. Site : ${t.site}. ${t.desc}. Merci de vous rendre sur place.`,status:'delivered'});}
     toast(`${newTech.name} assigné sur ${t.id}`,'success');
     updateBadge();
     if(S.view==='tickets')renderTickets();else if(S.view==='dashboard')renderDashboard();
@@ -865,5 +878,8 @@ window.addEventListener('DOMContentLoaded',()=>{$('login-pwd').focus()});
 document.querySelectorAll('.modal-overlay').forEach(o=>{o.addEventListener('click',e=>{if(e.target===o)o.classList.remove('show')})});
 document.addEventListener('keydown',e=>{if(e.key==='Escape')document.querySelectorAll('.modal-overlay.show').forEach(m=>m.classList.remove('show'))});
 </script>
+    <link rel="stylesheet" href="/css/chatbot.css" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="/css/chatbot.css"></noscript>
+<script src="/js/chatbot.js" defer></script>
 </body>
 </html>

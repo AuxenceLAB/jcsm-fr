@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <script src="/js/cookie-consent.js" defer></script>
+    <title>Devenir Partenaire IRVE | Techniciens Bornes de Recharge - JCSM</title>
+    <meta name="description"
+        content="Rejoignez le réseau JCSM : techniciens et entreprises de maintenance IRVE en France et Belgique. Bornes AC et DC toutes marques.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://jcsm.fr/devenir-partenaire">
+    <link rel="alternate" hreflang="fr" href="https://jcsm.fr/devenir-partenaire">
+    <link rel="alternate" hreflang="en" href="https://jcsm.fr/en/become-partner">
+    <link rel="alternate" hreflang="x-default" href="https://jcsm.fr/devenir-partenaire">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://jcsm.fr/devenir-partenaire">
+    <meta property="og:title" content="Devenir Partenaire IRVE | Techniciens Bornes de Recharge - JCSM">
+    <meta property="og:description" content="Rejoignez le réseau JCSM : techniciens et entreprises de maintenance IRVE recherchés en France et Belgique. Bornes AC et DC toutes marques.">
+    <meta property="og:image" content="https://jcsm.fr/images/jcsmtesla.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Devenir partenaire technique JCSM - Réseau IRVE">
+    <meta property="og:locale" content="fr_FR">
+    <meta property="og:site_name" content="JCSM - Infrastructure de Recharge">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Devenir Partenaire IRVE | Techniciens Bornes de Recharge - JCSM">
+    <meta name="twitter:description" content="Rejoignez le réseau JCSM : techniciens et entreprises de maintenance IRVE recherchés en France et Belgique.">
+    <meta name="twitter:image" content="https://jcsm.fr/images/jcsmtesla.png">
+    <meta name="twitter:image:alt" content="Devenir partenaire technique JCSM - Réseau IRVE">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
+    <link rel="stylesheet" href="/css/critical.css?v=44">
+    <link rel="stylesheet" href="/css/tailwind.css?v=44" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="/css/tailwind.css?v=44"></noscript>
+    <link rel="stylesheet" href="/styles.css?v=44" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="/styles.css?v=44"></noscript>
+    <link rel="manifest" href="/manifest.json">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="theme-color" content="#2563EB">
+
+    <style>
+        /* Critical inline styles */
+        .glass-nav {
+            background: rgba(255,255,255,.97) !important;
+            border-bottom: 1px solid rgba(0,0,0,.08) !important;
+            box-shadow: 0 1px 4px rgba(0,0,0,.04) !important;
+            transition: background 0.3s ease, box-shadow 0.3s ease, padding 0.3s ease;
+        }
+        .nav-link {
+            position: relative; padding: 0.5rem 0.875rem;
+            border-radius: 0.5rem; transition: color 0.2s ease, background 0.2s ease;
+        }
+        .nav-link::after {
+            content: ''; position: absolute;
+            bottom: 2px; left: 0.875rem; right: 0.875rem;
+            height: 2px; background: #2563eb; border-radius: 1px;
+            transform: scaleX(0); transform-origin: center;
+            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .nav-link:hover::after { transform: scaleX(1); }
+        .nav-link:hover { background: rgba(37,99,235,0.04); }
+        nav.scrolled {
+            background: rgba(255,255,255,.98) !important;
+            box-shadow: 0 1px 8px rgba(0,0,0,.1) !important;
+        }
+        .section-appear { opacity: 1; transform: none; }
+        .js-loaded:not(.animations-disabled) .section-appear {
+            opacity: 0; transform: translateY(15px);
+            transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .js-loaded .section-appear.visible { opacity: 1 !important; transform: none !important; }
+        h1, h2, h3, h4, h5, h6 { color: #111827; }
+        html, body { overflow-x: hidden; color: #111827; }
+        .preloader {
+            position: fixed; inset: 0; background: #fafafa;
+            display: flex; align-items: center; justify-content: center;
+            z-index: 10000; transition: opacity .4s cubic-bezier(0.16, 1, 0.3, 1), transform .4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .preloader.hide { opacity: 0; pointer-events: none; transform: scale(1.02); }
+        .mobile-menu {
+            position: fixed; top: 0; right: -100%;
+            width: 100%; max-width: 400px; height: 100vh; height: 100dvh;
+            background: rgba(250,250,250,.98); backdrop-filter: blur(12px);
+            z-index: 1000; transition: right .35s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: -4px 0 24px rgba(0,0,0,.1);
+        }
+        .mobile-menu.open { right: 0; }
+        .mobile-menu-overlay {
+            position: fixed; inset: 0; background: rgba(0,0,0,.4);
+            z-index: 999; opacity: 0; visibility: hidden;
+            transition: opacity .35s cubic-bezier(0.16, 1, 0.3, 1), visibility .35s;
+        }
+        .mobile-menu-overlay.active { opacity: 1; visibility: visible; }
+        .mobile-menu-btn { display: none; }
+        @media (max-width: 1024px) { .mobile-menu-btn { display: block; } }
+        .skip-link {
+            position: absolute; top: -100%; left: 16px;
+            background: #2563eb; color: #fff; padding: 12px 24px;
+            border-radius: 0.75rem; font-weight: 600; z-index: 10001;
+            transition: top .2s ease; text-decoration: none;
+        }
+        .skip-link:focus { top: 16px; }
+        .btn-primary {
+            background: linear-gradient(135deg, #2563eb, #1d4ed8) !important;
+            box-shadow: 0 2px 8px rgba(37,99,235,0.3);
+            transition: box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1), transform 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+        }
+        .btn-primary:hover {
+            box-shadow: 0 4px 16px rgba(37,99,235,0.4) !important;
+            transform: translateY(-2px);
+        }
+        .btn-primary:active { transform: translateY(1px) scale(0.98); }
+        .scroll-top { border-radius: 0.75rem !important; width: 44px !important; height: 44px !important; }
+        .btn-secondary {
+            border: 1.5px solid #e5e7eb; color: #1f2937; background: #fff;
+            transition: all .3s cubic-bezier(.16, 1, .3, 1);
+        }
+        .btn-secondary:hover {
+            border-color: #2563eb; background: #eff6ff; color: #1d4ed8;
+            transform: translateY(-2px); box-shadow: 0 12px 24px -8px rgba(37,99,235,.2);
+        }
+        .btn-secondary:active { transform: translateY(0) scale(0.98); }
+        .card-hover {
+            transition: transform .35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow .35s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .card-hover:hover { transform: translateY(-4px); box-shadow: 0 12px 24px rgba(0,0,0,.08); }
+    </style>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "JCSM SAS",
+        "url": "https://jcsm.fr",
+        "description": "Expert IRVE depuis 2019 : installation, maintenance de bornes de recharge et transformateurs HTA/BT en France et Belgique.",
+        "areaServed": ["FR", "BE"],
+        "sameAs": ["https://www.linkedin.com/company/jcsm-elec/"]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://jcsm.fr/"},
+            {"@type": "ListItem", "position": 2, "name": "Devenir partenaire", "item": "https://jcsm.fr/devenir-partenaire"}
+        ]
+    }
+    </script>
+
+</head>
+
+<body class="text-gray-900">
+    <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+
+    <div class="preloader" id="preloader" role="status" aria-label="Chargement">
+        <div class="flex flex-col items-center justify-center">
+            <picture><source srcset="images/logo.webp" type="image/webp"><img src="images/logo.png" alt="JCSM" width="80" height="80" class="animate-pulse"></picture>
+            <div class="mt-4 flex space-x-2" aria-hidden="true">
+                <div class="w-2 h-2 bg-blue-600 rounded-full animate-bounce" style="animation-delay: 0s"></div>
+                <div class="w-2 h-2 bg-blue-600 rounded-full animate-bounce" style="animation-delay: 0.1s"></div>
+                <div class="w-2 h-2 bg-blue-600 rounded-full animate-bounce" style="animation-delay: 0.2s"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="mobile-menu-overlay" id="mobile-menu-overlay"></div>
+    <nav class="mobile-menu" id="mobile-menu" role="dialog" aria-modal="true" aria-label="Menu de navigation" aria-hidden="true">
+        <div class="p-8">
+            <div class="flex justify-between items-center mb-12">
+                <span class="text-xl font-semibold">Menu</span>
+                <button class="text-gray-600 hover:text-gray-900" id="mobile-menu-close" aria-label="Fermer le menu de navigation">
+                    <svg class="w-6 h-6" fill="none" aria-hidden="true" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+            <div class="flex flex-col space-y-6">
+                <a href="/pilotage-projets" class="text-base text-gray-600 hover:text-gray-900 transition-colors py-2">Pilotage de projets</a>
+                <a href="/installation-conformite" class="text-base text-gray-600 hover:text-gray-900 transition-colors py-2">Installation</a>
+                <a href="/exploitation" class="text-base text-gray-600 hover:text-gray-900 transition-colors py-2">Exploitation</a>
+                <a href="/securisation-installations" class="text-base text-gray-600 hover:text-gray-900 transition-colors py-2">Sécurisation</a>
+                <a href="/centre-appel" class="text-base text-gray-600 hover:text-gray-900 transition-colors py-2">Support</a>
+                <a href="/solutions/" class="text-base text-gray-600 hover:text-gray-900 transition-colors py-2">Solutions</a>
+                <a href="/a-propos" class="text-base text-gray-600 hover:text-gray-900 transition-colors py-2">À propos</a>
+                <a href="/contact" class="btn-primary px-6 py-3 rounded-lg text-base font-medium text-white inline-block text-center mt-4">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <div id="scroll-progress" class="fixed top-0 left-0 h-1 bg-blue-600 z-[60] transition-all duration-150" style="width: 0%;"></div>
+
+    <nav class="fixed top-0 w-full z-50 glass-nav border-b border-gray-200" role="navigation" aria-label="Navigation principale">
+        <div class="max-w-7xl mx-auto px-6 py-5">
+            <div class="flex justify-between items-center">
+                <a href="/" class="flex items-center space-x-3 group mr-12">
+                    <picture><source srcset="images/logo.webp" type="image/webp"><img src="images/logo.png" alt="JCSM" class="w-9 h-9 transition-transform group-hover:scale-105 duration-300" width="36" height="36"></picture>
+                    <span class="text-xl font-bold tracking-tight">JCSM</span>
+                </a>
+                <div class="hidden lg:flex items-center space-x-1">
+                    <a href="/pilotage-projets" class="nav-link text-sm font-medium text-gray-700 whitespace-nowrap">Pilotage</a>
+                    <a href="/installation-conformite" class="nav-link text-sm font-medium text-gray-700 whitespace-nowrap">Installation</a>
+                    <a href="/exploitation" class="nav-link text-sm font-medium text-gray-700 whitespace-nowrap">Exploitation</a>
+                    <a href="/securisation-installations" class="nav-link text-sm font-medium text-gray-700 whitespace-nowrap">Sécurisation</a>
+                    <a href="/centre-appel" class="nav-link text-sm font-medium text-gray-700 whitespace-nowrap">Support</a>
+                    <a href="/solutions/" class="nav-link text-sm font-medium text-gray-700 whitespace-nowrap">Solutions</a>
+                    <a href="/a-propos" class="nav-link text-sm font-medium text-gray-700 whitespace-nowrap">À propos</a>
+                    <a href="/contact" class="btn-primary ml-4 px-7 py-2.5 rounded-xl text-sm font-medium text-white shadow-lg hover:shadow-xl whitespace-nowrap">Contact</a>
+                </div>
+                <button class="mobile-menu-btn text-gray-600 hover:text-gray-900" id="mobile-menu-btn" aria-label="Ouvrir le menu de navigation" aria-expanded="false" aria-controls="mobile-menu">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="particles-bg" id="particles-bg"></div>
+
+    <main id="main-content" role="main">
+        <!-- Hero -->
+        <section class="pt-32 pb-16 px-6 min-h-[60vh] flex items-center relative overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-blue-50"></div>
+            <div class="absolute top-20 right-10 w-72 h-72 bg-blue-200 rounded-full filter blur-3xl opacity-30 animate-pulse"></div>
+            <div class="absolute bottom-20 left-10 w-96 h-96 bg-blue-200 rounded-full filter blur-3xl opacity-30 animate-pulse" style="animation-delay: 1s;"></div>
+
+            <div class="max-w-5xl mx-auto text-center relative z-10">
+                <div class="inline-flex items-center space-x-2 bg-gray-100 text-gray-700 rounded-full px-4 py-2 mb-6 section-appear">
+                    <span class="relative flex h-2 w-2">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-600 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2 w-2 bg-blue-600"></span>
+                    </span>
+                    <span class="text-xs font-semibold uppercase tracking-wide">Recherche partenaires France & Belgique</span>
+                </div>
+                <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-7xl font-bold leading-tight tracking-tight mb-6 section-appear">
+                    Techniciens IRVE,<br>rejoignez notre réseau
+                </h1>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto mb-8 section-appear">
+                    Nous recherchons des techniciens et entreprises de maintenance sur toute la France et la Belgique pour intervenir sur bornes AC et DC toutes marques.
+                </p>
+                <div class="flex flex-wrap gap-4 justify-center section-appear">
+                    <a href="/contact" class="btn-primary btn-liquid shine-effect px-8 py-4 rounded-xl font-medium text-lg text-white">
+                        Nous contacter
+                    </a>
+                    <a href="#profil" class="btn-secondary px-8 py-4 rounded-xl font-medium text-lg">
+                        Voir le profil recherché
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Chiffres clés -->
+        <section class="py-16 px-6 bg-white">
+            <div class="max-w-5xl mx-auto">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center stagger-reveal">
+                    <div class="section-appear">
+                        <div class="text-5xl font-bold mb-2 text-gray-900">France</div>
+                        <p class="text-gray-600">Couverture nationale</p>
+                    </div>
+                    <div class="section-appear">
+                        <div class="text-5xl font-bold mb-2 text-gray-900">Belgique</div>
+                        <p class="text-gray-600">Wallonie & Flandre</p>
+                    </div>
+                    <div class="section-appear">
+                        <div class="text-5xl font-bold mb-2 text-gray-900">AC & DC</div>
+                        <p class="text-gray-600">Toutes puissances</p>
+                    </div>
+                    <div class="section-appear">
+                        <div class="text-5xl font-bold mb-2 text-gray-900">Multi</div>
+                        <p class="text-gray-600">Toutes marques</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Profil recherché -->
+        <section id="profil" class="py-24 px-6 bg-gray-50">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center mb-16 section-appear">
+                    <h2 class="text-4xl md:text-5xl font-bold tracking-tight mb-4">Profil recherché</h2>
+                    <p class="text-xl text-gray-600 max-w-2xl mx-auto">Ce que nous attendons de nos partenaires techniques.</p>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-8 stagger-reveal">
+                    <div class="card-hover bg-white border border-gray-200 rounded-2xl p-8 section-appear spotlight">
+                        <div class="w-14 h-14 bg-blue-100 rounded-2xl flex items-center justify-center mb-6">
+                            <svg class="w-7 h-7 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Habilitations électriques</h3>
+                        <p class="text-gray-600">B2V, BR, BC minimum. Habilitation haute tension (H1/H2) appréciée pour les installations DC et transformateurs HTA/BT.</p>
+                    </div>
+
+                    <div class="card-hover bg-white border border-gray-200 rounded-2xl p-8 section-appear spotlight">
+                        <div class="w-14 h-14 bg-blue-100 rounded-2xl flex items-center justify-center mb-6">
+                            <svg class="w-7 h-7 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Expérience IRVE souhaitée</h3>
+                        <p class="text-gray-600">Connaissance des bornes AC (EVBox, Schneider, Hager) et/ou DC (Kempower, Alpitronic, ABB). Formation possible sur certaines marques.</p>
+                    </div>
+
+                    <div class="card-hover bg-white border border-gray-200 rounded-2xl p-8 section-appear spotlight">
+                        <div class="w-14 h-14 bg-blue-100 rounded-2xl flex items-center justify-center mb-6">
+                            <svg class="w-7 h-7 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Mobilité régionale ou nationale</h3>
+                        <p class="text-gray-600">Capacité d'intervention sur votre zone géographique. Véhicule utilitaire et outillage propre souhaités.</p>
+                    </div>
+
+                    <div class="card-hover bg-white border border-gray-200 rounded-2xl p-8 section-appear spotlight">
+                        <div class="w-14 h-14 bg-blue-100 rounded-2xl flex items-center justify-center mb-6">
+                            <svg class="w-7 h-7 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Statut indépendant ou société</h3>
+                        <p class="text-gray-600">Auto-entrepreneur, SARL, SAS : tout statut accepté. Assurance responsabilité civile professionnelle obligatoire.</p>
+                    </div>
+
+                    <div class="card-hover bg-white border border-gray-200 rounded-2xl p-8 section-appear spotlight">
+                        <div class="w-14 h-14 bg-blue-100 rounded-2xl flex items-center justify-center mb-6">
+                            <svg class="w-7 h-7 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Rigueur et reporting</h3>
+                        <p class="text-gray-600">Comptes rendus d'intervention, photos avant/après, respect des protocoles de sécurité. Utilisation d'outils numériques pour le suivi.</p>
+                    </div>
+
+                    <div class="card-hover bg-white border border-gray-200 rounded-2xl p-8 section-appear spotlight">
+                        <div class="w-14 h-14 bg-blue-100 rounded-2xl flex items-center justify-center mb-6">
+                            <svg class="w-7 h-7 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Réactivité</h3>
+                        <p class="text-gray-600">Capacité à intervenir sous 24 à 48h sur maintenance curative. Disponibilité pour astreintes ponctuelles appréciée.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Ce que nous proposons -->
+        <section class="py-24 px-6 bg-white">
+            <div class="max-w-4xl mx-auto">
+                <div class="text-center mb-16 section-appear">
+                    <h2 class="text-4xl md:text-5xl font-bold tracking-tight mb-4">Ce que nous proposons</h2>
+                    <p class="text-xl text-gray-600 max-w-2xl mx-auto">Un partenariat structuré, pas juste des missions ponctuelles.</p>
+                </div>
+
+                <div class="space-y-6 stagger-reveal">
+                    <div class="flex items-start gap-4 section-appear">
+                        <div class="w-10 h-10 bg-blue-100 rounded-xl flex items-center justify-center flex-shrink-0 mt-1">
+                            <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold mb-1">Volume régulier d'interventions</h3>
+                            <p class="text-gray-600">Maintenance préventive et curative planifiée sur votre zone. Pas d'intermittence : un flux constant de missions.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4 section-appear">
+                        <div class="w-10 h-10 bg-blue-100 rounded-xl flex items-center justify-center flex-shrink-0 mt-1">
+                            <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold mb-1">Support technique JCSM</h3>
+                            <p class="text-gray-600">Accès à notre équipe technique pour diagnostic à distance, documentation constructeur et escalade si besoin.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4 section-appear">
+                        <div class="w-10 h-10 bg-blue-100 rounded-xl flex items-center justify-center flex-shrink-0 mt-1">
+                            <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold mb-1">Paiement rapide et transparent</h3>
+                            <p class="text-gray-600">Grille tarifaire claire par type d'intervention. Facturation mensuelle, règlement sous 30 jours.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4 section-appear">
+                        <div class="w-10 h-10 bg-blue-100 rounded-xl flex items-center justify-center flex-shrink-0 mt-1">
+                            <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold mb-1">Formation sur certaines marques</h3>
+                            <p class="text-gray-600">Possibilité de formation terrain sur les bornes que nous déployons le plus (Kempower, ABB, EVBox).</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Final -->
+        <section class="py-24 px-6 bg-gray-900 text-white">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6 section-appear">Intéressé ?</h2>
+                <p class="text-xl text-gray-300 mb-8 section-appear">
+                    Envoyez-nous un message avec votre zone d'intervention, vos habilitations et votre expérience IRVE. Nous revenons vers vous sous 48h.
+                </p>
+                <div class="flex flex-wrap gap-4 justify-center section-appear">
+                    <a href="/contact" class="bg-white text-gray-900 hover:bg-gray-100 px-8 py-4 rounded-xl font-medium text-lg inline-flex items-center gap-2 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5">Nous contacter</a>
+                    <a href="mailto:contact@jcsm.fr" class="border border-white/30 hover:bg-white/10 px-8 py-4 rounded-xl font-medium text-lg transition-colors flex items-center gap-2">contact@jcsm.fr</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="border-t border-gray-100 py-16 px-6 bg-white" role="contentinfo" aria-label="Pied de page">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid md:grid-cols-4 gap-10 mb-12">
+                <div>
+                    <div class="flex items-center space-x-3 mb-4">
+                        <picture><source srcset="images/logo.webp" type="image/webp"><img src="images/logo.png" alt="Logo JCSM" class="w-8 h-8" width="32" height="32" loading="lazy" decoding="async"></picture>
+                        <span class="text-xl font-semibold text-gray-900">JCSM</span>
+                    </div>
+                    <p class="text-sm text-gray-600 mb-4">Expert IRVE depuis 2019. Installation, maintenance et dépannage de bornes de recharge.</p>
+                    <p class="text-sm text-gray-500">60 rue François 1er<br>75008 Paris</p>
+                    <p class="text-sm text-gray-500 mt-3"><a href="tel:+33183755706" class="hover:text-gray-900 transition-colors">+33 1 83 75 57 06</a></p>
+                    <p class="text-sm text-gray-500"><a href="mailto:contact@jcsm.fr" class="hover:text-gray-900 transition-colors">contact@jcsm.fr</a></p>
+                </div>
+                <div>
+                    <h3 class="text-sm font-semibold text-gray-900 mb-4 uppercase tracking-wide">Services</h3>
+                    <nav aria-label="Services">
+                        <ul class="space-y-3">
+                            <li><a href="/pilotage-projets" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Pilotage de projets</a></li>
+                            <li><a href="/installation-conformite" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Installation & conformité</a></li>
+                            <li><a href="/exploitation" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Exploitation & maintenance</a></li>
+                            <li><a href="/securisation-installations" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Sécurisation</a></li>
+                            <li><a href="/centre-appel" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Support 24/7</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div>
+                    <h3 class="text-sm font-semibold text-gray-900 mb-4 uppercase tracking-wide">Entreprise</h3>
+                    <nav aria-label="Entreprise">
+                        <ul class="space-y-3">
+                            <li><a href="/devenir-partenaire" title="Devenir technicien partenaire" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Devenir partenaire</a></li>
+                            <li><a href="/carrieres" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Carrières</a></li>
+                            <li><a href="/contact" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Contact</a></li>
+                            <li><a href="/blog" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Blog</a></li>
+                            <li><a href="/solutions/" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Solutions</a></li>
+                            <li><a href="/a-propos" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">À propos</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div>
+                    <h3 class="text-sm font-semibold text-gray-900 mb-4 uppercase tracking-wide">Légal</h3>
+                    <nav aria-label="Légal">
+                        <ul class="space-y-3">
+                            <li><a href="/mentions-legales" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Mentions légales</a></li>
+                            <li><a href="/confidentialite" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Confidentialité</a></li>
+                            <li><a href="/cgv" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">CGV</a></li>
+                        </ul>
+                    </nav>
+                    <h3 class="text-sm font-semibold text-gray-900 mb-4 uppercase tracking-wide mt-6">Zones</h3>
+                    <nav aria-label="Zones">
+                        <ul class="space-y-3">
+                            <li><a href="/zones/france" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">France</a></li>
+                            <li><a href="/zones/belgique" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Belgique</a></li>
+                        </ul>
+                    </nav>
+                    <div class="flex items-center gap-3 mt-4">
+                        <a href="https://www.linkedin.com/company/jcsm-elec/" target="_blank" rel="noopener noreferrer" class="text-gray-500 hover:text-gray-900 transition-colors" aria-label="LinkedIn"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+                        <a href="https://www.facebook.com/profile.php?id=61587992161634" target="_blank" rel="noopener noreferrer" class="text-gray-500 hover:text-gray-900 transition-colors" aria-label="Facebook"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+                        <a href="https://x.com/JCSM_ELEC" target="_blank" rel="noopener noreferrer" class="text-gray-500 hover:text-gray-900 transition-colors" aria-label="X (Twitter)"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+                        <a href="https://www.instagram.com/jcsm.elec/" target="_blank" rel="noopener noreferrer" class="text-gray-500 hover:text-gray-900 transition-colors" aria-label="Instagram"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+                        <a href="https://www.youtube.com/@JCSM_ELEC" target="_blank" rel="noopener noreferrer" class="text-gray-500 hover:text-gray-900 transition-colors" aria-label="YouTube"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+                    </div>
+                </div>
+            </div>
+            <div class="pt-8 border-t border-gray-100 flex flex-col md:flex-row md:items-center md:justify-between gap-4 text-xs text-gray-500">
+                <span>&copy; 2026 JCSM SAS - SIRET 99387429600011</span>
+                <span><a href="mailto:contact@jcsm.fr" title="Envoyer un email à JCSM" class="hover:text-gray-900 transition-colors">contact@jcsm.fr</a> · <a href="tel:+33183755706" title="Appeler JCSM" class="hover:text-gray-900 transition-colors">+33 1 83 75 57 06</a></span>
+            </div>
+        </div>
+    </footer>
+
+    <button class="scroll-top" id="scrollTop" aria-label="Retour en haut de la page">
+        <svg class="w-6 h-6 float-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+        </svg>
+    </button>
+
+    <script src="/js/i18n.js?v=44" defer></script>
+    <script src="/js/config.js?v=44" defer></script>
+    <script src="/js/utils.js?v=44" defer></script>
+    <script src="/js/public.js?v=44" defer></script>
+    <script src="/js/analytics.js?v=44" defer></script>
+    <script src="/js/wow-effects.js?v=44" defer></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                    .catch(() => {});
+            });
+        }
+    </script>
+    <link rel="stylesheet" href="/css/chatbot.css" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="/css/chatbot.css"></noscript>
+    <script src="/js/chatbot.js" defer></script>
+</body>
+</html>

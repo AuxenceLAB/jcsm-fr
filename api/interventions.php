@@ -10,12 +10,14 @@ ini_set('log_errors', '1');
 header('Content-Type: application/json; charset=utf-8');
 
 require_once __DIR__ . '/auth.php';
+require_once __DIR__ . '/helpers.php';
 
 // CORS restreint
 $allowedOrigins = ['https://jcsm.fr', 'https://www.jcsm.fr'];
 $origin = $_SERVER['HTTP_ORIGIN'] ?? '';
 if (in_array($origin, $allowedOrigins)) {
     header("Access-Control-Allow-Origin: $origin");
+    header('Vary: Origin');
 }
 header('Access-Control-Allow-Methods: GET, POST, OPTIONS');
 header('Access-Control-Allow-Headers: Content-Type, Authorization, X-Requested-With');
@@ -103,6 +105,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     requireAuth();
 
+    // Rate limiting (30 req/min par IP)
+    if (!checkRateLimit('interventions_write', 30, 60)) {
+        http_response_code(429);
+        echo json_encode(['error' => 'Trop de requêtes. Réessayez dans quelques secondes.']);
+        exit;
+    }
+
     $input = json_decode(file_get_contents('php://input'), true);
 
     if (!$input) {
@@ -140,7 +149,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $found = false;
                 foreach ($data as &$item) {
                     if ($item['id'] === $id) {
-                        $item = array_merge($item, $input['data']);
+                        $allowed = ['status', 'delais', 'techAssigned', 'techPhone', 'probleme', 'piecesChangees', 'remarques', 'rapportFait', 'dateIntervention', 'heureDebut', 'heureFin', 'adresse', 'ville', 'codePostal', 'nomSite', 'client', 'ticket', 'description', 'photos', 'signature'];
+                        $filtered = array_intersect_key($input['data'], array_flip($allowed));
+                        $item = array_merge($item, $filtered);
                         $found = true;
                         break;
                     }

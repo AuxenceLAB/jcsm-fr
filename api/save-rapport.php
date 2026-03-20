@@ -16,6 +16,7 @@ $allowedOrigins = ['https://jcsm.fr', 'https://www.jcsm.fr'];
 $origin = $_SERVER['HTTP_ORIGIN'] ?? '';
 if (in_array($origin, $allowedOrigins)) {
     header("Access-Control-Allow-Origin: $origin");
+    header('Vary: Origin');
 }
 header('Access-Control-Allow-Methods: POST, OPTIONS');
 header('Access-Control-Allow-Headers: Content-Type, Authorization, X-Requested-With');
@@ -35,6 +36,13 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 
 // Authentification requise
 requireAuth();
+
+// Rate limiting (20 rapports/min par IP)
+if (!checkRateLimit('save_rapport', 20, 60)) {
+    http_response_code(429);
+    echo json_encode(['success' => false, 'error' => 'Trop de requêtes. Réessayez dans quelques secondes.']);
+    exit;
+}
 
 // Limit input size (10 MB max)
 $contentLength = isset($_SERVER['CONTENT_LENGTH']) ? (int) $_SERVER['CONTENT_LENGTH'] : 0;
@@ -92,6 +100,12 @@ $filename = "Rapport_{$ticket}_{$dateIntervention}_{$timestamp}_{$randomSuffix}.
 // Chemin complet du fichier
 $filepath = $rapportsDir . $filename;
 
+// Limit photos (anti-DoS: max 20 photos)
+$inputPhotos = $data['photos'] ?? [];
+if (is_array($inputPhotos) && count($inputPhotos) > 20) {
+    $inputPhotos = array_slice($inputPhotos, 0, 20);
+}
+
 // Préparer les données à sauvegarder
 $rapportData = [
     'ticket' => $data['ticket'] ?? '',
@@ -107,7 +121,7 @@ $rapportData = [
     'remarques' => $data['remarques'] ?? '',
     'dateCreation' => date('Y-m-d H:i:s'),
     'interventionId' => $data['interventionId'] ?? '',
-    'photos' => $data['photos'] ?? [],
+    'photos' => $inputPhotos,
     'signature' => $data['signature'] ?? null,
     // New optional fields
     'client' => $data['client'] ?? '',
@@ -141,6 +155,7 @@ if (file_put_contents($filepath, json_encode($rapportData, JSON_PRETTY_PRINT | J
     // Envoi de l'email
     $to = 'contact@jcsm.fr';
     $subject = "Rapport d'intervention : {$rapportData['ticket']} - {$rapportData['nomSite']}";
+    $subject = str_replace(["\r", "\n", "\t"], '', $subject);
     $message = "Un nouveau rapport d'intervention a été généré.\n\n";
     $message .= "Ticket : " . $rapportData['ticket'] . "\n";
     $message .= "Site : " . $rapportData['nomSite'] . "\n";
@@ -369,7 +384,7 @@ function generateHTML($data)
                 $photosHtml .= '<tr>';
                 foreach ($pair as $photo) {
                     $photosHtml .= '<td width="50%" style="padding:12px;text-align:center;vertical-align:top;border:1px solid #E5E7EB">
-                        <img src="' . $photo . '" alt="Photo intervention" style="max-width:100%;height:auto;max-height:280px;border-radius:4px">
+                        <img src="' . htmlspecialchars($photo, ENT_QUOTES, 'UTF-8') . '" alt="Photo intervention" style="max-width:100%;height:auto;max-height:280px;border-radius:4px">
                     </td>';
                 }
                 // Fill empty cell if odd number

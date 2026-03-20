@@ -20,6 +20,7 @@ $allowedOrigins = ['https://jcsm.fr', 'https://www.jcsm.fr'];
 $origin = $_SERVER['HTTP_ORIGIN'] ?? '';
 if (in_array($origin, $allowedOrigins)) {
     header("Access-Control-Allow-Origin: $origin");
+    header('Vary: Origin');
 }
 header('Access-Control-Allow-Methods: GET, POST, OPTIONS');
 header('Access-Control-Allow-Headers: Content-Type, Authorization, X-Requested-With');
@@ -142,6 +143,14 @@ if ($action === 'validate' && $_SERVER['REQUEST_METHOD'] === 'GET') {
 // ACTION: submit (pas d'auth JCSM, token dans le body)
 // ============================
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Limit payload size (10 MB max)
+    $contentLength = isset($_SERVER['CONTENT_LENGTH']) ? (int) $_SERVER['CONTENT_LENGTH'] : 0;
+    if ($contentLength > 10 * 1024 * 1024) {
+        http_response_code(413);
+        echo json_encode(['error' => 'Payload trop volumineux']);
+        exit;
+    }
+
     $input = json_decode(file_get_contents('php://input'), true);
     if (!$input || !is_array($input)) {
         http_response_code(400);
@@ -180,6 +189,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         http_response_code(400);
         echo json_encode(['error' => 'Format de date invalide (YYYY-MM-DD)']);
         exit;
+    }
+
+    // Limit number of photos (anti-DoS)
+    $photos = $input['photos'] ?? [];
+    if (is_array($photos) && count($photos) > 20) {
+        $photos = array_slice($photos, 0, 20);
     }
 
     // Construire le payload pour save-rapport.php

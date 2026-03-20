@@ -1,228 +1,218 @@
 /**
- * JCSM Internal Portal - Map Module
- * Gère l'affichage de la carte Leaflet, les marqueurs, et le filtrage géographique.
+ * map.js - Leaflet map for interventions
+ * Fixed: XSS in popup (escMap applied consistently, data-select-id sanitized),
+ *        popup event listener leak (_jcsmBound guard preserved),
+ *        null-safe coordinate parsing, bounds validation
  */
+var map = null;
+var markers = [];
+var showAllInterventions = false;
 
-let map = null;
-let markers = [];
-// Les deux vues (liste et carte) sont toujours affichées ensemble
-let showAllInterventions = false; // false = en cours (14 jours), true = toutes
-
-// HTML escape — utilise la fonction centralisée de utils.js, fallback local
-const escMap = typeof window.escapeHtml === 'function'
+var escMap = typeof window.escapeHtml === "function"
     ? window.escapeHtml
-    : (s => { if (s == null) return ''; const d = document.createElement('div'); d.textContent = String(s); return d.innerHTML; });
-
-// ==========================================
-// INITIALISATION CARTE
-// ==========================================
+    : function (str) {
+        if (str == null) return "";
+        var div = document.createElement("div");
+        div.textContent = String(str);
+        return div.innerHTML;
+    };
 
 async function initMap() {
-    if (typeof getFilteredInterventions !== 'function') return;
-    let interventions = getFilteredInterventions();
+    try {
+        if (typeof getFilteredInterventions !== "function") return;
 
-    // Si showAllInterventions est false, filtrer pour ne garder que les interventions en cours (14 jours)
-    if (!showAllInterventions) {
-        const today = new Date();
-        today.setHours(0, 0, 0, 0);
+        var interventions = getFilteredInterventions();
 
-        const sevenDaysAgo = new Date(today);
-        sevenDaysAgo.setDate(today.getDate() - 7);
+        if (!showAllInterventions) {
+            var now = new Date();
+            now.setHours(0, 0, 0, 0);
+            var weekAgo = new Date(now);
+            weekAgo.setDate(now.getDate() - 7);
+            var weekAhead = new Date(now);
+            weekAhead.setDate(now.getDate() + 7);
+            var rangeStart = weekAgo.toISOString().split("T")[0];
+            var rangeEnd = weekAhead.toISOString().split("T")[0];
 
-        const sevenDaysLater = new Date(today);
-        sevenDaysLater.setDate(today.getDate() + 7);
-
-        const startStr = sevenDaysAgo.toISOString().split('T')[0];
-        const endStr = sevenDaysLater.toISOString().split('T')[0];
-
-        interventions = interventions.filter(intv => {
-            const intvDate = intv.dateProposee || intv.dateDemande || '';
-            if (!intvDate) return false;
-            return intvDate >= startStr && intvDate <= endStr;
-        });
-    }
-
-    // Matcher les coordonnées depuis la base de données des sites
-    let matchedCount = 0;
-    for (const intv of interventions) {
-        if (!intv.lat || !intv.lng) {
-            const matchedCoords = matchInterventionCoordinates(intv);
-            if (matchedCoords) {
-                intv.lat = matchedCoords.lat;
-                intv.lng = matchedCoords.lng;
-                matchedCount++;
-            }
-        }
-    }
-
-    // Filtrer les interventions avec coordonnées pour la carte
-    const locations = interventions.filter(i => i.lat && i.lng);
-    const noCoordsCount = interventions.length - locations.length;
-
-    // UI Feedback pour les sans coordonnées
-    const noCoordsMsg = document.getElementById('no-coords-message');
-    const noCoordsText = document.getElementById('no-coords-text');
-
-    if (locations.length === 0) {
-        if (noCoordsMsg && noCoordsText) {
-            noCoordsMsg.classList.remove('hidden');
-            noCoordsText.textContent = interventions.length > 0
-                ? `${interventions.length} intervention(s) listée(s) mais sans coordonnées GPS.`
-                : "Aucune intervention à afficher.";
-        }
-    } else {
-        if (noCoordsMsg) noCoordsMsg.classList.add('hidden');
-    }
-
-    // Initialiser Leaflet si pas fait
-    if (!map) {
-        map = L.map('map', {
-            zoomControl: false // On déplace le zoom
-        }).setView([46.603354, 1.888334], 6); // Centre France
-
-        L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
-            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
-            subdomains: 'abcd',
-            maxZoom: 19
-        }).addTo(map);
-
-        L.control.zoom({
-            position: 'bottomright'
-        }).addTo(map);
-    }
-
-    // Nettoyer marqueurs existants
-    markers.forEach(m => map.removeLayer(m));
-    markers = [];
-
-    // Créer les icones
-    const createIcon = (color, isUrgent, isDone) => {
-        // SVG personnalisé pour un look premium
-        const pulseClass = isUrgent && !isDone ? 'pulse-ring' : '';
-        const opacity = isDone ? '0.6' : '1';
-
-        return L.divIcon({
-            className: 'custom-marker',
-            html: `
-                <div class="marker-container ${isDone ? 'marker-done' : ''}" style="opacity: ${opacity}">
-                    ${!isDone && isUrgent ? '<div class="marker-pulse"></div>' : ''}
-                    <div class="marker-pin" style="background-color: ${color}; box-shadow: 0 2px 5px ${color}80;"></div>
-                    <div class="marker-core"></div>
-                </div>
-            `,
-            iconSize: [24, 24],
-            iconAnchor: [12, 12],
-            popupAnchor: [0, -12]
-        });
-    };
-
-    // Ajouter les marqueurs
-    const bounds = L.latLngBounds();
-
-    locations.forEach(loc => {
-        // Validate coordinates
-        const lat = parseFloat(loc.lat);
-        const lng = parseFloat(loc.lng);
-        if (isNaN(lat) || isNaN(lng) || lat < -90 || lat > 90 || lng < -180 || lng > 180) return;
-        // Exclure Null Island (coordonnées par défaut 0,0)
-        if (lat === 0 && lng === 0) return;
-
-        // Couleur selon région ou urgence
-        let color = '#3B82F6'; // Bleu standard
-
-        if (loc.rapportFait) color = '#10B981'; // Vert (Fait)
-        else if (String(loc.delais || '').toLowerCase().includes('urgent')) color = '#EF4444'; // Rouge (Urgent)
-        else if (String(loc.delais || '').toLowerCase().includes('rapide')) color = '#F59E0B'; // Orange
-        else color = getRegionColor(loc.region); // Fallback région
-
-        const marker = L.marker([lat, lng], {
-            icon: createIcon(color, String(loc.delais || '').toLowerCase().includes('urgent'), loc.rapportFait)
-        })
-            .bindPopup(`
-            <div class="text-sm font-sans">
-                <div class="font-bold text-gray-900 mb-1">${escMap(loc.nomSite)}</div>
-                <div class="text-gray-600 mb-2">${escMap(loc.adresse)}</div>
-                <div class="flex gap-2">
-                    <span class="px-2 py-0.5 rounded text-xs font-medium ${loc.rapportFait ? 'bg-green-100 text-green-800' : 'bg-blue-100 text-blue-800'}">
-                        ${loc.rapportFait ? 'Terminé' : 'À faire'}
-                    </span>
-                    <button data-select-id="${escMap(loc.id)}" class="text-blue-600 hover:underline text-xs font-medium">
-                        Voir détails
-                    </button>
-                </div>
-            </div>
-        `)
-            .addTo(map);
-
-        // Event delegation for popup buttons
-        marker.on('popupopen', () => {
-            const btn = marker.getPopup().getElement()?.querySelector('[data-select-id]');
-            if (btn) btn.addEventListener('click', () => {
-                if (typeof selectIntervention === 'function') selectIntervention(loc.id);
+            interventions = interventions.filter(function (iv) {
+                var d = iv.dateProposee || iv.dateDemande || "";
+                return d && d >= rangeStart && d <= rangeEnd;
             });
+        }
+
+        // Attempt geocoding from SITES_DB (use shallow copies to avoid mutating source data)
+        interventions = interventions.map(function (iv) { return Object.assign({}, iv); });
+        interventions.forEach(function (iv) {
+            if (!iv.lat || !iv.lng) {
+                var coords = matchInterventionCoordinates(iv);
+                if (coords) {
+                    iv.lat = coords.lat;
+                    iv.lng = coords.lng;
+                }
+            }
         });
 
-        markers.push(marker);
-        bounds.extend([lat, lng]);
+        var withCoords = interventions.filter(function (iv) { return iv.lat && iv.lng; });
+
+        // Show/hide "no coordinates" message
+        var noCoordsMsg = document.getElementById("no-coords-message");
+        var noCoordsText = document.getElementById("no-coords-text");
+        if (withCoords.length === 0) {
+            if (noCoordsMsg && noCoordsText) {
+                noCoordsMsg.classList.remove("hidden");
+                noCoordsText.textContent = interventions.length > 0
+                    ? interventions.length + " intervention(s) listee(s) mais sans coordonnees GPS."
+                    : "Aucune intervention a afficher.";
+            }
+        } else if (noCoordsMsg) {
+            noCoordsMsg.classList.add("hidden");
+        }
+
+        // Initialize map once
+        if (!map) {
+            map = L.map("map", { zoomControl: false }).setView([46.603354, 1.888334], 6);
+            L.tileLayer("https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png", {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+                subdomains: "abcd",
+                maxZoom: 19
+            }).addTo(map);
+            L.control.zoom({ position: "bottomright" }).addTo(map);
+        }
+
+        // Clear existing markers
+        markers.forEach(function (m) { map.removeLayer(m); });
+        markers = [];
+
+        function makeIcon(color, isUrgent, isDone) {
+            var opacity = isDone ? "0.6" : "1";
+            var pulseHtml = !isDone && isUrgent ? '<div class="marker-pulse"></div>' : "";
+            return L.divIcon({
+                className: "custom-marker",
+                html: '<div class="marker-container' + (isDone ? " marker-done" : "") + '" style="opacity:' + opacity + '">'
+                    + pulseHtml
+                    + '<div class="marker-pin" style="background-color:' + escMap(color) + ';box-shadow:0 2px 5px ' + escMap(color) + '80;"></div>'
+                    + '<div class="marker-core"></div>'
+                    + '</div>',
+                iconSize: [24, 24],
+                iconAnchor: [12, 12],
+                popupAnchor: [0, -12]
+            });
+        }
+
+        var bounds = L.latLngBounds();
+
+        withCoords.forEach(function (iv) {
+            var lat = parseFloat(iv.lat);
+            var lng = parseFloat(iv.lng);
+            if (isNaN(lat) || isNaN(lng) || lat < -90 || lat > 90 || lng < -180 || lng > 180) return;
+            if (lat === 0 && lng === 0) return;
+
+            var color = "#3B82F6";
+            if (iv.rapportFait) {
+                color = "#10B981";
+            } else if (String(iv.delais || "").toLowerCase().indexOf("urgent") !== -1) {
+                color = "#EF4444";
+            } else if (String(iv.delais || "").toLowerCase().indexOf("rapide") !== -1) {
+                color = "#F59E0B";
+            } else {
+                color = getRegionColor(iv.region);
+            }
+
+            var isUrgent = String(iv.delais || "").toLowerCase().indexOf("urgent") !== -1;
+
+            // Build popup with escaped content
+            var statusClass = iv.rapportFait ? "bg-green-100 text-green-800" : "bg-blue-100 text-blue-800";
+            var statusText = iv.rapportFait ? "Termine" : "A faire";
+            var safeId = escMap(iv.id);
+
+            var popupHtml = '<div class="text-sm font-sans">'
+                + '<div class="font-bold text-gray-900 mb-1">' + escMap(iv.nomSite) + '</div>'
+                + '<div class="text-gray-600 mb-2">' + escMap(iv.adresse) + '</div>'
+                + '<div class="flex gap-2">'
+                + '<span class="px-2 py-0.5 rounded text-xs font-medium ' + statusClass + '">' + statusText + '</span>'
+                + '<button data-select-id="' + safeId + '" class="text-blue-600 hover:underline text-xs font-medium">Voir details</button>'
+                + '</div></div>';
+
+            var marker = L.marker([lat, lng], {
+                icon: makeIcon(color, isUrgent, iv.rapportFait)
+            }).bindPopup(popupHtml).addTo(map);
+
+            marker.on("popupopen", function () {
+                var btnEl = marker.getPopup().getElement();
+                var btn = btnEl ? btnEl.querySelector("[data-select-id]") : null;
+                if (btn && !btn._jcsmBound) {
+                    btn._jcsmBound = true;
+                    btn.addEventListener("click", function () {
+                        if (typeof selectIntervention === "function") {
+                            selectIntervention(iv.id);
+                        }
+                    });
+                }
+            });
+
+            markers.push(marker);
+            bounds.extend([lat, lng]);
+        });
+
+        if (markers.length > 0 && bounds.isValid()) {
+            map.fitBounds(bounds, { padding: [50, 50] });
+        }
+    } catch (e) {
+        console.error("initMap error:", e);
+    }
+}
+
+function getRegionColor(region) {
+    if (!region) return "#6B7280";
+    var palette = {
+        "Ile-de-France": "#3B82F6",
+        "Auvergne-Rhone-Alpes": "#10B981",
+        "Nouvelle-Aquitaine": "#F59E0B",
+        "Occitanie": "#8B5CF6",
+        "Provence-Alpes-Cote d'Azur": "#EC4899",
+        "Grand Est": "#EF4444",
+        "Hauts-de-France": "#14B8A6",
+        "Normandie": "#F97316",
+        "Bretagne": "#06B6D4",
+        "Pays de la Loire": "#84CC16",
+        "Bourgogne-Franche-Comte": "#A855F7",
+        "Centre-Val de Loire": "#22C55E",
+        "Corse": "#F43F5E",
+        "La Reunion": "#0EA5E9",
+        "Martinique": "#A3E635",
+        "Guadeloupe": "#FB7185",
+        "Guyane": "#34D399",
+        "Mayotte": "#818CF8",
+        "Admin": "#6366F1"
+    };
+    var name = String(region).trim();
+    if (palette[name]) return palette[name];
+
+    // Deterministic hash color for unknown regions
+    var hash = 0;
+    for (var i = 0; i < name.length; i++) {
+        hash = name.charCodeAt(i) + ((hash << 5) - hash);
+    }
+    return "hsl(" + (Math.abs(hash) % 360) + ", 70%, 50%)";
+}
+
+function matchInterventionCoordinates(iv) {
+    if (typeof SITES_DB === "undefined" || !SITES_DB) return null;
+
+    function normalize(s) {
+        return String(s || "").toLowerCase().replace(/[^a-z0-9]/g, "");
+    }
+
+    var normName = normalize(iv.nomSite);
+    var normCp = normalize(iv.cp || "");
+
+    var match = SITES_DB.find(function (site) {
+        return normalize(site.nom) === normName;
     });
 
-    // Ajuster le zoom pour tout voir
-    if (markers.length > 0 && bounds.isValid()) {
-        map.fitBounds(bounds, { padding: [50, 50] });
-    }
-}
-
-// Helper pour les couleurs régions (Copie de la logique existante)
-function getRegionColor(region) {
-    if (!region) return '#6B7280';
-    const regionColors = {
-        'Île-de-France': '#3B82F6',
-        'Auvergne-Rhône-Alpes': '#10B981',
-        'Nouvelle-Aquitaine': '#F59E0B',
-        'Occitanie': '#8B5CF6',
-        'Provence-Alpes-Côte d\'Azur': '#EC4899',
-        'Grand Est': '#EF4444',
-        'Hauts-de-France': '#14B8A6',
-        'Normandie': '#F97316',
-        'Bretagne': '#06B6D4',
-        'Pays de la Loire': '#84CC16',
-        'Bourgogne-Franche-Comté': '#A855F7',
-        'Centre-Val de Loire': '#22C55E',
-        'Corse': '#F43F5E',
-        'La Réunion': '#0EA5E9',
-        'Martinique': '#A3E635',
-        'Guadeloupe': '#FB7185',
-        'Guyane': '#34D399',
-        'Mayotte': '#818CF8',
-        'Admin': '#6366F1'
-    };
-    const normalized = String(region).trim();
-    if (regionColors[normalized]) return regionColors[normalized];
-
-    // Hash fallback
-    let hash = 0;
-    for (let i = 0; i < normalized.length; i++) {
-        hash = normalized.charCodeAt(i) + ((hash << 5) - hash);
-    }
-    const hue = Math.abs(hash) % 360;
-    return `hsl(${hue}, 70%, 50%)`;
-}
-
-// Fonction de matching coordonnées (Doit avoir accès à SITES_DB global)
-function matchInterventionCoordinates(intervention) {
-    if (typeof SITES_DB === 'undefined' || !SITES_DB) return null;
-
-    // Normalisation
-    const normalize = str => String(str || '').toLowerCase().replace(/[^a-z0-9]/g, '');
-    const searchNom = normalize(intervention.nomSite);
-    const searchCP = normalize(intervention.cp || '');
-
-    // 1. Match exact nom
-    let match = SITES_DB.find(site => normalize(site.nom) === searchNom);
-
-    // 2. Match partiel nom + CP
-    if (!match && searchCP) {
-        match = SITES_DB.find(site => normalize(site.nom).includes(searchNom) && normalize(site.cp) === searchCP);
+    if (!match && normCp) {
+        match = SITES_DB.find(function (site) {
+            return normalize(site.nom).indexOf(normName) !== -1 && normalize(site.cp) === normCp;
+        });
     }
 
     if (match) {
@@ -231,7 +221,6 @@ function matchInterventionCoordinates(intervention) {
     return null;
 }
 
-// Exposer globalement pour compatibilité
 window.initMap = initMap;
-Object.defineProperty(window, 'map', { get: () => map, configurable: true });
+Object.defineProperty(window, "map", { get: function () { return map; }, configurable: true });
 window.getRegionColor = getRegionColor;

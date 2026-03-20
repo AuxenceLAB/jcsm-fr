@@ -15,6 +15,7 @@ $allowedOrigins = ['https://jcsm.fr', 'https://www.jcsm.fr'];
 $origin = $_SERVER['HTTP_ORIGIN'] ?? '';
 if (in_array($origin, $allowedOrigins)) {
     header("Access-Control-Allow-Origin: $origin");
+    header('Vary: Origin');
 }
 header('Access-Control-Allow-Methods: GET, POST, OPTIONS');
 header('Access-Control-Allow-Headers: Content-Type, Authorization, X-Requested-With');
@@ -59,9 +60,19 @@ if (!checkRateLimit('sheets', 100, 60)) {
 try {
     $ch = curl_init();
 
-    // Construire l'URL avec les paramètres GET autorisés uniquement
+    // Construire l'URL avec les paramètres GET autorisés et validés
     $allowedParams = ['action', 'region', 'id', 'sheet'];
     $params = array_intersect_key($_GET, array_flip($allowedParams));
+
+    // Validate parameter values (alphanumeric, hyphens, underscores only)
+    foreach ($params as $key => $value) {
+        if (!is_string($value) || !preg_match('/^[a-zA-Z0-9\-_]{1,100}$/', $value)) {
+            http_response_code(400);
+            echo json_encode(['error' => "Paramètre '$key' invalide"]);
+            exit;
+        }
+    }
+
     $url = $GOOGLE_SHEETS_URL;
     if (!empty($params)) {
         $url .= '?' . http_build_query($params);

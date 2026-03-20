@@ -7,7 +7,7 @@ module.exports = {
     './blog.html',
     './js/**/*.js'
   ],
-  darkMode: 'class',
+  darkMode: 'media',
   theme: {
     extend: {
       colors: {

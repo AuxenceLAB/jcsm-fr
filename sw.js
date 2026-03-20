@@ -1,19 +1,23 @@
-// JCSM Service Worker - Enhanced PWA Support v43
-const STATIC_CACHE = 'jcsm-static-v43';
-const DYNAMIC_CACHE = 'jcsm-dynamic-v43';
-const API_CACHE = 'jcsm-api-v43';
+// JCSM Service Worker - Enhanced PWA Support v56
+const STATIC_CACHE = 'jcsm-static-v56';
+const DYNAMIC_CACHE = 'jcsm-dynamic-v56';
+const API_CACHE = 'jcsm-api-v56';
 
 // Assets to cache on install
 const STATIC_ASSETS = [
     '/',
     '/index.html',
+    '/css/critical.css',
     '/styles.css',
     '/css/tailwind.css',
+    '/js/i18n.js',
     '/js/config.js',
     '/js/public.js',
     '/js/utils.js',
     '/js/wow-effects.js',
     '/js/analytics.js',
+    '/js/cookie-consent.js',
+    '/images/logo.webp',
     '/images/logo.png',
     '/manifest.json',
     '/offline.html',
@@ -29,6 +33,9 @@ const STATIC_ASSETS = [
     '/confidentialite.html',
     '/cgv.html',
     '/js/landing.js',
+    '/js/dashboard.js',
+    '/js/fiches.js',
+    '/js/map.js',
     '/interne.html',
     '/zones/ile-de-france.html',
     '/zones/paca.html',
@@ -39,7 +46,39 @@ const STATIC_ASSETS = [
     '/zones/belgique.html',
     '/zones/france.html',
     '/blog.html',
-    '/contact.html'
+    '/contact.html',
+    '/css/chatbot.css',
+    '/css/leaflet.css',
+    '/js/chatbot.js',
+    '/js/vendor/leaflet.js',
+    '/solutions/',
+    '/solutions/cpo-operateurs',
+    '/solutions/entreprises-flottes',
+    '/solutions/fabricants-bornes',
+    '/solutions/retail-grande-distribution',
+    '/en/',
+    '/en/about',
+    '/en/contact',
+    '/en/project-management',
+    '/en/installation-compliance',
+    '/en/operations-maintenance',
+    '/en/installation-security',
+    '/en/call-center',
+    '/de/',
+    '/de/kontakt',
+    '/es/',
+    '/es/contacto',
+    '/it/',
+    '/it/contatti',
+    '/nl/',
+    '/nl/contact',
+    '/pl/',
+    '/pl/kontakt',
+    '/pt/',
+    '/pt/contato',
+    '/couverture.html',
+    '/devenir-partenaire.html',
+    '/virta.html'
 ];
 
 // Install event - cache static assets
@@ -63,7 +102,7 @@ self.addEventListener('activate', (event) => {
     );
 });
 
-// Fetch event - stale-while-revalidate for HTML, cache-first for assets, network-first for API
+// Fetch event - network-first for HTML, cache-first for assets, network-first for API
 self.addEventListener('fetch', (event) => {
     const { request } = event;
     const url = new URL(request.url);
@@ -104,8 +143,10 @@ self.addEventListener('fetch', (event) => {
         event.respondWith(
             fetch(request)
                 .then(response => {
-                    const clone = response.clone();
-                    caches.open(DYNAMIC_CACHE).then(cache => cache.put(request, clone));
+                    if (response.ok) {
+                        const clone = response.clone();
+                        caches.open(DYNAMIC_CACHE).then(cache => cache.put(request, clone));
+                    }
                     return response;
                 })
                 .catch(() => caches.match(request).then(cached => cached || caches.match('/offline.html')))
@@ -132,6 +173,6 @@ self.addEventListener('fetch', (event) => {
 
     // Default - network first
     event.respondWith(
-        fetch(request).catch(() => caches.match(request))
+        fetch(request).catch(() => caches.match(request).then(r => r || caches.match('/offline.html')))
     );
 });

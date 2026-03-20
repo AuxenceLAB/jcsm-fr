@@ -18,6 +18,7 @@ $allowedOrigins = ['https://jcsm.fr', 'https://www.jcsm.fr'];
 $origin = $_SERVER['HTTP_ORIGIN'] ?? '';
 if (in_array($origin, $allowedOrigins)) {
     header("Access-Control-Allow-Origin: $origin");
+    header('Vary: Origin');
 }
 header('Access-Control-Allow-Methods: POST, OPTIONS');
 header('Access-Control-Allow-Headers: Content-Type');
@@ -50,15 +51,24 @@ if (empty($password)) {
     exit;
 }
 
-// Hash the password and look it up (timing-safe comparison)
-$hash = hash('sha256', $password);
+// Look up password against stored hashes (supports bcrypt + legacy SHA-256)
 $users = AUTH_USERS;
 
 $user = null;
-foreach ($users as $storedHash => $userData) {
-    if (hash_equals($storedHash, $hash)) {
-        $user = $userData;
-        break;
+foreach ($users as $userData) {
+    if (str_starts_with($userData['hash'], '$2')) {
+        // Bcrypt hash — secure, preferred
+        if (password_verify($password, $userData['hash'])) {
+            $user = $userData;
+            break;
+        }
+    } else {
+        // Legacy SHA-256 (migrate to bcrypt with: password_hash($pw, PASSWORD_BCRYPT))
+        $hash = hash('sha256', $password);
+        if (hash_equals($userData['hash'], $hash)) {
+            $user = $userData;
+            break;
+        }
     }
 }
 
