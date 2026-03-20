@@ -113,7 +113,7 @@ function initContactForm() {
             });
         });
     } catch (e) {
-        console.error("initContactForm error:", e);
+        /* silent fail — contact form init non-critical */
     }
 }
 

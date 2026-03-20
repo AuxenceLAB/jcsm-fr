@@ -157,7 +157,7 @@ async function initMap() {
             map.fitBounds(bounds, { padding: [50, 50] });
         }
     } catch (e) {
-        console.error("initMap error:", e);
+        /* silent fail — map init non-critical */
     }
 }
 

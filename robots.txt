@@ -9,11 +9,19 @@ Sitemap: https://jcsm.fr/sitemap.xml
 
 # Disallow internal/private pages
 Disallow: /interne
+Disallow: /internedemo
+Disallow: /rapport-intervention
 Disallow: /admin
 Disallow: /api/
-Disallow: /*.json
 Disallow: /offline
 Disallow: /404
+
+# Disallow sensitive file patterns
+Disallow: /*.json$
+Disallow: /*.env
+Disallow: /*.sql
+Disallow: /*.sh
+Disallow: /*.log
 
 # Disallow old/renamed URLs (301 redirects configured)
 Disallow: /securisation
@@ -23,8 +31,8 @@ Disallow: /mise-en-service
 
 # Disallow backup, reports & internal pages
 Disallow: /blog_backup_faq/
+Disallow: /blog_schema_backup_20260320/
 Disallow: /rapports/
-Disallow: /internedemo
 Disallow: /ca
 Disallow: /ca1
 Disallow: /ca2
@@ -42,6 +50,11 @@ Allow: /js/wow-effects.js
 Allow: /js/utils.js
 Allow: /js/landing.js
 Allow: /js/analytics.js
+Allow: /js/i18n.js
+Allow: /js/config.js
+
+# Allow images
+Allow: /images/
 
 # Crawl-delay
 Crawl-delay: 1

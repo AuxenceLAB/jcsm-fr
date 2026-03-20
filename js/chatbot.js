@@ -212,7 +212,8 @@
         if (!container) return;
         var div = document.createElement("div");
         div.className = "chatbot-msg " + type;
-        div.innerHTML = formatMessage(text);
+        var content = formatMessageDOM(text);
+        div.appendChild(content);
         container.appendChild(div);
         scrollToBottom();
     }
@@ -227,7 +228,8 @@
             div.className = "chatbot-msg " + type;
             /* Disable animation for restored messages */
             div.style.animation = "none";
-            div.innerHTML = formatMessage(msg.content);
+            var content = formatMessageDOM(msg.content);
+            div.appendChild(content);
             container.appendChild(div);
         });
         if (state.leadFormShown && !state.leadCaptured) {
@@ -236,8 +238,8 @@
         scrollToBottom();
     }
 
-    /* ── Message formatting ── */
-    function formatMessage(text) {
+    /* ── Message formatting (returns DOM node, never uses innerHTML) ── */
+    function formatMessageDOM(text) {
         /* Strip any HTML tags */
         text = text.replace(/<[^>]*>/g, "");
         /* Convert markdown links [text](url) to text (url) */
@@ -272,7 +274,7 @@
             appendTextWithBreaks(span, text.substring(lastIndex));
         }
 
-        return span.innerHTML;
+        return span;
     }
 
     function appendTextWithBreaks(parent, text) {

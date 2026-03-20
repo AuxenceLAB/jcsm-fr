@@ -69,6 +69,13 @@
             "type": "image/webp",
             "form_factor": "wide",
             "label": "Page d'accueil JCSM - Infrastructure IRVE"
+        },
+        {
+            "src": "/images/logo.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "form_factor": "narrow",
+            "label": "JCSM - Services IRVE bornes de recharge"
         }
     ],
     "related_applications": [],

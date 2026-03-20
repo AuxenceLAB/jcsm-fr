@@ -132,7 +132,7 @@ function updateDashboard() {
             });
         }
     } catch (t) {
-        console.error("updateDashboard error:", t);
+        /* silent fail — dashboard update non-critical */
     }
 }
 
@@ -200,7 +200,7 @@ function renderChart(id, type, data) {
             options: options
         });
     } catch (e) {
-        console.error("Chart render error for " + id + ":", e);
+        /* silent fail — chart render non-critical */
     }
 }
 
