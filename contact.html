@@ -34,19 +34,38 @@
     {
         "@context": "https://schema.org",
         "@type": "ContactPage",
-        "name": "Contact JCSM",
+        "name": "Contact JCSM - Expert IRVE",
+        "description": "Contactez JCSM pour vos projets de bornes de recharge IRVE. Devis gratuit sous 24h.",
         "url": "https://jcsm.fr/contact",
         "mainEntity": {
             "@type": "Organization",
             "name": "JCSM SAS",
+            "url": "https://jcsm.fr",
+            "logo": "https://jcsm.fr/images/logo.png",
             "telephone": "+33 1 83 75 57 06",
             "email": "contact@jcsm.fr",
+            "areaServed": [
+                {"@type": "Country", "name": "France"},
+                {"@type": "Country", "name": "Belgique"}
+            ],
             "address": {
                 "@type": "PostalAddress",
                 "streetAddress": "60 rue François 1er",
                 "addressLocality": "Paris",
                 "postalCode": "75008",
                 "addressCountry": "FR"
+            },
+            "contactPoint": {
+                "@type": "ContactPoint",
+                "telephone": "+33 1 83 75 57 06",
+                "contactType": "customer service",
+                "availableLanguage": ["French", "English", "Dutch"],
+                "hoursAvailable": {
+                    "@type": "OpeningHoursSpecification",
+                    "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+                    "opens": "08:00",
+                    "closes": "18:00"
+                }
             }
         }
     }
