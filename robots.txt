@@ -38,10 +38,17 @@ Disallow: /ca1
 Disallow: /ca2
 Disallow: /evergreen
 
-# Disallow admin assets
+# Disallow noindex legal pages
+Disallow: /cgv
+Disallow: /confidentialite
+Disallow: /mentions-legales
+
+# Disallow service worker & internal assets
+Disallow: /sw.js
 Disallow: /js/map.js
 Disallow: /js/dashboard.js
 Disallow: /js/fiches.js
+Disallow: /js/chatbot.js
 
 # Allow CSS and JS for rendering
 Allow: /styles.css

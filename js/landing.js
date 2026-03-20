@@ -43,12 +43,13 @@ function initContactForm() {
                 valid = false;
             }
 
-            // Validate phone (optional)
+            // Validate phone (optional) - supports French (+33) and Belgian (+32) numbers
             var phone = form.querySelector('input[name="telephone"],input[type="tel"]');
             if (phone && phone.value.trim()) {
-                var digits = phone.value.replace(/[\s+\-().]/g, "");
-                if (digits.length < 10) {
-                    showError(phone, t("phoneMinDigits") || "Le numero doit contenir au moins 10 chiffres", formMessage);
+                var phoneClean = phone.value.replace(/[\s.\-()]/g, "");
+                var phoneValid = /^(?:(?:\+|00)(?:33[1-9]\d{8}|32[1-9]\d{7,8})|0[1-9]\d{8})$/.test(phoneClean);
+                if (!phoneValid) {
+                    showError(phone, t("phoneInvalid") || "Numero de telephone invalide", formMessage);
                     valid = false;
                 }
             }
