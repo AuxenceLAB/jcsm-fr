@@ -182,8 +182,8 @@
                     <a href="/blog" class="text-sm text-blue-600 hover:text-blue-800 transition-colors">&larr; Retour au blog</a>
                 </div>
                 <div class="mb-10">
-                    <span class="inline-block text-xs font-semibold text-rose-700 bg-rose-100 rounded-full px-3 py-1 mb-4">Infrastructure</span>
-                    <h1 class="text-3xl md:text-4xl font-bold mb-4 leading-tight">Recharge des poids lourds électriques : où en est la France ?</h1>
+                    <span class="badge-section inline-block text-xs font-semibold text-rose-700 bg-rose-100 rounded-full px-3 py-1 mb-4">Infrastructure</span>
+                    <h1 class="text-3xl md:text-4xl font-bold mb-4 leading-tight">Recharge des <span class="gradient-text">poids lourds électriques</span> : où en est la France ?</h1>
                     <div class="flex items-center text-sm text-gray-500">
                         <time datetime="2025-11-20">20 novembre 2025</time>
                         <span class="mx-2">·</span>
@@ -206,7 +206,7 @@
                     </ol>
                 </div>
 
-                <div class="prose prose-lg max-w-none">
+                <div class="prose prose-lg max-w-none section-appear">
                     <p class="text-lg text-gray-600 leading-relaxed mb-8">Le transport routier représente près de 7 % des émissions de CO2 en Europe. L'électrification des poids lourds est désormais une priorité européenne inscrite dans le règlement AFIR (Alternative Fuels Infrastructure Regulation). Mais la recharge d'un camion de 40 tonnes n'a rien à voir avec celle d'une berline électrique : puissances de 400 à 1 000 kW, emplacements adaptés aux gabarits lourds, raccordements électriques massifs. Où en est la France dans cette transition ? Analyse des données disponibles.</p>
 
                     <!-- Section 1 : Contexte -->
@@ -338,13 +338,13 @@
                         <p class="text-gray-600 leading-relaxed mb-4">Vous gérez une flotte de poids lourds électriques ou exploitez des stations haute puissance ? JCSM assure l'exploitation et la maintenance de vos infrastructures de recharge DC jusqu'à 500 kW et plus. Supervision OCPP 24/7, interventions sous SLA garanti et techniciens habilités haute puissance : nous garantissons la disponibilité de vos stations sur le long terme.</p>
                         <a href="/exploitation" class="inline-flex items-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-xl font-semibold hover:bg-blue-700 transition-colors">
                             Découvrir nos services d'exploitation haute puissance
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                            <svg aria-hidden="true" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
                         </a>
                     </div>
 
                     <!-- FAQ -->
                     <h2 id="faq" class="text-2xl font-bold mt-12 mb-6">Questions fréquentes</h2>
-                    <div class="space-y-6 mb-8">
+                    <div class="section-appear space-y-6 mb-8">
                         <div class="border border-gray-200 rounded-xl p-5">
                             <h3 class="font-semibold text-gray-900 mb-2">Combien de points de charge faut-il pour les poids lourds électriques en France d'ici 2030 ?</h3>
                             <p class="text-gray-600 text-sm leading-relaxed">Environ 6 000 points de charge haute puissance (350 kW+) d'ici 2030, selon l'ACEA. Le défi est énorme : raccordements HTA/HTB, emprises foncières adaptées, et des bornes à 400-1 000 kW qui n'existent qu'en prototypes.</p>
@@ -365,21 +365,21 @@
                 </div>
 
                 <!-- CTA -->
-                <div class="mt-12 bg-rose-50 rounded-2xl p-8 text-center">
+                <div class="section-appear mt-12 bg-rose-50 rounded-2xl p-8 text-center">
                     <h3 class="text-xl font-bold mb-3">Un projet de recharge haute puissance ?</h3>
                     <p class="text-gray-600 mb-6">JCSM installe et maintient des stations DC jusqu'à 500 kW+ pour flottes et aires de service.</p>
                     <a href="/contact" class="btn-primary px-8 py-3 rounded-xl font-medium inline-block">Demander un devis</a>
                 </div>
 
                 <!-- Articles liés -->
-                <div class="mt-16 pt-8 border-t border-gray-100">
+                <div class="section-appear mt-16 pt-8 border-t border-gray-100">
                     <h3 class="text-lg font-bold mb-6">Articles similaires</h3>
                     <div class="grid sm:grid-cols-2 gap-6">
-                        <a href="/blog/bornes-recharge-france-chiffres-2025" class="group">
+                        <a href="/blog/bornes-recharge-france-chiffres-2025" class="group blog-card-premium">
                             <h4 class="font-semibold group-hover:text-blue-600 transition-colors mb-1">Bornes de recharge en France : chiffres clés 2025</h4>
                             <p class="text-sm text-gray-500">170 000 points de charge, répartition et objectifs.</p>
                         </a>
-                        <a href="/blog/borne-ac-dc-difference" class="group">
+                        <a href="/blog/borne-ac-dc-difference" class="group blog-card-premium">
                             <h4 class="font-semibold group-hover:text-blue-600 transition-colors mb-1">Borne AC vs DC : comment choisir ?</h4>
                             <p class="text-sm text-gray-500">Puissance, temps de charge, coût.</p>
                         </a>
@@ -470,7 +470,7 @@
     </footer>
 
     <button class="scroll-top" id="scrollTop" aria-label="Retour en haut de la page">
-        <svg class="w-6 h-6 float-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" /></svg>
+        <svg aria-hidden="true" class="w-6 h-6 float-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" /></svg>
     </button>
     <script src="../js/i18n.js?v=44" defer></script>
     <script src="../js/config.js?v=44" defer></script>

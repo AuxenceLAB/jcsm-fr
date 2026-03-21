@@ -182,8 +182,8 @@
                     <a href="/blog" class="text-sm text-blue-600 hover:text-blue-800 transition-colors">&larr; Retour au blog</a>
                 </div>
                 <div class="mb-10">
-                    <span class="inline-block text-xs font-semibold text-amber-700 bg-amber-100 rounded-full px-3 py-1 mb-4">Technique</span>
-                    <h1 class="text-3xl md:text-4xl font-bold mb-4 leading-tight">Raccordement électrique des bornes DC : puissance, process et coûts</h1>
+                    <span class="badge-section inline-block text-xs font-semibold text-amber-700 bg-amber-100 rounded-full px-3 py-1 mb-4">Technique</span>
+                    <h1 class="text-3xl md:text-4xl font-bold mb-4 leading-tight">Raccordement électrique des <span class="gradient-text">bornes DC</span> : puissance, process et coûts</h1>
                     <div class="flex items-center text-sm text-gray-500">
                         <time datetime="2026-02-12">12 février 2026</time>
                         <span class="mx-2">·</span>
@@ -205,7 +205,7 @@
                     </ol>
                 </div>
 
-                <div class="prose prose-lg max-w-none">
+                <div class="prose prose-lg max-w-none section-appear">
                     <p class="text-lg text-gray-600 leading-relaxed mb-8">Installer des bornes de recharge rapide DC, c'est d'abord un projet électrique. Avant de couler le moindre massif de béton ou de poser un chargeur, il faut obtenir la puissance nécessaire auprès du gestionnaire de réseau. Pour une station DC, les niveaux de puissance en jeu (50 kW à 350 kW par point de charge) imposent des contraintes de raccordement bien différentes de celles d'une borne AC domestique. Voici ce qu'il faut savoir pour anticiper les délais, les coûts et les choix techniques.</p>
 
                     <h2 id="dc-different" class="text-2xl font-bold mt-12 mb-4">Pourquoi la charge DC change tout côté raccordement</h2>
@@ -416,12 +416,12 @@
                         <p class="text-gray-600 leading-relaxed mb-4">De la demande Enedis à la mise en service, nous coordonnons l'ensemble du processus de raccordement pour vos stations de recharge rapide. Un interlocuteur unique pour le <a href="/pilotage-projets" class="text-blue-600 hover:text-blue-800 underline">pilotage de projet</a>, l'<a href="/installation-conformite" class="text-blue-600 hover:text-blue-800 underline">installation</a> et la conformité.</p>
                         <a href="/contact" class="inline-flex items-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-xl font-semibold hover:bg-blue-700 transition-colors">
                             Discuter de votre projet
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                            <svg aria-hidden="true" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
                         </a>
                     </div>
 
                     <h2 id="faq" class="text-2xl font-bold mt-12 mb-6">Questions fréquentes</h2>
-                    <div class="space-y-6 mb-8">
+                    <div class="section-appear space-y-6 mb-8">
                         <div class="border border-gray-200 rounded-xl p-5">
                             <h3 class="font-semibold text-gray-900 mb-2">Combien coûte le raccordement électrique d'une station de recharge DC ?</h3>
                             <p class="text-gray-600 text-sm leading-relaxed">Variable. Raccordement BT (jusqu'à 250 kVA) : 5 000-30 000 € selon la distance au réseau. HTA (250 kVA+) : 50 000 à 200 000 €. Le devis Enedis est gratuit, profitez-en.</p>
@@ -441,20 +441,20 @@
                     </div>
                 </div>
 
-                <div class="mt-12 bg-amber-50 rounded-2xl p-8 text-center">
+                <div class="section-appear mt-12 bg-amber-50 rounded-2xl p-8 text-center">
                     <h3 class="text-xl font-bold mb-3">Un projet de station DC à raccorder ?</h3>
                     <p class="text-gray-600 mb-6">JCSM pilote votre raccordement de A à Z, de la demande Enedis à la mise en service.</p>
                     <a href="/contact" class="btn-primary px-8 py-3 rounded-xl font-medium inline-block">Nous contacter</a>
                 </div>
 
-                <div class="mt-16 pt-8 border-t border-gray-100">
+                <div class="section-appear mt-16 pt-8 border-t border-gray-100">
                     <h3 class="text-lg font-bold mb-6">Articles similaires</h3>
                     <div class="grid sm:grid-cols-2 gap-6">
-                        <a href="/blog/borne-ac-dc-difference" class="group">
+                        <a href="/blog/borne-ac-dc-difference" class="group blog-card-premium">
                             <h4 class="font-semibold group-hover:text-blue-600 transition-colors mb-1">Borne AC vs DC : quelle différence ?</h4>
                             <p class="text-sm text-gray-500">Fonctionnement, puissances et cas d'usage.</p>
                         </a>
-                        <a href="/blog/maintenance-bornes-recharge-guide" class="group">
+                        <a href="/blog/maintenance-bornes-recharge-guide" class="group blog-card-premium">
                             <h4 class="font-semibold group-hover:text-blue-600 transition-colors mb-1">Guide de la maintenance IRVE</h4>
                             <p class="text-sm text-gray-500">Préventive, curative, SLA et pièces détachées.</p>
                         </a>
@@ -545,7 +545,7 @@
     </footer>
 
     <button class="scroll-top" id="scrollTop" aria-label="Retour en haut de la page">
-        <svg class="w-6 h-6 float-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" /></svg>
+        <svg aria-hidden="true" class="w-6 h-6 float-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" /></svg>
     </button>
     <script src="../js/i18n.js?v=44" defer></script>
     <script src="../js/config.js?v=44" defer></script>
