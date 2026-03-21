@@ -88,3 +88,224 @@
     opacity: 1;
     transform: translateY(0);
 }
+
+/* ========================================
+   Industrial Premium Design System
+   ======================================== */
+
+/* Precision grid lines — engineering blueprint feel */
+.grid-lines {
+    background-image:
+        linear-gradient(rgba(37, 99, 235, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(37, 99, 235, 0.03) 1px, transparent 1px);
+    background-size: 60px 60px;
+}
+
+/* Industrial section divider — precision engineered line */
+.divider-industrial {
+    position: relative;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #d1d5db 20%, #d1d5db 80%, transparent);
+    margin: 0;
+    border: none;
+}
+.divider-industrial::after {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 5px;
+    background: var(--color-primary);
+    border-radius: 3px;
+}
+
+/* Service card industrial hover — precision lift with accent line */
+.svc-card-industrial {
+    position: relative;
+}
+.svc-card-industrial::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 1.5rem;
+    right: 1.5rem;
+    height: 3px;
+    background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
+    border-radius: 0 0 3px 3px;
+    opacity: 0;
+    transform: scaleX(0.3);
+    transition: opacity 0.4s cubic-bezier(0.22, 1, 0.36, 1), transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.svc-card-industrial:hover::before {
+    opacity: 1;
+    transform: scaleX(1);
+}
+
+/* Testimonial cards — editorial quote styling */
+.testimonial-industrial {
+    position: relative;
+    transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.testimonial-industrial::before {
+    content: '\201C';
+    position: absolute;
+    top: -0.25rem;
+    left: 1.25rem;
+    font-size: 4rem;
+    font-family: Georgia, 'Times New Roman', serif;
+    color: rgba(37, 99, 235, 0.08);
+    line-height: 1;
+    pointer-events: none;
+}
+.testimonial-industrial:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px -12px rgba(37, 99, 235, 0.12), 0 0 0 1px rgba(37, 99, 235, 0.06);
+}
+
+/* Why-us card — industrial accent bar on hover */
+.why-card-industrial {
+    position: relative;
+    overflow: hidden;
+}
+.why-card-industrial::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
+    transform: translateY(3px);
+    transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.why-card-industrial:hover::after {
+    transform: translateY(0);
+}
+
+/* Icon pulse on card hover */
+.icon-pulse-hover {
+    transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.svc-card:hover .icon-pulse-hover,
+.why-card:hover .icon-pulse-hover {
+    transform: scale(1.08);
+    box-shadow: 0 12px 24px -6px rgba(37, 99, 235, 0.25);
+}
+
+/* Stat counter industrial glow */
+.stat-industrial {
+    position: relative;
+}
+.stat-industrial::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 24px;
+    height: 2px;
+    background: var(--color-primary);
+    border-radius: 1px;
+    opacity: 0;
+    transition: opacity 0.3s ease, width 0.3s ease;
+}
+.stat-industrial:hover::after {
+    opacity: 1;
+    width: 40px;
+}
+
+/* Hero mini-metric — industrial accent */
+.metric-industrial {
+    position: relative;
+    padding-left: 0.75rem;
+}
+.metric-industrial::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.25rem;
+    bottom: 0.25rem;
+    width: 2px;
+    background: linear-gradient(180deg, var(--color-primary), var(--color-accent));
+    border-radius: 1px;
+}
+
+/* CTA section — dramatic gradient with depth */
+.cta-dramatic {
+    position: relative;
+    overflow: hidden;
+}
+.cta-dramatic::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(ellipse at 30% 50%, rgba(59, 130, 246, 0.15) 0%, transparent 60%),
+        radial-gradient(ellipse at 70% 80%, rgba(6, 182, 212, 0.1) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+/* Logo hover lift */
+.logo-item-premium {
+    transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.3s ease;
+}
+.logo-item-premium:hover {
+    transform: translateY(-2px);
+}
+
+/* Blog card premium — image zoom + border accent */
+.blog-card-premium {
+    overflow: hidden;
+    transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.blog-card-premium:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 32px -8px rgba(0, 0, 0, 0.1);
+}
+.blog-card-premium:hover img {
+    transform: scale(1.04);
+}
+.blog-card-premium img {
+    transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* FAQ industrial — subtle left accent on open */
+.faq-industrial[open] {
+    border-left: 3px solid var(--color-primary);
+    padding-left: calc(1.5rem - 3px);
+}
+
+/* Number highlight — monospace industrial look */
+.num-highlight {
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.02em;
+}
+
+/* Section badge — reveal animation on scroll */
+.badge-section {
+    transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.section-appear.visible .badge-section {
+    animation: badgeReveal 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+@keyframes badgeReveal {
+    0% { opacity: 0; transform: translateY(8px) scale(0.95); }
+    100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* Reduce motion safety */
+@media (prefers-reduced-motion: reduce) {
+    .svc-card-industrial::before,
+    .why-card-industrial::after,
+    .testimonial-industrial::before,
+    .stat-industrial::after,
+    .metric-industrial::before {
+        transition: none;
+        animation: none;
+    }
+    .badge-section {
+        animation: none !important;
+    }
+}
