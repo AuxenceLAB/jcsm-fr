@@ -129,18 +129,6 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  <url>
-    <loc>https://jcsm.fr/virta</loc>
-    <lastmod>2026-03-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://jcsm.fr/powerdot</loc>
-    <lastmod>2026-03-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
   <!-- Zone pages (priority 0.8) -->
   <url>
     <loc>https://jcsm.fr/zones/france</loc>
@@ -480,9 +468,6 @@
   <url><loc>https://jcsm.fr/en/become-partner</loc><lastmod>2026-03-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://jcsm.fr/en/careers</loc><lastmod>2026-03-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://jcsm.fr/en/coverage</loc><lastmod>2026-03-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://jcsm.fr/en/legal-notice</loc><lastmod>2026-03-20</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
-  <url><loc>https://jcsm.fr/en/privacy</loc><lastmod>2026-03-20</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
-  <url><loc>https://jcsm.fr/en/terms</loc><lastmod>2026-03-20</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
   <!-- Spanish pages -->
   <url><loc>https://jcsm.fr/es/</loc><lastmod>2026-03-20</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
   <url><loc>https://jcsm.fr/es/gestion-proyectos</loc><lastmod>2026-03-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>

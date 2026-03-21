@@ -42,6 +42,8 @@ Disallow: /evergreen
 Disallow: /cgv
 Disallow: /confidentialite
 Disallow: /mentions-legales
+Disallow: /powerdot
+Disallow: /virta
 
 # Disallow service worker & internal assets
 Disallow: /sw.js
