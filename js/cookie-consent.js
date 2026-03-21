@@ -82,6 +82,6 @@
             }
         }
     } catch (e) {
-        console.error("cookie-consent error:", e);
+        /* silent fail — cookie consent non-critical */
     }
 }();

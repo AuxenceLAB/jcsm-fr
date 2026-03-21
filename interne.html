@@ -2453,7 +2453,7 @@ function renderChecklist() { const keys = getKeys(S.sel?.brand); let items = [..
 window.toggleCheck = id => { vibrate(); S.checklist[id] = !S.checklist[id]; renderChecklist(); };
 
 window.showPhotos = () => { vibrate(); renderPhotoModal(); openModal('photos'); };
-function renderPhotoModal() { $('photo-sections').innerHTML = PHOTO_CATS.map(cat => { const photos = S.photos[cat.id], hasPhotos = photos.length > 0; return `<div class="photo-cat ${hasPhotos ? 'has-photos' : ''} ${cat.required ? 'required' : ''}"><div class="photo-cat-header"><div class="photo-cat-title">${cat.icon} ${esc(cat.title)}${hasPhotos ? `<span class="count">${photos.length}</span>` : ''}${cat.required && !hasPhotos ? '<span class="required-badge">Requis</span>' : ''}</div></div><div class="photo-grid">${photos.map(p => `<div class="photo-item"><img src="${p.data}" data-photo-id="${esc(p.id)}" data-cat="${esc(cat.id)}"><button class="delete" onclick="event.stopPropagation();removePhoto('${esc(cat.id)}', '${esc(p.id)}')">×</button></div>`).join('')}<div class="photo-add" onclick="addPhoto('${esc(cat.id)}')">+<span>Ajouter</span></div></div></div>`; }).join(''); }
+function renderPhotoModal() { $('photo-sections').innerHTML = PHOTO_CATS.map(cat => { const photos = S.photos[cat.id], hasPhotos = photos.length > 0; return `<div class="photo-cat ${hasPhotos ? 'has-photos' : ''} ${cat.required ? 'required' : ''}"><div class="photo-cat-header"><div class="photo-cat-title">${cat.icon} ${esc(cat.title)}${hasPhotos ? `<span class="count">${photos.length}</span>` : ''}${cat.required && !hasPhotos ? '<span class="required-badge">Requis</span>' : ''}</div></div><div class="photo-grid">${photos.map(p => `<div class="photo-item"><img src="${p.data}" alt="Photo intervention" data-photo-id="${esc(p.id)}" data-cat="${esc(cat.id)}"><button class="delete" onclick="event.stopPropagation();removePhoto('${esc(cat.id)}', '${esc(p.id)}')">×</button></div>`).join('')}<div class="photo-add" onclick="addPhoto('${esc(cat.id)}')">+<span>Ajouter</span></div></div></div>`; }).join(''); }
 // Event delegation for photo viewing (no per-element onclick leak)
 $('photo-sections')?.addEventListener('click', e => {
     const img = e.target.closest('.photo-item img[data-photo-id]');
@@ -4885,7 +4885,7 @@ function renderWizPhotos() {
                 <div class="photo-cat-title">${cat.icon} ${esc(cat.title)}${hasPhotos ? `<span class="count">${photos.length}</span>` : ''}${cat.required && !hasPhotos ? '<span class="required-badge">Requis</span>' : ''}</div>
             </div>
             <div class="photo-grid">
-                ${photos.map(p => `<div class="photo-item"><img src="${p.data}" onclick="viewPhoto(this.src)"><button class="delete" onclick="event.stopPropagation();removePhoto('${esc(cat.id)}','${esc(p.id)}');renderWizPhotos()">×</button></div>`).join('')}
+                ${photos.map(p => `<div class="photo-item"><img src="${p.data}" alt="Photo intervention" onclick="viewPhoto(this.src)"><button class="delete" onclick="event.stopPropagation();removePhoto('${esc(cat.id)}','${esc(p.id)}');renderWizPhotos()">×</button></div>`).join('')}
                 <div class="photo-add" onclick="wizAddCamera('${esc(cat.id)}')" style="min-height:48px">📸<span>Camera</span></div>
                 <div class="photo-add" onclick="wizAddGallery('${esc(cat.id)}')" style="min-height:48px">🖼️<span>Galerie</span></div>
             </div>

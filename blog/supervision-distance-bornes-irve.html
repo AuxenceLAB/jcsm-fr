@@ -6,7 +6,7 @@
     <!-- Cookie Consent + GTM (chargé après acceptation) -->
     <script src="/js/cookie-consent.js" defer></script>
     <title>Supervision à distance des bornes IRVE : enjeux | JCSM</title>
-    <meta name="description" content="Supervision à distance des bornes IRVE : protocole OCPP, alertes temps réel, diagnostic remote et KPI de disponibilité. Guide technique.">
+    <meta name="description" content="Supervision à distance des bornes IRVE : protocole OCPP, alertes temps réel, diagnostic remote, KPI de disponibilité et redémarrage à distance.">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://jcsm.fr/blog/supervision-distance-bornes-irve">
     <link rel="alternate" hreflang="fr" href="https://jcsm.fr/blog/supervision-distance-bornes-irve">
@@ -182,8 +182,8 @@
                     <a href="/blog" class="text-sm text-blue-600 hover:text-blue-800 transition-colors">&larr; Retour au blog</a>
                 </div>
                 <div class="mb-10">
-                    <span class="inline-block text-xs font-semibold text-amber-700 bg-amber-100 rounded-full px-3 py-1 mb-4">Technique</span>
-                    <h1 class="text-3xl md:text-4xl font-bold mb-4 leading-tight">Supervision à distance des bornes IRVE : comment ça marche</h1>
+                    <span class="badge-section inline-block text-xs font-semibold text-amber-700 bg-amber-100 rounded-full px-3 py-1 mb-4">Technique</span>
+                    <h1 class="text-3xl md:text-4xl font-bold mb-4 leading-tight">Supervision à distance des <span class="gradient-text">bornes IRVE</span> : comment ça marche</h1>
                     <div class="flex items-center text-sm text-gray-500">
                         <time datetime="2026-02-12">12 février 2026</time>
                         <span class="mx-2">·</span>
@@ -205,7 +205,7 @@
                     </ol>
                 </div>
 
-                <div class="prose prose-lg max-w-none">
+                <div class="prose prose-lg max-w-none section-appear">
                     <p class="text-lg text-gray-600 leading-relaxed mb-8">Gérer un réseau de bornes de recharge sans supervision à distance, c'est piloter à l'aveugle. Chaque borne est un équipement connecté qui remonte en permanence des données sur son état, ses sessions de charge et ses erreurs. Exploiter ces données en temps réel permet de détecter les pannes avant qu'elles n'immobilisent la borne, de résoudre une partie des incidents sans déplacement, et de suivre la performance du réseau.</p>
 
                     <h2 id="principe" class="text-2xl font-bold mt-12 mb-4">Le principe de la supervision à distance</h2>
@@ -354,12 +354,12 @@
                         <p class="text-gray-600 leading-relaxed mb-4">Notre <a href="/centre-appel" class="text-blue-600 hover:text-blue-800 underline">centre de supervision</a> surveille vos bornes en continu : détection d'anomalies, diagnostic remote, redémarrage à distance et escalade vers nos techniciens terrain quand une intervention physique est nécessaire. Un seul interlocuteur pour la supervision et la <a href="/exploitation" class="text-blue-600 hover:text-blue-800 underline">maintenance</a>.</p>
                         <a href="/contact" class="inline-flex items-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-xl font-semibold hover:bg-blue-700 transition-colors">
                             Découvrir notre supervision
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                            <svg aria-hidden="true" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
                         </a>
                     </div>
 
                     <h2 id="faq" class="text-2xl font-bold mt-12 mb-6">Questions fréquentes</h2>
-                    <div class="space-y-6 mb-8">
+                    <div class="section-appear space-y-6 mb-8">
                         <div class="border border-gray-200 rounded-xl p-5">
                             <h3 class="font-semibold text-gray-900 mb-2">Qu'est-ce que la supervision à distance d'une borne de recharge ?</h3>
                             <p class="text-gray-600 text-sm leading-relaxed">Surveiller l'état de chaque borne en temps réel via OCPP, sans se déplacer. Détection de panne, redémarrage à distance, mise à jour firmware, gestion des accès.</p>
@@ -379,20 +379,20 @@
                     </div>
                 </div>
 
-                <div class="mt-12 bg-amber-50 rounded-2xl p-8 text-center">
+                <div class="section-appear mt-12 bg-amber-50 rounded-2xl p-8 text-center">
                     <h3 class="text-xl font-bold mb-3">Besoin de superviser vos bornes ?</h3>
                     <p class="text-gray-600 mb-6">JCSM surveille votre réseau 24/7, du diagnostic remote à l'intervention terrain.</p>
                     <a href="/contact" class="btn-primary px-8 py-3 rounded-xl font-medium inline-block">Nous contacter</a>
                 </div>
 
-                <div class="mt-16 pt-8 border-t border-gray-100">
+                <div class="section-appear mt-16 pt-8 border-t border-gray-100">
                     <h3 class="text-lg font-bold mb-6">Articles similaires</h3>
                     <div class="grid sm:grid-cols-2 gap-6">
-                        <a href="/blog/ocpp-1-6-vs-2-0-protocole-bornes" class="group">
+                        <a href="/blog/ocpp-1-6-vs-2-0-protocole-bornes" class="group blog-card-premium">
                             <h4 class="font-semibold group-hover:text-blue-600 transition-colors mb-1">OCPP 1.6 vs 2.0.1 : ce qui change</h4>
                             <p class="text-sm text-gray-500">Différences techniques et migration.</p>
                         </a>
-                        <a href="/blog/maintenance-bornes-recharge-guide" class="group">
+                        <a href="/blog/maintenance-bornes-recharge-guide" class="group blog-card-premium">
                             <h4 class="font-semibold group-hover:text-blue-600 transition-colors mb-1">Guide de la maintenance IRVE</h4>
                             <p class="text-sm text-gray-500">Préventive, curative, SLA et pièces détachées.</p>
                         </a>
@@ -483,7 +483,7 @@
     </footer>
 
     <button class="scroll-top" id="scrollTop" aria-label="Retour en haut de la page">
-        <svg class="w-6 h-6 float-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" /></svg>
+        <svg aria-hidden="true" class="w-6 h-6 float-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" /></svg>
     </button>
     <script src="../js/i18n.js?v=44" defer></script>
     <script src="../js/config.js?v=44" defer></script>

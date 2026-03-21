@@ -78,7 +78,8 @@ const STATIC_ASSETS = [
     '/pt/contato',
     '/couverture.html',
     '/devenir-partenaire.html',
-    '/virta.html'
+    '/virta.html',
+    '/powerdot.html'
 ];
 
 // Install event - cache static assets

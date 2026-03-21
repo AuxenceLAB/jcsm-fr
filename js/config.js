@@ -105,7 +105,7 @@ function destroySession() {
         localStorage.removeItem("jcsm_user");
         Object.keys(localStorage).filter(k => k.startsWith("jcsm_")).forEach(k => localStorage.removeItem(k));
     } catch (e) {
-        console.error("destroySession error:", e);
+        /* silent fail — cleanup best-effort */
     }
 }
 

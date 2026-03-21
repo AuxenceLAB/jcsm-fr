@@ -101,7 +101,7 @@ function initOfflineIndicator() {
             document.body.classList.add("offline-mode");
         }
     } catch (e) {
-        console.error("initOfflineIndicator error:", e);
+        /* silent fail — offline indicator non-critical */
     }
 }
 

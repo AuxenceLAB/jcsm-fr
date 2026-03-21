@@ -132,13 +132,13 @@
 
                 <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Vous &ecirc;tes hors ligne</h1>
 
-                <p class="text-gray-600 text-lg mb-10 max-w-md mx-auto leading-relaxed">
+                <p class="text-gray-600 text-lg mb-6 max-w-md mx-auto leading-relaxed">
                     Pas de connexion internet. V&eacute;rifiez votre r&eacute;seau et r&eacute;essayez.
                 </p>
 
                 <button onclick="location.reload()"
                     class="btn-primary px-8 py-4 rounded-xl text-base font-medium text-white shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer border-0">
-                    R&eacute;essayer
+                    R&eacute;essayer la connexion
                 </button>
 
                 <div class="mt-8 p-4 bg-red-50 rounded-xl" id="status" role="status" aria-live="polite">
@@ -146,6 +146,24 @@
                         <span class="w-2 h-2 bg-red-500 rounded-full pulse-dot" aria-hidden="true"></span>
                         <span id="status-text">Hors ligne</span>
                     </div>
+                </div>
+
+                <div class="mt-10 pt-8 border-t border-gray-100 text-left max-w-sm mx-auto">
+                    <p class="text-xs font-medium text-gray-500 uppercase tracking-wide mb-4">Que faire ?</p>
+                    <ul class="space-y-3 text-sm text-gray-600">
+                        <li class="flex items-start gap-2">
+                            <span class="text-blue-600 mt-0.5" aria-hidden="true">&#8226;</span>
+                            V&eacute;rifiez votre connexion Wi-Fi ou donn&eacute;es mobiles
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-blue-600 mt-0.5" aria-hidden="true">&#8226;</span>
+                            Rapprochez-vous de votre point d&rsquo;acc&egrave;s
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-blue-600 mt-0.5" aria-hidden="true">&#8226;</span>
+                            Contactez-nous au <a href="tel:+33183755706" class="text-blue-600 font-medium">+33 1 83 75 57 06</a>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </section>

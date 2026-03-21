@@ -179,7 +179,6 @@ function renderFiches() {
             e.appendChild(n);
         });
     } catch (t) {
-        console.error("renderFiches error:", t);
         e.innerHTML = '<div class="text-center text-gray-400 p-8">Erreur lors du chargement des fiches.</div>';
     }
 }
