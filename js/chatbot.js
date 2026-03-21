@@ -376,7 +376,7 @@
         if (formEl && formEl.parentNode) formEl.parentNode.removeChild(formEl);
 
         callAPI("", { nom: nom, email: email, entreprise: entreprise });
-        addBotMessage("Merci " + (nom || "") + " ! Un expert JCSM vous recontactera prochainement. En attendant, n'h\u00e9sitez pas \u00e0 me poser d'autres questions.");
+        addBotMessage("Merci " + (window.escapeHtml(nom) || "") + " ! Un expert JCSM vous recontactera prochainement. En attendant, n'h\u00e9sitez pas \u00e0 me poser d'autres questions.");
     }
 
     function handleLeadSkip() {
