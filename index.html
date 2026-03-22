@@ -40,7 +40,8 @@
           "telephone": "+33 1 83 75 57 06",
           "email": "contact@jcsm.fr",
           "contactType": "customer service",
-          "availableLanguage": ["French", "English", "Dutch"]
+          "availableLanguage": ["French", "English", "Dutch"],
+          "areaServed": ["FR", "BE", "DE", "ES", "IT", "NL", "PL", "PT"]
         },
         {
           "@type": "ContactPoint",
@@ -74,7 +75,7 @@
         "https://www.youtube.com/@JCSM_ELEC"
       ],
       "foundingDate": "2019",
-      "areaServed": ["FR", "BE"],
+      "areaServed": ["FR", "BE", "DE", "ES", "IT", "NL", "PL", "PT"],
       "iso6523Code": "0002:99387429600011",
       "serviceType": ["Installation IRVE", "Maintenance IRVE", "Supervision IRVE", "Support utilisateur IRVE", "Sécurisation IRVE"],
       "award": "Certification Qualifelec IRVE",
@@ -161,7 +162,7 @@
         "Sécurisation installations IRVE",
         "Support client IRVE 24/7"
       ],
-      "areaServed": ["FR", "BE"],
+      "areaServed": ["FR", "BE", "DE", "ES", "IT", "NL", "PL", "PT"],
       "url": "https://jcsm.fr",
       "image": "https://jcsm.fr/images/index.webp",
       "category": "Infrastructure de Recharge pour Véhicules Électriques",
@@ -212,15 +213,17 @@
     {
       "@context": "https://schema.org",
       "@type": "SiteNavigationElement",
-      "name": "Navigation principale",
-      "hasPart": [
-        {"@type": "WebPage", "name": "Pilotage de projets", "url": "https://jcsm.fr/pilotage-projets"},
-        {"@type": "WebPage", "name": "Installation & Conformité", "url": "https://jcsm.fr/installation-conformite"},
-        {"@type": "WebPage", "name": "Exploitation & Maintenance", "url": "https://jcsm.fr/exploitation"},
-        {"@type": "WebPage", "name": "Sécurisation", "url": "https://jcsm.fr/securisation-installations"},
-        {"@type": "WebPage", "name": "Support 24/7", "url": "https://jcsm.fr/centre-appel"},
-        {"@type": "WebPage", "name": "Solutions", "url": "https://jcsm.fr/solutions"},
-        {"@type": "WebPage", "name": "Contact", "url": "https://jcsm.fr/contact"}
+      "name": ["Pilotage de projets", "Installation & Conformité", "Exploitation & Maintenance", "Sécurisation", "Support 24/7", "Solutions", "À propos", "Blog", "Contact"],
+      "url": [
+        "https://jcsm.fr/pilotage-projets",
+        "https://jcsm.fr/installation-conformite",
+        "https://jcsm.fr/exploitation",
+        "https://jcsm.fr/securisation-installations",
+        "https://jcsm.fr/centre-appel",
+        "https://jcsm.fr/solutions/",
+        "https://jcsm.fr/a-propos",
+        "https://jcsm.fr/blog",
+        "https://jcsm.fr/contact"
       ]
     }
     </script>
@@ -236,6 +239,18 @@
           "item": "https://jcsm.fr/"
         }
       ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "JCSM - Maintenance IRVE N°1",
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": ["h1", "meta[name='description']"]
+      },
+      "url": "https://jcsm.fr"
     }
     </script>
     <link rel="canonical" href="https://jcsm.fr/">
