@@ -14,22 +14,35 @@
     <link rel="dns-prefetch" href="https://fonts.googleapis.com">
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"
         media="print" onload="this.media='all'">
     <noscript>
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&display=swap"
             rel="stylesheet">
     </noscript>
-    <link rel="stylesheet" href="/css/critical.css?v=44">
-    <link rel="stylesheet" href="/css/tailwind.css?v=44" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="/css/tailwind.css?v=44"></noscript>
-    <link rel="stylesheet" href="/styles.css?v=44" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="/styles.css?v=44"></noscript>
+    <link rel="stylesheet" href="/css/critical.css?v=46">
+    <link rel="stylesheet" href="/css/tailwind.css?v=46" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="/css/tailwind.css?v=46"></noscript>
+    <link rel="stylesheet" href="/styles.css?v=46" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="/styles.css?v=46"></noscript>
     <link rel="manifest" href="/manifest.json">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="theme-color" content="#2563EB">
     <style>
+        /* Swiss Industrial Design System */
+        :root {
+            --blue: #2563eb; --blue-dark: #1d4ed8; --blue-light: #eff6ff;
+            --gray-50: #f8fafc; --gray-100: #f1f5f9; --gray-200: #e2e8f0;
+            --gray-300: #cbd5e1; --gray-400: #94a3b8; --gray-500: #64748b;
+            --gray-600: #475569; --gray-700: #334155; --gray-800: #1e293b;
+            --gray-900: #0f172a;
+            --font: 'Outfit', system-ui, sans-serif;
+            --ease: cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        *, *::before, *::after { font-family: var(--font); }
+        h1, h2, h3, h4, h5, h6 { color: var(--gray-900); letter-spacing: -0.025em; }
+
         /* Critical inline styles - nav, preloader, mobile menu, skip-link */
         .glass-nav {
             background: rgba(255,255,255,.97) !important;
@@ -111,7 +124,7 @@
                     <span class="text-xl font-bold tracking-tight">JCSM</span>
                 </a>
                 <div class="flex items-center gap-2 text-sm text-gray-500">
-                    <span class="w-2 h-2 bg-red-500 rounded-full pulse-dot" aria-hidden="true"></span>
+                    <span class="w-2 h-2 bg-blue-500 rounded-full pulse-dot" aria-hidden="true"></span>
                     <span>Hors ligne</span>
                 </div>
             </div>
@@ -130,27 +143,27 @@
                     </div>
                 </div>
 
-                <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Vous &ecirc;tes hors ligne</h1>
+                <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Vous &ecirc;tes hors connexion</h1>
 
-                <p class="text-gray-600 text-lg mb-6 max-w-md mx-auto leading-relaxed">
-                    Pas de connexion internet. V&eacute;rifiez votre r&eacute;seau et r&eacute;essayez.
+                <p class="text-gray-500 text-lg mb-6 max-w-md mx-auto leading-relaxed">
+                    Reconnectez-vous pour acc&eacute;der au site JCSM.
                 </p>
 
-                <button onclick="location.reload()"
+                <button id="retry-btn"
                     class="btn-primary px-8 py-4 rounded-xl text-base font-medium text-white shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer border-0">
                     R&eacute;essayer la connexion
                 </button>
 
-                <div class="mt-8 p-4 bg-red-50 rounded-xl" id="status" role="status" aria-live="polite">
-                    <div class="flex items-center justify-center gap-2 text-sm text-red-600 font-medium">
-                        <span class="w-2 h-2 bg-red-500 rounded-full pulse-dot" aria-hidden="true"></span>
+                <div class="mt-8 p-4 bg-blue-50 rounded-xl" id="status" role="status" aria-live="polite">
+                    <div class="flex items-center justify-center gap-2 text-sm text-blue-600 font-medium">
+                        <span class="w-2 h-2 bg-blue-500 rounded-full pulse-dot" aria-hidden="true"></span>
                         <span id="status-text">Hors ligne</span>
                     </div>
                 </div>
 
-                <div class="mt-10 pt-8 border-t border-gray-100 text-left max-w-sm mx-auto">
-                    <p class="text-xs font-medium text-gray-500 uppercase tracking-wide mb-4">Que faire ?</p>
-                    <ul class="space-y-3 text-sm text-gray-600">
+                <div class="mt-10 pt-8 border-t border-gray-100 max-w-sm mx-auto">
+                    <p class="text-xs font-medium text-gray-500 uppercase tracking-wide mb-4 text-left">Que faire ?</p>
+                    <ul class="space-y-3 text-sm text-gray-600 text-left mb-8">
                         <li class="flex items-start gap-2">
                             <span class="text-blue-600 mt-0.5" aria-hidden="true">&#8226;</span>
                             V&eacute;rifiez votre connexion Wi-Fi ou donn&eacute;es mobiles
@@ -159,11 +172,12 @@
                             <span class="text-blue-600 mt-0.5" aria-hidden="true">&#8226;</span>
                             Rapprochez-vous de votre point d&rsquo;acc&egrave;s
                         </li>
-                        <li class="flex items-start gap-2">
-                            <span class="text-blue-600 mt-0.5" aria-hidden="true">&#8226;</span>
-                            Contactez-nous au <a href="tel:+33183755706" class="text-blue-600 font-medium">+33 1 83 75 57 06</a>
-                        </li>
                     </ul>
+                    <div class="bg-blue-50 rounded-xl p-5 text-center">
+                        <p class="text-sm text-gray-600 mb-2">Besoin d&rsquo;aide imm&eacute;diate ?</p>
+                        <a href="tel:+33183755706" class="text-xl font-bold text-blue-600 hover:text-blue-800 transition-colors">+33 1 83 75 57 06</a>
+                        <p class="text-xs text-gray-500 mt-1">Disponible 24h/24, 7j/7</p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -182,18 +196,22 @@
 
     <noscript><p style="text-align:center;color:#6B7280;margin-top:1rem;">Activez JavaScript pour d&eacute;tecter automatiquement le retour en ligne.</p></noscript>
     <script>
+        // Retry button
+        const retryBtn = document.getElementById("retry-btn");
+        if (retryBtn) retryBtn.addEventListener("click", () => location.reload());
+
         // Auto-detect when back online
         window.addEventListener('online', () => {
             const status = document.getElementById('status');
             const statusText = document.getElementById('status-text');
             if (status && statusText) {
-                status.classList.remove('bg-red-50');
-                status.classList.add('bg-green-50');
+                status.classList.remove('bg-blue-50');
+                status.classList.add('bg-gray-100');
                 statusText.textContent = 'Connexion r\u00e9tablie\u00a0!';
-                statusText.closest('.flex').querySelector('.pulse-dot').classList.remove('bg-red-500');
-                statusText.closest('.flex').querySelector('.pulse-dot').classList.add('bg-green-500');
-                statusText.classList.remove('text-red-600');
-                statusText.classList.add('text-green-600');
+                statusText.closest('.flex').querySelector('.pulse-dot').classList.remove('bg-blue-500');
+                statusText.closest('.flex').querySelector('.pulse-dot').classList.add('bg-gray-500');
+                statusText.classList.remove('text-blue-600');
+                statusText.classList.add('text-gray-700');
             }
             setTimeout(() => location.reload(), 1500);
         });

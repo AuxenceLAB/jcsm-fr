@@ -20,8 +20,8 @@
     --color-success: #10b981;
     --color-error: #ef4444;
     --color-gray-900: #111111;
-    --color-gray-500: #6b7280;
-    --color-gray-400: #9ca3af;
+    --color-gray-500: #525252;
+    --color-gray-400: #6b7280;
     --color-gray-300: #d1d5db;
     --color-gray-200: #e5e7eb;
     --color-gray-100: #f3f4f6;
@@ -34,7 +34,7 @@
     --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
     --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
     --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-    --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-sans: 'Outfit', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     --font-size-base: clamp(0.9rem, 0.85rem + 0.25vw, 1rem);
     --spacing-md: 1rem;
     --spacing-lg: 1.5rem;
@@ -49,26 +49,9 @@
     --duration-normal: 300ms;
     --duration-slow: 500ms;
     --duration-slower: 700ms;
-    color-scheme: light dark;
+    color-scheme: light;
 }
 
-/* === Dark Mode === */
-@media (prefers-color-scheme: dark) {
-    :root {
-        --color-gray-900: #f0f0f0;
-        --color-gray-500: #9ca3af;
-        --color-gray-400: #6b7280;
-        --color-gray-300: #374151;
-        --color-gray-200: #1f2937;
-        --color-gray-100: #111827;
-        --color-white: #111827;
-        --color-bg: #0f172a;
-        --color-text-secondary: #d1d5db;
-        --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.2);
-        --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
-        --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-    }
-}
 
 /* === Base Styles === */
 html {
@@ -181,23 +164,6 @@ nav.scrolled {
 }
 nav img[src*=logo] { mix-blend-mode: multiply; background: 0 0; }
 
-@media (prefers-color-scheme: dark) {
-    .glass-nav {
-        background: rgba(15, 23, 42, 0.85);
-        border-bottom-color: rgba(255, 255, 255, 0.1);
-    }
-    nav.scrolled {
-        background: rgba(15, 23, 42, 0.97);
-    }
-    .preloader {
-        background: var(--color-bg);
-    }
-    nav img[src*=logo],
-    .preloader img[src*=logo] {
-        mix-blend-mode: normal;
-        filter: brightness(1.2);
-    }
-}
 
 /* Nav link underline animations */
 .nav-link-active { position: relative; color: #2563eb; font-weight: 700; }
@@ -254,11 +220,6 @@ nav a:not(.btn-primary):not(.nav-link-active):hover::after { width: 80%; }
 }
 .mobile-menu-overlay.active { opacity: 1; visibility: visible; }
 
-@media (prefers-color-scheme: dark) {
-    .mobile-menu {
-        background: rgba(15, 23, 42, .98);
-    }
-}
 
 /* === Skip Link === */
 .skip-link {
@@ -306,18 +267,6 @@ nav a:not(.btn-primary):not(.nav-link-active):hover::after { width: 80%; }
     box-shadow: 0 12px 24px -8px rgba(37, 99, 235, .2);
 }
 
-@media (prefers-color-scheme: dark) {
-    .btn-secondary {
-        border-color: #374151;
-        color: #e5e7eb;
-        background: #1e293b;
-    }
-    .btn-secondary:hover {
-        border-color: #3b82f6;
-        background: #1e3a5f;
-        color: #93c5fd;
-    }
-}
 
 .btn-primary:disabled, .btn-secondary:disabled, button:disabled, button[disabled] {
     opacity: .5;
@@ -426,12 +375,6 @@ nav a:not(.btn-primary):not(.nav-link-active):hover::after { width: 80%; }
     box-shadow: 0 2px 8px rgba(0, 0, 0, .06);
 }
 
-@media (prefers-color-scheme: dark) {
-    .glass-badge {
-        background: rgba(30, 41, 59, .7);
-        border-color: rgba(255, 255, 255, .1);
-    }
-}
 
 /* === Scroll Progress Bar === */
 .scroll-progress {
@@ -509,16 +452,6 @@ img {
     background-size: 200% 100%;
 }
 
-@media (prefers-color-scheme: dark) {
-    img[loading=lazy] {
-        background: linear-gradient(90deg, #1e293b 25%, #334155 50%, #1e293b 75%);
-        background-size: 200% 100%;
-    }
-    img {
-        background: linear-gradient(135deg, #1e293b 25%, #334155 50%, #1e293b 75%);
-        background-size: 200% 100%;
-    }
-}
 
 /* === Responsive: Mobile-first critical overrides === */
 @media (max-width: 400px) {
@@ -588,53 +521,146 @@ img {
     }
     .logo-marquee-track { animation: none; transform: none; }
     .cursor-glow, .morph-blob, .particle { display: none; }
+    .reading-progress { display: none; }
     :root { scroll-behavior: auto; }
 }
 
 /* === Print Styles === */
 @media print {
-    body {
-        background: #fff;
-        color: #000;
-        font-size: 12pt;
-    }
-    .glass-nav, nav,
-    .scroll-progress,
-    .particles-bg,
+    /* Hide non-essential elements */
     .preloader,
-    .skip-link,
+    nav,
+    .glass-nav,
     .mobile-menu,
     .mobile-menu-overlay,
     .mobile-menu-btn,
+    .scroll-top,
+    .chatbot-bubble,
+    .chatbot-panel,
+    .chatbot-hint-tooltip,
+    .cookie-banner,
+    .cookie-consent,
+    .reading-progress,
+    .scroll-progress,
+    .particles-bg,
+    .morph-blob,
+    .cursor-glow,
+    .toc-nav,
+    .copy-btn,
+    .skip-link,
+    footer,
+    .hero-btns,
     .btn-primary,
-    .btn-secondary {
+    .btn-secondary,
+    .badge-section,
+    .social-sharing,
+    [aria-label="Fil d'Ariane"] {
         display: none !important;
     }
+
+    /* Clean layout */
+    body {
+        font-size: 12pt;
+        line-height: 1.6;
+        color: #000;
+        background: #fff;
+    }
+
+    main {
+        padding: 0;
+        margin: 0;
+    }
+
+    h1, h2, h3 {
+        page-break-after: avoid;
+        color: #000;
+    }
+
+    img {
+        max-width: 100% !important;
+        page-break-inside: avoid;
+    }
+
+    a {
+        color: #000;
+        text-decoration: underline;
+    }
+
+    /* Show URL for external links */
+    a[href^="http"]:after {
+        content: " (" attr(href) ")";
+        font-size: 0.8em;
+        color: #666;
+    }
+
+    /* Don't show URL for internal links */
+    a[href^="/"]:after,
+    a[href^="#"]:after {
+        content: "";
+    }
+
+    /* Gradient text fix for print */
+    .gradient-text {
+        -webkit-text-fill-color: #000 !important;
+        background: none !important;
+        color: #000 !important;
+    }
+
+    /* Clean section spacing */
+    section {
+        padding: 1rem 0;
+        page-break-inside: avoid;
+    }
+
+    /* Reset animations for print */
     .section-appear,
     .will-reveal {
         opacity: 1 !important;
         transform: none !important;
         animation: none !important;
     }
-    a[href]::after {
-        content: " (" attr(href) ")";
-        font-size: 0.8em;
-        color: #666;
+
+    /* Tables */
+    table {
+        border-collapse: collapse;
     }
-    a[href^="#"]::after,
-    a[href^="javascript:"]::after {
-        content: "";
+    td, th {
+        border: 1px solid #ccc;
+        padding: 0.5rem;
     }
-    img {
-        max-width: 100% !important;
-        page-break-inside: avoid;
-    }
-    h1, h2, h3 {
-        page-break-after: avoid;
-    }
-    .gradient-text {
-        -webkit-text-fill-color: initial;
-        background: none;
-        color: var(--color-primary);
-    }
+}
+
+/* === Reading Progress Bar (blog articles) === */
+.reading-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #2563eb, #3b82f6);
+    z-index: 9999;
+    transition: width 50ms linear;
+    width: 0%;
+}
+
+/* === Copy-to-clipboard button (blog articles) === */
+.copy-wrap { position: relative; }
+.copy-btn { z-index: 5; }
+
+/* === Blog Table of Contents === */
+.toc-nav .toc-link.active {
+    color: #2563eb;
+    font-weight: 600;
+}
+.toc-nav ol {
+    list-style: none;
+    counter-reset: toc-counter;
+    padding-left: 0;
+}
+.toc-nav ol li {
+    counter-increment: toc-counter;
+}
+.toc-nav ol li a::before {
+    content: counter(toc-counter) ". ";
+    color: #9ca3af;
+    font-weight: 500;
 }

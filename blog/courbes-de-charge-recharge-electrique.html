@@ -91,10 +91,10 @@
     <meta property="og:url" content="https://jcsm.fr/blog/courbes-de-charge-recharge-electrique">
     <meta property="og:title" content="Courbes de charge : comprendre la recharge de votre véhicule électrique">
     <meta property="og:description" content="Courbes de charge AC et DC, puissance, temps de recharge et optimisation. Guide technique complet pour comprendre la recharge électrique.">
-    <meta property="og:image" content="https://jcsm.fr/images/index.webp">
-    <meta property="og:image:alt" content="Infrastructure de recharge pour véhicules électriques">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
+    <meta property="og:image" content="https://jcsm.fr/images/amo.webp">
+    <meta property="og:image:alt" content="Pilotage et gestion de projets d'infrastructure de recharge">
+    <meta property="og:image:width" content="1844">
+    <meta property="og:image:height" content="1284">
     <meta property="og:locale" content="fr_FR">
     <meta property="og:site_name" content="JCSM - Infrastructure de Recharge">
     <meta property="article:published_time" content="2025-03-12">
@@ -109,22 +109,37 @@
     <link rel="dns-prefetch" href="https://fonts.googleapis.com">
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"
         media="print" onload="this.media='all'">
     <noscript>
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&display=swap"
             rel="stylesheet">
     </noscript>
-    <link rel="stylesheet" href="../css/critical.css?v=44">
-    <link rel="stylesheet" href="../css/tailwind.css?v=44" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="../css/tailwind.css?v=44"></noscript>
-    <link rel="stylesheet" href="../styles.css?v=44" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="../styles.css?v=44"></noscript>
+    <link rel="stylesheet" href="../css/critical.css?v=46">
+    <link rel="stylesheet" href="../css/tailwind.css?v=46" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="../css/tailwind.css?v=46"></noscript>
+    <link rel="stylesheet" href="../styles.css?v=46" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="../styles.css?v=46"></noscript>
     <link rel="manifest" href="../manifest.json">
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <style>
+        /* Swiss Industrial Design System */
+        :root {
+            --blue: #2563eb; --blue-dark: #1d4ed8; --blue-light: #eff6ff;
+            --gray-50: #f8fafc; --gray-100: #f1f5f9; --gray-200: #e2e8f0;
+            --gray-300: #cbd5e1; --gray-400: #94a3b8; --gray-500: #64748b;
+            --gray-600: #475569; --gray-700: #334155; --gray-800: #1e293b;
+            --gray-900: #0f172a;
+            --font: 'Outfit', system-ui, sans-serif;
+            --ease: cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        *, *::before, *::after { font-family: var(--font); }
+        h1, h2, h3, h4, h5, h6 { color: var(--gray-900); letter-spacing: -0.025em; }
+    </style>
 </head>
 <body class="text-gray-900 bg-white">
+    <div class="reading-progress" id="reading-progress"></div>
     <a href="#main-content" class="skip-link">Aller au contenu principal</a>
     <div class="preloader" id="preloader" role="status" aria-label="Chargement">
         <div class="flex flex-col items-center justify-center">
@@ -493,6 +508,20 @@
                     <a href="/contact" class="btn-primary px-8 py-3 rounded-xl font-medium inline-block">Demander un devis</a>
                 </div>
 
+
+                <!-- Partage social -->
+                <div class="flex items-center gap-4 pt-8 mt-8 border-t border-gray-200">
+                    <span class="text-sm font-semibold text-gray-700">Partager :</span>
+                    <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://jcsm.fr/blog/courbes-de-charge-recharge-electrique" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-gray-100 hover:bg-blue-50 text-gray-600 hover:text-blue-700 text-sm font-medium transition-colors" aria-label="Partager sur LinkedIn">
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                        LinkedIn
+                    </a>
+                    <a href="https://twitter.com/intent/tweet?url=https://jcsm.fr/blog/courbes-de-charge-recharge-electrique&amp;text=Courbes%20de%20charge%20%3A%20comprendre%20la%20recharge%20de%20votre%20v%C3%A9hicule%20%C3%A9lectrique" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-gray-100 hover:bg-gray-200 text-gray-600 hover:text-gray-900 text-sm font-medium transition-colors" aria-label="Partager sur X">
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                        X
+                    </a>
+                </div>
+
                 <!-- Articles li&#233;s -->
                 <div class="section-appear mt-16 pt-8 border-t border-gray-100">
                     <h3 class="text-lg font-bold mb-6">Articles similaires</h3>
@@ -566,19 +595,19 @@
                         </ul>
                     </nav>
                     <div class="flex items-center gap-3 mt-4">
-                        <a href="https://www.linkedin.com/company/jcsm-elec/" target="_blank" rel="noopener noreferrer" class="text-gray-500 hover:text-gray-900 transition-colors" aria-label="LinkedIn">
+                        <a href="https://www.linkedin.com/company/jcsm-elec/" target="_blank" rel="noopener noreferrer me" class="text-gray-500 hover:text-gray-900 transition-colors" aria-label="LinkedIn">
                             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
                         </a>
-                        <a href="https://www.facebook.com/profile.php?id=61587992161634" target="_blank" rel="noopener noreferrer" class="text-gray-500 hover:text-gray-900 transition-colors" aria-label="Facebook">
+                        <a href="https://www.facebook.com/profile.php?id=61587992161634" target="_blank" rel="noopener noreferrer me" class="text-gray-500 hover:text-gray-900 transition-colors" aria-label="Facebook">
                             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
                         </a>
-                        <a href="https://x.com/JCSM_ELEC" target="_blank" rel="noopener noreferrer" class="text-gray-500 hover:text-gray-900 transition-colors" aria-label="X (Twitter)">
+                        <a href="https://x.com/JCSM_ELEC" target="_blank" rel="noopener noreferrer me" class="text-gray-500 hover:text-gray-900 transition-colors" aria-label="X (Twitter)">
                             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
                         </a>
-                        <a href="https://www.instagram.com/jcsm.elec/" target="_blank" rel="noopener noreferrer" class="text-gray-500 hover:text-gray-900 transition-colors" aria-label="Instagram">
+                        <a href="https://www.instagram.com/jcsm.elec/" target="_blank" rel="noopener noreferrer me" class="text-gray-500 hover:text-gray-900 transition-colors" aria-label="Instagram">
                             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
                         </a>
-                        <a href="https://www.youtube.com/@JCSM_ELEC" target="_blank" rel="noopener noreferrer" class="text-gray-500 hover:text-gray-900 transition-colors" aria-label="YouTube">
+                        <a href="https://www.youtube.com/@JCSM_ELEC" target="_blank" rel="noopener noreferrer me" class="text-gray-500 hover:text-gray-900 transition-colors" aria-label="YouTube">
                             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
                         </a>
                     </div>
@@ -591,15 +620,15 @@
         </div>
     </footer>
 
-    <button class="scroll-top" id="scrollTop" aria-label="Retour en haut de la page">
-        <svg aria-hidden="true" class="w-6 h-6 float-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" /></svg>
+    <button class="scroll-top" id="scrollTop" aria-label="Retour en haut de page">
+        <svg aria-hidden="true" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.5 15.75l7.5-7.5 7.5 7.5" /></svg>
     </button>
-    <script src="../js/i18n.js?v=44" defer></script>
-    <script src="../js/config.js?v=44" defer></script>
-    <script src="../js/utils.js?v=44" defer></script>
-    <script src="../js/public.js?v=44" defer></script>
-    <script src="../js/analytics.js?v=44" defer></script>
-    <script src="../js/wow-effects.js?v=44" defer></script>
+    <script src="../js/i18n.js?v=46" defer></script>
+    <script src="../js/config.js?v=46" defer></script>
+    <script src="../js/utils.js?v=46" defer></script>
+    <script src="../js/public.js?v=46" defer></script>
+    <script src="../js/analytics.js?v=46" defer></script>
+    <script src="../js/wow-effects.js?v=46" defer></script>
     <script>if ('serviceWorker' in navigator) { window.addEventListener('load', () => { navigator.serviceWorker.register('/sw.js').catch(() => {}); }); }</script>
     <link rel="stylesheet" href="/css/chatbot.css" media="print" onload="this.media='all'">
 <noscript><link rel="stylesheet" href="/css/chatbot.css"></noscript>

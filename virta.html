@@ -3,6 +3,7 @@
 <head>
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/manifest.json">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Partenaire Virta | JCSM - Maintenance IRVE Nationale</title>
@@ -15,8 +16,8 @@
 <meta property="og:title" content="Partenaire Virta | JCSM - Maintenance IRVE Nationale">
 <meta property="og:description" content="Espace partenaire Virta : couverture nationale JCSM pour la maintenance IRVE en France et Belgique. Carte interactive des sites et techniciens.">
 <meta property="og:image" content="https://jcsm.fr/images/logo.png">
-<meta property="og:image:width" content="200">
-<meta property="og:image:height" content="200">
+<meta property="og:image:width" content="620">
+<meta property="og:image:height" content="600">
 <meta property="og:image:alt" content="Logo JCSM - Op&eacute;rateur Maintenance IRVE">
 <meta property="og:locale" content="fr_FR">
 <meta property="og:site_name" content="JCSM - Infrastructure de Recharge">
@@ -62,6 +63,19 @@
 <noscript><link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"></noscript>
 <link rel="stylesheet" href="/css/leaflet.css">
 <style>
+        /* Swiss Industrial Design System */
+        :root {
+            --blue: #2563eb; --blue-dark: #1d4ed8; --blue-light: #eff6ff;
+            --gray-50: #f8fafc; --gray-100: #f1f5f9; --gray-200: #e2e8f0;
+            --gray-300: #cbd5e1; --gray-400: #94a3b8; --gray-500: #64748b;
+            --gray-600: #475569; --gray-700: #334155; --gray-800: #1e293b;
+            --gray-900: #0f172a;
+            --font: 'Outfit', system-ui, sans-serif;
+            --ease: cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        *, *::before, *::after { font-family: var(--font); }
+        h1, h2, h3, h4, h5, h6 { color: var(--gray-900); letter-spacing: -0.025em; }
+
 *{margin:0;padding:0;box-sizing:border-box}
 :root{
   --bg:#f8fafc;--white:#ffffff;

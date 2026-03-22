@@ -87,18 +87,42 @@ function initOfflineIndicator() {
     try {
         var t = window.JCSM_I18N ? window.JCSM_I18N.t : function (k) { return k; };
 
+        function showOfflineBanner() {
+            if (document.getElementById("jcsm-offline-banner")) return;
+            var banner = document.createElement("div");
+            banner.id = "jcsm-offline-banner";
+            banner.setAttribute("role", "status");
+            banner.setAttribute("aria-live", "polite");
+            banner.style.cssText = "position:fixed;top:0;left:0;right:0;z-index:99998;background:#f59e0b;color:#78350f;text-align:center;padding:8px 16px;font-size:14px;font-weight:500;font-family:system-ui,sans-serif;box-shadow:0 2px 8px rgba(0,0,0,.15);transform:translateY(-100%);transition:transform .3s ease;";
+            banner.textContent = t("offlineBanner");
+            document.body.appendChild(banner);
+            requestAnimationFrame(function () {
+                banner.style.transform = "translateY(0)";
+            });
+        }
+
+        function hideOfflineBanner() {
+            var banner = document.getElementById("jcsm-offline-banner");
+            if (!banner) return;
+            banner.style.transform = "translateY(-100%)";
+            setTimeout(function () { banner.remove(); }, 300);
+        }
+
         window.addEventListener("online", function () {
+            hideOfflineBanner();
             showToast(t("onlineRestored"), "success");
             document.body.classList.remove("offline-mode");
         });
 
         window.addEventListener("offline", function () {
+            showOfflineBanner();
             showToast(t("offlineMode"), "warning", 5000);
             document.body.classList.add("offline-mode");
         });
 
         if (!navigator.onLine) {
             document.body.classList.add("offline-mode");
+            showOfflineBanner();
         }
     } catch (e) {
         /* silent fail — offline indicator non-critical */

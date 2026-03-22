@@ -39,6 +39,13 @@ if (!checkRateLimit('chatbot', 3, 60)) {
     exit;
 }
 
+// CSRF protection: require X-Requested-With header
+if (($_SERVER['HTTP_X_REQUESTED_WITH'] ?? '') !== 'XMLHttpRequest') {
+    http_response_code(403);
+    echo json_encode(['error' => 'Invalid request']);
+    exit;
+}
+
 // --- Configuration ---
 $apiKey = loadEnvVar('MINIMAX_API_KEY');
 if (!$apiKey) {

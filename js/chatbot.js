@@ -10,7 +10,105 @@
     var HISTORY_LIMIT = cfg.historyLimit || 20;
     var SESSION_KEY = cfg.sessionKey || "jcsm_chatbot";
     var HINT_DELAY = cfg.hintDelay || 15000;
-    var GREETING = cfg.greeting || "Bonjour ! Je suis l'assistant JCSM, sp\u00e9cialiste en bornes de recharge \u00e9lectrique (IRVE). Comment puis-je vous aider ?";
+    var DEFAULT_GREETING = cfg.greeting || "Bonjour ! Je suis l'assistant JCSM, spécialiste en bornes de recharge électrique (IRVE). Comment puis-je vous aider ?";
+
+    /* ── Contextual greeting based on current page ── */
+    function getContextualGreeting() {
+        var path = window.location.pathname;
+
+        if (path.includes('/solutions/cpo')) {
+            return "Bonjour ! Vous gérez un réseau de bornes ? Je peux vous aider à comprendre comment JCSM optimise le taux de disponibilité pour les CPO.";
+        } else if (path.includes('/solutions/entreprises') || path.includes('/solutions/flottes')) {
+            return "Bonjour ! Vous souhaitez électrifier votre flotte ? Je peux vous renseigner sur les aides ADVENIR et l'installation en entreprise.";
+        } else if (path.includes('/solutions/fabricants')) {
+            return "Bonjour ! Vous êtes fabricant de bornes ? Découvrez notre réseau SAV terrain externalisé.";
+        } else if (path.includes('/solutions/retail')) {
+            return "Bonjour ! Vous cherchez à installer des bornes en grande distribution ? Je peux vous guider.";
+        } else if (path.includes('/installation') || path.includes('/conformite')) {
+            return "Bonjour ! Une question sur l'installation ou la mise en conformité de bornes IRVE ? Je suis là pour vous aider.";
+        } else if (path.includes('/exploitation') || path.includes('/maintenance')) {
+            return "Bonjour ! Besoin d'informations sur la maintenance de vos bornes ? SLA, supervision, dépannage — posez votre question.";
+        } else if (path.includes('/securisation')) {
+            return "Bonjour ! Vos bornes subissent des dégradations ? Je peux vous présenter nos solutions de sécurisation.";
+        } else if (path.includes('/centre-appel')) {
+            return "Bonjour ! Vous cherchez une hotline marque blanche pour votre réseau de bornes ? Je vous explique notre offre.";
+        } else if (path.includes('/blog/')) {
+            return "Bonjour ! Cet article vous intéresse ? N'hésitez pas à me poser vos questions sur le sujet.";
+        } else if (path.includes('/zones/') || path.includes('/couverture')) {
+            return "Bonjour ! Vous cherchez un prestataire IRVE dans votre région ? Dites-moi où se situe votre projet.";
+        } else if (path.includes('/carrieres')) {
+            return "Bonjour ! Intéressé par un poste de technicien IRVE chez JCSM ? Je peux vous donner plus d'informations.";
+        } else if (path.includes('/devenir-partenaire')) {
+            return "Bonjour ! Vous souhaitez rejoindre le réseau JCSM ? Je peux vous expliquer les conditions de partenariat.";
+        } else if (path.includes('/contact')) {
+            return "Bonjour ! Vous pouvez remplir le formulaire ou me poser directement votre question ici.";
+        } else if (path.includes('/a-propos')) {
+            return "Bonjour ! Vous voulez en savoir plus sur JCSM ? Je suis là pour répondre à vos questions.";
+        } else if (path.startsWith('/en/')) {
+            return "Hello! How can I help you with your EV charging project?";
+        } else if (path.startsWith('/de/')) {
+            return "Hallo! Wie kann ich Ihnen bei Ihrem Ladeprojekt helfen?";
+        } else if (path.startsWith('/es/')) {
+            return "¡Hola! ¿Cómo puedo ayudarle con su proyecto de recarga?";
+        } else if (path.startsWith('/nl/')) {
+            return "Hallo! Hoe kan ik u helpen met uw laadproject?";
+        } else if (path.startsWith('/it/')) {
+            return "Ciao! Come posso aiutarla con il suo progetto di ricarica?";
+        } else if (path.startsWith('/pt/')) {
+            return "Olá! Como posso ajudá-lo com o seu projeto de carregamento?";
+        } else if (path.startsWith('/pl/')) {
+            return "Cześć! Jak mogę pomóc w Twoim projekcie ładowania?";
+        }
+        return DEFAULT_GREETING;
+    }
+
+    /* ── Contextual hint based on current page ── */
+    function getContextualHint() {
+        var path = window.location.pathname;
+
+        if (path.includes('/solutions/cpo')) {
+            return "Besoin d'optimiser votre taux de disponibilité ?";
+        } else if (path.includes('/solutions/entreprises') || path.includes('/solutions/flottes')) {
+            return "Un projet de flotte électrique ? Parlons-en !";
+        } else if (path.includes('/solutions/fabricants')) {
+            return "Besoin d'un réseau SAV terrain ?";
+        } else if (path.includes('/solutions/retail')) {
+            return "Des bornes pour vos parkings clients ?";
+        } else if (path.includes('/installation') || path.includes('/conformite')) {
+            return "Une question sur l'installation IRVE ?";
+        } else if (path.includes('/exploitation') || path.includes('/maintenance')) {
+            return "Besoin d'un contrat de maintenance ?";
+        } else if (path.includes('/securisation')) {
+            return "Protégez vos bornes contre le vandalisme";
+        } else if (path.includes('/centre-appel')) {
+            return "Découvrez notre hotline marque blanche";
+        } else if (path.includes('/blog/')) {
+            return "Une question sur cet article ?";
+        } else if (path.includes('/zones/') || path.includes('/couverture')) {
+            return "Un technicien IRVE près de chez vous ?";
+        } else if (path.includes('/carrieres')) {
+            return "Rejoignez l'équipe JCSM !";
+        } else if (path.includes('/devenir-partenaire')) {
+            return "Devenez partenaire JCSM !";
+        } else if (path.includes('/contact')) {
+            return "Posez votre question ici !";
+        } else if (path.startsWith('/en/')) {
+            return "Need help with EV charging?";
+        } else if (path.startsWith('/de/')) {
+            return "Brauchen Sie Hilfe beim Laden?";
+        } else if (path.startsWith('/es/')) {
+            return "¿Necesita ayuda con la recarga?";
+        } else if (path.startsWith('/nl/')) {
+            return "Hulp nodig bij het laden?";
+        } else if (path.startsWith('/it/')) {
+            return "Bisogno di aiuto con la ricarica?";
+        } else if (path.startsWith('/pt/')) {
+            return "Precisa de ajuda com o carregamento?";
+        } else if (path.startsWith('/pl/')) {
+            return "Potrzebujesz pomocy z ładowaniem?";
+        }
+        return "Un projet IRVE ? Parlons-en !";
+    }
 
     /* ── State ── */
     var state = {
@@ -30,7 +128,7 @@
         bindEvents();
 
         if (state.messages.length === 0) {
-            addBotMessage(GREETING);
+            addBotMessage(getContextualGreeting());
         } else {
             renderHistory();
         }
@@ -165,6 +263,7 @@
             bubble.classList.add("active");
             bubble.setAttribute("aria-label", "Fermer le chat");
             hideNotification();
+            dismissHintTooltip();
             scrollToBottom();
             setTimeout(function () {
                 var input = document.getElementById("chatbot-input");
@@ -413,6 +512,14 @@
     function callAPI(message, leadInfo) {
         if (!message && !leadInfo) return;
 
+        /* Fail fast if offline */
+        if (!navigator.onLine) {
+            if (message) {
+                addBotMessage("Vous êtes hors ligne. Vérifiez votre connexion et réessayez.");
+            }
+            return;
+        }
+
         state.loading = true;
         var sendBtn = document.getElementById("chatbot-send");
         if (sendBtn) sendBtn.disabled = true;
@@ -470,16 +577,57 @@
         });
     }
 
-    /* ── Hint (notification after delay) ── */
+    /* ── Hint (contextual notification after delay) ── */
     function scheduleHint() {
         if (state.messages.length > 1) return;
         if (sessionStorage.getItem("jcsm_chatbot_hint")) return;
         setTimeout(function () {
             if (!state.open) {
                 showNotification();
+                showHintTooltip(getContextualHint());
                 sessionStorage.setItem("jcsm_chatbot_hint", "1");
             }
         }, HINT_DELAY);
+    }
+
+    function showHintTooltip(text) {
+        /* Remove existing tooltip if any */
+        var existing = document.getElementById("jcsm-chatbot-hint");
+        if (existing && existing.parentNode) existing.parentNode.removeChild(existing);
+
+        var tooltip = document.createElement("div");
+        tooltip.id = "jcsm-chatbot-hint";
+        tooltip.className = "chatbot-hint-tooltip";
+        tooltip.textContent = text;
+
+        /* Close button */
+        var closeBtn = document.createElement("button");
+        closeBtn.setAttribute("aria-label", "Fermer");
+        closeBtn.className = "chatbot-hint-close";
+        closeBtn.textContent = "\u00d7";
+        closeBtn.addEventListener("click", function (e) {
+            e.stopPropagation();
+            if (tooltip.parentNode) tooltip.parentNode.removeChild(tooltip);
+        });
+        tooltip.appendChild(closeBtn);
+
+        /* Click on tooltip opens the chat */
+        tooltip.addEventListener("click", function () {
+            if (tooltip.parentNode) tooltip.parentNode.removeChild(tooltip);
+            if (!state.open) togglePanel();
+        });
+
+        document.body.appendChild(tooltip);
+
+        /* Auto-dismiss after 8 seconds */
+        setTimeout(function () {
+            if (tooltip.parentNode) tooltip.parentNode.removeChild(tooltip);
+        }, 8000);
+    }
+
+    function dismissHintTooltip() {
+        var existing = document.getElementById("jcsm-chatbot-hint");
+        if (existing && existing.parentNode) existing.parentNode.removeChild(existing);
     }
 
     /* ── Bootstrap ── */

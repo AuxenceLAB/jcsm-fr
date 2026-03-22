@@ -71,6 +71,12 @@ function initContactForm() {
 
             if (!valid) return;
 
+            // Check offline before attempting submission
+            if (!navigator.onLine) {
+                showError(null, t("offlineFormError"), formMessage);
+                return;
+            }
+
             // Show loading state
             var submitText = submitBtn.querySelector(".submit-text");
             var submitLoading = submitBtn.querySelector(".submit-loading");

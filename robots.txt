@@ -38,10 +38,7 @@ Disallow: /ca1
 Disallow: /ca2
 Disallow: /evergreen
 
-# Disallow noindex legal pages
-Disallow: /cgv
-Disallow: /confidentialite
-Disallow: /mentions-legales
+# Disallow partner-specific pages
 Disallow: /powerdot
 Disallow: /virta
 

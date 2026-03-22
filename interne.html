@@ -11,10 +11,20 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <meta name="robots" content="noindex, nofollow">
     <meta property="og:site_name" content="JCSM - Infrastructure de Recharge">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://unpkg.com">
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="preconnect" href="https://unpkg.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="preconnect" href="https://cdn.tailwindcss.com" crossorigin>
+    <link rel="dns-prefetch" href="https://cdn.tailwindcss.com">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"
         media="print" onload="this.media='all'">
     <noscript>
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&display=swap"
             rel="stylesheet">
     </noscript>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous"/>
@@ -24,7 +34,7 @@
     <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js" integrity="sha384-eXVCORTRlv4FUUgS/xmOyr66XBVraen8ATNLMESp92FKXLAMiKkerixTiBvXriZr" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.5.1/dist/chart.umd.min.js" integrity="sha384-jb8JQMbMoBUzgWatfe6COACi2ljcDdZQ2OxczGA3bGNeWe+6DChMTBJemed7ZnvJ" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@twilio/voice-sdk@2.18.1/dist/twilio.min.js" integrity="sha384-LzKz9y+8WXmqRYaRNg0w7zDvcSqdT8LEPxjo01Ing3j3062CP8S56jjsb5cpffiF" crossorigin="anonymous"></script>
-    <script src="/js/config.js?v=44"></script>
+    <script src="/js/config.js?v=46"></script>
     <style>
         :root {
             --primary: #1B365D;
@@ -93,7 +103,7 @@
             :root body *, :root body *::before, :root body *::after { animation-duration: 0.01ms; animation-iteration-count: 1; transition-duration: 0.01ms; }
         }
         * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
-        body { font-family: 'Inter', system-ui, sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; min-height: 100dvh; line-height: 1.5; overscroll-behavior: none; }
+        body { font-family: 'Outfit', system-ui, sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; min-height: 100dvh; line-height: 1.5; overscroll-behavior: none; }
         ::-webkit-scrollbar { width: 6px; height: 6px; }
         ::-webkit-scrollbar-track { background: var(--bg3); }
         ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
@@ -660,7 +670,7 @@
         </div>
         <h1>JCSM Interne</h1>
         <p>Espace de gestion des interventions IRVE</p>
-        <form id="login-form" onsubmit="return handleLogin(event)">
+        <form id="login-form" aria-label="Connexion au portail interne">
             <div style="position:relative">
                 <svg style="position:absolute;left:16px;top:50%;transform:translateY(-50%);width:18px;height:18px;color:var(--muted);pointer-events:none" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
                 <input type="password" id="login-password" class="login-input" style="padding-left:46px" placeholder="Mot de passe" autocomplete="current-password" autofocus required>
@@ -880,7 +890,7 @@
             </div>
         </div>
         
-        <form id="form">
+        <form id="form" aria-label="Formulaire de recherche et filtres">
             <div style="margin-bottom:24px">
                 <label>⏰ Horaires</label>
                 <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px">
@@ -5316,6 +5326,8 @@ async function handleLogin(e) {
     return false;
 }
 window.handleLogin = handleLogin;
+const loginForm = document.getElementById("login-form");
+if (loginForm) loginForm.addEventListener("submit", function(e) { handleLogin(e); return false; });
 
 // Check existing session on load
 const existingSession = isSessionValid();

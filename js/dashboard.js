@@ -13,7 +13,7 @@ window.addEventListener("beforeunload", function() {
 function updateDashboard() {
     try {
         // Check admin access - hide dashboard tab for non-admins
-        if (!technicien || !technicien.isAdmin) {
+        if (typeof technicien === 'undefined' || !technicien || !technicien.isAdmin) {
             var tabBtn = document.getElementById("dashboard-tab-button");
             if (tabBtn) tabBtn.style.display = "none";
             return;

@@ -16,28 +16,43 @@
     <meta property="og:description" content="La page que vous cherchez n'existe plus ou a été déplacée. Retrouvez nos services IRVE.">
     <meta property="og:image" content="https://jcsm.fr/images/logo.png">
     <meta property="og:image:alt" content="Logo JCSM">
+    <meta property="og:image:width" content="620">
+    <meta property="og:image:height" content="600">
     <meta property="og:locale" content="fr_FR">
     <meta property="og:type" content="website">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="dns-prefetch" href="https://fonts.googleapis.com">
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"
         media="print" onload="this.media='all'">
     <noscript>
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&display=swap"
             rel="stylesheet">
     </noscript>
-    <link rel="stylesheet" href="/css/critical.css?v=44">
-    <link rel="stylesheet" href="/css/tailwind.css?v=44" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="/css/tailwind.css?v=44"></noscript>
-    <link rel="stylesheet" href="/styles.css?v=44" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="/styles.css?v=44"></noscript>
+    <link rel="stylesheet" href="/css/critical.css?v=46">
+    <link rel="stylesheet" href="/css/tailwind.css?v=46" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="/css/tailwind.css?v=46"></noscript>
+    <link rel="stylesheet" href="/styles.css?v=46" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="/styles.css?v=46"></noscript>
     <link rel="manifest" href="/manifest.json">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="theme-color" content="#2563EB">
     <style>
+        /* Swiss Industrial Design System */
+        :root {
+            --blue: #2563eb; --blue-dark: #1d4ed8; --blue-light: #eff6ff;
+            --gray-50: #f8fafc; --gray-100: #f1f5f9; --gray-200: #e2e8f0;
+            --gray-300: #cbd5e1; --gray-400: #94a3b8; --gray-500: #64748b;
+            --gray-600: #475569; --gray-700: #334155; --gray-800: #1e293b;
+            --gray-900: #0f172a;
+            --font: 'Outfit', system-ui, sans-serif;
+            --ease: cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        *, *::before, *::after { font-family: var(--font); }
+        h1, h2, h3, h4, h5, h6 { color: var(--gray-900); letter-spacing: -0.025em; }
+
         /* Critical inline styles - nav, preloader, mobile menu, skip-link */
         .glass-nav {
             background: rgba(255,255,255,.97) !important;
@@ -103,7 +118,7 @@
             transform: translateY(-2px);
         }
         .btn-primary:active { transform: translateY(1px) scale(0.98); }
-        .scroll-top { border-radius: 0.75rem !important; width: 44px !important; height: 44px !important; }
+
         .skip-link {
             position: absolute; top: -100%; left: 16px;
             background: #2563eb; color: #fff; padding: 12px 24px;
@@ -157,7 +172,7 @@
                 <a href="/centre-appel" class="text-base text-gray-600 hover:text-gray-900 transition-colors py-2">Support</a>
                 <a href="/solutions/" class="text-base text-gray-600 hover:text-gray-900 transition-colors py-2">Solutions</a>
                 <a href="/a-propos" class="text-base text-gray-600 hover:text-gray-900 transition-colors py-2">&#192; propos</a>
-                <a href="/contact" class="btn-primary px-6 py-3 rounded-lg text-base font-medium text-white inline-block text-center mt-4">Contact</a>
+                <a href="/contact" class="btn-primary px-6 py-3 rounded-lg text-base font-medium text-white inline-block text-center mt-4">Devis gratuit</a>
             </div>
         </div>
     </nav>
@@ -190,7 +205,7 @@
 
     <main id="main-content" role="main">
         <section class="min-h-screen flex items-center justify-center px-6 bg-white pt-24 pb-16">
-            <div class="max-w-lg mx-auto text-center">
+            <div class="max-w-2xl mx-auto text-center">
                 <div class="mb-8 floating">
                     <div class="w-20 h-20 bg-blue-50 rounded-2xl flex items-center justify-center mx-auto">
                         <svg class="w-10 h-10 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -199,20 +214,20 @@
                     </div>
                 </div>
 
-                <h1 class="text-7xl md:text-8xl font-extrabold text-gray-900 mb-4 leading-none">404</h1>
+                <p class="text-sm font-semibold text-blue-600 uppercase tracking-widest mb-4">Erreur 404</p>
 
-                <h2 class="text-2xl md:text-3xl font-bold mb-4 text-gray-900">
-                    Cette page s&#8217;est d&#233;branch&#233;e
-                </h2>
+                <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4 leading-tight">
+                    Cette page n&#8217;existe pas &#8212; ou plus.
+                </h1>
 
-                <p class="text-gray-600 text-lg mb-10 max-w-md mx-auto leading-relaxed">
-                    Pas de courant ici. La page que vous cherchez a &#233;t&#233; d&#233;plac&#233;e ou n&#8217;existe plus, mais notre r&#233;seau reste bien connect&#233;.
+                <p class="text-xl text-gray-500 mb-10 max-w-md mx-auto leading-relaxed">
+                    Mais on peut quand m&#234;me vous aider.
                 </p>
 
-                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <div class="flex flex-col sm:flex-row gap-4 justify-center mb-14">
                     <a href="/"
                         class="btn-primary px-8 py-4 rounded-xl text-base font-medium text-white shadow-lg hover:shadow-xl transition-all duration-300">
-                        Revenir &#224; l&#8217;accueil
+                        Retour &#224; l&#8217;accueil
                     </a>
                     <a href="/contact"
                         class="px-8 py-4 border border-gray-200 rounded-xl text-gray-700 font-medium hover:bg-gray-50 hover:border-gray-300 transition-all duration-300">
@@ -220,20 +235,50 @@
                     </a>
                 </div>
 
-                <div class="mt-14 pt-10 border-t border-gray-100">
-                    <p class="text-sm font-medium text-gray-500 mb-6 uppercase tracking-wide">Pages populaires</p>
-                    <div class="grid grid-cols-2 gap-3 text-left">
+                <div class="pt-10 border-t border-gray-100">
+                    <p class="text-sm font-medium text-gray-500 mb-6 uppercase tracking-wide">Acc&#232;s rapide</p>
+                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-center">
+                        <a href="/" class="flex flex-col items-center gap-2 p-4 rounded-xl hover:bg-gray-50 transition-colors group">
+                            <div class="w-10 h-10 bg-blue-50 rounded-lg flex items-center justify-center">
+                                <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+                            </div>
+                            <span class="text-sm font-medium text-gray-700 group-hover:text-gray-900">Accueil</span>
+                        </a>
+                        <a href="/solutions/" class="flex flex-col items-center gap-2 p-4 rounded-xl hover:bg-gray-50 transition-colors group">
+                            <div class="w-10 h-10 bg-blue-50 rounded-lg flex items-center justify-center">
+                                <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+                            </div>
+                            <span class="text-sm font-medium text-gray-700 group-hover:text-gray-900">Services</span>
+                        </a>
+                        <a href="/blog" class="flex flex-col items-center gap-2 p-4 rounded-xl hover:bg-gray-50 transition-colors group">
+                            <div class="w-10 h-10 bg-blue-50 rounded-lg flex items-center justify-center">
+                                <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"/></svg>
+                            </div>
+                            <span class="text-sm font-medium text-gray-700 group-hover:text-gray-900">Blog</span>
+                        </a>
+                        <a href="/contact" class="flex flex-col items-center gap-2 p-4 rounded-xl hover:bg-gray-50 transition-colors group">
+                            <div class="w-10 h-10 bg-blue-50 rounded-lg flex items-center justify-center">
+                                <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                            </div>
+                            <span class="text-sm font-medium text-gray-700 group-hover:text-gray-900">Contact</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="mt-10 pt-8 border-t border-gray-100">
+                    <p class="text-sm font-medium text-gray-500 mb-5 uppercase tracking-wide">Pages les plus visit&#233;es</p>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-left">
                         <a href="/installation-conformite" class="flex items-center gap-3 p-3 rounded-xl hover:bg-gray-50 transition-colors group">
                             <div class="w-9 h-9 bg-blue-50 rounded-lg flex items-center justify-center flex-shrink-0">
-                                <svg class="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+                                <svg class="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
                             </div>
-                            <span class="text-sm font-medium text-gray-700 group-hover:text-gray-900">Installation</span>
+                            <span class="text-sm font-medium text-gray-700 group-hover:text-gray-900">Installation &amp; conformit&#233;</span>
                         </a>
                         <a href="/exploitation" class="flex items-center gap-3 p-3 rounded-xl hover:bg-gray-50 transition-colors group">
                             <div class="w-9 h-9 bg-blue-50 rounded-lg flex items-center justify-center flex-shrink-0">
                                 <svg class="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.066 2.573c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.573 1.066c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.066-2.573c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
                             </div>
-                            <span class="text-sm font-medium text-gray-700 group-hover:text-gray-900">Exploitation</span>
+                            <span class="text-sm font-medium text-gray-700 group-hover:text-gray-900">Exploitation &amp; maintenance</span>
                         </a>
                         <a href="/centre-appel" class="flex items-center gap-3 p-3 rounded-xl hover:bg-gray-50 transition-colors group">
                             <div class="w-9 h-9 bg-blue-50 rounded-lg flex items-center justify-center flex-shrink-0">
@@ -245,7 +290,7 @@
                             <div class="w-9 h-9 bg-blue-50 rounded-lg flex items-center justify-center flex-shrink-0">
                                 <svg class="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
                             </div>
-                            <span class="text-sm font-medium text-gray-700 group-hover:text-gray-900">&#192; propos</span>
+                            <span class="text-sm font-medium text-gray-700 group-hover:text-gray-900">&#192; propos de JCSM</span>
                         </a>
                     </div>
                 </div>
@@ -333,19 +378,19 @@
         </div>
     </footer>
 
-    <button class="scroll-top" id="scrollTop" aria-label="Retour en haut de la page">
-        <svg class="w-6 h-6 float-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+    <button class="scroll-top" id="scrollTop" aria-label="Retour en haut de page">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
         </svg>
     </button>
 
     <noscript><p style="text-align:center;color:#9ca3af;margin-top:2rem;">JavaScript est requis pour cette page.</p></noscript>
-    <script src="/js/config.js?v=44" defer></script>
-    <script src="/js/utils.js?v=44" defer></script>
-    <script src="/js/i18n.js?v=44" defer></script>
-    <script src="/js/public.js?v=44" defer></script>
-    <script src="/js/analytics.js?v=44" defer></script>
-    <script src="/js/wow-effects.js?v=44" defer></script>
+    <script src="/js/config.js?v=46" defer></script>
+    <script src="/js/utils.js?v=46" defer></script>
+    <script src="/js/i18n.js?v=46" defer></script>
+    <script src="/js/public.js?v=46" defer></script>
+    <script src="/js/analytics.js?v=46" defer></script>
+    <script src="/js/wow-effects.js?v=46" defer></script>
     <script>
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {

@@ -9,8 +9,11 @@
     <title>JCSM | Plateforme d'Exploitation (Démo)</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-    <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://unpkg.com">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"></noscript>
     <link rel="stylesheet" href="/css/leaflet.css">
     <script src="/js/vendor/leaflet.js" defer></script>
     <style>
@@ -49,7 +52,7 @@
             --transition: 180ms ease;
         }
         html { font-size: 15px; }
-        body { font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif; background:var(--bg); color:var(--text); line-height:1.5; overflow:hidden; height:100vh; }
+        body { font-family:'Outfit',-apple-system,BlinkMacSystemFont,sans-serif; background:var(--bg); color:var(--text); line-height:1.5; overflow:hidden; height:100vh; }
         a { color:var(--accent); text-decoration:none; }
         button { font-family:inherit; cursor:pointer; border:none; background:none; color:inherit; }
         input,select,textarea { font-family:inherit; color:var(--text); background:var(--bg-input); border:1px solid var(--border); border-radius:var(--radius-sm); padding:10px 14px; font-size:.9rem; outline:none; transition:border var(--transition); }
@@ -319,7 +322,7 @@
         .map-live-dot { width:8px; height:8px; border-radius:50%; background:var(--success); display:inline-block; margin-right:6px; animation:statusPulse 2s infinite; }
         .tech-marker { width:36px; height:36px; border-radius:50%; border:3px solid #fff; display:flex; align-items:center; justify-content:center; font-size:11px; font-weight:700; color:#fff; box-shadow:0 2px 8px rgba(0,0,0,.3); transition:transform .2s; }
         .tech-marker:hover { transform:scale(1.2); }
-        .tech-popup { font-family:'Inter',sans-serif; font-size:13px; line-height:1.4; }
+        .tech-popup { font-family:'Outfit',sans-serif; font-size:13px; line-height:1.4; }
         .tech-popup strong { font-size:14px; }
         .tech-popup .status-line { display:flex; align-items:center; gap:5px; margin-top:4px; }
         .tech-popup .status-dot { width:7px; height:7px; border-radius:50%; display:inline-block; }
@@ -337,7 +340,7 @@
     <div class="login-grid"></div>
     <div class="login-glow"></div>
     <div class="login-card">
-        <img src="/images/logo.webp" alt="JCSM" class="login-logo">
+        <img src="/images/logo.webp" alt="JCSM" class="login-logo" width="72" height="72">
         <h1 class="login-title">Plateforme d'Exploitation</h1>
         <p class="login-subtitle">Version Démo</p>
         <div class="login-input-wrap">
@@ -353,7 +356,7 @@
 <div id="app">
     <aside id="sidebar">
         <div class="sidebar-header">
-            <img src="/images/logo.webp" alt="JCSM">
+            <img src="/images/logo.webp" alt="JCSM" width="40" height="40">
             <div><span class="sidebar-brand-name">JCSM</span><br><span class="sidebar-brand-sub">Exploitation - Démo</span></div>
         </div>
         <nav class="sidebar-nav">
@@ -943,7 +946,7 @@ function viewReport(id) {
     $('detail-body').innerHTML = `
         <div style="border:1px solid var(--border);border-radius:var(--radius);overflow:hidden">
             <div style="background:linear-gradient(135deg,var(--accent),#1d4ed8);color:#fff;padding:20px 24px">
-                <div style="display:flex;align-items:center;gap:12px;margin-bottom:8px"><img src="/images/logo.webp" alt="JCSM" style="width:36px;height:36px;border-radius:8px"><strong style="font-size:1.1rem">JCSM - Rapport d'intervention</strong></div>
+                <div style="display:flex;align-items:center;gap:12px;margin-bottom:8px"><img src="/images/logo.webp" alt="JCSM" width="36" height="36" style="width:36px;height:36px;border-radius:8px"><strong style="font-size:1.1rem">JCSM - Rapport d'intervention</strong></div>
                 <div style="font-size:.85rem;opacity:.9">${h(t.id)} &middot; ${cr.toLocaleDateString('fr-FR',{day:'numeric',month:'long',year:'numeric'})}</div>
             </div>
             <div style="padding:20px 24px">

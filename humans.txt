@@ -1,0 +1,16 @@
+/* TEAM */
+Company: JCSM SAS
+Site: https://jcsm.fr
+Location: Paris, France
+Founded: 2019
+
+/* SITE */
+Stack: HTML5, CSS3, Tailwind CSS, Vanilla JS, PHP 8.4
+Hosting: nginx, Certbot SSL
+Standards: WCAG 2.1 AA, Schema.org, Open Graph
+Last update: 2026-03-22
+
+/* THANKS */
+Tailwind CSS: https://tailwindcss.com
+Leaflet: https://leafletjs.com
+Formspree: https://formspree.io

@@ -15,7 +15,7 @@ require_once __DIR__ . '/helpers.php';
 $envSecret = loadEnvVar('JCSM_AUTH_SECRET');
 if (!$envSecret) {
     http_response_code(500);
-    echo json_encode(['error' => 'Configuration serveur incomplète (JCSM_AUTH_SECRET manquant)']);
+    echo json_encode(['error' => 'Erreur de configuration serveur']);
     exit;
 }
 define('AUTH_SECRET', $envSecret);

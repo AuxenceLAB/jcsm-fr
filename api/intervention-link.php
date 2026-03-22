@@ -80,6 +80,13 @@ if ($action === 'generate' && $_SERVER['REQUEST_METHOD'] === 'GET') {
 // ACTION: validate (pas d'auth JCSM)
 // ============================
 if ($action === 'validate' && $_SERVER['REQUEST_METHOD'] === 'GET') {
+    // Rate limiting: 10 validations per minute per IP
+    if (!checkRateLimit('intv_validate_' . ($_SERVER['REMOTE_ADDR'] ?? 'unknown'), 10, 60)) {
+        http_response_code(429);
+        echo json_encode(['error' => 'Trop de requêtes']);
+        exit;
+    }
+
     $token   = $_GET['token'] ?? '';
     $id      = $_GET['id'] ?? '';
     $phone   = $_GET['phone'] ?? '';
@@ -266,9 +273,11 @@ function generateReportHtml(array $data): string
         $photosHtml = '<h2 style="color:#2563EB;border-bottom:2px solid #2563EB;padding-bottom:8px">Photos</h2>';
         $photosHtml .= '<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">';
         foreach ($photos as $i => $photo) {
-            if (is_string($photo) && str_starts_with($photo, 'data:image/')) {
-                $photosHtml .= '<img src="' . $photo . '" style="width:100%;border-radius:8px;border:1px solid #e5e7eb" alt="Photo ' . ($i + 1) . '">';
+            if (!is_string($photo)) continue;
+            if (!preg_match('/^data:image\/(jpeg|png|gif|webp);base64,[A-Za-z0-9+\/=]+$/', $photo)) {
+                continue; // skip invalid/dangerous photo data (SVG, JS injection, etc.)
             }
+            $photosHtml .= '<img src="' . htmlspecialchars($photo, ENT_QUOTES, 'UTF-8') . '" style="width:100%;border-radius:8px;border:1px solid #e5e7eb" alt="Photo ' . ($i + 1) . '">';
         }
         $photosHtml .= '</div>';
     }

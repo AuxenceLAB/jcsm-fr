@@ -21,18 +21,18 @@ function loadEnvVar(string $key): ?string
                 if (str_starts_with(trim($line), '#')) continue;
                 $eqPos = strpos($line, '=');
                 if ($eqPos !== false) {
-                    $key = trim(substr($line, 0, $eqPos));
-                    $val = trim(substr($line, $eqPos + 1));
+                    $envKey = trim(substr($line, 0, $eqPos));
+                    $envVal = trim(substr($line, $eqPos + 1));
                     // Strip inline comments (but not inside quotes)
-                    if (($commentPos = strpos($val, ' #')) !== false) {
-                        $val = trim(substr($val, 0, $commentPos));
+                    if (($commentPos = strpos($envVal, ' #')) !== false) {
+                        $envVal = trim(substr($envVal, 0, $commentPos));
                     }
                     // Strip surrounding quotes
-                    if ((str_starts_with($val, '"') && str_ends_with($val, '"')) ||
-                        (str_starts_with($val, "'") && str_ends_with($val, "'"))) {
-                        $val = substr($val, 1, -1);
+                    if ((str_starts_with($envVal, '"') && str_ends_with($envVal, '"')) ||
+                        (str_starts_with($envVal, "'") && str_ends_with($envVal, "'"))) {
+                        $envVal = substr($envVal, 1, -1);
                     }
-                    $envCache[$key] = $val;
+                    $envCache[$envKey] = $envVal;
                 }
             }
         }

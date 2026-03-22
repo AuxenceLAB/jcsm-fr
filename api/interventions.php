@@ -112,7 +112,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit;
     }
 
-    $input = json_decode(file_get_contents('php://input'), true);
+    // Reject oversized payloads (1 MB max)
+    $contentLength = (int) ($_SERVER['CONTENT_LENGTH'] ?? 0);
+    if ($contentLength > 1048576) {
+        http_response_code(413);
+        echo json_encode(['error' => 'Payload trop volumineux (max 1 Mo)']);
+        exit;
+    }
+
+    $rawInput = file_get_contents('php://input');
+    if (strlen($rawInput) > 1048576) {
+        http_response_code(413);
+        echo json_encode(['error' => 'Payload trop volumineux (max 1 Mo)']);
+        exit;
+    }
+
+    $input = json_decode($rawInput, true);
 
     if (!$input) {
         http_response_code(400);
@@ -143,13 +158,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         if ($action === 'save') {
             $id = $input['data']['id'] ?? null;
+            $allowed = ['status', 'delais', 'techAssigned', 'techPhone', 'probleme', 'piecesChangees', 'remarques', 'rapportFait', 'dateIntervention', 'heureDebut', 'heureFin', 'adresse', 'ville', 'codePostal', 'nomSite', 'client', 'ticket', 'description', 'photos', 'signature'];
 
             if ($id) {
                 // Mise à jour existant
                 $found = false;
                 foreach ($data as &$item) {
                     if ($item['id'] === $id) {
-                        $allowed = ['status', 'delais', 'techAssigned', 'techPhone', 'probleme', 'piecesChangees', 'remarques', 'rapportFait', 'dateIntervention', 'heureDebut', 'heureFin', 'adresse', 'ville', 'codePostal', 'nomSite', 'client', 'ticket', 'description', 'photos', 'signature'];
                         $filtered = array_intersect_key($input['data'], array_flip($allowed));
                         $item = array_merge($item, $filtered);
                         $found = true;
@@ -158,11 +173,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 }
                 unset($item);
                 if (!$found) {
-                    $data[] = $input['data'];
+                    // Apply whitelist to new record with provided ID
+                    $newItem = array_intersect_key($input['data'], array_flip($allowed));
+                    $newItem['id'] = $id;
+                    $data[] = $newItem;
                 }
             } else {
-                // Création nouveau
-                $newItem = $input['data'];
+                // Création nouveau — apply whitelist
+                $newItem = array_intersect_key($input['data'], array_flip($allowed));
                 $newItem['id'] = 'intv-' . bin2hex(random_bytes(16));
                 array_unshift($data, $newItem);
             }
