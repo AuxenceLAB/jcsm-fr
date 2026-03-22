@@ -287,7 +287,7 @@
                     Nous recherchons des techniciens et entreprises de maintenance sur toute la France et la Belgique pour intervenir sur bornes AC et DC toutes marques. Volume régulier, support technique et paiement rapide.
                 </p>
                 <div class="flex flex-wrap gap-4 justify-center section-appear">
-                    <a href="/contact" class="btn-primary btn-liquid shine-effect px-8 py-4 rounded-xl font-medium text-lg text-white">
+                    <a href="#candidature" class="btn-primary btn-liquid shine-effect px-8 py-4 rounded-xl font-medium text-lg text-white">
                         Rejoindre le réseau
                     </a>
                     <a href="#profil" class="btn-secondary px-8 py-4 rounded-xl font-medium text-lg">
@@ -430,6 +430,56 @@
             </div>
         </section>
 
+        <!-- Formulaire candidature rapide -->
+        <section id="candidature" class="py-16 sm:py-20 section-appear" style="background: var(--gray-50)">
+            <div class="max-w-3xl mx-auto px-4 sm:px-6">
+                <div class="text-center mb-10">
+                    <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight mb-4 text-gray-900">Candidature rapide</h2>
+                    <p class="text-lg text-gray-600">Remplissez ce formulaire. Un responsable partenariats vous contacte sous 48h.</p>
+                </div>
+                <form id="partnerForm" action="https://formspree.io/f/xyzpgqga" method="POST" class="bg-white border border-gray-200 rounded-2xl p-6 sm:p-8 space-y-5">
+                    <input type="text" name="_gotcha" style="display:none">
+                    <input type="hidden" name="_subject" value="Nouveau partenaire potentiel">
+                    <div class="grid sm:grid-cols-2 gap-5">
+                        <div>
+                            <label for="partner-nom" class="sr-only">Nom</label>
+                            <input type="text" name="nom" id="partner-nom" required aria-required="true" autocomplete="name" placeholder="Nom *" class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 outline-none transition-colors text-gray-900">
+                        </div>
+                        <div>
+                            <label for="partner-entreprise" class="sr-only">Entreprise</label>
+                            <input type="text" name="entreprise" id="partner-entreprise" required aria-required="true" autocomplete="organization" placeholder="Entreprise *" class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 outline-none transition-colors text-gray-900">
+                        </div>
+                    </div>
+                    <div class="grid sm:grid-cols-2 gap-5">
+                        <div>
+                            <label for="partner-email" class="sr-only">Email</label>
+                            <input type="email" name="email" id="partner-email" required aria-required="true" autocomplete="email" placeholder="Email *" class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 outline-none transition-colors text-gray-900">
+                        </div>
+                        <div>
+                            <label for="partner-telephone" class="sr-only">Téléphone</label>
+                            <input type="tel" name="telephone" id="partner-telephone" required aria-required="true" autocomplete="tel" placeholder="Téléphone *" class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 outline-none transition-colors text-gray-900">
+                        </div>
+                    </div>
+                    <div>
+                        <label for="partner-region" class="sr-only">Région d'intervention</label>
+                        <input type="text" name="region" id="partner-region" required aria-required="true" placeholder="Région d'intervention *" class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 outline-none transition-colors text-gray-900">
+                    </div>
+                    <div>
+                        <label for="partner-message" class="sr-only">Message</label>
+                        <textarea name="message" id="partner-message" rows="3" placeholder="Habilitations, expérience IRVE, marques maîtrisées..." class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 outline-none transition-colors text-gray-900 resize-none"></textarea>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <input type="checkbox" name="rgpd" id="partner-rgpd" required class="mt-1 w-4 h-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500">
+                        <label for="partner-rgpd" class="text-sm text-gray-600">J'accepte que mes données soient traitées pour répondre à ma demande. <a href="/confidentialite" class="text-blue-600 hover:underline">Politique de confidentialité</a></label>
+                    </div>
+                    <button type="submit" class="w-full btn-primary px-8 py-4 rounded-xl font-bold text-white text-[15px]">
+                        <span class="submit-text">Rejoindre le réseau JCSM</span>
+                        <span class="submit-loading hidden">Envoi en cours...</span>
+                    </button>
+                </form>
+            </div>
+        </section>
+
         <!-- CTA Final -->
         <section class="py-24 px-6 bg-gray-900 text-white">
             <div class="max-w-4xl mx-auto text-center">
@@ -438,7 +488,7 @@
                     Envoyez-nous un message avec votre zone d'intervention, vos habilitations et votre expérience IRVE. Nous revenons vers vous sous 48h.
                 </p>
                 <div class="flex flex-wrap gap-4 justify-center section-appear">
-                    <a href="/contact" class="bg-white text-gray-900 hover:bg-gray-100 px-8 py-4 rounded-xl font-medium text-lg inline-flex items-center gap-2 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5">Devenir partenaire JCSM</a>
+                    <a href="#candidature" class="bg-white text-gray-900 hover:bg-gray-100 px-8 py-4 rounded-xl font-medium text-lg inline-flex items-center gap-2 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5">Devenir partenaire JCSM</a>
                     <a href="mailto:contact@jcsm.fr" class="border border-white/30 hover:bg-white/10 px-8 py-4 rounded-xl font-medium text-lg transition-colors flex items-center gap-2">contact@jcsm.fr</a>
                 </div>
             </div>

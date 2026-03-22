@@ -38,6 +38,46 @@
         ]
     }
     </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Dans quelles régions JCSM intervient-il ?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "JCSM couvre l'ensemble de la France métropolitaine et la Belgique. Nos techniciens sont déployés dans toutes les régions : Île-de-France, Auvergne-Rhône-Alpes, PACA, Occitanie, Nouvelle-Aquitaine, Hauts-de-France, et toutes les autres. En Belgique, nous intervenons dans les trois régions (Wallonie, Flandre, Bruxelles-Capitale)."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Quel est le délai d'intervention sur site ?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Notre SLA standard prévoit une intervention sous 4 heures en zone urbaine et 8 heures en zone rurale. Pour les contrats premium, nous proposons des engagements renforcés avec astreinte 24/7 et intervention sous 2 heures."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Intervenez-vous sur toutes les marques de bornes ?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Oui, nos techniciens sont formés et certifiés sur plus de 12 marques : ABB, Alfen, EVBox, Kempower, Wallbox, Schneider Electric, Legrand, DBT-CEV, Circontrol, Delta, Autel et Tritium. Bornes AC de 3,7 à 22 kW et DC jusqu'à 400 kW."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Comment demander une intervention dans ma zone ?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Contactez-nous via le formulaire sur notre site, par téléphone au 01 83 75 57 06, ou par email à contact@jcsm.fr. Décrivez votre besoin et votre localisation : un technicien terrain vous rappelle sous 24h avec une proposition adaptée."
+                }
+            }
+        ]
+    }
+    </script>
     <link rel="canonical" href="https://jcsm.fr/couverture">
     <link rel="alternate" hreflang="fr" href="https://jcsm.fr/couverture">
     <link rel="alternate" hreflang="en" href="https://jcsm.fr/en/coverage">
@@ -912,6 +952,68 @@
                     </div>
                 </div>
             </div>
+        </section>
+
+        <!-- FAQ -->
+        <section class="py-20 px-6 bg-white section-appear" id="faq">
+            <div class="max-w-3xl mx-auto">
+                <h2 class="text-3xl font-bold text-center mb-10">Questions fréquentes</h2>
+                <div class="space-y-4">
+                    <div class="border border-gray-200 rounded-xl overflow-hidden">
+                        <button type="button" class="faq-toggle w-full flex items-center justify-between p-6 text-left font-semibold text-lg hover:bg-gray-50 transition-colors" aria-expanded="true" aria-controls="faq-couv-1">
+                            Dans quelles régions JCSM intervient-il ?
+                            <svg class="faq-chevron w-5 h-5 text-gray-400 transition-transform rotate-180 flex-shrink-0 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                        </button>
+                        <div id="faq-couv-1" class="faq-content px-6 pb-6" role="region">
+                            <p class="text-gray-600 leading-relaxed">JCSM couvre l'ensemble de la France métropolitaine et la Belgique. Nos techniciens sont déployés dans toutes les régions : Île-de-France, Auvergne-Rhône-Alpes, PACA, Occitanie, Nouvelle-Aquitaine, Hauts-de-France, et toutes les autres. En Belgique, nous intervenons dans les trois régions (Wallonie, Flandre, Bruxelles-Capitale).</p>
+                        </div>
+                    </div>
+                    <div class="border border-gray-200 rounded-xl overflow-hidden">
+                        <button type="button" class="faq-toggle w-full flex items-center justify-between p-6 text-left font-semibold text-lg hover:bg-gray-50 transition-colors" aria-expanded="false" aria-controls="faq-couv-2">
+                            Quel est le délai d'intervention sur site ?
+                            <svg class="faq-chevron w-5 h-5 text-gray-400 transition-transform flex-shrink-0 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                        </button>
+                        <div id="faq-couv-2" class="faq-content px-6 pb-6 hidden" role="region">
+                            <p class="text-gray-600 leading-relaxed">Notre SLA standard prévoit une intervention sous 4 heures en zone urbaine et 8 heures en zone rurale. Pour les contrats premium, nous proposons des engagements renforcés avec astreinte 24/7 et intervention sous 2 heures.</p>
+                        </div>
+                    </div>
+                    <div class="border border-gray-200 rounded-xl overflow-hidden">
+                        <button type="button" class="faq-toggle w-full flex items-center justify-between p-6 text-left font-semibold text-lg hover:bg-gray-50 transition-colors" aria-expanded="false" aria-controls="faq-couv-3">
+                            Intervenez-vous sur toutes les marques de bornes ?
+                            <svg class="faq-chevron w-5 h-5 text-gray-400 transition-transform flex-shrink-0 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                        </button>
+                        <div id="faq-couv-3" class="faq-content px-6 pb-6 hidden" role="region">
+                            <p class="text-gray-600 leading-relaxed">Oui, nos techniciens sont formés et certifiés sur plus de 12 marques : ABB, Alfen, EVBox, Kempower, Wallbox, Schneider Electric, Legrand, DBT-CEV, Circontrol, Delta, Autel et Tritium. Bornes AC de 3,7 à 22 kW et DC jusqu'à 400 kW.</p>
+                        </div>
+                    </div>
+                    <div class="border border-gray-200 rounded-xl overflow-hidden">
+                        <button type="button" class="faq-toggle w-full flex items-center justify-between p-6 text-left font-semibold text-lg hover:bg-gray-50 transition-colors" aria-expanded="false" aria-controls="faq-couv-4">
+                            Comment demander une intervention dans ma zone ?
+                            <svg class="faq-chevron w-5 h-5 text-gray-400 transition-transform flex-shrink-0 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                        </button>
+                        <div id="faq-couv-4" class="faq-content px-6 pb-6 hidden" role="region">
+                            <p class="text-gray-600 leading-relaxed">Contactez-nous via le formulaire sur notre site, par téléphone au <a href="tel:+33183755706" class="text-blue-600 font-medium hover:text-blue-800">01 83 75 57 06</a>, ou par email à <a href="mailto:contact@jcsm.fr" class="text-blue-600 font-medium hover:text-blue-800">contact@jcsm.fr</a>. Décrivez votre besoin et votre localisation : un technicien terrain vous rappelle sous 24h.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <script>
+            document.querySelectorAll('#faq .faq-toggle').forEach(function(btn) {
+                btn.addEventListener('click', function() {
+                    var expanded = this.getAttribute('aria-expanded') === 'true';
+                    this.setAttribute('aria-expanded', String(!expanded));
+                    var content = document.getElementById(this.getAttribute('aria-controls'));
+                    var chevron = this.querySelector('.faq-chevron');
+                    if (expanded) {
+                        content.classList.add('hidden');
+                        chevron.classList.remove('rotate-180');
+                    } else {
+                        content.classList.remove('hidden');
+                        chevron.classList.add('rotate-180');
+                    }
+                });
+            });
+            </script>
         </section>
 
         <!-- ====== CTA ====== -->
