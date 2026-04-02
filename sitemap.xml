@@ -149,6 +149,13 @@
   </url>
   <!-- Inclusion page -->
   <url>
+  <!-- Tarification page -->
+  <url>
+    <loc>https://jcsm.fr/tarification</loc>
+    <lastmod>2026-04-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
     <loc>https://jcsm.fr/inclusion</loc>
     <lastmod>2026-04-02</lastmod>
     <changefreq>monthly</changefreq>

@@ -62,18 +62,6 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="theme-color" content="#2563EB">
     <noscript><style>
-        /* Swiss Industrial Design System */
-        :root {
-            --blue: #2563eb; --blue-dark: #1d4ed8; --blue-light: #eff6ff;
-            --gray-50: #f8fafc; --gray-100: #f1f5f9; --gray-200: #e2e8f0;
-            --gray-300: #cbd5e1; --gray-400: #94a3b8; --gray-500: #64748b;
-            --gray-600: #475569; --gray-700: #334155; --gray-800: #1e293b;
-            --gray-900: #0f172a;
-            --font: 'Outfit', system-ui, sans-serif;
-            --ease: cubic-bezier(0.22, 1, 0.36, 1);
-        }
-        *, *::before, *::after { font-family: var(--font); }
-        h1, h2, h3, h4, h5, h6 { color: var(--gray-900); letter-spacing: -0.025em; }
 .preloader{display:none!important}</style></noscript>
 
     <script type="application/ld+json">
@@ -145,21 +133,6 @@
         ]
     }
     </script>
-    <style>
-        .nav-link {
-            position: relative; padding: 0.5rem 0.875rem;
-            border-radius: 0.5rem; transition: color 0.2s ease, background 0.2s ease;
-        }
-        .nav-link::after {
-            content: ''; position: absolute;
-            bottom: 2px; left: 0.875rem; right: 0.875rem;
-            height: 2px; background: #2563eb; border-radius: 1px;
-            transform: scaleX(0); transform-origin: center;
-            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        .nav-link:hover::after { transform: scaleX(1); }
-        .nav-link:hover { background: rgba(37,99,235,0.04); }
-    </style>
 </head>
 
 <body class="text-gray-900">
@@ -237,7 +210,7 @@
 
     <main id="main-content" role="main">
         <nav aria-label="Fil d'Ariane" class="max-w-6xl mx-auto px-4 sm:px-6 pt-24 pb-0">
-            <ol class="flex items-center gap-2 text-sm text-gray-400">
+            <ol class="flex items-center gap-2 text-sm text-gray-500">
                 <li><a href="/" class="hover:text-blue-600 transition-colors">Accueil</a></li>
                 <li><span class="text-gray-300">/</span></li>
                 <li class="text-gray-600 font-medium">À propos</li>
@@ -317,7 +290,6 @@
                 </div>
             </div>
         </section>
-
 
         <!-- Nos valeurs -->
         <section class="py-16 sm:py-20 section-appear" style="background: var(--gray-50)">
@@ -425,7 +397,7 @@
                         <div class="relative pl-12 sm:pl-16 section-appear">
                             <div class="absolute left-2.5 sm:left-4.5 top-1 w-3.5 h-3.5 bg-gray-300 rounded-full border-2 border-white shadow"></div>
                             <div class="bg-white border border-gray-200 border-dashed rounded-xl p-5">
-                                <span class="text-sm font-bold text-gray-400">2026</span>
+                                <span class="text-sm font-bold text-gray-500">2026</span>
                                 <h3 class="text-lg font-bold text-gray-900 mt-1">Support client France & inclusion</h3>
                                 <p class="text-gray-600 mt-2">Lancement du centre d'appel basé en France, supervision à distance des bornes. Recrutement d'agents RQTH/AAH pour les postes de support client.</p>
                             </div>
@@ -469,7 +441,6 @@
                 </div>
             </div>
         </section>
-
 
         <!-- L'équipe JCSM -->
         <section class="py-16 sm:py-20 section-appear" style="background: var(--gray-50)">
@@ -524,7 +495,6 @@
                 </div>
             </div>
         </section>
-
 
         <!-- Inclusion & Engagement social -->
         <section class="py-16 sm:py-20 section-appear" style="background: var(--gray-50)">
@@ -685,6 +655,7 @@
                             <li><a href="/exploitation" title="Voir notre service d'exploitation et maintenance" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Exploitation & maintenance</a></li>
                             <li><a href="/securisation-installations" title="Voir notre service de sécurisation" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Sécurisation</a></li>
                             <li><a href="/centre-appel" title="Voir notre support technique 24/7" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Support 24/7</a></li>
+                            <li><a href="/tarification" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Tarification</a></li>
                         </ul>
                     </nav>
                 </div>

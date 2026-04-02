@@ -310,108 +310,7 @@
     <meta name="theme-color" content="#2563EB">
 
     <style>
-        /* ═══════ DESIGN SYSTEM: Swiss Industrial ═══════ */
-        :root {
-            --blue: #2563eb; --blue-dark: #1d4ed8; --blue-light: #eff6ff;
-            --gray-50: #f8fafc; --gray-100: #f1f5f9; --gray-200: #e2e8f0;
-            --gray-300: #cbd5e1; --gray-400: #94a3b8; --gray-500: #64748b;
-            --gray-600: #475569; --gray-700: #334155; --gray-800: #1e293b;
-            --gray-900: #0f172a;
-            --font: 'Outfit', system-ui, sans-serif;
-            --ease: cubic-bezier(0.22, 1, 0.36, 1);
-        }
-        *, *::before, *::after { font-family: var(--font); }
-
-        /* ─── Nav ─── */
-        .glass-nav {
-            background: rgba(255,255,255,.95);
-            backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(0,0,0,.06);
-            transition: background .3s, box-shadow .3s;
-        }
-        nav.scrolled { background: rgba(255,255,255,.98); box-shadow: 0 4px 20px rgba(0,0,0,.06); }
-        .nav-link {
-            position: relative; padding: 0.5rem 0.875rem;
-            border-radius: 0.5rem; transition: color .2s, background .2s;
-        }
-        .nav-link::after {
-            content: ''; position: absolute;
-            bottom: 2px; left: 0.875rem; right: 0.875rem;
-            height: 2px; background: var(--blue); border-radius: 1px;
-            transform: scaleX(0); transform-origin: center;
-            transition: transform .3s var(--ease);
-        }
-        .nav-link:hover::after { transform: scaleX(1); }
-        .nav-link:hover { color: var(--gray-900); }
-
-        /* ─── Reveal ─── */
-        .section-appear { opacity: 1; transform: none; }
-        .js-loaded:not(.animations-disabled) .section-appear {
-            opacity: 0; transform: translateY(24px);
-            transition: opacity .7s var(--ease), transform .7s var(--ease);
-        }
-        .js-loaded .section-appear.visible { opacity: 1 !important; transform: none !important; }
-
-        /* ─── Base ─── */
-        h1, h2, h3, h4, h5, h6 { color: var(--gray-900); letter-spacing: -0.025em; }
-        .gradient-text { -webkit-text-fill-color: transparent; }
-        html, body { overflow-x: hidden; color: var(--gray-800); }
-
-        /* ─── Preloader ─── */
-        .preloader {
-            position: fixed; inset: 0; background: #fff;
-            display: flex; align-items: center; justify-content: center;
-            z-index: 10000; transition: opacity .4s ease;
-        }
-        .preloader.hide { opacity: 0; pointer-events: none; }
-
-        /* ─── Mobile menu ─── */
-        .mobile-menu {
-            position: fixed; top: 0; right: -100%;
-            width: 100%; max-width: 400px; height: 100dvh;
-            background: rgba(255,255,255,.98); backdrop-filter: blur(20px);
-            z-index: 1000; transition: right .35s var(--ease);
-            box-shadow: -8px 0 40px rgba(0,0,0,.08);
-        }
-        .mobile-menu.open { right: 0; }
-        .mobile-menu-overlay {
-            position: fixed; inset: 0; background: rgba(15,23,42,.3);
-            z-index: 999; opacity: 0; visibility: hidden;
-            transition: opacity .3s ease, visibility .3s;
-        }
-        .mobile-menu-overlay.active { opacity: 1; visibility: visible; }
-        .mobile-menu-btn { display: none; }
-        @media (max-width: 1024px) { .mobile-menu-btn { display: block; } }
-
-        /* ─── Buttons ─── */
-        .btn-primary {
-            background: var(--blue);
-            box-shadow: 0 1px 2px rgba(0,0,0,.05), 0 0 0 0 rgba(37,99,235,0);
-            transition: all .25s var(--ease);
-        }
-        .btn-primary:hover {
-            background: var(--blue-dark);
-            box-shadow: 0 8px 24px -4px rgba(37,99,235,0.35);
-            transform: translateY(-2px);
-        }
-        .btn-primary:active { transform: translateY(0); }
-        .btn-secondary {
-            border: 1.5px solid var(--gray-200); color: var(--gray-700); background: #fff;
-            transition: all .25s var(--ease);
-        }
-        .btn-secondary:hover { border-color: var(--blue); color: var(--blue); background: var(--blue-light); }
-
-        /* ─── Skip link ─── */
-        .skip-link {
-            position: absolute; top: -100%; left: 16px;
-            background: var(--blue); color: #fff; padding: 12px 24px;
-            border-radius: 0.75rem; font-weight: 600; z-index: 10001;
-            transition: top .2s ease; text-decoration: none;
-        }
-        .skip-link:focus { top: 16px; }
-
-
-        /* ─── Hero ─── */
+        /* Page-specific styles for index.html */
         .hero-section {
             background: var(--gray-50); position: relative; overflow: hidden;
         }
@@ -431,8 +330,6 @@
             .hero-btns { flex-direction: column; width: 100%; }
             .hero-btns a { width: 100%; text-align: center; justify-content: center; }
         }
-
-        /* ─── Service cards ─── */
         .svc-card {
             position: relative; overflow: hidden;
             background: #fff; border: 1px solid var(--gray-100);
@@ -458,8 +355,6 @@
         }
         .svc-card h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem; }
         .svc-card p { color: var(--gray-600); font-size: 0.875rem; line-height: 1.65; }
-
-        /* ─── Why us ─── */
         .why-section { background: #fff; }
         .why-card {
             background: var(--gray-50); border: 1px solid var(--gray-100);
@@ -476,8 +371,6 @@
             display: flex; align-items: center; justify-content: center;
             margin: 0 auto 1.25rem;
         }
-
-        /* ─── Logo marquee ─── */
         .logo-marquee {
             position: relative; overflow: hidden; user-select: none;
             padding: 16px 0; width: 100%;
@@ -492,8 +385,6 @@
         .logo-item:hover { transform: translateY(-3px); }
         .logo-item img { opacity: 0.5; transition: opacity .4s var(--ease); filter: grayscale(20%); }
         .logo-item:hover img { opacity: 1; filter: grayscale(0%); }
-
-        /* ─── FAQ ─── */
         details summary .faq-chevron {
             transition: transform .3s var(--ease), background .2s;
             width: 32px; height: 32px; display: flex; align-items: center; justify-content: center;
@@ -509,8 +400,6 @@
             from { opacity: 0; transform: translateY(-8px); }
             to { opacity: 1; transform: translateY(0); }
         }
-
-        /* ─── Blog ─── */
         .blog-card {
             position: relative; overflow: hidden; display: flex; flex-direction: column;
             transition: transform 0.35s var(--ease), box-shadow 0.35s var(--ease), border-color 0.35s var(--ease);
@@ -519,8 +408,6 @@
             border-color: rgba(37, 99, 235, 0.15);
             box-shadow: 0 20px 40px -12px rgba(37, 99, 235, 0.1), 0 0 0 1px rgba(37, 99, 235, 0.05);
         }
-
-        /* ─── Contact ─── */
         .contact-input {
             min-height: 48px;
             background: #fff; border: 1.5px solid var(--gray-200);
@@ -530,32 +417,22 @@
         .contact-input:focus {
             border-color: var(--blue); box-shadow: 0 0 0 3px rgba(37,99,235,0.08);
         }
-
-        /* ─── Stagger ─── */
         .section-appear.visible:nth-child(2) { transition-delay: 0.06s; }
         .section-appear.visible:nth-child(3) { transition-delay: 0.12s; }
         .section-appear.visible:nth-child(4) { transition-delay: 0.18s; }
         .section-appear.visible:nth-child(5) { transition-delay: 0.24s; }
         .section-appear.visible:nth-child(6) { transition-delay: 0.30s; }
-
-        /* ─── Section divider ─── */
         .section-divider {
             height: 1px; max-width: 120px; margin: 0 auto;
             background: linear-gradient(90deg, transparent, var(--gray-300), transparent);
         }
-
-        /* ─── Stats strip ─── */
         .stat-number {
             font-size: 2rem; font-weight: 800; color: var(--gray-900);
             letter-spacing: -0.03em; line-height: 1;
             text-shadow: 0 1px 2px rgba(0,0,0,0.04);
         }
-
-        /* ─── Icon pulse on hover ─── */
         .icon-pulse-hover { transition: transform 0.3s var(--ease); }
         .svc-card:hover .icon-pulse-hover, .why-card:hover .icon-pulse-hover { transform: scale(1.08); }
-
-        /* ─── Badge entrance ─── */
         .badge-section {
             animation: badgeFade 0.6s var(--ease) both;
             animation-delay: 0.2s;
@@ -564,11 +441,9 @@
             from { opacity: 0; transform: translateY(8px) scale(0.95); }
             to { opacity: 1; transform: translateY(0) scale(1); }
         }
-
         @media (max-width: 640px) {
             .stat-divider { display: none; }
         }
-
         @media (prefers-reduced-motion: reduce) {
             .svc-card, .blog-card, .why-card { transition: none !important; }
             .js-loaded:not(.animations-disabled) .section-appear { transition: none; opacity: 1; transform: none; }
@@ -717,8 +592,6 @@
             <style>@keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: .4; } }</style>
         </section>
 
-
-
         <!-- ============ SERVICES ============ -->
         <section id="services" class="py-24 sm:py-28 px-6 bg-gradient-to-b from-white to-gray-50" aria-label="Nos expertises IRVE">
             <div class="max-w-6xl mx-auto">
@@ -829,7 +702,6 @@
                 </div>
             </div>
         </section>
-
 
         <!-- ============ PARTNERS ============ -->
         <section class="py-20 px-6 bg-white overflow-hidden" aria-label="Partenaires et clients">
@@ -1120,19 +992,19 @@
                         <span class="text-[10px] font-bold uppercase tracking-wider text-blue-600 bg-blue-50 border border-blue-200 inline-block px-2.5 py-1 rounded-full">Guide</span>
                         <h3 class="font-bold text-gray-900 mt-3 mb-2 group-hover:text-blue-600 transition-colors">Prix installation borne de recharge 2026</h3>
                         <p class="text-sm text-gray-600 mb-3">Combien coûte l'installation d'une borne ? Grille tarifaire par puissance et cas d'usage.</p>
-                        <p class="text-xs text-gray-400">11 mars 2026</p>
+                        <p class="text-xs text-gray-500">11 mars 2026</p>
                     </a>
                     <a href="/blog/cout-maintenance-borne-recharge-2026" title="Lire l'article : Coût de maintenance d'une borne de recharge" class="blog-card bg-white rounded-2xl p-6 border border-gray-100 hover:shadow-lg transition-all hover:-translate-y-1 group">
                         <span class="text-[10px] font-bold uppercase tracking-wider text-blue-600 bg-blue-50 border border-blue-200 inline-block px-2.5 py-1 rounded-full">Guide</span>
                         <h3 class="font-bold text-gray-900 mt-3 mb-2 group-hover:text-blue-600 transition-colors">Coût de maintenance d'une borne de recharge</h3>
                         <p class="text-sm text-gray-600 mb-3">Tarifs préventif/curatif, contrats, comparatif. Guide des prix 2026.</p>
-                        <p class="text-xs text-gray-400">11 mars 2026</p>
+                        <p class="text-xs text-gray-500">11 mars 2026</p>
                     </a>
                     <a href="/blog/aides-installation-borne-recharge-entreprise-2026" title="Lire l'article : Aides installation borne recharge 2026" class="blog-card bg-white rounded-2xl p-6 border border-gray-100 hover:shadow-lg transition-all hover:-translate-y-1 group">
                         <span class="text-[10px] font-bold uppercase tracking-wider text-blue-600 bg-blue-50 border border-blue-200 inline-block px-2.5 py-1 rounded-full">Guide</span>
                         <h3 class="font-bold text-gray-900 mt-3 mb-2 group-hover:text-blue-600 transition-colors">Aides installation borne recharge 2026</h3>
                         <p class="text-sm text-gray-600 mb-3">ADVENIR, CEE, aides régionales : toutes les subventions pour votre projet.</p>
-                        <p class="text-xs text-gray-400">11 mars 2026</p>
+                        <p class="text-xs text-gray-500">11 mars 2026</p>
                     </a>
                 </div>
                 <div class="text-center mt-10 section-appear">
@@ -1294,6 +1166,7 @@
                             <li><a href="/exploitation" title="Voir notre service d'exploitation et maintenance" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Exploitation & maintenance</a></li>
                             <li><a href="/securisation-installations" title="Voir notre service de sécurisation" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Sécurisation</a></li>
                             <li><a href="/centre-appel" title="Voir notre support technique 24/7" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Support 24/7</a></li>
+                            <li><a href="/tarification" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Tarification</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -1398,6 +1271,28 @@
             });
         }
     </script>
+
+<!-- Sticky CTA bar -->
+<div id="sticky-cta" class="hidden fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-sm border-t border-gray-200 shadow-lg px-6 py-3 md:flex items-center justify-between max-w-full" style="display:none">
+    <p class="text-sm font-medium text-gray-700">Maintenance, installation ou support IRVE ?</p>
+    <div class="flex items-center gap-3">
+        <a href="/contact" class="btn-primary px-6 py-2.5 rounded-lg text-sm font-semibold text-white">Devis gratuit en 24h</a>
+        <button id="sticky-cta-close" class="text-gray-400 hover:text-gray-600 p-1" aria-label="Fermer">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+    </div>
+</div>
+<script>
+(function(){
+    var bar=document.getElementById('sticky-cta'),close=document.getElementById('sticky-cta-close');
+    if(!bar||!close||sessionStorage.getItem('stickyCtaClosed'))return;
+    window.addEventListener('scroll',function(){
+        if(window.scrollY>600){bar.style.display='';bar.classList.remove('hidden')}
+        else{bar.style.display='none'}
+    });
+    close.addEventListener('click',function(){bar.style.display='none';sessionStorage.setItem('stickyCtaClosed','1')});
+})();
+</script>
 
 </body>
 

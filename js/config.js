@@ -38,8 +38,8 @@ const JCSM_CONFIG = {
         hintDelay: 15000,                        /* ms before showing notification badge */
         greeting: "Bonjour ! Je suis l'assistant JCSM, sp\u00e9cialiste en bornes de recharge \u00e9lectrique (IRVE). Comment puis-je vous aider ?"
     },
-    version: "2.42.0",
-    buildDate: "2026-03-22"
+    version: "2.43.0",
+    buildDate: "2026-04-02"
 };
 
 async function verifyPassword(e) {

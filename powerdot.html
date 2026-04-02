@@ -63,18 +63,6 @@
 <noscript><link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"></noscript>
 <link rel="stylesheet" href="/css/leaflet.css">
 <style>
-        /* Swiss Industrial Design System */
-        :root {
-            --blue: #2563eb; --blue-dark: #1d4ed8; --blue-light: #eff6ff;
-            --gray-50: #f8fafc; --gray-100: #f1f5f9; --gray-200: #e2e8f0;
-            --gray-300: #cbd5e1; --gray-400: #94a3b8; --gray-500: #64748b;
-            --gray-600: #475569; --gray-700: #334155; --gray-800: #1e293b;
-            --gray-900: #0f172a;
-            --font: 'Outfit', system-ui, sans-serif;
-            --ease: cubic-bezier(0.22, 1, 0.36, 1);
-        }
-        *, *::before, *::after { font-family: var(--font); }
-        h1, h2, h3, h4, h5, h6 { color: var(--gray-900); letter-spacing: -0.025em; }
 
 *{margin:0;padding:0;box-sizing:border-box}
 :root{
@@ -177,7 +165,6 @@ header{padding:0 24px;height:60px;display:flex;align-items:center;justify-conten
 .di-nm{font-weight:500;color:var(--text)}
 .di-ct{font-family:'Space Mono';font-size:12px;color:var(--text-muted);font-weight:500}
 
-
 /* ═══ JCSM POINTS ═══ */
 .jcsm-list{display:flex;flex-direction:column;gap:3px}
 .jc{display:flex;align-items:center;gap:10px;padding:8px 10px;border-radius:10px;font-size:13px;border:1px solid transparent}
@@ -196,7 +183,6 @@ header{padding:0 24px;height:60px;display:flex;align-items:center;justify-conten
 .ft{padding:20px;background:var(--card2);border:1px solid var(--border);border-radius:var(--radius-lg);font-size:13px;color:var(--text-muted);line-height:1.7}
 .ft strong{color:var(--blue);font-weight:700}
 .ft a{color:var(--blue);text-decoration:none;font-weight:600}
-
 
 /* ═══ ACCESSIBILITY ═══ */
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
@@ -298,7 +284,6 @@ h2.sb-t{margin:0;padding:0}
 .hdr-x span{font-size:12px;color:var(--text-light);font-weight:500}
 .hdr-x img{height:16px;width:auto;opacity:.5}
 
-
 /* ═══ COVERAGE CARDS ═══ */
 .cov-cards{display:grid;grid-template-columns:1fr 1fr;gap:8px}
 .cov-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:12px 10px;cursor:pointer;position:relative}
@@ -325,9 +310,7 @@ h2.sb-t{margin:0;padding:0}
 .app-content{display:none}
 .app-content.unlocked{display:block}
 
-
 /* glow overlays removed */
-
 
 /* hub bg, shimmer, hover scale removed */
 
@@ -617,7 +600,6 @@ h2.sb-t{margin:0;padding:0}
 <div id="deptGrid" class="dept-list" style="display:none"></div>
 </div>
 
-
 <div class="sb-s">
 <button class="sb-collapse-btn" aria-expanded="false"><span class="sb-t">Couverture terrain</span></button>
 <div class="sb-collapse-body">
@@ -869,7 +851,6 @@ function escapeHtml(s){var d=document.createElement('div');d.appendChild(documen
 // PRELOADER
 // ══════════════════════════════════════════
 // ResizeObserver handles map resize automatically
-
 
 // ══════════════════════════════════════════
 // DEPARTMENT CENTROIDS (area-weighted)

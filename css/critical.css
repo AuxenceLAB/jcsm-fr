@@ -50,10 +50,29 @@
     --duration-slow: 500ms;
     --duration-slower: 700ms;
     color-scheme: light;
+
+    /* Swiss Industrial aliases (used by inline styles in many pages) */
+    --blue: #2563eb;
+    --blue-dark: #1d4ed8;
+    --blue-light: #eff6ff;
+    --gray-50: #f8fafc;
+    --gray-100: #f1f5f9;
+    --gray-200: #e2e8f0;
+    --gray-300: #cbd5e1;
+    --gray-400: #94a3b8;
+    --gray-500: #64748b;
+    --gray-600: #475569;
+    --gray-700: #334155;
+    --gray-800: #1e293b;
+    --gray-900: #0f172a;
+    --font: 'Outfit', system-ui, sans-serif;
+    --ease: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 
 /* === Base Styles === */
+*, *::before, *::after { font-family: var(--font-sans); }
+
 html {
     scroll-behavior: smooth;
     scroll-padding-top: 80px;
@@ -147,15 +166,16 @@ section {
 
 /* === Glass Nav === */
 .glass-nav {
-    backdrop-filter: blur(20px) saturate(1.8);
-    -webkit-backdrop-filter: blur(20px) saturate(1.8);
+    backdrop-filter: blur(8px) saturate(1.8);
+    -webkit-backdrop-filter: blur(8px) saturate(1.8);
     background: rgba(255, 255, 255, 0.85);
     border-bottom: 1px solid rgba(255, 255, 255, 0.5);
     box-shadow: 0 1px 3px rgba(0, 0, 0, .04);
+    transition: backdrop-filter .4s ease, -webkit-backdrop-filter .4s ease, background .4s ease, box-shadow .4s ease, padding .3s ease;
 }
 nav.scrolled {
-    backdrop-filter: blur(20px) saturate(1.8);
-    -webkit-backdrop-filter: blur(20px) saturate(1.8);
+    backdrop-filter: blur(16px) saturate(1.8);
+    -webkit-backdrop-filter: blur(16px) saturate(1.8);
     background: rgba(255, 255, 255, 0.97);
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.04);
     padding-top: .5rem;
@@ -166,6 +186,28 @@ nav img[src*=logo] { mix-blend-mode: multiply; background: 0 0; }
 
 
 /* Nav link underline animations */
+.nav-link {
+    position: relative;
+    padding: 0.5rem 0.875rem;
+    border-radius: 0.5rem;
+    transition: color 0.2s ease, background 0.2s ease;
+}
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 2px;
+    left: 0.875rem;
+    right: 0.875rem;
+    height: 2px;
+    background: var(--blue, #2563eb);
+    border-radius: 1px;
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.nav-link:hover::after { transform: scaleX(1); }
+.nav-link:hover { background: rgba(37, 99, 235, 0.04); }
+
 .nav-link-active { position: relative; color: #2563eb; font-weight: 700; }
 .nav-link-active::after {
     content: '';
@@ -300,6 +342,17 @@ nav a:not(.btn-primary):not(.nav-link-active):hover::after { width: 80%; }
 .btn-primary:hover, .card-hover:hover, .fade-in-up:hover, .tilt-card:hover {
     will-change: transform;
 }
+
+/* === Card Tilt Micro-Interaction === */
+.card-hover {
+    transition: transform .35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow .35s ease;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+}
+.card-hover:hover {
+    transform: translateY(-4px) rotateX(1deg) rotateY(-1deg);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, .08);
+}
 #hero-image, .logo-marquee-track {
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
@@ -343,17 +396,20 @@ nav a:not(.btn-primary):not(.nav-link-active):hover::after { width: 80%; }
 
 /* === Gradient Text (used in hero) === */
 .gradient-text {
-    background: linear-gradient(135deg, var(--color-primary) 0, var(--color-accent) 100%);
-    background-size: 200% 200%;
+    background: linear-gradient(135deg, #2563eb 0%, #7c3aed 50%, #2563eb 100%);
+    background-size: 200% auto;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    animation: gradient-shift 3s ease infinite;
+    animation: gradient-shift 4s ease infinite;
     position: relative;
 }
+@media (prefers-reduced-motion: reduce) {
+    .gradient-text { animation: none; }
+}
 @keyframes gradient-shift {
-    0%, 100% { background-position: 0 50%; }
-    50% { background-position: 100% 50%; }
+    0%, 100% { background-position: 0% center; }
+    50% { background-position: 100% center; }
 }
 .gradient-text::after {
     content: '';
@@ -386,12 +442,15 @@ nav a:not(.btn-primary):not(.nav-link-active):hover::after { width: 80%; }
     top: 0;
     left: 0;
     height: 3px;
-    background: linear-gradient(90deg, #2563eb, #3b82f6);
+    background: linear-gradient(90deg, #2563eb, #7c3aed);
     z-index: 9999;
     transition: width .1s linear;
     width: 0%;
     /* Use scaleX for GPU compositing when JS updates via transform */
     transform-origin: left;
+}
+#scroll-progress {
+    background: linear-gradient(90deg, #2563eb, #7c3aed);
 }
 
 /* === Particles Background === */

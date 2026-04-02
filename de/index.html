@@ -236,20 +236,6 @@
         as="font" type="font/woff2" crossorigin>
 
     <style>
-        /* Swiss Industrial Design System */
-        :root {
-            --blue: #2563eb; --blue-dark: #1d4ed8; --blue-light: #eff6ff;
-            --gray-50: #f8fafc; --gray-100: #f1f5f9; --gray-200: #e2e8f0;
-            --gray-300: #cbd5e1; --gray-400: #94a3b8; --gray-500: #64748b;
-            --gray-600: #475569; --gray-700: #334155; --gray-800: #1e293b;
-            --gray-900: #0f172a;
-            --font: 'Outfit', system-ui, sans-serif;
-            --ease: cubic-bezier(0.22, 1, 0.36, 1);
-        }
-        *, *::before, *::after { font-family: var(--font); }
-        h1, h2, h3, h4, h5, h6 { color: var(--gray-900); letter-spacing: -0.025em; }
-
-        /* Index.html specific styles - Logo marquee */
         .logo-marquee {
             position: relative;
             overflow: hidden;
@@ -263,11 +249,9 @@
             -webkit-overflow-scrolling: touch;
             scrollbar-width: none;
         }
-
         .logo-marquee::-webkit-scrollbar {
             display: none;
         }
-
         .logo-marquee-track {
             display: flex;
             flex-wrap: nowrap;
@@ -279,7 +263,6 @@
             -webkit-backface-visibility: hidden;
             transform-style: preserve-3d;
         }
-
         .logo-item {
             flex-shrink: 0;
             position: relative;
@@ -288,7 +271,6 @@
             background: transparent;
             border: none;
         }
-
         .logo-item img {
             transition: opacity 0.3s ease, transform 0.3s ease;
             opacity: 0.75;
@@ -297,13 +279,10 @@
             mix-blend-mode: multiply;
             background: transparent;
         }
-
         .logo-item:hover img {
             opacity: 1;
             transform: scale(1.08);
         }
-
-        /* Index.html specific - Stagger animation delays */
         .section-appear.visible:nth-child(1) { transition-delay: 0.1s; }
         .section-appear.visible:nth-child(2) { transition-delay: 0.2s; }
         .section-appear.visible:nth-child(3) { transition-delay: 0.3s; }
@@ -326,7 +305,6 @@
             </div>
         </div>
     </div>
-
 
     <div class="mobile-menu-overlay" id="mobile-menu-overlay"></div>
     <nav class="mobile-menu" id="mobile-menu" role="dialog" aria-modal="true" aria-label="Navigationsmenü" aria-hidden="true">
@@ -748,7 +726,6 @@
             </div>
         </section>
 
-
         <!-- Warum europäische Betreiber JCSM wählen -->
         <section class="py-20 px-6 bg-white">
             <div class="max-w-7xl mx-auto">
@@ -823,6 +800,60 @@
                     <p class="text-gray-300 mb-6 max-w-3xl mx-auto">Ob CPO, EMSP oder Flottenbetreiber – JCSM bietet die lokale Expertise und die internationalen Standards, die Sie für den Erfolg Ihres Ladenetzes benötigen.</p>
                     <a href="/de/kontakt" class="btn-primary px-8 py-3 rounded-xl font-medium inline-block">Erstgespräch vereinbaren</a>
                     <p class="text-xs text-gray-400 mt-4">Deutschsprachige Projektmanager – Antwort innerhalb von 24h</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ TESTIMONIALS ============ -->
+        <section class="py-20 px-6 bg-gray-50" aria-label="Kundenstimmen">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-14 section-appear">
+                    <p class="text-xs font-bold uppercase tracking-[2px] text-blue-600 mb-3">Stimmen aus der Praxis</p>
+                    <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-4 text-gray-900">Was unsere Partner sagen</h2>
+                </div>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="card-hover bg-white border border-gray-200 rounded-2xl p-8 section-appear">
+                        <div class="flex gap-1 mb-4" aria-label="5 von 5 Sternen">
+                            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        </div>
+                        <blockquote class="text-gray-700 leading-relaxed mb-6">&laquo; Seit JCSM unsere Wartung ubernommen hat, ist unsere Verfugbarkeit von 82 % auf 98 % gestiegen. Ein Ansprechpartner, klare Berichte, keine Uberraschungen. &raquo;</blockquote>
+                        <div class="border-t border-gray-100 pt-4">
+                            <p class="font-semibold text-gray-900 text-sm">Betriebsleiter</p>
+                            <p class="text-xs text-gray-500">Nationaler CPO</p>
+                        </div>
+                    </div>
+                    <div class="card-hover bg-white border border-gray-200 rounded-2xl p-8 section-appear">
+                        <div class="flex gap-1 mb-4" aria-label="5 von 5 Sternen">
+                            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        </div>
+                        <blockquote class="text-gray-700 leading-relaxed mb-6">&laquo; Wir brauchten einen Dienstleister, der ABB und Kempower ohne Unterauftrag warten kann. JCSM hat es beim ersten Einsatz geschafft. &raquo;</blockquote>
+                        <div class="border-t border-gray-100 pt-4">
+                            <p class="font-semibold text-gray-900 text-sm">Technischer Direktor</p>
+                            <p class="text-xs text-gray-500">Ladestationshersteller</p>
+                        </div>
+                    </div>
+                    <div class="card-hover bg-white border border-gray-200 rounded-2xl p-8 section-appear">
+                        <div class="flex gap-1 mb-4" aria-label="5 von 5 Sternen">
+                            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        </div>
+                        <blockquote class="text-gray-700 leading-relaxed mb-6">&laquo; Der White-Label-Support rund um die Uhr hat unsere Kundenbeziehung verandert. Unsere Nutzer glauben, mit unserem eigenen Team zu sprechen. &raquo;</blockquote>
+                        <div class="border-t border-gray-100 pt-4">
+                            <p class="font-semibold text-gray-900 text-sm">Head of Operations</p>
+                            <p class="text-xs text-gray-500">Ladenetzwerk</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -1054,7 +1085,7 @@
                         <picture><source srcset="../images/logo.webp" type="image/webp"><img src="../images/logo.png" alt="JCSM Logo" class="w-8 h-8" width="32" height="32" loading="lazy"></picture>
                         <span class="text-xl font-semibold text-gray-900">JCSM</span>
                     </div>
-                    <p class="text-sm text-gray-600 mb-4">Ihr Ladeinfrastruktur-Partner seit 2019 - Installation, Betrieb und Wartung in Frankreich und Belgien.</p>
+                    <p class="text-sm text-gray-600 mb-4">Ihr Ladeinfrastruktur-Partner seit 2019 - Installation, Betrieb und Wartung in Frankreich und Belgien. Inklusiver Arbeitgeber.</p>
                     <p class="text-sm text-gray-500">60 rue Francois 1er<br>75008 Paris</p>
                     <p class="text-sm text-gray-500 mt-3"><a href="tel:+33183755706" title="JCSM anrufen" class="hover:text-gray-900 transition-colors">+33 1 83 75 57 06</a></p>
                     <p class="text-sm text-gray-500"><a href="mailto:contact@jcsm.fr" title="Eine E-Mail an JCSM senden" class="hover:text-gray-900 transition-colors">contact@jcsm.fr</a></p>
@@ -1137,6 +1168,28 @@
             });
         }
     </script>
+
+<!-- Sticky CTA bar -->
+<div id="sticky-cta" class="hidden fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-sm border-t border-gray-200 shadow-lg px-6 py-3 md:flex items-center justify-between max-w-full" style="display:none">
+    <p class="text-sm font-medium text-gray-700">Wartung, Installation oder Ladeinfrastruktur-Support?</p>
+    <div class="flex items-center gap-3">
+        <a href="/de/kontakt" class="btn-primary px-6 py-2.5 rounded-lg text-sm font-semibold text-white">Kostenloses Angebot in 24h</a>
+        <button id="sticky-cta-close" class="text-gray-400 hover:text-gray-600 p-1" aria-label="Schliessen">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+    </div>
+</div>
+<script>
+(function(){
+    var bar=document.getElementById('sticky-cta'),close=document.getElementById('sticky-cta-close');
+    if(!bar||!close||sessionStorage.getItem('stickyCtaClosed'))return;
+    window.addEventListener('scroll',function(){
+        if(window.scrollY>600){bar.style.display='';bar.classList.remove('hidden')}
+        else{bar.style.display='none'}
+    });
+    close.addEventListener('click',function(){bar.style.display='none';sessionStorage.setItem('stickyCtaClosed','1')});
+})();
+</script>
 
 </body>
 
