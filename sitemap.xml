@@ -147,6 +147,13 @@
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
+  <!-- Inclusion page -->
+  <url>
+    <loc>https://jcsm.fr/inclusion</loc>
+    <lastmod>2026-04-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
   <!-- Zone pages (priority 0.7) -->
   <url>
     <loc>https://jcsm.fr/zones/france</loc>

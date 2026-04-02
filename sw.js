@@ -1,52 +1,56 @@
-// JCSM Service Worker - Enhanced PWA Support v60
-const STATIC_CACHE = 'jcsm-static-v60';
-const DYNAMIC_CACHE = 'jcsm-dynamic-v60';
-const API_CACHE = 'jcsm-api-v60';
+// JCSM Service Worker - Enhanced PWA Support v61
+const STATIC_CACHE = 'jcsm-static-v61';
+const DYNAMIC_CACHE = 'jcsm-dynamic-v61';
+const API_CACHE = 'jcsm-api-v61';
 
-// Assets to cache on install
-const STATIC_ASSETS = [
+// Critical assets pre-cached on install (small set for fast startup)
+const CRITICAL_URLS = [
     '/',
-    '/index.html',
+    '/a-propos',
+    '/contact',
     '/css/critical.css',
     '/styles.css',
-    '/css/tailwind.css',
-    '/js/i18n.js',
-    '/js/config.js',
     '/js/public.js',
+    '/js/config.js',
     '/js/utils.js',
-    '/js/wow-effects.js',
+    '/js/i18n.js',
     '/js/analytics.js',
     '/js/cookie-consent.js',
-    '/images/logo.webp',
     '/images/logo.png',
+    '/images/logo.webp',
     '/manifest.json',
-    '/offline.html',
+    '/offline.html'
+];
+
+// Known site URLs that should be lazily cached into STATIC_CACHE on first fetch
+const LAZY_CACHE_URLS = new Set([
+    '/index.html',
+    '/css/tailwind.css',
+    '/js/wow-effects.js',
     '/404.html',
-    '/exploitation.html',
-    '/installation-conformite.html',
-    '/pilotage-projets.html',
-    '/a-propos.html',
-    '/securisation-installations.html',
-    '/centre-appel.html',
-    '/carrieres.html',
-    '/mentions-legales.html',
-    '/confidentialite.html',
-    '/cgv.html',
+    '/exploitation',
+    '/installation-conformite',
+    '/pilotage-projets',
+    '/securisation-installations',
+    '/centre-appel',
+    '/carrieres',
+    '/mentions-legales',
+    '/confidentialite',
+    '/cgv',
     '/js/landing.js',
     '/js/dashboard.js',
     '/js/fiches.js',
     '/js/map.js',
     '/interne.html',
-    '/zones/ile-de-france.html',
-    '/zones/paca.html',
-    '/zones/occitanie.html',
-    '/zones/auvergne-rhone-alpes.html',
-    '/zones/hauts-de-france.html',
-    '/zones/nouvelle-aquitaine.html',
-    '/zones/belgique.html',
-    '/zones/france.html',
-    '/blog.html',
-    '/contact.html',
+    '/zones/ile-de-france',
+    '/zones/paca',
+    '/zones/occitanie',
+    '/zones/auvergne-rhone-alpes',
+    '/zones/hauts-de-france',
+    '/zones/nouvelle-aquitaine',
+    '/zones/belgique',
+    '/zones/france',
+    '/blog',
     '/css/chatbot.css',
     '/css/leaflet.css',
     '/js/chatbot.js',
@@ -119,17 +123,17 @@ const STATIC_ASSETS = [
     '/pt/operacao-manutencao',
     '/pt/seguranca-instalacoes',
     '/pt/sobre-nos',
-    '/couverture.html',
-    '/devenir-partenaire.html',
-    '/virta.html',
-    '/powerdot.html'
-];
+    '/couverture',
+    '/devenir-partenaire',
+    '/virta',
+    '/powerdot'
+]);
 
-// Install event - cache static assets
+// Install event - cache only critical assets
 self.addEventListener('install', (event) => {
     event.waitUntil(
         caches.open(STATIC_CACHE)
-            .then(cache => cache.addAll(STATIC_ASSETS))
+            .then(cache => cache.addAll(CRITICAL_URLS))
             .then(() => self.skipWaiting())
     );
 });
@@ -189,7 +193,9 @@ self.addEventListener('fetch', (event) => {
                 .then(response => {
                     if (response.ok) {
                         const clone = response.clone();
-                        caches.open(DYNAMIC_CACHE).then(cache => cache.put(request, clone));
+                        // Cache into STATIC_CACHE if it's a known site URL, otherwise DYNAMIC_CACHE
+                        const cacheName = LAZY_CACHE_URLS.has(url.pathname) ? STATIC_CACHE : DYNAMIC_CACHE;
+                        caches.open(cacheName).then(cache => cache.put(request, clone));
                     }
                     return response;
                 })
@@ -198,7 +204,7 @@ self.addEventListener('fetch', (event) => {
         return;
     }
 
-    // Static assets - cache first, fallback to network
+    // Static assets - cache first, fallback to network (lazy-cache on fetch)
     if (url.pathname.match(/\.(css|js|png|jpg|jpeg|svg|webp|woff2?)$/)) {
         event.respondWith(
             caches.match(request).then(cached => {
@@ -215,8 +221,16 @@ self.addEventListener('fetch', (event) => {
         return;
     }
 
-    // Default - network first
+    // Default - network first, lazy-cache known URLs
     event.respondWith(
-        fetch(request).catch(() => caches.match(request).then(r => r || caches.match('/offline.html')))
+        fetch(request)
+            .then(response => {
+                if (response.ok && LAZY_CACHE_URLS.has(url.pathname)) {
+                    const clone = response.clone();
+                    caches.open(STATIC_CACHE).then(cache => cache.put(request, clone));
+                }
+                return response;
+            })
+            .catch(() => caches.match(request).then(r => r || caches.match('/offline.html')))
     );
 });

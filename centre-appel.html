@@ -129,10 +129,10 @@
     <link rel="dns-prefetch" href="https://fonts.googleapis.com">
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet"
         media="print" onload="this.media='all'">
     <noscript>
-        <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&display=swap"
+        <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&display=swap"
             rel="stylesheet">
     </noscript>
     <link rel="stylesheet" href="/css/critical.css?v=46">
@@ -308,7 +308,7 @@
                     <a href="/installation-conformite" class="nav-link text-[15px] font-semibold text-gray-700 whitespace-nowrap">Installation</a>
                     <a href="/exploitation" class="nav-link text-[15px] font-semibold text-gray-700 whitespace-nowrap">Exploitation</a>
                     <a href="/securisation-installations" class="nav-link text-[15px] font-semibold text-gray-700 whitespace-nowrap">Sécurisation</a>
-                    <a href="/centre-appel" class="nav-link text-[15px] font-semibold text-gray-700 whitespace-nowrap">Support</a>
+                    <a href="/centre-appel" class="nav-link nav-link-active text-[15px] font-semibold text-gray-700 whitespace-nowrap">Support</a>
                     <a href="/solutions/" class="nav-link text-[15px] font-semibold text-gray-700 whitespace-nowrap">Solutions</a>
                     <a href="/a-propos" class="nav-link text-[15px] font-semibold text-gray-700 whitespace-nowrap">À propos</a>
                     <a href="/contact" class="btn-primary ml-5 px-8 py-3 rounded-xl text-[15px] font-semibold text-white shadow-lg hover:shadow-xl whitespace-nowrap">Devis gratuit</a>
@@ -334,7 +334,7 @@
             </ol>
         </nav>
         <!-- Hero -->
-        <section class="pt-[calc(5rem+0.75rem)] pb-6 px-4 sm:px-6 min-h-[calc(100vh-5rem)] flex items-center bg-white">
+        <section class="pt-[calc(5rem+0.75rem)] pb-6 px-4 sm:px-6 min-h-[60vh] flex items-center bg-white">
             <div class="max-w-6xl mx-auto w-full">
                 <div class="grid lg:grid-cols-2 gap-5 sm:gap-7 lg:gap-10 items-center">
                     <div class="space-y-4 sm:space-y-5 md:space-y-6 order-1 lg:order-1">
@@ -574,14 +574,17 @@
                     <div class="section-appear">
                         <div class="text-4xl md:text-6xl font-bold mb-3 num-highlight stat-glow">100<span class="text-3xl md:text-4xl text-gray-500">%</span></div>
                         <p class="text-sm text-gray-500 font-semibold uppercase tracking-wide">Des appels traités (humain ou IA+humain)</p>
+                        <p class="text-xs text-gray-400 mt-2">Moyenne secteur : 85%</p>
                     </div>
                     <div class="section-appear">
                         <div class="text-4xl md:text-6xl font-bold mb-3 num-highlight stat-glow">1:27</div>
                         <p class="text-sm text-gray-500 font-semibold uppercase tracking-wide">DMR Moyenne</p>
+                        <p class="text-xs text-gray-400 mt-2">Moyenne secteur : 3:45</p>
                     </div>
                     <div class="section-appear">
                         <div class="text-4xl md:text-6xl font-bold mb-3 num-highlight stat-glow">3.7<span class="text-3xl md:text-4xl text-gray-500">%</span></div>
                         <p class="text-sm text-gray-500 font-semibold uppercase tracking-wide">Appels Abandonnés</p>
+                        <p class="text-xs text-gray-400 mt-2">Moyenne secteur : 15%</p>
                     </div>
                     <div class="section-appear">
                         <div class="text-4xl md:text-6xl font-bold mb-3 num-highlight stat-glow">150<span
@@ -865,6 +868,42 @@
                 </div>
             </div>
         </section>
+
+        <!-- ============ CROSS-SELLING ============ -->
+        <section class="py-20 px-6 bg-gray-50" aria-label="Services complémentaires">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-14 section-appear">
+                    <p class="text-xs font-bold uppercase tracking-[2px] text-blue-600 mb-3">Aller plus loin</p>
+                    <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-4 text-gray-900">Services complémentaires</h2>
+                </div>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <a href="/exploitation" class="card-hover bg-white border border-gray-200 rounded-2xl p-8 section-appear group block">
+                        <div class="w-12 h-12 bg-blue-50 border border-blue-100 rounded-xl flex items-center justify-center text-blue-600 mb-6">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.066 2.573c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.573 1.066c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.066-2.573c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors">Exploitation & maintenance</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">Maintenance préventive et curative multi-marques, SLA garanti, rapports d'intervention détaillés.</p>
+                        <span class="text-sm font-semibold text-blue-600 mt-4 inline-block">Découvrir →</span>
+                    </a>
+                    <a href="/securisation-installations" class="card-hover bg-white border border-gray-200 rounded-2xl p-8 section-appear group block">
+                        <div class="w-12 h-12 bg-blue-50 border border-blue-100 rounded-xl flex items-center justify-center text-blue-600 mb-6">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors">Sécurisation</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">Audits de conformité, mise aux normes, sécurisation électrique et physique de vos installations IRVE.</p>
+                        <span class="text-sm font-semibold text-blue-600 mt-4 inline-block">Découvrir →</span>
+                    </a>
+                    <a href="/couverture" class="card-hover bg-white border border-gray-200 rounded-2xl p-8 section-appear group block">
+                        <div class="w-12 h-12 bg-blue-50 border border-blue-100 rounded-xl flex items-center justify-center text-blue-600 mb-6">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors">Couverture nationale</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">Intervention sur toute la France et la Belgique. Vérifiez la couverture de votre site en quelques clics.</p>
+                        <span class="text-sm font-semibold text-blue-600 mt-4 inline-block">Voir la carte →</span>
+                    </a>
+                </div>
+            </div>
+        </section>
     </main>
 
         <footer class="border-t border-gray-100 py-16 px-6 bg-white" role="contentinfo" aria-label="Pied de page">
@@ -875,7 +914,7 @@
                         <picture><source srcset="images/logo.webp" type="image/webp"><img src="images/logo.png" alt="Logo JCSM" class="w-8 h-8" width="32" height="32" loading="lazy" decoding="async"></picture>
                         <span class="text-xl font-semibold text-gray-900">JCSM</span>
                     </div>
-                    <p class="text-sm text-gray-600 mb-4">Pilotage, installation et maintenance IRVE en France et Belgique depuis 2019. Entreprise inclusive.</p>
+                    <p class="text-sm text-gray-600 mb-4">Expérience IRVE depuis 2019. Installation, maintenance et pilotage en France et Belgique. Entreprise inclusive.</p>
                     <p class="text-sm text-gray-500">60 rue François 1er<br>75008 Paris</p>
                     <p class="text-sm text-gray-500 mt-3"><a href="tel:+33183755706" title="Appeler JCSM" class="hover:text-gray-900 transition-colors">+33 1 83 75 57 06</a></p>
                     <p class="text-sm text-gray-500"><a href="mailto:contact@jcsm.fr" title="Envoyer un email à JCSM" class="hover:text-gray-900 transition-colors">contact@jcsm.fr</a></p>

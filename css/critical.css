@@ -294,14 +294,18 @@ nav a:not(.btn-primary):not(.nav-link-active):hover::after { width: 80%; }
 
 /* === GPU-Accelerated Elements === */
 .btn-primary, .card-hover, .fade-in-up, .img-reveal, .magnetic-btn, .tilt-card {
-    will-change: transform;
     transform: translateZ(0);
     backface-visibility: hidden;
 }
-#hero-image, .logo-marquee-track {
+.btn-primary:hover, .card-hover:hover, .fade-in-up:hover, .tilt-card:hover {
     will-change: transform;
+}
+#hero-image, .logo-marquee-track {
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
+}
+#hero-image:hover, .logo-marquee-track:hover {
+    will-change: transform;
 }
 
 /* === Section Appear Animation System === */
