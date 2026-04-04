@@ -4,6 +4,40 @@
 User-agent: *
 Allow: /
 
+# AI/LLM crawlers — explicitly allowed for AI search visibility
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: GoogleOther
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+User-agent: Meta-ExternalAgent
+Allow: /
+
 # Sitemaps
 Sitemap: https://jcsm.fr/sitemap.xml
 
@@ -23,19 +57,12 @@ Disallow: /*.sql
 Disallow: /*.sh
 Disallow: /*.log
 
-# Disallow old/renamed URLs (301 redirects configured)
-Disallow: /securisation
-Disallow: /interventions
-Disallow: /support-client
-Disallow: /mise-en-service
+# Old URLs now have 301 redirects in nginx — no longer blocked
 
 # Disallow backup, reports & internal pages
 Disallow: /blog_backup_faq/
 Disallow: /blog_schema_backup_20260320/
 Disallow: /rapports/
-Disallow: /ca
-Disallow: /ca1
-Disallow: /ca2
 Disallow: /evergreen
 
 # Disallow partner-specific pages

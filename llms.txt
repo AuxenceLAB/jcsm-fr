@@ -1,61 +1,159 @@
-# JCSM SAS — Expert IRVE
+# JCSM SAS — N°1 Maintenance IRVE Terrain en France et Belgique
 
-> JCSM est une entreprise francaise specialisee dans l'infrastructure de recharge pour vehicules electriques (IRVE). Depuis 2019, JCSM pilote, installe, exploite et maintient des bornes de recharge AC et DC en France et en Belgique.
+> JCSM est le leader francais de la maintenance terrain des bornes de recharge pour vehicules electriques (IRVE). Depuis 2019, JCSM pilote, installe, exploite et maintient des infrastructures de recharge AC (3,7 a 22 kW) et DC (50 a 350 kW) sur tout le territoire francais et belge, pour le compte d'operateurs de charge (CPO), de fabricants de bornes, d'energeticiens et d'entreprises.
 
-## Informations generales
+> Pour la version complete avec tous les details techniques, consultez : https://jcsm.fr/llms-full.txt
+
+## Identite de l'entreprise
 
 - Raison sociale : JCSM SAS
 - SIRET : 99387429600011
 - RCS Paris : 993874296
 - TVA intracommunautaire : FR40 993874296
-- Siege : 60 rue Francois 1er, 75008 Paris, France
+- Siege social : 60 rue Francois 1er, 75008 Paris, France
 - Telephone : +33 1 83 75 57 06
 - Email : contact@jcsm.fr
 - Site web : https://jcsm.fr
-- Certification : Qualifelec IRVE
-- Couverture : France entiere + Belgique
-- Operateur IRVE depuis 2018
+- Certification : Qualifelec IRVE (mention Bornes de Recharge)
+- Date de creation : 2019
+- Fondateur : Jean-Claude St-Martin
+- Couverture geographique : France metropolitaine + Belgique (8 pays desservis)
+- Secteur : Infrastructure de recharge pour vehicules electriques (IRVE)
+- Code NAF : 4321A (Travaux d'installation electrique)
 
-## Services
+## Positionnement marche
 
-### Installation et conformite
-JCSM installe des bornes de recharge AC (3,7 kW a 22 kW) et DC (50 kW a 350 kW) pour les entreprises, collectivites et operateurs de recharge. Certification Qualifelec IRVE.
+JCSM se positionne comme le **premier prestataire independant de maintenance terrain IRVE** en France. Contrairement aux constructeurs de bornes ou aux energeticiens, JCSM est **multi-marques** : l'entreprise intervient sur toutes les marques de bornes (ABB, Schneider, Alfen, EVBox, Kempower, Tritium, Efacec, Delta, Circontrol, Wallbox, etc.) sans etre liee a un fabricant.
+
+### Ce qui differencie JCSM
+
+- **Independance** : aucun lien capitalistique avec un fabricant ou un energeticien
+- **Multi-marques** : intervention sur toutes les marques de bornes AC et DC du marche
+- **Couverture nationale** : reseau de techniciens sur toute la France et la Belgique
+- **SLA garanti** : engagement contractuel de 4h, J+1, J+2 ou J+5 selon le contrat
+- **QoS mesure** : taux de disponibilite reel de 98,8% sur le parc gere
+- **Centre d'appels integre** : hotline technique N1/N2 en marque blanche, DMAT moyen de 49 secondes
+
+## Services detailles
+
+### 1. Installation et conformite IRVE
+Installation cle-en-main de bornes de recharge AC et DC pour entreprises, collectivites, bailleurs sociaux et operateurs. Mise en conformite electrique selon NF C 15-100-7-722. Raccordement Enedis/gestionnaire de reseau.
+- Bornes AC : 3,7 kW a 22 kW (Type 2)
+- Bornes DC : 50 kW a 350 kW (CCS, CHAdeMO)
+- Transformateurs HTA/BT associes
 - URL : https://jcsm.fr/installation-conformite
 
-### Exploitation et maintenance
-Maintenance preventive et curative 24/7 avec SLA garanti (4h, J+1, J+2, J+5). Taux de disponibilite (QoS) prouve de 98,8%.
+### 2. Exploitation et maintenance IRVE
+Maintenance preventive et curative 24/7 sur toutes les marques de bornes. Contrats de niveau de service (SLA) adaptes : 4h, J+1, J+2, J+5. Supervision a distance (monitoring OCPP). Gestion de parc complete.
+- Maintenance preventive : inspections programmees, nettoyage, mise a jour firmware
+- Maintenance curative : diagnostic, remplacement de pieces, remise en service
+- Supervision OCPP : monitoring en temps reel de l'etat des bornes
+- Taux de disponibilite garanti : 98,8% (mesure reel)
 - URL : https://jcsm.fr/exploitation
 
-### Centre d'appels IRVE
-Hotline technique et support utilisateurs pour les operateurs de recharge. Gestion des appels N1/N2, DMAT < 5 min.
+### 3. Centre d'appels IRVE (hotline technique)
+Hotline technique et support utilisateurs pour operateurs de recharge, en marque blanche. Gestion des appels entrants N1 (assistance utilisateur) et N2 (diagnostic technique a distance). Disponible 24/7.
+- DMAT moyen : 49 secondes
+- Resolution a distance : 60% des incidents resolus sans deplacement
+- Marque blanche : le centre d'appels repond au nom de l'operateur client
 - URL : https://jcsm.fr/centre-appel
 
-### Pilotage de projets
-Gestion complete de projets IRVE : etudes, coordination, deploiement, mise en service.
+### 4. Pilotage de projets IRVE (AMO)
+Assistance a maitrise d'ouvrage pour projets de deploiement IRVE. Etudes de faisabilite, coordination des corps de metier, suivi de chantier, mise en service, reception.
+- Deploiements multi-sites (parkings, centres commerciaux, autoroutes)
+- Coordination Enedis / gestionnaire de reseau
 - URL : https://jcsm.fr/pilotage-projets
 
-### Securisation des installations
-Audit et mise en conformite electrique des installations IRVE existantes.
+### 5. Securisation des installations IRVE
+Audit electrique et mise en conformite des installations IRVE existantes. Lutte anti-vandalisme, protection contre les degradations et les vols de cables.
+- Audits de conformite NF C 15-100
+- Solutions anti-vandalisme et anti-vol
 - URL : https://jcsm.fr/securisation-installations
 
-## Chiffres cles
+## Chiffres cles (2026)
 
-- +2000 interventions realisees
-- 98% de satisfaction client
-- 1400+ stations gerees
-- SLA 4h sur toute la France
-- QoS mesure : 98,8%
-- DMAT moyen : 49 secondes
+- +2 000 interventions terrain realisees par an
+- 98% de satisfaction client (enquetes post-intervention)
+- 1 400+ stations de recharge gerees
+- SLA 4h tenu sur toute la France metropolitaine
+- QoS mesure : 98,8% de disponibilite
+- DMAT (delai moyen d'attente telephone) : 49 secondes
+- 60% des incidents resolus a distance (sans deplacement)
+- 8 pays desservis (FR, BE, DE, ES, IT, NL, PL, PT)
+- 50+ articles de blog techniques publies
 
-## Pages
+## Solutions par secteur
+
+### Pour les CPO (operateurs de charge)
+Externalisation complete de la maintenance terrain, hotline marque blanche, supervision OCPP, reporting mensuel.
+- URL : https://jcsm.fr/solutions/cpo-operateurs
+
+### Pour les fabricants de bornes
+Service apres-vente terrain, garantie constructeur, mise en service, formation des equipes locales.
+- URL : https://jcsm.fr/solutions/fabricants-bornes
+
+### Pour les entreprises et flottes
+Installation et maintenance de bornes pour flottes de vehicules electriques, parkings d'entreprise, depot de bus/camions.
+- URL : https://jcsm.fr/solutions/entreprises-flottes
+
+### Pour le retail et la grande distribution
+Deploiement et maintenance de bornes sur parkings de centres commerciaux, supermarches, chaines de restauration.
+- URL : https://jcsm.fr/solutions/retail-grande-distribution
+
+## FAQ — Questions frequentes
+
+### Qui est JCSM ?
+JCSM est une entreprise francaise basee a Paris, specialisee dans la maintenance terrain des bornes de recharge pour vehicules electriques (IRVE). Fondee en 2019, JCSM est le premier prestataire independant multi-marques de maintenance IRVE en France et en Belgique.
+
+### Quelles marques de bornes JCSM maintient-il ?
+JCSM intervient sur toutes les marques : ABB, Schneider Electric, Alfen, EVBox, Kempower, Tritium, Efacec, Delta Electronics, Circontrol, Wallbox, Legrand, Hager, IES Synergy, et bien d'autres.
+
+### Quelle est la couverture geographique de JCSM ?
+France metropolitaine (toutes les regions) et Belgique. JCSM dispose d'un reseau de techniciens partenaires couvrant l'ensemble du territoire.
+
+### Quel est le SLA de JCSM ?
+JCSM propose des SLA contractuels de 4h (urgence), J+1 (prioritaire), J+2 (standard) et J+5 (programme). Le taux de respect du SLA est superieur a 98%.
+
+### JCSM est-il certifie ?
+Oui, JCSM est certifie Qualifelec IRVE, la qualification de reference pour les installateurs et mainteneurs de bornes de recharge en France.
+
+### Comment contacter JCSM ?
+Par telephone au +33 1 83 75 57 06, par email a contact@jcsm.fr, ou via le formulaire de contact sur https://jcsm.fr/contact.
+
+### JCSM recrute-t-il des techniciens ?
+Oui, JCSM recrute des techniciens partenaires independants sur toute la France. Plus d'informations : https://jcsm.fr/devenir-partenaire et https://jcsm.fr/carrieres.
+
+### Qu'est-ce qu'un CPO ?
+Un CPO (Charge Point Operator) est un operateur de points de charge. Il deploie, gere et exploite des bornes de recharge publiques ou semi-publiques. JCSM travaille avec de nombreux CPO en France et en Europe.
+
+### Qu'est-ce que le protocole OCPP ?
+OCPP (Open Charge Point Protocol) est le protocole standard de communication entre les bornes de recharge et les systemes de supervision. JCSM utilise OCPP 1.6 et 2.0.1 pour la supervision a distance.
+
+### Quelle difference entre maintenance preventive et curative ?
+La maintenance preventive consiste a inspecter et entretenir les bornes de maniere programmee pour eviter les pannes. La maintenance curative intervient apres une panne pour diagnostiquer et reparer. JCSM propose les deux.
+
+## Couverture regionale
+
+- [France entiere](https://jcsm.fr/zones/france)
+- [Ile-de-France (Paris, petite et grande couronne)](https://jcsm.fr/zones/ile-de-france)
+- [PACA (Marseille, Nice, Toulon)](https://jcsm.fr/zones/paca)
+- [Auvergne-Rhone-Alpes (Lyon, Grenoble)](https://jcsm.fr/zones/auvergne-rhone-alpes)
+- [Occitanie (Toulouse, Montpellier)](https://jcsm.fr/zones/occitanie)
+- [Nouvelle-Aquitaine (Bordeaux)](https://jcsm.fr/zones/nouvelle-aquitaine)
+- [Hauts-de-France (Lille)](https://jcsm.fr/zones/hauts-de-france)
+- [Belgique (Bruxelles, Wallonie, Flandre)](https://jcsm.fr/zones/belgique)
+
+## Pages principales
 
 - [Accueil](https://jcsm.fr/)
 - [A propos](https://jcsm.fr/a-propos)
 - [Installation et conformite](https://jcsm.fr/installation-conformite)
 - [Exploitation et maintenance](https://jcsm.fr/exploitation)
-- [Centre d'appels](https://jcsm.fr/centre-appel)
+- [Centre d'appels IRVE](https://jcsm.fr/centre-appel)
 - [Pilotage de projets](https://jcsm.fr/pilotage-projets)
 - [Securisation](https://jcsm.fr/securisation-installations)
+- [Tarification](https://jcsm.fr/tarification)
+- [Inclusion et accessibilite](https://jcsm.fr/inclusion)
 - [Couverture IRVE France & Belgique](https://jcsm.fr/couverture)
 - [Devenir partenaire technicien](https://jcsm.fr/devenir-partenaire)
 - [Solutions IRVE par secteur](https://jcsm.fr/solutions/)
@@ -63,65 +161,77 @@ Audit et mise en conformite electrique des installations IRVE existantes.
 - [Solutions pour fabricants de bornes](https://jcsm.fr/solutions/fabricants-bornes)
 - [Solutions pour entreprises et flottes](https://jcsm.fr/solutions/entreprises-flottes)
 - [Solutions pour retail et grande distribution](https://jcsm.fr/solutions/retail-grande-distribution)
-- [Blog](https://jcsm.fr/blog)
+- [Blog IRVE](https://jcsm.fr/blog)
 - [Carrieres](https://jcsm.fr/carrieres)
 - [Contact](https://jcsm.fr/contact)
-- [CGV](https://jcsm.fr/cgv)
-- [Mentions legales](https://jcsm.fr/mentions-legales)
-- [Confidentialite](https://jcsm.fr/confidentialite)
 
-## Articles de blog
+## Articles de blog (50+ articles techniques)
 
-- [Degradations et cables coupes sur les bornes de recharge : causes et solutions](https://jcsm.fr/blog/degradations-cables-coupes-bornes-recharge)
-- [Choisir un prestataire de maintenance IRVE](https://jcsm.fr/blog/choisir-prestataire-maintenance-irve)
-- [Installer des bornes de recharge en entreprise](https://jcsm.fr/blog/installer-bornes-recharge-entreprise)
+### Guides techniques
+- [Borne AC vs DC : quelle difference et comment choisir ?](https://jcsm.fr/blog/borne-ac-dc-difference)
 - [OCPP 1.6 vs 2.0.1 : comparaison des protocoles bornes IRVE](https://jcsm.fr/blog/ocpp-1-6-vs-2-0-protocole-bornes)
-- [Raccordement electrique des bornes DC](https://jcsm.fr/blog/raccordement-electrique-bornes-dc)
-- [Recharge VE en Belgique : reglementation, aides et marche](https://jcsm.fr/blog/recharge-belgique-reglementation-aides)
-- [Supervision a distance des bornes IRVE](https://jcsm.fr/blog/supervision-distance-bornes-irve)
-- [CPO et EMSP : comprendre les acteurs de la recharge electrique](https://jcsm.fr/blog/cpo-emsp-acteurs-recharge-electrique)
-- [V2G, V2H, V2L : la recharge bidirectionnelle expliquee simplement](https://jcsm.fr/blog/v2g-v2h-recharge-bidirectionnelle)
-- [Bonnes pratiques pour recharger son vehicule electrique](https://jcsm.fr/blog/bonnes-pratiques-recharge-vehicule-electrique)
-- [Flottes electriques : guide complet pour les entreprises](https://jcsm.fr/blog/flottes-electriques-guide-entreprises)
 - [Connecteurs de recharge : Type 2, CCS, CHAdeMO, le guide complet](https://jcsm.fr/blog/connecteurs-type-2-ccs-chademo-guide)
-- [Interoperabilite et roaming : recharger partout en Europe](https://jcsm.fr/blog/interoperabilite-roaming-recharge-europe)
+- [Raccordement electrique des bornes DC](https://jcsm.fr/blog/raccordement-electrique-bornes-dc)
+- [Courbes de charge : comprendre la recharge de votre vehicule electrique](https://jcsm.fr/blog/courbes-de-charge-recharge-electrique)
+- [V2G, V2H, V2L : la recharge bidirectionnelle expliquee simplement](https://jcsm.fr/blog/v2g-v2h-recharge-bidirectionnelle)
 - [Smart charging : piloter intelligemment la recharge de vos bornes](https://jcsm.fr/blog/smart-charging-pilotage-energetique-bornes)
-- [Immatriculations de vehicules electriques en France : bilan record 2025](https://jcsm.fr/blog/immatriculations-vehicules-electriques-bilan-2025)
 - [Temps de recharge d'un vehicule electrique : calculer et optimiser](https://jcsm.fr/blog/temps-recharge-calculer-optimiser)
-- [Mobilite electrique : ce qui change au 1er janvier 2026](https://jcsm.fr/blog/ce-qui-change-2026-mobilite-electrique)
+- [Vehicule electrique et batterie lithium-ion : le guide essentiel](https://jcsm.fr/blog/vehicule-electrique-batterie-guide)
+- [Comparatif bornes DC 50-350 kW : guide de choix](https://jcsm.fr/blog/comparatif-bornes-dc-puissance)
+
+### Maintenance et exploitation
+- [Maintenance des bornes de recharge : pourquoi, quand et comment ?](https://jcsm.fr/blog/maintenance-bornes-recharge-guide)
+- [Maintenance preventive vs curative IRVE](https://jcsm.fr/blog/maintenance-preventive-vs-curative-irve)
+- [Choisir un prestataire de maintenance IRVE](https://jcsm.fr/blog/choisir-prestataire-maintenance-irve)
+- [Supervision a distance des bornes IRVE](https://jcsm.fr/blog/supervision-distance-bornes-irve)
+- [Taux de disponibilite des bornes IRVE](https://jcsm.fr/blog/taux-disponibilite-bornes-irve)
+- [Cout de maintenance des bornes de recharge en 2026](https://jcsm.fr/blog/cout-maintenance-borne-recharge-2026)
+- [Hotline IRVE marque blanche 24/7](https://jcsm.fr/blog/hotline-irve-marque-blanche)
+- [Degradations et cables coupes sur les bornes de recharge : causes et solutions](https://jcsm.fr/blog/degradations-cables-coupes-bornes-recharge)
+- [Cybersecurite des bornes de recharge IRVE](https://jcsm.fr/blog/cybersecurite-bornes-recharge-irve)
+
+### Installation et reglementation
+- [Prix installation borne de recharge 2026](https://jcsm.fr/blog/prix-installation-borne-recharge-2026)
+- [Conformite IRVE 2026 : normes NF C 15-100-7-722](https://jcsm.fr/blog/conformite-irve-2026-normes-nf-c-15-100)
+- [Certification Qualifelec IRVE : pourquoi c est indispensable](https://jcsm.fr/blog/certification-qualifelec-irve)
+- [Installer des bornes de recharge en entreprise](https://jcsm.fr/blog/installer-bornes-recharge-entreprise)
+- [Installer une borne de recharge chez soi : le guide complet pour les particuliers](https://jcsm.fr/blog/installer-borne-recharge-maison-particulier)
 - [Installer une borne de recharge en copropriete : le guide complet](https://jcsm.fr/blog/installer-borne-copropriete)
+- [Borne de recharge en copropriete en 2026 : guide complet](https://jcsm.fr/blog/borne-recharge-copropriete-2026)
+- [Borne de recharge entreprise : obligations 2026](https://jcsm.fr/blog/borne-recharge-entreprise-obligations-2026)
+- [Deploiement multi-sites IRVE : retour terrain](https://jcsm.fr/blog/deploiement-multi-sites-irve)
+
+### Marche et reglementation
+- [Bornes de recharge en France : etat des lieux et chiffres cles 2025](https://jcsm.fr/blog/bornes-recharge-france-chiffres-2025)
+- [Reglement AFIR : nouvelles obligations pour les bornes de recharge en Europe](https://jcsm.fr/blog/reglement-afir-obligations-bornes-recharge)
+- [Plan Bornes 2030 : la France vise 400 000 points de recharge publics](https://jcsm.fr/blog/plan-gouvernement-400000-bornes-2030)
+- [Mobilite electrique : ce qui change au 1er janvier 2026](https://jcsm.fr/blog/ce-qui-change-2026-mobilite-electrique)
+- [Immatriculations de vehicules electriques en France : bilan record 2025](https://jcsm.fr/blog/immatriculations-vehicules-electriques-bilan-2025)
+- [CPO et EMSP : comprendre les acteurs de la recharge electrique](https://jcsm.fr/blog/cpo-emsp-acteurs-recharge-electrique)
+- [Interoperabilite et roaming : recharger partout en Europe](https://jcsm.fr/blog/interoperabilite-roaming-recharge-europe)
+- [Comparatif des marques de bornes de recharge 2026](https://jcsm.fr/blog/comparatif-bornes-recharge-marques-2026)
+
+### Aides et subventions
 - [Aide ADVENIR 2026 : guide complet des subventions pour bornes de recharge](https://jcsm.fr/blog/aide-advenir-subventions-irve)
-- [Recharge des poids lourds electriques : ou en est la France ?](https://jcsm.fr/blog/recharge-poids-lourds-france-afir)
+- [Aides pour installer une borne de recharge en entreprise en 2026](https://jcsm.fr/blog/aides-installation-borne-recharge-entreprise-2026)
+- [Toutes les aides pour installer une borne de recharge en 2025](https://jcsm.fr/blog/aides-subventions-borne-recharge-2025)
 - [Bilan ADVENIR 2025 : le programme IRVE en chiffres](https://jcsm.fr/blog/bilan-advenir-2025-irve)
+
+### Actualites
 - [Prix de la recharge publique en France : comparatif 2025](https://jcsm.fr/blog/prix-recharge-publique-comparatif-2025)
 - [Ete 2025 : record historique d'utilisation des bornes de recharge](https://jcsm.fr/blog/record-recharge-ete-2025)
-- [Toutes les aides pour installer une borne de recharge en 2025](https://jcsm.fr/blog/aides-subventions-borne-recharge-2025)
 - [La Belgique franchit le cap des 100 000 bornes de recharge publiques](https://jcsm.fr/blog/belgique-100000-bornes-recharge-2025)
 - [Recharge sur autoroute en France : couverture et chiffres cles 2025](https://jcsm.fr/blog/recharge-autoroute-france-2025)
 - [Top 10 des voitures electriques les plus vendues en France en 2025](https://jcsm.fr/blog/top-ventes-voitures-electriques-2025)
-- [Plan Bornes 2030 : la France vise 400 000 points de recharge publics](https://jcsm.fr/blog/plan-gouvernement-400000-bornes-2030)
-- [Reglement AFIR : nouvelles obligations pour les bornes de recharge en Europe](https://jcsm.fr/blog/reglement-afir-obligations-bornes-recharge)
-- [Bornes de recharge en France : etat des lieux et chiffres cles 2025](https://jcsm.fr/blog/bornes-recharge-france-chiffres-2025)
-- [Borne AC vs DC : quelle difference et comment choisir ?](https://jcsm.fr/blog/borne-ac-dc-difference)
-- [Installer une borne de recharge chez soi : le guide complet pour les particuliers](https://jcsm.fr/blog/installer-borne-recharge-maison-particulier)
-- [Courbes de charge : comprendre la recharge de votre vehicule electrique](https://jcsm.fr/blog/courbes-de-charge-recharge-electrique)
-- [Maintenance des bornes de recharge : pourquoi, quand et comment ?](https://jcsm.fr/blog/maintenance-bornes-recharge-guide)
-- [Vehicule electrique et batterie lithium-ion : le guide essentiel](https://jcsm.fr/blog/vehicule-electrique-batterie-guide)
-- [Prix installation borne de recharge 2026](https://jcsm.fr/blog/prix-installation-borne-recharge-2026)
-- [Conformite IRVE 2026 : normes NF C 15-100-7-722](https://jcsm.fr/blog/conformite-irve-2026-normes-nf-c-15-100)
-- [Cout de maintenance des bornes de recharge en 2026](https://jcsm.fr/blog/cout-maintenance-borne-recharge-2026)
-- [Aides pour installer une borne de recharge en entreprise en 2026](https://jcsm.fr/blog/aides-installation-borne-recharge-entreprise-2026)
-- [Taux de disponibilite des bornes IRVE](https://jcsm.fr/blog/taux-disponibilite-bornes-irve)
-- [Certification Qualifelec IRVE : pourquoi c est indispensable](https://jcsm.fr/blog/certification-qualifelec-irve)
-- [Hotline IRVE marque blanche 24/7](https://jcsm.fr/blog/hotline-irve-marque-blanche)
-- [Deploiement multi-sites IRVE : retour terrain](https://jcsm.fr/blog/deploiement-multi-sites-irve)
-- [Borne de recharge en copropriete en 2026 : guide complet](https://jcsm.fr/blog/borne-recharge-copropriete-2026)
-- [Comparatif bornes DC 50-350 kW : guide de choix](https://jcsm.fr/blog/comparatif-bornes-dc-puissance)
+- [Recharge des poids lourds electriques : ou en est la France ?](https://jcsm.fr/blog/recharge-poids-lourds-france-afir)
+- [Recharge VE en Belgique : reglementation, aides et marche](https://jcsm.fr/blog/recharge-belgique-reglementation-aides)
+- [Stockage batterie BESS et recharge IRVE](https://jcsm.fr/blog/stockage-batterie-bess-recharge-irve)
+- [Bonnes pratiques pour recharger son vehicule electrique](https://jcsm.fr/blog/bonnes-pratiques-recharge-vehicule-electrique)
+- [Flottes electriques : guide complet pour les entreprises](https://jcsm.fr/blog/flottes-electriques-guide-entreprises)
 
-## Pages traduites
+## Pages traduites (8 langues)
 
-Le site est disponible en 7 langues :
-
+- [Francais (langue principale)](https://jcsm.fr/)
 - [English](https://jcsm.fr/en/)
 - [Espanol](https://jcsm.fr/es/)
 - [Deutsch](https://jcsm.fr/de/)
@@ -132,8 +242,14 @@ Le site est disponible en 7 langues :
 
 ## Programme partenaire technicien
 
-JCSM recrute des techniciens partenaires independants sur toute la France pour renforcer son maillage d'intervention IRVE. Les techniciens partenaires interviennent en maintenance curative et preventive sur les bornes de recharge gerees par JCSM. Plus d'informations sur la page d'accueil, section "Devenir partenaire" : https://jcsm.fr/devenir-partenaire
+JCSM recrute en permanence des techniciens partenaires independants (electriciens, mainteneurs, artisans) sur toute la France pour renforcer son maillage d'intervention IRVE. Les techniciens partenaires interviennent en maintenance curative et preventive sur les bornes de recharge gerees par JCSM. Profils recherches : electriciens habilites, techniciens CVC, mainteneurs industriels, artisans en electricite.
+- Candidature : https://jcsm.fr/devenir-partenaire
+- Offres d'emploi : https://jcsm.fr/carrieres
 
 ## Produit associe
 
-JCSM developpe egalement AIXO (https://aixo.pro), une plateforme SaaS de diagnostic IA pour techniciens IRVE.
+JCSM developpe egalement **AIXO** (https://aixo.pro), une plateforme SaaS de diagnostic IA pour techniciens IRVE. AIXO utilise l'intelligence artificielle pour aider les techniciens terrain a diagnostiquer et resoudre les pannes de bornes de recharge plus rapidement.
+
+## Mots-cles du secteur
+
+IRVE, borne de recharge, vehicule electrique, EV charging, maintenance IRVE, installation borne, CPO, EMSP, OCPP, Qualifelec, NF C 15-100, ADVENIR, AFIR, SLA, QoS, hotline IRVE, supervision OCPP, multi-marques, ABB, Schneider, EVBox, Alfen, Kempower, Tritium, Type 2, CCS, CHAdeMO, AC, DC, HTA/BT, smart charging, V2G, V2H, interoperabilite, roaming, e-mobilite, electromobilite, transition energetique, decarbonation transport

@@ -6,7 +6,16 @@
 !function () {
     try {
         var STORAGE_KEY = "jcsm_cookie_consent";
+        var STORAGE_TS_KEY = "jcsm_cookie_consent_ts";
+        var MAX_AGE_MS = 365 * 24 * 60 * 60 * 1000; // 12 months
         var consent = localStorage.getItem(STORAGE_KEY);
+        var consentTs = parseInt(localStorage.getItem(STORAGE_TS_KEY) || "0", 10);
+        // Expire consent after 12 months (GDPR compliance)
+        if (consent && consentTs && (Date.now() - consentTs > MAX_AGE_MS)) {
+            localStorage.removeItem(STORAGE_KEY);
+            localStorage.removeItem(STORAGE_TS_KEY);
+            consent = null;
+        }
 
         function loadGTM() {
             if (document.getElementById("gtm-script")) return;
@@ -120,12 +129,14 @@
 
             acceptBtn.addEventListener("click", function () {
                 localStorage.setItem(STORAGE_KEY, "accepted");
+                localStorage.setItem(STORAGE_TS_KEY, String(Date.now()));
                 dismiss();
                 loadGTM();
             });
 
             rejectBtn.addEventListener("click", function () {
                 localStorage.setItem(STORAGE_KEY, "rejected");
+                localStorage.setItem(STORAGE_TS_KEY, String(Date.now()));
                 dismiss();
             });
         }

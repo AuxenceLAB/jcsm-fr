@@ -4,7 +4,7 @@
   <!-- Homepage -->
   <url>
     <loc>https://jcsm.fr/</loc>
-    <lastmod>2026-03-22</lastmod>
+    <lastmod>2026-04-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
@@ -147,8 +147,6 @@
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
-  <!-- Inclusion page -->
-  <url>
   <!-- Tarification page -->
   <url>
     <loc>https://jcsm.fr/tarification</loc>
@@ -156,6 +154,8 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+  <!-- Inclusion page -->
+  <url>
     <loc>https://jcsm.fr/inclusion</loc>
     <lastmod>2026-04-02</lastmod>
     <changefreq>monthly</changefreq>
