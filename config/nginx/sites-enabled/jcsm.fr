@@ -1,0 +1,193 @@
+# HTTP → HTTPS + www → non-www redirect
+server {
+    listen 80;
+    server_name jcsm.fr www.jcsm.fr;
+    return 301 https://jcsm.fr$request_uri;
+}
+
+# www → non-www HTTPS redirect
+server {
+    listen 443 ssl;
+    http2 on;
+    server_name www.jcsm.fr;
+
+    ssl_certificate     /etc/ssl/certs/jcsm.fr.crt;
+    ssl_certificate_key /etc/ssl/private/jcsm.fr.key;
+    include     /etc/letsencrypt/options-ssl-nginx.conf;
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem;
+
+    return 301 https://jcsm.fr$request_uri;
+}
+
+# Main HTTPS server
+server {
+    server_name jcsm.fr;
+
+    root /var/www/jcsm.fr;
+    index index.html index.php;
+
+    # Custom 404 page
+    error_page 404 /404.html;
+
+    # HTTP/2
+    http2 on;
+
+    # 301 redirects for old/renamed pages
+    location = /interventions.html { return 301 /exploitation; }
+    location = /interventions { return 301 /exploitation; }
+    location = /support-client.html { return 301 /centre-appel; }
+    location = /support-client { return 301 /centre-appel; }
+    location = /securisation.html { return 301 /securisation-installations; }
+    location = /securisation { return 301 /securisation-installations; }
+    location = /mise-en-service.html { return 301 /installation-conformite; }
+    location = /mise-en-service { return 301 /installation-conformite; }
+    location = /services { return 301 /exploitation; }
+    location = /expertise { return 301 /installation-conformite; }
+    location = /index.html { return 301 /; }
+    # German pages with English slugs (soft 404 fix)
+    location = /de/installation-security { return 301 /de/anlagensicherung; }
+    location = /de/operations-maintenance { return 301 /de/betrieb-wartung; }
+    location = /de/call-center { return 301 /de/callcenter; }
+
+    # Redirect .html extension URLs to pretty URLs (SEO canonical)
+    location ~ ^/(.+)\.html$ {
+        return 301 /$1;
+    }
+
+    # Root: serve index.html directly (avoids index directive → /index.html redirect loop)
+    location = / {
+        limit_req zone=req_limit_per_ip burst=20 nodelay;
+        limit_conn conn_limit_per_ip 20;
+        include /etc/nginx/snippets/security.conf;
+        add_header Cache-Control "public, max-age=3600" always;
+        try_files /index.html =404;
+    }
+
+    # Pretty URLs: try without .html extension
+    # Also serves as HTML cache policy (1 hour)
+    location / {
+        limit_req zone=req_limit_per_ip burst=20 nodelay;
+        limit_conn conn_limit_per_ip 20;
+        include /etc/nginx/snippets/security.conf;
+        add_header Cache-Control "public, max-age=3600" always;
+        try_files $uri $uri.html $uri/ =404;
+    }
+
+    # PHP-FPM handler (no cache)
+    location ~ \.php$ {
+        limit_req zone=req_limit_per_ip burst=20 nodelay;
+        limit_conn conn_limit_per_ip 20;
+        include snippets/fastcgi-php.conf;
+        fastcgi_pass unix:/run/php/php8.4-fpm.sock;
+        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+
+        include /etc/nginx/snippets/security.conf;
+        add_header Cache-Control "no-cache, no-store, must-revalidate" always;
+        add_header Pragma "no-cache" always;
+    }
+
+    # Block access to sensitive files
+    location ~ /\.(?!well-known) {
+        deny all;
+    }
+    location ~ \.(env|sql|sh|log)$ {
+        deny all;
+    }
+    # Block .md files, package.json, and scripts directory
+    location ~ \.(md)$ {
+        deny all;
+    }
+    location = /package.json {
+        deny all;
+    }
+    location = /package-lock.json {
+        deny all;
+    }
+    location ^~ /config/ {
+        deny all;
+    }
+    location ^~ /scripts/ {
+        deny all;
+    }
+    # Block node_modules directory
+    location ^~ /node_modules/ {
+        deny all;
+    }
+    # Block internal/demo pages
+    location ~ ^/(interne|internedemo|ca|ca1|ca2)(\.html)?$ {
+        deny all;
+    }
+
+    # Block direct access to API data files (JSON)
+    location ~ ^/api/.*\.json$ {
+        deny all;
+    }
+    # Block direct access to API data storage
+    location ^~ /api/data/ {
+        deny all;
+    }
+
+    # Twilio incoming webhooks (public, no CORS, signature-validated in PHP)
+    location ~ ^/api/twilio-(incoming-sms|voice-twiml)\.php$ {
+        limit_req zone=req_limit_per_ip burst=20 nodelay;
+        limit_conn conn_limit_per_ip 20;
+        include snippets/fastcgi-php.conf;
+        fastcgi_pass unix:/run/php/php8.4-fpm.sock;
+        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+        add_header Cache-Control "no-cache, no-store, must-revalidate" always;
+    }
+
+    # Intervention link (public access for technicians via signed token)
+    location = /api/intervention-link.php {
+        limit_req zone=req_limit_per_ip burst=20 nodelay;
+        limit_conn conn_limit_per_ip 20;
+        include snippets/fastcgi-php.conf;
+        fastcgi_pass unix:/run/php/php8.4-fpm.sock;
+        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+        add_header Cache-Control "no-cache, no-store, must-revalidate" always;
+    }
+
+
+
+    # Service Worker - never cache immutably (must check for updates)
+    location = /sw.js {
+        include /etc/nginx/snippets/security.conf;
+        add_header Cache-Control "no-cache, must-revalidate" always;
+        try_files $uri =404;
+    }
+
+    # Rapports - allow access to generated reports
+    location /rapports/ {
+        include /etc/nginx/snippets/security.conf;
+        add_header Cache-Control "no-cache, no-store, must-revalidate" always;
+        try_files $uri =404;
+    }
+
+    # Cache images (1 month) - no rate limiting for static assets
+    location ~* \.(png|jpg|jpeg|gif|svg|webp|ico)$ {
+        include /etc/nginx/snippets/security.conf;
+        add_header Cache-Control "public, max-age=2592000, immutable" always;
+        try_files $uri =404;
+    }
+
+    # Cache fonts (1 year)
+    location ~* \.(woff2?|ttf|otf|eot)$ {
+        include /etc/nginx/snippets/security.conf;
+        add_header Cache-Control "public, max-age=31536000, immutable" always;
+        try_files $uri =404;
+    }
+
+    # Cache CSS/JS (1 week)
+    location ~* \.(css|js)$ {
+        include /etc/nginx/snippets/security.conf;
+        add_header Cache-Control "public, max-age=604800, immutable" always;
+        try_files $uri =404;
+    }
+
+    # Configuration SSL (Gérée par Certbot)
+    listen 443 ssl;
+    ssl_certificate     /etc/ssl/certs/jcsm.fr.crt;
+    ssl_certificate_key /etc/ssl/private/jcsm.fr.key;  
+    include     /etc/letsencrypt/options-ssl-nginx.conf;            
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem;                  
+}
