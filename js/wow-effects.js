@@ -163,36 +163,6 @@
         clearTimeout(this._resizeTimer);
     };
 
-    // ─── Word-split reveal animation ───
-    function SplitText(element) {
-        this.element = element;
-        this.text = element.textContent.trim();
-        this.split();
-    }
-    SplitText.prototype.split = function () {
-        var words = this.text.split(" ");
-        this.element.textContent = "";
-        var el = this.element;
-        words.forEach(function (word, idx) {
-            var span = document.createElement("span");
-            span.textContent = word;
-            span.style.display = "inline-block";
-            span.style.opacity = "0";
-            span.style.transform = "translateY(20px)";
-            span.style.transition = "all 0.6s cubic-bezier(0.16, 1, 0.3, 1) " + (0.05 * idx) + "s";
-            el.appendChild(span);
-            if (idx < words.length - 1) {
-                el.appendChild(document.createTextNode(" "));
-            }
-            requestAnimationFrame(function () {
-                setTimeout(function () {
-                    span.style.opacity = "1";
-                    span.style.transform = "translateY(0)";
-                }, 100);
-            });
-        });
-    };
-
     // ─── Inject styles (once) ───
     if (!document.getElementById("jcsm-wow-styles")) {
         var styleEl = document.createElement("style");
@@ -206,12 +176,6 @@
             ".card-hover, .card-premium { transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease; }",
             "@keyframes rippleEffect { to { transform: scale(4); opacity: 0; } }",
             "@keyframes staggerIn { to { opacity: 1; transform: translateY(0); } }",
-            "@keyframes morphBlobAnim {",
-            "  0%, 100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; transform: rotate(0deg) scale(1); }",
-            "  25% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }",
-            "  50% { border-radius: 50% 60% 30% 60% / 30% 40% 70% 50%; transform: rotate(180deg) scale(1.1); }",
-            "  75% { border-radius: 40% 30% 60% 50% / 60% 50% 30% 40%; }",
-            "}",
             "#scroll-progress { transition: width 0.1s linear; }",
             ".glow-border { position: relative; }",
             ".glow-border::before { content: ''; position: absolute; inset: -2px; background: rgba(37, 99, 235, 0.15); border-radius: inherit; z-index: -1; opacity: 0; transition: opacity 0.4s ease; filter: blur(12px); }",
@@ -400,34 +364,8 @@
             card.classList.add("wow-pop");
         });
 
-        // ─── Parallax (desktop only, rAF-gated) ───
-        (function parallax() {
-            if (window.innerWidth <= 768) return;
-            var elements = document.querySelectorAll("[data-parallax]");
-            if (!elements.length) return;
-
-            var ticking = false;
-            window.addEventListener("scroll", function () {
-                if (!ticking) {
-                    ticking = true;
-                    requestAnimationFrame(function () {
-                        elements.forEach(function (el) {
-                            var speed = parseFloat(el.dataset.speed) || 0.1;
-                            var rect = el.getBoundingClientRect();
-                            if (rect.top < window.innerHeight && rect.bottom > 0) {
-                                var offset = (window.innerHeight - rect.top) * speed;
-                                el.style.transform = "translateY(" + offset + "px)";
-                            }
-                        });
-                        ticking = false;
-                    });
-                }
-            }, { passive: true });
-        })();
-
-        // Counters, split text, scroll progress, marquee
+        // Counters, scroll progress, marquee
         document.querySelectorAll(".counter").forEach(function (el) { new Counter(el); });
-        document.querySelectorAll('[data-split="words"]').forEach(function (el) { new SplitText(el); });
         new ScrollProgress("#scroll-progress");
         new LogoMarquee(".logo-marquee");
 
@@ -478,17 +416,6 @@
             });
         });
 
-        // Morphing background blobs on odd sections
-        document.querySelectorAll("section").forEach(function (section, idx) {
-            if (idx % 2 === 0) return;
-            var blob = document.createElement("div");
-            blob.className = "morph-blob";
-            blob.style.cssText = "position:absolute;width:400px;height:400px;background:linear-gradient(135deg, rgba(37, 99, 235, 0.08), rgba(59, 130, 246, 0.06));border-radius:60% 40% 30% 70% / 60% 30% 70% 40%;animation:morphBlobAnim " + (8 + idx) + "s ease-in-out infinite;filter:blur(80px);pointer-events:none;z-index:0;top:" + (50 * Math.random()) + "%;";
-            blob.style.cssText += (idx % 4 === 1 ? "left:-10%;" : "right:-10%;");
-            section.style.position = "relative";
-            section.style.overflow = "hidden";
-            section.insertBefore(blob, section.firstChild);
-        });
     }
 
     // Counter glow class

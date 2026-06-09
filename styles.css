@@ -322,22 +322,10 @@ section {
   color: var(--color-primary);
 }
 .glass-badge {
-  background: rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.5);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  background: #ffffff;
+  border: 1px solid var(--color-line);
+  box-shadow: none;
 }
-@keyframes gradient-shift {
-  0%,
-  100% {
-    background-position: 0% center;
-  }
-  50% {
-    background-position: 100% center;
-  }
-}
-/* gradient-text::after shine animation removed */
 .counter {
   display: inline-block;
 }
@@ -377,51 +365,6 @@ section {
 .card-hover:hover {
   transform: translateY(-2px);
   border-color: var(--color-primary);
-}
-.particles-bg {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 0;
-  opacity: 0.07;
-  overflow: hidden;
-}
-.particle {
-  position: absolute;
-  width: 2px;
-  height: 2px;
-  background: var(--color-primary-dark);
-  border-radius: 50%;
-  animation: float 20s ease-in-out 3;
-  will-change: transform, opacity;
-  box-shadow: 0 0 6px rgba(59, 130, 246, 0.5);
-  opacity: 0.07;
-}
-.particle:nth-child(3n) {
-  background: var(--color-accent);
-  box-shadow: 0 0 6px rgba(6, 182, 212, 0.5);
-}
-@keyframes float {
-  0%,
-  100% {
-    transform: translate(0, 0) scale(1);
-    opacity: 0.4;
-  }
-  25% {
-    transform: translate(100px, -100px) scale(1.2);
-    opacity: 0.8;
-  }
-  50% {
-    transform: translate(-50px, -200px) scale(0.8);
-    opacity: 0.6;
-  }
-  75% {
-    transform: translate(-150px, -50px) scale(1.1);
-    opacity: 0.7;
-  }
 }
 footer a:not(.btn-primary) {
   position: relative;
@@ -572,30 +515,6 @@ nav a:not(.btn-primary):not(.nav-link-active):hover::after {
 .btn-secondary:hover {
   background: var(--color-ink);
   color: #fff;
-}
-.shine-effect {
-  position: relative;
-  overflow: hidden;
-}
-.shine-effect::after {
-  content: "";
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: linear-gradient(
-    135deg,
-    transparent 40%,
-    rgba(255, 255, 255, 0.1) 50%,
-    transparent 60%
-  );
-  transform: translateX(-100%);
-  transition: transform 0.8s ease;
-  pointer-events: none;
-}
-.shine-effect:hover::after {
-  transform: translateX(100%);
 }
 .btn-liquid {
   position: relative;
@@ -869,9 +788,6 @@ a:not(.btn-primary):not(.btn-secondary):hover {
   text-decoration: underline;
 }
 @media (max-width: 768px) {
-  .particles-bg {
-    display: none;
-  }
   .card-hover:hover {
     transform: none;
     box-shadow: none;
@@ -1003,8 +919,7 @@ body .input-success {
     animation: none;
     transform: none;
   }
-  body .cursor-glow,
-  body .particle {
+  body .cursor-glow {
     display: none;
   }
   :root {
@@ -1569,7 +1484,6 @@ h3 {
   }
 }
 @media print {
-  .particles-bg,
   .scroll-top,
   .glass-nav,
   .mobile-menu,
@@ -2020,16 +1934,6 @@ input[type="radio"] {
 
 /* btn-primary::before shine removed */
 
-/* Enhanced glass-badge with subtle shimmer */
-.glass-badge {
-  transition:
-    transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
-    box-shadow 0.4s ease;
-}
-.glass-badge:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 16px rgba(37, 99, 235, 0.1);
-}
 
 /* Heading entrance : subtle tracking */
 h1,
@@ -2055,11 +1959,7 @@ h2 {
   .gradient-text {
     animation: none;
   }
-  .gradient-text::after {
-    animation: none;
-  }
-  .btn-liquid::before,
-  .shine-effect::after {
+  .btn-liquid::before {
     transition: none;
   }
   .card-hover {
@@ -2082,14 +1982,6 @@ h2 {
   --jcsm-graphite: #0a0a0a;
   --jcsm-hairline: rgba(10, 10, 10, 0.08);
   --jcsm-bg-alt: #f5f5f5;
-}
-.particles-bg,
-.particle {
-  display: none !important;
-}
-.shine-effect::after,
-.card-hover::after {
-  display: none !important;
 }
 .accent-pro {
   color: #2563eb;
@@ -2181,16 +2073,13 @@ h2 {
   color: #2563eb !important;
   animation: none !important;
 }
-.gradient-text::after {
-  display: none !important;
-}
 
 /* ============================================================
    POLISH-PRO EXTENSIONS: wider coverage across non-homepage pages
    ============================================================ */
 /* Any glass-badge (hero badges, section intros) : mono + graphite border */
 .glass-badge {
-  background: rgba(255, 255, 255, 0.95) !important;
+  background: #ffffff !important;
   border: 1px solid var(--jcsm-graphite) !important;
   box-shadow: none !important;
 }
