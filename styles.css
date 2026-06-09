@@ -2,30 +2,31 @@
   --color-primary: #2563eb;
   --color-primary-dark: #1d4ed8;
   --color-primary-darker: #1e40af;
-  --color-primary-glow: rgba(37, 99, 235, 0.4);
-  --color-secondary: #7c3aed;
-  --color-accent: #06b6d4;
+  --color-primary-glow: rgba(37, 99, 235, 0.15);
+  --color-secondary: #1d4ed8;
+  --color-accent: #2563eb;
+  --color-ink: #0f1b2d;
+  --color-cream: #fafaf7;
+  --color-cream-alt: #f3f2ec;
+  --color-line: #e3e2db;
+  --color-blue-pale: #dbeafe;
   --color-success: #10b981;
   --color-error: #ef4444;
-  --color-gray-900: #111111;
-  --color-gray-500: #525252;
-  --color-gray-400: #6b7280;
+  --color-gray-900: #0f1b2d;
+  --color-gray-500: #5b6472;
+  --color-gray-400: #5b6472;
   --color-gray-300: #d1d5db;
-  --color-gray-200: #e5e7eb;
-  --color-gray-100: #f3f4f6;
+  --color-gray-200: #e3e2db;
+  --color-gray-100: #f3f2ec;
   --color-white: #ffffff;
-  --color-bg: #fafafa;
-  --color-text-secondary: #374151;
-  --gradient-primary: linear-gradient(
-    135deg,
-    var(--color-primary) 0%,
-    var(--color-accent) 100%
-  );
-  --gradient-dark: linear-gradient(135deg, #000 0%, #1a1a1a 100%);
+  --color-bg: #fafaf7;
+  --color-text-secondary: #5b6472;
+  --gradient-primary: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+  --gradient-dark: linear-gradient(135deg, #0f1b2d 0%, #16263f 100%);
   --gradient-glow: linear-gradient(
     135deg,
-    rgba(37, 99, 235, 0.15),
-    rgba(6, 182, 212, 0.1)
+    rgba(37, 99, 235, 0.10),
+    rgba(37, 99, 235, 0.04)
   );
   --shadow-lg:
     0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
@@ -33,8 +34,9 @@
     0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
   --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
   --font-sans:
-    "Outfit", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
     sans-serif;
+  --font-serif: "Fraunces", Georgia, "Times New Roman", serif;
   --font-size-base: clamp(0.9rem, 0.85rem + 0.25vw, 1rem);
   --spacing-md: 1rem;
   --spacing-lg: 1.5rem;
@@ -72,6 +74,20 @@ body {
   margin: 0;
   padding: 0;
   position: relative;
+}
+h1,
+h2,
+h3,
+.font-display {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+h1 em,
+h2 em,
+h3 em {
+  font-style: italic;
+  color: var(--color-primary);
 }
 @media (max-width: 400px) {
   .flex.flex-wrap.gap-2,
