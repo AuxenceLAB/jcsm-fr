@@ -59,8 +59,8 @@
     <link rel="dns-prefetch" href="https://fonts.googleapis.com">
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-<noscript><link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"></noscript>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
 <link rel="stylesheet" href="/css/leaflet.css">
 <style>
 
@@ -77,7 +77,7 @@
   --ease:cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-body{background:var(--bg);color:var(--text);font-family:'Outfit',sans-serif;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+body{background:var(--bg);color:var(--text);font-family:var(--font-sans),sans-serif;overflow-x:hidden;-webkit-font-smoothing:antialiased}
 
 /* preloader removed - direct render */
 
@@ -106,9 +106,9 @@ header{padding:0 24px;height:60px;display:flex;align-items:center;justify-conten
 /* ═══ MAP ═══ */
 .map-col{position:relative;overflow:hidden;cursor:default;background:#f0f4ff}
 #mapLeaflet{width:100%;height:100%;z-index:1}
-.tech-tooltip{background:var(--white);border:1px solid var(--border);border-radius:8px;padding:5px 12px;font-family:'Outfit';font-size:12px;font-weight:600;color:var(--text);box-shadow:var(--shadow);white-space:nowrap;pointer-events:none}
+.tech-tooltip{background:var(--white);border:1px solid var(--border);border-radius:8px;padding:5px 12px;font-family:var(--font-sans);font-size:12px;font-weight:600;color:var(--text);box-shadow:var(--shadow);white-space:nowrap;pointer-events:none}
 .tech-tooltip::before{display:none}
-.leaflet-popup-content{font-family:'Outfit';font-size:13px;line-height:1.6;margin:10px 14px}
+.leaflet-popup-content{font-family:var(--font-sans);font-size:13px;line-height:1.6;margin:10px 14px}
 .leaflet-popup-content b{color:var(--text);font-weight:700}
 .leaflet-popup-content .popup-badge{display:inline-block;padding:3px 10px;border-radius:6px;font-size:11px;font-weight:600;letter-spacing:.3px;margin-top:6px}
 .leaflet-popup-tip-container .leaflet-popup-tip{box-shadow:var(--shadow)}
@@ -116,7 +116,7 @@ header{padding:0 24px;height:60px;display:flex;align-items:center;justify-conten
 .tech-marker-icon{background:none;border:none}
 .leaflet-control-zoom a{width:34px;height:34px;line-height:34px;font-size:16px;border-radius:8px;color:var(--text-mid)}
 .leaflet-control-zoom{border-radius:12px;overflow:hidden;border:1px solid var(--border);box-shadow:var(--shadow)}
-.map-legend{background:var(--white);border-radius:14px;padding:14px 16px;font-family:'Outfit';font-size:12px;box-shadow:var(--shadow);max-height:320px;overflow-y:auto;border:1px solid var(--border);scrollbar-width:thin;scrollbar-color:var(--border) transparent}
+.map-legend{background:var(--white);border-radius:14px;padding:14px 16px;font-family:var(--font-sans);font-size:12px;box-shadow:var(--shadow);max-height:320px;overflow-y:auto;border:1px solid var(--border);scrollbar-width:thin;scrollbar-color:var(--border) transparent}
 .map-legend-title{font-weight:700;font-size:13px;color:var(--text);margin-bottom:10px;display:flex;align-items:center;gap:6px;padding-bottom:8px;border-bottom:1px solid var(--border)}
 .map-legend-item{display:flex;align-items:center;gap:8px;padding:4px 4px;cursor:pointer;border-radius:6px}
 .map-legend-dot{width:12px;height:12px;border-radius:50%;flex-shrink:0;border:2px solid #fff;box-shadow:0 1px 3px rgba(0,0,0,0.2)}
@@ -143,7 +143,7 @@ header{padding:0 24px;height:60px;display:flex;align-items:center;justify-conten
 .st-l{font-size:11px;color:var(--text-muted);margin-top:5px;font-weight:600;letter-spacing:.3px;text-transform:uppercase}
 
 /* ═══ BACK BUTTON ═══ */
-.back-btn{display:none;padding:8px 16px;background:rgba(37,99,235,0.05);border:1.5px solid rgba(37,99,235,0.12);border-radius:10px;color:var(--blue);font-size:12px;font-weight:600;cursor:pointer;font-family:'Outfit';margin-bottom:12px}
+.back-btn{display:none;padding:8px 16px;background:rgba(37,99,235,0.05);border:1.5px solid rgba(37,99,235,0.12);border-radius:10px;color:var(--blue);font-size:12px;font-weight:600;cursor:pointer;font-family:var(--font-sans);margin-bottom:12px}
 .back-btn.show{display:inline-flex;align-items:center;gap:6px}
 
 /* ═══ REGION GRID ═══ */
@@ -226,11 +226,11 @@ h2.sb-t{margin:0;padding:0}
 .login-title{font-size:24px;font-weight:800;color:var(--text);margin-bottom:6px;letter-spacing:-.3px}
 .login-sub{font-size:13px;color:var(--text-muted);margin-bottom:32px}
 .login-input-wrap{position:relative;margin-bottom:16px}
-.login-input{width:100%;padding:14px 18px;padding-right:48px;background:var(--white);border:1.5px solid var(--border);border-radius:var(--radius);font-family:'Outfit';font-size:14px;color:var(--text);outline:none}
+.login-input{width:100%;padding:14px 18px;padding-right:48px;background:var(--white);border:1.5px solid var(--border);border-radius:var(--radius);font-family:var(--font-sans);font-size:14px;color:var(--text);outline:none}
 .login-input:focus{border-color:var(--blue)}
 .login-input::placeholder{color:var(--text-light)}
 .login-toggle{position:absolute;right:14px;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;color:var(--text-light);padding:4px;border-radius:6px}
-.login-btn{width:100%;padding:14px;background:var(--blue);border:none;border-radius:var(--radius);color:white;font-family:'Outfit';font-size:14px;font-weight:600;cursor:pointer;letter-spacing:.2px}
+.login-btn{width:100%;padding:14px;background:var(--blue);border:none;border-radius:var(--radius);color:white;font-family:var(--font-sans);font-size:14px;font-weight:600;cursor:pointer;letter-spacing:.2px}
 .login-error{font-size:13px;color:var(--red);margin-top:12px;display:none;font-weight:500}
 .login-error.show{display:block}
 .login-footer{margin-top:36px;font-size:13px;color:var(--text-light)}
@@ -622,7 +622,7 @@ h2.sb-t{margin:0;padding:0}
 </div>
 
 <div class="sb-s">
-<button class="sb-collapse-btn" aria-expanded="false"><span style="display:flex;align-items:center;gap:8px"><span class="sb-t">Objectif couverture</span><span style="font-family:'Outfit';font-size:12px;color:var(--green);font-weight:600;letter-spacing:0;text-transform:none">15 avril 2025</span></span></button>
+<button class="sb-collapse-btn" aria-expanded="false"><span style="display:flex;align-items:center;gap:8px"><span class="sb-t">Objectif couverture</span><span style="font-family:var(--font-sans);font-size:12px;color:var(--green);font-weight:600;letter-spacing:0;text-transform:none">15 avril 2025</span></span></button>
 <div class="sb-collapse-body">
 <div class="collapse-content">
 Backup maintenance national op&eacute;rationnel &mdash; couverture compl&egrave;te des zones restantes via partenaires.

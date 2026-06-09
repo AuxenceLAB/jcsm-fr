@@ -20,6 +20,10 @@ module.exports = {
       colors: {
         primary: '#2563EB',
         secondary: '#1D4ED8',
+      },
+      fontFamily: {
+        sans: ['Inter', 'system-ui', 'sans-serif'],
+        serif: ['Fraunces', 'Georgia', 'serif'],
       }
     }
   },
