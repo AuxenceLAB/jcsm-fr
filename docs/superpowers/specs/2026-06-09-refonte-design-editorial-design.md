@@ -106,6 +106,11 @@ La section avis Google existante est **supprimée** de la home (et le texte "4,9
 - Grep final : aucune occurrence de `#7C3AED`, "Outfit", particles, "4,9/5", "7 régions" sur le site public.
 - Lighthouse rapide avant/après sur la home (pas de régression perf).
 
+## Extensions validées (ajout utilisateur au moment du "go")
+
+1. **Révision complète du site** : au-delà de l'héritage CSS automatique, passage en revue page par page (racine, `solutions/`, `zones/`, `blog.html`, pages langues principales) pour harmoniser au nouveau design et corriger les contenus incohérents avec les engagements validés (réponse 24h ouvrées, France entière + Belgique, pas d'argument "avis Google").
+2. **Blog : continuer avec l'actualité** : rédaction de nouveaux articles d'actualité IRVE (recherche web sur l'actu mobilité électrique 2026, sujets à valider en cours de route), dans le nouveau design, avec le même schéma SEO que les articles existants (BreadcrumbList, maillage interne, sitemap).
+
 ## Risques et rollback
 
 - Site en production : chaque lot est commité ; rollback = `git revert` ou checkout du fichier depuis `005fbd4`.
