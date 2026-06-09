@@ -373,7 +373,7 @@
                     </div></div>
                     <div class="panel"><div class="panel-header"><span class="panel-title">SLA &amp; Relances</span></div><div class="panel-body">
                         <div class="settings-row"><div><div class="settings-label">SLA cible</div><div class="settings-desc">Délai maximum de résolution</div></div><select id="sla-target" onchange="setSLA(this.value)" style="width:130px"><option value="1">24 heures</option><option value="2">48 heures</option><option value="3" selected>3 jours</option><option value="5">5 jours</option></select></div>
-                        <div class="settings-row"><div><div class="settings-label">Relance automatique</div><div class="settings-desc">Relancer le technicien si pas de retour sous 4h</div></div><button class="filter-btn" id="toggle-autorelance" onclick="toggleSetting('autoRelance')">Actif</button></div>
+                        <div class="settings-row"><div><div class="settings-label">Relance automatique</div><div class="settings-desc">Relancer le technicien si pas de retour sous 24h ouvrées</div></div><button class="filter-btn" id="toggle-autorelance" onclick="toggleSetting('autoRelance')">Actif</button></div>
                     </div></div>
                 </div>
             </section>

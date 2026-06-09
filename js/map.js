@@ -172,7 +172,7 @@ function getRegionColor(region) {
         "Grand Est": "#EF4444",
         "Hauts-de-France": "#14B8A6",
         "Normandie": "#F97316",
-        "Bretagne": "#06B6D4",
+        "Bretagne": "#0EA5E9",
         "Pays de la Loire": "#84CC16",
         "Bourgogne-Franche-Comte": "#A855F7",
         "Centre-Val de Loire": "#22C55E",
