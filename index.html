@@ -321,47 +321,6 @@
             .hero-btns { flex-direction: column; width: 100%; }
             .hero-btns a { width: 100%; text-align: center; justify-content: center; }
         }
-        .svc-card {
-            position: relative; overflow: hidden;
-            background: #fff; border: 1px solid var(--gray-100);
-            border-radius: 1rem; padding: 2rem;
-            transition: all .35s var(--ease);
-        }
-        .svc-card::before {
-            content: ''; position: absolute; top: 0; left: 0;
-            width: 3px; height: 0; background: var(--blue);
-            border-radius: 0 0 3px 0;
-            transition: height .35s var(--ease);
-        }
-        .svc-card:hover::before { height: 100%; }
-        .svc-card:hover {
-            border-color: var(--gray-200);
-            box-shadow: 0 20px 40px -12px rgba(0,0,0,.08);
-            transform: translateY(-4px);
-        }
-        .svc-icon {
-            width: 52px; height: 52px; border-radius: 14px;
-            display: flex; align-items: center; justify-content: center;
-            margin-bottom: 1.25rem;
-        }
-        .svc-card h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem; }
-        .svc-card p { color: var(--gray-600); font-size: 0.875rem; line-height: 1.65; }
-        .why-section { background: #fff; }
-        .why-card {
-            background: var(--gray-50); border: 1px solid var(--gray-100);
-            border-radius: 1rem; padding: 2.25rem 2rem; text-align: center;
-            transition: all .35s var(--ease);
-        }
-        .why-card:hover {
-            background: #fff;
-            box-shadow: 0 20px 40px -12px rgba(0,0,0,.08);
-            transform: translateY(-4px);
-        }
-        .why-card-icon {
-            width: 52px; height: 52px; border-radius: 14px;
-            display: flex; align-items: center; justify-content: center;
-            margin: 0 auto 1.25rem;
-        }
         .logo-marquee {
             position: relative; overflow: hidden; user-select: none;
             padding: 16px 0; width: 100%;
@@ -423,7 +382,6 @@
             text-shadow: 0 1px 2px rgba(0,0,0,0.04);
         }
         .icon-pulse-hover { transition: transform 0.3s var(--ease); }
-        .svc-card:hover .icon-pulse-hover, .why-card:hover .icon-pulse-hover { transform: scale(1.08); }
         .badge-section {
             animation: badgeFade 0.6s var(--ease) both;
             animation-delay: 0.2s;
@@ -436,10 +394,8 @@
             .stat-divider { display: none; }
         }
         @media (prefers-reduced-motion: reduce) {
-            .svc-card, .blog-card, .why-card { transition: none !important; }
+            .blog-card { transition: none !important; }
             .js-loaded:not(.animations-disabled) .section-appear { transition: none; opacity: 1; transform: none; }
-            .svc-card:hover, .why-card:hover { transform: none; }
-            .svc-card::before { transition: none; }
             .icon-pulse-hover { transition: none !important; }
             .badge-section, details .faq-answer { animation: none !important; }
         }
@@ -797,12 +753,12 @@
                         <path d="M170 30 L200 20 L250 25 L270 40 L260 50 L200 30 L170 40 Z" stroke="var(--color-line)" stroke-width="2" fill="var(--color-cream-alt)"/>
                         <!-- Region dots -->
                         <circle cx="195" cy="120" r="6" fill="var(--color-primary)" opacity="0.8"/><text x="210" y="124" fill="var(--color-ink)" font-size="11" font-family="var(--font-sans)">Île-de-France</text>
-                        <circle cx="180" cy="80" r="5" fill="var(--color-primary)" opacity="0.6"/><text x="195" y="84" fill="var(--color-ink)" font-size="10" font-family="var(--font-sans)">Hauts-de-France</text>
-                        <circle cx="260" cy="220" r="5" fill="var(--color-primary)" opacity="0.6"/><text x="275" y="224" fill="var(--color-ink)" font-size="10" font-family="var(--font-sans)">PACA</text>
-                        <circle cx="240" cy="250" r="5" fill="var(--color-primary)" opacity="0.6"/><text x="145" y="254" fill="var(--color-ink)" font-size="10" font-family="var(--font-sans)">Occitanie</text>
-                        <circle cx="280" cy="170" r="5" fill="var(--color-primary)" opacity="0.6"/><text x="289" y="164" fill="var(--color-ink)" font-size="10" font-family="var(--font-sans)">Auvergne-Rhône-Alpes</text>
-                        <circle cx="110" cy="250" r="5" fill="var(--color-primary)" opacity="0.6"/><text x="60" y="270" fill="var(--color-ink)" font-size="10" font-family="var(--font-sans)">Nouvelle-Aquitaine</text>
-                        <circle cx="220" cy="35" r="4" fill="var(--color-primary)" opacity="0.6"/><text x="235" y="39" fill="var(--color-ink)" font-size="10" font-family="var(--font-sans)">Belgique</text>
+                        <circle cx="180" cy="80" r="5" fill="var(--color-primary)" opacity="0.6"/><text x="192" y="84" fill="var(--color-ink)" font-size="10" font-family="var(--font-sans)">Hauts-de-France</text>
+                        <circle cx="310" cy="290" r="5" fill="var(--color-primary)" opacity="0.6"/><text x="302" y="284" fill="var(--color-ink)" font-size="10" font-family="var(--font-sans)" text-anchor="end">PACA</text>
+                        <circle cx="200" cy="300" r="5" fill="var(--color-primary)" opacity="0.6"/><text x="212" y="304" fill="var(--color-ink)" font-size="10" font-family="var(--font-sans)">Occitanie</text>
+                        <circle cx="270" cy="185" r="5" fill="var(--color-primary)" opacity="0.6"/><text x="262" y="179" fill="var(--color-ink)" font-size="10" font-family="var(--font-sans)" text-anchor="end">Auvergne-Rhône-Alpes</text>
+                        <circle cx="110" cy="255" r="5" fill="var(--color-primary)" opacity="0.6"/><text x="60" y="275" fill="var(--color-ink)" font-size="10" font-family="var(--font-sans)">Nouvelle-Aquitaine</text>
+                        <circle cx="225" cy="35" r="4" fill="var(--color-primary)" opacity="0.6"/><text x="237" y="39" fill="var(--color-ink)" font-size="10" font-family="var(--font-sans)">Belgique</text>
                     </svg>
                 </div>
             </div>
