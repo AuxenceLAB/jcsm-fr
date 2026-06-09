@@ -177,7 +177,6 @@ h3 em {
 .card-hover,
 .fade-in-up,
 .img-reveal,
-.magnetic-btn,
 .tilt-card {
   will-change: transform;
   transform: translateZ(0);
@@ -539,18 +538,6 @@ nav a:not(.btn-primary):not(.nav-link-active):hover::after {
   width: 300px;
   height: 300px;
 }
-.float-icon {
-  animation: floatIcon 3s ease-in-out 3;
-}
-@keyframes floatIcon {
-  0%,
-  100% {
-    transform: translateY(0) rotate(0);
-  }
-  50% {
-    transform: translateY(-10px) rotate(5deg);
-  }
-}
 .stagger-reveal > * {
   opacity: 0;
   transform: translateY(20px);
@@ -583,25 +570,6 @@ nav a:not(.btn-primary):not(.nav-link-active):hover::after {
   to {
     opacity: 1;
     transform: translateY(0);
-  }
-}
-.text-gradient-animate {
-  background: linear-gradient(
-    90deg,
-    #2563eb,
-    var(--color-primary-dark),
-    #3b82f6,
-    #2563eb
-  );
-  background-size: 200% auto;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  animation: textGradient 3s linear infinite;
-}
-@keyframes textGradient {
-  to {
-    background-position: 200% center;
   }
 }
 details summary {
@@ -791,9 +759,6 @@ a:not(.btn-primary):not(.btn-secondary):hover {
   .card-hover:hover {
     transform: none;
     box-shadow: none;
-  }
-  [data-parallax] {
-    transform: none;
   }
 }
 .logo-marquee {
@@ -1116,15 +1081,8 @@ body {
   transform-style: preserve-3d;
   perspective: 1000px;
 }
-.magnetic-btn {
-  transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
 .logo-marquee:hover .logo-marquee-track {
   animation-play-state: paused;
-}
-.parallax-hero {
-  will-change: transform;
-  transition: transform 0.1s linear;
 }
 ::selection {
   background: rgba(37, 99, 235, 0.15);
@@ -1625,21 +1583,7 @@ input[type="radio"] {
   pointer-events: none;
 }
 
-/* 5. Floating badge animation */
-.badge-float {
-  animation: badgeFloat 3s ease-in-out infinite;
-}
-@keyframes badgeFloat {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-4px);
-  }
-}
-
-/* 6. Enhanced stat number with glow + scale-in */
+/* 5. Enhanced stat number with glow + scale-in */
 .stat-glow {
   text-shadow:
     0 0 30px rgba(37, 99, 235, 0.25),
@@ -2080,7 +2024,7 @@ h2 {
 /* Any glass-badge (hero badges, section intros) : mono + graphite border */
 .glass-badge {
   background: #ffffff !important;
-  border: 1px solid var(--jcsm-graphite) !important;
+  border: 1px solid var(--color-line) !important;
   box-shadow: none !important;
 }
 .glass-badge span,
@@ -2195,16 +2139,9 @@ section.bg-gradient-to-b.from-white.to-gray-50 {
 }
 
 /* Kill residual decoration that no longer has DOM targets */
-.float-icon,
 .pulse-cta {
   animation: none !important;
   display: none !important;
-}
-@keyframes floatIcon {
-  from {
-  }
-  to {
-  }
 }
 
 /* ===== Design editorial B1 ===== */

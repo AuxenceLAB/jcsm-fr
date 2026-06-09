@@ -1,5 +1,5 @@
 /**
- * wow-effects.js - Scroll animations, parallax, counters, marquee
+ * wow-effects.js - Scroll animations, counters, scroll progress, logo marquee
  * Fixed: memory leaks (cleanup on visibility/destroy), debounced resize,
  *        rAF-gated scroll, reduced-motion respect, cursor glow leak,
  *        marquee pause on hidden tab, morph blob overflow, ripple cleanup
@@ -172,7 +172,6 @@
             ".revealed { opacity: 1 !important; transform: none !important; }",
             ".reveal-clip { transition: clip-path 1.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 1.4s ease; }",
             ".cursor-glow { mix-blend-mode: screen; filter: blur(40px); }",
-            "[data-magnetic] { display: inline-block; will-change: transform; }",
             ".card-hover, .card-premium { transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease; }",
             "@keyframes rippleEffect { to { transform: scale(4); opacity: 0; } }",
             "@keyframes staggerIn { to { opacity: 1; transform: translateY(0); } }",
@@ -181,8 +180,6 @@
             ".glow-border::before { content: ''; position: absolute; inset: -2px; background: rgba(37, 99, 235, 0.15); border-radius: inherit; z-index: -1; opacity: 0; transition: opacity 0.4s ease; filter: blur(12px); }",
             ".glow-border:hover::before { opacity: 1; }",
             ".counter-glow { text-shadow: 0 0 30px rgba(37, 99, 235, 0.3), 0 0 60px rgba(37, 99, 235, 0.15); }",
-            ".spotlight::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255, 255, 255, 0.1) 0%, transparent 50%); opacity: 0; transition: opacity 0.3s ease; pointer-events: none; border-radius: inherit; }",
-            ".spotlight:hover::before { opacity: 1; }",
             ".service-card.wow-glow { position: relative; }",
             ".service-card.wow-glow::before { content: ''; position: absolute; inset: -1px; background: linear-gradient(135deg, rgba(37, 99, 235, 0.3), rgba(6, 182, 212, 0.2), rgba(37, 99, 235, 0.3)); border-radius: inherit; z-index: -1; opacity: 0; transition: opacity 0.5s ease; filter: blur(6px); }",
             ".service-card.wow-glow:hover::before { opacity: 1; }",
@@ -231,7 +228,7 @@
             }
         })();
 
-        // Desktop-only: cursor glow, 3D card tilt, magnetic buttons
+        // Desktop-only: cursor glow, 3D card tilt
         if (isDesktop) {
             // Cursor glow with proper cleanup on hidden tab
             (function cursorGlow() {
@@ -287,20 +284,6 @@
                 });
             });
 
-            // Magnetic buttons : only [data-magnetic] to avoid conflicting with btn CSS hover
-            document.querySelectorAll("[data-magnetic]").forEach(function (btn) {
-                btn.addEventListener("mousemove", function (e) {
-                    var rect = btn.getBoundingClientRect();
-                    var dx = e.clientX - rect.left - rect.width / 2;
-                    var dy = e.clientY - rect.top - rect.height / 2;
-                    btn.style.transform = "translate(" + (0.2 * dx) + "px, " + (0.3 * dy) + "px)";
-                    btn.style.transition = "transform 0.1s linear";
-                });
-                btn.addEventListener("mouseleave", function () {
-                    btn.style.transform = "";
-                    btn.style.transition = "";
-                });
-            });
         }
 
         // ─── Section reveal (IntersectionObserver, fire once) ───
@@ -394,19 +377,8 @@
         });
     });
 
-    // ─── Desktop-only visual effects (spotlight, button glow, morph blobs, ripple) ───
+    // ─── Desktop-only visual effects (button glow, morph blobs, ripple) ───
     if (isDesktop) {
-        // Spotlight on cards
-        document.querySelectorAll(".card-hover, .card-premium, .spotlight").forEach(function (el) {
-            el.addEventListener("mousemove", function (e) {
-                var rect = el.getBoundingClientRect();
-                var x = (e.clientX - rect.left) / rect.width * 100;
-                var y = (e.clientY - rect.top) / rect.height * 100;
-                el.style.setProperty("--mouse-x", x + "%");
-                el.style.setProperty("--mouse-y", y + "%");
-            });
-        });
-
         // Button glow follow
         document.querySelectorAll(".btn-primary, .btn-secondary, .btn-liquid").forEach(function (btn) {
             btn.addEventListener("mousemove", function (e) {
