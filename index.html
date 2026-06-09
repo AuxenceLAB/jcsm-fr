@@ -322,11 +322,6 @@
             mask-image: radial-gradient(ellipse 80% 70% at 50% 50%, black 30%, transparent 100%);
             -webkit-mask-image: radial-gradient(ellipse 80% 70% at 50% 50%, black 30%, transparent 100%);
         }
-        .hero-badge {
-            background: #fff; border: 1px solid var(--gray-200);
-            box-shadow: 0 1px 3px rgba(0,0,0,.04);
-        }
-        .hero-badge span { color: var(--gray-700); }
         @media (max-width: 768px) {
             .hero-btns { flex-direction: column; width: 100%; }
             .hero-btns a { width: 100%; text-align: center; justify-content: center; }
@@ -525,27 +520,30 @@
             <div class="max-w-7xl mx-auto w-full relative z-10">
                 <div class="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
                     <div class="space-y-6">
-                        <div class="inline-flex items-center space-x-2.5 hero-badge rounded-full px-5 py-2.5">
-                            <div class="w-2 h-2 bg-blue-600 rounded-full" style="animation: pulse 2s infinite"></div>
-                            <span class="text-[13px] font-semibold tracking-wide">Maintenance IRVE en France et Belgique, depuis 2019</span>
-                        </div>
-                        <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight tracking-tight section-appear">
-                            Votre prestataire IRVE vous déçoit.
-                            <span class="accent-pro">Pas nous.</span>
+                        <div class="sec-label">Maintenance IRVE &middot; France &amp; Belgique &middot; depuis 2019</div>
+                        <h1 class="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl leading-tight tracking-tight section-appear">
+                            L'infrastructure de recharge, entretenue <em>comme elle le mérite</em>.
                         </h1>
-                        <p class="text-base sm:text-lg leading-relaxed max-w-xl" style="color: var(--gray-600)">
-                            Installation, maintenance et dépannage de bornes de recharge AC/DC jusqu'à 400 kW. Toutes marques. France et Belgique.
+                        <p class="text-base sm:text-lg leading-relaxed max-w-xl" style="color: var(--color-text-secondary)">
+                            Maintenance préventive et curative, installation et supervision de bornes AC/DC
+                            jusqu'à 400 kW. Toutes marques. France entière et Belgique.
                         </p>
                         <div class="flex flex-wrap gap-3">
-                            <a href="/contact" title="Demander une étude personnalisée pour votre projet IRVE"
-                                class="btn-primary px-7 py-3.5 rounded-xl font-bold text-[15px] text-white inline-flex items-center gap-2.5">
-                                Demander une étude gratuite
+                            <a href="/contact" title="Demander un diagnostic gratuit pour votre parc IRVE"
+                                class="btn-primary px-7 py-3.5 font-bold text-[15px] text-white inline-flex items-center gap-2.5">
+                                Demander un diagnostic gratuit
                                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
                             </a>
                             <a href="#services" title="Voir nos domaines d'expertise IRVE"
-                                class="btn-secondary px-7 py-3.5 rounded-xl font-bold text-[15px]">
-                                Nos expertises
+                                class="btn-secondary px-7 py-3.5 font-bold text-[15px]">
+                                Nos services
                             </a>
+                        </div>
+                        <div class="flex flex-wrap gap-x-8 gap-y-3 pt-5 mt-2" style="border-top: 1px solid var(--color-line)">
+                            <div><div class="text-xl font-extrabold" style="color: var(--color-primary-dark); font-family: var(--font-sans)">98%</div><div class="text-xs" style="color: var(--color-text-secondary)">disponibilité réseau</div></div>
+                            <div><div class="text-xl font-extrabold" style="color: var(--color-primary-dark); font-family: var(--font-sans)">24h</div><div class="text-xs" style="color: var(--color-text-secondary)">réponse ouvrée</div></div>
+                            <div><div class="text-xl font-extrabold" style="color: var(--color-primary-dark); font-family: var(--font-sans)">2&nbsp;500+</div><div class="text-xs" style="color: var(--color-text-secondary)">interventions</div></div>
+                            <div><div class="text-xl font-extrabold" style="color: var(--color-primary-dark); font-family: var(--font-sans)">400 kW</div><div class="text-xs" style="color: var(--color-text-secondary)">AC &amp; DC, multi-marques</div></div>
                         </div>
                         <div class="inline-flex items-center gap-2 bg-blue-50 border border-blue-100 rounded-full px-4 py-2 text-sm">
                             <svg class="w-4 h-4 text-blue-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
@@ -568,7 +566,6 @@
                     </div>
                 </div>
             </div>
-            <style>@keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: .4; } }</style>
         </section>
 
         <!-- ============ SERVICES ============ -->
