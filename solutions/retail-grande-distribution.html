@@ -33,17 +33,17 @@
     <link rel="dns-prefetch" href="https://fonts.googleapis.com">
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet"
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet"
         media="print" onload="this.media='all'">
     <noscript>
-        <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&display=swap"
+        <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap"
             rel="stylesheet">
     </noscript>
-    <link rel="stylesheet" href="../css/critical.css?v=63">
-    <link rel="stylesheet" href="../css/tailwind.css?v=63" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="../css/tailwind.css?v=63"></noscript>
-    <link rel="stylesheet" href="../styles.css?v=63" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="../styles.css?v=63"></noscript>
+    <link rel="stylesheet" href="../css/critical.css?v=72">
+    <link rel="stylesheet" href="../css/tailwind.css?v=72" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="../css/tailwind.css?v=72"></noscript>
+    <link rel="stylesheet" href="../styles.css?v=72" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="../styles.css?v=72"></noscript>
     <link rel="manifest" href="../manifest.json">
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -84,7 +84,7 @@
                 "name": "Comment protéger les bornes sur un parking ouvert 24h/24 ?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Trois niveaux de protection combines : matériel renforce (resistance IK10, IP54, bornes anti-belier), dispositifs actifs (cameras IA avec detection d'anomalies, alarmes connectees avec intervention en moins de 15 minutes) et implantation reflechie (zones eclairees, positionnement strategique, videoprotection intégrée). Notre experience sur des centaines de parkings commerciaux en France nous permet d'adapter la strategie anti-vandalisme a chaque configuration de site pour maintenir un taux de disponibilité maximal malgre un environnement hostile."
+                    "text": "Trois niveaux de protection combines : matériel renforce (resistance IK10, IP54, bornes anti-belier), dispositifs actifs (cameras IA avec detection d'anomalies, alarmes connectees) et implantation reflechie (zones eclairees, positionnement strategique, videoprotection intégrée). Notre expérience terrain en France nous permet d'adapter la strategie anti-vandalisme a chaque configuration de site pour maintenir un taux de disponibilité maximal malgre un environnement hostile."
                 }
             },
             {
@@ -106,7 +106,7 @@
         ]
     }
     </script>
-    <script src="../js/config.js?v=63" defer></script>
+    <script src="../js/config.js?v=72" defer></script>
 
 </head>
 <body class="text-gray-900 bg-white">
@@ -115,11 +115,6 @@
     <div class="preloader" id="preloader" role="status" aria-label="Chargement">
         <div class="flex flex-col items-center justify-center">
             <picture><source srcset="../images/logo.webp" type="image/webp"><img src="../images/logo.png" alt="JCSM" width="80" height="80" class="animate-pulse"></picture>
-            <div class="mt-4 flex space-x-2" aria-hidden="true">
-                <div class="w-2 h-2 bg-blue-600 rounded-full animate-bounce" style="animation-delay: 0s"></div>
-                <div class="w-2 h-2 bg-blue-600 rounded-full animate-bounce" style="animation-delay: 0.1s"></div>
-                <div class="w-2 h-2 bg-blue-600 rounded-full animate-bounce" style="animation-delay: 0.2s"></div>
-            </div>
         </div>
     </div>
     <div class="mobile-menu-overlay" id="mobile-menu-overlay"></div>
@@ -194,7 +189,7 @@
                         Retail : <span class="gradient-text">zéro panne, zéro friction, zéro excuse</span>
                     </h1>
                     <p class="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
-                        Vos clients rechargent pendant qu'ils font leurs courses. Si la borne est en panne, ils vont chez le concurrent. Chaque minute d'indisponibilite vous coute en satisfaction client et en chiffre d'affaires. JCSM vous garantit un taux de disponibilité maximal grace a une maintenance multi-sites avec un seul interlocuteur et un SLA uniforme, une protection anti-vandalisme proactive et un support utilisateur en marque blanche intégré a votre enseigne.
+                        Vos clients rechargent pendant qu'ils font leurs courses. Si la borne est en panne, ils vont chez le concurrent. Chaque minute d'indisponibilite vous coute en satisfaction client et en chiffre d'affaires. JCSM gère vos sites sous contrat unique avec SLA homogène, une protection anti-vandalisme proactive et un support utilisateur en marque blanche intégré a votre enseigne.
                     </p>
                     <div class="flex flex-wrap gap-4 justify-center">
                         <a href="/contact" class="bg-blue-600 text-white px-8 py-4 rounded-xl font-medium hover:bg-blue-700 transition-colors">
@@ -206,23 +201,19 @@
                     </div>
                 </div>
 
-                <!-- Stats -->
-                <div class="grid md:grid-cols-4 gap-6 mt-16">
+                <!-- Repères techniques -->
+                <div class="grid md:grid-cols-3 gap-6 mt-16">
                     <div class="bg-white rounded-2xl p-6 text-center shadow-sm border border-gray-100">
-                        <div class="text-3xl font-bold text-blue-600 mb-2 stat-glow num-highlight">+20%</div>
-                        <p class="text-gray-600 text-sm">Panier moyen des clients qui rechargent</p>
+                        <div class="text-3xl font-bold text-blue-600 mb-2">IK10 / IP54</div>
+                        <p class="text-gray-600 text-sm">Résistance anti-vandalisme et intempéries</p>
                     </div>
                     <div class="bg-white rounded-2xl p-6 text-center shadow-sm border border-gray-100">
-                        <div class="text-3xl font-bold text-blue-600 mb-2 stat-glow num-highlight">18-36 mois</div>
-                        <p class="text-gray-600 text-sm">Retour sur investissement</p>
+                        <div class="text-3xl font-bold text-blue-600 mb-2">Multi-sites</div>
+                        <p class="text-gray-600 text-sm">Déploiement coordonné, coordination centralisee</p>
                     </div>
                     <div class="bg-white rounded-2xl p-6 text-center shadow-sm border border-gray-100">
-                        <div class="text-3xl font-bold text-blue-600 mb-2 stat-glow num-highlight">IK10</div>
-                        <p class="text-gray-600 text-sm">Résistance anti-vandalisme</p>
-                    </div>
-                    <div class="bg-white rounded-2xl p-6 text-center shadow-sm border border-gray-100">
-                        <div class="text-3xl font-bold text-blue-600 mb-2 stat-glow num-highlight">National</div>
-                        <p class="text-gray-600 text-sm">Déploiement multi-sites coordonné</p>
+                        <div class="text-3xl font-bold text-blue-600 mb-2">AC + DC</div>
+                        <p class="text-gray-600 text-sm">De 7 kW à 400 kW, toutes marques</p>
                     </div>
                 </div>
             </div>
@@ -240,14 +231,14 @@
                             <svg class="w-7 h-7 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                         </div>
                         <h3 class="text-xl font-bold mb-3">Temps de charge = temps de shopping</h3>
-                        <p class="text-gray-600">30 a 90 minutes de recharge utile, exactement le temps d'une session de courses. La borne ne cree pas de l'attente : elle valorise un temps deja passe sur place. Les conducteurs de VE choisissent activement les enseignes equipees et y depensent en moyenne 20% de plus. Mais si la borne est hors service a leur arrivee, ils partent chez le concurrent — et ne reviennent pas.</p>
+                        <p class="text-gray-600">30 a 90 minutes de recharge utile, exactement le temps d'une session de courses. La borne ne cree pas de l'attente : elle valorise un temps deja passe sur place. Les conducteurs de VE choisissent les enseignes equipees pour recharger pendant qu'ils font leurs courses. Si si la borne est hors service a leur arrivee, ils partent chez le concurrent, et ne reviennent pas.</p>
                     </div>
                     <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 card-hover why-card-industrial">
                         <div class="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center mb-6 icon-pulse-hover">
                             <svg class="w-7 h-7 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
                         </div>
                         <h3 class="text-xl font-bold mb-3">Fidelisation et differenciation</h3>
-                        <p class="text-gray-600">Dans un secteur ou la concurrence se joue a quelques kilometres, la recharge est un levier de differenciation decisif. Intégrée a votre programme de fidelite (recharge offerte, tarif preferentiel carte), la borne devient un outil marketing puissant. Mais une borne en panne produit l'effet inverse : frustration, avis negatifs en ligne et client perdu au profit du concurrent équipe. Le taux de disponibilité n'est pas un indicateur technique — c'est un indicateur commercial.</p>
+                        <p class="text-gray-600">Dans un secteur ou la concurrence se joue a quelques kilometres, la recharge est un levier de differenciation decisif. Intégrée a votre programme de fidelite (recharge offerte, tarif preferentiel carte), la borne devient un outil marketing puissant. Mais une borne en panne produit l'effet inverse : frustration, avis negatifs en ligne et client perdu au profit du concurrent équipe. Le taux de disponibilité n'est pas un indicateur technique, c'est un indicateur commercial.</p>
                     </div>
                     <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 card-hover why-card-industrial">
                         <div class="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center mb-6 icon-pulse-hover">
@@ -261,7 +252,7 @@
                             <svg class="w-7 h-7 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.618 5.984A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016zM12 9v2m0 4h.01"></path></svg>
                         </div>
                         <h3 class="text-xl font-bold mb-3">Robustesse en environnement public</h3>
-                        <p class="text-gray-600">Vandalisme, chocs de véhicules, intemperies, utilisation intensive 24h/24 : un parking commercial ouvert est l'environnement le plus hostile pour une borne de recharge. Sans protection anti-vandalisme adaptée — cameras IA, alarmes, intervention en moins de 15 minutes — le taux de panne explose et les plaintes utilisateurs saturent vos équipés en magasin. Le choix du matériel (IK10, IP54), la qualité d'installation et la réactivité de la maintenance conditionnent directement votre taux de disponibilité.</p>
+                        <p class="text-gray-600">Vandalisme, chocs de véhicules, intemperies, utilisation intensive 24h/24 : un parking commercial ouvert est l'environnement le plus hostile pour une borne de recharge. Sans protection anti-vandalisme adaptée, cameras IA, alarmes, le taux de panne explose et les plaintes utilisateurs saturent vos équipés en magasin. Le choix du matériel (IK10, IP54), la qualité d'installation et la réactivité de la maintenance conditionnent directement votre taux de disponibilité.</p>
                     </div>
                 </div>
             </div>
@@ -271,7 +262,7 @@
         <section class="py-20 px-6 bg-gray-50 section-appear">
             <div class="max-w-6xl mx-auto">
                 <h2 class="text-3xl md:text-4xl font-bold text-center mb-4">Les solutions JCSM pour le retail</h2>
-                <p class="text-gray-600 text-center max-w-2xl mx-auto mb-12">Maintenance multi-sites avec un seul interlocuteur et un SLA uniforme sur l'ensemble de votre parc. Protection anti-vandalisme : cameras IA, alarmes, intervention en moins de 15 minutes. Support utilisateur en marque blanche intégré pour zero sollicitation de vos équipés en magasin. Une offre concue pour les exigences du commerce a fort trafic.</p>
+                <p class="text-gray-600 text-center max-w-2xl mx-auto mb-12">Contrat unique multi-sites, SLA homogène. Protection anti-vandalisme : cameras IA, alarmes. Support utilisateur en marque blanche intégré pour zero sollicitation de vos équipés en magasin. Une offre concue pour les exigences du commerce a fort trafic.</p>
 
                 <div class="grid md:grid-cols-2 gap-8">
                     <div class="bg-white rounded-2xl p-8 shadow-sm card-hover svc-card-industrial">
@@ -279,7 +270,7 @@
                             <svg class="w-7 h-7 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                         </div>
                         <h3 class="text-xl font-bold mb-3">Déploiement multi-sites coordonne</h3>
-                        <p class="text-gray-600">Pouvez-vous couvrir tous nos sites avec un seul contrat ? C'est la première question que nous posent les directeurs de parc. La réponse est oui, que vous ayez 5 ou 200 points de vente. Methodologie industrielle : cartographie du parc, priorisation des sites par potentiel VE, déploiement par vagues avec retour d'experience intégré. Un seul interlocuteur, un SLA uniforme, un reporting consolide et une coordination centralisee des interventions sur tout le territoire national.</p>
+                        <p class="text-gray-600">Pouvez-vous couvrir tous nos sites avec un seul contrat ? C'est la première question que nous posent les directeurs de parc. La réponse est oui, que vous ayez 5 ou 200 points de vente. Methodologie industrielle : cartographie du parc, priorisation des sites par potentiel VE, déploiement par vagues avec retour d'experience intégré. Une equipe dediee, un SLA uniforme, un reporting consolide et une coordination centralisee des interventions sur tout le territoire national.</p>
                     </div>
                     <div class="bg-white rounded-2xl p-8 shadow-sm card-hover svc-card-industrial">
                         <div class="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center mb-6 icon-pulse-hover">
@@ -293,7 +284,7 @@
                             <svg class="w-7 h-7 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.618 5.984A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016zM12 9v2m0 4h.01"></path></svg>
                         </div>
                         <h3 class="text-xl font-bold mb-3">Protection anti-vandalisme renforcee</h3>
-                        <p class="text-gray-600">Comment proteger les bornes sur un parking ouvert 24h/24 ? C'est le defi numéro un du retail. Notre réponse : trois niveaux de protection combines. Matériel renforce (bornes IP54 minimum, resistance IK10, protections physiques anti-belier). Dispositifs actifs (cameras IA avec detection d'anomalies, alarmes connectees, intervention en moins de 15 minutes). Implantation reflechie (zones eclairees, positionnement strategique, videoprotection intégrée). Documentation systematique pour vos assurances en cas de degradation.</p>
+                        <p class="text-gray-600">Comment proteger les bornes sur un parking ouvert 24h/24 ? C'est le defi numéro un du retail. Notre réponse : trois niveaux de protection combines. Matériel renforce (bornes IP54 minimum, resistance IK10, protections physiques anti-belier). Dispositifs actifs (cameras IA avec detection d'anomalies, alarmes connectees). Implantation reflechie (zones eclairees, positionnement strategique, videoprotection intégrée). Documentation systematique pour vos assurances en cas de degradation.</p>
                     </div>
                     <div class="bg-white rounded-2xl p-8 shadow-sm card-hover svc-card-industrial">
                         <div class="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center mb-6 icon-pulse-hover">
@@ -322,8 +313,8 @@
                         <div class="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center mx-auto mb-4 icon-pulse-hover">
                             <svg class="w-7 h-7 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path></svg>
                         </div>
-                        <h3 class="font-bold text-lg mb-2">Panier moyen +20%</h3>
-                        <p class="text-gray-600 text-sm">Les conducteurs de VE passent 20 à 30 min de plus en magasin. Plusieurs enseignes mesurent +15 à 25% de panier moyen.</p>
+                        <h3 class="font-bold text-lg mb-2">Temps passé en magasin</h3>
+                        <p class="text-gray-600 text-sm">Une session de recharge lente dure 20 à 30 minutes : exactement le temps d'une session de courses.</p>
                     </div>
                     <div class="bg-gray-50 rounded-2xl p-8 text-center card-hover why-card-industrial">
                         <div class="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center mx-auto mb-4 icon-pulse-hover">
@@ -350,7 +341,7 @@
                 <div class="space-y-6">
                     <div class="bg-white rounded-2xl p-8 shadow-sm card-hover svc-card-industrial">
                         <h3 class="text-lg font-bold mb-3">Comment proteger les bornes sur un parking ouvert 24h/24 ?</h3>
-                        <p class="text-gray-600">Trois niveaux de protection combines : matériel renforce (resistance IK10, IP54, bornes anti-belier), dispositifs actifs (cameras IA avec detection d'anomalies, alarmes connectees avec intervention en moins de 15 minutes) et implantation reflechie (zones eclairees, positionnement strategique, videoprotection intégrée). Notre experience sur des centaines de parkings commerciaux en France nous permet d'adapter la strategie anti-vandalisme a chaque configuration de site — parking couvert, exterieur, zone sensible — pour maintenir un taux de disponibilité maximal malgre un environnement hostile.</p>
+                        <p class="text-gray-600">Trois niveaux de protection combines : matériel renforce (resistance IK10, IP54, bornes anti-belier), dispositifs actifs (cameras IA avec detection d'anomalies, alarmes connectees) et implantation reflechie (zones eclairees, positionnement strategique, videoprotection intégrée). Notre expérience terrain en France nous permet d'adapter la strategie anti-vandalisme a chaque configuration de site, parking couvert, exterieur, zone sensible, pour maintenir un taux de disponibilité maximal malgre un environnement hostile.</p>
                     </div>
                     <div class="bg-white rounded-2xl p-8 shadow-sm card-hover svc-card-industrial">
                         <h3 class="text-lg font-bold mb-3">Pouvez-vous couvrir tous nos sites avec un seul contrat ?</h3>
@@ -368,7 +359,7 @@
         <section class="py-20 px-6 bg-gradient-to-r from-blue-600 to-blue-700 text-white">
             <div class="max-w-4xl mx-auto text-center">
                 <h2 class="text-3xl md:text-4xl font-bold mb-6 text-white">Une borne en panne = un client chez le concurrent</h2>
-                <p class="text-xl text-blue-100 mb-8">Vos clients rechargent pendant qu'ils font leurs courses. Si la borne est en panne, ils vont chez le concurrent. Ne laissez plus une borne hors service couter des clients a votre enseigne. JCSM : maintenance multi-sites avec un seul interlocuteur, protection anti-vandalisme avec intervention en moins de 15 minutes et support utilisateur en marque blanche pour un taux de disponibilité maximal sur l'ensemble de votre parc.</p>
+                <p class="text-xl text-blue-100 mb-8">Vos clients rechargent pendant qu'ils font leurs courses. Si la borne est en panne, ils vont chez le concurrent. Ne laissez plus une borne hors service couter des clients a votre enseigne. JCSM : contrat unique multi-sites, protection anti-vandalisme et support utilisateur en marque blanche pour un taux de disponibilité maximal sur l'ensemble de votre parc.</p>
                 <a href="/contact" class="inline-block bg-white text-blue-600 px-8 py-4 rounded-xl font-medium hover:bg-blue-50 transition-colors">
                     Demander une étude de déploiement
                 </a>
@@ -477,11 +468,11 @@
         </svg>
     </button>
 
-    <script src="../js/utils.js?v=63" defer></script>
-    <script src="../js/i18n.js?v=63" defer></script>
-    <script src="../js/public.js?v=63" defer></script>
-    <script src="../js/analytics.js?v=63" defer></script>
-    <script src="../js/wow-effects.js?v=63" defer></script>
+    <script src="../js/utils.js?v=72" defer></script>
+    <script src="../js/i18n.js?v=72" defer></script>
+    <script src="../js/public.js?v=72" defer></script>
+    <script src="../js/analytics.js?v=72" defer></script>
+    <script src="../js/wow-effects.js?v=72" defer></script>
     <script>
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
@@ -490,8 +481,5 @@
             });
         }
     </script>
-    <link rel="stylesheet" href="/css/chatbot.css" media="print" onload="this.media='all'">
-<noscript><link rel="stylesheet" href="/css/chatbot.css"></noscript>
-<script src="/js/chatbot.js" defer></script>
 </body>
 </html>

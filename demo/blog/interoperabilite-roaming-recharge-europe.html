@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <!-- Cookie Consent + GTM (chargé après acceptation) -->
+    <script src="/demo/js/cookie-consent.js" defer></script>
+    <title>Interopérabilité et roaming de recharge en Europe | JCSM</title>
+    <meta name="description" content="OCPI, Gireve, Hubject, paiement ad-hoc : fonctionnement de l'interopérabilité des bornes de recharge en Europe et impact du roaming pour les conducteurs.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://jcsm.fr/blog/interoperabilite-roaming-recharge-europe">
+    <link rel="alternate" hreflang="fr" href="https://jcsm.fr/blog/interoperabilite-roaming-recharge-europe">
+    <link rel="alternate" hreflang="x-default" href="https://jcsm.fr/blog/interoperabilite-roaming-recharge-europe">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Interopérabilité et roaming : recharger partout en Europe",
+        "description": "OCPI, Gireve, Hubject, paiement ad-hoc : comment fonctionne l'interopérabilité des bornes de recharge en Europe et pourquoi le roaming change tout pour les conducteurs.",
+        "datePublished": "2026-01-25",
+        "dateModified": "2026-01-25",
+        "author": {"@type": "Organization", "name": "JCSM", "url": "https://jcsm.fr"},
+        "publisher": {"@type": "Organization", "name": "JCSM", "url": "https://jcsm.fr", "logo": {"@type": "ImageObject", "url": "https://jcsm.fr/images/logo.png", "width": 512, "height": 512}},
+        "mainEntityOfPage": {"@type": "WebPage", "@id": "https://jcsm.fr/blog/interoperabilite-roaming-recharge-europe"},
+        "wordCount": 1600,
+        "articleSection": "Technologie et Standards",
+        "image": {"@type": "ImageObject", "url": "https://jcsm.fr/images/index.webp", "width": 2048, "height": 1366}
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Un seul badge suffit-il pour recharger partout en France ?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Quasi oui. Avec un EMSP comme Chargemap ou Shell Recharge, vous acc\u00e9dez \u00e0 95 %+ des bornes publiques fran\u00e7aises."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Le roaming coûte-t-il plus cher ?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Souvent oui. L'EMSP ajoute sa marge, de 0 \u00e0 30 % selon les op\u00e9rateurs. Comparez les grilles tarifaires avant de choisir."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Qu'est-ce que l'OCPI et en quoi est-ce différent de l'OCPP ?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Deux protocoles diff\u00e9rents. OCPI connecte les op\u00e9rateurs entre eux (roaming). OCPP connecte les bornes \u00e0 leur syst\u00e8me de supervision. Compl\u00e9mentaires, pas interchangeables."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Peut-on recharger en Belgique avec un badge français ?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Oui. Gireve et Hubject couvrent la Belgique. Les principaux EMSP fran\u00e7ais fonctionnent sur le r\u00e9seau belge sans probl\u00e8me."
+                }
+            }
+        ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://jcsm.fr/"},
+            {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://jcsm.fr/blog"},
+            {"@type": "ListItem", "position": 3, "name": "Interopérabilité et roaming : recharger partout en Europe", "item": "https://jcsm.fr/blog/interoperabilite-roaming-recharge-europe"}
+        ]
+    }
+    </script>
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://jcsm.fr/blog/interoperabilite-roaming-recharge-europe">
+    <meta property="og:title" content="Interopérabilité et roaming : recharger partout en Europe">
+    <meta property="og:description" content="OCPI, Gireve, Hubject, paiement ad-hoc : comment fonctionne l'interopérabilité des bornes de recharge en Europe.">
+    <meta property="og:image" content="https://jcsm.fr/images/index.webp">
+    <meta property="og:image:alt" content="Infrastructure de recharge pour véhicules électriques">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="801">
+    <meta property="og:locale" content="fr_FR">
+    <meta property="og:site_name" content="JCSM - Infrastructure de Recharge">
+    <meta property="article:published_time" content="2026-01-25">
+    <meta property="article:modified_time" content="2026-01-25T00:00:00+01:00">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Interopérabilité et roaming : recharger partout en Europe">
+    <meta name="twitter:description" content="OCPI, Gireve, Hubject, paiement ad-hoc : comment fonctionne l'interopérabilité des bornes de recharge en Europe.">
+    <meta name="twitter:image" content="https://jcsm.fr/images/index.webp">
+    <meta name="twitter:image:alt" content="Infrastructure de recharge pour véhicules électriques">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet"
+        media="print" onload="this.media='all'">
+    <noscript>
+        <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap"
+            rel="stylesheet">
+    </noscript>
+    <link rel="stylesheet" href="../css/critical.css?v=72">
+    <link rel="stylesheet" href="../css/tailwind.css?v=72" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="../css/tailwind.css?v=72"></noscript>
+    <link rel="stylesheet" href="../styles.css?v=72" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="../styles.css?v=72"></noscript>
+    <link rel="manifest" href="../manifest.json">
+    <link rel="icon" type="image/x-icon" href="/demo/favicon.ico">
+    <link rel="apple-touch-icon" href="/demo/apple-touch-icon.png">
+
+    <link rel="stylesheet" href="/demo/demo-overrides.css?v=5">
+    <script src="/demo/demo-fluidity.js?v=2" defer data-cfasync="false"></script>
+    <script>window.addEventListener("DOMContentLoaded",function(){setTimeout(function(){var p=document.getElementById("preloader");if(p)p.classList.add("preloader-auto-hide");},600);});</script>
+</head>
+<body class="text-gray-900 bg-white">
+    <div class="demo-banner"><span>DEMO</span>Version proposée pour validation — non publiée</div>
+
+    <div class="reading-progress" id="reading-progress"></div>
+    <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+    <div class="preloader" id="preloader" role="status" aria-label="Chargement">
+        <div class="flex flex-col items-center justify-center">
+            <picture><source srcset="../images/logo.webp" type="image/webp"><img src="../images/logo.png" alt="JCSM" width="80" height="80" class="animate-pulse"></picture>
+        </div>
+    </div>
+    <div class="mobile-menu-overlay" id="mobile-menu-overlay"></div>
+    <nav class="mobile-menu" id="mobile-menu" role="dialog" aria-modal="true" aria-label="Menu de navigation" aria-hidden="true">
+        <div class="p-8">
+            <div class="flex justify-between items-center mb-12">
+                <span class="text-xl font-semibold">Menu</span>
+                <button class="text-gray-600 hover:text-gray-900" id="mobile-menu-close" aria-label="Fermer le menu de navigation">
+                    <svg class="w-6 h-6" fill="none" aria-hidden="true" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+                </button>
+            </div>
+                        <div class="flex flex-col space-y-6">
+                <a href="/demo/pilotage-projets" class="text-base text-gray-600 hover:text-gray-900 transition-colors">Pilotage de projets</a>
+                <a href="/demo/installation-conformite" class="text-base text-gray-600 hover:text-gray-900 transition-colors">Installation</a>
+                <a href="/demo/exploitation" class="text-base text-gray-600 hover:text-gray-900 transition-colors">Exploitation</a>
+                <a href="/demo/securisation-installations" class="text-base text-gray-600 hover:text-gray-900 transition-colors">Sécurisation</a>
+                <a href="/demo/centre-appel" class="text-base text-gray-600 hover:text-gray-900 transition-colors">Support</a>
+                <a href="/demo/solutions/" class="text-base text-gray-600 hover:text-gray-900 transition-colors">Solutions</a>
+                <a href="/demo/a-propos" class="text-base text-gray-600 hover:text-gray-900 transition-colors">À propos</a>
+                <a href="/demo/blog" class="text-base text-gray-600 hover:text-gray-900 transition-colors">Blog</a>
+                <a href="/demo/contact" class="btn-primary px-6 py-3 rounded-lg text-base font-medium inline-block text-center mt-4">Contact</a>
+            </div>
+        </div>
+    </nav>
+    <nav class="fixed top-0 w-full z-50 glass-nav border-b border-gray-200" role="navigation" aria-label="Navigation principale">
+        <div class="max-w-7xl mx-auto px-6 py-5">
+            <div class="flex justify-between items-center">
+                <a href="/demo/" class="flex items-center space-x-3 group mr-12">
+                    <picture><source srcset="../images/logo.webp" type="image/webp"><img src="../images/logo.png" alt="JCSM" class="w-9 h-9 transition-transform group-hover:scale-105 duration-300" width="36" height="36"></picture>
+                    <span class="text-xl font-bold tracking-tight">JCSM</span>
+                </a>
+                <div class="hidden lg:flex items-center space-x-6 xl:space-x-8">
+                    <a href="/demo/pilotage-projets" class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300 whitespace-nowrap">Pilotage</a>
+                    <a href="/demo/installation-conformite" class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300 whitespace-nowrap">Installation</a>
+                    <a href="/demo/exploitation" class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300 whitespace-nowrap">Exploitation</a>
+                    <a href="/demo/securisation-installations" class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300 whitespace-nowrap">Sécurisation</a>
+                    <a href="/demo/centre-appel" class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300 whitespace-nowrap">Support</a>
+                    <a href="/demo/solutions/" class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300 whitespace-nowrap">Solutions</a>
+                    <a href="/demo/a-propos" class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300 whitespace-nowrap">À propos</a>
+                    <a href="/demo/blog" class="text-base font-semibold text-blue-600 hover:text-blue-700 transition-all duration-300 whitespace-nowrap">Blog</a>
+                    <a href="/demo/contact" class="btn-primary ml-4 px-7 py-2.5 rounded-xl text-base font-medium shadow-lg hover:shadow-xl whitespace-nowrap">Contact</a>
+                </div>
+                <button class="mobile-menu-btn text-gray-600 hover:text-gray-900" id="mobile-menu-btn" aria-label="Ouvrir le menu de navigation" aria-expanded="false" aria-controls="mobile-menu">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main id="main-content" role="main">
+        <article class="pt-32 pb-16 px-6">
+            <div class="max-w-3xl mx-auto">
+                <div class="mb-8">
+                    <a href="/demo/blog" class="text-sm text-blue-600 hover:text-blue-800 transition-colors">← Retour au blog</a>
+                </div>
+                <div class="mb-10">
+                    <span class="inline-block text-xs font-semibold badge-section text-sky-700 bg-sky-200 rounded-full px-3 py-1 mb-4">Europe</span>
+                    <h1 class="text-3xl md:text-4xl font-bold mb-4 leading-tight">Interopérabilité et roaming : <span class="gradient-text">recharger partout en Europe</span></h1>
+                    <div class="flex items-center text-sm text-gray-500">
+                        <time datetime="2026-01-25">25 janvier 2026</time>
+                        <span class="mx-2">·</span>
+                        <span>7 min de lecture</span>
+                    </div>
+                </div>
+
+                <!-- Sommaire -->
+                <div class="bg-gradient-to-r from-sky-50 to-sky-100 rounded-2xl p-6 mb-10">
+                    <h2 class="text-lg font-bold text-sky-700 mb-4">Sommaire</h2>
+                    <ol class="list-decimal pl-5 text-sm text-sky-700 space-y-2">
+                        <li><a href="#probleme-depart" class="hover:underline">Le problème de départ : un badge par réseau</a></li>
+                        <li><a href="#roaming-comment" class="hover:underline">Le roaming : comment ça marche concrètement</a></li>
+                        <li><a href="#plateformes-roaming" class="hover:underline">Les plateformes de roaming : Gireve, Hubject et les autres</a></li>
+                        <li><a href="#ocpi-protocole" class="hover:underline">OCPI : le protocole ouvert qui simplifie tout</a></li>
+                        <li><a href="#paiement-adhoc" class="hover:underline">Le paiement ad-hoc : recharger sans badge</a></li>
+                        <li><a href="#reglement-afir" class="hover:underline">Ce que le règlement AFIR impose</a></li>
+                        <li><a href="#experience-2026" class="hover:underline">L'expérience utilisateur en 2026</a></li>
+                        <li><a href="#faq" class="hover:underline">Questions fréquentes</a></li>
+                    </ol>
+                </div>
+
+                <div class="prose prose-lg max-w-none">
+                    <p class="text-lg text-gray-600 leading-relaxed mb-8">Recharger un véhicule électrique sur n'importe quel réseau, dans n'importe quel pays européen, avec un seul badge ou une simple carte bancaire : c'est la promesse de l'interopérabilité. Derrière ce terme se cachent des protocoles (OCPI, OICP, eMIP), des plateformes (Gireve, Hubject) et un règlement européen (AFIR) qui transforment concrètement l'expérience des conducteurs. Voici comment tout cela fonctionne.</p>
+
+                    <!-- Section 1 -->
+                    <h2 id="probleme-depart" class="text-2xl font-bold mt-12 mb-4">Le problème de départ : un badge par réseau</h2>
+                    <p class="text-gray-600 leading-relaxed mb-4">Imaginez : chaque autoroute a son propre péage incompatible avec les autres. C'est exactement ce qu'était la recharge électrique il y a cinq ans. Chaque CPO (Charge Point Operator, l'opérateur de bornes) avait son propre badge, sa propre application, son propre système de paiement. Pour traverser la France du nord au sud, il fallait 3 à 4 badges différents et autant d'applications installées sur son téléphone.</p>
+                    <p class="text-gray-600 leading-relaxed mb-4">Le roaming résout ce problème : un seul badge ou une seule app donne accès à la quasi-totalité des réseaux. C'est l'équivalent du roaming téléphonique : votre opérateur Orange vous permet d'utiliser le réseau Vodafone à l'étranger. Ici, votre EMSP (e-Mobility Service Provider, le fournisseur de service de mobilité) vous donne accès aux bornes d'autres CPO.</p>
+
+                    <div class="bg-amber-50 border-l-4 border-amber-400 rounded-r-xl p-5 mb-8">
+                        <p class="text-gray-700 text-sm leading-relaxed"><span class="font-semibold">Vocabulaire clé :</span> <strong>CPO</strong> = opérateur qui installe et gère les bornes (TotalEnergies, Ionity, Freshmile...). <strong>EMSP</strong> = fournisseur de service qui vous donne un badge et vous facture (Chargemap, Shell Recharge, Electroverse...). Un même acteur peut être les deux.</p>
+                    </div>
+
+                    <!-- Section 2 -->
+                    <h2 id="roaming-comment" class="text-2xl font-bold mt-12 mb-4">Le roaming : comment ça marche concrètement</h2>
+                    <p class="text-gray-600 leading-relaxed mb-4">Le roaming de recharge repose sur une chaîne d'échanges automatisés entre plusieurs acteurs. Voici le flux technique simplifié d'une session de recharge en roaming :</p>
+
+                    <div class="space-y-3 mb-8">
+                        <div class="flex items-start gap-3 bg-gray-50 rounded-xl p-4 border border-gray-100">
+                            <span class="flex-shrink-0 w-7 h-7 bg-sky-100 text-sky-700 rounded-full flex items-center justify-center text-sm font-bold">1</span>
+                            <p class="text-gray-600 text-sm leading-relaxed">Vous badgez avec votre carte Chargemap sur une borne TotalEnergies</p>
+                        </div>
+                        <div class="flex items-start gap-3 bg-gray-50 rounded-xl p-4 border border-gray-100">
+                            <span class="flex-shrink-0 w-7 h-7 bg-sky-100 text-sky-700 rounded-full flex items-center justify-center text-sm font-bold">2</span>
+                            <p class="text-gray-600 text-sm leading-relaxed">La borne envoie votre identifiant au CPO (TotalEnergies)</p>
+                        </div>
+                        <div class="flex items-start gap-3 bg-gray-50 rounded-xl p-4 border border-gray-100">
+                            <span class="flex-shrink-0 w-7 h-7 bg-sky-100 text-sky-700 rounded-full flex items-center justify-center text-sm font-bold">3</span>
+                            <p class="text-gray-600 text-sm leading-relaxed">Le CPO interroge la plateforme de roaming (Gireve)</p>
+                        </div>
+                        <div class="flex items-start gap-3 bg-gray-50 rounded-xl p-4 border border-gray-100">
+                            <span class="flex-shrink-0 w-7 h-7 bg-sky-100 text-sky-700 rounded-full flex items-center justify-center text-sm font-bold">4</span>
+                            <p class="text-gray-600 text-sm leading-relaxed">Gireve vérifie auprès de votre EMSP (Chargemap) que vous êtes autorisé</p>
+                        </div>
+                        <div class="flex items-start gap-3 bg-gray-50 rounded-xl p-4 border border-gray-100">
+                            <span class="flex-shrink-0 w-7 h-7 bg-sky-100 text-sky-700 rounded-full flex items-center justify-center text-sm font-bold">5</span>
+                            <p class="text-gray-600 text-sm leading-relaxed">Chargemap confirme → la charge démarre</p>
+                        </div>
+                        <div class="flex items-start gap-3 bg-gray-50 rounded-xl p-4 border border-gray-100">
+                            <span class="flex-shrink-0 w-7 h-7 bg-sky-100 text-sky-700 rounded-full flex items-center justify-center text-sm font-bold">6</span>
+                            <p class="text-gray-600 text-sm leading-relaxed">En fin de session, le CPO envoie le CDR (Charge Detail Record) à Gireve</p>
+                        </div>
+                        <div class="flex items-start gap-3 bg-gray-50 rounded-xl p-4 border border-gray-100">
+                            <span class="flex-shrink-0 w-7 h-7 bg-sky-100 text-sky-700 rounded-full flex items-center justify-center text-sm font-bold">7</span>
+                            <p class="text-gray-600 text-sm leading-relaxed">Gireve transmet à Chargemap, qui vous facture</p>
+                        </div>
+                    </div>
+
+                    <p class="text-gray-600 leading-relaxed mb-4">Tout cela se déroule en quelques secondes. Le conducteur ne voit rien de cette complexité. Trois protocoles permettent cette communication : <strong>OCPI</strong> (le plus ouvert), <strong>OICP</strong> (propriétaire Hubject) et <strong>eMIP</strong> (Gireve).</p>
+
+                    <!-- Section 3 -->
+                    <h2 id="plateformes-roaming" class="text-2xl font-bold mt-12 mb-4">Les plateformes de roaming : Gireve, Hubject et les autres</h2>
+                    <p class="text-gray-600 leading-relaxed mb-4">Les plateformes de roaming sont les intermédiaires qui connectent CPO et EMSP. Elles jouent le rôle de hub central, évitant à chaque opérateur de négocier des accords bilatéraux avec des centaines de partenaires.</p>
+
+                    <div class="space-y-4 mb-8">
+                        <div class="bg-gray-50 rounded-xl p-5 border border-gray-100">
+                            <h3 class="font-semibold text-gray-900 mb-2">Gireve</h3>
+                            <p class="text-gray-600 text-sm leading-relaxed">Plateforme française, créée en 2013 par la Caisse des Dépôts, EDF, Renault et des collectivités. Connecte plus de 400 opérateurs et plus de 700 000 points de charge en Europe. Dominante en France. Utilise les protocoles eMIP et OCPI.</p>
+                        </div>
+                        <div class="bg-gray-50 rounded-xl p-5 border border-gray-100">
+                            <h3 class="font-semibold text-gray-900 mb-2">Hubject</h3>
+                            <p class="text-gray-600 text-sm leading-relaxed">Plateforme allemande, soutenue par BMW, Bosch, Siemens et d'autres industriels. Réseau « intercharge », plus de 500 000 points de charge dans 60 pays. Dominante en Allemagne et en Europe du Nord. Utilise le protocole propriétaire OICP.</p>
+                        </div>
+                        <div class="bg-gray-50 rounded-xl p-5 border border-gray-100">
+                            <h3 class="font-semibold text-gray-900 mb-2">e-clearing.net</h3>
+                            <p class="text-gray-600 text-sm leading-relaxed">Plateforme belge, historiquement forte au Benelux. Plus petite que Gireve et Hubject, mais complémentaire pour couvrir certains réseaux régionaux.</p>
+                        </div>
+                    </div>
+
+                    <p class="text-gray-600 leading-relaxed mb-4">En pratique, les grands EMSP (Chargemap, Shell Recharge) sont connectés à plusieurs plateformes simultanément pour maximiser la couverture. Un EMSP connecté à Gireve <strong>et</strong> Hubject accède à la quasi-totalité des bornes européennes.</p>
+
+                    <!-- Section 4 -->
+                    <h2 id="ocpi-protocole" class="text-2xl font-bold mt-12 mb-4">OCPI : le protocole ouvert qui simplifie tout</h2>
+                    <p class="text-gray-600 leading-relaxed mb-4">OCPI signifie Open Charge Point Interface. Développé par la EVRoaming Foundation aux Pays-Bas, c'est un protocole ouvert (gratuit, sans licence) qui permet à un CPO et un EMSP de se connecter en peer-to-peer, sans passer par une plateforme centralisée. La version actuelle est OCPI 2.2.1.</p>
+                    <p class="text-gray-600 leading-relaxed mb-4">OCPI gère plusieurs types de données :</p>
+                    <ul class="list-disc pl-6 text-gray-600 space-y-2 mb-6">
+                        <li><strong>Locations</strong> : où sont les bornes, combien de connecteurs, quelle puissance</li>
+                        <li><strong>Tarifs</strong> : prix au kWh, frais de session, tarification par tranche</li>
+                        <li><strong>Sessions</strong> : démarrage, arrêt, énergie livrée en temps réel</li>
+                        <li><strong>CDR</strong> (Charge Detail Records) : données de facturation post-session</li>
+                        <li><strong>Tokens</strong> : identifiants des badges et des utilisateurs</li>
+                    </ul>
+                    <p class="text-gray-600 leading-relaxed mb-4">L'avantage principal d'OCPI : pas de dépendance à un intermédiaire. Deux opérateurs peuvent se connecter directement l'un à l'autre. C'est le protocole recommandé par la Commission européenne.</p>
+
+                    <div class="bg-amber-50 border-l-4 border-amber-400 rounded-r-xl p-5 mb-8">
+                        <p class="text-gray-700 text-sm leading-relaxed"><span class="font-semibold">Attention, ne pas confondre :</span> <strong>OCPI</strong> &ne; <strong>OCPP</strong>. OCPP (Open Charge Point Protocol) gère la communication entre une borne et son système de supervision (le « back-office »). OCPI gère la communication entre CPO et EMSP (le roaming). Ce sont deux protocoles complémentaires : l'un est technique (OCPP), l'autre est business (OCPI). Pour en savoir plus sur OCPP, consultez notre article sur les <a href="/demo/blog/ocpp-1-6-vs-2-0-protocole-bornes" class="text-blue-600 hover:text-blue-800 underline">différences entre OCPP 1.6 et 2.0</a>.</p>
+                    </div>
+
+                    <!-- Section 5 -->
+                    <h2 id="paiement-adhoc" class="text-2xl font-bold mt-12 mb-4">Le paiement ad-hoc : recharger sans badge</h2>
+                    <p class="text-gray-600 leading-relaxed mb-4">Le paiement ad-hoc, c'est la possibilité de recharger sans badge ni application, directement par carte bancaire ou QR code. Concrètement, deux méthodes coexistent :</p>
+
+                    <div class="grid sm:grid-cols-2 gap-4 mb-8">
+                        <div class="bg-gray-50 rounded-xl p-5 border border-gray-100">
+                            <h3 class="font-semibold text-gray-900 mb-2">Terminal de paiement (TPE)</h3>
+                            <p class="text-gray-600 text-sm leading-relaxed">Un terminal de paiement sans contact intégré à la borne. Vous posez votre carte bancaire, la charge démarre. C'est le plus simple et le plus fiable.</p>
+                        </div>
+                        <div class="bg-gray-50 rounded-xl p-5 border border-gray-100">
+                            <h3 class="font-semibold text-gray-900 mb-2">QR code</h3>
+                            <p class="text-gray-600 text-sm leading-relaxed">Un QR code sur la borne redirige vers une page web de paiement. Vous entrez vos coordonnées bancaires et lancez la charge depuis votre téléphone. Pas d'application à télécharger.</p>
+                        </div>
+                    </div>
+
+                    <p class="text-gray-600 leading-relaxed mb-4">Le règlement AFIR impose le paiement ad-hoc sur toutes les nouvelles bornes publiques DC de plus de 50 kW depuis avril 2024, et sur les bornes AC publiques à partir de 2027 (avec certaines exceptions).</p>
+                    <p class="text-gray-600 leading-relaxed mb-4">L'ad-hoc est souvent plus cher que le paiement via EMSP : l'opérateur n'a pas négocié de volume, et les frais de transaction bancaire s'ajoutent. Mais il garantit l'accès universel : n'importe qui avec une carte bancaire peut recharger, sans inscription préalable. C'est un filet de sécurité, pas le mode d'usage principal.</p>
+
+                    <!-- Section 6 -->
+                    <h2 id="reglement-afir" class="text-2xl font-bold mt-12 mb-4">Ce que le règlement AFIR impose</h2>
+                    <p class="text-gray-600 leading-relaxed mb-4">Le règlement AFIR (Alternative Fuels Infrastructure Regulation) est en vigueur depuis avril 2024. C'est le texte européen qui a mis fin à la fragmentation du marché de la recharge. Voici ses principales obligations en matière d'interopérabilité :</p>
+
+                    <div class="space-y-4 mb-8">
+                        <div class="flex items-start gap-3 bg-gray-50 rounded-xl p-4 border border-gray-100">
+                            <span class="flex-shrink-0 w-2 h-2 bg-sky-500 rounded-full mt-2"></span>
+                            <p class="text-gray-600 text-sm leading-relaxed"><strong>Paiement par carte bancaire</strong> obligatoire sur les bornes DC de plus de 50 kW</p>
+                        </div>
+                        <div class="flex items-start gap-3 bg-gray-50 rounded-xl p-4 border border-gray-100">
+                            <span class="flex-shrink-0 w-2 h-2 bg-sky-500 rounded-full mt-2"></span>
+                            <p class="text-gray-600 text-sm leading-relaxed"><strong>Affichage du prix au kWh</strong> avant le démarrage de la session</p>
+                        </div>
+                        <div class="flex items-start gap-3 bg-gray-50 rounded-xl p-4 border border-gray-100">
+                            <span class="flex-shrink-0 w-2 h-2 bg-sky-500 rounded-full mt-2"></span>
+                            <p class="text-gray-600 text-sm leading-relaxed"><strong>Stations tous les 60 km</strong> sur le réseau RTE-T (routes principales européennes)</p>
+                        </div>
+                        <div class="flex items-start gap-3 bg-gray-50 rounded-xl p-4 border border-gray-100">
+                            <span class="flex-shrink-0 w-2 h-2 bg-sky-500 rounded-full mt-2"></span>
+                            <p class="text-gray-600 text-sm leading-relaxed"><strong>Interopérabilité obligatoire</strong> : les CPO doivent accepter les badges roaming</p>
+                        </div>
+                        <div class="flex items-start gap-3 bg-gray-50 rounded-xl p-4 border border-gray-100">
+                            <span class="flex-shrink-0 w-2 h-2 bg-sky-500 rounded-full mt-2"></span>
+                            <p class="text-gray-600 text-sm leading-relaxed"><strong>Open data</strong> : publication des données de localisation et de disponibilité en temps réel</p>
+                        </div>
+                        <div class="flex items-start gap-3 bg-gray-50 rounded-xl p-4 border border-gray-100">
+                            <span class="flex-shrink-0 w-2 h-2 bg-sky-500 rounded-full mt-2"></span>
+                            <p class="text-gray-600 text-sm leading-relaxed"><strong>Puissance minimale par station</strong> sur autoroute : 400 kW par station DC, 600 kW d'ici 2028</p>
+                        </div>
+                        <div class="flex items-start gap-3 bg-gray-50 rounded-xl p-4 border border-gray-100">
+                            <span class="flex-shrink-0 w-2 h-2 bg-sky-500 rounded-full mt-2"></span>
+                            <p class="text-gray-600 text-sm leading-relaxed"><strong>Sanctions nationales</strong> : en France, 15 000 à 75 000 € par infraction</p>
+                        </div>
+                    </div>
+
+                    <p class="text-gray-600 leading-relaxed mb-4">Pour un aperçu complet du règlement, consultez notre article dédié : <a href="/demo/blog/reglement-afir-obligations-bornes-recharge" class="text-blue-600 hover:text-blue-800 underline">Règlement AFIR : nouvelles obligations pour les bornes de recharge en Europe</a>.</p>
+
+                    <!-- Section 7 -->
+                    <h2 id="experience-2026" class="text-2xl font-bold mt-12 mb-4">L'expérience utilisateur en 2026</h2>
+                    <p class="text-gray-600 leading-relaxed mb-4">En 2026, la situation est nettement meilleure qu'il y a trois ans. Avec un bon EMSP (Chargemap, Shell Recharge, Electroverse), vous accédez à plus de 95 % des bornes publiques en France et dans la plupart des pays européens. Le paiement ad-hoc est disponible sur les bornes DC récentes. Les applications affichent les prix avant la charge, conformément à l'obligation AFIR.</p>
+                    <p class="text-gray-600 leading-relaxed mb-4">Ce qui reste perfectible :</p>
+                    <ul class="list-disc pl-6 text-gray-600 space-y-2 mb-6">
+                        <li><strong>Les tarifs roaming varient beaucoup</strong> : un même chargeur peut coûter 30 % plus ou moins cher selon l'EMSP utilisé. Comparez toujours avant de brancher</li>
+                        <li><strong>Les bornes anciennes</strong> n'ont pas toutes le TPE intégré. Le paiement ad-hoc par carte bancaire n'est garanti que sur les bornes récentes</li>
+                        <li><strong>Certains petits réseaux locaux</strong> ne sont pas encore connectés aux plateformes de roaming. Ce sont généralement des collectivités ou des réseaux très locaux</li>
+                        <li><strong>La transparence tarifaire</strong> progresse mais reste imparfaite : les frais de stationnement, les tarifs par tranche horaire et les majorations de roaming ne sont pas toujours clairement affichés</li>
+                    </ul>
+
+                    <div class="bg-amber-50 border-l-4 border-amber-400 rounded-r-xl p-5 mb-8">
+                        <p class="text-gray-700 text-sm leading-relaxed"><span class="font-semibold">Conseil pratique :</span> Pour les longs trajets en Europe, combinez un bon EMSP (couverture maximale) avec une carte bancaire (filet de sécurité ad-hoc). Vérifiez les <a href="/demo/blog/prix-recharge-publique-comparatif-2025" class="text-blue-600 hover:text-blue-800 underline">tarifs de recharge publique</a> de votre EMSP sur les réseaux que vous traverserez.</p>
+                    </div>
+
+                    <!-- CTA cross-link -->
+                    <div class="bg-gray-50 border border-gray-200 rounded-2xl p-6 my-8">
+                        <h3 class="text-lg font-bold text-gray-900 mb-2">JCSM accompagne les CPO dans l'interopérabilité</h3>
+                        <p class="text-gray-600 leading-relaxed mb-4">Vous exploitez un réseau de bornes de recharge ? JCSM vous accompagne dans la mise en conformité AFIR, le raccordement aux plateformes de roaming (Gireve, Hubject) et l'intégration du paiement ad-hoc. De la supervision à distance à la maintenance terrain, nous assurons la disponibilité et l'interopérabilité de vos installations.</p>
+                        <a href="/demo/contact" class="inline-flex items-center gap-2 bg-sky-600 text-white px-6 py-3 rounded-xl font-semibold hover:bg-sky-700 transition-colors">
+                            Discuter de votre projet
+                            <svg aria-hidden="true" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                        </a>
+                    </div>
+
+                    <!-- FAQ -->
+                    <h2 id="faq" class="text-2xl font-bold mt-12 mb-6">Questions fréquentes</h2>
+                    <div class="space-y-6 mb-8">
+                        <div class="border border-gray-200 rounded-xl p-5">
+                            <h3 class="font-semibold text-gray-900 mb-2">Un seul badge suffit-il pour recharger partout en France ?</h3>
+                            <p class="text-gray-600 text-sm leading-relaxed">Quasi oui. Avec un EMSP comme Chargemap ou Shell Recharge, vous accédez à 95 %+ des bornes publiques françaises.</p>
+                        </div>
+                        <div class="border border-gray-200 rounded-xl p-5">
+                            <h3 class="font-semibold text-gray-900 mb-2">Le roaming coûte-t-il plus cher ?</h3>
+                            <p class="text-gray-600 text-sm leading-relaxed">Souvent oui. L'EMSP ajoute sa marge, de 0 à 30 % selon les opérateurs. Comparez les grilles tarifaires avant de choisir.</p>
+                        </div>
+                        <div class="border border-gray-200 rounded-xl p-5">
+                            <h3 class="font-semibold text-gray-900 mb-2">Qu'est-ce que l'OCPI et en quoi est-ce différent de l'OCPP ?</h3>
+                            <p class="text-gray-600 text-sm leading-relaxed">Deux protocoles différents. OCPI connecte les opérateurs entre eux (roaming). OCPP connecte les bornes à leur système de supervision. Complémentaires, pas interchangeables.</p>
+                        </div>
+                        <div class="border border-gray-200 rounded-xl p-5">
+                            <h3 class="font-semibold text-gray-900 mb-2">Peut-on recharger en Belgique avec un badge français ?</h3>
+                            <p class="text-gray-600 text-sm leading-relaxed">Oui. Gireve et Hubject couvrent la Belgique. Les principaux EMSP français fonctionnent sur le réseau belge sans problème.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CTA final -->
+                <div class="section-appear mt-12 bg-gradient-to-r from-sky-50 to-sky-100 rounded-2xl p-8 text-center">
+                    <h3 class="text-xl font-bold mb-3">Besoin d'accompagnement sur l'interopérabilité de vos bornes ?</h3>
+                    <p class="text-gray-600 mb-6">Mise en conformité AFIR, raccordement roaming, paiement ad-hoc : parlons de votre projet.</p>
+                    <a href="/demo/contact" class="btn-primary px-8 py-3 rounded-xl font-medium inline-block">Nous contacter</a>
+                </div>
+
+
+                <!-- Partage social -->
+                <div class="flex items-center gap-4 pt-8 mt-8 border-t border-gray-200">
+                    <span class="text-sm font-semibold text-gray-700">Partager :</span>
+                    <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://jcsm.fr/blog/interoperabilite-roaming-recharge-europe" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-gray-100 hover:bg-blue-50 text-gray-600 hover:text-blue-700 text-sm font-medium transition-colors" aria-label="Partager sur LinkedIn">
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                        LinkedIn
+                    </a>
+                    <a href="https://twitter.com/intent/tweet?url=https://jcsm.fr/blog/interoperabilite-roaming-recharge-europe&amp;text=Interop%C3%A9rabilit%C3%A9%20et%20roaming%20%3A%20recharger%20partout%20en%20Europe" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-gray-100 hover:bg-gray-200 text-gray-600 hover:text-gray-900 text-sm font-medium transition-colors" aria-label="Partager sur X">
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                        X
+                    </a>
+                </div>
+
+                <!-- Articles liés -->
+                <div class="section-appear mt-16 pt-8 border-t border-gray-100">
+                    <h3 class="text-lg font-bold mb-6">Articles similaires</h3>
+                    <div class="grid sm:grid-cols-2 gap-6">
+                        <a href="/demo/blog/reglement-afir-obligations-bornes-recharge" class="group blog-card-premium">
+                            <h4 class="font-semibold group-hover:text-blue-600 transition-colors mb-1">Règlement AFIR : nouvelles obligations pour les bornes de recharge</h4>
+                            <p class="text-sm text-gray-500">Ce que le règlement européen impose aux opérateurs.</p>
+                        </a>
+                        <a href="/demo/blog/cpo-emsp-acteurs-recharge-electrique" class="group blog-card-premium">
+                            <h4 class="font-semibold group-hover:text-blue-600 transition-colors mb-1">CPO et EMSP : comprendre les acteurs de la recharge</h4>
+                            <p class="text-sm text-gray-500">Qui fait quoi dans l'écosystème de la recharge électrique.</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <footer class="border-t border-gray-100 py-16 px-6 bg-white" role="contentinfo" aria-label="Pied de page">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid md:grid-cols-4 gap-10 mb-12">
+                <div>
+                    <div class="flex items-center space-x-3 mb-4">
+                        <picture><source srcset="../images/logo.webp" type="image/webp"><img src="../images/logo.png" alt="Logo JCSM" class="w-8 h-8" width="32" height="32" loading="lazy"></picture>
+                        <span class="text-xl font-semibold text-gray-900">JCSM</span>
+                    </div>
+                    <p class="text-sm text-gray-600 mb-4">Expérience IRVE depuis 2019. Installation, maintenance et pilotage en France et Belgique. Entreprise inclusive.</p>
+                    <p class="text-sm text-gray-500">60 rue François 1er<br>75008 Paris</p>
+                    <p class="text-sm text-gray-500 mt-3"><a href="tel:+33183755706" class="hover:text-gray-900 transition-colors">+33 1 83 75 57 06</a></p>
+                    <p class="text-sm text-gray-500"><a href="mailto:contact@jcsm.fr" class="hover:text-gray-900 transition-colors">contact@jcsm.fr</a></p>
+                </div>
+                <div>
+                    <h3 class="text-sm font-semibold text-gray-900 mb-4 uppercase tracking-wide">Services</h3>
+                    <nav aria-label="Services">
+                        <ul class="space-y-3">
+                            <li><a href="/demo/pilotage-projets" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Pilotage de projets</a></li>
+                            <li><a href="/demo/installation-conformite" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Installation & conformité</a></li>
+                            <li><a href="/demo/exploitation" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Exploitation & maintenance</a></li>
+                            <li><a href="/demo/securisation-installations" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Sécurisation</a></li>
+                            <li><a href="/demo/centre-appel" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Support 24/7</a></li>
+                            <li><a href="/demo/tarification" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Tarification</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div>
+                    <h3 class="text-sm font-semibold text-gray-900 mb-4 uppercase tracking-wide">Entreprise</h3>
+                    <nav aria-label="Entreprise">
+                        <ul class="space-y-3">
+                            <li><a href="/demo/devenir-partenaire" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Devenir partenaire</a></li>
+                            <li><a href="/demo/a-propos" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">À propos</a></li>
+                            <li><a href="/demo/inclusion" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Inclusion</a></li>
+                            <li><a href="/demo/carrieres" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Carrières</a></li>
+                            <li><a href="/demo/contact" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Contact</a></li>
+                            <li><a href="/demo/blog" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Blog</a></li>
+                            <li><a href="/demo/solutions/" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Solutions</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div>
+                    <h3 class="text-sm font-semibold text-gray-900 mb-4 uppercase tracking-wide">Légal</h3>
+                    <nav aria-label="Légal">
+                        <ul class="space-y-3">
+                            <li><a href="/demo/mentions-legales" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Mentions légales</a></li>
+                            <li><a href="/demo/confidentialite" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Confidentialité</a></li>
+                            <li><a href="/demo/cgv" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">CGV</a></li>
+                        </ul>
+                    </nav>
+                    <h3 class="text-sm font-semibold text-gray-900 mb-4 uppercase tracking-wide mt-6">Zones</h3>
+                    <nav aria-label="Zones">
+                        <ul class="space-y-3">
+                            <li><a href="/demo/zones/france" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">France</a></li>
+                            <li><a href="/demo/zones/belgique" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Belgique</a></li>
+                        </ul>
+                    </nav>
+                    <div class="flex items-center gap-3 mt-4">
+                        <a href="https://www.linkedin.com/company/jcsm-elec/" target="_blank" rel="noopener noreferrer me" class="text-gray-500 hover:text-gray-900 transition-colors" aria-label="LinkedIn">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                        </a>
+                        <a href="https://www.facebook.com/profile.php?id=61587992161634" target="_blank" rel="noopener noreferrer me" class="text-gray-500 hover:text-gray-900 transition-colors" aria-label="Facebook">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                        </a>
+                        <a href="https://x.com/JCSM_ELEC" target="_blank" rel="noopener noreferrer me" class="text-gray-500 hover:text-gray-900 transition-colors" aria-label="X (Twitter)">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                        </a>
+                        <a href="https://www.instagram.com/jcsm.elec/" target="_blank" rel="noopener noreferrer me" class="text-gray-500 hover:text-gray-900 transition-colors" aria-label="Instagram">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+                        </a>
+                        <a href="https://www.youtube.com/@JCSM_ELEC" target="_blank" rel="noopener noreferrer me" class="text-gray-500 hover:text-gray-900 transition-colors" aria-label="YouTube">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="pt-8 border-t border-gray-100 flex flex-col md:flex-row md:items-center md:justify-between gap-4 text-xs text-gray-500">
+                <span>© 2026 JCSM SAS - SIRET 99387429600011</span>
+                <a href="mailto:contact@jcsm.fr" class="hover:text-gray-900 transition-colors">contact@jcsm.fr</a> · <a href="tel:+33183755706" class="hover:text-gray-900 transition-colors">+33 1 83 75 57 06</a>
+            </div>
+        </div>
+    </footer>
+
+    <button class="scroll-top" id="scrollTop" aria-label="Retour en haut de page">
+        <svg aria-hidden="true" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.5 15.75l7.5-7.5 7.5 7.5" /></svg>
+    </button>
+    <script src="../js/i18n.js?v=72" defer></script>
+    <script src="../js/config.js?v=72" defer></script>
+    <script src="../js/utils.js?v=72" defer></script>
+    <script src="../js/public.js?v=72" defer></script>
+    <script src="../js/analytics.js?v=72" defer></script>
+    <script src="../js/wow-effects.js?v=72" defer></script>
+    <script>if ('serviceWorker' in navigator) { window.addEventListener('load', () => { navigator.serviceWorker.register('/sw.js').catch(() => {}); }); }</script>
+</body>
+</html>

@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <!-- Cookie Consent + GTM (chargé après acceptation) -->
+    <script src="/demo/js/cookie-consent.js" defer></script>
+    <title>Batterie lithium-ion et véhicule électrique : guide | JCSM</title>
+    <meta name="description" content="Batteries lithium-ion des véhicules électriques : capacité kWh, autonomie réelle, durée de vie, BMS et comparatif électrique vs thermique. Guide JCSM.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://jcsm.fr/blog/vehicule-electrique-batterie-guide">
+    <link rel="alternate" hreflang="fr" href="https://jcsm.fr/blog/vehicule-electrique-batterie-guide">
+    <link rel="alternate" hreflang="x-default" href="https://jcsm.fr/blog/vehicule-electrique-batterie-guide">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Véhicule électrique et batterie lithium-ion : le guide essentiel",
+        "description": "Comprendre les batteries lithium-ion des véhicules électriques : capacité en kWh, autonomie réelle, BMS et comparatif électrique vs thermique. Guide JCSM.",
+        "datePublished": "2025-01-15",
+        "dateModified": "2025-01-15",
+        "author": {"@type": "Organization", "name": "JCSM", "url": "https://jcsm.fr"},
+        "publisher": {"@type": "Organization", "name": "JCSM", "url": "https://jcsm.fr", "logo": {"@type": "ImageObject", "url": "https://jcsm.fr/images/logo.png", "width": 512, "height": 512}},
+        "mainEntityOfPage": {"@type": "WebPage", "@id": "https://jcsm.fr/blog/vehicule-electrique-batterie-guide"},
+        "wordCount": 1450,
+        "articleSection": "Technologie et Standards",
+        "image": {"@type": "ImageObject", "url": "https://jcsm.fr/images/index.webp", "width": 2048, "height": 1366}
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://jcsm.fr/"},
+            {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://jcsm.fr/blog"},
+            {"@type": "ListItem", "position": 3, "name": "Véhicule électrique et batterie lithium-ion", "item": "https://jcsm.fr/blog/vehicule-electrique-batterie-guide"}
+        ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Quelle est la durée de vie d'une batterie de voiture électrique ?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "8 \u00e0 15 ans en moyenne. Apr\u00e8s 200 000 km, comptez encore 70-80 % de capacit\u00e9 restante. Les garanties constructeur couvrent g\u00e9n\u00e9ralement 8 ans / 160 000 km."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "La recharge rapide abîme-t-elle la batterie ?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Minimal. Le BMS r\u00e9gule tout. Les donn\u00e9es terrain montrent moins de 1 % de d\u00e9gradation suppl\u00e9mentaire par an pour les utilisateurs fr\u00e9quents de DC rapide."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Combien coûte le remplacement d'une batterie ?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "5 000 \u00e0 15 000 \u20ac selon mod\u00e8le et capacit\u00e9. Mais c'est rare : la plupart des batteries survivent au v\u00e9hicule. Avant remplacement, une seconde vie en stockage stationnaire est possible."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Peut-on recycler les batteries de véhicules électriques ?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Recyclables \u00e0 plus de 95 %. Avant le recyclage, elles servent souvent en stockage stationnaire (10-15 ans suppl\u00e9mentaires). Le r\u00e8glement europ\u00e9en sur les batteries (2023) impose aux constructeurs la collecte et le recyclage."
+                }
+            }
+        ]
+    }
+    </script>
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://jcsm.fr/blog/vehicule-electrique-batterie-guide">
+    <meta property="og:title" content="Véhicule électrique et batterie lithium-ion : le guide essentiel">
+    <meta property="og:description" content="Capacité en kWh, autonomie réelle, BMS, courbes de charge et comparatif électrique vs thermique. Le guide complet des batteries EV.">
+    <meta property="og:image" content="https://jcsm.fr/images/jcsmtesla.webp">
+    <meta property="og:image:alt" content="Véhicule électrique Tesla en recharge sur une borne JCSM">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="683">
+    <meta property="og:locale" content="fr_FR">
+    <meta property="og:site_name" content="JCSM - Infrastructure de Recharge">
+    <meta property="article:published_time" content="2025-01-15">
+    <meta property="article:modified_time" content="2025-01-15T00:00:00+01:00">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Véhicule électrique et batterie lithium-ion : le guide essentiel">
+    <meta name="twitter:description" content="Capacité en kWh, autonomie réelle, BMS, courbes de charge et comparatif électrique vs thermique. Guide JCSM.">
+    <meta name="twitter:image" content="https://jcsm.fr/images/index.webp">
+    <meta name="twitter:image:alt" content="Infrastructure de recharge pour véhicules électriques">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet"
+        media="print" onload="this.media='all'">
+    <noscript>
+        <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap"
+            rel="stylesheet">
+    </noscript>
+    <link rel="stylesheet" href="../css/critical.css?v=72">
+    <link rel="stylesheet" href="../css/tailwind.css?v=72" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="../css/tailwind.css?v=72"></noscript>
+    <link rel="stylesheet" href="../styles.css?v=72" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="../styles.css?v=72"></noscript>
+    <link rel="manifest" href="../manifest.json">
+    <link rel="icon" type="image/x-icon" href="/demo/favicon.ico">
+    <link rel="apple-touch-icon" href="/demo/apple-touch-icon.png">
+
+    <link rel="stylesheet" href="/demo/demo-overrides.css?v=5">
+    <script src="/demo/demo-fluidity.js?v=2" defer data-cfasync="false"></script>
+    <script>window.addEventListener("DOMContentLoaded",function(){setTimeout(function(){var p=document.getElementById("preloader");if(p)p.classList.add("preloader-auto-hide");},600);});</script>
+</head>
+<body class="text-gray-900 bg-white">
+    <div class="demo-banner"><span>DEMO</span>Version proposée pour validation — non publiée</div>
+
+    <div class="reading-progress" id="reading-progress"></div>
+    <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+    <div class="preloader" id="preloader" role="status" aria-label="Chargement">
+        <div class="flex flex-col items-center justify-center">
+            <picture><source srcset="../images/logo.webp" type="image/webp"><img src="../images/logo.png" alt="JCSM" width="80" height="80" class="animate-pulse"></picture>
+        </div>
+    </div>
+    <div class="mobile-menu-overlay" id="mobile-menu-overlay"></div>
+    <nav class="mobile-menu" id="mobile-menu" role="dialog" aria-modal="true" aria-label="Menu de navigation" aria-hidden="true">
+        <div class="p-8">
+            <div class="flex justify-between items-center mb-12">
+                <span class="text-xl font-semibold">Menu</span>
+                <button class="text-gray-600 hover:text-gray-900" id="mobile-menu-close" aria-label="Fermer le menu de navigation">
+                    <svg class="w-6 h-6" fill="none" aria-hidden="true" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+                </button>
+            </div>
+                        <div class="flex flex-col space-y-6">
+                <a href="/demo/pilotage-projets" class="text-base text-gray-600 hover:text-gray-900 transition-colors">Pilotage de projets</a>
+                <a href="/demo/installation-conformite" class="text-base text-gray-600 hover:text-gray-900 transition-colors">Installation</a>
+                <a href="/demo/exploitation" class="text-base text-gray-600 hover:text-gray-900 transition-colors">Exploitation</a>
+                <a href="/demo/securisation-installations" class="text-base text-gray-600 hover:text-gray-900 transition-colors">Sécurisation</a>
+                <a href="/demo/centre-appel" class="text-base text-gray-600 hover:text-gray-900 transition-colors">Support</a>
+                <a href="/demo/solutions/" class="text-base text-gray-600 hover:text-gray-900 transition-colors">Solutions</a>
+                <a href="/demo/a-propos" class="text-base text-gray-600 hover:text-gray-900 transition-colors">À propos</a>
+                <a href="/demo/blog" class="text-base text-gray-600 hover:text-gray-900 transition-colors">Blog</a>
+                <a href="/demo/contact" class="btn-primary px-6 py-3 rounded-lg text-base font-medium inline-block text-center mt-4">Contact</a>
+            </div>
+        </div>
+    </nav>
+    <nav class="fixed top-0 w-full z-50 glass-nav border-b border-gray-200" role="navigation" aria-label="Navigation principale">
+        <div class="max-w-7xl mx-auto px-6 py-5">
+            <div class="flex justify-between items-center">
+                <a href="/demo/" class="flex items-center space-x-3 group mr-12">
+                    <picture><source srcset="../images/logo.webp" type="image/webp"><img src="../images/logo.png" alt="JCSM" class="w-9 h-9 transition-transform group-hover:scale-105 duration-300" width="36" height="36"></picture>
+                    <span class="text-xl font-bold tracking-tight">JCSM</span>
+                </a>
+                <div class="hidden lg:flex items-center space-x-6 xl:space-x-8">
+                    <a href="/demo/pilotage-projets" class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300 whitespace-nowrap">Pilotage</a>
+                    <a href="/demo/installation-conformite" class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300 whitespace-nowrap">Installation</a>
+                    <a href="/demo/exploitation" class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300 whitespace-nowrap">Exploitation</a>
+                    <a href="/demo/securisation-installations" class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300 whitespace-nowrap">Sécurisation</a>
+                    <a href="/demo/centre-appel" class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300 whitespace-nowrap">Support</a>
+                    <a href="/demo/solutions/" class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300 whitespace-nowrap">Solutions</a>
+                    <a href="/demo/a-propos" class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300 whitespace-nowrap">À propos</a>
+                    <a href="/demo/blog" class="text-base font-semibold text-blue-600 hover:text-blue-700 transition-all duration-300 whitespace-nowrap">Blog</a>
+                    <a href="/demo/contact" class="btn-primary ml-4 px-7 py-2.5 rounded-xl text-base font-medium shadow-lg hover:shadow-xl whitespace-nowrap">Contact</a>
+                </div>
+                <button class="mobile-menu-btn text-gray-600 hover:text-gray-900" id="mobile-menu-btn" aria-label="Ouvrir le menu de navigation" aria-expanded="false" aria-controls="mobile-menu">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main id="main-content" role="main">
+        <article class="pt-32 pb-16 px-6">
+            <div class="max-w-3xl mx-auto">
+                <div class="mb-8">
+                    <a href="/demo/blog" class="text-sm text-blue-600 hover:text-blue-800 transition-colors">&larr; Retour au blog</a>
+                </div>
+                <div class="mb-10">
+                    <span class="badge-section inline-block text-xs font-semibold text-blue-800 bg-blue-100 rounded-full px-3 py-1 mb-4">Guide</span>
+                    <h1 class="text-3xl md:text-4xl font-bold mb-4 leading-tight">Véhicule électrique et <span class="gradient-text">batterie lithium-ion</span> : le guide essentiel</h1>
+                    <div class="flex items-center text-sm text-gray-500">
+                        <time datetime="2025-01-15">15 janvier 2025</time>
+                        <span class="mx-2">·</span>
+                        <span>5 min de lecture</span>
+                    </div>
+                </div>
+
+                <div class="prose prose-lg max-w-none section-appear">
+                    <p class="text-lg text-gray-600 leading-relaxed mb-8">La batterie lithium-ion est le coeur d'un véhicule électrique. Capacité en kWh, autonomie réelle, gestion intelligente par le BMS, courbes de charge : ce guide vous donne toutes les clés pour comprendre cette technologie et conseiller vos clients.</p>
+
+                    <!-- Table of Contents -->
+                    <div class="bg-blue-50 border border-blue-200 rounded-2xl p-6 mb-10">
+                        <h2 class="text-lg font-bold text-blue-900 mb-4">Sommaire</h2>
+                        <ol class="list-decimal pl-5 space-y-2 text-blue-800">
+                            <li><a href="#essentiel" class="hover:text-blue-600 underline">L'essentiel du véhicule électrique</a></li>
+                            <li><a href="#capacite" class="hover:text-blue-600 underline">Comprendre la capacité (kWh)</a></li>
+                            <li><a href="#bms" class="hover:text-blue-600 underline">Gestion intelligente : le BMS</a></li>
+                            <li><a href="#courbes" class="hover:text-blue-600 underline">Courbes de charge</a></li>
+                            <li><a href="#autonomie" class="hover:text-blue-600 underline">Autonomie : à quoi s'attendre</a></li>
+                            <li><a href="#comparatif" class="hover:text-blue-600 underline">Électrique versus thermique</a></li>
+                            <li><a href="#irve" class="hover:text-blue-600 underline">Quel impact sur les bornes IRVE ?</a></li>
+                            <li><a href="#faq" class="hover:text-blue-600 underline">Questions fréquentes</a></li>
+                        </ol>
+                    </div>
+
+                    <!-- Section 1 -->
+                    <h2 id="essentiel" class="text-2xl font-bold mt-12 mb-4">1. L'essentiel du véhicule électrique</h2>
+                    <p class="text-gray-600 leading-relaxed mb-4">Un véhicule électrique est propulsé par un <strong>moteur électrique</strong> alimenté par une <strong>batterie rechargeable</strong>. Contrairement à un moteur thermique qui brûle du carburant, le moteur électrique convertit directement l'énergie stockée dans la batterie en mouvement. Résultat : zéro émission locale, un fonctionnement silencieux et un couple instantané dès le démarrage.</p>
+                    <p class="text-gray-600 leading-relaxed mb-4">La technologie est éprouvée et fiable. Les batteries lithium-ion utilisées dans les véhicules électriques reposent sur la même chimie que celles de nos smartphones ou ordinateurs portables, mais à une échelle bien supérieure. Elles sont conçues avec des systèmes de sécurité avancés : boîtier renforcé, refroidissement liquide, surveillance cellule par cellule. Le risque d'incident est statistiquement inférieur à celui d'un réservoir d'essence.</p>
+
+                    <!-- Section 2 -->
+                    <h2 id="capacite" class="text-2xl font-bold mt-12 mb-4">2. Comprendre la capacité (kWh)</h2>
+                    <p class="text-gray-600 leading-relaxed mb-4">La capacité d'une batterie se mesure en <strong>kilowattheures (kWh)</strong>. C'est l'équivalent de la taille du réservoir pour un véhicule thermique : plus la capacité est élevée, plus le véhicule peut rouler longtemps avant de devoir se recharger.</p>
+
+                    <div class="grid sm:grid-cols-2 gap-4 my-8">
+                        <div class="bg-blue-50 border border-blue-200 rounded-xl p-5 text-center">
+                            <div class="text-3xl font-bold text-blue-700 mb-1">60 kWh</div>
+                            <div class="text-sm text-blue-800 font-medium mb-2">Batterie standard</div>
+                            <div class="text-gray-600 text-sm">environ <strong>400 km</strong> d'autonomie</div>
+                        </div>
+                        <div class="bg-blue-50 border border-blue-200 rounded-xl p-5 text-center">
+                            <div class="text-3xl font-bold text-blue-700 mb-1">80 kWh</div>
+                            <div class="text-sm text-blue-800 font-medium mb-2">Grande batterie</div>
+                            <div class="text-gray-600 text-sm">plus de <strong>500 km</strong> d'autonomie</div>
+                        </div>
+                    </div>
+
+                    <p class="text-gray-600 leading-relaxed mb-4">L'analogie est simple : si la batterie était un réservoir, les kWh seraient les litres. Un véhicule consomme en moyenne 15 à 18 kWh aux 100 km, contre 6 à 8 litres d'essence pour un modèle thermique équivalent. En termes de coût, l'électricité est nettement moins chère que le carburant fossile.</p>
+
+                    <!-- Callout 1 -->
+                    <div class="bg-amber-50 border-l-4 border-amber-400 rounded-r-xl p-5 my-8">
+                        <p class="text-gray-800 font-medium">A retenir pour vos clients : plus la capacité (kWh) est élevée, plus l'autonomie est importante. Mais une batterie plus grande signifie aussi un temps de recharge plus long et un coût d'achat supérieur.</p>
+                    </div>
+
+                    <!-- Section 3 -->
+                    <h2 id="bms" class="text-2xl font-bold mt-12 mb-4">3. Gestion intelligente : le BMS</h2>
+                    <p class="text-gray-600 leading-relaxed mb-4">Chaque véhicule électrique embarque un <strong>Battery Management System (BMS)</strong>, un ordinateur de bord dédié exclusivement à la gestion de la batterie. Ce système est le gardien invisible de la longévité et de la sécurité du pack batterie.</p>
+                    <p class="text-gray-600 leading-relaxed mb-4">Le BMS remplit quatre fonctions essentielles :</p>
+                    <ul class="list-disc pl-6 text-gray-600 space-y-2 mb-6">
+                        <li><strong>Protection contre les extrêmes</strong> : il empêche la charge au-delà de 100 % et la décharge en dessous d'un seuil critique, protégeant les cellules contre la dégradation prématurée</li>
+                        <li><strong>Gestion thermique</strong> : il pilote le circuit de refroidissement (ou de chauffage) pour maintenir les cellules dans leur plage de température optimale, entre 20 et 40 °C</li>
+                        <li><strong>Équilibrage des cellules</strong> : une batterie automobile contient des centaines de cellules individuelles. Le BMS veille à ce qu'elles se chargent et se déchargent de manière uniforme</li>
+                        <li><strong>Estimation de l'état de charge (SOC)</strong> : il calcule en permanence le pourcentage de batterie restant et l'autonomie estimée</li>
+                    </ul>
+                    <p class="text-gray-600 leading-relaxed mb-4">Le conducteur n'a rien à faire : le BMS fonctionne de manière totalement automatique. Il suffit de brancher le véhicule et le système gère le reste.</p>
+
+                    <!-- Section 4 -->
+                    <h2 id="courbes" class="text-2xl font-bold mt-12 mb-4">4. Courbes de charge</h2>
+                    <p class="text-gray-600 leading-relaxed mb-4">Si vous avez déjà rechargé un véhicule électrique sur une borne rapide, vous avez sans doute remarqué que la vitesse de charge <strong>diminue à mesure que la batterie se remplit</strong>. Ce n'est pas un défaut : c'est la chimie lithium-ion qui l'impose.</p>
+                    <p class="text-gray-600 leading-relaxed mb-4">Les ions lithium se déplacent de l'anode vers la cathode pendant la charge. Quand la batterie est presque vide, les ions trouvent facilement des emplacements libres : la charge est rapide. À mesure que la batterie se remplit, les emplacements deviennent rares et le BMS doit ralentir le flux pour éviter la surchauffe et la dégradation des cellules.</p>
+
+                    <!-- Charge curve visual -->
+                    <div class="bg-gray-50 border border-gray-200 rounded-2xl p-6 my-8">
+                        <h3 class="text-sm font-semibold text-gray-700 uppercase tracking-wide mb-4">Vitesse de charge selon le niveau de batterie</h3>
+                        <div class="space-y-3">
+                            <div class="flex items-center gap-3">
+                                <span class="text-sm font-medium text-gray-600 w-20">0 - 20 %</span>
+                                <div class="flex-1 bg-gray-200 rounded-full h-5"><div class="bg-blue-500 h-5 rounded-full" style="width: 70%"></div></div>
+                                <span class="text-sm font-semibold text-gray-700 w-24 text-right">Rapide</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <span class="text-sm font-medium text-gray-600 w-20">20 - 80 %</span>
+                                <div class="flex-1 bg-gray-200 rounded-full h-5"><div class="bg-blue-600 h-5 rounded-full" style="width: 95%"></div></div>
+                                <span class="text-sm font-semibold text-blue-700 w-24 text-right">Optimal</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <span class="text-sm font-medium text-gray-600 w-20">80 - 100 %</span>
+                                <div class="flex-1 bg-gray-200 rounded-full h-5"><div class="bg-orange-400 h-5 rounded-full" style="width: 30%"></div></div>
+                                <span class="text-sm font-semibold text-orange-600 w-24 text-right">Lent</span>
+                            </div>
+                        </div>
+                        <p class="text-xs text-gray-500 mt-4">La plage 20-80 % offre le meilleur compromis entre vitesse de charge et préservation de la batterie.</p>
+                    </div>
+
+                    <p class="text-gray-600 leading-relaxed mb-4">La température joue également un rôle déterminant. Par temps froid (en dessous de 5 °C), la charge est plus lente car le BMS préchauffe la batterie avant d'accepter un courant élevé. Par temps chaud (au-dessus de 35 °C), le système limite la puissance pour éviter la surchauffe. La plage idéale se situe entre 15 et 30 °C.</p>
+
+                    <!-- Callout 2 -->
+                    <div class="bg-amber-50 border-l-4 border-amber-400 rounded-r-xl p-5 my-8">
+                        <p class="text-gray-800 font-medium">Bon à savoir : la recharge entre 20 % et 80 % est la plus rapide et préserve la batterie. Au quotidien, il est recommandé de rester dans cette plage pour maximiser la durée de vie du pack. Pour en savoir plus, consultez notre <a href="/demo/blog/courbes-de-charge-recharge-electrique" class="text-blue-600 hover:text-blue-800 underline">article dédié aux courbes de charge</a>.</p>
+                    </div>
+
+                    <!-- Section 5 -->
+                    <h2 id="autonomie" class="text-2xl font-bold mt-12 mb-4">5. Autonomie : à quoi s'attendre</h2>
+                    <p class="text-gray-600 leading-relaxed mb-4">L'autonomie réelle d'un véhicule électrique dépend de nombreux facteurs : style de conduite, température extérieure, utilisation du chauffage ou de la climatisation, relief du parcours et vitesse moyenne. Les chiffres WLTP annoncés par les constructeurs constituent une bonne base, mais l'autonomie réelle est généralement inférieure de 10 à 20 %.</p>
+                    <p class="text-gray-600 leading-relaxed mb-6">Voici les autonomies WLTP de cinq modèles populaires en 2025 :</p>
+
+                    <!-- Vehicle cards -->
+                    <div class="grid gap-4 mb-8">
+                        <div class="flex items-center justify-between bg-white border border-gray-200 rounded-xl p-4 hover:shadow-md transition-shadow">
+                            <div>
+                                <h3 class="font-semibold text-gray-900">Hyundai IONIQ 6</h3>
+                                <p class="text-sm text-gray-500">Berline aérodynamique, 77,4 kWh</p>
+                            </div>
+                            <div class="text-right">
+                                <span class="text-2xl font-bold text-blue-600">614</span>
+                                <span class="text-sm text-gray-500 ml-1">km</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between bg-white border border-gray-200 rounded-xl p-4 hover:shadow-md transition-shadow">
+                            <div>
+                                <h3 class="font-semibold text-gray-900">Tesla Model 3</h3>
+                                <p class="text-sm text-gray-500">Berline compacte, 60 kWh</p>
+                            </div>
+                            <div class="text-right">
+                                <span class="text-2xl font-bold text-blue-600">491</span>
+                                <span class="text-sm text-gray-500 ml-1">km</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between bg-white border border-gray-200 rounded-xl p-4 hover:shadow-md transition-shadow">
+                            <div>
+                                <h3 class="font-semibold text-gray-900">Kia Niro EV</h3>
+                                <p class="text-sm text-gray-500">Crossover familial, 64,8 kWh</p>
+                            </div>
+                            <div class="text-right">
+                                <span class="text-2xl font-bold text-blue-600">455</span>
+                                <span class="text-sm text-gray-500 ml-1">km</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between bg-white border border-gray-200 rounded-xl p-4 hover:shadow-md transition-shadow">
+                            <div>
+                                <h3 class="font-semibold text-gray-900">Renault 5 E-Tech</h3>
+                                <p class="text-sm text-gray-500">Citadine électrique, 52 kWh</p>
+                            </div>
+                            <div class="text-right">
+                                <span class="text-2xl font-bold text-blue-600">410</span>
+                                <span class="text-sm text-gray-500 ml-1">km</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between bg-white border border-gray-200 rounded-xl p-4 hover:shadow-md transition-shadow">
+                            <div>
+                                <h3 class="font-semibold text-gray-900">Citroën ë-C3</h3>
+                                <p class="text-sm text-gray-500">Citadine accessible, 44 kWh</p>
+                            </div>
+                            <div class="text-right">
+                                <span class="text-2xl font-bold text-blue-600">320</span>
+                                <span class="text-sm text-gray-500 ml-1">km</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Section 6 -->
+                    <h2 id="comparatif" class="text-2xl font-bold mt-12 mb-4">6. Électrique versus thermique</h2>
+                    <p class="text-gray-600 leading-relaxed mb-6">Le passage à l'électrique soulève naturellement des questions. Voici un comparatif objectif entre un véhicule électrique et un véhicule thermique équivalent :</p>
+
+                    <div class="overflow-x-auto mb-8">
+                        <table class="w-full border-collapse text-sm">
+                            <thead>
+                                <tr class="bg-gray-50">
+                                    <th scope="col" class="text-left py-3 px-4 font-semibold text-gray-700 border-b border-gray-200">Critère</th>
+                                    <th scope="col" class="text-left py-3 px-4 font-semibold text-blue-700 border-b border-gray-200">Électrique</th>
+                                    <th scope="col" class="text-left py-3 px-4 font-semibold text-gray-700 border-b border-gray-200">Thermique</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="border-b border-gray-100">
+                                    <td class="py-3 px-4 font-medium text-gray-700">Carburant</td>
+                                    <td class="py-3 px-4 text-gray-600">Électricité (kWh)</td>
+                                    <td class="py-3 px-4 text-gray-600">Essence / Diesel (litres)</td>
+                                </tr>
+                                <tr class="border-b border-gray-100 bg-gray-50">
+                                    <td class="py-3 px-4 font-medium text-gray-700">Temps de plein</td>
+                                    <td class="py-3 px-4 text-gray-600">20 min à 8 h</td>
+                                    <td class="py-3 px-4 text-gray-600">2-3 minutes</td>
+                                </tr>
+                                <tr class="border-b border-gray-100">
+                                    <td class="py-3 px-4 font-medium text-gray-700">Coût au 100 km</td>
+                                    <td class="py-3 px-4 text-blue-700 font-semibold">3 - 8 EUR</td>
+                                    <td class="py-3 px-4 text-gray-600">8 - 12 EUR</td>
+                                </tr>
+                                <tr class="border-b border-gray-100 bg-gray-50">
+                                    <td class="py-3 px-4 font-medium text-gray-700">Entretien</td>
+                                    <td class="py-3 px-4 text-gray-600">Minimal (freins, pneus)</td>
+                                    <td class="py-3 px-4 text-gray-600">Régulier (vidange, filtres, courroie...)</td>
+                                </tr>
+                                <tr class="border-b border-gray-100">
+                                    <td class="py-3 px-4 font-medium text-gray-700">Bruit</td>
+                                    <td class="py-3 px-4 text-gray-600">Silencieux</td>
+                                    <td class="py-3 px-4 text-gray-600">Moteur audible</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-3 px-4 font-medium text-gray-700">Émissions</td>
+                                    <td class="py-3 px-4 text-blue-700 font-semibold">Zéro locale</td>
+                                    <td class="py-3 px-4 text-gray-600">CO2 + particules</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p class="text-gray-600 leading-relaxed mb-4">En résumé, le véhicule électrique est <strong>jusqu'à 70 % moins cher à l'usage</strong> que son équivalent thermique. Le coût d'entretien réduit (pas de vidange, pas de courroie de distribution, freinage régénératif qui préserve les plaquettes) renforce encore cet avantage économique sur la durée.</p>
+
+                    <!-- Section 7 -->
+                    <h2 id="irve" class="text-2xl font-bold mt-12 mb-4">7. Quel impact sur les bornes IRVE ?</h2>
+                    <p class="text-gray-600 leading-relaxed mb-4">Comprendre les batteries, c'est aussi mieux dimensionner l'infrastructure de recharge. La capacité de la batterie détermine directement le type de borne adapté :</p>
+                    <ul class="list-disc pl-6 text-gray-600 space-y-2 mb-6">
+                        <li><strong>Borne AC (3,7 à 22 kW)</strong> : idéale pour la recharge quotidienne, au domicile ou sur le lieu de travail. Une borne 7,4 kW recharge une batterie de 60 kWh en environ 8 heures, parfait pour une nuit. <a href="/demo/installation-conformite" class="text-blue-600 hover:text-blue-800 underline">En savoir plus sur l'installation</a>.</li>
+                        <li><strong>Borne DC (50 à 350 kW)</strong> : conçue pour les recharges rapides en itinérance. Une borne 150 kW peut recharger de 20 à 80 % en 20 à 30 minutes. <a href="/demo/blog/borne-ac-dc-difference" class="text-blue-600 hover:text-blue-800 underline">Découvrir la différence AC vs DC</a>.</li>
+                        <li><strong>Gestion intelligente de flotte</strong> : pour les entreprises avec plusieurs véhicules, le pilotage dynamique de la charge (smart charging) permet de lisser la consommation et de réduire les coûts d'abonnement électrique. <a href="/demo/exploitation" class="text-blue-600 hover:text-blue-800 underline">Nos solutions d'exploitation</a>.</li>
+                    </ul>
+                    <p class="text-gray-600 leading-relaxed mb-4">Le choix de la borne dépend toujours de l'usage : recharge de nuit, recharge d'appoint en journée ou recharge rapide sur autoroute. JCSM accompagne ses clients dans le dimensionnement optimal de leur infrastructure, en tenant compte de la taille des batteries, des usages et des contraintes électriques du site. Des subventions comme le programme ADVENIR facilitent le financement. <a href="/demo/blog/aide-advenir-subventions-irve" class="text-blue-600 hover:text-blue-800 underline">Consultez notre guide ADVENIR</a>.</p>
+
+                    <!-- FAQ -->
+                    <h2 id="faq" class="text-2xl font-bold mt-12 mb-6">Questions fréquentes</h2>
+
+                    <div class="section-appear space-y-6 mb-8">
+                        <div class="border border-gray-200 rounded-xl p-5">
+                            <h3 class="font-semibold text-gray-900 mb-2">Quelle est la durée de vie d'une batterie de voiture électrique ?</h3>
+                            <p class="text-gray-600 leading-relaxed">8 à 15 ans en moyenne. Après 200 000 km, comptez encore 70-80 % de capacité restante. Les garanties constructeur couvrent généralement 8 ans / 160 000 km.</p>
+                        </div>
+                        <div class="border border-gray-200 rounded-xl p-5">
+                            <h3 class="font-semibold text-gray-900 mb-2">La recharge rapide abîme-t-elle la batterie ?</h3>
+                            <p class="text-gray-600 leading-relaxed">Minimal. Le BMS régule tout. Les données terrain montrent moins de 1 % de dégradation supplémentaire par an pour les utilisateurs fréquents de DC rapide.</p>
+                        </div>
+                        <div class="border border-gray-200 rounded-xl p-5">
+                            <h3 class="font-semibold text-gray-900 mb-2">Combien coûte le remplacement d'une batterie ?</h3>
+                            <p class="text-gray-600 leading-relaxed">5 000 à 15 000 € selon modèle et capacité. Mais c'est rare : la plupart des batteries survivent au véhicule. Avant remplacement, une seconde vie en stockage stationnaire est possible.</p>
+                        </div>
+                        <div class="border border-gray-200 rounded-xl p-5">
+                            <h3 class="font-semibold text-gray-900 mb-2">Peut-on recycler les batteries de véhicules électriques ?</h3>
+                            <p class="text-gray-600 leading-relaxed">Recyclables à plus de 95 %. Avant le recyclage, elles servent souvent en stockage stationnaire (10-15 ans supplémentaires). Le règlement européen sur les batteries (2023) impose aux constructeurs la collecte et le recyclage.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CTA -->
+                <div class="section-appear mt-12 bg-blue-50 rounded-2xl p-8 text-center">
+                    <h3 class="text-xl font-bold mb-3">Besoin de dimensionner votre infrastructure de recharge ?</h3>
+                    <p class="text-gray-600 mb-6">JCSM vous accompagne dans le choix des bornes adaptées aux batteries de vos véhicules.</p>
+                    <a href="/demo/contact" class="btn-primary px-8 py-3 rounded-xl font-medium inline-block">Demander un devis</a>
+                </div>
+
+
+                <!-- Partage social -->
+                <div class="flex items-center gap-4 pt-8 mt-8 border-t border-gray-200">
+                    <span class="text-sm font-semibold text-gray-700">Partager :</span>
+                    <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://jcsm.fr/blog/vehicule-electrique-batterie-guide" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-gray-100 hover:bg-blue-50 text-gray-600 hover:text-blue-700 text-sm font-medium transition-colors" aria-label="Partager sur LinkedIn">
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                        LinkedIn
+                    </a>
+                    <a href="https://twitter.com/intent/tweet?url=https://jcsm.fr/blog/vehicule-electrique-batterie-guide&amp;text=V%C3%A9hicule%20%C3%A9lectrique%20et%20batterie%20lithium-ion%20%3A%20le%20guide%20essentiel" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-gray-100 hover:bg-gray-200 text-gray-600 hover:text-gray-900 text-sm font-medium transition-colors" aria-label="Partager sur X">
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                        X
+                    </a>
+                </div>
+
+                <!-- Articles liés -->
+                <div class="section-appear mt-16 pt-8 border-t border-gray-100">
+                    <h3 class="text-lg font-bold mb-6">Articles similaires</h3>
+                    <div class="grid sm:grid-cols-2 gap-6">
+                        <a href="/demo/blog/borne-ac-dc-difference" class="group blog-card-premium">
+                            <h4 class="font-semibold group-hover:text-blue-600 transition-colors mb-1">Borne AC vs DC : comment choisir ?</h4>
+                            <p class="text-sm text-gray-500">Puissance, temps de charge, coût.</p>
+                        </a>
+                        <a href="/demo/blog/courbes-de-charge-recharge-electrique" class="group blog-card-premium">
+                            <h4 class="font-semibold group-hover:text-blue-600 transition-colors mb-1">Courbes de charge : comprendre la recharge</h4>
+                            <p class="text-sm text-gray-500">Pourquoi la puissance varie et comment optimiser.</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <footer class="border-t border-gray-100 py-16 px-6 bg-white" role="contentinfo" aria-label="Pied de page">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid md:grid-cols-4 gap-10 mb-12">
+                <div>
+                    <div class="flex items-center space-x-3 mb-4">
+                        <picture><source srcset="../images/logo.webp" type="image/webp"><img src="../images/logo.png" alt="Logo JCSM" class="w-8 h-8" width="32" height="32" loading="lazy"></picture>
+                        <span class="text-xl font-semibold text-gray-900">JCSM</span>
+                    </div>
+                    <p class="text-sm text-gray-600 mb-4">Expérience IRVE depuis 2019. Installation, maintenance et pilotage en France et Belgique. Entreprise inclusive.</p>
+                    <p class="text-sm text-gray-500">60 rue François 1er<br>75008 Paris</p>
+                    <p class="text-sm text-gray-500 mt-3"><a href="tel:+33183755706" class="hover:text-gray-900 transition-colors">+33 1 83 75 57 06</a></p>
+                    <p class="text-sm text-gray-500"><a href="mailto:contact@jcsm.fr" class="hover:text-gray-900 transition-colors">contact@jcsm.fr</a></p>
+                </div>
+                <div>
+                    <h3 class="text-sm font-semibold text-gray-900 mb-4 uppercase tracking-wide">Services</h3>
+                    <nav aria-label="Services">
+                        <ul class="space-y-3">
+                            <li><a href="/demo/pilotage-projets" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Pilotage de projets</a></li>
+                            <li><a href="/demo/installation-conformite" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Installation & conformité</a></li>
+                            <li><a href="/demo/exploitation" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Exploitation & maintenance</a></li>
+                            <li><a href="/demo/securisation-installations" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Sécurisation</a></li>
+                            <li><a href="/demo/centre-appel" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Support 24/7</a></li>
+                            <li><a href="/demo/tarification" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Tarification</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div>
+                    <h3 class="text-sm font-semibold text-gray-900 mb-4 uppercase tracking-wide">Entreprise</h3>
+                    <nav aria-label="Entreprise">
+                        <ul class="space-y-3">
+                            <li><a href="/demo/devenir-partenaire" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Devenir partenaire</a></li>
+                            <li><a href="/demo/a-propos" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">À propos</a></li>
+                            <li><a href="/demo/inclusion" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Inclusion</a></li>
+                            <li><a href="/demo/carrieres" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Carrières</a></li>
+                            <li><a href="/demo/contact" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Contact</a></li>
+                            <li><a href="/demo/blog" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Blog</a></li>
+                            <li><a href="/demo/solutions/" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Solutions</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div>
+                    <h3 class="text-sm font-semibold text-gray-900 mb-4 uppercase tracking-wide">Légal</h3>
+                    <nav aria-label="Légal">
+                        <ul class="space-y-3">
+                            <li><a href="/demo/mentions-legales" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Mentions légales</a></li>
+                            <li><a href="/demo/confidentialite" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Confidentialité</a></li>
+                            <li><a href="/demo/cgv" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">CGV</a></li>
+                        </ul>
+                    </nav>
+                    <h3 class="text-sm font-semibold text-gray-900 mb-4 uppercase tracking-wide mt-6">Zones</h3>
+                    <nav aria-label="Zones">
+                        <ul class="space-y-3">
+                            <li><a href="/demo/zones/france" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">France</a></li>
+                            <li><a href="/demo/zones/belgique" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Belgique</a></li>
+                        </ul>
+                    </nav>
+                    <div class="flex items-center gap-3 mt-4">
+                        <a href="https://www.linkedin.com/company/jcsm-elec/" target="_blank" rel="noopener noreferrer me" class="text-gray-500 hover:text-gray-900 transition-colors" aria-label="LinkedIn">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                        </a>
+                        <a href="https://www.facebook.com/profile.php?id=61587992161634" target="_blank" rel="noopener noreferrer me" class="text-gray-500 hover:text-gray-900 transition-colors" aria-label="Facebook">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                        </a>
+                        <a href="https://x.com/JCSM_ELEC" target="_blank" rel="noopener noreferrer me" class="text-gray-500 hover:text-gray-900 transition-colors" aria-label="X (Twitter)">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                        </a>
+                        <a href="https://www.instagram.com/jcsm.elec/" target="_blank" rel="noopener noreferrer me" class="text-gray-500 hover:text-gray-900 transition-colors" aria-label="Instagram">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+                        </a>
+                        <a href="https://www.youtube.com/@JCSM_ELEC" target="_blank" rel="noopener noreferrer me" class="text-gray-500 hover:text-gray-900 transition-colors" aria-label="YouTube">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="pt-8 border-t border-gray-100 flex flex-col md:flex-row md:items-center md:justify-between gap-4 text-xs text-gray-500">
+                <span>© 2026 JCSM SAS - SIRET 99387429600011</span>
+                <a href="mailto:contact@jcsm.fr" class="hover:text-gray-900 transition-colors">contact@jcsm.fr</a> · <a href="tel:+33183755706" class="hover:text-gray-900 transition-colors">+33 1 83 75 57 06</a>
+            </div>
+        </div>
+    </footer>
+
+    <button class="scroll-top" id="scrollTop" aria-label="Retour en haut de page">
+        <svg aria-hidden="true" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.5 15.75l7.5-7.5 7.5 7.5" /></svg>
+    </button>
+    <script src="../js/i18n.js?v=72" defer></script>
+    <script src="../js/config.js?v=72" defer></script>
+    <script src="../js/utils.js?v=72" defer></script>
+    <script src="../js/public.js?v=72" defer></script>
+    <script src="../js/analytics.js?v=72" defer></script>
+    <script src="../js/wow-effects.js?v=72" defer></script>
+    <script>if ('serviceWorker' in navigator) { window.addEventListener('load', () => { navigator.serviceWorker.register('/sw.js').catch(() => {}); }); }</script>
+</body>
+</html>

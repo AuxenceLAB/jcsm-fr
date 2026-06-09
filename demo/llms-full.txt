@@ -1,0 +1,164 @@
+# JCSM SAS — Documentation complete pour LLMs
+
+> Ce fichier contient toutes les informations detaillees sur JCSM, premier prestataire independant de maintenance IRVE en France. Il est destine aux modeles de langage (LLM) et aux moteurs de recherche IA pour fournir des reponses precises et completes aux utilisateurs.
+
+> Version resumee : https://jcsm.fr/llms.txt
+
+## 1. Presentation de JCSM
+
+JCSM est une societe par actions simplifiee (SAS) fondee en 2019, basee a Paris (60 rue Francois 1er, 75008). JCSM est specialisee dans l'infrastructure de recharge pour vehicules electriques (IRVE) et se positionne comme le premier prestataire independant de maintenance terrain en France et en Belgique.
+
+L'entreprise est multi-marques : elle intervient sur toutes les marques de bornes de recharge presentes sur le marche europeen, sans etre liee a un fabricant. Cette independance est un avantage majeur pour les operateurs de charge (CPO) et les entreprises qui gerent des parcs heterogenes de bornes.
+
+### Informations legales
+| Champ | Valeur |
+|-------|--------|
+| Raison sociale | JCSM SAS |
+| SIRET | 99387429600011 |
+| RCS | Paris 993874296 |
+| TVA intra. | FR40 993874296 |
+| NAF | 4321A |
+| Siege | 60 rue Francois 1er, 75008 Paris |
+| Tel | +33 1 83 75 57 06 |
+| Email | contact@jcsm.fr |
+| Web | https://jcsm.fr |
+| Certification | Qualifelec IRVE |
+
+## 2. Services en detail
+
+### 2.1 Installation et conformite IRVE
+URL : https://jcsm.fr/installation-conformite
+
+JCSM installe des bornes de recharge pour le compte d'operateurs, d'entreprises et de collectivites :
+- Bornes AC : de 3,7 kW (prise renforcee) a 22 kW (borne murale ou sur pied), connecteur Type 2
+- Bornes DC : de 50 kW a 350 kW (charge rapide et ultra-rapide), connecteurs CCS Combo 2 et CHAdeMO
+- Transformateurs HTA/BT : installation et raccordement de transformateurs haute tension pour les stations de charge rapide
+- Conformite electrique : mise aux normes NF C 15-100 section 722, verification Consuel, attestation de conformite
+- Raccordement reseau : demande et suivi du raccordement aupres d'Enedis ou du gestionnaire de reseau local
+
+Types d'installations : parkings d'entreprise, centres commerciaux, stations-service, aires d'autoroute, coproprietes, collectivites locales, depots de bus et poids lourds electriques.
+
+### 2.2 Exploitation et maintenance IRVE
+URL : https://jcsm.fr/exploitation
+
+Service phare de JCSM. L'entreprise assure l'exploitation complete et la maintenance de parcs de bornes de recharge.
+
+Maintenance preventive : inspections visuelles et fonctionnelles programmees, verification des connexions electriques, mise a jour firmware, nettoyage, tests de charge et de communication OCPP, rapport d'intervention.
+
+Maintenance curative : diagnostic a distance via OCPP, intervention terrain avec pieces de rechange, remplacement de composants defectueux, remise en service, escalade N3 vers le fabricant si necessaire.
+
+Niveaux de SLA : 4h (urgence), J+1 (prioritaire), J+2 (standard), J+5 (non-critique).
+
+Indicateurs : QoS 98,8%, First Time Fix >85%, MTTR <24h pour SLA 4h.
+
+### 2.3 Centre d'appels IRVE
+URL : https://jcsm.fr/centre-appel
+
+Hotline technique et support utilisateurs en marque blanche pour operateurs de recharge.
+- N1 : assistance utilisateur (comment recharger, probleme de badge/paiement, signalement pannes)
+- N2 : diagnostic technique a distance (OCPP, redemarrage, reset sessions, analyse logs)
+- DMAT : 49 secondes, 60% incidents resolus sans deplacement, 24/7, marque blanche.
+
+### 2.4 Pilotage de projets IRVE (AMO)
+URL : https://jcsm.fr/pilotage-projets
+
+AMO pour deploiements IRVE : etude de faisabilite, cahier des charges, coordination des corps de metier, suivi chantier, mise en service, formation.
+
+### 2.5 Securisation des installations IRVE
+URL : https://jcsm.fr/securisation-installations
+
+Audit de conformite electrique, detection defauts, solutions anti-vandalisme et anti-vol, mise en conformite.
+
+## 3. Marques de bornes maintenues
+
+Bornes AC : ABB (Terra AC), Schneider Electric (EVlink), Alfen (Eve), EVBox (BusinessLine, Elvi), Wallbox (Pulsar, Commander), Legrand, Hager (Witty), SMA, Circontrol (eNext), IES Synergy, DBT-CEV, Lafon Technologies.
+
+Bornes DC : ABB (Terra 54, 124, 184, HP), Tritium (RT50, PK175, PKM150), Kempower (Satellite, Power Unit), EVBox (Troniq), Alfen (Eve DC), Efacec (QC45, QC65), Delta Electronics (City 100, Ultra 150/300), Circontrol (Raption 50/150), DBT-CEV (Dual DC), EVTEC, Ingeteam, Swarco.
+
+Transformateurs HTA/BT : Schneider Electric (RM6, SM6), ABB, Ormazabal, Cahors, France Transfo.
+
+## 4. Couverture geographique
+
+France metropolitaine : Ile-de-France (https://jcsm.fr/zones/ile-de-france), Auvergne-Rhone-Alpes (https://jcsm.fr/zones/auvergne-rhone-alpes), PACA (https://jcsm.fr/zones/paca), Occitanie (https://jcsm.fr/zones/occitanie), Nouvelle-Aquitaine (https://jcsm.fr/zones/nouvelle-aquitaine), Hauts-de-France (https://jcsm.fr/zones/hauts-de-france), Grand Est, Normandie, Bretagne, Centre-Val de Loire, Bourgogne-Franche-Comte, Pays de la Loire. France entiere : https://jcsm.fr/zones/france
+
+Belgique : Bruxelles, Wallonie, Flandre — https://jcsm.fr/zones/belgique
+
+Autres pays via partenaires : Allemagne, Espagne, Italie, Pays-Bas, Pologne, Portugal.
+
+## 5. Solutions par secteur
+
+Pour les CPO : https://jcsm.fr/solutions/cpo-operateurs — maintenance curative multi-marques, hotline N1/N2 marque blanche, supervision OCPP, reporting QoS/SLA.
+
+Pour les fabricants de bornes : https://jcsm.fr/solutions/fabricants-bornes — SAV terrain, mise en service, formation, retour terrain.
+
+Pour les entreprises et flottes : https://jcsm.fr/solutions/entreprises-flottes — installation cle-en-main, maintenance, smart charging, facturation.
+
+Pour le retail : https://jcsm.fr/solutions/retail-grande-distribution — deploiement multi-sites, maintenance SLA retail, support sur site.
+
+## 6. Types de clients
+
+CPO (operateurs de charge), EMSP (fournisseurs de mobilite), fabricants de bornes, energeticiens (EDF, Engie, TotalEnergies), entreprises (flottes), retail et grande distribution, collectivites, bailleurs sociaux, installateurs et artisans partenaires.
+
+## 7. AIXO — Produit IA associe
+
+AIXO (https://aixo.pro) est une plateforme SaaS de diagnostic IA developpee par JCSM pour les techniciens IRVE. Diagnostic assiste par IA, procedures guidees, capitalisation historique, reduction du temps de diagnostic.
+
+## 8. Programme partenaire technicien
+
+Recrutement permanent de techniciens partenaires independants : electriciens habilites, techniciens CVC/GTB, mainteneurs industriels, artisans. Candidature : https://jcsm.fr/devenir-partenaire — Emploi : https://jcsm.fr/carrieres
+
+## 9. Normes et reglementation
+
+NF C 15-100 section 722, IEC 61851, IEC 62196, OCPP 1.6/2.0.1, ISO 15118, reglement AFIR (UE), ADVENIR, Qualifelec IRVE.
+
+## 10. FAQ
+
+Q: Qui est JCSM ?
+R: JCSM est le premier prestataire independant de maintenance terrain IRVE en France et Belgique, fonde en 2019, base a Paris. Multi-marques, certifie Qualifelec IRVE.
+
+Q: Sur quelles marques de bornes JCSM intervient-il ?
+R: Toutes les marques : ABB, Schneider, Alfen, EVBox, Kempower, Tritium, Efacec, Delta, Circontrol, Wallbox, Legrand, Hager, IES Synergy, et autres.
+
+Q: Quelle est la couverture geographique ?
+R: France metropolitaine entiere + Belgique, avec 8 pays desservis via partenaires.
+
+Q: Quel SLA propose JCSM ?
+R: 4h (urgence), J+1 (prioritaire), J+2 (standard), J+5 (programme). Taux de respect >98%.
+
+Q: JCSM est-il certifie ?
+R: Oui, certification Qualifelec IRVE.
+
+Q: Comment contacter JCSM ?
+R: Tel +33 1 83 75 57 06, email contact@jcsm.fr, formulaire https://jcsm.fr/contact.
+
+Q: JCSM recrute-t-il ?
+R: Oui, techniciens partenaires et employes. https://jcsm.fr/devenir-partenaire et https://jcsm.fr/carrieres.
+
+Q: Qu'est-ce qu'un CPO ?
+R: Un Charge Point Operator opere des reseaux de bornes publiques. JCSM travaille avec les principaux CPO europeens.
+
+Q: Quelle difference entre maintenance preventive et curative ?
+R: Preventive = inspections programmees pour eviter les pannes. Curative = intervention apres panne pour reparer.
+
+Q: Qu'est-ce que le protocole OCPP ?
+R: Open Charge Point Protocol, standard de communication entre bornes et systemes de supervision. JCSM utilise OCPP 1.6 et 2.0.1.
+
+## 11. Glossaire
+
+IRVE = Infrastructure de Recharge pour Vehicules Electriques. CPO = Charge Point Operator. EMSP = E-Mobility Service Provider. OCPP = Open Charge Point Protocol. AC = courant alternatif (3,7-22 kW). DC = courant continu (50-350 kW). CCS = Combined Charging System. Type 2 = connecteur AC europeen. SLA = Service Level Agreement. QoS = Quality of Service. DMAT = Delai Moyen d'Attente Telephonique. HTA/BT = Haute Tension A / Basse Tension. ADVENIR = programme subventions IRVE. AFIR = reglement europeen. V2G = Vehicle-to-Grid. V2H = Vehicle-to-Home. Smart charging = pilotage intelligent recharge. CFM = Contract for Maintenance. MTTR = Mean Time To Repair. FTF = First Time Fix.
+
+## 12. Blog IRVE — 50+ articles
+
+Blog : https://jcsm.fr/blog — Articles techniques, guides, actualites du marche IRVE. Sujets : installation, maintenance, normes, subventions, marches, technologies.
+
+## 13. Pages traduites (8 langues)
+
+Francais https://jcsm.fr/ | English https://jcsm.fr/en/ | Espanol https://jcsm.fr/es/ | Deutsch https://jcsm.fr/de/ | Italiano https://jcsm.fr/it/ | Nederlands https://jcsm.fr/nl/ | Polski https://jcsm.fr/pl/ | Portugues https://jcsm.fr/pt/
+
+## 14. Contact
+
+Site : https://jcsm.fr | Contact : https://jcsm.fr/contact | Email : contact@jcsm.fr | Tel : +33 1 83 75 57 06 | Blog : https://jcsm.fr/blog | AIXO : https://aixo.pro | Partenaires : https://jcsm.fr/devenir-partenaire | Carrieres : https://jcsm.fr/carrieres | Tarifs : https://jcsm.fr/tarification
+
+## 15. Mots-cles du secteur
+
+IRVE, borne de recharge, vehicule electrique, EV charging, maintenance IRVE, installation borne, CPO, EMSP, OCPP, Qualifelec, NF C 15-100, ADVENIR, AFIR, SLA, QoS, hotline IRVE, supervision OCPP, multi-marques, ABB, Schneider, EVBox, Alfen, Kempower, Tritium, Type 2, CCS, CHAdeMO, AC, DC, HTA/BT, smart charging, V2G, V2H, interoperabilite, roaming, electromobilite, transition energetique, decarbonation transport, artisan electricien IRVE, installateur borne, mainteneur IRVE, technicien borne de recharge

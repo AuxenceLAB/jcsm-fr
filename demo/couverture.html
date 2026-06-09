@@ -1,0 +1,1469 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <link rel="icon" type="image/x-icon" href="/demo/favicon.ico">
+    <link rel="apple-touch-icon" href="/demo/apple-touch-icon.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <script src="/demo/js/cookie-consent.js" defer></script>
+    <title>Zones d'Intervention IRVE France & Belgique | JCSM</title>
+    <meta name="description" content="Carte interactive des zones d'intervention JCSM pour bornes de recharge IRVE en France et Belgique. Vérifiez la couverture de votre site en quelques clics.">
+    <meta name="robots" content="index, follow">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "name": "Zones d'Intervention IRVE France & Belgique",
+        "description": "Carte interactive des zones d'intervention JCSM pour bornes IRVE en France et Belgique. Installation, maintenance, interventions isolées et groupées.",
+        "provider": {
+            "@type": "Organization",
+            "name": "JCSM",
+            "url": "https://jcsm.fr"
+        },
+        "areaServed": ["FR", "BE"],
+        "serviceType": "Infrastructure de Recharge IRVE",
+        "url": "https://jcsm.fr/couverture",
+        "image": "https://jcsm.fr/images/index.jpg",
+        "category": "Couverture Géographique IRVE"
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://jcsm.fr/"},
+            {"@type": "ListItem", "position": 2, "name": "Zones d'Intervention IRVE", "item": "https://jcsm.fr/couverture"}
+        ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Dans quelles régions JCSM intervient-il ?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "JCSM couvre l'ensemble de la France métropolitaine et la Belgique. Nos techniciens sont déployés dans toutes les régions : Île-de-France, Auvergne-Rhône-Alpes, PACA, Occitanie, Nouvelle-Aquitaine, Hauts-de-France, et toutes les autres. En Belgique, nous intervenons dans les trois régions (Wallonie, Flandre, Bruxelles-Capitale)."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Quel est le délai d'intervention sur site ?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Notre SLA standard prévoit une intervention sous 4 heures en zone urbaine et 8 heures en zone rurale. Pour les contrats premium, nous proposons des engagements renforcés avec astreinte 24/7 et intervention sous 2 heures."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Intervenez-vous sur toutes les marques de bornes ?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Oui, nos techniciens sont formés et certifiés sur plus de 12 marques : ABB, Alfen, EVBox, Kempower, Wallbox, Schneider Electric, Legrand, DBT-CEV, Circontrol, Delta, Autel et Tritium. Bornes AC de 3,7 à 22 kW et DC jusqu'à 400 kW."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Comment demander une intervention dans ma zone ?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Contactez-nous via le formulaire sur notre site, par téléphone au 01 83 75 57 06, ou par email à contact@jcsm.fr. Décrivez votre besoin et votre localisation : un technicien terrain vous rappelle sous 24h avec une proposition adaptée."
+                }
+            }
+        ]
+    }
+    </script>
+    <link rel="canonical" href="https://jcsm.fr/couverture">
+    <link rel="alternate" hreflang="fr" href="https://jcsm.fr/couverture">
+    <link rel="alternate" hreflang="en" href="https://jcsm.fr/en/coverage">
+    <link rel="alternate" hreflang="pt" href="https://jcsm.fr/pt/cobertura">
+    <link rel="alternate" hreflang="x-default" href="https://jcsm.fr/couverture">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://jcsm.fr/couverture">
+    <meta property="og:title" content="Zones d'Intervention IRVE France & Belgique | JCSM">
+    <meta property="og:description" content="Carte interactive des zones d&#39;intervention JCSM pour bornes IRVE en France et Belgique. Vérifiez la couverture de votre site.">
+    <meta property="og:image" content="https://jcsm.fr/images/index.webp">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="801">
+    <meta property="og:image:alt" content="Carte de couverture IRVE JCSM en France et Belgique">
+    <meta property="og:locale" content="fr_FR">
+    <meta property="og:site_name" content="JCSM - Infrastructure de Recharge">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Zones d'Intervention IRVE France & Belgique | JCSM">
+    <meta name="twitter:description" content="Carte interactive des zones d&#39;intervention JCSM pour bornes IRVE. Vérifiez la couverture de votre site en quelques clics.">
+    <meta name="twitter:image" content="https://jcsm.fr/images/index.jpg">
+    <meta name="twitter:image:alt" content="Carte de couverture IRVE JCSM en France et Belgique">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="dns-prefetch" href="https://formspree.io">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet"
+        media="print" onload="this.media='all'">
+    <noscript>
+        <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap"
+            rel="stylesheet">
+    </noscript>
+    <link rel="stylesheet" href="/demo/css/critical.css?v=72">
+    <link rel="stylesheet" href="/demo/css/tailwind.css?v=72" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="/demo/css/tailwind.css?v=72"></noscript>
+    <link rel="stylesheet" href="/demo/styles.css?v=72" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="/demo/styles.css?v=72"></noscript>
+    <link rel="manifest" href="/demo/manifest.json">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="theme-color" content="#2563EB">
+
+    <link rel="stylesheet" href="/demo/css/leaflet.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="/demo/css/leaflet.css"></noscript>
+    <script src="/demo/js/vendor/leaflet.js" defer></script>
+
+    <style>
+        /* Page-specific styles for couverture.html */
+        .hero-section {
+            background: #ffffff;
+            position: relative; overflow: hidden;
+        }
+        .hero-section::before { display: none; }
+        .hero-section::after { display: none; }
+        .hero-grid-pattern { display: none; }
+        .hero-badge {
+            display: inline-flex; align-items: center; gap: 8px;
+            background: rgba(255,255,255,0.8); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(37,99,235,0.15);
+            border-radius: 9999px; padding: 10px 22px; font-size: 13px;
+            font-weight: 600; color: #2563eb; letter-spacing: 0.025em;
+            box-shadow: 0 2px 12px rgba(37,99,235,0.08), 0 1px 3px rgba(0,0,0,0.04);
+            transition: all 0.3s ease;
+        }
+        .hero-badge:hover { box-shadow: 0 4px 20px rgba(37,99,235,0.14); transform: translateY(-1px); }
+        .hero-badge svg { animation: pulsePin 2s ease-in-out infinite; }
+        @keyframes pulsePin {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.15); opacity: 0.8; }
+        }
+        .hero-search-wrapper {
+            position: relative; max-width: 680px; margin: 0 auto;
+        }
+        .hero-search-input {
+            width: 100%; padding: 22px 170px 22px 58px;
+            border-radius: 22px; border: 2px solid rgba(226,232,240,0.8);
+            background: rgba(255,255,255,0.9); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+            font-size: 16px; font-weight: 500;
+            color: #0f172a; transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.06), 0 1px 3px rgba(0,0,0,0.04), inset 0 1px 0 rgba(255,255,255,0.8);
+        }
+        .hero-search-input::placeholder { color: #94a3b8; font-weight: 400; }
+        .hero-search-input:focus {
+            outline: none; border-color: #2563eb; background: #fff;
+            box-shadow: 0 0 0 4px rgba(37,99,235,0.1), 0 12px 40px rgba(37,99,235,0.12), 0 2px 8px rgba(0,0,0,0.04);
+            transform: translateY(-1px);
+        }
+        .hero-search-btn {
+            position: absolute; right: 7px; top: 50%; transform: translateY(-50%);
+            padding: 15px 30px; border-radius: 17px; font-size: 15px; font-weight: 700;
+            display: inline-flex; align-items: center; gap: 8px;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: 0 4px 16px rgba(37,99,235,0.3);
+        }
+        .hero-search-btn:hover {
+            box-shadow: 0 8px 28px rgba(37,99,235,0.4);
+            transform: translateY(-50%) translateY(-2px);
+        }
+        .hero-search-btn:active { transform: translateY(-50%) scale(0.97); }
+        .hero-search-hint {
+            margin-top: 14px; font-size: 13px; color: #94a3b8;
+            display: flex; align-items: center; justify-content: center; gap: 6px;
+        }
+        .hero-search-hint::before {
+            content: ''; display: inline-block; width: 4px; height: 4px; border-radius: 50%;
+            background: #cbd5e1;
+        }
+        .search-result {
+            display: none; margin-top: 20px; padding: 20px 24px;
+            border-radius: 18px; border: 1.5px solid;
+            animation: slideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.06), 0 2px 6px rgba(0,0,0,0.03);
+            backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+        }
+        .search-result.visible { display: block; }
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(16px) scale(0.98); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+        .stats-section {
+            position: relative; overflow: hidden; background: #fff;
+        }
+        .stat-card {
+            text-align: center; padding: 36px 28px;
+            background: rgba(255,255,255,0.85); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+            border-radius: 22px;
+            border: 1px solid rgba(255,255,255,0.6);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 8px 32px rgba(37,99,235,0.04);
+            position: relative; overflow: hidden;
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .stat-card::after {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+            background: linear-gradient(90deg, transparent, rgba(37,99,235,0.2), transparent);
+            opacity: 0; transition: opacity 0.4s ease;
+        }
+        .stat-card:hover::after { opacity: 1; }
+        .stat-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 8px 20px rgba(37,99,235,0.08), 0 20px 48px rgba(0,0,0,0.06);
+        }
+        .stat-card .stat-bg-icon {
+            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+            width: 90px; height: 90px; opacity: 0.035; pointer-events: none;
+            transition: transform 0.4s ease;
+        }
+        .stat-card:hover .stat-bg-icon { transform: translate(-50%, -50%) scale(1.15) rotate(5deg); }
+        .stat-number {
+            font-size: 3.25rem; font-weight: 800; line-height: 1; position: relative;
+            color: #1e40af;
+            -webkit-text-fill-color: #1e40af;
+        }
+        .stat-label {
+            font-size: 12px; color: #64748b; margin-top: 10px; font-weight: 600;
+            letter-spacing: 0.02em; text-transform: uppercase;
+        }
+        #coverage-map {
+            width: 100%; height: 680px; border-radius: 22px;
+            z-index: 1; position: relative;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.04), 0 4px 16px rgba(0,0,0,0.06), 0 12px 48px rgba(37,99,235,0.06);
+            border: 1px solid rgba(255,255,255,0.6);
+            overflow: hidden;
+        }
+        @media (max-width: 768px) {
+            #coverage-map { height: 520px; border-radius: 18px; }
+        }
+        #coverage-map .leaflet-container img { max-width: none; max-height: none; }
+        #coverage-map .leaflet-container a { color: inherit; text-decoration: none; }
+        #coverage-map .leaflet-control-attribution {
+            color: #64748b; background: rgba(255,255,255,0.92); backdrop-filter: blur(8px);
+            font-size: 10px; padding: 4px 10px; border-radius: 8px; margin: 8px;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+        #coverage-map .leaflet-control-attribution a { color: #2563eb; text-decoration: none; }
+        #coverage-map .leaflet-control-attribution a:hover { text-decoration: underline; }
+        #coverage-map .leaflet-control-zoom a {
+            color: #334155; background: rgba(255,255,255,0.95); text-decoration: none;
+            border-radius: 10px; width: 36px; height: 36px; line-height: 36px;
+            font-size: 18px; font-weight: 600;
+            transition: all 0.2s ease;
+        }
+        #coverage-map .leaflet-control-zoom a:hover { background: #fff; color: #2563eb; }
+        #coverage-map .leaflet-control-zoom {
+            border: none; box-shadow: 0 4px 16px rgba(0,0,0,0.1); border-radius: 14px;
+            overflow: hidden; margin: 12px; backdrop-filter: blur(8px);
+        }
+        #coverage-map .leaflet-div-icon { background: transparent; border: none; }
+        #coverage-map .leaflet-interactive { cursor: pointer; }
+        #coverage-map .leaflet-popup-content-wrapper {
+            border-radius: 18px; box-shadow: 0 16px 48px rgba(0,0,0,0.16), 0 4px 12px rgba(0,0,0,0.06);
+            padding: 0; overflow: hidden; border: none;
+            animation: popupAppear 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        @keyframes popupAppear {
+            from { opacity: 0; transform: scale(0.92) translateY(8px); }
+            to { opacity: 1; transform: scale(1) translateY(0); }
+        }
+        @keyframes pinDrop {
+            from { opacity: 0; transform: rotate(-45deg) translateY(-20px) scale(0.5); }
+            to { opacity: 1; transform: rotate(-45deg) translateY(0) scale(1); }
+        }
+        #coverage-map .leaflet-popup-content { margin: 0; min-width: 260px; }
+        #coverage-map .leaflet-popup-tip { box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+        .map-popup-header {
+            padding: 16px 22px; color: #fff; display: flex; align-items: center; gap: 12px;
+            position: relative; overflow: hidden;
+        }
+        .map-popup-header::after {
+            content: ''; position: absolute; inset: 0;
+            background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, transparent 100%);
+            pointer-events: none;
+        }
+        .map-popup-header h3 { font-size: 15px; font-weight: 700; margin: 0; color: #fff; position: relative; z-index: 1; }
+        .map-popup-header .dept-code { font-size: 11px; opacity: 0.85; font-weight: 600; position: relative; z-index: 1; background: rgba(255,255,255,0.15); padding: 2px 8px; border-radius: 6px; }
+        .map-popup-body { padding: 16px 22px; background: #fff; }
+        .map-popup-body .coverage-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+        .map-popup-body .tag {
+            display: inline-flex; align-items: center; gap: 6px;
+            padding: 5px 14px; border-radius: 10px; font-size: 11px; font-weight: 600;
+            transition: transform 0.2s ease;
+        }
+        .map-popup-body .tag:hover { transform: translateY(-1px); }
+        .map-sidebar { width: 370px; flex-shrink: 0; }
+        @media (max-width: 1024px) {
+            .map-sidebar { width: 100%; }
+            .map-layout { flex-direction: column; }
+        }
+        .map-layout { display: flex; gap: 24px; align-items: flex-start; }
+        .sidebar-panel {
+            background: rgba(255,255,255,0.9); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+            border-radius: 22px; padding: 26px;
+            border: 1px solid rgba(255,255,255,0.6);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.03), 0 8px 28px rgba(0,0,0,0.04);
+            transition: box-shadow 0.3s ease;
+        }
+        .sidebar-panel:hover {
+            box-shadow: 0 2px 6px rgba(0,0,0,0.04), 0 12px 36px rgba(0,0,0,0.06);
+        }
+        .sidebar-panel-title {
+            font-size: 11px; font-weight: 700; color: #94a3b8;
+            text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 18px;
+            display: flex; align-items: center; gap: 8px;
+        }
+        .sidebar-panel-title::before {
+            content: ''; display: inline-block; width: 3px; height: 14px;
+            background: #2563eb; border-radius: 2px;
+        }
+        .filter-chip {
+            display: inline-flex; align-items: center; gap: 8px;
+            padding: 10px 18px; border-radius: 14px; font-size: 14px; font-weight: 600;
+            border: 2px solid transparent; cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            user-select: none; white-space: nowrap; line-height: 1.2;
+            position: relative; overflow: hidden;
+        }
+        .filter-chip::after {
+            content: ''; position: absolute; inset: 0;
+            background: linear-gradient(135deg, rgba(255,255,255,0.15) 0%, transparent 60%);
+            pointer-events: none; opacity: 0; transition: opacity 0.3s ease;
+        }
+        .filter-chip.active::after { opacity: 1; }
+        .filter-chip:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,0.14); }
+        .filter-chip:active { transform: translateY(0) scale(0.97); }
+        .filter-chip .chip-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; transition: transform 0.3s ease; }
+        .filter-chip:hover .chip-dot { transform: scale(1.2); }
+        .filter-chip .chip-check { font-size: 13px; font-weight: 800; flex-shrink: 0; line-height: 1; }
+        .filter-chip .chip-count { font-size: 12px; font-weight: 500; opacity: 0.85; }
+        .filter-chip.active {
+            color: #fff;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+        }
+        .filter-chip.active .chip-dot { background: rgba(255,255,255,0.5) !important; }
+        .filter-chip:not(.active) {
+            background: rgba(241,245,249,0.9) !important;
+            color: #64748b;
+            border-color: rgba(226,232,240,0.8) !important;
+            box-shadow: none;
+        }
+        .filter-chip:not(.active):hover { background: rgba(232,237,243,0.95) !important; }
+        @media (max-width: 640px) {
+            .filter-chip { padding: 8px 12px; font-size: 13px; }
+            .chip-label-long { display: none; }
+            .chip-label-short { display: inline; }
+        }
+        @media (min-width: 641px) {
+            .chip-label-long { display: inline; }
+            .chip-label-short { display: none; }
+        }
+        .legend-item {
+            display: flex; align-items: center; gap: 12px;
+            padding: 8px 10px; font-size: 13px; color: #475569;
+            border-radius: 10px; transition: background 0.2s ease;
+            margin: 0 -10px;
+        }
+        .legend-item:hover { background: rgba(37,99,235,0.03); }
+        .legend-dot {
+            width: 14px; height: 14px; border-radius: 5px; flex-shrink: 0;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.12), inset 0 1px 0 rgba(255,255,255,0.3);
+            transition: transform 0.2s ease;
+        }
+        .legend-item:hover .legend-dot { transform: scale(1.15); }
+        .region-search-input {
+            width: 100%; padding: 11px 16px 11px 40px;
+            border-radius: 14px; border: 1.5px solid rgba(226,232,240,0.8);
+            font-size: 13px; font-weight: 500; color: #0f172a;
+            background: rgba(248,250,252,0.8); transition: all 0.3s cubic-bezier(0.16,1,0.3,1);
+        }
+        .region-search-input:focus {
+            outline: none; border-color: #2563eb; background: #fff;
+            box-shadow: 0 0 0 3px rgba(37,99,235,0.08), 0 4px 12px rgba(37,99,235,0.06);
+            transform: translateY(-1px);
+        }
+        .region-search-input::placeholder { color: #94a3b8; }
+        .region-item {
+            padding: 11px 16px; border-radius: 14px; cursor: pointer;
+            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+            display: flex; align-items: center; gap: 12px;
+            border-left: 3px solid transparent;
+        }
+        .region-item:hover { background: rgba(241,245,249,0.8); transform: translateX(2px); }
+        .region-item.active {
+            background: rgba(239,246,255,0.9); border-left-color: #2563eb;
+            box-shadow: 0 2px 8px rgba(37,99,235,0.06);
+        }
+        .region-item .region-name { flex: 1; font-size: 13px; font-weight: 600; color: #334155; }
+        .region-item.active .region-name { color: #2563eb; }
+        .region-item .region-count { font-size: 11px; font-weight: 700; color: #94a3b8; }
+        .region-item.active .region-count { color: #2563eb; }
+        .region-progress { flex: 0 0 64px; height: 5px; background: rgba(226,232,240,0.6); border-radius: 3px; overflow: hidden; }
+        .region-progress-bar { height: 100%; border-radius: 3px; transition: width 0.6s cubic-bezier(0.16, 1, 0.3, 1); position: relative; }
+        .region-progress-bar::after { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3)); }
+        @media (max-width: 1024px) {
+            .sidebar-filters-wrap {
+                display: flex; overflow-x: auto; gap: 8px; padding-bottom: 8px;
+                -webkit-overflow-scrolling: touch; scrollbar-width: none;
+            }
+            .sidebar-filters-wrap::-webkit-scrollbar { display: none; }
+            .sidebar-regions-panel { display: none; }
+            .sidebar-legend-panel { display: none; }
+        }
+        .coverage-cards-section {
+            background: #f9fafb;
+            position: relative;
+        }
+        .coverage-cards-section::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(37,99,235,0.1), transparent);
+        }
+        .coverage-card {
+            background: rgba(255,255,255,0.95); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+            border-radius: 22px; padding: 34px 28px;
+            border: 1px solid rgba(255,255,255,0.6);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.03), 0 8px 28px rgba(0,0,0,0.03);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative; overflow: hidden;
+        }
+        .coverage-card::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--card-color) 0%, var(--card-color-light) 100%);
+            transition: height 0.3s ease;
+        }
+        .coverage-card:hover::before { height: 5px; }
+        .coverage-card::after {
+            content: ''; position: absolute; bottom: 0; left: 0; right: 0;
+            height: 50%; background: linear-gradient(180deg, transparent, rgba(var(--card-color-rgb, 37,99,235),0.02));
+            pointer-events: none; opacity: 0; transition: opacity 0.4s ease;
+        }
+        .coverage-card:hover::after { opacity: 1; }
+        .coverage-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 32px rgba(0,0,0,0.08), 0 28px 56px rgba(0,0,0,0.05);
+            border-color: rgba(var(--card-color-rgb, 37,99,235),0.12);
+        }
+        .coverage-icon-wrap {
+            width: 66px; height: 66px; border-radius: 20px;
+            display: flex; align-items: center; justify-content: center;
+            margin-bottom: 22px; position: relative;
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+        }
+        .coverage-card:hover .coverage-icon-wrap { transform: scale(1.1) rotate(-2deg); box-shadow: 0 6px 16px rgba(0,0,0,0.06); }
+        .coverage-icon-wrap::before {
+            content: ''; position: absolute; inset: -5px;
+            border-radius: 25px; opacity: 0.12;
+            background: var(--card-color);
+            transition: opacity 0.3s ease, inset 0.3s ease;
+        }
+        .coverage-card:hover .coverage-icon-wrap::before { opacity: 0.22; inset: -7px; }
+        .coverage-card h3 { font-size: 16px; font-weight: 700; margin-bottom: 8px; color: #0f172a; transition: color 0.3s ease; }
+        .coverage-card:hover h3 { color: var(--card-color); }
+        .coverage-card p { font-size: 13px; color: #64748b; line-height: 1.65; }
+        .coverage-dept-count {
+            display: inline-flex; align-items: center; gap: 5px;
+            margin-top: 16px; padding: 5px 14px; border-radius: 10px;
+            font-size: 12px; font-weight: 700; letter-spacing: 0.01em;
+            transition: transform 0.3s ease;
+        }
+        .coverage-card:hover .coverage-dept-count { transform: translateX(3px); }
+        @media (max-width: 640px) {
+            .coverage-cards-grid {
+                display: flex; overflow-x: auto; gap: 16px;
+                padding-bottom: 16px; scroll-snap-type: x mandatory;
+                -webkit-overflow-scrolling: touch; scrollbar-width: none;
+            }
+            .coverage-cards-grid::-webkit-scrollbar { display: none; }
+            .coverage-cards-grid > div { min-width: 260px; scroll-snap-align: start; }
+        }
+        .cta-section {
+            background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 25%, #2563eb 50%, #3b82f6 80%, #60a5fa 100%);
+            position: relative; overflow: hidden;
+        }
+        .cta-section::before {
+            content: ''; position: absolute; top: -120px; right: -120px;
+            width: 500px; height: 500px;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            border-radius: 50%; animation: ctaOrb 10s ease-in-out infinite;
+        }
+        @keyframes ctaOrb { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.1) translate(-20px, 15px); } }
+        .cta-section::after {
+            content: ''; position: absolute; bottom: -100px; left: -100px;
+            width: 400px; height: 400px;
+            background: radial-gradient(circle, rgba(255,255,255,0.06) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+        .cta-section .cta-pattern {
+            position: absolute; inset: 0; opacity: 0.05; pointer-events: none;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+        .cta-btn {
+            display: inline-flex; align-items: center; gap: 10px;
+            background: #fff; color: #1e40af; padding: 19px 40px;
+            border-radius: 18px; font-size: 16px; font-weight: 700;
+            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            position: relative; overflow: hidden;
+        }
+        .cta-btn::before {
+            content: ''; position: absolute; inset: 0;
+            background: linear-gradient(135deg, rgba(37,99,235,0.06) 0%, transparent 60%);
+            opacity: 0; transition: opacity 0.3s ease;
+        }
+        .cta-btn:hover::before { opacity: 1; }
+        .cta-btn:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.22);
+        }
+        .cta-btn:active { transform: translateY(0) scale(0.97); }
+        .cta-btn svg { transition: transform 0.3s ease; }
+        .cta-btn:hover svg { transform: translateX(3px); }
+    </style>
+    <link rel="stylesheet" href="/demo/demo-overrides.css?v=5">
+    <script src="/demo/demo-fluidity.js?v=2" defer data-cfasync="false"></script>
+    <script>window.addEventListener("DOMContentLoaded",function(){setTimeout(function(){var p=document.getElementById("preloader");if(p)p.classList.add("preloader-auto-hide");},600);});</script>
+</head>
+
+<body class="text-gray-900">
+    <div class="demo-banner"><span>DEMO</span>Version proposée pour validation — non publiée</div>
+
+    <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+
+    <div class="preloader" id="preloader" role="status" aria-label="Chargement">
+        <div class="flex flex-col items-center justify-center">
+            <picture><source srcset="images/logo.webp" type="image/webp"><img src="images/logo.png" alt="JCSM" width="80" height="80" class="animate-pulse"></picture>
+        </div>
+    </div>
+
+    <div class="mobile-menu-overlay" id="mobile-menu-overlay"></div>
+    <nav class="mobile-menu" id="mobile-menu" role="dialog" aria-modal="true" aria-label="Menu de navigation" aria-hidden="true">
+        <div class="p-8">
+            <div class="flex justify-between items-center mb-12">
+                <span class="text-xl font-semibold">Menu</span>
+                <button class="text-gray-600 hover:text-gray-900" id="mobile-menu-close" aria-label="Fermer le menu de navigation">
+                    <svg class="w-6 h-6" fill="none" aria-hidden="true" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+                        <div class="flex flex-col space-y-6">
+                <a href="/demo/pilotage-projets" class="text-base text-gray-600 hover:text-gray-900 transition-colors py-2">Pilotage de projets</a>
+                <a href="/demo/installation-conformite" class="text-base text-gray-600 hover:text-gray-900 transition-colors py-2">Installation</a>
+                <a href="/demo/exploitation" class="text-base text-gray-600 hover:text-gray-900 transition-colors py-2">Exploitation</a>
+                <a href="/demo/securisation-installations" class="text-base text-gray-600 hover:text-gray-900 transition-colors py-2">Sécurisation</a>
+                <a href="/demo/centre-appel" class="text-base text-gray-600 hover:text-gray-900 transition-colors py-2">Support</a>
+                <a href="/demo/solutions/" class="text-base text-gray-600 hover:text-gray-900 transition-colors py-2">Solutions</a>
+                <a href="/demo/a-propos" class="text-base text-gray-600 hover:text-gray-900 transition-colors py-2">À propos</a>
+                <a href="/demo/contact" class="btn-primary px-6 py-3 rounded-lg text-base font-medium text-white inline-block text-center mt-4">Devis gratuit</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Barre de progression de scroll -->
+    <div id="scroll-progress"
+        class="fixed top-0 left-0 h-1 bg-blue-600 z-[60] transition-all duration-150"
+        style="width: 0%;"></div>
+
+    <nav class="fixed top-0 w-full z-50 glass-nav border-b border-gray-200" role="navigation" aria-label="Navigation principale">
+        <div class="max-w-7xl mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <a href="/demo/" class="flex items-center space-x-3 group mr-10">
+                    <picture><source srcset="images/logo.webp" type="image/webp"><img src="images/logo.png" alt="JCSM - Accueil" class="w-10 h-10 transition-transform group-hover:scale-105 duration-300" width="40" height="40"></picture>
+                    <span class="text-2xl font-extrabold tracking-tight text-gray-900">JCSM</span>
+                </a>
+                <div class="hidden lg:flex items-center space-x-2">
+                    <a href="/demo/pilotage-projets" class="nav-link text-[15px] font-semibold text-gray-700 whitespace-nowrap">Pilotage</a>
+                    <a href="/demo/installation-conformite" class="nav-link text-[15px] font-semibold text-gray-700 whitespace-nowrap">Installation</a>
+                    <a href="/demo/exploitation" class="nav-link text-[15px] font-semibold text-gray-700 whitespace-nowrap">Exploitation</a>
+                    <a href="/demo/securisation-installations" class="nav-link text-[15px] font-semibold text-gray-700 whitespace-nowrap">Sécurisation</a>
+                    <a href="/demo/centre-appel" class="nav-link text-[15px] font-semibold text-gray-700 whitespace-nowrap">Support</a>
+                    <a href="/demo/solutions/" class="nav-link text-[15px] font-semibold text-gray-700 whitespace-nowrap">Solutions</a>
+                    <a href="/demo/a-propos" class="nav-link text-[15px] font-semibold text-gray-700 whitespace-nowrap">À propos</a>
+                    <a href="/demo/contact" class="btn-primary ml-5 px-8 py-3 rounded-xl text-[15px] font-semibold text-white shadow-lg hover:shadow-xl whitespace-nowrap">Devis gratuit</a>
+                </div>
+                <button class="mobile-menu-btn text-gray-700 hover:text-gray-900" id="mobile-menu-btn" aria-label="Ouvrir le menu de navigation" aria-expanded="false" aria-controls="mobile-menu">
+                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Particules subtiles en arrière-plan -->
+
+    <main id="main-content">
+        <nav aria-label="Fil d'Ariane" class="max-w-6xl mx-auto px-4 sm:px-6 pt-24 pb-0">
+            <ol class="flex items-center gap-2 text-sm text-gray-500">
+                <li><a href="/demo/" class="hover:text-blue-600 transition-colors">Accueil</a></li>
+                <li><span class="text-gray-300">/</span></li>
+                <li class="text-gray-600 font-medium">Couverture</li>
+            </ol>
+        </nav>
+        <!-- ====== HERO ====== -->
+        <section class="hero-section pt-36 pb-14 px-4 sm:px-6">
+            <div class="hero-grid-pattern" aria-hidden="true"></div>
+            <div class="max-w-4xl mx-auto text-center relative">
+                <div class="hero-badge mb-8 section-appear">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                    Couverture nationale France & Belgique
+                </div>
+                <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight tracking-tight mb-6 section-appear">
+                    Partout où vos bornes sont. <span class="gradient-text">On y est déjà.</span>
+                </h1>
+                <p class="text-lg sm:text-xl text-gray-500 max-w-2xl mx-auto mb-12 section-appear leading-relaxed" style="text-wrap:balance;">
+                    Vérifiez si votre site est couvert par nos équipes terrain. Recherchez une adresse pour connaître les services disponibles.
+                </p>
+
+                <!-- Address Search -->
+                <div class="hero-search-wrapper section-appear">
+                    <form id="address-search-form" class="relative" role="search" aria-label="Recherche d'adresse">
+                        <label for="address-input" class="sr-only">Rechercher une adresse</label>
+                        <svg class="absolute left-5 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400 pointer-events-none z-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                        </svg>
+                        <input type="text" id="address-input" name="address"
+                            placeholder="Entrez une adresse, ville ou code postal..."
+                            autocomplete="street-address"
+                            class="hero-search-input">
+                        <button type="submit" class="hero-search-btn btn-primary">
+                            Vérifier
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                        </button>
+                    </form>
+                    <p class="hero-search-hint section-appear">Ex : Lyon, 33000, Rue de Rivoli Paris, Bruxelles...</p>
+                    <div id="search-result" class="search-result">
+                        <!-- Filled by JS -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ====== STATS ====== -->
+        <section class="stats-section py-20 px-4 sm:px-6">
+            <div class="max-w-4xl mx-auto">
+                <div class="grid grid-cols-3 gap-5 sm:gap-8">
+                    <div class="stat-card section-appear">
+                        <svg class="stat-bg-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l5.447 2.724A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/></svg>
+                        <div class="stat-number" data-target="88" aria-label="88 départements couverts">0</div>
+                        <div class="stat-label">Départements couverts</div>
+                    </div>
+                    <div class="stat-card section-appear">
+                        <svg class="stat-bg-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                        <div class="stat-number" data-target="92" data-suffix="%" aria-label="92% du territoire">0</div>
+                        <div class="stat-label">Du territoire couvert</div>
+                    </div>
+                    <div class="stat-card section-appear">
+                        <svg class="stat-bg-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 21v-4m0 0V5a2 2 0 012-2h6.5l1 1H21l-3 6 3 6h-8.5l-1-1H5a2 2 0 00-2 2zm9-13.5V9"/></svg>
+                        <div class="stat-number" data-target="2" aria-label="2 pays">0</div>
+                        <div class="stat-label">Pays couverts</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ====== MAP + SIDEBAR ====== -->
+        <section class="py-20 px-4 sm:px-6" style="background:#fff;">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center mb-8">
+                    <h2 class="text-2xl sm:text-3xl font-extrabold mb-3 section-appear">Carte interactive</h2>
+                    <p class="text-gray-500 text-sm section-appear">Cliquez sur un département pour voir les services disponibles</p>
+                </div>
+                <div class="map-layout">
+                    <!-- Sidebar -->
+                    <div class="map-sidebar" style="display:flex;flex-direction:column;gap:20px;">
+                        <!-- Filters Panel -->
+                        <div class="sidebar-panel">
+                            <div class="sidebar-panel-title">Types de couverture</div>
+                            <div class="sidebar-filters-wrap flex flex-wrap gap-2">
+                                <button class="filter-chip active" data-filter="isolee" data-color="#2563eb" style="background: #2563eb; border-color: #2563eb;" aria-pressed="true">
+                                    <span class="chip-check">✓</span>
+                                    <span class="chip-dot" style="background: rgba(255,255,255,0.5);"></span>
+                                    <span class="chip-label-long">Intervention isolée</span>
+                                    <span class="chip-label-short">Isolée</span>
+                                    <span class="chip-count" id="badge-isolee"></span>
+                                </button>
+                                <button class="filter-chip active" data-filter="groupee" data-color="#1d4ed8" style="background: #1d4ed8; border-color: #1d4ed8;" aria-pressed="true">
+                                    <span class="chip-check">✓</span>
+                                    <span class="chip-dot" style="background: rgba(255,255,255,0.5);"></span>
+                                    <span class="chip-label-long">Intervention groupée</span>
+                                    <span class="chip-label-short">Groupée</span>
+                                    <span class="chip-count" id="badge-groupee"></span>
+                                </button>
+                                <button class="filter-chip active" data-filter="installation" data-color="#3b82f6" style="background: #3b82f6; border-color: #3b82f6;" aria-pressed="true">
+                                    <span class="chip-check">✓</span>
+                                    <span class="chip-dot" style="background: rgba(255,255,255,0.5);"></span>
+                                    <span class="chip-label-long">Installation neuve</span>
+                                    <span class="chip-label-short">Installation</span>
+                                    <span class="chip-count" id="badge-installation"></span>
+                                </button>
+                                <button class="filter-chip active" data-filter="preventive" data-color="#1e40af" style="background: #1e40af; border-color: #1e40af;" aria-pressed="true">
+                                    <span class="chip-check">✓</span>
+                                    <span class="chip-dot" style="background: rgba(255,255,255,0.5);"></span>
+                                    <span class="chip-label-long">Maintenance préventive</span>
+                                    <span class="chip-label-short">Préventive</span>
+                                    <span class="chip-count" id="badge-preventive"></span>
+                                </button>
+                                <button class="filter-chip active" data-filter="transfo" data-color="#1e3a8a" style="background: #1e3a8a; border-color: #1e3a8a;" aria-pressed="true">
+                                    <span class="chip-check">✓</span>
+                                    <span class="chip-dot" style="background: rgba(255,255,255,0.5);"></span>
+                                    <span class="chip-label-long">Maintenance transformateur</span>
+                                    <span class="chip-label-short">Transfo</span>
+                                    <span class="chip-count" id="badge-transfo"></span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Legend Panel -->
+                        <div class="sidebar-panel sidebar-legend-panel">
+                            <div class="sidebar-panel-title">Légende carte</div>
+                            <div class="legend-item"><span class="legend-dot" style="background:#2563eb;"></span>Interventions isolées</div>
+                            <div class="legend-item"><span class="legend-dot" style="background:#1d4ed8;"></span>Interventions groupées</div>
+                            <div class="legend-item"><span class="legend-dot" style="background:#3b82f6;"></span>Installation</div>
+                            <div class="legend-item"><span class="legend-dot" style="background:#1e40af;"></span>Maintenance préventive</div>
+                            <div class="legend-item"><span class="legend-dot" style="background:#1e3a8a;"></span>Maintenance transformateur</div>
+                            <div class="legend-item"><span class="legend-dot" style="background:#e2e8f0;"></span>Zone non couverte</div>
+                        </div>
+
+                        <!-- Regions Panel -->
+                        <div class="sidebar-panel sidebar-regions-panel">
+                            <div class="sidebar-panel-title">Régions</div>
+                            <div class="relative mb-3">
+                                <svg class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+                                <label for="region-search" class="sr-only">Filtrer les régions</label>
+                                <input type="text" id="region-search" class="region-search-input" placeholder="Filtrer les régions...">
+                            </div>
+                            <div class="space-y-1 max-h-[340px] overflow-y-auto" id="region-list" style="scrollbar-width:thin;scrollbar-color:#cbd5e1 transparent;">
+                                <!-- Filled by JS -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Map -->
+                    <div class="flex-1 min-w-0">
+                        <div id="coverage-map" role="application" aria-label="Carte interactive de couverture JCSM en France et Belgique"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ====== COVERAGE TYPES ====== -->
+        <section class="coverage-cards-section py-20 px-4 sm:px-6">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-16">
+                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-semibold text-blue-600 bg-blue-50 border border-blue-100 mb-6 section-appear" style="letter-spacing:0.04em;text-transform:uppercase;">5 niveaux de service</div>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold mb-5 section-appear">Nos types d'intervention</h2>
+                    <p class="text-gray-500 text-lg max-w-2xl mx-auto section-appear leading-relaxed" style="text-wrap:balance;">Cinq niveaux de service adaptés aux besoins de chaque site et opérateur.</p>
+                </div>
+                <div class="coverage-cards-grid grid sm:grid-cols-2 lg:grid-cols-5 gap-6">
+                    <!-- Isolée -->
+                    <div class="coverage-card section-appear" style="--card-color: #2563eb; --card-color-light: #3b82f6;">
+                        <div class="coverage-icon-wrap" style="background: #eff6ff;">
+                            <svg class="w-7 h-7" style="color:#2563eb;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/></svg>
+                        </div>
+                        <h3>Intervention isolée</h3>
+                        <p>Intervention unitaire sur site. Technicien dédié, délai J+1 à J+5.</p>
+                        <div class="coverage-dept-count" style="background:#eff6ff;color:#2563eb;" id="count-isolee">-- départements</div>
+                    </div>
+                    <!-- Groupée -->
+                    <div class="coverage-card section-appear" style="--card-color: #1d4ed8; --card-color-light: #2563eb;">
+                        <div class="coverage-icon-wrap" style="background: #eff6ff;">
+                            <svg class="w-7 h-7" style="color:#1d4ed8;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
+                        </div>
+                        <h3>Intervention groupée</h3>
+                        <p>Tournée multi-sites optimisée. Réduction des coûts de déplacement.</p>
+                        <div class="coverage-dept-count" style="background:#eff6ff;color:#1d4ed8;" id="count-groupee">-- départements</div>
+                    </div>
+                    <!-- Installation -->
+                    <div class="coverage-card section-appear" style="--card-color: #3b82f6; --card-color-light: #60a5fa;">
+                        <div class="coverage-icon-wrap" style="background: #eff6ff;">
+                            <svg class="w-7 h-7" style="color:#3b82f6;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                        </div>
+                        <h3>Installation</h3>
+                        <p>Pose et mise en service de bornes AC/DC et transformateurs.</p>
+                        <div class="coverage-dept-count" style="background:#eff6ff;color:#3b82f6;" id="count-installation">-- départements</div>
+                    </div>
+                    <!-- Préventive -->
+                    <div class="coverage-card section-appear" style="--card-color: #1e40af; --card-color-light: #1d4ed8;">
+                        <div class="coverage-icon-wrap" style="background: #eff6ff;">
+                            <svg class="w-7 h-7" style="color:#1e40af;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                        </div>
+                        <h3>Maintenance préventive</h3>
+                        <p>Contrôles périodiques programmés. Prévention des pannes.</p>
+                        <div class="coverage-dept-count" style="background:#eff6ff;color:#1e40af;" id="count-preventive">-- départements</div>
+                    </div>
+                    <!-- Transformateur -->
+                    <div class="coverage-card section-appear" style="--card-color: #1e3a8a; --card-color-light: #1e40af;">
+                        <div class="coverage-icon-wrap" style="background: #eff6ff;">
+                            <svg class="w-7 h-7" style="color:#1e3a8a;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707"/></svg>
+                        </div>
+                        <h3>Maintenance transformateur</h3>
+                        <p>Entretien et dépannage HTA/BT. Équipes habilitées.</p>
+                        <div class="coverage-dept-count" style="background:#eff6ff;color:#1e3a8a;" id="count-transfo">-- départements</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section class="py-20 px-6 bg-white section-appear" id="faq">
+            <div class="max-w-3xl mx-auto">
+                <h2 class="text-3xl font-bold text-center mb-10">Questions fréquentes</h2>
+                <div class="space-y-4">
+                    <div class="border border-gray-200 rounded-xl overflow-hidden">
+                        <button type="button" class="faq-toggle w-full flex items-center justify-between p-6 text-left font-semibold text-lg hover:bg-gray-50 transition-colors" aria-expanded="true" aria-controls="faq-couv-1">
+                            Dans quelles régions JCSM intervient-il ?
+                            <svg class="faq-chevron w-5 h-5 text-gray-400 transition-transform rotate-180 flex-shrink-0 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                        </button>
+                        <div id="faq-couv-1" class="faq-content px-6 pb-6" role="region">
+                            <p class="text-gray-600 leading-relaxed">JCSM couvre l'ensemble de la France métropolitaine et la Belgique. Nos techniciens sont déployés dans toutes les régions : Île-de-France, Auvergne-Rhône-Alpes, PACA, Occitanie, Nouvelle-Aquitaine, Hauts-de-France, et toutes les autres. En Belgique, nous intervenons dans les trois régions (Wallonie, Flandre, Bruxelles-Capitale).</p>
+                        </div>
+                    </div>
+                    <div class="border border-gray-200 rounded-xl overflow-hidden">
+                        <button type="button" class="faq-toggle w-full flex items-center justify-between p-6 text-left font-semibold text-lg hover:bg-gray-50 transition-colors" aria-expanded="false" aria-controls="faq-couv-2">
+                            Quel est le délai d'intervention sur site ?
+                            <svg class="faq-chevron w-5 h-5 text-gray-400 transition-transform flex-shrink-0 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                        </button>
+                        <div id="faq-couv-2" class="faq-content px-6 pb-6 hidden" role="region">
+                            <p class="text-gray-600 leading-relaxed">Notre SLA standard prévoit une intervention sous 4 heures en zone urbaine et 8 heures en zone rurale. Pour les contrats premium, nous proposons des engagements renforcés avec astreinte 24/7 et intervention sous 2 heures.</p>
+                        </div>
+                    </div>
+                    <div class="border border-gray-200 rounded-xl overflow-hidden">
+                        <button type="button" class="faq-toggle w-full flex items-center justify-between p-6 text-left font-semibold text-lg hover:bg-gray-50 transition-colors" aria-expanded="false" aria-controls="faq-couv-3">
+                            Intervenez-vous sur toutes les marques de bornes ?
+                            <svg class="faq-chevron w-5 h-5 text-gray-400 transition-transform flex-shrink-0 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                        </button>
+                        <div id="faq-couv-3" class="faq-content px-6 pb-6 hidden" role="region">
+                            <p class="text-gray-600 leading-relaxed">Oui, nos techniciens sont formés et certifiés sur plus de 12 marques : ABB, Alfen, EVBox, Kempower, Wallbox, Schneider Electric, Legrand, DBT-CEV, Circontrol, Delta, Autel et Tritium. Bornes AC de 3,7 à 22 kW et DC jusqu'à 400 kW.</p>
+                        </div>
+                    </div>
+                    <div class="border border-gray-200 rounded-xl overflow-hidden">
+                        <button type="button" class="faq-toggle w-full flex items-center justify-between p-6 text-left font-semibold text-lg hover:bg-gray-50 transition-colors" aria-expanded="false" aria-controls="faq-couv-4">
+                            Comment demander une intervention dans ma zone ?
+                            <svg class="faq-chevron w-5 h-5 text-gray-400 transition-transform flex-shrink-0 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                        </button>
+                        <div id="faq-couv-4" class="faq-content px-6 pb-6 hidden" role="region">
+                            <p class="text-gray-600 leading-relaxed">Contactez-nous via le formulaire sur notre site, par téléphone au <a href="tel:+33183755706" class="text-blue-600 font-medium hover:text-blue-800">01 83 75 57 06</a>, ou par email à <a href="mailto:contact@jcsm.fr" class="text-blue-600 font-medium hover:text-blue-800">contact@jcsm.fr</a>. Décrivez votre besoin et votre localisation : un technicien terrain vous rappelle sous 24h.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <script>
+            document.querySelectorAll('#faq .faq-toggle').forEach(function(btn) {
+                btn.addEventListener('click', function() {
+                    var expanded = this.getAttribute('aria-expanded') === 'true';
+                    this.setAttribute('aria-expanded', String(!expanded));
+                    var content = document.getElementById(this.getAttribute('aria-controls'));
+                    var chevron = this.querySelector('.faq-chevron');
+                    if (expanded) {
+                        content.classList.add('hidden');
+                        chevron.classList.remove('rotate-180');
+                    } else {
+                        content.classList.remove('hidden');
+                        chevron.classList.add('rotate-180');
+                    }
+                });
+            });
+            </script>
+        </section>
+
+        <!-- ============ COVERAGE CTA BANNER ============ -->
+        <section class="py-12 px-6 bg-blue-50 border-y border-blue-100" aria-label="Appel à l'action couverture">
+            <div class="max-w-4xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 section-appear">
+                <div class="flex items-center gap-4">
+                    <div class="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center flex-shrink-0">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                    </div>
+                    <div>
+                        <p class="font-bold text-gray-900 text-lg">Votre zone est couverte ?</p>
+                        <p class="text-gray-600 text-sm">Recevez une proposition sous 24h.</p>
+                    </div>
+                </div>
+                <a href="/demo/contact" class="btn-primary px-8 py-3 rounded-xl font-medium text-white whitespace-nowrap inline-flex items-center gap-2">
+                    Demander un devis
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                </a>
+            </div>
+        </section>
+
+        <!-- ====== CTA ====== -->
+        <section class="cta-section py-20 px-4 sm:px-6">
+            <div class="cta-pattern"></div>
+            <div class="max-w-3xl mx-auto text-center relative section-appear">
+                <h2 class="text-3xl sm:text-4xl font-extrabold mb-5 text-white">Votre zone n'est pas couverte ?</h2>
+                <p class="text-blue-100 text-lg mb-10 leading-relaxed max-w-xl mx-auto">Notre réseau s'étend en continu. Contactez-nous pour une étude personnalisée de couverture sur votre territoire.</p>
+                <a href="/demo/contact" class="cta-btn">
+                    Nous contacter
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="border-t border-gray-100 py-16 px-6 bg-white" role="contentinfo" aria-label="Pied de page">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid md:grid-cols-4 gap-10 mb-12">
+                <div>
+                    <div class="flex items-center space-x-3 mb-4">
+                        <picture><source srcset="images/logo.webp" type="image/webp"><img src="images/logo.png" alt="Logo JCSM" class="w-8 h-8" width="32" height="32" loading="lazy" decoding="async"></picture>
+                        <span class="text-xl font-semibold text-gray-900">JCSM</span>
+                    </div>
+                    <p class="text-sm text-gray-600 mb-4">Expérience IRVE depuis 2019. Installation, maintenance et pilotage en France et Belgique. Entreprise inclusive.</p>
+                    <p class="text-sm text-gray-500">60 rue François 1er<br>75008 Paris</p>
+                    <p class="text-sm text-gray-500 mt-3"><a href="tel:+33183755706" title="Appeler JCSM" class="hover:text-gray-900 transition-colors">+33 1 83 75 57 06</a></p>
+                    <p class="text-sm text-gray-500"><a href="mailto:contact@jcsm.fr" title="Envoyer un email à JCSM" class="hover:text-gray-900 transition-colors">contact@jcsm.fr</a></p>
+                </div>
+                <div>
+                    <h3 class="text-sm font-semibold text-gray-900 mb-4 uppercase tracking-wide">Services</h3>
+                    <nav aria-label="Services">
+                        <ul class="space-y-3">
+                            <li><a href="/demo/pilotage-projets" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Pilotage de projets</a></li>
+                            <li><a href="/demo/installation-conformite" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Installation & conformité</a></li>
+                            <li><a href="/demo/exploitation" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Exploitation & maintenance</a></li>
+                            <li><a href="/demo/securisation-installations" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Sécurisation</a></li>
+                            <li><a href="/demo/centre-appel" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Support 24/7</a></li>
+                            <li><a href="/demo/tarification" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Tarification</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div>
+                    <h3 class="text-sm font-semibold text-gray-900 mb-4 uppercase tracking-wide">Entreprise</h3>
+                    <nav aria-label="Entreprise">
+                        <ul class="space-y-3">
+                            <li><a href="/demo/devenir-partenaire" title="Devenir technicien partenaire" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Devenir partenaire</a></li>
+                            <li><a href="/demo/carrieres" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Carrières</a></li>
+                            <li><a href="/demo/contact" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Contact</a></li>
+                            <li><a href="/demo/blog" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Blog</a></li>
+                            <li><a href="/demo/solutions/" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Solutions</a></li>
+                            <li><a href="/demo/a-propos" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">À propos</a></li>
+                            <li><a href="/demo/inclusion" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Inclusion</a></li>
+                            <li><a href="/demo/couverture" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Couverture</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div>
+                    <h3 class="text-sm font-semibold text-gray-900 mb-4 uppercase tracking-wide">Légal</h3>
+                    <nav aria-label="Légal">
+                        <ul class="space-y-3">
+                            <li><a href="/demo/mentions-legales" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Mentions légales</a></li>
+                            <li><a href="/demo/confidentialite" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Confidentialité</a></li>
+                            <li><a href="/demo/cgv" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">CGV</a></li>
+                        </ul>
+                    </nav>
+                    <h3 class="text-sm font-semibold text-gray-900 mb-4 uppercase tracking-wide mt-6">Zones</h3>
+                    <nav aria-label="Zones">
+                        <ul class="space-y-3">
+                            <li><a href="/demo/zones/france" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">France</a></li>
+                            <li><a href="/demo/zones/belgique" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Belgique</a></li>
+                        </ul>
+                    </nav>
+                    <div class="flex items-center gap-3 mt-4">
+                        <a href="https://www.linkedin.com/company/jcsm-elec/" target="_blank" rel="noopener noreferrer me" class="text-gray-500 hover:text-gray-900 transition-colors" aria-label="LinkedIn">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                        </a>
+                        <a href="https://www.facebook.com/profile.php?id=61587992161634" target="_blank" rel="noopener noreferrer me" class="text-gray-500 hover:text-gray-900 transition-colors" aria-label="Facebook">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                        </a>
+                        <a href="https://x.com/JCSM_ELEC" target="_blank" rel="noopener noreferrer me" class="text-gray-500 hover:text-gray-900 transition-colors" aria-label="X (Twitter)">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                        </a>
+                        <a href="https://www.instagram.com/jcsm.elec/" target="_blank" rel="noopener noreferrer me" class="text-gray-500 hover:text-gray-900 transition-colors" aria-label="Instagram">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+                        </a>
+                        <a href="https://www.youtube.com/@JCSM_ELEC" target="_blank" rel="noopener noreferrer me" class="text-gray-500 hover:text-gray-900 transition-colors" aria-label="YouTube">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="pt-8 border-t border-gray-100 flex flex-col md:flex-row md:items-center md:justify-between gap-4 text-xs text-gray-500">
+                <span>&copy; 2026 JCSM SAS - SIRET 99387429600011</span>
+                <span><a href="mailto:contact@jcsm.fr" title="Envoyer un email à JCSM" class="hover:text-gray-900 transition-colors">contact@jcsm.fr</a> · <a href="tel:+33183755706" title="Appeler JCSM" class="hover:text-gray-900 transition-colors">+33 1 83 75 57 06</a></span>
+            </div>
+        </div>
+    </footer>
+
+    <button class="scroll-top" id="scrollTop" aria-label="Retour en haut de page">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
+        </svg>
+    </button>
+
+    <script src="/demo/js/config.js?v=72" defer></script>
+    <script src="/demo/js/utils.js?v=72" defer></script>
+    <script src="/demo/js/i18n.js?v=72" defer></script>
+    <script src="/demo/js/public.js?v=72" defer></script>
+    <script src="/demo/js/analytics.js?v=72" defer></script>
+    <script src="/demo/js/wow-effects.js?v=72" defer></script>
+
+    <script>
+
+const MAPDATA={"depts":{"01":{"n":"Ain","p":[[4.78,46.18],[4.83,46.3],[4.92,46.47],[5.06,46.48],[5.22,46.47],[5.34,46.4],[5.44,46.32],[5.52,46.26],[5.65,46.34],[5.77,46.27],[5.92,46.31],[6.1,46.41],[6.12,46.25],[5.98,46.22],[5.89,46.12],[5.81,46.04],[5.83,45.91],[5.76,45.71],[5.66,45.64],[5.58,45.69],[5.46,45.78],[5.33,45.86],[5.19,45.77],[5.01,45.81],[4.91,45.87],[4.81,45.92],[4.75,45.97],[4.8,46.14],[4.78,46.18]]},"02":{"n":"Aisne","p":[[4.05,49.41],[3.9,49.39],[3.74,49.34],[3.7,49.21],[3.65,49.15],[3.65,49.04],[3.6,48.95],[3.45,48.86],[3.3,48.95],[3.17,49.1],[3.12,49.16],[2.97,49.19],[3.04,49.29],[3.09,49.38],[3.1,49.52],[3.11,49.63],[3.08,49.82],[3.18,49.99],[3.35,50.04],[3.57,50.05],[3.8,50.05],[3.98,50.0],[4.2,49.96],[4.23,49.79],[4.18,49.7],[4.03,49.61],[4.06,49.45],[4.05,49.41]]},"03":{"n":"Allier","p":[[3.03,46.79],[3.22,46.68],[3.39,46.71],[3.49,46.66],[3.6,46.72],[3.7,46.66],[3.74,46.54],[3.86,46.49],[4.0,46.43],[3.91,46.3],[3.77,46.24],[3.82,46.09],[3.74,45.97],[3.6,46.02],[3.43,46.06],[3.23,46.06],[3.09,46.11],[2.91,46.18],[2.84,46.25],[2.72,46.21],[2.64,46.12],[2.48,46.27],[2.37,46.31],[2.28,46.42],[2.48,46.53],[2.58,46.6],[2.7,46.73],[2.91,46.78],[3.03,46.79]]},"04":{"n":"Alpes-de-Haute-Provence","p":[[5.68,44.19],[5.91,44.19],[5.88,44.29],[5.95,44.4],[6.16,44.46],[6.26,44.47],[6.4,44.49],[6.63,44.45],[6.8,44.6],[6.95,44.62],[6.88,44.48],[6.89,44.36],[6.76,44.26],[6.76,44.08],[6.91,43.93],[6.75,43.87],[6.64,43.8],[6.44,43.8],[6.25,43.8],[6.04,43.69],[5.94,43.73],[5.76,43.73],[5.63,43.83],[5.56,43.94],[5.5,44.06],[5.61,44.19],[5.68,44.19]]},"05":{"n":"Hautes-Alpes","p":[[6.26,45.13],[6.44,45.06],[6.58,45.12],[6.73,45.02],[6.77,44.9],[7.02,44.81],[7.06,44.68],[6.86,44.63],[6.67,44.5],[6.43,44.47],[6.32,44.46],[6.17,44.44],[6.02,44.42],[5.91,44.25],[5.88,44.21],[5.71,44.2],[5.63,44.28],[5.47,44.35],[5.5,44.44],[5.62,44.47],[5.64,44.65],[5.8,44.71],[5.98,44.79],[6.13,44.86],[6.35,44.86],[6.31,44.98],[6.23,45.11],[6.26,45.13]]},"06":{"n":"Alpes-Maritimes","p":[[6.89,44.36],[6.99,44.28],[7.11,44.22],[7.24,44.17],[7.39,44.12],[7.56,44.15],[7.67,44.15],[7.7,44.04],[7.6,43.96],[7.5,43.86],[7.46,43.76],[7.34,43.71],[7.23,43.66],[7.12,43.59],[7.01,43.55],[6.95,43.48],[6.91,43.57],[6.8,43.63],[6.75,43.74],[6.64,43.79],[6.68,43.85],[6.8,43.91],[6.91,43.93],[6.8,44.01],[6.71,44.14],[6.76,44.28],[6.86,44.34],[6.89,44.36]]},"07":{"n":"Ard\u00e8che","p":[[4.48,45.24],[4.6,45.29],[4.73,45.36],[4.8,45.3],[4.8,45.19],[4.83,45.1],[4.85,44.99],[4.86,44.87],[4.76,44.72],[4.71,44.58],[4.7,44.48],[4.65,44.33],[4.61,44.29],[4.45,44.33],[4.4,44.33],[4.29,44.31],[4.22,44.29],[4.07,44.33],[4.07,44.41],[3.98,44.52],[3.89,44.65],[3.94,44.8],[4.03,44.87],[4.19,44.91],[4.29,45.0],[4.38,45.05],[4.37,45.13],[4.48,45.21],[4.48,45.24]]},"08":{"n":"Ardennes","p":[[4.23,49.96],[4.48,49.95],[4.7,50.05],[4.82,50.16],[4.87,50.1],[4.82,50.0],[4.89,49.91],[4.93,49.79],[5.09,49.77],[5.21,49.69],[5.31,49.61],[5.31,49.56],[5.14,49.59],[5.06,49.5],[5.09,49.37],[5.05,49.29],[4.83,49.24],[4.69,49.26],[4.58,49.3],[4.38,49.32],[4.26,49.36],[4.05,49.41],[4.08,49.53],[4.04,49.63],[4.14,49.69],[4.25,49.75],[4.22,49.83],[4.23,49.96]]},"09":{"n":"Ari\u00e8ge","p":[[1.69,43.27],[1.71,43.19],[1.9,43.12],[1.97,43.05],[1.98,42.93],[1.88,42.85],[1.95,42.74],[2.16,42.7],[2.05,42.66],[1.94,42.61],[1.79,42.57],[1.66,42.62],[1.55,42.66],[1.46,42.6],[1.39,42.69],[1.25,42.72],[1.13,42.76],[0.92,42.79],[0.84,42.93],[0.98,42.97],[1.01,43.08],[1.09,43.14],[1.22,43.09],[1.27,43.14],[1.32,43.19],[1.33,43.25],[1.32,43.31],[1.45,43.21],[1.49,43.26],[1.6,43.27],[1.69,43.27]]},"10":{"n":"Aube","p":[[3.41,48.39],[3.43,48.5],[3.47,48.57],[3.6,48.57],[3.7,48.53],[3.87,48.54],[3.95,48.6],[4.03,48.66],[4.23,48.7],[4.32,48.65],[4.52,48.55],[4.67,48.53],[4.76,48.39],[4.84,48.28],[4.85,48.14],[4.73,48.12],[4.67,48.02],[4.52,47.97],[4.31,47.96],[4.23,47.97],[4.09,47.94],[3.99,47.93],[3.88,47.98],[3.82,48.06],[3.75,48.15],[3.62,48.19],[3.6,48.24],[3.57,48.31],[3.43,48.36],[3.41,48.39]]},"11":{"n":"Aude","p":[[1.69,43.27],[1.76,43.35],[1.86,43.44],[1.99,43.41],[2.11,43.39],[2.22,43.43],[2.4,43.42],[2.57,43.42],[2.55,43.34],[2.71,43.29],[2.79,43.27],[2.89,43.37],[3.05,43.28],[3.18,43.24],[3.14,43.13],[3.06,42.92],[2.88,42.9],[2.76,42.87],[2.6,42.84],[2.38,42.85],[2.35,42.76],[2.25,42.68],[2.09,42.74],[1.91,42.76],[1.95,42.86],[1.93,42.94],[1.94,43.05],[1.88,43.14],[1.71,43.2],[1.69,43.27]]},"12":{"n":"Aveyron","p":[[2.21,44.62],[2.37,44.64],[2.55,44.74],[2.65,44.87],[2.77,44.92],[2.87,44.83],[2.93,44.73],[3.08,44.56],[3.14,44.39],[3.15,44.27],[3.3,44.21],[3.26,44.09],[3.44,44.0],[3.28,43.9],[3.06,43.83],[3.07,43.71],[2.92,43.74],[2.68,43.74],[2.56,43.92],[2.46,44.03],[2.28,44.15],[2.16,44.18],[1.98,44.16],[1.97,44.28],[1.91,44.36],[1.88,44.48],[2.08,44.59],[2.21,44.62]]},"13":{"n":"Bouches-du-Rh\u00f4ne","p":[[4.74,43.92],[4.93,43.89],[5.17,43.74],[5.34,43.72],[5.65,43.68],[5.78,43.71],[5.68,43.61],[5.72,43.55],[5.79,43.41],[5.71,43.36],[5.75,43.29],[5.65,43.19],[5.51,43.2],[5.35,43.23],[5.32,43.36],[5.17,43.33],[4.97,43.43],[4.87,43.36],[4.66,43.35],[4.58,43.43],[4.38,43.45],[4.41,43.56],[4.43,43.62],[4.58,43.7],[4.63,43.76],[4.64,43.87],[4.74,43.92]]},"14":{"n":"Calvados","p":[[-1.12,49.36],[-0.88,49.37],[-0.55,49.35],[-0.3,49.3],[0.07,49.37],[0.3,49.43],[0.32,49.3],[0.34,49.23],[0.4,49.1],[0.43,49.03],[0.41,48.96],[0.28,48.95],[0.16,48.92],[0.01,48.89],[-0.18,48.83],[-0.35,48.82],[-0.49,48.85],[-0.68,48.82],[-0.87,48.76],[-1.06,48.77],[-1.1,48.87],[-0.96,48.97],[-0.88,49.04],[-0.93,49.15],[-1.03,49.22],[-1.14,49.31],[-1.12,49.36]]},"15":{"n":"Cantal","p":[[2.51,45.48],[2.69,45.41],[2.87,45.38],[3.02,45.29],[3.11,45.33],[3.23,45.27],[3.3,45.12],[3.34,45.03],[3.29,44.93],[3.18,44.86],[3.07,44.83],[2.98,44.64],[2.93,44.78],[2.86,44.87],[2.76,44.93],[2.65,44.87],[2.57,44.78],[2.44,44.64],[2.25,44.65],[2.18,44.67],[2.14,44.82],[2.06,44.98],[2.14,45.09],[2.19,45.21],[2.32,45.32],[2.38,45.41],[2.53,45.39],[2.51,45.48]]},"16":{"n":"Charente","p":[[-0.1,45.97],[0.02,46.05],[0.2,46.1],[0.41,46.05],[0.44,46.1],[0.61,46.08],[0.75,46.14],[0.83,46.11],[0.87,46.02],[0.88,45.92],[0.8,45.83],[0.71,45.8],[0.63,45.71],[0.5,45.62],[0.47,45.54],[0.28,45.43],[0.22,45.29],[0.1,45.23],[0.0,45.19],[-0.11,45.29],[-0.27,45.3],[-0.27,45.36],[-0.27,45.46],[-0.31,45.57],[-0.41,45.66],[-0.46,45.74],[-0.37,45.78],[-0.19,45.79],[-0.13,45.89],[-0.1,45.97]]},"17":{"n":"Charente-Maritime","p":[[-1.13,46.31],[-0.93,46.37],[-0.85,46.32],[-0.74,46.27],[-0.62,46.14],[-0.37,46.09],[-0.19,46.04],[-0.1,45.97],[-0.12,45.85],[-0.24,45.8],[-0.43,45.76],[-0.38,45.66],[-0.31,45.57],[-0.25,45.44],[-0.25,45.34],[-0.16,45.31],[0.01,45.22],[-0.04,45.1],[-0.19,45.09],[-0.36,45.17],[-0.42,45.27],[-0.59,45.32],[-0.85,45.5],[-1.05,45.62],[-1.24,45.78],[-1.13,45.86],[-1.06,45.99],[-1.13,46.13],[-1.2,46.21],[-1.13,46.31]]},"18":{"n":"Cher","p":[[2.24,47.62],[2.44,47.61],[2.62,47.54],[2.73,47.5],[2.83,47.51],[2.87,47.35],[3.01,47.18],[3.06,46.99],[3.03,46.79],[2.76,46.72],[2.6,46.66],[2.54,46.52],[2.35,46.51],[2.2,46.43],[2.18,46.53],[2.14,46.67],[2.1,46.8],[2.15,46.91],[2.09,47.02],[1.97,47.13],[1.78,47.13],[1.87,47.21],[2.0,47.26],[2.13,47.33],[2.24,47.41],[2.2,47.55],[2.24,47.62]]},"19":{"n":"Corr\u00e8ze","p":[[1.9,45.7],[2.0,45.75],[2.16,45.74],[2.27,45.66],[2.41,45.71],[2.51,45.67],[2.46,45.59],[2.51,45.46],[2.45,45.38],[2.37,45.39],[2.29,45.29],[2.19,45.21],[2.17,45.08],[2.13,44.99],[1.94,44.96],[1.82,44.93],[1.71,44.97],[1.58,45.04],[1.45,45.02],[1.41,45.13],[1.25,45.16],[1.23,45.22],[1.24,45.3],[1.32,45.38],[1.25,45.44],[1.37,45.49],[1.48,45.57],[1.59,45.58],[1.75,45.65],[1.88,45.68],[1.9,45.7]]},"21":{"n":"C\u00f4te-d'Or","p":[[4.29,47.93],[4.52,47.97],[4.7,48.02],[4.81,47.96],[4.9,47.92],[4.99,47.8],[4.96,47.7],[5.18,47.68],[5.3,47.6],[5.48,47.61],[5.38,47.46],[5.49,47.36],[5.49,47.25],[5.41,47.13],[5.31,47.02],[5.17,46.96],[4.99,46.96],[4.73,46.92],[4.62,46.94],[4.45,47.04],[4.27,47.11],[4.22,47.22],[4.12,47.34],[4.13,47.47],[4.21,47.6],[4.25,47.72],[4.32,47.81],[4.31,47.9],[4.29,47.93]]},"22":{"n":"C\u00f4tes-d'Armor","p":[[-3.66,48.66],[-3.58,48.77],[-3.43,48.8],[-3.25,48.86],[-3.08,48.83],[-2.95,48.76],[-2.86,48.67],[-2.72,48.56],[-2.63,48.54],[-2.44,48.65],[-2.34,48.62],[-2.16,48.59],[-2.05,48.54],[-1.93,48.48],[-1.95,48.37],[-2.05,48.3],[-2.18,48.21],[-2.31,48.14],[-2.45,48.17],[-2.55,48.08],[-2.65,48.12],[-2.85,48.14],[-3.04,48.2],[-3.25,48.15],[-3.41,48.15],[-3.54,48.21],[-3.56,48.34],[-3.6,48.47],[-3.59,48.58],[-3.66,48.66]]},"23":{"n":"Creuse","p":[[2.17,46.42],[2.28,46.39],[2.37,46.31],[2.48,46.28],[2.56,46.17],[2.6,46.03],[2.53,45.9],[2.39,45.83],[2.44,45.7],[2.31,45.67],[2.18,45.72],[2.04,45.76],[1.92,45.71],[1.88,45.8],[1.71,45.84],[1.64,45.89],[1.55,45.92],[1.56,46.0],[1.54,46.08],[1.46,46.18],[1.4,46.26],[1.46,46.38],[1.61,46.41],[1.76,46.43],[1.91,46.44],[2.07,46.42],[2.17,46.42]]},"24":{"n":"Dordogne","p":[[0.63,45.71],[0.76,45.63],[0.87,45.62],[1.05,45.56],[1.12,45.49],[1.26,45.4],[1.24,45.32],[1.23,45.2],[1.35,45.13],[1.45,45.02],[1.4,44.85],[1.32,44.74],[1.1,44.59],[0.87,44.6],[0.83,44.69],[0.61,44.7],[0.45,44.65],[0.32,44.75],[0.24,44.87],[-0.02,44.85],[0.06,45.1],[-0.02,45.17],[0.13,45.21],[0.26,45.33],[0.47,45.54],[0.56,45.63],[0.63,45.71]]},"25":{"n":"Doubs","p":[[6.81,47.56],[6.91,47.53],[6.93,47.46],[6.89,47.37],[7.05,47.36],[6.94,47.29],[6.8,47.13],[6.69,47.07],[6.59,46.99],[6.43,46.93],[6.46,46.79],[6.29,46.69],[6.14,46.56],[6.07,46.69],[6.21,46.77],[6.03,46.85],[6.0,46.93],[5.93,46.98],[5.79,47.02],[5.8,47.11],[5.76,47.19],[5.73,47.26],[5.91,47.33],[6.04,47.35],[6.23,47.42],[6.42,47.52],[6.53,47.51],[6.58,47.54],[6.74,47.56],[6.81,47.56]]},"26":{"n":"Dr\u00f4me","p":[[4.8,45.3],[5.01,45.34],[5.18,45.25],[5.15,45.08],[5.32,45.05],[5.47,45.05],[5.46,44.83],[5.63,44.75],[5.83,44.7],[5.64,44.65],[5.63,44.5],[5.46,44.47],[5.44,44.39],[5.54,44.33],[5.68,44.28],[5.68,44.16],[5.56,44.17],[5.44,44.15],[5.26,44.23],[5.17,44.29],[4.98,44.28],[4.8,44.28],[4.65,44.37],[4.69,44.52],[4.77,44.64],[4.84,44.84],[4.85,44.99],[4.8,45.12],[4.8,45.23],[4.8,45.3]]},"27":{"n":"Eure","p":[[0.3,49.43],[0.58,49.44],[0.8,49.42],[0.89,49.35],[0.96,49.29],[1.13,49.31],[1.29,49.39],[1.48,49.45],[1.66,49.4],[1.78,49.3],[1.7,49.23],[1.6,49.08],[1.46,49.03],[1.45,48.92],[1.38,48.79],[1.16,48.77],[1.01,48.73],[0.83,48.68],[0.77,48.74],[0.61,48.83],[0.45,48.88],[0.43,48.97],[0.38,49.07],[0.37,49.22],[0.32,49.3],[0.3,49.43]]},"28":{"n":"Eure-et-Loir","p":[[0.81,48.67],[0.96,48.72],[1.12,48.75],[1.25,48.77],[1.36,48.82],[1.45,48.92],[1.54,48.91],[1.59,48.81],[1.61,48.69],[1.7,48.58],[1.78,48.51],[1.91,48.44],[1.97,48.39],[1.98,48.29],[1.95,48.19],[1.88,48.1],[1.66,48.08],[1.51,48.03],[1.41,47.97],[1.3,47.97],[1.17,48.03],[0.99,48.1],[0.95,48.1],[0.85,48.13],[0.8,48.19],[0.79,48.34],[0.94,48.42],[0.97,48.52],[0.85,48.58],[0.81,48.67]]},"29":{"n":"Finist\u00e8re","p":[[-3.66,48.66],[-3.6,48.5],[-3.54,48.3],[-3.65,48.16],[-3.68,48.06],[-3.46,47.95],[-3.46,47.84],[-3.56,47.77],[-3.85,47.8],[-4.13,47.86],[-4.27,47.79],[-4.42,47.96],[-4.7,48.03],[-4.49,48.09],[-4.27,48.15],[-4.5,48.23],[-4.61,48.26],[-4.5,48.28],[-4.26,48.28],[-4.44,48.35],[-4.61,48.34],[-4.77,48.39],[-4.73,48.56],[-4.52,48.63],[-4.22,48.65],[-3.98,48.73],[-3.86,48.65],[-3.66,48.69],[-3.66,48.66]]},"30":{"n":"Gard","p":[[3.37,44.17],[3.61,44.12],[3.76,44.15],[3.94,44.19],[3.92,44.31],[3.98,44.44],[4.04,44.33],[4.22,44.29],[4.34,44.34],[4.45,44.3],[4.62,44.28],[4.71,44.19],[4.84,44.01],[4.69,43.88],[4.61,43.73],[4.48,43.67],[4.41,43.56],[4.12,43.51],[4.19,43.64],[4.05,43.77],[3.92,43.88],[3.8,43.94],[3.58,43.87],[3.46,43.87],[3.41,43.97],[3.33,44.08],[3.37,44.17]]},"31":{"n":"Haute-Garonne","p":[[0.95,43.79],[1.18,43.8],[1.31,43.83],[1.49,43.89],[1.59,43.81],[1.66,43.69],[1.85,43.57],[2.04,43.51],[1.9,43.41],[1.73,43.31],[1.52,43.29],[1.43,43.26],[1.37,43.24],[1.27,43.14],[1.13,43.15],[1.02,43.01],[0.84,42.89],[0.67,42.8],[0.48,42.7],[0.56,42.86],[0.61,43.03],[0.53,43.09],[0.55,43.24],[0.77,43.42],[0.98,43.36],[1.06,43.51],[1.18,43.61],[0.95,43.79]]},"32":{"n":"Gers","p":[[0.08,43.98],[0.22,44.02],[0.44,44.03],[0.6,44.07],[0.74,44.07],[0.81,44.02],[0.81,43.93],[0.9,43.84],[1.01,43.73],[1.16,43.61],[1.13,43.55],[1.02,43.48],[1.0,43.38],[0.86,43.41],[0.73,43.37],[0.5,43.33],[0.34,43.34],[0.18,43.37],[0.14,43.47],[0.03,43.54],[-0.08,43.59],[-0.21,43.59],[-0.24,43.67],[-0.21,43.75],[-0.2,43.91],[-0.04,43.98],[0.07,43.91],[0.08,43.98]]},"33":{"n":"Gironde","p":[[-0.72,45.33],[-0.44,45.28],[-0.36,45.17],[-0.15,45.09],[0.04,45.12],[0.03,44.92],[0.24,44.86],[0.3,44.76],[0.12,44.71],[0.16,44.62],[0.01,44.45],[-0.08,44.35],[-0.12,44.24],[-0.31,44.2],[-0.48,44.32],[-0.68,44.44],[-0.92,44.44],[-1.11,44.5],[-1.19,44.66],[-1.06,44.71],[-1.24,44.68],[-1.16,45.3],[-1.09,45.56],[-0.9,45.41],[-0.65,45.05],[-0.69,45.22],[-0.72,45.33]]},"34":{"n":"H\u00e9rault","p":[[3.36,43.91],[3.48,43.89],[3.6,43.85],[3.73,43.97],[3.83,43.92],[3.92,43.88],[4.0,43.81],[4.14,43.73],[4.17,43.61],[4.06,43.56],[3.8,43.44],[3.6,43.36],[3.39,43.28],[3.2,43.25],[3.08,43.26],[2.89,43.33],[2.79,43.29],[2.7,43.28],[2.58,43.33],[2.59,43.41],[2.65,43.5],[2.63,43.61],[2.82,43.64],[2.95,43.69],[3.05,43.72],[3.06,43.81],[3.25,43.83],[3.36,43.91]]},"35":{"n":"Ille-et-Vilaine","p":[[-1.95,48.54],[-2.0,48.66],[-1.84,48.68],[-1.57,48.63],[-1.5,48.51],[-1.33,48.5],[-1.15,48.52],[-1.08,48.41],[-1.07,48.2],[-1.02,48.01],[-1.16,47.94],[-1.24,47.81],[-1.47,47.83],[-1.62,47.76],[-1.75,47.71],[-1.97,47.69],[-2.11,47.65],[-2.06,47.74],[-2.04,47.83],[-2.1,47.9],[-2.17,47.98],[-2.19,48.05],[-2.29,48.13],[-2.19,48.25],[-2.01,48.28],[-1.94,48.39],[-1.91,48.52],[-1.95,48.54]]},"36":{"n":"Indre","p":[[1.33,47.19],[1.52,47.23],[1.65,47.27],[1.78,47.23],[1.81,47.16],[1.88,47.1],[2.05,47.11],[2.07,46.95],[2.14,46.89],[2.1,46.8],[2.16,46.69],[2.17,46.57],[2.16,46.46],[2.07,46.42],[1.91,46.44],[1.76,46.43],[1.61,46.41],[1.46,46.38],[1.36,46.4],[1.2,46.39],[1.13,46.5],[1.01,46.57],[0.91,46.65],[0.88,46.75],[1.01,46.76],[1.04,46.94],[1.11,47.03],[1.28,47.04],[1.37,47.12],[1.33,47.19]]},"37":{"n":"Indre-et-Loire","p":[[0.61,47.69],[0.77,47.68],[0.9,47.6],[1.01,47.6],[1.09,47.47],[1.12,47.38],[1.11,47.3],[1.22,47.29],[1.35,47.17],[1.29,47.07],[1.13,47.03],[1.06,46.96],[0.99,46.8],[0.93,46.76],[0.81,46.83],[0.64,46.99],[0.6,46.96],[0.44,46.93],[0.31,47.0],[0.25,47.07],[0.16,47.1],[0.07,47.19],[0.12,47.33],[0.17,47.41],[0.22,47.53],[0.26,47.61],[0.4,47.58],[0.45,47.62],[0.56,47.67],[0.61,47.69]]},"38":{"n":"Is\u00e8re","p":[[5.62,45.61],[5.74,45.47],[5.89,45.39],[5.99,45.48],[6.14,45.41],[6.13,45.24],[6.25,45.15],[6.25,45.0],[6.35,44.92],[6.25,44.85],[6.0,44.82],[5.89,44.75],[5.65,44.72],[5.46,44.83],[5.48,45.08],[5.25,45.06],[5.19,45.17],[5.05,45.32],[4.86,45.31],[4.74,45.42],[4.86,45.54],[4.93,45.61],[5.06,45.67],[5.07,45.77],[5.22,45.77],[5.43,45.83],[5.58,45.69],[5.62,45.61]]},"39":{"n":"Jura","p":[[5.52,47.3],[5.64,47.26],[5.75,47.21],[5.82,47.14],[5.75,47.02],[5.91,47.0],[5.96,46.95],[6.03,46.86],[6.18,46.8],[6.11,46.71],[6.13,46.55],[6.07,46.46],[5.94,46.31],[5.85,46.26],[5.68,46.31],[5.54,46.27],[5.47,46.32],[5.38,46.38],[5.32,46.46],[5.36,46.52],[5.42,46.65],[5.36,46.73],[5.33,46.81],[5.42,46.86],[5.33,46.89],[5.26,46.98],[5.28,47.05],[5.44,47.14],[5.49,47.25],[5.52,47.3]]},"40":{"n":"Landes","p":[[-0.24,43.58],[-0.41,43.57],[-0.51,43.57],[-0.67,43.57],[-0.84,43.55],[-0.99,43.53],[-1.12,43.5],[-1.2,43.55],[-1.42,43.5],[-1.52,43.53],[-1.41,43.8],[-1.25,44.47],[-0.98,44.48],[-0.84,44.42],[-0.68,44.44],[-0.53,44.36],[-0.4,44.29],[-0.27,44.19],[-0.14,44.23],[-0.0,44.15],[0.09,44.07],[0.07,43.91],[0.0,43.96],[-0.17,43.93],[-0.2,43.86],[-0.23,43.72],[-0.24,43.65],[-0.24,43.58]]},"41":{"n":"Loir-et-Cher","p":[[0.84,48.1],[1.01,48.13],[1.1,48.08],[1.26,47.96],[1.41,47.97],[1.53,47.94],[1.54,47.84],[1.63,47.76],[1.85,47.66],[2.0,47.67],[2.2,47.68],[2.12,47.58],[2.24,47.47],[2.12,47.41],[2.08,47.29],[1.92,47.24],[1.78,47.23],[1.59,47.28],[1.45,47.24],[1.24,47.27],[1.11,47.3],[1.09,47.43],[1.05,47.54],[0.99,47.62],[0.83,47.68],[0.61,47.69],[0.75,47.83],[0.85,47.94],[0.8,48.07],[0.84,48.1]]},"42":{"n":"Loire","p":[[3.9,46.28],[4.03,46.17],[4.21,46.19],[4.32,46.17],[4.41,46.14],[4.29,46.05],[4.3,45.97],[4.36,45.87],[4.4,45.75],[4.45,45.61],[4.64,45.55],[4.72,45.49],[4.76,45.37],[4.6,45.29],[4.42,45.28],[4.35,45.36],[4.19,45.38],[4.06,45.34],[3.92,45.34],[3.97,45.47],[3.9,45.6],[3.76,45.75],[3.73,45.87],[3.74,45.97],[3.82,46.09],[3.77,46.24],[3.9,46.28]]},"43":{"n":"Haute-Loire","p":[[3.9,45.36],[4.02,45.33],[4.15,45.36],[4.24,45.38],[4.37,45.34],[4.42,45.28],[4.45,45.16],[4.37,45.1],[4.34,45.03],[4.25,44.96],[4.16,44.87],[4.03,44.83],[3.89,44.75],[3.75,44.82],[3.65,44.87],[3.54,44.83],[3.44,44.88],[3.36,44.97],[3.3,45.03],[3.29,45.12],[3.23,45.27],[3.1,45.32],[3.29,45.4],[3.46,45.4],[3.59,45.38],[3.71,45.36],[3.84,45.38],[3.9,45.36]]},"44":{"n":"Loire-Atlantique","p":[[-2.46,47.45],[-2.31,47.49],[-2.16,47.52],[-2.07,47.65],[-1.86,47.71],[-1.64,47.72],[-1.48,47.83],[-1.24,47.76],[-1.16,47.66],[-1.05,47.56],[-0.96,47.42],[-1.17,47.37],[-1.3,47.3],[-1.19,47.22],[-1.24,47.1],[-1.23,47.06],[-1.38,47.03],[-1.47,46.93],[-1.56,47.02],[-1.63,46.88],[-1.78,46.93],[-1.97,47.03],[-2.18,47.12],[-2.17,47.24],[-2.37,47.28],[-2.56,47.37],[-2.46,47.45]]},"45":{"n":"Loiret","p":[[2.94,48.16],[3.09,48.05],[3.01,47.9],[3.02,47.79],[2.85,47.73],[2.94,47.6],[2.86,47.55],[2.78,47.52],[2.66,47.49],[2.55,47.58],[2.34,47.61],[2.2,47.68],[2.0,47.67],[1.85,47.66],[1.63,47.76],[1.54,47.84],[1.53,47.94],[1.55,48.04],[1.74,48.07],[1.9,48.15],[1.99,48.29],[2.2,48.34],[2.36,48.31],[2.51,48.23],[2.49,48.13],[2.66,48.12],[2.8,48.14],[2.94,48.16]]},"46":{"n":"Lot","p":[[1.45,45.02],[1.58,45.04],[1.71,44.97],[1.82,44.93],[1.94,44.96],[2.08,44.93],[2.17,44.81],[2.18,44.67],[2.17,44.59],[2.06,44.58],[1.89,44.51],[1.85,44.44],[1.83,44.32],[1.65,44.29],[1.59,44.25],[1.5,44.27],[1.36,44.2],[1.3,44.26],[1.16,44.31],[1.13,44.37],[1.06,44.4],[1.01,44.48],[1.08,44.58],[1.22,44.68],[1.3,44.78],[1.4,44.85],[1.43,44.94],[1.45,45.02]]},"47":{"n":"Lot-et-Garonne","p":[[0.3,44.76],[0.35,44.66],[0.49,44.67],[0.61,44.7],[0.78,44.68],[0.84,44.64],[0.89,44.61],[1.08,44.58],[1.01,44.48],[1.06,44.4],[0.98,44.36],[0.9,44.35],[0.95,44.27],[0.85,44.17],[0.8,44.15],[0.71,44.06],[0.6,44.07],[0.46,44.06],[0.3,43.99],[0.16,43.98],[0.09,44.07],[-0.0,44.15],[-0.14,44.23],[-0.03,44.3],[-0.01,44.37],[0.01,44.45],[0.07,44.55],[0.14,44.67],[0.13,44.7],[0.26,44.75],[0.3,44.76]]},"48":{"n":"Loz\u00e8re","p":[[3.36,44.97],[3.41,44.92],[3.48,44.81],[3.6,44.86],[3.67,44.84],[3.75,44.82],[3.86,44.74],[3.91,44.61],[3.99,44.47],[3.94,44.4],[3.94,44.32],[3.96,44.27],[3.94,44.19],[3.87,44.13],[3.73,44.16],[3.64,44.18],[3.55,44.11],[3.43,44.15],[3.3,44.21],[3.22,44.23],[3.12,44.26],[3.12,44.36],[3.14,44.43],[3.07,44.5],[3.01,44.62],[3.03,44.75],[3.1,44.83],[3.17,44.87],[3.23,44.91],[3.3,44.94],[3.36,44.97]]},"49":{"n":"Maine-et-Loire","p":[[-1.25,47.78],[-1.07,47.77],[-0.88,47.76],[-0.74,47.74],[-0.53,47.75],[-0.38,47.76],[-0.18,47.71],[-0.14,47.63],[0.05,47.61],[0.23,47.58],[0.18,47.45],[0.15,47.35],[0.07,47.19],[-0.04,47.09],[-0.18,47.07],[-0.34,47.09],[-0.46,47.08],[-0.64,46.99],[-0.86,46.98],[-1.02,47.0],[-1.15,47.07],[-1.18,47.16],[-1.23,47.24],[-1.34,47.32],[-1.11,47.37],[-0.96,47.42],[-1.04,47.55],[-1.14,47.62],[-1.2,47.72],[-1.25,47.78]]},"50":{"n":"Manche","p":[[-1.12,49.36],[-1.08,49.23],[-0.93,49.15],[-0.86,49.03],[-1.01,48.92],[-1.1,48.81],[-0.92,48.77],[-0.74,48.68],[-0.81,48.55],[-0.97,48.49],[-1.17,48.53],[-1.34,48.47],[-1.52,48.54],[-1.54,48.63],[-1.51,48.69],[-1.6,48.84],[-1.56,48.94],[-1.61,49.2],[-1.71,49.33],[-1.84,49.47],[-1.85,49.62],[-1.94,49.73],[-1.77,49.68],[-1.52,49.66],[-1.3,49.69],[-1.27,49.59],[-1.17,49.41],[-1.12,49.36]]},"51":{"n":"Marne","p":[[4.05,49.41],[4.31,49.33],[4.54,49.29],[4.73,49.25],[4.95,49.24],[5.01,49.06],[5.03,48.96],[4.89,48.82],[4.99,48.68],[4.77,48.66],[4.78,48.57],[4.53,48.53],[4.33,48.67],[4.08,48.7],[3.95,48.6],[3.82,48.52],[3.63,48.57],[3.44,48.66],[3.41,48.78],[3.57,48.92],[3.68,49.02],[3.61,49.14],[3.73,49.17],[3.64,49.31],[3.84,49.4],[4.04,49.36],[4.05,49.41]]},"52":{"n":"Haute-Marne","p":[[4.67,48.53],[4.83,48.61],[4.82,48.67],[5.01,48.67],[5.05,48.63],[5.26,48.52],[5.45,48.43],[5.42,48.34],[5.61,48.29],[5.73,48.19],[5.66,48.08],[5.85,47.96],[5.76,47.86],[5.68,47.77],[5.65,47.68],[5.45,47.67],[5.34,47.61],[5.17,47.65],[4.99,47.69],[4.92,47.78],[4.93,47.89],[4.85,47.96],[4.72,48.01],[4.76,48.12],[4.86,48.2],[4.84,48.34],[4.65,48.47],[4.67,48.53]]},"53":{"n":"Mayenne","p":[[-1.07,48.51],[-0.92,48.51],[-0.78,48.45],[-0.7,48.47],[-0.53,48.5],[-0.34,48.5],[-0.26,48.55],[-0.17,48.52],[-0.05,48.38],[-0.16,48.34],[-0.15,48.22],[-0.22,48.11],[-0.32,48.05],[-0.34,47.93],[-0.38,47.89],[-0.39,47.81],[-0.45,47.76],[-0.61,47.74],[-0.76,47.75],[-0.88,47.76],[-1.02,47.77],[-1.2,47.8],[-1.2,47.89],[-1.1,47.99],[-1.02,48.07],[-1.1,48.26],[-1.08,48.41],[-1.07,48.51]]},"54":{"n":"Meurthe-et-Moselle","p":[[5.47,49.5],[5.73,49.54],[5.94,49.47],[5.99,49.31],[6.0,49.19],[6.05,49.01],[6.25,48.92],[6.33,48.82],[6.56,48.75],[6.76,48.66],[6.96,48.61],[7.12,48.51],[6.77,48.4],[6.53,48.43],[6.26,48.41],[6.05,48.37],[5.86,48.42],[5.77,48.5],[5.74,48.67],[5.78,48.84],[5.85,48.95],[5.82,49.11],[5.72,49.22],[5.74,49.35],[5.5,49.41],[5.46,49.48],[5.47,49.5]]},"55":{"n":"Meuse","p":[[4.95,49.24],[5.06,49.37],[5.06,49.5],[5.16,49.56],[5.38,49.59],[5.47,49.5],[5.47,49.41],[5.61,49.42],[5.72,49.33],[5.74,49.23],[5.75,49.12],[5.85,49.04],[5.82,48.94],[5.77,48.87],[5.72,48.73],[5.76,48.61],[5.74,48.47],[5.51,48.42],[5.33,48.5],[5.12,48.58],[5.01,48.63],[4.99,48.74],[4.92,48.86],[5.04,48.97],[5.01,49.06],[4.97,49.24],[4.95,49.24]]},"56":{"n":"Morbihan","p":[[-3.52,47.85],[-3.4,47.94],[-3.58,47.99],[-3.72,48.12],[-3.42,48.17],[-3.25,48.15],[-3.01,48.17],[-2.7,48.12],[-2.55,48.08],[-2.4,48.15],[-2.23,48.08],[-2.2,47.99],[-2.12,47.88],[-2.07,47.79],[-2.1,47.68],[-2.16,47.52],[-2.31,47.46],[-2.5,47.46],[-2.6,47.52],[-2.85,47.5],[-2.81,47.55],[-2.83,47.61],[-3.09,47.56],[-3.13,47.55],[-3.13,47.71],[-3.29,47.7],[-3.53,47.78],[-3.52,47.85]]},"57":{"n":"Moselle","p":[[5.89,49.5],[6.16,49.5],[6.47,49.46],[6.62,49.3],[6.74,49.16],[6.94,49.22],[7.1,49.14],[7.36,49.15],[7.57,49.08],[7.53,48.93],[7.24,48.99],[7.08,49.05],[6.96,48.9],[7.08,48.81],[7.26,48.8],[7.3,48.66],[7.15,48.53],[6.93,48.64],[6.73,48.66],[6.54,48.75],[6.34,48.83],[6.22,48.94],[5.95,49.05],[5.98,49.19],[5.94,49.33],[5.9,49.48],[5.89,49.5]]},"58":{"n":"Ni\u00e8vre","p":[[2.87,47.52],[2.96,47.56],[3.1,47.59],[3.27,47.49],[3.44,47.51],[3.55,47.5],[3.74,47.4],[3.84,47.41],[3.87,47.37],[3.97,47.33],[4.12,47.34],[4.18,47.25],[4.18,47.15],[4.06,47.12],[4.03,47.0],[4.04,46.92],[4.06,46.84],[3.89,46.73],[3.74,46.75],[3.6,46.72],[3.52,46.69],[3.43,46.69],[3.31,46.69],[3.16,46.69],[3.06,46.83],[3.06,46.99],[3.03,47.13],[2.91,47.31],[2.9,47.48],[2.87,47.52]]},"59":{"n":"Nord","p":[[2.07,51.01],[2.34,51.06],[2.61,50.99],[2.74,50.78],[2.92,50.7],[3.15,50.78],[3.26,50.62],[3.43,50.51],[3.61,50.5],[3.73,50.31],[3.99,50.35],[4.19,50.24],[4.23,50.08],[4.09,49.97],[3.88,50.03],[3.66,50.04],[3.49,50.02],[3.2,50.02],[3.09,50.12],[3.16,50.24],[2.99,50.4],[2.96,50.51],[2.81,50.58],[2.77,50.66],[2.56,50.62],[2.38,50.67],[2.34,50.78],[2.07,51.01]]},"60":{"n":"Oise","p":[[1.78,49.76],[1.99,49.71],[2.22,49.7],[2.45,49.65],[2.62,49.61],[2.74,49.63],[2.86,49.68],[3.12,49.71],[3.14,49.58],[3.11,49.47],[3.08,49.37],[3.04,49.29],[2.97,49.21],[3.1,49.2],[3.07,49.12],[2.86,49.07],[2.67,49.09],[2.47,49.14],[2.25,49.15],[2.0,49.18],[1.85,49.17],[1.71,49.26],[1.77,49.32],[1.75,49.46],[1.72,49.51],[1.72,49.62],[1.69,49.69],[1.78,49.76]]},"61":{"n":"Orne","p":[[-0.84,48.75],[-0.69,48.85],[-0.41,48.87],[-0.26,48.85],[0.01,48.89],[0.19,48.94],[0.33,48.94],[0.39,48.91],[0.55,48.88],[0.73,48.79],[0.76,48.68],[0.85,48.58],[0.95,48.5],[0.91,48.37],[0.79,48.26],[0.68,48.25],[0.49,48.29],[0.37,48.41],[0.17,48.46],[0.02,48.38],[-0.11,48.45],[-0.23,48.56],[-0.34,48.5],[-0.55,48.47],[-0.74,48.46],[-0.86,48.5],[-0.75,48.62],[-0.84,48.75]]},"62":{"n":"Pas-de-Calais","p":[[2.07,51.01],[2.25,50.79],[2.38,50.7],[2.5,50.63],[2.68,50.63],[2.84,50.66],[2.81,50.55],[2.96,50.51],[3.03,50.41],[3.05,50.28],[3.13,50.2],[3.09,50.08],[2.92,50.04],[2.74,50.05],[2.62,50.11],[2.48,50.14],[2.39,50.16],[2.41,50.23],[2.25,50.21],[2.06,50.26],[1.92,50.31],[1.74,50.35],[1.57,50.44],[1.58,50.64],[1.58,50.87],[1.83,50.96],[2.07,51.01]]},"63":{"n":"Puy-de-D\u00f4me","p":[[2.57,46.14],[2.73,46.2],[2.82,46.23],[2.92,46.19],[3.05,46.1],[3.21,46.07],[3.42,46.07],[3.54,46.02],[3.75,45.89],[3.73,45.76],[3.88,45.6],[3.98,45.49],[3.9,45.36],[3.79,45.35],[3.59,45.36],[3.46,45.4],[3.22,45.38],[3.02,45.3],[2.89,45.38],[2.71,45.38],[2.54,45.48],[2.48,45.61],[2.52,45.71],[2.4,45.84],[2.57,45.96],[2.55,46.12],[2.57,46.14]]},"64":{"n":"Pyr\u00e9n\u00e9es-Atlantiques","p":[[-0.24,43.58],[-0.1,43.58],[-0.07,43.46],[-0.0,43.39],[-0.04,43.29],[-0.13,43.16],[-0.2,43.04],[-0.28,42.93],[-0.37,42.81],[-0.52,42.8],[-0.6,42.83],[-0.73,42.92],[-0.95,42.95],[-1.17,43.04],[-1.31,43.07],[-1.35,43.03],[-1.4,43.16],[-1.5,43.28],[-1.63,43.28],[-1.79,43.35],[-1.55,43.5],[-1.42,43.5],[-1.17,43.55],[-1.07,43.52],[-0.9,43.55],[-0.7,43.56],[-0.51,43.57],[-0.35,43.56],[-0.24,43.58]]},"65":{"n":"Hautes-Pyr\u00e9n\u00e9es","p":[[-0.1,43.58],[-0.0,43.57],[0.09,43.51],[0.17,43.44],[0.23,43.37],[0.34,43.34],[0.5,43.33],[0.62,43.29],[0.52,43.19],[0.53,43.09],[0.53,43.01],[0.63,43.0],[0.61,42.93],[0.48,42.88],[0.46,42.73],[0.39,42.71],[0.27,42.7],[0.16,42.72],[0.02,42.7],[-0.16,42.8],[-0.31,42.87],[-0.26,43.01],[-0.19,43.08],[-0.12,43.18],[-0.04,43.29],[-0.01,43.37],[-0.04,43.41],[-0.04,43.51],[-0.1,43.58]]},"66":{"n":"Pyr\u00e9n\u00e9es-Orientales","p":[[2.17,42.66],[2.3,42.7],[2.34,42.78],[2.38,42.85],[2.55,42.85],[2.74,42.84],[2.82,42.9],[2.91,42.9],[3.04,42.8],[3.05,42.59],[3.11,42.53],[3.15,42.48],[3.09,42.43],[2.99,42.47],[2.86,42.46],[2.77,42.41],[2.66,42.39],[2.55,42.35],[2.47,42.36],[2.31,42.43],[2.2,42.42],[2.09,42.37],[1.96,42.39],[1.92,42.45],[1.84,42.48],[1.73,42.52],[1.8,42.57],[1.94,42.61],[2.02,42.65],[2.17,42.66]]},"67":{"n":"Bas-Rhin","p":[[7.64,49.05],[7.79,49.07],[7.96,49.04],[8.14,48.98],[8.12,48.87],[8.0,48.76],[7.83,48.62],[7.77,48.49],[7.73,48.32],[7.6,48.16],[7.48,48.16],[7.4,48.23],[7.24,48.3],[7.11,48.38],[7.08,48.51],[7.17,48.53],[7.28,48.63],[7.26,48.69],[7.26,48.8],[7.15,48.82],[7.05,48.85],[6.99,48.89],[7.03,48.96],[7.07,49.07],[7.17,49.01],[7.36,48.96],[7.53,48.93],[7.64,49.05]]},"68":{"n":"Haut-Rhin","p":[[7.2,48.31],[7.31,48.27],[7.4,48.23],[7.48,48.2],[7.51,48.15],[7.58,48.11],[7.61,48.0],[7.58,47.9],[7.53,47.79],[7.54,47.72],[7.57,47.63],[7.51,47.54],[7.51,47.5],[7.42,47.48],[7.38,47.43],[7.25,47.42],[7.17,47.44],[7.13,47.5],[7.09,47.59],[7.0,47.62],[7.03,47.7],[6.97,47.75],[6.86,47.79],[6.9,47.84],[6.93,47.91],[6.96,48.0],[7.05,48.08],[7.09,48.18],[7.16,48.27],[7.2,48.31]]},"69":{"n":"Rh\u00f4ne","p":[[4.39,46.22],[4.49,46.29],[4.59,46.27],[4.69,46.3],[4.72,46.22],[4.76,46.17],[4.75,46.09],[4.75,45.97],[4.79,45.92],[4.88,45.9],[4.92,45.85],[5.04,45.81],[5.07,45.77],[5.16,45.71],[5.06,45.65],[5.0,45.6],[4.86,45.59],[4.84,45.54],[4.78,45.47],[4.72,45.49],[4.68,45.55],[4.58,45.57],[4.45,45.61],[4.37,45.67],[4.35,45.77],[4.36,45.87],[4.35,45.93],[4.3,45.99],[4.29,46.05],[4.36,46.14],[4.4,46.19],[4.39,46.22]]},"70":{"n":"Haute-Sa\u00f4ne","p":[[5.88,47.93],[5.96,47.97],[6.02,47.98],[6.17,47.95],[6.32,47.95],[6.54,47.9],[6.7,47.88],[6.81,47.8],[6.78,47.69],[6.81,47.56],[6.67,47.56],[6.58,47.51],[6.5,47.51],[6.28,47.44],[6.16,47.39],[5.98,47.33],[5.84,47.3],[5.68,47.28],[5.53,47.28],[5.5,47.39],[5.38,47.46],[5.5,47.55],[5.37,47.62],[5.53,47.67],[5.69,47.68],[5.68,47.77],[5.74,47.85],[5.89,47.91],[5.88,47.93]]},"71":{"n":"Sa\u00f4ne-et-Loire","p":[[4.12,47.12],[4.27,47.11],[4.51,47.01],[4.69,46.9],[4.99,46.96],[5.22,46.99],[5.39,46.89],[5.33,46.81],[5.4,46.69],[5.38,46.52],[5.2,46.51],[4.92,46.49],[4.81,46.26],[4.72,46.22],[4.59,46.27],[4.39,46.22],[4.21,46.19],[3.97,46.2],[3.99,46.32],[3.89,46.48],[3.73,46.55],[3.64,46.71],[3.84,46.72],[4.09,46.87],[4.03,47.0],[4.12,47.12]]},"72":{"n":"Sarthe","p":[[-0.05,48.38],[0.07,48.41],[0.19,48.46],[0.37,48.41],[0.49,48.31],[0.62,48.25],[0.76,48.18],[0.91,48.14],[0.8,48.04],[0.85,47.94],[0.77,47.84],[0.61,47.73],[0.56,47.67],[0.45,47.62],[0.4,47.58],[0.26,47.61],[0.12,47.61],[-0.07,47.66],[-0.2,47.66],[-0.24,47.7],[-0.38,47.77],[-0.37,47.86],[-0.38,47.93],[-0.34,48.01],[-0.24,48.09],[-0.15,48.21],[-0.15,48.31],[-0.08,48.37],[-0.05,48.38]]},"73":{"n":"Savoie","p":[[6.8,45.78],[6.97,45.65],[7.01,45.52],[7.15,45.42],[7.11,45.33],[7.05,45.23],[6.88,45.16],[6.71,45.14],[6.56,45.1],[6.44,45.06],[6.3,45.11],[6.16,45.15],[6.13,45.29],[6.13,45.43],[5.99,45.48],[5.91,45.39],[5.74,45.44],[5.67,45.54],[5.69,45.67],[5.79,45.81],[5.88,45.86],[6.01,45.75],[6.18,45.75],[6.3,45.69],[6.49,45.89],[6.55,45.83],[6.7,45.74],[6.8,45.78]]},"74":{"n":"Haute-Savoie","p":[[6.8,45.78],[6.69,45.73],[6.66,45.8],[6.54,45.86],[6.51,45.9],[6.42,45.8],[6.28,45.68],[6.2,45.73],[6.08,45.74],[5.97,45.77],[5.87,45.84],[5.83,45.94],[5.81,46.04],[5.88,46.08],[5.99,46.14],[6.13,46.14],[6.28,46.22],[6.24,46.28],[6.34,46.37],[6.47,46.37],[6.59,46.4],[6.81,46.38],[6.83,46.3],[6.8,46.2],[6.81,46.13],[6.87,46.05],[6.98,46.01],[7.04,45.95],[7.01,45.88],[6.9,45.84],[6.81,45.81],[6.8,45.78]]},"75":{"n":"Paris","p":[[2.42,48.85],[2.46,48.84],[2.46,48.82],[2.44,48.82],[2.4,48.83],[2.36,48.82],[2.33,48.82],[2.28,48.83],[2.22,48.85],[2.23,48.87],[2.26,48.88],[2.28,48.88],[2.32,48.9],[2.39,48.9],[2.41,48.87],[2.42,48.85]]},"76":{"n":"Seine-Maritime","p":[[1.38,50.07],[1.49,50.02],[1.68,49.92],[1.78,49.76],[1.69,49.69],[1.71,49.65],[1.73,49.54],[1.79,49.5],[1.71,49.41],[1.53,49.44],[1.34,49.43],[1.27,49.35],[1.09,49.31],[0.96,49.29],[0.87,49.34],[0.86,49.4],[0.66,49.42],[0.49,49.48],[0.27,49.45],[0.09,49.48],[0.14,49.62],[0.28,49.74],[0.52,49.82],[0.79,49.88],[1.02,49.92],[1.38,50.07]]},"77":{"n":"Seine-et-Marne","p":[[2.57,48.69],[2.59,48.81],[2.59,48.95],[2.59,49.05],[2.71,49.07],[2.86,49.07],[3.05,49.09],[3.15,49.08],[3.27,48.94],[3.38,48.89],[3.49,48.85],[3.4,48.76],[3.47,48.69],[3.56,48.62],[3.46,48.53],[3.41,48.45],[3.37,48.39],[3.23,48.37],[3.04,48.34],[2.97,48.21],[2.82,48.13],[2.72,48.14],[2.57,48.14],[2.48,48.16],[2.47,48.26],[2.43,48.34],[2.51,48.43],[2.52,48.58],[2.59,48.68],[2.57,48.69]]},"78":{"n":"Yvelines","p":[[2.2,48.91],[2.15,48.84],[2.18,48.8],[2.2,48.77],[2.13,48.74],[2.08,48.69],[2.06,48.62],[2.02,48.57],[1.94,48.56],[1.95,48.52],[1.92,48.46],[1.84,48.45],[1.78,48.51],[1.77,48.57],[1.71,48.61],[1.6,48.66],[1.63,48.75],[1.59,48.81],[1.55,48.87],[1.54,48.92],[1.5,48.98],[1.46,49.03],[1.48,49.05],[1.6,49.08],[1.67,49.08],[1.76,49.06],[1.83,49.08],[1.87,49.02],[1.94,49.02],[2.08,49.01],[2.15,48.99],[2.21,48.95],[2.2,48.91]]},"79":{"n":"Deux-S\u00e8vres","p":[[-0.89,46.98],[-0.68,47.0],[-0.5,47.08],[-0.36,47.09],[-0.15,47.1],[-0.07,46.99],[0.03,46.85],[-0.01,46.76],[-0.03,46.65],[-0.01,46.57],[-0.01,46.45],[0.03,46.35],[0.17,46.31],[0.11,46.21],[0.21,46.14],[0.07,46.09],[-0.1,45.97],[-0.19,46.04],[-0.37,46.09],[-0.62,46.14],[-0.74,46.27],[-0.67,46.32],[-0.54,46.39],[-0.62,46.44],[-0.61,46.56],[-0.64,46.66],[-0.71,46.82],[-0.83,46.93],[-0.89,46.98]]},"80":{"n":"Somme","p":[[1.38,50.07],[1.63,50.19],[1.59,50.26],[1.64,50.35],[1.87,50.33],[2.0,50.27],[2.17,50.21],[2.37,50.21],[2.45,50.18],[2.43,50.09],[2.58,50.13],[2.76,50.11],[2.86,50.08],[3.07,50.05],[3.15,49.94],[3.08,49.82],[3.03,49.68],[2.8,49.66],[2.67,49.6],[2.57,49.6],[2.37,49.66],[2.12,49.69],[1.89,49.7],[1.74,49.81],[1.53,50.0],[1.41,50.06],[1.38,50.07]]},"81":{"n":"Tarn","p":[[1.99,44.15],[2.15,44.2],[2.24,44.16],[2.32,44.12],[2.46,44.03],[2.5,43.95],[2.57,43.87],[2.71,43.74],[2.88,43.74],[2.92,43.66],[2.72,43.65],[2.62,43.57],[2.61,43.43],[2.43,43.44],[2.24,43.45],[2.17,43.42],[2.01,43.45],[2.01,43.48],[1.88,43.54],[1.76,43.6],[1.72,43.69],[1.65,43.75],[1.59,43.81],[1.55,43.9],[1.57,43.97],[1.69,44.02],[1.65,44.1],[1.77,44.1],[1.86,44.14],[1.97,44.14],[1.99,44.15]]},"82":{"n":"Tarn-et-Garonne","p":[[1.06,44.38],[1.11,44.34],[1.3,44.29],[1.36,44.2],[1.51,44.27],[1.62,44.3],[1.77,44.31],[1.87,44.29],[1.9,44.21],[1.97,44.14],[1.83,44.13],[1.71,44.12],[1.69,44.06],[1.61,43.96],[1.53,43.92],[1.41,43.88],[1.33,43.84],[1.22,43.77],[1.08,43.81],[0.92,43.79],[0.89,43.9],[0.78,43.96],[0.83,44.06],[0.8,44.12],[0.85,44.17],[0.92,44.29],[0.9,44.38],[1.06,44.38]]},"83":{"n":"Var","p":[[5.75,43.72],[5.9,43.75],[6.01,43.69],[6.14,43.74],[6.33,43.75],[6.48,43.79],[6.66,43.75],[6.77,43.69],[6.89,43.61],[6.93,43.48],[6.83,43.42],[6.71,43.34],[6.64,43.27],[6.67,43.21],[6.46,43.16],[6.32,43.11],[6.15,43.06],[6.03,43.08],[5.92,43.09],[5.77,43.12],[5.68,43.24],[5.68,43.32],[5.75,43.4],[5.72,43.55],[5.7,43.64],[5.75,43.72]]},"84":{"n":"Vaucluse","p":[[4.65,44.27],[4.68,44.32],[4.8,44.3],[4.81,44.23],[4.93,44.26],[5.06,44.31],[5.17,44.31],[5.16,44.25],[5.24,44.21],[5.34,44.2],[5.38,44.16],[5.5,44.12],[5.54,44.03],[5.51,43.95],[5.58,43.93],[5.55,43.85],[5.63,43.83],[5.68,43.79],[5.75,43.74],[5.74,43.72],[5.65,43.68],[5.53,43.66],[5.32,43.74],[5.19,43.74],[5.03,43.83],[4.93,43.89],[4.85,43.91],[4.78,43.94],[4.84,43.99],[4.79,44.07],[4.71,44.1],[4.71,44.21],[4.65,44.25],[4.65,44.27]]},"85":{"n":"Vend\u00e9e","p":[[-1.15,47.03],[-0.97,47.01],[-0.85,46.95],[-0.78,46.84],[-0.67,46.72],[-0.61,46.62],[-0.6,46.53],[-0.62,46.44],[-0.57,46.39],[-0.64,46.34],[-0.72,46.3],[-0.85,46.32],[-0.94,46.34],[-1.05,46.34],[-1.2,46.3],[-1.37,46.35],[-1.5,46.4],[-1.76,46.47],[-1.89,46.63],[-2.14,46.82],[-2.03,47.01],[-1.92,46.98],[-1.75,46.93],[-1.66,46.87],[-1.53,46.94],[-1.5,47.04],[-1.47,46.93],[-1.38,46.99],[-1.29,47.04],[-1.2,47.04],[-1.15,47.03]]},"86":{"n":"Vienne","p":[[-0.1,47.06],[0.02,47.18],[0.16,47.1],[0.27,47.05],[0.31,46.94],[0.54,46.96],[0.62,47.01],[0.81,46.83],[0.91,46.68],[1.01,46.57],[1.15,46.47],[1.12,46.35],[0.97,46.29],[0.85,46.23],[0.81,46.14],[0.61,46.09],[0.44,46.1],[0.39,46.07],[0.21,46.14],[0.11,46.21],[0.17,46.31],[0.03,46.35],[-0.01,46.45],[-0.01,46.57],[-0.03,46.65],[-0.01,46.76],[0.03,46.85],[-0.07,46.99],[-0.1,47.06]]},"87":{"n":"Haute-Vienne","p":[[0.82,46.13],[0.85,46.24],[0.99,46.28],[1.13,46.36],[1.3,46.37],[1.44,46.31],[1.42,46.18],[1.54,46.08],[1.58,45.98],[1.58,45.93],[1.68,45.84],[1.85,45.81],[1.9,45.68],[1.75,45.65],[1.58,45.56],[1.45,45.53],[1.27,45.48],[1.14,45.47],[1.08,45.53],[0.99,45.6],[0.81,45.58],[0.76,45.67],[0.65,45.72],[0.75,45.8],[0.82,45.93],[0.89,46.02],[0.83,46.11],[0.82,46.13]]},"88":{"n":"Vosges","p":[[5.47,48.42],[5.68,48.47],[5.81,48.5],[5.9,48.45],[5.94,48.38],[6.07,48.36],[6.18,48.4],[6.31,48.41],[6.53,48.43],[6.65,48.43],[6.83,48.42],[7.09,48.51],[7.11,48.38],[7.17,48.3],[7.06,48.14],[6.96,48.0],[6.92,47.85],[6.78,47.85],[6.61,47.94],[6.43,47.94],[6.21,47.94],[6.13,48.02],[5.95,47.94],[5.92,47.95],[5.78,47.98],[5.63,48.08],[5.73,48.19],[5.65,48.27],[5.48,48.36],[5.41,48.38],[5.47,48.42]]},"89":{"n":"Yonne","p":[[2.94,48.16],[3.04,48.33],[3.25,48.37],[3.43,48.36],[3.59,48.28],[3.59,48.18],[3.74,48.13],[3.84,48.0],[3.99,47.93],[4.17,47.96],[4.29,47.93],[4.32,47.81],[4.27,47.7],[4.18,47.55],[4.09,47.4],[3.97,47.37],[3.88,47.43],[3.74,47.4],[3.5,47.56],[3.29,47.5],[3.08,47.59],[2.95,47.65],[2.95,47.77],[3.03,47.86],[3.1,48.01],[2.94,48.16]]},"90":{"n":"Territoire de Belfort","p":[[6.82,47.81],[6.85,47.82],[6.85,47.8],[6.86,47.79],[6.92,47.77],[6.94,47.77],[6.97,47.75],[7.01,47.74],[7.04,47.72],[7.03,47.7],[7.05,47.67],[7.02,47.65],[7.0,47.62],[7.03,47.59],[7.06,47.6],[7.09,47.59],[7.11,47.55],[7.14,47.54],[7.13,47.5],[7.11,47.49],[7.07,47.49],[7.02,47.5],[6.99,47.49],[7.0,47.45],[6.97,47.45],[6.94,47.43],[6.93,47.46],[6.92,47.47],[6.91,47.49],[6.93,47.5],[6.95,47.51],[6.91,47.53],[6.91,47.55],[6.88,47.56],[6.86,47.55],[6.82,47.55],[6.81,47.56],[6.8,47.58],[6.78,47.63],[6.8,47.64],[6.78,47.67],[6.78,47.69],[6.77,47.71],[6.76,47.72],[6.76,47.75],[6.79,47.78],[6.81,47.8],[6.82,47.81]]},"91":{"n":"Essonne","p":[[2.23,48.78],[2.31,48.73],[2.37,48.72],[2.5,48.74],[2.55,48.69],[2.54,48.67],[2.54,48.6],[2.5,48.53],[2.51,48.43],[2.47,48.38],[2.4,48.32],[2.31,48.33],[2.22,48.34],[2.16,48.3],[2.04,48.29],[1.96,48.31],[1.99,48.36],[1.93,48.41],[1.91,48.47],[1.97,48.53],[1.98,48.55],[2.04,48.59],[2.02,48.64],[2.11,48.71],[2.15,48.75],[2.23,48.78]]},"92":{"n":"Hauts-de-Seine","p":[[2.29,48.95],[2.33,48.95],[2.34,48.93],[2.32,48.92],[2.32,48.9],[2.28,48.88],[2.26,48.88],[2.23,48.87],[2.22,48.85],[2.28,48.83],[2.33,48.82],[2.32,48.79],[2.33,48.78],[2.31,48.76],[2.32,48.75],[2.31,48.73],[2.26,48.76],[2.23,48.77],[2.23,48.78],[2.2,48.8],[2.18,48.8],[2.18,48.81],[2.15,48.82],[2.15,48.84],[2.15,48.87],[2.17,48.9],[2.2,48.91],[2.27,48.95],[2.29,48.95]]},"93":{"n":"Seine-Saint-Denis","p":[[2.55,49.01],[2.58,48.99],[2.57,48.97],[2.59,48.95],[2.59,48.93],[2.59,48.89],[2.57,48.87],[2.59,48.83],[2.59,48.81],[2.53,48.85],[2.48,48.86],[2.42,48.85],[2.41,48.87],[2.39,48.9],[2.32,48.9],[2.32,48.92],[2.34,48.93],[2.33,48.95],[2.29,48.95],[2.3,48.97],[2.33,48.96],[2.34,48.97],[2.38,48.97],[2.41,48.96],[2.46,48.96],[2.47,48.96],[2.51,48.98],[2.53,49.01],[2.55,49.01]]},"94":{"n":"Val-de-Marne","p":[[2.33,48.82],[2.36,48.82],[2.4,48.83],[2.44,48.82],[2.46,48.82],[2.46,48.84],[2.42,48.85],[2.48,48.86],[2.53,48.85],[2.59,48.81],[2.61,48.77],[2.59,48.74],[2.59,48.73],[2.57,48.71],[2.57,48.69],[2.55,48.69],[2.53,48.7],[2.52,48.73],[2.5,48.74],[2.45,48.72],[2.41,48.72],[2.37,48.72],[2.35,48.74],[2.32,48.75],[2.31,48.76],[2.33,48.78],[2.32,48.79],[2.33,48.82]]},"95":{"n":"Val-d'Oise","p":[[2.59,49.08],[2.59,49.05],[2.55,49.01],[2.51,48.98],[2.46,48.96],[2.38,48.97],[2.33,48.96],[2.29,48.95],[2.2,48.91],[2.18,48.95],[2.15,48.99],[2.13,49.01],[2.02,49.0],[1.94,49.02],[1.89,49.04],[1.85,49.03],[1.83,49.08],[1.79,49.06],[1.72,49.04],[1.67,49.08],[1.61,49.08],[1.66,49.13],[1.67,49.21],[1.73,49.22],[1.76,49.17],[1.85,49.17],[1.89,49.16],[1.96,49.17],[2.0,49.18],[2.1,49.19],[2.18,49.17],[2.25,49.15],[2.31,49.19],[2.39,49.15],[2.47,49.14],[2.49,49.11],[2.59,49.08]]},"BAN":{"n":"Anvers","p":[[5.24,51.26],[5.03,51.49],[4.92,51.39],[4.77,51.41],[4.84,51.48],[4.77,51.51],[4.64,51.42],[4.48,51.48],[4.39,51.45],[4.42,51.37],[4.22,51.37],[4.33,51.16],[4.17,51.09],[4.39,51],[4.84,51.01],[5.26,51.15],[5.24,51.26]]},"BBF":{"n":"Brabant flamand","p":[[5.1,50.71],[5.19,50.9],[5.05,50.92],[5.16,51.02],[5.09,51.05],[4.48,50.99],[4.24,51.04],[4.16,50.99],[4.16,50.93],[4.09,50.93],[4.06,50.79],[3.94,50.77],[3.95,50.73],[3.89,50.71],[4.29,50.69],[4.46,50.76],[4.64,50.75],[4.65,50.79],[4.75,50.81],[5.1,50.71]]},"BBW":{"n":"Brabant wallon","p":[[5.02,50.75],[4.75,50.81],[4.65,50.79],[4.64,50.75],[4.46,50.76],[4.29,50.69],[4.16,50.73],[4.09,50.67],[4.13,50.63],[4.18,50.66],[4.34,50.54],[4.51,50.53],[4.66,50.56],[4.67,50.61],[4.98,50.64],[5.02,50.75]]},"BFO":{"n":"Flandre occidentale","p":[[3.46,50.76],[3.52,50.81],[3.46,50.86],[3.48,50.9],[3.42,50.9],[3.46,50.94],[3.41,50.96],[3.45,51.05],[3.33,51.1],[3.41,51.16],[3.36,51.2],[3.4,51.24],[3.36,51.37],[3.19,51.36],[2.54,51.09],[2.63,50.94],[2.6,50.85],[2.73,50.81],[2.81,50.72],[2.86,50.71],[2.84,50.75],[3,50.81],[3.36,50.71],[3.46,50.76]]},"BFR":{"n":"Flandre orientale","p":[[4.24,51.35],[3.89,51.2],[3.59,51.3],[3.53,51.25],[3.38,51.27],[3.41,51.16],[3.33,51.1],[3.45,51.05],[3.42,50.9],[3.52,50.81],[3.46,50.76],[3.92,50.73],[4.06,50.79],[4.09,50.93],[4.24,51],[4.17,51.1],[4.33,51.13],[4.32,51.29],[4.24,51.35]]},"BHT":{"n":"Hainaut","p":[[3.18,50.76],[3.29,50.53],[3.61,50.5],[3.71,50.3],[4.02,50.36],[4.21,50.27],[4.14,49.98],[4.45,49.95],[4.4,50.23],[4.29,50.26],[4.59,50.33],[4.58,50.54],[4.34,50.54],[4.09,50.71],[3.74,50.77],[3.18,50.76]]},"BLG":{"n":"Liège","p":[[5.39,50.38],[5.71,50.36],[5.72,50.26],[5.98,50.33],[6.13,50.13],[6.41,50.34],[6.33,50.49],[6.2,50.53],[6.27,50.64],[6.01,50.76],[5.81,50.72],[5.69,50.81],[5,50.73],[5.04,50.53],[5.39,50.38]]},"BLB":{"n":"Limbourg","p":[[5.69,50.81],[5.65,50.88],[5.76,50.95],[5.72,50.96],[5.86,51.14],[5.56,51.22],[5.52,51.3],[5.24,51.26],[5.21,51.22],[5.26,51.15],[4.98,51.04],[5.16,51.02],[5.04,50.94],[5.19,50.9],[5.1,50.71],[5.49,50.73],[5.69,50.81]]},"BLX":{"n":"Luxembourg","p":[[4.97,49.8],[5.28,49.69],[5.47,49.5],[5.84,49.55],[5.9,49.66],[5.74,49.9],[6.02,50.18],[6.01,50.31],[5.72,50.26],[5.72,50.36],[5.41,50.43],[5.4,50.29],[5.21,50.22],[5.27,50.11],[5,50.04],[5.11,49.92],[4.97,49.8]]},"BNM":{"n":"Namur","p":[[4.43,49.94],[4.88,50.15],[4.79,49.96],[4.89,49.91],[4.86,49.79],[4.97,49.8],[5.11,49.92],[5,50.04],[5.27,50.11],[5.21,50.22],[5.4,50.37],[5.3,50.37],[4.97,50.65],[4.67,50.61],[4.56,50.51],[4.59,50.32],[4.29,50.26],[4.4,50.23],[4.43,49.94]]},"BBR":{"n":"Bruxelles","p":[[4.31,50.8],[4.33,50.78],[4.38,50.76],[4.48,50.79],[4.45,50.81],[4.48,50.82],[4.46,50.85],[4.42,50.87],[4.44,50.88],[4.43,50.9],[4.4,50.91],[4.38,50.9],[4.33,50.9],[4.29,50.89],[4.3,50.88],[4.28,50.86],[4.28,50.84],[4.26,50.84],[4.24,50.82],[4.31,50.8]]}},"d2r":{"02":"Hauts-de-France","59":"Hauts-de-France","60":"Hauts-de-France","62":"Hauts-de-France","80":"Hauts-de-France","08":"Grand Est","10":"Grand Est","51":"Grand Est","52":"Grand Est","54":"Grand Est","55":"Grand Est","57":"Grand Est","67":"Grand Est","68":"Grand Est","88":"Grand Est","22":"Bretagne","29":"Bretagne","35":"Bretagne","56":"Bretagne","44":"Pays de la Loire","49":"Pays de la Loire","53":"Pays de la Loire","72":"Pays de la Loire","85":"Pays de la Loire","16":"Nouvelle-Aquitaine","17":"Nouvelle-Aquitaine","19":"Nouvelle-Aquitaine","24":"Nouvelle-Aquitaine","33":"Nouvelle-Aquitaine","40":"Nouvelle-Aquitaine","47":"Nouvelle-Aquitaine","64":"Nouvelle-Aquitaine","79":"Nouvelle-Aquitaine","86":"Nouvelle-Aquitaine","87":"Nouvelle-Aquitaine","09":"Occitanie","11":"Occitanie","12":"Occitanie","30":"Occitanie","31":"Occitanie","32":"Occitanie","34":"Occitanie","48":"Occitanie","65":"Occitanie","66":"Occitanie","81":"Occitanie","82":"Occitanie","01":"Auvergne-Rh\u00f4ne-Alpes","03":"Auvergne-Rh\u00f4ne-Alpes","07":"Auvergne-Rh\u00f4ne-Alpes","15":"Auvergne-Rh\u00f4ne-Alpes","26":"Auvergne-Rh\u00f4ne-Alpes","38":"Auvergne-Rh\u00f4ne-Alpes","42":"Auvergne-Rh\u00f4ne-Alpes","43":"Auvergne-Rh\u00f4ne-Alpes","63":"Auvergne-Rh\u00f4ne-Alpes","69":"Auvergne-Rh\u00f4ne-Alpes","73":"Auvergne-Rh\u00f4ne-Alpes","74":"Auvergne-Rh\u00f4ne-Alpes","04":"PACA","05":"PACA","06":"PACA","13":"PACA","83":"PACA","84":"PACA","77":"\u00cele-de-France","78":"\u00cele-de-France","91":"\u00cele-de-France","92":"\u00cele-de-France","93":"\u00cele-de-France","94":"\u00cele-de-France","95":"\u00cele-de-France","14":"Normandie","27":"Normandie","50":"Normandie","61":"Normandie","76":"Normandie","18":"Centre-Val de Loire","28":"Centre-Val de Loire","36":"Centre-Val de Loire","37":"Centre-Val de Loire","41":"Centre-Val de Loire","45":"Centre-Val de Loire","21":"Bourgogne-Franche-Comt\u00e9","25":"Bourgogne-Franche-Comt\u00e9","39":"Bourgogne-Franche-Comt\u00e9","58":"Bourgogne-Franche-Comt\u00e9","70":"Bourgogne-Franche-Comt\u00e9","71":"Bourgogne-Franche-Comt\u00e9","89":"Bourgogne-Franche-Comt\u00e9","90":"Bourgogne-Franche-Comt\u00e9","BAN":"Belgique","BBF":"Belgique","BBW":"Belgique","BFO":"Belgique","BFR":"Belgique","BHT":"Belgique","BLG":"Belgique","BLB":"Belgique","BLX":"Belgique","BNM":"Belgique","BBR":"Belgique"},"regions":{"Hauts-de-France":["02","59","60","62","80"],"Grand Est":["08","10","51","52","54","55","57","67","68","88"],"Bretagne":["22","29","35","56"],"Pays de la Loire":["44","49","53","72","85"],"Nouvelle-Aquitaine":["16","17","19","24","33","40","47","64","79","86","87"],"Occitanie":["09","11","12","30","31","32","34","48","65","66","81","82"],"Auvergne-Rh\u00f4ne-Alpes":["01","03","07","15","26","38","42","43","63","69","73","74"],"PACA":["04","05","06","13","83","84"],"\u00cele-de-France":["77","78","91","92","93","94","95"],"Normandie":["14","27","50","61","76"],"Centre-Val de Loire":["18","28","36","37","41","45"],"Bourgogne-Franche-Comt\u00e9":["21","25","39","58","70","71","89","90"],"Belgique":["BAN","BBF","BBW","BFO","BFR","BHT","BLG","BLB","BLX","BNM","BBR"]},"colors":{"Bretagne":"#2563eb","Pays de la Loire":"#1d4ed8","Hauts-de-France":"#3b82f6","Grand Est":"#1e40af","Nouvelle-Aquitaine":"#60a5fa","Occitanie":"#1e3a8a","Auvergne-Rh\u00f4ne-Alpes":"#93c5fd","PACA":"#2563eb","\u00cele-de-France":"#1d4ed8","Normandie":"#3b82f6","Centre-Val de Loire":"#1e40af","Bourgogne-Franche-Comt\u00e9":"#60a5fa","Belgique":"#1e3a8a"},"rcenters":{"Hauts-de-France":[49.9,2.8],"Grand Est":[48.6,6.2],"Bretagne":[48.2,-2.9],"Pays de la Loire":[47.4,-0.8],"Nouvelle-Aquitaine":[45.2,0.0],"Occitanie":[43.6,2.0],"Auvergne-Rh\u00f4ne-Alpes":[45.5,4.5],"PACA":[43.8,5.8],"\u00cele-de-France":[48.8,2.3],"Normandie":[48.9,-0.5],"Centre-Val de Loire":[47.5,1.5],"Bourgogne-Franche-Comt\u00e9":[47.0,5.5],"Belgique":[50.5,4.5]}};
+    // ===== COVERAGE MAP =====
+    document.addEventListener('DOMContentLoaded', function() {
+        const mapEl = document.getElementById('coverage-map');
+        if (!mapEl || typeof L === 'undefined') return;
+
+        // Coverage data sets
+        const ZONE_ISOLEE = new Set(['BLG','BBR','BBW','BBF','BAN','BLB','BNM','BHT','BLX','BFO','BFR','40','33','47','24','16','17','79','85','44','49','53','35','22','56','29','78','91','92','94','75','93','45','95','60','02','77','51','10','89','67','54','57','55','13','83','04','84','30','34','11','66','81','31','82','46','19','32','09','65','64','69','01','86','72','76','27','14','80','37','42','38','88','68','21','59','62','50','71','73','63']);
+        const ZONE_GROUPEE = new Set(['01','03','07','15','26','38','42','43','63','69','73','74','21','22','29','35','56','75','77','78','91','92','93','94','95','16','17','19','23','24','33','40','47','64','79','86','87','09','11','12','30','31','32','34','46','48','65','66','81','82','44','49','53','72','85','04','05','06','13','83','84','52','70','25','39','90','71','61','50','59','62','76','27','14','80','60']);
+        const ZONE_INSTALLATION = null; // all departments (France)
+        const ZONE_PREVENTIVE = null; // all departments
+        const ZONE_TRANSFO = null; // all departments (France + Belgique)
+
+        // Update card counts
+        const frDepts = Object.keys(MAPDATA.depts).filter(c => !c.startsWith('B'));
+        const allDepts = Object.keys(MAPDATA.depts);
+        const countEl = (id, set) => {
+            const el = document.getElementById(id);
+            if (el) {
+                const n = set ? allDepts.filter(d => set.has(d)).length : allDepts.length;
+                el.textContent = n + ' départements';
+            }
+        };
+        countEl('count-isolee', ZONE_ISOLEE);
+        countEl('count-groupee', ZONE_GROUPEE);
+        countEl('count-installation', ZONE_INSTALLATION);
+        countEl('count-preventive', null);
+        countEl('count-transfo', ZONE_TRANSFO);
+
+        // Colors
+        const COLORS = {
+            isolee: '#2563eb',
+            groupee: '#1d4ed8',
+            installation: '#3b82f6',
+            preventive: '#1e40af',
+            transfo: '#1e3a8a',
+            none: '#e2e8f0'
+        };
+
+        // Filter state
+        const activeFilters = { isolee: true, groupee: true, installation: true, preventive: true, transfo: true };
+
+        // Regions mapping
+        const REGIONS = {
+            'Auvergne-Rhône-Alpes': ['01','03','07','15','26','38','42','43','63','69','73','74'],
+            'Bourgogne-Franche-Comté': ['21','25','39','58','70','71','89','90'],
+            'Bretagne': ['22','29','35','56'],
+            'Centre-Val de Loire': ['18','28','36','37','41','45'],
+            'Corse': ['2A','2B'],
+            'Grand Est': ['08','10','51','52','54','55','57','67','68','88'],
+            'Hauts-de-France': ['02','59','60','62','80'],
+            'Île-de-France': ['75','77','78','91','92','93','94','95'],
+            'Normandie': ['14','27','50','61','76'],
+            'Nouvelle-Aquitaine': ['16','17','19','23','24','33','40','47','64','79','86','87'],
+            'Occitanie': ['09','11','12','30','31','32','34','46','48','65','66','81','82'],
+            'Pays de la Loire': ['44','49','53','72','85'],
+            'PACA': ['04','05','06','13','83','84'],
+            'Belgique': ['BLG','BBR','BBW','BBF','BAN','BLB','BNM','BHT','BLX','BFO','BFR']
+        };
+
+        // Get coverage types for a department
+        function getCoverage(code) {
+            const types = [];
+            if (ZONE_ISOLEE.has(code)) types.push('isolee');
+            if (ZONE_GROUPEE.has(code)) types.push('groupee');
+            types.push('installation'); // all departments
+            types.push('preventive'); // all departments
+            types.push('transfo'); // all departments
+            return types;
+        }
+
+        // Get best color for department based on active filters
+        function getDeptColor(code) {
+            const coverage = getCoverage(code);
+            const priority = ['isolee','transfo','installation','groupee','preventive'];
+            for (const type of priority) {
+                if (activeFilters[type] && coverage.includes(type)) {
+                    return COLORS[type];
+                }
+            }
+            const anyActive = Object.keys(activeFilters).some(f => activeFilters[f]);
+            if (!anyActive) return COLORS.none;
+            return COLORS.none;
+        }
+
+        // Get fill opacity
+        function getDeptOpacity(code) {
+            const coverage = getCoverage(code);
+            const anyMatch = Object.keys(activeFilters).some(f => activeFilters[f] && coverage.includes(f));
+            return anyMatch ? 0.5 : 0.12;
+        }
+
+        // Initialize map
+        const map = L.map('coverage-map', {
+            zoomControl: false,
+            scrollWheelZoom: true
+        }).setView([46.8, 2.8], 6);
+
+        L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+            attribution: '&copy; OpenStreetMap &copy; CARTO',
+            subdomains: 'abcd',
+            maxZoom: 19
+        }).addTo(map);
+
+        L.control.zoom({ position: 'bottomright' }).addTo(map);
+
+        // Department layers
+        const deptLayers = {};
+        let searchMarker = null;
+
+        // Coverage type labels
+        const TYPE_LABELS = {
+            isolee: 'Intervention isolée',
+            groupee: 'Intervention groupée',
+            installation: 'Installation',
+            preventive: 'Maintenance préventive',
+            transfo: 'Maintenance transformateur'
+        };
+        const TYPE_BG = {
+            isolee: '#eff6ff',
+            groupee: '#eff6ff',
+            installation: '#eff6ff',
+            preventive: '#eff6ff',
+            transfo: '#eff6ff'
+        };
+
+        // Build popup HTML with colored header
+        function buildPopup(code, name) {
+            const coverage = getCoverage(code);
+            const mainColor = getDeptColor(code);
+            let tags = '';
+            coverage.forEach(type => {
+                if (activeFilters[type]) {
+                    tags += '<span class="tag" style="background:' + TYPE_BG[type] + ';color:' + COLORS[type] + ';">' +
+                        '<span style="display:inline-block;width:6px;height:6px;border-radius:50%;background:' + COLORS[type] + ';"></span> ' +
+                        TYPE_LABELS[type] + '</span>';
+                }
+            });
+            return '<div class="map-popup-header" style="background:' + mainColor + ';">' +
+                '<div><h3>' + escHtml(name) + '</h3><span class="dept-code">' + escHtml(code) + '</span></div></div>' +
+                '<div class="map-popup-body"><div class="coverage-tags">' + tags + '</div></div>';
+        }
+
+        function escHtml(str) {
+            const div = document.createElement('div');
+            div.textContent = str;
+            return div.innerHTML;
+        }
+
+        // Draw departments from MAPDATA
+        if (typeof MAPDATA !== 'undefined' && MAPDATA.depts) {
+            Object.entries(MAPDATA.depts).forEach(([code, dept]) => {
+                if (!dept.p || dept.p.length < 3) return;
+                const latlngs = dept.p.map(p => [p[1], p[0]]);
+                const color = getDeptColor(code);
+                const opacity = getDeptOpacity(code);
+
+                const layer = L.polygon(latlngs, {
+                    color: 'rgba(255,255,255,0.7)',
+                    weight: 1.2,
+                    fillColor: color,
+                    fillOpacity: opacity,
+                    smoothFactor: 1.5,
+                    lineCap: 'round',
+                    lineJoin: 'round'
+                }).addTo(map);
+
+                // Rich tooltip with coverage badges
+                const coverage = getCoverage(code);
+                const activeCov = coverage.filter(t => activeFilters[t]);
+                const dotHtml = activeCov.slice(0, 3).map(t => '<span style="display:inline-block;width:7px;height:7px;border-radius:50%;background:' + COLORS[t] + ';"></span>').join(' ');
+
+                layer.bindTooltip('<div style="display:flex;align-items:center;gap:8px;"><span>' + escHtml(dept.n) + '</span><span style="display:flex;gap:3px;">' + dotHtml + '</span></div>', {
+                    sticky: true,
+                    className: 'dept-tooltip',
+                    direction: 'top',
+                    offset: [0, -10]
+                });
+
+                layer.on('click', function() {
+                    layer.bindPopup(buildPopup(code, dept.n), { maxWidth: 300 }).openPopup();
+                    map.fitBounds(layer.getBounds(), { padding: [50, 50], maxZoom: 9 });
+                });
+
+                layer.on('mouseover', function() {
+                    layer.setStyle({ weight: 2.5, color: color, fillOpacity: Math.min(opacity + 0.2, 0.75), className: '' });
+                    layer.bringToFront();
+                });
+                layer.on('mouseout', function() {
+                    layer.setStyle({ weight: 1.2, color: 'rgba(255,255,255,0.7)', fillOpacity: opacity });
+                });
+
+                deptLayers[code] = layer;
+            });
+        }
+
+        // Custom tooltip style
+        const tooltipStyle = document.createElement('style');
+        tooltipStyle.textContent = '.dept-tooltip{background:#0f172a;color:#f8fafc;border:none;border-radius:12px;padding:10px 16px;font-size:13px;font-weight:600;box-shadow:0 12px 32px rgba(0,0,0,.25), 0 4px 8px rgba(0,0,0,.1);letter-spacing:0.01em;backdrop-filter:blur(8px);}.dept-tooltip::before{border-top-color:#0f172a!important;}';
+        document.head.appendChild(tooltipStyle);
+
+        // Close tooltips on page scroll to prevent stale labels
+        window.addEventListener('scroll', function() {
+            map.closeTooltip();
+            map.closePopup();
+        }, { passive: true });
+
+        // Update all department colors
+        function updateMapColors() {
+            Object.entries(deptLayers).forEach(([code, layer]) => {
+                layer.setStyle({
+                    fillColor: getDeptColor(code),
+                    fillOpacity: getDeptOpacity(code)
+                });
+            });
+        }
+
+        // Filter chips, populate count badges
+        const BADGE_MAP = { isolee: ZONE_ISOLEE, groupee: ZONE_GROUPEE, installation: ZONE_INSTALLATION, preventive: null, transfo: ZONE_TRANSFO };
+        Object.entries(BADGE_MAP).forEach(([key, set]) => {
+            const el = document.getElementById('badge-' + key);
+            if (el) {
+                const n = set ? allDepts.filter(d => set.has(d)).length : allDepts.length;
+                el.textContent = '· ' + n;
+            }
+        });
+
+        // Helper: apply chip visual state
+        function applyChipState(chip, isActive) {
+            const chipColor = chip.dataset.color;
+            const dot = chip.querySelector('.chip-dot');
+            const check = chip.querySelector('.chip-check');
+            if (isActive) {
+                chip.style.background = chipColor;
+                chip.style.borderColor = chipColor;
+                chip.style.color = '#fff';
+                if (dot) dot.style.background = 'rgba(255,255,255,0.5)';
+                if (check) { check.style.display = 'inline'; check.style.color = '#fff'; }
+            } else {
+                chip.style.background = '';
+                chip.style.borderColor = '';
+                chip.style.color = '';
+                if (dot) dot.style.background = chipColor;
+                if (check) check.style.display = 'none';
+            }
+        }
+
+        // Initialize all chips to active state visuals (already active in HTML, just ensure check visible)
+        document.querySelectorAll('.filter-chip').forEach(chip => {
+            const check = chip.querySelector('.chip-check');
+            if (check) check.style.display = 'inline';
+        });
+
+        document.querySelectorAll('.filter-chip').forEach(chip => {
+            chip.addEventListener('click', function() {
+                const filter = this.dataset.filter;
+                activeFilters[filter] = !activeFilters[filter];
+                this.classList.toggle('active');
+                this.setAttribute('aria-pressed', activeFilters[filter]);
+                applyChipState(this, activeFilters[filter]);
+                updateMapColors();
+            });
+        });
+
+        // Region list
+        const regionList = document.getElementById('region-list');
+        const regionItems = [];
+        if (regionList) {
+            Object.entries(REGIONS).forEach(([name, depts]) => {
+                const coveredCount = depts.filter(d => ZONE_ISOLEE.has(d) || ZONE_GROUPEE.has(d)).length;
+                const pct = Math.round((coveredCount / depts.length) * 100);
+                const item = document.createElement('button');
+                item.className = 'region-item w-full text-left';
+                item.dataset.regionName = name.toLowerCase();
+                item.innerHTML = '<span class="region-name">' + escHtml(name) + '</span>' +
+                    '<div class="region-progress"><div class="region-progress-bar" style="width:' + pct + '%;background:' + (pct > 80 ? '#2563eb' : pct > 50 ? '#3b82f6' : '#93c5fd') + ';"></div></div>' +
+                    '<span class="region-count">' + coveredCount + '/' + depts.length + '</span>';
+                item.addEventListener('click', function() {
+                    document.querySelectorAll('.region-item').forEach(i => i.classList.remove('active'));
+                    this.classList.add('active');
+                    const bounds = [];
+                    depts.forEach(code => {
+                        if (deptLayers[code]) {
+                            bounds.push(deptLayers[code].getBounds());
+                        }
+                    });
+                    if (bounds.length > 0) {
+                        let combinedBounds = bounds[0];
+                        bounds.slice(1).forEach(b => combinedBounds.extend(b));
+                        map.fitBounds(combinedBounds, { padding: [30, 30], maxZoom: 8 });
+                    }
+                });
+                regionList.appendChild(item);
+                regionItems.push({ el: item, name: name.toLowerCase() });
+            });
+        }
+
+        // Region search/filter
+        const regionSearchInput = document.getElementById('region-search');
+        if (regionSearchInput) {
+            regionSearchInput.addEventListener('input', function() {
+                const q = this.value.toLowerCase().trim();
+                regionItems.forEach(({ el, name }) => {
+                    el.style.display = (!q || name.includes(q)) ? '' : 'none';
+                });
+            });
+        }
+
+        // Point-in-polygon (ray-casting)
+        function pointInPolygon(lat, lng, polygon) {
+            let inside = false;
+            for (let i = 0, j = polygon.length - 1; i < polygon.length; j = i++) {
+                const xi = polygon[i][1], yi = polygon[i][0];
+                const xj = polygon[j][1], yj = polygon[j][0];
+                const intersect = ((yi > lng) !== (yj > lng)) && (lat < (xj - xi) * (lng - yi) / (yj - yi) + xi);
+                if (intersect) inside = !inside;
+            }
+            return inside;
+        }
+
+        function findDepartmentAtPoint(lat, lng) {
+            if (typeof MAPDATA === 'undefined' || !MAPDATA.depts) return null;
+            for (const [code, dept] of Object.entries(MAPDATA.depts)) {
+                if (dept.p && pointInPolygon(lat, lng, dept.p)) {
+                    return { code, name: dept.n };
+                }
+            }
+            return null;
+        }
+
+        // Address search
+        const searchForm = document.getElementById('address-search-form');
+        const searchInput = document.getElementById('address-input');
+        const searchResult = document.getElementById('search-result');
+
+        if (searchForm) {
+            searchForm.addEventListener('submit', async function(e) {
+                e.preventDefault();
+                const query = searchInput.value.trim();
+                if (!query) return;
+
+                searchResult.className = 'search-result';
+                searchResult.innerHTML = '<div class="flex items-center gap-2 text-gray-500 text-sm"><svg class="w-4 h-4 animate-spin" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"/><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"/></svg> Recherche en cours...</div>';
+                searchResult.className = 'search-result visible';
+                searchResult.style.borderColor = '#e2e8f0';
+                searchResult.style.background = '#fff';
+
+                try {
+                    const url = 'https://nominatim.openstreetmap.org/search?q=' + encodeURIComponent(query) + '&format=json&limit=1&countrycodes=fr,be&addressdetails=1';
+                    const res = await fetch(url);
+                    const data = await res.json();
+
+                    if (data.length === 0) {
+                        searchResult.innerHTML = '<div class="flex items-center gap-2 text-gray-600 text-sm"><svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.732-.833-2.5 0L4.268 16.5c-.77.833.192 2.5 1.732 2.5z"/></svg> Aucun résultat trouvé. Essayez une autre adresse.</div>';
+                        return;
+                    }
+
+                    const { lat, lon } = data[0];
+                    const latF = parseFloat(lat);
+                    const lonF = parseFloat(lon);
+
+                    if (searchMarker) map.removeLayer(searchMarker);
+
+                    searchMarker = L.marker([latF, lonF], {
+                        icon: L.divIcon({
+                            className: 'search-pin',
+                            html: '<div style="position:relative;"><div style="width:36px;height:36px;background:linear-gradient(135deg,#2563eb,#1e40af);border-radius:50% 50% 50% 0;transform:rotate(-45deg);border:3px solid #fff;box-shadow:0 6px 20px rgba(37,99,235,.45);animation:pinDrop 0.5s cubic-bezier(0.16,1,0.3,1);"></div><div style="position:absolute;bottom:-6px;left:50%;transform:translateX(-50%);width:20px;height:6px;background:rgba(0,0,0,.12);border-radius:50%;filter:blur(2px);"></div></div>',
+                            iconSize: [36, 42],
+                            iconAnchor: [18, 42]
+                        })
+                    }).addTo(map);
+
+                    map.setView([latF, lonF], 9, { animate: true });
+
+                    const dept = findDepartmentAtPoint(latF, lonF);
+
+                    if (dept) {
+                        const coverage = getCoverage(dept.code);
+                        const hasIsolee = coverage.includes('isolee');
+                        const hasGroupee = coverage.includes('groupee');
+                        const isCovered = hasIsolee || hasGroupee;
+
+                        if (isCovered) {
+                            searchResult.style.borderColor = '#2563eb';
+                            searchResult.style.background = '#eff6ff';
+                            let tagsHtml = '';
+                            coverage.forEach(type => {
+                                tagsHtml += '<span style="display:inline-flex;align-items:center;gap:4px;padding:3px 10px;border-radius:6px;font-size:11px;font-weight:600;background:' + TYPE_BG[type] + ';color:' + COLORS[type] + ';">' + TYPE_LABELS[type] + '</span> ';
+                            });
+                            searchResult.innerHTML = '<div class="flex items-start gap-3"><div class="flex-shrink-0 w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center mt-0.5"><svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg></div><div><p class="font-semibold text-blue-800 text-sm">Votre site est en zone couverte</p><p class="text-xs text-blue-700 mt-1">' + escHtml(dept.name) + ' (' + escHtml(dept.code) + ')</p><div class="flex flex-wrap gap-1 mt-2">' + tagsHtml + '</div></div></div>';
+                        } else {
+                            searchResult.style.borderColor = '#93c5fd';
+                            searchResult.style.background = '#f8fafc';
+                            searchResult.innerHTML = '<div class="flex items-start gap-3"><div class="flex-shrink-0 w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center mt-0.5"><svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.732-.833-2.5 0L4.268 16.5c-.77.833.192 2.5 1.732 2.5z"/></svg></div><div><p class="font-semibold text-gray-800 text-sm">Zone non couverte, contactez-nous pour étude</p><p class="text-xs text-gray-600 mt-1">' + escHtml(dept.name) + ' (' + escHtml(dept.code) + '), Maintenance préventive disponible</p><a href="/demo/contact" class="inline-block mt-2 text-xs font-semibold text-blue-600 hover:text-blue-800">Demander une étude &rarr;</a></div></div>';
+                        }
+
+                        if (deptLayers[dept.code]) {
+                            deptLayers[dept.code].setStyle({ weight: 3, color: '#2563eb', fillOpacity: 0.75 });
+                            deptLayers[dept.code].bringToFront();
+                            setTimeout(() => {
+                                deptLayers[dept.code].setStyle({ weight: 1.2, color: 'rgba(255,255,255,0.7)', fillOpacity: getDeptOpacity(dept.code) });
+                            }, 3500);
+                        }
+                    } else {
+                        searchResult.style.borderColor = '#94a3b8';
+                        searchResult.style.background = '#f8fafc';
+                        searchResult.innerHTML = '<div class="flex items-start gap-3"><div class="flex-shrink-0 w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center mt-0.5"><svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/></svg></div><div><p class="font-semibold text-gray-700 text-sm">Localisation en dehors de notre zone</p><p class="text-xs text-gray-500 mt-1">Cette adresse se situe hors de nos zones d\'intervention.</p><a href="/demo/contact" class="inline-block mt-2 text-xs font-semibold text-blue-600 hover:text-blue-800">Nous contacter &rarr;</a></div></div>';
+                    }
+                } catch (err) {
+                    searchResult.innerHTML = '<div class="text-sm text-red-600">Erreur lors de la recherche. Veuillez réessayer.</div>';
+                    searchResult.style.borderColor = '#e5e7eb';
+                    searchResult.style.background = '#f9fafb';
+                }
+            });
+        }
+
+        // Animated counters
+        function animateCounters() {
+            document.querySelectorAll('.stat-number').forEach(el => {
+                if (el.dataset.animated) return;
+                const rect = el.getBoundingClientRect();
+                if (rect.top > window.innerHeight || rect.bottom < 0) return;
+                el.dataset.animated = 'true';
+                const target = parseInt(el.dataset.target);
+                const suffix = el.dataset.suffix || '';
+                const duration = 1200;
+                const start = performance.now();
+                function update(now) {
+                    const elapsed = now - start;
+                    const progress = Math.min(elapsed / duration, 1);
+                    const eased = 1 - Math.pow(1 - progress, 3);
+                    const current = Math.round(target * eased);
+                    el.textContent = current + suffix;
+                    if (progress < 1) requestAnimationFrame(update);
+                }
+                requestAnimationFrame(update);
+            });
+        }
+        window.addEventListener('scroll', animateCounters, { passive: true });
+        animateCounters();
+    });
+    </script>
+
+    <!-- Service Worker Registration -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                    .catch(() => {});
+            });
+        }
+    </script>
+</body>
+
+</html>

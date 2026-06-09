@@ -1,0 +1,600 @@
+/* ========================================================================
+   JCSM DEMO — UX polish + fix responsive
+   Version overlay : aucun fichier original n'est modifié.
+   ======================================================================== */
+
+/* === 1. PRELOADER : disparition plus rapide et propre ================== */
+.preloader {
+    transition: opacity 0.35s cubic-bezier(.4,0,.2,1), visibility 0.35s !important;
+}
+/* Force fade-out après 700ms même si le JS tarde */
+.preloader.preloader-auto-hide {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+/* === 2. HERO : refonte mobile + impact visuel ========================== */
+
+/* Hero global - background plus riche */
+.hero-section {
+    background: linear-gradient(180deg, #fafbff 0%, #f8fafc 100%) !important;
+}
+.hero-section::before {
+    background-image:
+        radial-gradient(circle at 1px 1px, rgba(37,99,235,0.08) 1px, transparent 0),
+        radial-gradient(ellipse 60% 80% at 100% 0%, rgba(59,130,246,0.06), transparent),
+        radial-gradient(ellipse 60% 80% at 0% 100%, rgba(37,99,235,0.04), transparent) !important;
+    background-size: 32px 32px, 100% 100%, 100% 100% !important;
+}
+
+/* MOBILE : ordre des éléments → image AVANT le texte (impact visuel immédiat) */
+@media (max-width: 1023px) {
+    .hero-section {
+        padding-top: 6rem !important;
+        min-height: auto !important;
+    }
+    .hero-section .grid {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 1.75rem !important;
+    }
+    .hero-section .grid > div:last-child {
+        order: -1;
+    }
+    .hero-section .grid > div:last-child img {
+        max-height: 32vh;
+        object-fit: cover;
+        border-radius: 1.25rem !important;
+    }
+    .hero-section h1 {
+        font-size: clamp(1.75rem, 7vw, 2.5rem) !important;
+        line-height: 1.1 !important;
+    }
+    .hero-section p {
+        font-size: 1.0625rem !important;
+    }
+    /* CTA mobile : full-width + ordre */
+    .hero-section .flex.flex-wrap.gap-3 {
+        flex-direction: column !important;
+        width: 100%;
+    }
+    .hero-section .flex.flex-wrap.gap-3 > a {
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+    }
+}
+
+/* === 3. CTA PRIMAIRE : plus de gueule ================================== */
+.btn-primary {
+    background: linear-gradient(135deg, #2563eb 0%, #3b82f6 50%, #2563eb 100%) !important;
+    background-size: 200% 200% !important;
+    box-shadow:
+        0 10px 30px -10px rgba(37,99,235,0.45),
+        0 0 0 1px rgba(37,99,235,0.1) inset !important;
+    transition: transform 0.25s cubic-bezier(.4,0,.2,1),
+                box-shadow 0.25s cubic-bezier(.4,0,.2,1),
+                background-position 0.6s ease !important;
+    position: relative;
+    overflow: hidden;
+}
+.btn-primary::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(120deg, transparent 30%, rgba(255,255,255,0.25) 50%, transparent 70%);
+    transform: translateX(-100%);
+    transition: transform 0.6s ease;
+    pointer-events: none;
+}
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow:
+        0 18px 40px -10px rgba(37,99,235,0.55),
+        0 0 0 1px rgba(37,99,235,0.15) inset !important;
+    background-position: 100% 0% !important;
+}
+.btn-primary:hover::after {
+    transform: translateX(100%);
+}
+.btn-primary:active {
+    transform: translateY(0);
+}
+
+/* Bouton secondaire — un peu plus de présence */
+.btn-secondary {
+    background: #ffffff !important;
+    border: 1.5px solid #e5e7eb !important;
+    color: #1f2937 !important;
+    transition: all 0.25s cubic-bezier(.4,0,.2,1) !important;
+}
+.btn-secondary:hover {
+    border-color: #2563eb !important;
+    color: #2563eb !important;
+    transform: translateY(-1px);
+    box-shadow: 0 8px 20px -8px rgba(37,99,235,0.2);
+}
+
+/* === 4. HERO BADGE : un peu plus de pop ================================ */
+.hero-badge {
+    background: rgba(255,255,255,0.85) !important;
+    backdrop-filter: blur(8px) !important;
+    -webkit-backdrop-filter: blur(8px) !important;
+    border: 1px solid rgba(37,99,235,0.15) !important;
+    box-shadow:
+        0 4px 12px -4px rgba(37,99,235,0.08),
+        0 0 0 1px rgba(255,255,255,0.5) inset !important;
+}
+
+/* === 5. SERVICES CARDS : hover plus net, accent latéral coloré ========= */
+.svc-card {
+    background: #fff !important;
+    border: 1px solid #f1f5f9 !important;
+    transition: all 0.4s cubic-bezier(.4,0,.2,1) !important;
+}
+.svc-card::before {
+    width: 4px !important;
+    background: linear-gradient(180deg, #2563eb, #3b82f6) !important;
+    border-radius: 0 4px 4px 0 !important;
+}
+.svc-card:hover {
+    border-color: rgba(37,99,235,0.15) !important;
+    box-shadow:
+        0 24px 48px -16px rgba(37,99,235,0.12),
+        0 0 0 1px rgba(37,99,235,0.05) !important;
+    transform: translateY(-6px) !important;
+}
+.svc-icon {
+    transition: transform 0.4s cubic-bezier(.4,0,.2,1),
+                box-shadow 0.4s cubic-bezier(.4,0,.2,1) !important;
+}
+.svc-card:hover .svc-icon {
+    transform: scale(1.08) rotate(-3deg) !important;
+    box-shadow: 0 14px 28px -10px rgba(37,99,235,0.4) !important;
+}
+
+/* === 6. NAV : glass plus marqué ======================================== */
+.glass-nav {
+    background: rgba(255,255,255,0.78) !important;
+    backdrop-filter: blur(16px) saturate(180%) !important;
+    -webkit-backdrop-filter: blur(16px) saturate(180%) !important;
+    border-bottom: 1px solid rgba(229,231,235,0.6) !important;
+}
+
+/* === 7. WHY CARDS : harmonisation avec services ======================== */
+.why-card {
+    transition: all 0.4s cubic-bezier(.4,0,.2,1) !important;
+}
+.why-card:hover {
+    transform: translateY(-4px);
+    box-shadow:
+        0 20px 40px -12px rgba(0,0,0,0.08),
+        0 0 0 1px rgba(37,99,235,0.05) !important;
+}
+
+/* === 8. Bouton mobile menu : agrandi (tap target accessibilité) ======== */
+.mobile-menu-btn {
+    min-width: 44px;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    margin: -8px;
+    border-radius: 10px;
+    transition: background 0.2s;
+}
+.mobile-menu-btn:hover {
+    background: rgba(37,99,235,0.06);
+}
+
+/* === 9. Scroll progress : un peu plus visible ========================= */
+#scroll-progress {
+    height: 3px !important;
+    background: linear-gradient(90deg, #2563eb, #3b82f6, #60a5fa) !important;
+    box-shadow: 0 0 8px rgba(37,99,235,0.4) !important;
+}
+
+/* === 10. Accent color "Pas nous." : plus éclatant ===================== */
+.accent-pro {
+    background: linear-gradient(135deg, #2563eb 0%, #3b82f6 50%, #60a5fa 100%) !important;
+    -webkit-background-clip: text !important;
+    background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    position: relative;
+}
+
+/* === 11. Section appear : transitions plus douces ===================== */
+.section-appear {
+    transition: opacity 0.7s cubic-bezier(.4,0,.2,1),
+                transform 0.7s cubic-bezier(.4,0,.2,1) !important;
+}
+
+/* === 12. Demo banner discret (en bas) pour signaler la version démo === */
+.demo-banner {
+    position: fixed;
+    bottom: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(15,23,42,0.92);
+    color: #fff;
+    padding: 8px 18px;
+    border-radius: 100px;
+    font-size: 12px;
+    font-weight: 600;
+    z-index: 9999;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 8px 24px -8px rgba(0,0,0,0.4);
+    letter-spacing: 0.02em;
+}
+.demo-banner span {
+    color: #60a5fa;
+    margin-right: 6px;
+}
+@media (max-width: 640px) {
+    .demo-banner { bottom: 70px; font-size: 11px; padding: 6px 14px; }
+}
+
+/* === 13. prefers-reduced-motion : tout respecter ======================= */
+@media (prefers-reduced-motion: reduce) {
+    .btn-primary, .btn-secondary, .svc-card, .svc-icon, .why-card,
+    .preloader, .section-appear {
+        transition: none !important;
+        animation: none !important;
+    }
+    .btn-primary::after { display: none; }
+}
+
+/* ===================================================================== */
+/* === V2 PEAUFINAGE : fixes identifiés sur les 11 pages auditées ====== */
+/* ===================================================================== */
+
+/* === 14. Hero universel : éviter que la nav fixée cache le contenu === */
+/* Beaucoup de pages ont un hero sans padding-top suffisant -> texte coupé */
+@media (max-width: 1023px) {
+    main > section:first-of-type,
+    main > section.hero-section,
+    body > main > section[aria-label]:first-child {
+        padding-top: 7rem !important;
+        padding-bottom: 3rem !important;
+    }
+    /* Force le badge/breadcrumb à ne JAMAIS être coupé */
+    main > section:first-of-type .inline-flex:first-of-type,
+    main > section:first-of-type [class*="badge"]:first-of-type {
+        margin-top: 0 !important;
+    }
+}
+@media (max-width: 640px) {
+    main > section:first-of-type,
+    main > section.hero-section {
+        padding-top: 6rem !important;
+    }
+}
+
+/* === 15. Breadcrumb : un peu d'air ==================================== */
+nav[aria-label="Fil d'Ariane"],
+nav[aria-label*="breadcrumb" i],
+.breadcrumb {
+    padding-top: 1rem !important;
+}
+
+/* === 16. Typographie des paragraphes hero (lisibilité mobile) ========= */
+@media (max-width: 768px) {
+    main > section:first-of-type p,
+    main > section.hero-section p,
+    main > section.hero-section .text-base,
+    main > section.hero-section .text-lg {
+        font-size: 1rem !important;
+        line-height: 1.6 !important;
+        max-width: 36rem;
+    }
+    /* Titres hero : taille équilibrée */
+    main > section:first-of-type h1,
+    main > section.hero-section h1 {
+        font-size: clamp(1.625rem, 6vw, 2.25rem) !important;
+        line-height: 1.15 !important;
+        letter-spacing: -0.02em !important;
+    }
+}
+
+/* === 17. Sections sans image hero : "stat counters" centrés ========== */
+/* Sur page blog/, les chiffres clés sont juste du texte plat -> les remettre en évidence */
+.stat-number,
+[class*="stat"] [class*="number"],
+section h2 + div > div > span.text-4xl,
+section h2 + div > div > span.text-5xl {
+    font-weight: 800 !important;
+    letter-spacing: -0.04em !important;
+    color: #1f2937 !important;
+}
+
+/* === 18. CTA secondaire mobile : meilleur tap target ================= */
+@media (max-width: 768px) {
+    .btn-secondary,
+    a.btn-secondary {
+        min-height: 52px !important;
+        font-size: 0.95rem !important;
+        font-weight: 600 !important;
+    }
+}
+
+/* === 19. Bandeau DEMO : bottom-right, jamais chevauchant le contenu == */
+.demo-banner {
+    top: auto !important;
+    bottom: 20px !important;
+    right: 20px !important;
+    left: auto !important;
+    transform: none !important;
+    z-index: 9999 !important;
+    background: rgba(15,23,42,0.92) !important;
+    color: #fff !important;
+    font-size: 11px !important;
+    padding: 8px 14px !important;
+    border-radius: 100px !important;
+    box-shadow: 0 12px 32px -8px rgba(0,0,0,0.4) !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+    border: 1px solid rgba(255,255,255,0.08) !important;
+    letter-spacing: 0.02em;
+    pointer-events: auto;
+    max-width: 280px;
+}
+.demo-banner span {
+    background: linear-gradient(135deg, #60a5fa, #c084fc) !important;
+    -webkit-background-clip: text !important;
+    background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    color: transparent !important;
+    font-weight: 800 !important;
+    margin-right: 6px !important;
+}
+@media (max-width: 640px) {
+    .demo-banner {
+        bottom: 80px !important; /* au-dessus du bandeau cookies */
+        right: 12px !important;
+        font-size: 10px !important;
+        padding: 6px 12px !important;
+        max-width: 200px !important;
+    }
+}
+/* Si le scroll-top est visible, décaler le banner */
+.scroll-top.visible ~ .demo-banner {
+    bottom: 80px !important;
+}
+
+/* === 20. Sections "vides" : meilleure occupation visuelle ============ */
+section { min-height: auto !important; }
+
+/* === 21. Images hero : object-fit pour éviter étirement ============== */
+@media (max-width: 1023px) {
+    section img[class*="rounded"],
+    section picture img {
+        object-fit: cover !important;
+        max-height: 40vh !important;
+        object-position: center !important;
+    }
+}
+
+/* === 22. Cards "stat" / "metric" sans bordure : ajouter du contraste = */
+section h2 ~ div [class*="border-l"],
+section [class*="grid"] > div[class*="text-center"]:not([class*="bg-"]) {
+    transition: transform 0.3s cubic-bezier(.4,0,.2,1) !important;
+}
+
+/* === 23. Forms (page contact) : inputs plus touchables sur mobile ==== */
+@media (max-width: 768px) {
+    input:not([type="checkbox"]):not([type="radio"]),
+    textarea,
+    select {
+        font-size: 16px !important; /* Évite le zoom iOS */
+        min-height: 48px !important;
+        padding: 0.875rem 1rem !important;
+    }
+}
+
+/* === 24. Footer : meilleure densité mobile ============================ */
+@media (max-width: 768px) {
+    footer .grid {
+        gap: 2rem !important;
+    }
+    footer h3 {
+        font-size: 0.875rem !important;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        color: #6b7280 !important;
+        margin-bottom: 1rem !important;
+    }
+}
+
+/* === 25. Skip-link plus visible (accessibilité) ====================== */
+.skip-link:focus {
+    background: linear-gradient(135deg, #2563eb, #3b82f6) !important;
+    box-shadow: 0 8px 24px -8px rgba(37,99,235,0.5) !important;
+}
+
+/* === 26. Liens dans contenu : underline plus élégante ================ */
+main p a:not(.btn-primary):not(.btn-secondary) {
+    background-image: linear-gradient(90deg, #2563eb, #2563eb);
+    background-size: 100% 1.5px;
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    text-decoration: none !important;
+    color: #2563eb;
+    font-weight: 600;
+    transition: background-size 0.3s, color 0.3s;
+}
+main p a:not(.btn-primary):not(.btn-secondary):hover {
+    color: #1d4ed8;
+}
+
+/* ===================================================================== */
+/* === V3 FLUIDITÉ : circulation entre pages + transitions naturelles == */
+/* ===================================================================== */
+
+/* === 27. BODY : fade-in au chargement de la page ===================== */
+/* Évite le "flash blanc" et le saut visuel entre pages */
+body {
+    opacity: 0;
+    transition: opacity 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+body.demo-body-ready {
+    opacity: 1;
+}
+body.demo-body-leaving {
+    opacity: 0;
+    transition: opacity 0.12s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* === 28. IMAGES : fade-in au chargement (skeleton → image) =========== */
+img {
+    opacity: 0;
+    transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+img.demo-img-loaded,
+img[data-fluid-loaded],
+.preloader img,
+nav img,
+footer img,
+img[src*="logo"],
+img[src*=".svg"] {
+    opacity: 1;
+}
+/* SVG inline et icônes (pas de fade) */
+svg, picture {
+    opacity: 1 !important;
+}
+
+/* === 29. PRELOADER : disparition ultra rapide ======================== */
+.preloader.preloader-auto-hide {
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+    transition: opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.2s !important;
+}
+
+/* === 30. EASINGS NATURELS : remplacer ease/linear par expo/back ====== */
+/* Variables CSS pour des courbes plus organiques */
+:root {
+    --fluid-ease-out: cubic-bezier(0.16, 1, 0.3, 1);      /* expo out, lisse */
+    --fluid-ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1); /* back out, dynamique */
+    --fluid-ease-in-out: cubic-bezier(0.65, 0, 0.35, 1); /* expo in-out */
+}
+
+/* Boutons : transition plus organique */
+.btn-primary, .btn-secondary {
+    transition: transform 0.35s var(--fluid-ease-out),
+                box-shadow 0.35s var(--fluid-ease-out),
+                background 0.35s var(--fluid-ease-out),
+                background-position 0.6s ease !important;
+}
+
+/* Cards services + why : montée plus douce */
+.svc-card, .why-card {
+    transition: transform 0.45s var(--fluid-ease-out),
+                box-shadow 0.45s var(--fluid-ease-out),
+                border-color 0.35s var(--fluid-ease-out) !important;
+}
+.svc-card:hover, .why-card:hover {
+    transform: translateY(-6px) !important;
+}
+
+/* Icônes services : rotation moins agressive */
+.svc-card:hover .svc-icon {
+    transform: scale(1.06) rotate(-2deg) !important;
+    transition: transform 0.5s var(--fluid-ease-spring) !important;
+}
+
+/* === 31. SCROLL : behavior smooth global ============================= */
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px; /* compense la nav fixed */
+}
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+}
+
+/* === 32. NAV : transition de scroll plus subtile ===================== */
+nav.scrolled, .glass-nav {
+    transition: background 0.4s var(--fluid-ease-out),
+                box-shadow 0.4s var(--fluid-ease-out),
+                padding 0.3s var(--fluid-ease-out) !important;
+}
+
+/* === 33. MOBILE MENU : ouverture plus fluide ========================= */
+.mobile-menu {
+    transition: right 0.4s var(--fluid-ease-out),
+                box-shadow 0.4s var(--fluid-ease-out) !important;
+}
+.mobile-menu-overlay {
+    transition: opacity 0.35s var(--fluid-ease-out),
+                visibility 0.35s var(--fluid-ease-out) !important;
+}
+.mobile-menu a {
+    transition: color 0.25s var(--fluid-ease-out),
+                background 0.25s var(--fluid-ease-out),
+                padding-left 0.25s var(--fluid-ease-out) !important;
+}
+.mobile-menu a:hover {
+    padding-left: 1.25rem !important;
+}
+
+/* === 34. FAQ accordéons : ouverture/fermeture fluide ================ */
+details summary {
+    transition: background 0.25s var(--fluid-ease-out),
+                color 0.25s var(--fluid-ease-out) !important;
+}
+details summary .faq-chevron,
+details summary svg {
+    transition: transform 0.35s var(--fluid-ease-spring),
+                background 0.25s var(--fluid-ease-out) !important;
+}
+
+/* === 35. FOCUS visible au clavier uniquement (pas à la souris) ======= */
+body:not(.demo-using-keyboard) *:focus {
+    outline: none !important;
+    box-shadow: none !important;
+}
+body.demo-using-keyboard *:focus-visible {
+    outline: 2px solid #2563eb !important;
+    outline-offset: 3px !important;
+}
+
+/* === 36. FORM inputs : focus plus doux =============================== */
+input, textarea, select {
+    transition: border-color 0.3s var(--fluid-ease-out),
+                box-shadow 0.3s var(--fluid-ease-out),
+                background 0.3s var(--fluid-ease-out) !important;
+}
+
+/* === 37. SECTIONS appear : easing plus expo ========================== */
+.section-appear {
+    transition: opacity 0.8s var(--fluid-ease-out),
+                transform 0.8s var(--fluid-ease-out) !important;
+}
+
+/* === 38. SCROLL-TOP : apparition fluide ============================== */
+.scroll-top {
+    transition: opacity 0.4s var(--fluid-ease-out),
+                visibility 0.4s var(--fluid-ease-out),
+                transform 0.3s var(--fluid-ease-out),
+                box-shadow 0.3s var(--fluid-ease-out) !important;
+}
+.scroll-top:hover {
+    transform: translateY(-3px) scale(1.05) !important;
+}
+
+/* === 39. LIENS NAV : underline animée ================================ */
+nav a:not(.btn-primary)::after {
+    transition: width 0.4s var(--fluid-ease-out) !important;
+}
+
+/* === 40. prefers-reduced-motion : on désactive tout =================== */
+@media (prefers-reduced-motion: reduce) {
+    body, img, * {
+        transition-duration: 0.01s !important;
+        animation-duration: 0.01s !important;
+    }
+    body { opacity: 1 !important; }
+    img { opacity: 1 !important; }
+}

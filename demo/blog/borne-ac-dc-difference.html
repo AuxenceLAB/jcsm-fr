@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <link rel="icon" type="image/x-icon" href="/demo/favicon.ico">
+    <link rel="apple-touch-icon" href="/demo/apple-touch-icon.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <!-- Cookie Consent + GTM (chargé après acceptation) -->
+    <script src="/demo/js/cookie-consent.js" defer></script>
+    <title>Borne AC vs DC : différence et comment choisir | JCSM</title>
+    <meta name="description" content="Borne AC ou DC : comparatif détaillé puissance, temps de charge, coût et compatibilité OCPP. Guide 2026 pour choisir la borne adaptée à votre projet.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://jcsm.fr/blog/borne-ac-dc-difference">
+    <link rel="alternate" hreflang="fr" href="https://jcsm.fr/blog/borne-ac-dc-difference">
+    <link rel="alternate" hreflang="x-default" href="https://jcsm.fr/blog/borne-ac-dc-difference">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Borne AC vs DC : quelle différence et comment choisir ?",
+        "description": "Courant alternatif ou continu, puissance, temps de charge, coût, protocole OCPP et impact batterie : tout comprendre pour choisir entre une borne AC et une borne DC.",
+        "datePublished": "2025-05-02",
+        "dateModified": "2025-05-02",
+        "author": {"@type": "Organization", "name": "JCSM", "url": "https://jcsm.fr"},
+        "publisher": {"@type": "Organization", "name": "JCSM", "url": "https://jcsm.fr", "logo": {"@type": "ImageObject", "url": "https://jcsm.fr/images/logo.png", "width": 512, "height": 512}},
+        "mainEntityOfPage": {"@type": "WebPage", "@id": "https://jcsm.fr/blog/borne-ac-dc-difference"},
+        "wordCount": 2400,
+        "articleSection": "Technologie et Standards",
+        "image": {"@type": "ImageObject", "url": "https://jcsm.fr/images/index.webp", "width": 2048, "height": 1366}
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://jcsm.fr/"},
+            {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://jcsm.fr/blog"},
+            {"@type": "ListItem", "position": 3, "name": "Borne AC vs DC : comment choisir ?", "item": "https://jcsm.fr/blog/borne-ac-dc-difference"}
+        ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Quelle est la différence de vitesse entre une borne AC et DC ?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "En AC 7 kW : environ 8h pour 60 kWh. En DC 150 kW : 80 % en 25 minutes. Pour un usage quotidien \u00e0 domicile ou au bureau, l'AC suffit largement."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "La charge rapide DC abîme-t-elle la batterie ?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Le BMS r\u00e9gule temp\u00e9rature et tension en temps r\u00e9el. Utiliser r\u00e9guli\u00e8rement la DC rapide n'ab\u00eeme pas la batterie sur les mod\u00e8les r\u00e9cents. Tesla garantit 70 % de capacit\u00e9 apr\u00e8s 200 000 km, charge rapide incluse."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Peut-on installer une borne DC à domicile ?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "En th\u00e9orie oui, en pratique rarement pertinent. Le raccordement triphas\u00e9 haute puissance et le co\u00fbt du mat\u00e9riel (30 000 \u00e0 80 000 euros) ne se justifient pas pour un usage domestique."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Quel est le coût au kWh en charge AC vs DC ?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "\u00c0 domicile en heures creuses : 0,15-0,20 \u20ac/kWh. Borne publique AC : 0,25-0,40 \u20ac/kWh. Borne DC rapide : 0,50-0,80 \u20ac/kWh. La recharge \u00e0 domicile reste 3 \u00e0 4 fois moins ch\u00e8re que la DC publique."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Comment préparer son infrastructure pour l'avenir ?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Prenez des bornes compatibles OCPP. Ce protocole ouvert vous \u00e9vite d'\u00eatre enferm\u00e9 chez un fabricant et permet la supervision \u00e0 distance, les mises \u00e0 jour firmware, et le smart charging."
+                }
+            }
+        ]
+    }
+    </script>
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://jcsm.fr/blog/borne-ac-dc-difference">
+    <meta property="og:title" content="Borne AC vs DC : quelle différence et comment choisir ?">
+    <meta property="og:description" content="Comparatif complet borne AC vs DC : puissance, temps de charge, coût, impact batterie et protocole OCPP. Guide 2026.">
+    <meta property="og:image" content="https://jcsm.fr/images/cable.webp">
+    <meta property="og:image:alt" content="Câble et connecteur de recharge pour véhicule électrique">
+    <meta property="og:image:width" content="1024">
+    <meta property="og:image:height" content="683">
+    <meta property="og:locale" content="fr_FR">
+    <meta property="og:site_name" content="JCSM - Infrastructure de Recharge">
+    <meta property="article:published_time" content="2025-05-02">
+    <meta property="article:modified_time" content="2025-05-02">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Borne AC vs DC : quelle différence et comment choisir ?">
+    <meta name="twitter:description" content="Comparatif complet borne AC vs DC : puissance, coût, batterie, OCPP. Guide 2026.">
+    <meta name="twitter:image" content="https://jcsm.fr/images/index.webp">
+    <meta name="twitter:image:alt" content="Infrastructure de recharge pour véhicules électriques">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet"
+        media="print" onload="this.media='all'">
+    <noscript>
+        <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap"
+            rel="stylesheet">
+    </noscript>
+    <link rel="stylesheet" href="../css/critical.css?v=72">
+    <link rel="stylesheet" href="../css/tailwind.css?v=72" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="../css/tailwind.css?v=72"></noscript>
+    <link rel="stylesheet" href="../styles.css?v=72" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="../styles.css?v=72"></noscript>
+    <link rel="manifest" href="../manifest.json">
+    <link rel="icon" type="image/x-icon" href="/demo/favicon.ico">
+    <link rel="apple-touch-icon" href="/demo/apple-touch-icon.png">
+
+    <link rel="stylesheet" href="/demo/demo-overrides.css?v=5">
+    <script src="/demo/demo-fluidity.js?v=2" defer data-cfasync="false"></script>
+    <script>window.addEventListener("DOMContentLoaded",function(){setTimeout(function(){var p=document.getElementById("preloader");if(p)p.classList.add("preloader-auto-hide");},600);});</script>
+</head>
+<body class="text-gray-900 bg-white">
+    <div class="demo-banner"><span>DEMO</span>Version proposée pour validation — non publiée</div>
+
+    <div class="reading-progress" id="reading-progress"></div>
+    <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+    <div class="preloader" id="preloader" role="status" aria-label="Chargement">
+        <div class="flex flex-col items-center justify-center">
+            <picture><source srcset="../images/logo.webp" type="image/webp"><img src="../images/logo.png" alt="JCSM" width="80" height="80" class="animate-pulse"></picture>
+        </div>
+    </div>
+    <div class="mobile-menu-overlay" id="mobile-menu-overlay"></div>
+    <nav class="mobile-menu" id="mobile-menu" role="dialog" aria-modal="true" aria-label="Menu de navigation" aria-hidden="true">
+        <div class="p-8">
+            <div class="flex justify-between items-center mb-12">
+                <span class="text-xl font-semibold">Menu</span>
+                <button class="text-gray-600 hover:text-gray-900" id="mobile-menu-close" aria-label="Fermer le menu de navigation">
+                    <svg class="w-6 h-6" fill="none" aria-hidden="true" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+                </button>
+            </div>
+                        <div class="flex flex-col space-y-6">
+                <a href="/demo/pilotage-projets" class="text-base text-gray-600 hover:text-gray-900 transition-colors">Pilotage de projets</a>
+                <a href="/demo/installation-conformite" class="text-base text-gray-600 hover:text-gray-900 transition-colors">Installation</a>
+                <a href="/demo/exploitation" class="text-base text-gray-600 hover:text-gray-900 transition-colors">Exploitation</a>
+                <a href="/demo/securisation-installations" class="text-base text-gray-600 hover:text-gray-900 transition-colors">Sécurisation</a>
+                <a href="/demo/centre-appel" class="text-base text-gray-600 hover:text-gray-900 transition-colors">Support</a>
+                <a href="/demo/solutions/" class="text-base text-gray-600 hover:text-gray-900 transition-colors">Solutions</a>
+                <a href="/demo/a-propos" class="text-base text-gray-600 hover:text-gray-900 transition-colors">À propos</a>
+                <a href="/demo/blog" class="text-base text-gray-600 hover:text-gray-900 transition-colors">Blog</a>
+                <a href="/demo/contact" class="btn-primary px-6 py-3 rounded-lg text-base font-medium inline-block text-center mt-4">Contact</a>
+            </div>
+        </div>
+    </nav>
+    <nav class="fixed top-0 w-full z-50 glass-nav border-b border-gray-200" role="navigation" aria-label="Navigation principale">
+        <div class="max-w-7xl mx-auto px-6 py-5">
+            <div class="flex justify-between items-center">
+                <a href="/demo/" class="flex items-center space-x-3 group mr-12">
+                    <picture><source srcset="../images/logo.webp" type="image/webp"><img src="../images/logo.png" alt="JCSM" class="w-9 h-9 transition-transform group-hover:scale-105 duration-300" width="36" height="36"></picture>
+                    <span class="text-xl font-bold tracking-tight">JCSM</span>
+                </a>
+                <div class="hidden lg:flex items-center space-x-6 xl:space-x-8">
+                    <a href="/demo/pilotage-projets" class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300 whitespace-nowrap">Pilotage</a>
+                    <a href="/demo/installation-conformite" class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300 whitespace-nowrap">Installation</a>
+                    <a href="/demo/exploitation" class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300 whitespace-nowrap">Exploitation</a>
+                    <a href="/demo/securisation-installations" class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300 whitespace-nowrap">Sécurisation</a>
+                    <a href="/demo/centre-appel" class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300 whitespace-nowrap">Support</a>
+                    <a href="/demo/solutions/" class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300 whitespace-nowrap">Solutions</a>
+                    <a href="/demo/a-propos" class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300 whitespace-nowrap">À propos</a>
+                    <a href="/demo/blog" class="text-base font-semibold text-blue-600 hover:text-blue-700 transition-all duration-300 whitespace-nowrap">Blog</a>
+                    <a href="/demo/contact" class="btn-primary ml-4 px-7 py-2.5 rounded-xl text-base font-medium shadow-lg hover:shadow-xl whitespace-nowrap">Contact</a>
+                </div>
+                <button class="mobile-menu-btn text-gray-600 hover:text-gray-900" id="mobile-menu-btn" aria-label="Ouvrir le menu de navigation" aria-expanded="false" aria-controls="mobile-menu">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main id="main-content" role="main">
+        <article class="pt-32 pb-16 px-6">
+            <div class="max-w-3xl mx-auto">
+                <div class="mb-8">
+                    <a href="/demo/blog" class="text-sm text-blue-600 hover:text-blue-800 transition-colors">&larr; Retour au blog</a>
+                </div>
+                <div class="mb-10">
+                    <span class="inline-block text-xs font-semibold badge-section text-amber-700 bg-amber-100 rounded-full px-3 py-1 mb-4">Technique</span>
+                    <h1 class="text-3xl md:text-4xl font-bold mb-4 leading-tight"><span class="gradient-text">Borne AC vs DC</span> : quelle différence et comment choisir ?</h1>
+                    <div class="flex items-center text-sm text-gray-500">
+                        <time datetime="2025-05-02">2 mai 2025</time>
+                        <span class="mx-2">·</span>
+                        <span>10 min de lecture</span>
+                    </div>
+                </div>
+
+                <div class="prose prose-lg max-w-none">
+                    <p class="text-lg text-gray-600 leading-relaxed mb-8">Le marché du véhicule électrique accélère. En France, une voiture neuve sur quatre est désormais électrique ou hybride rechargeable. Mais face à la diversité des bornes de recharge, une question revient systématiquement : faut-il opter pour une borne AC ou DC ? Derrière ces deux sigles se cachent des technologies très différentes en termes de puissance, de vitesse de charge, de coût et d'usage. Voici les clés pour faire le bon choix.</p>
+
+                    <!-- Sommaire -->
+                    <nav class="bg-amber-50 rounded-xl p-6 mb-10" aria-label="Sommaire">
+                        <p class="font-semibold text-gray-900 mb-3">Sommaire</p>
+                        <ol class="space-y-2 text-amber-700">
+                            <li><a href="#bases-ac-dc" class="hover:underline">1. Courant alternatif (AC) vs courant continu (DC) : les bases</a></li>
+                            <li><a href="#bornes-ac" class="hover:underline">2. Bornes AC : la recharge du quotidien</a></li>
+                            <li><a href="#bornes-dc" class="hover:underline">3. Bornes DC : la recharge rapide</a></li>
+                            <li><a href="#comparatif" class="hover:underline">4. Comparatif visuel AC vs DC</a></li>
+                            <li><a href="#cas-concrets" class="hover:underline">5. Cas concrets : AC, DC ou les deux ?</a></li>
+                            <li><a href="#comment-choisir" class="hover:underline">6. Comment choisir ? Les critères clés</a></li>
+                            <li><a href="#ocpp-smart-charging" class="hover:underline">7. OCPP et smart charging : préparer l'avenir</a></li>
+                            <li><a href="#mythe-degradation" class="hover:underline">8. Charge rapide DC et dégradation batterie : mythe ou réalité ?</a></li>
+                            <li><a href="#expertise-jcsm" class="hover:underline">9. L'expertise JCSM : AC et DC, on maîtrise les deux</a></li>
+                            <li><a href="#faq" class="hover:underline">10. Questions fréquentes</a></li>
+                        </ol>
+                    </nav>
+
+                    <h2 id="bases-ac-dc" class="text-2xl font-bold mt-12 mb-4">Courant alternatif (AC) vs courant continu (DC) : les bases</h2>
+                    <p class="text-gray-600 leading-relaxed mb-4">Pour comprendre la différence entre une borne AC et une borne DC, il faut revenir à un principe fondamental : la batterie d'un véhicule électrique stocke de l'énergie sous forme de courant continu (DC). Or, le réseau électrique qui alimente nos bâtiments distribue du courant alternatif (AC).</p>
+                    <p class="text-gray-600 leading-relaxed mb-4">Avec une <strong>borne AC</strong>, le courant alternatif du réseau est envoyé tel quel au véhicule. C'est le <strong>chargeur embarqué</strong> (l'onduleur intégré dans la voiture) qui se charge de convertir l'AC en DC avant d'alimenter la batterie. Ce chargeur embarqué a une puissance limitée, généralement entre 7 et 11 kW, ce qui freine la vitesse de charge.</p>
+                    <p class="text-gray-600 leading-relaxed mb-4">Avec une <strong>borne DC</strong>, la conversion est réalisée directement par la borne elle-même, grâce à un redresseur intégré beaucoup plus puissant. Le courant continu est injecté directement dans la batterie, en contournant le chargeur embarqué. Résultat : des puissances de charge bien supérieures, de 50 kW à plus de 350 kW.</p>
+
+                    <div class="bg-amber-50 border-l-4 border-amber-400 p-4 rounded-r-lg my-6">
+                        <p class="font-semibold text-amber-800">Bon à savoir</p>
+                        <p class="text-amber-700 mt-1">Le connecteur diffère aussi : les bornes AC utilisent le <strong>Type 2</strong> (standard européen), tandis que les bornes DC utilisent le <strong>CCS Combo 2</strong> (Combined Charging System) qui ajoute deux broches DC au connecteur Type 2. Tous les véhicules vendus en Europe depuis 2018 sont compatibles CCS.</p>
+                    </div>
+
+                    <h2 id="bornes-ac" class="text-2xl font-bold mt-12 mb-4">Bornes AC : la recharge du quotidien</h2>
+                    <p class="text-gray-600 leading-relaxed mb-4">Les bornes AC sont les plus répandues. On les trouve dans les parkings résidentiels, les <a href="/demo/blog/installer-borne-copropriete" class="text-blue-600 hover:text-blue-800 underline">copropriétés</a>, les parkings d'entreprise et les centres commerciaux. Leur puissance varie de <strong>3,7 kW</strong> (prise renforcée) à <strong>22 kW</strong> (borne triphasée).</p>
+                    <p class="text-gray-600 leading-relaxed mb-4">En pratique, une borne AC de 7,4 kW recharge un véhicule avec une batterie de 60 kWh en environ 8 heures : parfait pour une nuit complète ou une journée de travail. Avec une borne 22 kW, ce temps descend à environ 3 heures. Des modèles comme la <strong>Schneider EVlink</strong> ou la <strong>Hager Witty</strong> sont devenus des références sur ce segment.</p>
+                    <ul class="list-disc pl-6 text-gray-600 space-y-2 mb-6">
+                        <li><strong>Puissance</strong> : 3,7 kW à 22 kW</li>
+                        <li><strong>Usage idéal</strong> : domicile, copropriété, parking d'entreprise, commerce</li>
+                        <li><strong>Avantages</strong> : installation simple, coût réduit, compatible avec tous les véhicules électriques</li>
+                        <li><strong>Coût d'installation</strong> : 1 000 à 3 000 euros pose comprise (éligible <a href="/demo/blog/aide-advenir-subventions-irve" class="text-blue-600 hover:text-blue-800 underline">aide ADVENIR</a>)</li>
+                        <li><strong>Maintenance</strong> : faible, peu de composants soumis à usure</li>
+                    </ul>
+
+                    <h2 id="bornes-dc" class="text-2xl font-bold mt-12 mb-4">Bornes DC : la recharge rapide</h2>
+                    <p class="text-gray-600 leading-relaxed mb-4">Les bornes DC, aussi appelées chargeurs rapides, sont conçues pour les situations où le temps est compté. On les retrouve sur les aires d'autoroute, dans les stations-service, et de plus en plus dans les dépôts de flottes professionnelles. Les fabricants de référence incluent <strong>ABB Terra</strong>, <strong>Kempower</strong>, <strong>Alpitronic Hypercharger</strong> et les <strong>Tesla Superchargers</strong> (désormais ouverts aux autres marques en Europe).</p>
+                    <p class="text-gray-600 leading-relaxed mb-4">Avec une puissance allant de <strong>50 kW</strong> à <strong>350 kW</strong>, une borne DC peut recharger 80 % d'une batterie de 60 kWh en <strong>20 à 40 minutes</strong>. Les modèles les plus puissants (150 kW et au-delà) permettent de récupérer 300 km d'autonomie en moins de 20 minutes.</p>
+                    <ul class="list-disc pl-6 text-gray-600 space-y-2 mb-6">
+                        <li><strong>Puissance</strong> : 50 kW à 350 kW</li>
+                        <li><strong>Usage idéal</strong> : stations-service, autoroute, hub de recharge, dépôt de flotte</li>
+                        <li><strong>Avantages</strong> : rapidité, adapté aux longs trajets et à la rotation rapide des véhicules</li>
+                        <li><strong>Coût d'installation</strong> : 30 000 à 150 000 euros selon la puissance et le raccordement</li>
+                        <li><strong>Maintenance</strong> : plus exigeante (refroidissement liquide, électronique de puissance) -- consultez notre <a href="/demo/blog/maintenance-bornes-recharge-guide" class="text-blue-600 hover:text-blue-800 underline">guide maintenance</a></li>
+                    </ul>
+
+                    <div class="bg-amber-50 border-l-4 border-amber-400 p-4 rounded-r-lg my-6">
+                        <p class="font-semibold text-amber-800">Bon à savoir</p>
+                        <p class="text-amber-700 mt-1">Les bornes DC de nouvelle génération (Kempower, Alpitronic) sont modulaires : vous pouvez démarrer à 100 kW et ajouter des modules de puissance ultérieurement sans changer l'ensemble de l'installation. Un vrai atout pour une montée en charge progressive.</p>
+                    </div>
+
+                    <h2 id="comparatif" class="text-2xl font-bold mt-12 mb-4">Comparatif visuel AC vs DC</h2>
+
+                    <!-- Visual comparison cards -->
+                    <div class="grid sm:grid-cols-2 gap-6 mb-8">
+                        <div class="bg-blue-50 rounded-xl p-6 border border-blue-100">
+                            <div class="text-center mb-4">
+                                <span class="inline-block text-sm font-semibold text-blue-700 bg-blue-100 rounded-full px-4 py-1">Borne AC</span>
+                            </div>
+                            <ul class="space-y-3 text-sm text-gray-700">
+                                <li class="flex justify-between"><span class="font-medium">Puissance</span><span>3,7 - 22 kW</span></li>
+                                <li class="flex justify-between"><span class="font-medium">Charge 60 kWh</span><span>3 - 16 h</span></li>
+                                <li class="flex justify-between"><span class="font-medium">Connecteur</span><span>Type 2</span></li>
+                                <li class="flex justify-between"><span class="font-medium">Installation</span><span>1 000 - 3 000 EUR</span></li>
+                                <li class="flex justify-between"><span class="font-medium">Maintenance</span><span>Faible</span></li>
+                                <li class="flex justify-between"><span class="font-medium">Encombrement</span><span>Compact (mural)</span></li>
+                                <li class="flex justify-between"><span class="font-medium">Coût/kWh</span><span>0,15 - 0,40 EUR</span></li>
+                            </ul>
+                        </div>
+                        <div class="bg-amber-50 rounded-xl p-6 border border-amber-100">
+                            <div class="text-center mb-4">
+                                <span class="inline-block text-sm font-semibold text-amber-700 bg-amber-100 rounded-full px-4 py-1">Borne DC</span>
+                            </div>
+                            <ul class="space-y-3 text-sm text-gray-700">
+                                <li class="flex justify-between"><span class="font-medium">Puissance</span><span>50 - 350 kW</span></li>
+                                <li class="flex justify-between"><span class="font-medium">Charge 60 kWh</span><span>15 - 40 min</span></li>
+                                <li class="flex justify-between"><span class="font-medium">Connecteur</span><span>CCS Combo 2</span></li>
+                                <li class="flex justify-between"><span class="font-medium">Installation</span><span>30 000 - 150 000 EUR</span></li>
+                                <li class="flex justify-between"><span class="font-medium">Maintenance</span><span>Elevée</span></li>
+                                <li class="flex justify-between"><span class="font-medium">Encombrement</span><span>Imposant (local technique)</span></li>
+                                <li class="flex justify-between"><span class="font-medium">Coût/kWh</span><span>0,40 - 0,79 EUR</span></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Detailed comparison table -->
+                    <div class="overflow-x-auto mb-8">
+                        <table class="w-full text-sm text-left border border-gray-200 rounded-lg overflow-hidden">
+                            <thead class="bg-gray-50">
+                                <tr>
+                                    <th scope="col" class="px-4 py-3 font-semibold text-gray-900 border-b border-gray-200">Critère</th>
+                                    <th scope="col" class="px-4 py-3 font-semibold text-gray-900 border-b border-gray-200">Borne AC</th>
+                                    <th scope="col" class="px-4 py-3 font-semibold text-gray-900 border-b border-gray-200">Borne DC</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-gray-600">
+                                <tr class="border-b border-gray-100">
+                                    <td class="px-4 py-3 font-medium text-gray-900">Puissance</td>
+                                    <td class="px-4 py-3">3,7 à 22 kW</td>
+                                    <td class="px-4 py-3">50 à 350 kW</td>
+                                </tr>
+                                <tr class="border-b border-gray-100 bg-gray-50">
+                                    <td class="px-4 py-3 font-medium text-gray-900">Temps de charge (60 kWh)</td>
+                                    <td class="px-4 py-3">3 à 16 heures</td>
+                                    <td class="px-4 py-3">15 à 40 minutes</td>
+                                </tr>
+                                <tr class="border-b border-gray-100">
+                                    <td class="px-4 py-3 font-medium text-gray-900">Usage typique</td>
+                                    <td class="px-4 py-3">Domicile, bureau, commerce</td>
+                                    <td class="px-4 py-3">Autoroute, station-service, flotte</td>
+                                </tr>
+                                <tr class="border-b border-gray-100 bg-gray-50">
+                                    <td class="px-4 py-3 font-medium text-gray-900">Connecteur</td>
+                                    <td class="px-4 py-3">Type 2</td>
+                                    <td class="px-4 py-3">CCS Combo 2</td>
+                                </tr>
+                                <tr class="border-b border-gray-100">
+                                    <td class="px-4 py-3 font-medium text-gray-900">Coût d'installation</td>
+                                    <td class="px-4 py-3">1 000 - 3 000 EUR</td>
+                                    <td class="px-4 py-3">30 000 - 150 000 EUR</td>
+                                </tr>
+                                <tr class="border-b border-gray-100 bg-gray-50">
+                                    <td class="px-4 py-3 font-medium text-gray-900">Maintenance</td>
+                                    <td class="px-4 py-3">Faible</td>
+                                    <td class="px-4 py-3">Elevée (refroidissement, électronique)</td>
+                                </tr>
+                                <tr class="border-b border-gray-100">
+                                    <td class="px-4 py-3 font-medium text-gray-900">Modèles courants</td>
+                                    <td class="px-4 py-3">Schneider EVlink, Hager Witty, Legrand Green'up</td>
+                                    <td class="px-4 py-3">ABB Terra, Kempower, Alpitronic, Tesla Supercharger</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-4 py-3 font-medium text-gray-900">Impact batterie</td>
+                                    <td class="px-4 py-3">Négligeable</td>
+                                    <td class="px-4 py-3">Marginal (BMS moderne)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h2 id="cas-concrets" class="text-2xl font-bold mt-12 mb-4">Cas concrets : AC, DC ou les deux ?</h2>
+                    <p class="text-gray-600 leading-relaxed mb-4">Pour rendre le choix plus concret, voici trois scénarios types illustrant les configurations les plus courantes.</p>
+
+                    <div class="bg-gray-50 rounded-xl p-6 border border-gray-100 mb-6">
+                        <h3 class="text-lg font-semibold mb-2">Scénario 1 : un hôtel 4 étoiles avec 30 places de parking</h3>
+                        <p class="text-gray-600 leading-relaxed mb-3">Les clients arrivent en fin de journée et repartent le matin. Le temps de stationnement moyen est de 10 à 12 heures. <strong>Solution recommandée</strong> : 8 bornes AC 7 kW avec <a href="/demo/installation-conformite" class="text-blue-600 hover:text-blue-800 underline">gestion dynamique de charge</a>. Investissement total : environ 15 000 euros. Les véhicules se rechargent intégralement pendant la nuit, le load balancing évite de surdimensionner le raccordement électrique, et l'hôtel peut proposer la recharge comme service premium.</p>
+                    </div>
+
+                    <div class="bg-gray-50 rounded-xl p-6 border border-gray-100 mb-6">
+                        <h3 class="text-lg font-semibold mb-2">Scénario 2 : une aire d'autoroute avec 8 bornes de recharge</h3>
+                        <p class="text-gray-600 leading-relaxed mb-3">Les conducteurs s'arrêtent 20 à 30 minutes pour une pause café. Le taux de rotation doit être maximal. <strong>Solution recommandée</strong> : 4 bornes DC 150 kW (type ABB Terra 184 ou Kempower Satellite) + 4 bornes AC 22 kW pour les véhicules qui stationnent plus longtemps. Les bornes DC assurent la rotation rapide, les AC absorbent le surplus en heures de pointe.</p>
+                    </div>
+
+                    <div class="bg-gray-50 rounded-xl p-6 border border-gray-100 mb-6">
+                        <h3 class="text-lg font-semibold mb-2">Scénario 3 : un dépôt de 40 utilitaires électriques</h3>
+                        <p class="text-gray-600 leading-relaxed mb-3">Les véhicules rentrent le soir et repartent à 6h. Mais certains doivent être rechargés en urgence entre deux tournées. <strong>Solution recommandée</strong> : 20 bornes AC 11 kW pour la charge nocturne planifiée + 2 bornes DC 50 kW pour les recharges d'appoint en journée. Le système de <a href="/demo/exploitation" class="text-blue-600 hover:text-blue-800 underline">supervision à distance</a> pilote la priorité des charges selon les plannings de tournée.</p>
+                    </div>
+
+                    <h2 id="comment-choisir" class="text-2xl font-bold mt-12 mb-4">Comment choisir ? Les critères clés</h2>
+                    <p class="text-gray-600 leading-relaxed mb-4">Le choix entre AC et DC ne se résume pas à une question de vitesse. Quatre critères doivent guider votre décision :</p>
+
+                    <h3 class="text-xl font-semibold mt-8 mb-3">1. Le type d'usage</h3>
+                    <p class="text-gray-600 leading-relaxed mb-4">Si vos véhicules stationnent plusieurs heures au même endroit (domicile, bureau, parking longue durée), une borne AC suffit amplement. La recharge se fait naturellement pendant le temps d'immobilisation, sans contrainte. En revanche, si vous gérez un lieu de transit (station-service, aire de repos, hub logistique), la borne DC s'impose pour offrir une recharge rapide compatible avec des arrêts courts.</p>
+
+                    <h3 class="text-xl font-semibold mt-8 mb-3">2. Le budget disponible</h3>
+                    <p class="text-gray-600 leading-relaxed mb-4">L'écart de coût est considérable. Une borne AC 7 kW coûte entre 1 000 et 2 000 euros pose comprise. Une borne DC 50 kW démarre à 30 000 euros, auxquels s'ajoutent les travaux de raccordement au réseau haute puissance. Le retour sur investissement dépend du modèle économique : pour un site ouvert au public, la facturation au kWh permet de rentabiliser une borne DC ; pour un usage privé, l'AC est presque toujours plus pertinent. Pensez aussi aux <a href="/demo/blog/aide-advenir-subventions-irve" class="text-blue-600 hover:text-blue-800 underline">subventions ADVENIR</a> qui peuvent couvrir jusqu'à 50 % du coût d'installation.</p>
+
+                    <h3 class="text-xl font-semibold mt-8 mb-3">3. L'espace disponible</h3>
+                    <p class="text-gray-600 leading-relaxed mb-4">Une borne AC est compacte : elle se fixe au mur ou sur un pied simple. Une borne DC est un équipement imposant qui nécessite un local technique, une ventilation adaptée et parfois un transformateur dédié. Vérifiez la <a href="/demo/installation-conformite" class="text-blue-600 hover:text-blue-800 underline">faisabilité technique</a> avant de vous engager.</p>
+
+                    <h3 class="text-xl font-semibold mt-8 mb-3">4. Le nombre d'utilisateurs</h3>
+                    <p class="text-gray-600 leading-relaxed mb-4">Pour un parking d'entreprise avec 50 places, installer 10 bornes AC de 7 kW avec un système de charge intelligente (load balancing) revient souvent moins cher qu'une seule borne DC, tout en répondant au même besoin. La charge intelligente répartit la puissance disponible entre les véhicules connectés, optimisant l'infrastructure sans surdimensionner le raccordement électrique.</p>
+
+                    <h2 id="ocpp-smart-charging" class="text-2xl font-bold mt-12 mb-4">OCPP et smart charging : préparer l'avenir</h2>
+                    <p class="text-gray-600 leading-relaxed mb-4">Le protocole <strong>OCPP</strong> (Open Charge Point Protocol) est le standard ouvert de communication entre les bornes de recharge et les systèmes de supervision. En version 1.6 ou 2.0.1, l'OCPP permet de superviser vos bornes à distance, de lancer des mises à jour firmware, de gérer les autorisations d'accès par badge RFID et de collecter les données de consommation en temps réel.</p>
+                    <p class="text-gray-600 leading-relaxed mb-4">Concrètement, une infrastructure compatible OCPP offre trois avantages décisifs :</p>
+                    <ul class="list-disc pl-6 text-gray-600 space-y-2 mb-6">
+                        <li><strong>Interopérabilité</strong> : vous n'êtes pas verrouillé chez un fabricant unique. Une borne Schneider, une ABB et une Kempower peuvent cohabiter sous le même superviseur OCPP.</li>
+                        <li><strong>Smart charging</strong> : le système répartit dynamiquement la puissance entre les bornes en fonction de la capacité du raccordement, des tarifs de l'électricité (heures creuses/pleines) et des priorités définies par l'exploitant.</li>
+                        <li><strong><a href="/demo/exploitation" class="text-blue-600 hover:text-blue-800 underline">Télémaintenance</a></strong> : diagnostics à distance, redémarrage des bornes, alertes en cas de panne. Résultat : un taux de disponibilité supérieur à 98 % et des interventions terrain réduites au strict nécessaire.</li>
+                    </ul>
+
+                    <div class="bg-amber-50 border-l-4 border-amber-400 p-4 rounded-r-lg my-6">
+                        <p class="font-semibold text-amber-800">Bon à savoir</p>
+                        <p class="text-amber-700 mt-1">Depuis 2024, le décret IRVE impose que toute borne installée sur un parking ouvert au public soit compatible OCPP. Même pour un usage privé, nous recommandons systématiquement l'OCPP : le surcoût est négligeable et la pérennité de votre investissement est garantie.</p>
+                    </div>
+
+                    <h2 id="mythe-degradation" class="text-2xl font-bold mt-12 mb-4">Charge rapide DC et dégradation batterie : mythe ou réalité ?</h2>
+                    <p class="text-gray-600 leading-relaxed mb-4">C'est l'une des inquiétudes les plus répandues : la charge rapide DC abîme-t-elle la batterie ? La réponse courte : <strong>l'impact existe, mais il est bien plus faible qu'on ne le croit</strong>.</p>
+                    <p class="text-gray-600 leading-relaxed mb-4">Les batteries lithium-ion modernes intègrent un <strong>BMS</strong> (Battery Management System) sophistiqué qui régule en permanence la température, la tension et le courant de charge. Lorsqu'une borne DC délivre 150 kW, le BMS ajuste la courbe de charge en temps réel : la puissance maximale n'est acceptée que lorsque la batterie est entre 10 et 60 %, puis elle diminue progressivement pour protéger les cellules.</p>
+                    <p class="text-gray-600 leading-relaxed mb-4">Des études de terrain sur des Tesla Model 3 ayant parcouru plus de 300 000 km montrent une dégradation inférieure à 10 %, y compris avec un usage régulier de Superchargers DC. La recommandation des constructeurs est simple : privilégiez la charge AC au quotidien (domicile, bureau), utilisez la charge DC pour les longs trajets et les situations d'urgence. Cette combinaison offre le meilleur compromis entre praticité et longévité.</p>
+
+                    <div class="bg-amber-50 border-l-4 border-amber-400 p-4 rounded-r-lg my-6">
+                        <p class="font-semibold text-amber-800">Bon à savoir</p>
+                        <p class="text-amber-700 mt-1">Evitez de charger systématiquement au-delà de 80 % en DC : c'est entre 80 et 100 % que la vitesse de charge ralentit le plus et que le stress sur les cellules est maximal. Pour un usage quotidien, la plage 20-80 % est optimale en AC comme en DC.</p>
+                    </div>
+
+                    <h2 id="expertise-jcsm" class="text-2xl font-bold mt-12 mb-4">L'expertise JCSM : AC et DC, on maîtrise les deux</h2>
+                    <p class="text-gray-600 leading-relaxed mb-4">Chez JCSM, nous concevons, installons et maintenons des infrastructures de recharge AC et DC depuis 2019. Qu'il s'agisse d'équiper un parking résidentiel en bornes 7 kW ou de déployer un hub de recharge rapide 150 kW, notre équipe certifiée Qualifelec IRVE vous accompagne à chaque étape.</p>
+                    <p class="text-gray-600 leading-relaxed mb-4">Nos prestations couvrent l'ensemble du cycle de vie de votre infrastructure :</p>
+                    <ul class="list-disc pl-6 text-gray-600 space-y-2 mb-6">
+                        <li><strong>Audit et dimensionnement</strong> : étude de faisabilité, choix de la puissance, analyse du raccordement</li>
+                        <li><strong><a href="/demo/installation-conformite" class="text-blue-600 hover:text-blue-800 underline">Installation et mise en conformité</a></strong> : pose, câblage, attestation Consuel, respect des normes NF C 15-100</li>
+                        <li><strong><a href="/demo/exploitation" class="text-blue-600 hover:text-blue-800 underline">Exploitation et maintenance</a></strong> : supervision OCPP, <a href="/demo/blog/maintenance-bornes-recharge-guide" class="text-blue-600 hover:text-blue-800 underline">maintenance préventive et curative</a>, intervention sous 24h</li>
+                    </ul>
+                    <p class="text-gray-600 leading-relaxed mb-4">Notre force : un interlocuteur unique, un devis transparent et une connaissance terrain des deux technologies. Nous vous aidons à choisir la solution adaptée à votre contexte, sans surdimensionner ni sous-estimer vos besoins.</p>
+
+                    <div class="bg-gray-50 border border-gray-200 rounded-2xl p-6 my-8">
+                        <h3 class="text-lg font-bold text-gray-900 mb-2">JCSM vous accompagne</h3>
+                        <p class="text-gray-600 leading-relaxed mb-4">Vous hésitez entre une borne AC et DC pour votre projet ? JCSM vous aide à choisir la solution la plus adaptée à votre usage et à votre budget. Certifiés Qualifelec IRVE, nous concevons, installons et mettons en conformité des infrastructures AC (7 à 22 kW) et DC (50 à 500 kW) sur tout le territoire.</p>
+                        <a href="/demo/installation-conformite" class="inline-flex items-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-xl font-semibold hover:bg-blue-700 transition-colors">
+                            Découvrir nos services d'installation et conformité
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                        </a>
+                    </div>
+
+                    <!-- FAQ section -->
+                    <section class="mt-16 section-appear">
+                        <h2 id="faq" class="text-2xl font-bold text-gray-900 mb-8">Questions fréquentes</h2>
+                        <div class="space-y-4">
+                            <details class="bg-gray-50 rounded-xl p-5 border border-gray-100" open>
+                                <summary class="font-semibold cursor-pointer">Quelle est la différence de vitesse entre une borne AC et DC ?</summary>
+                                <p class="mt-3 text-gray-600 leading-relaxed">En AC 7 kW : environ 8h pour 60 kWh. En DC 150 kW : 80 % en 25 minutes. Pour un usage quotidien à domicile ou au bureau, l'AC suffit largement.</p>
+                            </details>
+                            <details class="bg-gray-50 rounded-xl p-5 border border-gray-100">
+                                <summary class="font-semibold cursor-pointer">La charge rapide DC abîme-t-elle la batterie ?</summary>
+                                <p class="mt-3 text-gray-600 leading-relaxed">Le BMS régule température et tension en temps réel. Utiliser régulièrement la DC rapide n'abîme pas la batterie sur les modèles récents. Tesla garantit 70 % de capacité après 200 000 km, charge rapide incluse.</p>
+                            </details>
+                            <details class="bg-gray-50 rounded-xl p-5 border border-gray-100">
+                                <summary class="font-semibold cursor-pointer">Peut-on installer une borne DC à domicile ?</summary>
+                                <p class="mt-3 text-gray-600 leading-relaxed">En théorie oui, en pratique rarement pertinent. Le raccordement triphasé haute puissance et le coût du matériel (30 000 à 80 000 €) ne se justifient pas pour un usage domestique.</p>
+                            </details>
+                            <details class="bg-gray-50 rounded-xl p-5 border border-gray-100">
+                                <summary class="font-semibold cursor-pointer">Quel est le coût au kWh en charge AC vs DC ?</summary>
+                                <p class="mt-3 text-gray-600 leading-relaxed">À domicile en heures creuses : 0,15-0,20 €/kWh. Borne publique AC : 0,25-0,40 €/kWh. Borne DC rapide : 0,50-0,80 €/kWh. La recharge à domicile reste 3 à 4 fois moins chère que la DC publique.</p>
+                            </details>
+                            <details class="bg-gray-50 rounded-xl p-5 border border-gray-100">
+                                <summary class="font-semibold cursor-pointer">Comment préparer son infrastructure pour l'avenir ?</summary>
+                                <p class="mt-3 text-gray-600 leading-relaxed">Prenez des bornes compatibles OCPP. Ce protocole ouvert vous évite d'être enfermé chez un fabricant et permet la supervision à distance, les mises à jour firmware, et le smart charging.</p>
+                            </details>
+                        </div>
+                    </section>
+                </div>
+
+                <!-- CTA -->
+                <div class="mt-12 section-appear bg-blue-50 rounded-2xl p-8 text-center">
+                    <h3 class="text-xl font-bold mb-3">Besoin d'aide pour choisir entre AC et DC ?</h3>
+                    <p class="text-gray-600 mb-6">Nos experts analysent votre besoin et vous recommandent la solution optimale. Devis gratuit sous 24h.</p>
+                    <a href="/demo/contact" class="btn-primary px-8 py-3 rounded-xl font-medium inline-block">Demander un devis</a>
+                </div>
+
+
+                <!-- Partage social -->
+                <div class="flex items-center gap-4 pt-8 mt-8 border-t border-gray-200">
+                    <span class="text-sm font-semibold text-gray-700">Partager :</span>
+                    <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://jcsm.fr/blog/borne-ac-dc-difference" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-gray-100 hover:bg-blue-50 text-gray-600 hover:text-blue-700 text-sm font-medium transition-colors" aria-label="Partager sur LinkedIn">
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                        LinkedIn
+                    </a>
+                    <a href="https://twitter.com/intent/tweet?url=https://jcsm.fr/blog/borne-ac-dc-difference&amp;text=Borne%20AC%20vs%20DC%20%3A%20quelle%20diff%C3%A9rence%20et%20comment%20choisir%20%3F" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-gray-100 hover:bg-gray-200 text-gray-600 hover:text-gray-900 text-sm font-medium transition-colors" aria-label="Partager sur X">
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                        X
+                    </a>
+                </div>
+
+                <!-- Articles liés -->
+                <div class="mt-16 pt-8 border-t border-gray-100 section-appear">
+                    <h3 class="text-lg font-bold mb-6">Articles similaires</h3>
+                    <div class="grid sm:grid-cols-3 gap-6">
+                        <a href="/demo/blog/installer-borne-copropriete" class="group blog-card-premium">
+                            <h4 class="font-semibold group-hover:text-blue-600 transition-colors mb-1">Installer une borne en copropriété</h4>
+                            <p class="text-sm text-gray-500">Droit à la prise, démarches et aides.</p>
+                        </a>
+                        <a href="/demo/blog/comparatif-bornes-dc-puissance" class="group blog-card-premium">
+                            <h4 class="font-semibold group-hover:text-blue-600 transition-colors mb-1">Comparatif bornes DC : quelle puissance choisir ?</h4>
+                            <p class="text-sm text-gray-500">50 kW, 150 kW, 350 kW : usages et coûts.</p>
+                        </a>
+                        <a href="/demo/blog/maintenance-bornes-recharge-guide" class="group blog-card-premium">
+                            <h4 class="font-semibold group-hover:text-blue-600 transition-colors mb-1">Maintenance des bornes de recharge</h4>
+                            <p class="text-sm text-gray-500">Obligations, fréquence, OCPP et coûts.</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- Services associés -->
+            <div class="bg-gray-50 border border-gray-200 rounded-2xl p-6 mt-12 section-appear">
+                <h3 class="text-lg font-bold text-gray-900 mb-4">Services associ&#233;s</h3>
+                <div class="flex flex-wrap gap-3">
+                    <a href="/demo/installation-conformite" class="inline-flex items-center gap-2 bg-white border border-gray-200 hover:border-blue-200 rounded-xl px-4 py-2 text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+                        Installation & conformit&#233;
+                    </a>
+                    <a href="/demo/exploitation" class="inline-flex items-center gap-2 bg-white border border-gray-200 hover:border-blue-200 rounded-xl px-4 py-2 text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+                        Exploitation & maintenance
+                    </a>
+                    <a href="/demo/couverture" class="inline-flex items-center gap-2 bg-white border border-gray-200 hover:border-blue-200 rounded-xl px-4 py-2 text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+                        Couverture nationale
+                    </a>
+                </div>
+            </div>
+
+        </article>
+    </main>
+
+    <footer class="border-t border-gray-100 py-16 px-6 bg-white" role="contentinfo" aria-label="Pied de page">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid md:grid-cols-4 gap-10 mb-12">
+                <div>
+                    <div class="flex items-center space-x-3 mb-4">
+                        <picture><source srcset="../images/logo.webp" type="image/webp"><img src="../images/logo.png" alt="Logo JCSM" class="w-8 h-8" width="32" height="32" loading="lazy"></picture>
+                        <span class="text-xl font-semibold text-gray-900">JCSM</span>
+                    </div>
+                    <p class="text-sm text-gray-600 mb-4">Expérience IRVE depuis 2019. Installation, maintenance et pilotage en France et Belgique. Entreprise inclusive.</p>
+                    <p class="text-sm text-gray-500">60 rue François 1er<br>75008 Paris</p>
+                    <p class="text-sm text-gray-500 mt-3"><a href="tel:+33183755706" class="hover:text-gray-900 transition-colors">+33 1 83 75 57 06</a></p>
+                    <p class="text-sm text-gray-500"><a href="mailto:contact@jcsm.fr" class="hover:text-gray-900 transition-colors">contact@jcsm.fr</a></p>
+                </div>
+                <div>
+                    <h3 class="text-sm font-semibold text-gray-900 mb-4 uppercase tracking-wide">Services</h3>
+                    <nav aria-label="Services">
+                        <ul class="space-y-3">
+                            <li><a href="/demo/pilotage-projets" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Pilotage de projets</a></li>
+                            <li><a href="/demo/installation-conformite" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Installation & conformité</a></li>
+                            <li><a href="/demo/exploitation" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Exploitation & maintenance</a></li>
+                            <li><a href="/demo/securisation-installations" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Sécurisation</a></li>
+                            <li><a href="/demo/centre-appel" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Support 24/7</a></li>
+                            <li><a href="/demo/tarification" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Tarification</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div>
+                    <h3 class="text-sm font-semibold text-gray-900 mb-4 uppercase tracking-wide">Entreprise</h3>
+                    <nav aria-label="Entreprise">
+                        <ul class="space-y-3">
+                            <li><a href="/demo/devenir-partenaire" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Devenir partenaire</a></li>
+                            <li><a href="/demo/a-propos" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">À propos</a></li>
+                            <li><a href="/demo/inclusion" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Inclusion</a></li>
+                            <li><a href="/demo/carrieres" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Carrières</a></li>
+                            <li><a href="/demo/contact" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Contact</a></li>
+                            <li><a href="/demo/blog" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Blog</a></li>
+                            <li><a href="/demo/solutions/" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Solutions</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div>
+                    <h3 class="text-sm font-semibold text-gray-900 mb-4 uppercase tracking-wide">Légal</h3>
+                    <nav aria-label="Légal">
+                        <ul class="space-y-3">
+                            <li><a href="/demo/mentions-legales" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Mentions légales</a></li>
+                            <li><a href="/demo/confidentialite" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Confidentialité</a></li>
+                            <li><a href="/demo/cgv" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">CGV</a></li>
+                        </ul>
+                    </nav>
+                    <h3 class="text-sm font-semibold text-gray-900 mb-4 uppercase tracking-wide mt-6">Zones</h3>
+                    <nav aria-label="Zones">
+                        <ul class="space-y-3">
+                            <li><a href="/demo/zones/france" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">France</a></li>
+                            <li><a href="/demo/zones/belgique" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Belgique</a></li>
+                        </ul>
+                    </nav>
+                    <div class="flex items-center gap-3 mt-4">
+                        <a href="https://www.linkedin.com/company/jcsm-elec/" target="_blank" rel="noopener noreferrer me" class="text-gray-500 hover:text-gray-900 transition-colors" aria-label="LinkedIn">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                        </a>
+                        <a href="https://www.facebook.com/profile.php?id=61587992161634" target="_blank" rel="noopener noreferrer me" class="text-gray-500 hover:text-gray-900 transition-colors" aria-label="Facebook">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                        </a>
+                        <a href="https://x.com/JCSM_ELEC" target="_blank" rel="noopener noreferrer me" class="text-gray-500 hover:text-gray-900 transition-colors" aria-label="X (Twitter)">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                        </a>
+                        <a href="https://www.instagram.com/jcsm.elec/" target="_blank" rel="noopener noreferrer me" class="text-gray-500 hover:text-gray-900 transition-colors" aria-label="Instagram">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+                        </a>
+                        <a href="https://www.youtube.com/@JCSM_ELEC" target="_blank" rel="noopener noreferrer me" class="text-gray-500 hover:text-gray-900 transition-colors" aria-label="YouTube">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="pt-8 border-t border-gray-100 flex flex-col md:flex-row md:items-center md:justify-between gap-4 text-xs text-gray-500">
+                <span>© 2026 JCSM SAS - SIRET 99387429600011</span>
+                <a href="mailto:contact@jcsm.fr" class="hover:text-gray-900 transition-colors">contact@jcsm.fr</a> · <a href="tel:+33183755706" class="hover:text-gray-900 transition-colors">+33 1 83 75 57 06</a>
+            </div>
+        </div>
+    </footer>
+
+    <button class="scroll-top" id="scrollTop" aria-label="Retour en haut de page">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.5 15.75l7.5-7.5 7.5 7.5" /></svg>
+    </button>
+    <script src="../js/i18n.js?v=72" defer></script>
+    <script src="../js/config.js?v=72" defer></script>
+    <script src="../js/utils.js?v=72" defer></script>
+    <script src="../js/public.js?v=72" defer></script>
+    <script src="../js/analytics.js?v=72" defer></script>
+    <script src="../js/wow-effects.js?v=72" defer></script>
+    <script>if ('serviceWorker' in navigator) { window.addEventListener('load', () => { navigator.serviceWorker.register('/sw.js').catch(() => {}); }); }</script>
+</body>
+</html>

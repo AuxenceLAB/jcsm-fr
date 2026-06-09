@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <!-- Cookie Consent + GTM (chargé après acceptation) -->
+    <script src="/demo/js/cookie-consent.js" defer></script>
+    <title>Bonnes pratiques de recharge véhicule électrique | JCSM</title>
+    <meta name="description" content="Charger entre 20 et 80 %, limiter la charge rapide DC, préconditionner en hiver : les bonnes pratiques essentielles pour préserver votre batterie VE.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://jcsm.fr/blog/bonnes-pratiques-recharge-vehicule-electrique">
+    <link rel="alternate" hreflang="fr" href="https://jcsm.fr/blog/bonnes-pratiques-recharge-vehicule-electrique">
+    <link rel="alternate" hreflang="x-default" href="https://jcsm.fr/blog/bonnes-pratiques-recharge-vehicule-electrique">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Bonnes pratiques pour recharger son véhicule électrique",
+        "description": "Charger entre 20 et 80 %, limiter la charge rapide, préconditionner en hiver : les bonnes pratiques concrètes pour préserver votre batterie et optimiser chaque session.",
+        "datePublished": "2026-02-05",
+        "dateModified": "2026-02-05",
+        "author": {"@type": "Organization", "name": "JCSM", "url": "https://jcsm.fr"},
+        "publisher": {"@type": "Organization", "name": "JCSM", "url": "https://jcsm.fr", "logo": {"@type": "ImageObject", "url": "https://jcsm.fr/images/logo.png", "width": 512, "height": 512}},
+        "mainEntityOfPage": {"@type": "WebPage", "@id": "https://jcsm.fr/blog/bonnes-pratiques-recharge-vehicule-electrique"},
+        "wordCount": 1550,
+        "articleSection": "Technologie et Standards",
+        "image": {"@type": "ImageObject", "url": "https://jcsm.fr/images/index.webp", "width": 2048, "height": 1366}
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Charger à 100% abîme-t-il vraiment la batterie ?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Marginalement. Les constructeurs recommandent 80 % au quotidien. Charger \u00e0 100 % avant un long trajet ne pose aucun probl\u00e8me."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Combien coûte une recharge complète à domicile ?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Pour 60 kWh en heures creuses (~0,15 \u20ac/kWh) : environ 9 \u20ac pour une charge compl\u00e8te, soit ~400 km. En heures pleines, comptez 13-14 \u20ac. Sur borne rapide publique : 20-30 \u20ac."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "La charge rapide abîme-t-elle la batterie ?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Faible sur les VE modernes. Le BMS g\u00e8re la temp\u00e9rature et prot\u00e8ge les cellules. La charge rapide DC occasionnelle n'a pas d'impact mesurable sur la dur\u00e9e de vie de la batterie."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Faut-il débrancher le véhicule dès qu'il est chargé ?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Non. Le chargeur s'arr\u00eate automatiquement une fois la limite atteinte. Laisser le VE branch\u00e9 la nuit est sans risque."
+                }
+            }
+        ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://jcsm.fr/"},
+            {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://jcsm.fr/blog"},
+            {"@type": "ListItem", "position": 3, "name": "Bonnes pratiques pour recharger son véhicule électrique", "item": "https://jcsm.fr/blog/bonnes-pratiques-recharge-vehicule-electrique"}
+        ]
+    }
+    </script>
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://jcsm.fr/blog/bonnes-pratiques-recharge-vehicule-electrique">
+    <meta property="og:title" content="Bonnes pratiques pour recharger son véhicule électrique">
+    <meta property="og:description" content="Charger entre 20 et 80 %, limiter la charge rapide, préconditionner en hiver : les bonnes pratiques pour préserver votre batterie.">
+    <meta property="og:image" content="https://jcsm.fr/images/protection.webp">
+    <meta property="og:image:alt" content="Bonnes pratiques de recharge pour véhicule électrique">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:locale" content="fr_FR">
+    <meta property="og:site_name" content="JCSM - Infrastructure de Recharge">
+    <meta property="article:published_time" content="2026-02-05">
+    <meta property="article:modified_time" content="2026-02-05T00:00:00+01:00">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Bonnes pratiques pour recharger son véhicule électrique">
+    <meta name="twitter:description" content="Charger entre 20 et 80 %, limiter la charge rapide, préconditionner en hiver : les bonnes pratiques pour préserver votre batterie.">
+    <meta name="twitter:image" content="https://jcsm.fr/images/index.webp">
+    <meta name="twitter:image:alt" content="Infrastructure de recharge pour véhicules électriques">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet"
+        media="print" onload="this.media='all'">
+    <noscript>
+        <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap"
+            rel="stylesheet">
+    </noscript>
+    <link rel="stylesheet" href="../css/critical.css?v=72">
+    <link rel="stylesheet" href="../css/tailwind.css?v=72" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="../css/tailwind.css?v=72"></noscript>
+    <link rel="stylesheet" href="../styles.css?v=72" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="../styles.css?v=72"></noscript>
+    <link rel="manifest" href="../manifest.json">
+    <link rel="icon" type="image/x-icon" href="/demo/favicon.ico">
+    <link rel="apple-touch-icon" href="/demo/apple-touch-icon.png">
+
+    <link rel="stylesheet" href="/demo/demo-overrides.css?v=5">
+    <script src="/demo/demo-fluidity.js?v=2" defer data-cfasync="false"></script>
+    <script>window.addEventListener("DOMContentLoaded",function(){setTimeout(function(){var p=document.getElementById("preloader");if(p)p.classList.add("preloader-auto-hide");},600);});</script>
+</head>
+<body class="text-gray-900 bg-white">
+    <div class="demo-banner"><span>DEMO</span>Version proposée pour validation — non publiée</div>
+
+    <div class="reading-progress" id="reading-progress"></div>
+    <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+    <div class="preloader" id="preloader" role="status" aria-label="Chargement">
+        <div class="flex flex-col items-center justify-center">
+            <picture><source srcset="../images/logo.webp" type="image/webp"><img src="../images/logo.png" alt="JCSM" width="80" height="80" class="animate-pulse"></picture>
+        </div>
+    </div>
+    <div class="mobile-menu-overlay" id="mobile-menu-overlay"></div>
+    <nav class="mobile-menu" id="mobile-menu" role="dialog" aria-modal="true" aria-label="Menu de navigation" aria-hidden="true">
+        <div class="p-8">
+            <div class="flex justify-between items-center mb-12">
+                <span class="text-xl font-semibold">Menu</span>
+                <button class="text-gray-600 hover:text-gray-900" id="mobile-menu-close" aria-label="Fermer le menu de navigation">
+                    <svg class="w-6 h-6" fill="none" aria-hidden="true" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+                </button>
+            </div>
+                        <div class="flex flex-col space-y-6">
+                <a href="/demo/pilotage-projets" class="text-base text-gray-600 hover:text-gray-900 transition-colors">Pilotage de projets</a>
+                <a href="/demo/installation-conformite" class="text-base text-gray-600 hover:text-gray-900 transition-colors">Installation</a>
+                <a href="/demo/exploitation" class="text-base text-gray-600 hover:text-gray-900 transition-colors">Exploitation</a>
+                <a href="/demo/securisation-installations" class="text-base text-gray-600 hover:text-gray-900 transition-colors">Sécurisation</a>
+                <a href="/demo/centre-appel" class="text-base text-gray-600 hover:text-gray-900 transition-colors">Support</a>
+                <a href="/demo/solutions/" class="text-base text-gray-600 hover:text-gray-900 transition-colors">Solutions</a>
+                <a href="/demo/a-propos" class="text-base text-gray-600 hover:text-gray-900 transition-colors">À propos</a>
+                <a href="/demo/blog" class="text-base text-gray-600 hover:text-gray-900 transition-colors">Blog</a>
+                <a href="/demo/contact" class="btn-primary px-6 py-3 rounded-lg text-base font-medium inline-block text-center mt-4">Contact</a>
+            </div>
+        </div>
+    </nav>
+    <nav class="fixed top-0 w-full z-50 glass-nav border-b border-gray-200" role="navigation" aria-label="Navigation principale">
+        <div class="max-w-7xl mx-auto px-6 py-5">
+            <div class="flex justify-between items-center">
+                <a href="/demo/" class="flex items-center space-x-3 group mr-12">
+                    <picture><source srcset="../images/logo.webp" type="image/webp"><img src="../images/logo.png" alt="JCSM" class="w-9 h-9 transition-transform group-hover:scale-105 duration-300" width="36" height="36"></picture>
+                    <span class="text-xl font-bold tracking-tight">JCSM</span>
+                </a>
+                <div class="hidden lg:flex items-center space-x-6 xl:space-x-8">
+                    <a href="/demo/pilotage-projets" class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300 whitespace-nowrap">Pilotage</a>
+                    <a href="/demo/installation-conformite" class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300 whitespace-nowrap">Installation</a>
+                    <a href="/demo/exploitation" class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300 whitespace-nowrap">Exploitation</a>
+                    <a href="/demo/securisation-installations" class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300 whitespace-nowrap">Sécurisation</a>
+                    <a href="/demo/centre-appel" class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300 whitespace-nowrap">Support</a>
+                    <a href="/demo/solutions/" class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300 whitespace-nowrap">Solutions</a>
+                    <a href="/demo/a-propos" class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300 whitespace-nowrap">À propos</a>
+                    <a href="/demo/blog" class="text-base font-semibold text-blue-600 hover:text-blue-700 transition-all duration-300 whitespace-nowrap">Blog</a>
+                    <a href="/demo/contact" class="btn-primary ml-4 px-7 py-2.5 rounded-xl text-base font-medium shadow-lg hover:shadow-xl whitespace-nowrap">Contact</a>
+                </div>
+                <button class="mobile-menu-btn text-gray-600 hover:text-gray-900" id="mobile-menu-btn" aria-label="Ouvrir le menu de navigation" aria-expanded="false" aria-controls="mobile-menu">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main id="main-content" role="main">
+        <article class="pt-32 pb-16 px-6">
+            <div class="max-w-3xl mx-auto">
+                <div class="mb-8">
+                    <a href="/demo/blog" class="text-sm text-blue-600 hover:text-blue-800 transition-colors">&larr; Retour au blog</a>
+                </div>
+                <div class="mb-10">
+                    <span class="inline-block text-xs font-semibold badge-section text-blue-700 bg-blue-200 rounded-full px-3 py-1 mb-4">Guide</span>
+                    <h1 class="text-3xl md:text-4xl font-bold mb-4 leading-tight">Bonnes pratiques pour <span class="gradient-text">recharger son véhicule électrique</span> </h1>
+                    <div class="flex items-center text-sm text-gray-500">
+                        <time datetime="2026-02-05">5 février 2026</time>
+                        <span class="mx-2">·</span>
+                        <span>8 min de lecture</span>
+                    </div>
+                </div>
+
+                <!-- Sommaire -->
+                <div class="bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl p-6 mb-10">
+                    <h2 class="text-lg font-bold text-blue-700 mb-4">Sommaire</h2>
+                    <ol class="list-decimal pl-5 text-sm text-blue-700 space-y-2">
+                        <li><a href="#habitudes-recharge" class="hover:underline">Pourquoi les habitudes de recharge comptent</a></li>
+                        <li><a href="#regle-20-80" class="hover:underline">La règle des 20-80 % : mythe ou réalité ?</a></li>
+                        <li><a href="#lente-vs-rapide" class="hover:underline">Charge lente vs charge rapide : quand utiliser quoi</a></li>
+                        <li><a href="#preconditionnement" class="hover:underline">Préconditionner la batterie : le réflexe qui change tout</a></li>
+                        <li><a href="#recharger-hiver" class="hover:underline">Recharger en hiver : ce qu'il faut savoir</a></li>
+                        <li><a href="#programmer-recharge" class="hover:underline">Programmer la recharge : économies et réseau</a></li>
+                        <li><a href="#erreurs-eviter" class="hover:underline">Les erreurs à éviter absolument</a></li>
+                        <li><a href="#faq" class="hover:underline">Questions fréquentes</a></li>
+                    </ol>
+                </div>
+
+                <div class="prose prose-lg max-w-none">
+                    <p class="text-lg text-gray-600 leading-relaxed mb-8">Recharger un véhicule électrique ne se résume pas à brancher un câble. La façon dont vous rechargez a un impact direct sur la durée de vie de votre batterie, votre facture d'électricité et votre confort au quotidien. Voici les bonnes pratiques concrètes, fondées sur la chimie des batteries et les recommandations des constructeurs.</p>
+
+                    <!-- Section 1 -->
+                    <h2 id="habitudes-recharge" class="text-2xl font-bold mt-12 mb-4">Pourquoi les habitudes de recharge comptent</h2>
+                    <p class="text-gray-600 leading-relaxed mb-4">Les batteries lithium-ion ont une durée de vie mesurée en cycles. Un cycle correspond à une décharge complète de 0 à 100 % puis un retour à 0 %. Un VE moderne est conçu pour supporter 1 500 à 3 000 cycles, soit 300 000 à 500 000 km selon la capacité de la batterie.</p>
+                    <p class="text-gray-600 leading-relaxed mb-4">Mais de mauvaises habitudes accélèrent la dégradation. Les deux ennemis principaux de la batterie sont la chaleur excessive et les états de charge extrêmes (très bas ou très haut). Maintenir la batterie entre ces extrêmes réduit le stress chimique sur les cellules.</p>
+
+                    <div class="bg-amber-50 border-l-4 border-amber-400 rounded-r-xl p-5 mb-8">
+                        <p class="text-gray-700 text-sm leading-relaxed"><span class="font-semibold">Chiffre clé :</span> Avec de bonnes habitudes de recharge, une batterie conserve 90 % de sa capacité après 200 000 km. Avec de mauvaises habitudes, ce seuil peut être atteint dès 120 000 km.</p>
+                    </div>
+
+                    <!-- Section 2 -->
+                    <h2 id="regle-20-80" class="text-2xl font-bold mt-12 mb-4">La règle des 20-80 % : mythe ou réalité ?</h2>
+                    <p class="text-gray-600 leading-relaxed mb-4">Ce n'est pas un mythe. La chimie lithium-ion souffre aux extrêmes. Charger au-delà de 80 % est plus lent (la courbe de charge chute fortement) ET plus stressant pour les cellules. Descendre sous 10 % crée un stress similaire.</p>
+                    <p class="text-gray-600 leading-relaxed mb-4">En pratique : réglez la limite de charge à 80 % au quotidien, et montez à 100 % uniquement avant un long trajet. La plupart des VE permettent de configurer cette limite directement dans les paramètres du véhicule. Tesla, Renault, Hyundai, BMW : tous recommandent 80 % au quotidien dans leurs manuels utilisateur.</p>
+
+                    <div class="grid sm:grid-cols-2 gap-4 mb-8">
+                        <div class="bg-gray-50 rounded-xl p-5 text-center">
+                            <p class="text-3xl font-bold text-blue-600 mb-1">80 %</p>
+                            <p class="text-sm text-gray-600">Limite de charge recommandée au quotidien</p>
+                        </div>
+                        <div class="bg-gray-50 rounded-xl p-5 text-center">
+                            <p class="text-3xl font-bold text-blue-600 mb-1">~10 %</p>
+                            <p class="text-sm text-gray-600">Dégradation évitée en 5 ans vs charge à 100 %</p>
+                        </div>
+                    </div>
+
+                    <p class="text-gray-600 leading-relaxed mb-4">Une batterie chargée systématiquement à 100 % perd environ 10 % de capacité de plus en 5 ans par rapport à une batterie limitée à 80 %. Sur une batterie de 60 kWh, cela représente 6 kWh, soit 30 à 40 km d'autonomie en moins.</p>
+
+                    <!-- Section 3 -->
+                    <h2 id="lente-vs-rapide" class="text-2xl font-bold mt-12 mb-4">Charge lente vs charge rapide : quand utiliser quoi</h2>
+
+                    <h3 class="text-xl font-semibold mt-8 mb-3">Charge lente (AC, 3 à 22 kW)</h3>
+                    <p class="text-gray-600 leading-relaxed mb-4">C'est la meilleure option pour la batterie. Le chargeur embarqué (onboard charger) du véhicule contrôle finement le courant qui entre dans les cellules. La chaleur générée est minimale. C'est la charge idéale à domicile, au bureau ou dans un parking.</p>
+
+                    <h3 class="text-xl font-semibold mt-8 mb-3">Charge rapide (DC, 50 à 350 kW)</h3>
+                    <p class="text-gray-600 leading-relaxed mb-4">Pratique sur les longs trajets, mais elle génère plus de chaleur. Les cellules sont sollicitées plus intensément. Les constructeurs garantissent la batterie même avec un usage DC régulier, mais les données montrent une dégradation légèrement plus rapide : 2 à 5 % de différence sur 5 ans entre un usage exclusif AC et un usage mixte avec beaucoup de DC.</p>
+
+                    <div class="bg-amber-50 border-l-4 border-amber-400 rounded-r-xl p-5 mb-8">
+                        <p class="text-gray-700 text-sm leading-relaxed"><span class="font-semibold">En pratique :</span> 90 % de vos recharges devraient être en AC (domicile, bureau, parking). Réservez la charge rapide DC pour les 10 % restants : voyages longue distance et dépannage.</p>
+                    </div>
+
+                    <!-- Section 4 -->
+                    <h2 id="preconditionnement" class="text-2xl font-bold mt-12 mb-4">Préconditionner la batterie : le réflexe qui change tout</h2>
+                    <p class="text-gray-600 leading-relaxed mb-4">Le préconditionnement consiste à chauffer (ou refroidir) la batterie avant de charger. Pourquoi c'est important : une batterie froide accepte beaucoup moins de puissance. En dessous de 5 °C, la <a href="/demo/blog/courbes-de-charge-recharge-electrique" class="text-blue-600 hover:text-blue-800 underline">courbe de charge</a> DC peut être divisée par deux.</p>
+                    <p class="text-gray-600 leading-relaxed mb-4">La plupart des VE modernes préconditionnent automatiquement la batterie quand vous programmez un arrêt charge rapide dans le GPS. Tesla, Hyundai, Kia et BMW le font automatiquement. Le système de gestion thermique chauffe les cellules pendant que vous roulez, pour qu'elles soient à température optimale à l'arrivée à la borne.</p>
+                    <p class="text-gray-600 leading-relaxed mb-4">Si votre VE ne propose pas cette fonction : roulez au moins 15 minutes avant d'arriver à la borne DC pour chauffer naturellement la batterie par friction interne des cellules.</p>
+
+                    <div class="grid sm:grid-cols-2 gap-4 mb-8">
+                        <div class="bg-gray-50 rounded-xl p-5 text-center">
+                            <p class="text-3xl font-bold text-blue-600 mb-1">25 min</p>
+                            <p class="text-sm text-gray-600">10→80 % en hiver avec préconditionnement</p>
+                        </div>
+                        <div class="bg-gray-50 rounded-xl p-5 text-center">
+                            <p class="text-3xl font-bold text-blue-600 mb-1">45 min</p>
+                            <p class="text-sm text-gray-600">10→80 % en hiver sans préconditionnement</p>
+                        </div>
+                    </div>
+
+                    <!-- Section 5 -->
+                    <h2 id="recharger-hiver" class="text-2xl font-bold mt-12 mb-4">Recharger en hiver : ce qu'il faut savoir</h2>
+                    <p class="text-gray-600 leading-relaxed mb-4">L'autonomie réelle d'un VE baisse de 20 à 40 % en hiver. Trois facteurs se cumulent : le chauffage de l'habitacle consomme de l'énergie, la batterie froide délivre moins de puissance, et les pneus hiver augmentent la résistance au roulement.</p>
+
+                    <ul class="list-disc pl-6 text-gray-600 space-y-2 mb-6">
+                        <li><strong>Préchauffer l'habitacle pendant que le VE est branché</strong> : avant de partir, lancez le chauffage depuis l'application du constructeur. L'énergie vient du réseau, pas de la batterie</li>
+                        <li><strong>Privilégier les sièges et volant chauffants</strong> : ils consomment 75 W contre 3 000 à 5 000 W pour le chauffage soufflant. Beaucoup plus efficaces pour le confort</li>
+                        <li><strong>Maintenir le VE branché la nuit</strong> : le BMS (Battery Management System) maintient la batterie à température optimale, ce qui évite la dégradation par le froid</li>
+                        <li><strong>Ne jamais laisser le VE stationné longtemps à 0 % par grand froid</strong> : les cellules lithium-ion peuvent subir des dommages irréversibles si elles restent à très basse charge dans le froid</li>
+                    </ul>
+
+                    <div class="bg-amber-50 border-l-4 border-amber-400 rounded-r-xl p-5 mb-8">
+                        <p class="text-gray-700 text-sm leading-relaxed"><span class="font-semibold">Bonne nouvelle :</span> Les pompes à chaleur, désormais standard sur la plupart des VE récents, ont réduit l'impact du froid sur l'autonomie d'environ 30 % par rapport aux systèmes de chauffage résistifs.</p>
+                    </div>
+
+                    <!-- Section 6 -->
+                    <h2 id="programmer-recharge" class="text-2xl font-bold mt-12 mb-4">Programmer la recharge : économies et réseau</h2>
+                    <p class="text-gray-600 leading-relaxed mb-4">La plupart des VE et des wallbox permettent de programmer l'heure de début de la recharge. C'est un levier d'économie souvent sous-exploité.</p>
+
+                    <div class="grid sm:grid-cols-3 gap-4 mb-8">
+                        <div class="bg-gray-50 rounded-xl p-5 text-center">
+                            <p class="text-3xl font-bold text-blue-600 mb-1">0,15 €/kWh</p>
+                            <p class="text-sm text-gray-600">Tarif heures creuses</p>
+                        </div>
+                        <div class="bg-gray-50 rounded-xl p-5 text-center">
+                            <p class="text-3xl font-bold text-blue-600 mb-1">0,25 €/kWh</p>
+                            <p class="text-sm text-gray-600">Tarif heures pleines</p>
+                        </div>
+                        <div class="bg-blue-50 rounded-xl p-5 text-center border border-blue-200">
+                            <p class="text-3xl font-bold text-blue-700 mb-1">40 %</p>
+                            <p class="text-sm text-blue-600 font-medium">Économie en heures creuses</p>
+                        </div>
+                    </div>
+
+                    <p class="text-gray-600 leading-relaxed mb-4">Programmez la charge à 80 % max avec un départ à 7h30 : le VE calcule automatiquement quand commencer pour être prêt à l'heure. Vous rechargez en heures creuses, vous réduisez la pression sur le réseau électrique, et si vous avez des panneaux solaires, vous pouvez profiter de votre propre production.</p>
+                    <p class="text-gray-600 leading-relaxed mb-4">Certaines wallbox proposent du "smart charging" avec pilotage dynamique : elles ajustent la puissance de charge en temps réel en fonction de la consommation du foyer pour ne jamais dépasser la puissance souscrite.</p>
+
+                    <!-- Section 7 -->
+                    <h2 id="erreurs-eviter" class="text-2xl font-bold mt-12 mb-4">Les erreurs à éviter absolument</h2>
+                    <p class="text-gray-600 leading-relaxed mb-4">Six erreurs courantes qui dégradent la batterie ou compromettent la sécurité :</p>
+
+                    <div class="space-y-4 mb-8">
+                        <div class="bg-gray-50 rounded-xl p-5 border border-gray-100">
+                            <h3 class="font-semibold text-gray-900 mb-2">Charger à 100 % tous les jours</h3>
+                            <p class="text-gray-600 text-sm leading-relaxed">C'est inutile pour l'usage quotidien et cela accélère la dégradation des cellules. Réglez la limite à 80 % et ne montez à 100 % que pour les longs trajets.</p>
+                        </div>
+                        <div class="bg-gray-50 rounded-xl p-5 border border-gray-100">
+                            <h3 class="font-semibold text-gray-900 mb-2">Laisser la batterie à 0 % pendant plusieurs jours</h3>
+                            <p class="text-gray-600 text-sm leading-relaxed">Une batterie lithium-ion maintenue à très basse charge subit une dégradation profonde. Si vous partez en vacances, laissez le VE entre 40 et 60 % de charge.</p>
+                        </div>
+                        <div class="bg-gray-50 rounded-xl p-5 border border-gray-100">
+                            <h3 class="font-semibold text-gray-900 mb-2">Charger en DC quotidiennement quand on a une wallbox</h3>
+                            <p class="text-gray-600 text-sm leading-relaxed">Si vous avez accès à une wallbox à domicile ou au bureau, la charge AC est toujours préférable pour la longévité de la batterie. Réservez la charge rapide aux déplacements.</p>
+                        </div>
+                        <div class="bg-gray-50 rounded-xl p-5 border border-gray-100">
+                            <h3 class="font-semibold text-gray-900 mb-2">Ne pas préconditionner avant une charge rapide en hiver</h3>
+                            <p class="text-gray-600 text-sm leading-relaxed">Arriver sur une borne DC avec une batterie froide = charge deux fois plus longue. Programmez l'arrêt dans le GPS ou roulez 15 minutes avant d'arriver.</p>
+                        </div>
+                        <div class="bg-gray-50 rounded-xl p-5 border border-gray-100">
+                            <h3 class="font-semibold text-gray-900 mb-2">Utiliser une prise domestique standard sans protection</h3>
+                            <p class="text-gray-600 text-sm leading-relaxed">Une prise classique 230V/10A n'est pas conçue pour débiter 2,3 kW pendant 10 heures d'affilée. Risque de surchauffe, pas de communication avec le VE, pas de coupure automatique. Installez au minimum une prise renforcée (Green'Up) ou une <a href="/demo/installation-conformite" class="text-blue-600 hover:text-blue-800 underline">wallbox dédiée</a>.</p>
+                        </div>
+                        <div class="bg-gray-50 rounded-xl p-5 border border-gray-100">
+                            <h3 class="font-semibold text-gray-900 mb-2">Ignorer les mises à jour logicielles</h3>
+                            <p class="text-gray-600 text-sm leading-relaxed">Les constructeurs optimisent régulièrement la gestion de la batterie via des mises à jour OTA. Elles peuvent améliorer les courbes de charge, affiner le BMS et corriger des anomalies. Ne les repoussez pas indéfiniment.</p>
+                        </div>
+                    </div>
+
+                    <!-- CTA cross-link -->
+                    <div class="bg-gray-50 border border-gray-200 rounded-2xl p-6 my-8">
+                        <h3 class="text-lg font-bold text-gray-900 mb-2">Installez votre borne de recharge avec JCSM</h3>
+                        <p class="text-gray-600 leading-relaxed mb-4">JCSM accompagne les entreprises et les collectivités dans l'<a href="/demo/installation-conformite" class="text-blue-600 hover:text-blue-800 underline">installation de bornes IRVE</a> conformes et performantes. Wallbox, bornes AC/DC, smart charging : nous dimensionnons la solution adaptée à vos besoins et à vos usages.</p>
+                        <a href="/demo/contact" class="inline-flex items-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-xl font-semibold hover:bg-blue-700 transition-colors">
+                            Demander un devis gratuit
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                        </a>
+                    </div>
+
+                    <!-- FAQ -->
+                    <h2 id="faq" class="text-2xl font-bold mt-12 mb-6 section-appear">Questions fréquentes</h2>
+                    <div class="space-y-6 mb-8">
+                        <div class="border border-gray-200 rounded-xl p-5">
+                            <h3 class="font-semibold text-gray-900 mb-2">Charger à 100 % abîme-t-il vraiment la batterie ?</h3>
+                            <p class="text-gray-600 text-sm leading-relaxed">Marginalement. Les constructeurs recommandent 80 % au quotidien. Charger à 100 % avant un long trajet ne pose aucun problème.</p>
+                        </div>
+                        <div class="border border-gray-200 rounded-xl p-5">
+                            <h3 class="font-semibold text-gray-900 mb-2">Combien coûte une recharge complète à domicile ?</h3>
+                            <p class="text-gray-600 text-sm leading-relaxed">Pour 60 kWh en heures creuses (~0,15 €/kWh) : environ 9 € pour une charge complète, soit ~400 km. En heures pleines, comptez 13-14 €. Sur borne rapide publique : 20-30 €.</p>
+                        </div>
+                        <div class="border border-gray-200 rounded-xl p-5">
+                            <h3 class="font-semibold text-gray-900 mb-2">La charge rapide abîme-t-elle la batterie ?</h3>
+                            <p class="text-gray-600 text-sm leading-relaxed">Faible sur les VE modernes. Le BMS gère la température et protège les cellules. La charge rapide DC occasionnelle n'a pas d'impact mesurable sur la durée de vie de la batterie.</p>
+                        </div>
+                        <div class="border border-gray-200 rounded-xl p-5">
+                            <h3 class="font-semibold text-gray-900 mb-2">Faut-il débrancher le véhicule dès qu'il est chargé ?</h3>
+                            <p class="text-gray-600 text-sm leading-relaxed">Non. Le chargeur s'arrête automatiquement une fois la limite atteinte. Laisser le VE branché la nuit est sans risque.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CTA final -->
+                <div class="mt-12 section-appear bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl p-8 text-center">
+                    <h3 class="text-xl font-bold mb-3">Besoin d'une borne de recharge adaptée à vos usages ?</h3>
+                    <p class="text-gray-600 mb-6">JCSM intervient sur toute la chaîne : audit, choix des bornes, installation certifiée et suivi en exploitation.</p>
+                    <a href="/demo/contact" class="btn-primary px-8 py-3 rounded-xl font-medium inline-block">Nous contacter</a>
+                </div>
+
+
+                <!-- Partage social -->
+                <div class="flex items-center gap-4 pt-8 mt-8 border-t border-gray-200">
+                    <span class="text-sm font-semibold text-gray-700">Partager :</span>
+                    <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://jcsm.fr/blog/bonnes-pratiques-recharge-vehicule-electrique" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-gray-100 hover:bg-blue-50 text-gray-600 hover:text-blue-700 text-sm font-medium transition-colors" aria-label="Partager sur LinkedIn">
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                        LinkedIn
+                    </a>
+                    <a href="https://twitter.com/intent/tweet?url=https://jcsm.fr/blog/bonnes-pratiques-recharge-vehicule-electrique&amp;text=Bonnes%20pratiques%20pour%20recharger%20son%20v%C3%A9hicule%20%C3%A9lectrique" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-gray-100 hover:bg-gray-200 text-gray-600 hover:text-gray-900 text-sm font-medium transition-colors" aria-label="Partager sur X">
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                        X
+                    </a>
+                </div>
+
+                <!-- Articles liés -->
+                <div class="mt-16 pt-8 border-t border-gray-100 section-appear">
+                    <h3 class="text-lg font-bold mb-6">Articles similaires</h3>
+                    <div class="grid sm:grid-cols-2 gap-6">
+                        <a href="/demo/blog/temps-recharge-calculer-optimiser" class="group blog-card-premium">
+                            <h4 class="font-semibold group-hover:text-blue-600 transition-colors mb-1">Temps de recharge : calculer et optimiser</h4>
+                            <p class="text-sm text-gray-500">Formules, astuces et facteurs clés.</p>
+                        </a>
+                        <a href="/demo/blog/ce-qui-change-2026-mobilite-electrique" class="group blog-card-premium">
+                            <h4 class="font-semibold group-hover:text-blue-600 transition-colors mb-1">Ce qui change en 2026 pour la mobilité électrique</h4>
+                            <p class="text-sm text-gray-500">Nouvelles règles, aides et obligations.</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <footer class="border-t border-gray-100 py-16 px-6 bg-white" role="contentinfo" aria-label="Pied de page">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid md:grid-cols-4 gap-10 mb-12">
+                <div>
+                    <div class="flex items-center space-x-3 mb-4">
+                        <picture><source srcset="../images/logo.webp" type="image/webp"><img src="../images/logo.png" alt="Logo JCSM" class="w-8 h-8" width="32" height="32" loading="lazy"></picture>
+                        <span class="text-xl font-semibold text-gray-900">JCSM</span>
+                    </div>
+                    <p class="text-sm text-gray-600 mb-4">Expérience IRVE depuis 2019. Installation, maintenance et pilotage en France et Belgique. Entreprise inclusive.</p>
+                    <p class="text-sm text-gray-500">60 rue François 1er<br>75008 Paris</p>
+                    <p class="text-sm text-gray-500 mt-3"><a href="tel:+33183755706" class="hover:text-gray-900 transition-colors">+33 1 83 75 57 06</a></p>
+                    <p class="text-sm text-gray-500"><a href="mailto:contact@jcsm.fr" class="hover:text-gray-900 transition-colors">contact@jcsm.fr</a></p>
+                </div>
+                <div>
+                    <h3 class="text-sm font-semibold text-gray-900 mb-4 uppercase tracking-wide">Services</h3>
+                    <nav aria-label="Services">
+                        <ul class="space-y-3">
+                            <li><a href="/demo/pilotage-projets" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Pilotage de projets</a></li>
+                            <li><a href="/demo/installation-conformite" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Installation & conformité</a></li>
+                            <li><a href="/demo/exploitation" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Exploitation & maintenance</a></li>
+                            <li><a href="/demo/securisation-installations" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Sécurisation</a></li>
+                            <li><a href="/demo/centre-appel" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Support 24/7</a></li>
+                            <li><a href="/demo/tarification" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Tarification</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div>
+                    <h3 class="text-sm font-semibold text-gray-900 mb-4 uppercase tracking-wide">Entreprise</h3>
+                    <nav aria-label="Entreprise">
+                        <ul class="space-y-3">
+                            <li><a href="/demo/devenir-partenaire" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Devenir partenaire</a></li>
+                            <li><a href="/demo/a-propos" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">À propos</a></li>
+                            <li><a href="/demo/inclusion" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Inclusion</a></li>
+                            <li><a href="/demo/carrieres" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Carrières</a></li>
+                            <li><a href="/demo/contact" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Contact</a></li>
+                            <li><a href="/demo/blog" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Blog</a></li>
+                            <li><a href="/demo/solutions/" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Solutions</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div>
+                    <h3 class="text-sm font-semibold text-gray-900 mb-4 uppercase tracking-wide">Légal</h3>
+                    <nav aria-label="Légal">
+                        <ul class="space-y-3">
+                            <li><a href="/demo/mentions-legales" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Mentions légales</a></li>
+                            <li><a href="/demo/confidentialite" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Confidentialité</a></li>
+                            <li><a href="/demo/cgv" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">CGV</a></li>
+                        </ul>
+                    </nav>
+                    <h3 class="text-sm font-semibold text-gray-900 mb-4 uppercase tracking-wide mt-6">Zones</h3>
+                    <nav aria-label="Zones">
+                        <ul class="space-y-3">
+                            <li><a href="/demo/zones/france" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">France</a></li>
+                            <li><a href="/demo/zones/belgique" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Belgique</a></li>
+                        </ul>
+                    </nav>
+                    <div class="flex items-center gap-3 mt-4">
+                        <a href="https://www.linkedin.com/company/jcsm-elec/" target="_blank" rel="noopener noreferrer me" class="text-gray-500 hover:text-gray-900 transition-colors" aria-label="LinkedIn">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                        </a>
+                        <a href="https://www.facebook.com/profile.php?id=61587992161634" target="_blank" rel="noopener noreferrer me" class="text-gray-500 hover:text-gray-900 transition-colors" aria-label="Facebook">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                        </a>
+                        <a href="https://x.com/JCSM_ELEC" target="_blank" rel="noopener noreferrer me" class="text-gray-500 hover:text-gray-900 transition-colors" aria-label="X (Twitter)">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                        </a>
+                        <a href="https://www.instagram.com/jcsm.elec/" target="_blank" rel="noopener noreferrer me" class="text-gray-500 hover:text-gray-900 transition-colors" aria-label="Instagram">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+                        </a>
+                        <a href="https://www.youtube.com/@JCSM_ELEC" target="_blank" rel="noopener noreferrer me" class="text-gray-500 hover:text-gray-900 transition-colors" aria-label="YouTube">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="pt-8 border-t border-gray-100 flex flex-col md:flex-row md:items-center md:justify-between gap-4 text-xs text-gray-500">
+                <span>© 2026 JCSM SAS - SIRET 99387429600011</span>
+                <a href="mailto:contact@jcsm.fr" class="hover:text-gray-900 transition-colors">contact@jcsm.fr</a> · <a href="tel:+33183755706" class="hover:text-gray-900 transition-colors">+33 1 83 75 57 06</a>
+            </div>
+        </div>
+    </footer>
+
+    <button class="scroll-top" id="scrollTop" aria-label="Retour en haut de page">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.5 15.75l7.5-7.5 7.5 7.5" /></svg>
+    </button>
+    <script src="../js/i18n.js?v=72" defer></script>
+    <script src="../js/config.js?v=72" defer></script>
+    <script src="../js/utils.js?v=72" defer></script>
+    <script src="../js/public.js?v=72" defer></script>
+    <script src="../js/analytics.js?v=72" defer></script>
+    <script src="../js/wow-effects.js?v=72" defer></script>
+    <script>if ('serviceWorker' in navigator) { window.addEventListener('load', () => { navigator.serviceWorker.register('/sw.js').catch(() => {}); }); }</script>
+</body>
+</html>

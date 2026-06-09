@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <!-- Cookie Consent + GTM (chargé après acceptation) -->
+    <script src="/demo/js/cookie-consent.js" defer></script>
+    <title>Cybersécurité IRVE : protéger vos bornes | JCSM</title>
+    <meta name="description" content="Cybersécurité des bornes de recharge IRVE : vecteurs d'attaque, incidents réels, normes ISO 15118 et OCPP 2.0.1, bonnes pratiques de sécurisation réseau.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://jcsm.fr/blog/cybersecurite-bornes-recharge-irve">
+    <link rel="alternate" hreflang="fr" href="https://jcsm.fr/blog/cybersecurite-bornes-recharge-irve">
+    <link rel="alternate" hreflang="x-default" href="https://jcsm.fr/blog/cybersecurite-bornes-recharge-irve">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Cybersécurité IRVE : les bornes de recharge sont-elles vulnérables ?",
+        "description": "Cybersécurité des bornes de recharge IRVE : vecteurs d'attaque, incidents réels, normes ISO 15118 et OCPP 2.0.1, bonnes pratiques de sécurisation réseau.",
+        "datePublished": "2026-03-22",
+        "dateModified": "2026-03-22",
+        "author": {"@type": "Organization", "name": "JCSM", "url": "https://jcsm.fr"},
+        "publisher": {"@type": "Organization", "name": "JCSM", "url": "https://jcsm.fr", "logo": {"@type": "ImageObject", "url": "https://jcsm.fr/images/logo.png", "width": 512, "height": 512}},
+        "mainEntityOfPage": {"@type": "WebPage", "@id": "https://jcsm.fr/blog/cybersecurite-bornes-recharge-irve"},
+        "wordCount": 4150,
+        "articleSection": "Technologie et Standards",
+        "image": {"@type": "ImageObject", "url": "https://jcsm.fr/images/vandalisme.jpg", "width": 1024, "height": 683}
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://jcsm.fr/"},
+            {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://jcsm.fr/blog"},
+            {"@type": "ListItem", "position": 3, "name": "Cybersécurité IRVE : protéger vos bornes", "item": "https://jcsm.fr/blog/cybersecurite-bornes-recharge-irve"}
+        ]
+    }
+    </script>
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://jcsm.fr/blog/cybersecurite-bornes-recharge-irve">
+    <meta property="og:title" content="Cybersécurité IRVE : les bornes de recharge sont-elles vulnérables ?">
+    <meta property="og:description" content="Vecteurs d'attaque, incidents réels, normes et bonnes pratiques pour sécuriser vos bornes IRVE.">
+    <meta property="og:image" content="https://jcsm.fr/images/vandalisme.jpg">
+    <meta property="og:image:alt" content="Borne de recharge pour véhicule électrique - sécurisation">
+    <meta property="og:image:width" content="1024">
+    <meta property="og:image:height" content="683">
+    <meta property="og:locale" content="fr_FR">
+    <meta property="og:site_name" content="JCSM - Infrastructure de Recharge">
+    <meta property="article:published_time" content="2026-03-22">
+    <meta property="article:modified_time" content="2026-03-22T00:00:00+01:00">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Cybersécurité IRVE : les bornes de recharge sont-elles vulnérables ?">
+    <meta name="twitter:description" content="Vecteurs d'attaque, incidents réels, normes et bonnes pratiques pour sécuriser vos bornes IRVE.">
+    <meta name="twitter:image" content="https://jcsm.fr/images/vandalisme.jpg">
+    <meta name="twitter:image:alt" content="Borne de recharge pour véhicule électrique - sécurisation">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet"
+        media="print" onload="this.media='all'">
+    <noscript>
+        <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap"
+            rel="stylesheet">
+    </noscript>
+    <link rel="stylesheet" href="../css/critical.css?v=72">
+    <link rel="stylesheet" href="../css/tailwind.css?v=72" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="../css/tailwind.css?v=72"></noscript>
+    <link rel="stylesheet" href="../styles.css?v=72" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="../styles.css?v=72"></noscript>
+    <link rel="manifest" href="../manifest.json">
+    <link rel="icon" type="image/x-icon" href="/demo/favicon.ico">
+    <link rel="apple-touch-icon" href="/demo/apple-touch-icon.png">
+
+    <link rel="stylesheet" href="/demo/demo-overrides.css?v=5">
+    <script src="/demo/demo-fluidity.js?v=2" defer data-cfasync="false"></script>
+    <script>window.addEventListener("DOMContentLoaded",function(){setTimeout(function(){var p=document.getElementById("preloader");if(p)p.classList.add("preloader-auto-hide");},600);});</script>
+</head>
+<body class="text-gray-900 bg-white">
+    <div class="demo-banner"><span>DEMO</span>Version proposée pour validation — non publiée</div>
+
+    <div class="reading-progress" id="reading-progress"></div>
+    <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+    <div class="preloader" id="preloader" role="status" aria-label="Chargement">
+        <div class="flex flex-col items-center justify-center">
+            <picture><source srcset="../images/logo.webp" type="image/webp"><img src="../images/logo.png" alt="JCSM" width="80" height="80" class="animate-pulse"></picture>
+        </div>
+    </div>
+    <div class="mobile-menu-overlay" id="mobile-menu-overlay"></div>
+    <nav class="mobile-menu" id="mobile-menu" role="dialog" aria-modal="true" aria-label="Menu de navigation" aria-hidden="true">
+        <div class="p-8">
+            <div class="flex justify-between items-center mb-12">
+                <span class="text-xl font-semibold">Menu</span>
+                <button class="text-gray-600 hover:text-gray-900" id="mobile-menu-close" aria-label="Fermer le menu de navigation">
+                    <svg class="w-6 h-6" fill="none" aria-hidden="true" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+                </button>
+            </div>
+                        <div class="flex flex-col space-y-6">
+                <a href="/demo/pilotage-projets" class="text-base text-gray-600 hover:text-gray-900 transition-colors">Pilotage de projets</a>
+                <a href="/demo/installation-conformite" class="text-base text-gray-600 hover:text-gray-900 transition-colors">Installation</a>
+                <a href="/demo/exploitation" class="text-base text-gray-600 hover:text-gray-900 transition-colors">Exploitation</a>
+                <a href="/demo/securisation-installations" class="text-base text-gray-600 hover:text-gray-900 transition-colors">Sécurisation</a>
+                <a href="/demo/centre-appel" class="text-base text-gray-600 hover:text-gray-900 transition-colors">Support</a>
+                <a href="/demo/solutions/" class="text-base text-gray-600 hover:text-gray-900 transition-colors">Solutions</a>
+                <a href="/demo/a-propos" class="text-base text-gray-600 hover:text-gray-900 transition-colors">À propos</a>
+                <a href="/demo/blog" class="text-base text-gray-600 hover:text-gray-900 transition-colors">Blog</a>
+                <a href="/demo/contact" class="btn-primary px-6 py-3 rounded-lg text-base font-medium inline-block text-center mt-4">Contact</a>
+            </div>
+        </div>
+    </nav>
+    <nav class="fixed top-0 w-full z-50 glass-nav border-b border-gray-200" role="navigation" aria-label="Navigation principale">
+        <div class="max-w-7xl mx-auto px-6 py-5">
+            <div class="flex justify-between items-center">
+                <a href="/demo/" class="flex items-center space-x-3 group mr-12">
+                    <picture><source srcset="../images/logo.webp" type="image/webp"><img src="../images/logo.png" alt="JCSM" class="w-9 h-9 transition-transform group-hover:scale-105 duration-300" width="36" height="36"></picture>
+                    <span class="text-xl font-bold tracking-tight">JCSM</span>
+                </a>
+                <div class="hidden lg:flex items-center space-x-6 xl:space-x-8">
+                    <a href="/demo/pilotage-projets" class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300 whitespace-nowrap">Pilotage</a>
+                    <a href="/demo/installation-conformite" class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300 whitespace-nowrap">Installation</a>
+                    <a href="/demo/exploitation" class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300 whitespace-nowrap">Exploitation</a>
+                    <a href="/demo/securisation-installations" class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300 whitespace-nowrap">Sécurisation</a>
+                    <a href="/demo/centre-appel" class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300 whitespace-nowrap">Support</a>
+                    <a href="/demo/solutions/" class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300 whitespace-nowrap">Solutions</a>
+                    <a href="/demo/a-propos" class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300 whitespace-nowrap">À propos</a>
+                    <a href="/demo/blog" class="text-base font-semibold text-blue-600 hover:text-blue-700 transition-all duration-300 whitespace-nowrap">Blog</a>
+                    <a href="/demo/contact" class="btn-primary ml-4 px-7 py-2.5 rounded-xl text-base font-medium shadow-lg hover:shadow-xl whitespace-nowrap">Contact</a>
+                </div>
+                <button class="mobile-menu-btn text-gray-600 hover:text-gray-900" id="mobile-menu-btn" aria-label="Ouvrir le menu de navigation" aria-expanded="false" aria-controls="mobile-menu">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main id="main-content" role="main">
+        <article class="pt-32 pb-16 px-6">
+            <div class="max-w-3xl mx-auto">
+                <div class="mb-8">
+                    <a href="/demo/blog" class="text-sm text-blue-600 hover:text-blue-800 transition-colors">&larr; Retour au blog</a>
+                </div>
+                <div class="mb-10">
+                    <span class="inline-block text-xs font-semibold text-amber-700 bg-amber-100 rounded-full px-3 py-1 mb-4">Cybersécurité</span>
+                    <h1 class="text-3xl md:text-4xl font-bold mb-4 leading-tight">Cybersécurité IRVE : les bornes de recharge sont-elles vulnérables ?</h1>
+                    <div class="flex items-center text-sm text-gray-500">
+                        <time datetime="2026-03-22">22 mars 2026</time>
+                        <span class="mx-2">·</span>
+                        <span>18 min de lecture</span>
+                    </div>
+                </div>
+
+                <div class="bg-amber-50 rounded-2xl p-6 mb-10">
+                    <h2 class="text-lg font-bold text-amber-700 mb-4">Sommaire</h2>
+                    <ol class="list-decimal pl-5 text-sm text-amber-700 space-y-2">
+                        <li><a href="#introduction" class="hover:underline">Pourquoi les bornes de recharge sont des cibles</a></li>
+                        <li><a href="#vecteurs-attaque" class="hover:underline">Les vecteurs d'attaque sur les bornes de recharge</a></li>
+                        <li><a href="#incidents" class="hover:underline">Cas concrets d'incidents de cybersécurité IRVE</a></li>
+                        <li><a href="#normes" class="hover:underline">Les normes et référentiels applicables</a></li>
+                        <li><a href="#bonnes-pratiques" class="hover:underline">Bonnes pratiques de sécurisation</a></li>
+                        <li><a href="#role-cpo" class="hover:underline">Le rôle du CPO et du mainteneur dans la cybersécurité</a></li>
+                        <li><a href="#checklist" class="hover:underline">Checklist sécurité pour un réseau de bornes</a></li>
+                    </ol>
+                </div>
+
+                <div class="prose prose-lg max-w-none">
+                    <h2 id="introduction" class="text-2xl font-bold mt-12 mb-4">Pourquoi les bornes de recharge sont des cibles</h2>
+                    <p class="text-lg text-gray-600 leading-relaxed mb-8">En mars 2026, la France compte plus de 180 000 points de recharge ouverts au public. Chacun de ces points est un ordinateur connecté à Internet, relié au réseau électrique, capable de traiter des paiements par carte bancaire et de communiquer avec un serveur central. Cette convergence de fonctions fait des bornes de recharge des cibles particulièrement attractives pour les cyberattaquants. Pourtant, la cybersécurité des infrastructures de recharge pour véhicules électriques (IRVE) reste un angle mort dans de nombreux déploiements.</p>
+                    <p class="text-gray-600 leading-relaxed mb-4">Les bornes IRVE ne sont pas de simples prises électriques. Elles embarquent un contrôleur logique, un module de communication (4G, Ethernet, Wi-Fi), un lecteur de badge RFID, un terminal de paiement, et parfois un écran tactile avec un système d'exploitation complet. Chacun de ces composants constitue une surface d'attaque potentielle.</p>
+                    <p class="text-gray-600 leading-relaxed mb-4">Le risque est amplifié par trois facteurs. Premièrement, les bornes sont physiquement accessibles : elles sont installées sur des parkings, en voirie, dans des centres commerciaux. Un attaquant peut s'en approcher sans éveiller de soupçons. Deuxièmement, elles sont souvent déployées par des acteurs dont le métier initial n'est pas la cybersécurité : énergéticiens, gestionnaires de parking, collectivités. Troisièmement, le rythme de déploiement est tel que la sécurité passe parfois au second plan, derrière les impératifs de volume et de délais.</p>
+                    <p class="text-gray-600 leading-relaxed mb-4">Les conséquences d'une attaque réussie vont bien au-delà du simple désagrément. Vol de données bancaires des utilisateurs, interruption de service sur un réseau entier, manipulation des compteurs d'énergie, accès au réseau informatique de l'exploitant, voire déstabilisation du réseau électrique local par injection de charges non contrôlées. L'enjeu est à la fois économique, réputationnel et sécuritaire.</p>
+
+                    <div class="bg-amber-50 border-l-4 border-amber-400 rounded-r-xl p-5 mb-8">
+                        <p class="text-gray-700 text-sm leading-relaxed"><span class="font-semibold">Chiffre clé :</span> selon l'ENISA (Agence européenne pour la cybersécurité), les incidents ciblant les infrastructures de recharge ont augmenté de 340 % entre 2023 et 2025. Le rapport ENISA 2025 classe les bornes IRVE dans la catégorie « infrastructures critiques émergentes ».</p>
+                    </div>
+
+                    <h2 id="vecteurs-attaque" class="text-2xl font-bold mt-12 mb-4">Les vecteurs d'attaque sur les bornes de recharge</h2>
+                    <p class="text-gray-600 leading-relaxed mb-4">Les surfaces d'attaque d'une borne IRVE sont multiples. Elles se répartissent en quatre grandes catégories : le protocole de communication, le firmware, les systèmes de paiement et les interfaces physiques.</p>
+
+                    <h3 class="text-xl font-semibold mt-8 mb-3">Interception et manipulation du protocole OCPP</h3>
+                    <p class="text-gray-600 leading-relaxed mb-4">Le protocole <a href="/demo/blog/ocpp-1-6-vs-2-0-protocole-bornes" class="text-blue-600 hover:text-blue-800 underline">OCPP</a> (Open Charge Point Protocol) est le standard de communication entre les bornes et le système de gestion central (CSMS). En version 1.6, encore majoritairement déployée, la connexion WebSocket peut fonctionner sans chiffrement TLS. Les messages circulent alors en clair entre la borne et le serveur.</p>
+                    <p class="text-gray-600 leading-relaxed mb-4">Un attaquant positionné sur le réseau (attaque « man-in-the-middle ») peut intercepter les échanges, lire les identifiants RFID des utilisateurs, modifier les commandes envoyées à la borne, ou injecter de faux messages. Il peut par exemple envoyer une commande RemoteStartTransaction pour démarrer une session de recharge gratuite, ou un ChangeConfiguration pour modifier le comportement de la borne.</p>
+                    <p class="text-gray-600 leading-relaxed mb-4">En OCPP 1.6, l'authentification de la borne auprès du CSMS repose sur un simple identifiant (ChargeBoxIdentity), sans mécanisme cryptographique. Une borne compromise ou un simulateur peut se connecter au CSMS en usurpant l'identité d'une borne légitime. Le CSMS n'a aucun moyen de vérifier que l'interlocuteur est bien la borne physique qu'il prétend être.</p>
+
+                    <h3 class="text-xl font-semibold mt-8 mb-3">Attaques sur le firmware</h3>
+                    <p class="text-gray-600 leading-relaxed mb-4">Le firmware est le logiciel embarqué dans le contrôleur de la borne. Il gère l'ensemble des opérations : authentification des utilisateurs, gestion de la puissance, communication OCPP, affichage écran. Une modification malveillante du firmware permet à l'attaquant de prendre le contrôle total de la borne.</p>
+                    <p class="text-gray-600 leading-relaxed mb-4">Les vecteurs d'attaque sur le firmware sont multiples. Le port USB de maintenance, souvent accessible en ouvrant le capot de la borne, permet de flasher un firmware modifié. La mise à jour à distance (OTA - Over The Air), si elle ne vérifie pas la signature cryptographique du fichier, peut être détournée. Un serveur de mise à jour compromis peut distribuer un firmware vérolé à l'ensemble d'un parc.</p>
+                    <p class="text-gray-600 leading-relaxed mb-4">Certaines bornes utilisent des systèmes d'exploitation Linux embarqués avec des composants logiciels non mis à jour (OpenSSL, noyau Linux), exposant des vulnérabilités connues et documentées (CVE). L'absence de mécanisme de « secure boot » (vérification de l'intégrité du firmware au démarrage) permet à un firmware modifié de persister après un redémarrage.</p>
+
+                    <h3 class="text-xl font-semibold mt-8 mb-3">Systèmes de paiement</h3>
+                    <p class="text-gray-600 leading-relaxed mb-4">Les bornes équipées de terminaux de paiement par carte bancaire (conformité PCI DSS requise) présentent des risques spécifiques. L'installation d'un « skimmer » physique (dispositif de lecture frauduleuse) sur le terminal de paiement permet de capturer les données de carte. Ce risque est accentué par l'implantation des bornes dans des zones peu surveillées et accessibles 24h/24.</p>
+                    <p class="text-gray-600 leading-relaxed mb-4">Au-delà du skimming physique, les attaques logiques sur les terminaux de paiement intégrés sont documentées. Injection de code dans le processus de transaction, interception des données de carte avant chiffrement, manipulation du montant de la transaction. Les bornes dont le terminal de paiement partage le même réseau que le contrôleur OCPP sont particulièrement exposées : une compromission du contrôleur donne accès au flux de paiement.</p>
+
+                    <h3 class="text-xl font-semibold mt-8 mb-3">Clonage RFID et usurpation d'identité</h3>
+                    <p class="text-gray-600 leading-relaxed mb-4">La majorité des bornes utilisent des badges RFID pour l'authentification des utilisateurs. Les cartes MIFARE Classic, encore largement répandues dans le secteur IRVE, utilisent un chiffrement (Crypto-1) cassé depuis 2008. Un attaquant équipé d'un lecteur NFC à moins de 50 euros peut lire et cloner un badge en quelques secondes, à l'insu de son propriétaire.</p>
+                    <p class="text-gray-600 leading-relaxed mb-4">Le badge cloné permet de démarrer des sessions de recharge facturées au compte de la victime. Il permet aussi de se connecter au portail utilisateur de l'opérateur si le même identifiant RFID sert de clé d'authentification. Les cartes MIFARE DESFire EV2/EV3, avec un chiffrement AES-128, offrent une meilleure résistance mais ne sont pas encore généralisées.</p>
+
+                    <h3 class="text-xl font-semibold mt-8 mb-3">Attaques réseau et pivot</h3>
+                    <p class="text-gray-600 leading-relaxed mb-4">Une borne connectée au réseau local d'un site (entreprise, centre commercial, copropriété) constitue un point d'entrée potentiel vers l'infrastructure informatique du site. Si la borne est sur le même VLAN que les serveurs de l'entreprise, sa compromission permet un « pivot » : l'attaquant utilise la borne comme passerelle pour explorer et attaquer le réseau interne.</p>
+                    <p class="text-gray-600 leading-relaxed mb-4">Ce scénario est particulièrement préoccupant pour les déploiements en entreprise, où les bornes sont parfois connectées au réseau bureautique par commodité. La <a href="/demo/securisation-installations" class="text-blue-600 hover:text-blue-800 underline">sécurisation des installations</a> physiques ne suffit pas : la segmentation réseau est indispensable.</p>
+
+                    <h2 id="incidents" class="text-2xl font-bold mt-12 mb-4">Cas concrets d'incidents de cybersécurité IRVE</h2>
+                    <p class="text-gray-600 leading-relaxed mb-4">Les incidents de cybersécurité sur les bornes de recharge ne sont plus théoriques. Plusieurs cas documentés illustrent la réalité de la menace.</p>
+
+                    <h3 class="text-xl font-semibold mt-8 mb-3">Bornes piratées en Ukraine et au Royaume-Uni (2022)</h3>
+                    <p class="text-gray-600 leading-relaxed mb-4">En février 2022, des bornes de recharge rapide le long d'autoroutes ukrainiennes ont affiché des messages de propagande anti-russe après compromission de leur système d'affichage. L'attaque exploitait une faille dans le système de gestion des écrans, connecté au CSMS sans authentification TLS. La même année, des bornes au Royaume-Uni (réseau GeniePoint) ont été rendues indisponibles pendant plusieurs jours après une attaque ciblant le backend de supervision.</p>
+
+                    <h3 class="text-xl font-semibold mt-8 mb-3">Vulnérabilités Schneider Electric et ABB (2023-2024)</h3>
+                    <p class="text-gray-600 leading-relaxed mb-4">En 2023, des chercheurs en sécurité de Pentest Partners ont révélé des vulnérabilités critiques dans les bornes EVLink de Schneider Electric : accès root via le port série sans mot de passe, clé API codée en dur dans le firmware, et absence de vérification de l'intégrité des mises à jour. Schneider a publié des correctifs, mais les bornes non mises à jour restent exposées.</p>
+                    <p class="text-gray-600 leading-relaxed mb-4">ABB a fait l'objet de divulgations similaires sur sa gamme Terra : interface web de configuration accessible sans authentification depuis le réseau local, stockage de mots de passe en clair dans la mémoire flash. Ces vulnérabilités sont représentatives d'un problème systémique : les fabricants de bornes sont des électriciens et des industriels, pas des éditeurs de logiciels. La culture de la sécurité logicielle y est encore en construction.</p>
+
+                    <h3 class="text-xl font-semibold mt-8 mb-3">Fraude massive par clonage RFID en Allemagne (2024)</h3>
+                    <p class="text-gray-600 leading-relaxed mb-4">En 2024, la police fédérale allemande a démantelé un réseau de fraude qui avait cloné plus de 2 000 badges de recharge sur des réseaux publics. Les fraudeurs opéraient dans des parkings de centres commerciaux, clonaient les badges des utilisateurs pendant qu'ils faisaient leurs courses, puis revendaient les données d'accès en ligne. Le préjudice total dépassait 800 000 euros.</p>
+
+                    <h3 class="text-xl font-semibold mt-8 mb-3">Ransomware sur un CPO européen (2025)</h3>
+                    <p class="text-gray-600 leading-relaxed mb-4">Début 2025, un opérateur de points de charge (CPO) européen gérant 15 000 bornes dans quatre pays a subi une attaque par ransomware. Le vecteur initial : une borne dont le firmware contenait un agent de reverse shell, installé lors d'une mise à jour non signée. L'attaquant a pivoté de la borne vers le CSMS, puis vers les systèmes de facturation. Le réseau entier a été hors service pendant 72 heures. La rançon demandée était de 2,3 millions d'euros.</p>
+
+                    <div class="bg-amber-50 border-l-4 border-amber-400 rounded-r-xl p-5 mb-8">
+                        <p class="text-gray-700 text-sm leading-relaxed"><span class="font-semibold">Constat :</span> dans chaque incident majeur, la cause racine n'est pas une technique d'attaque sophistiquée. Ce sont des fondamentaux absents : pas de TLS, pas de signature firmware, pas de segmentation réseau, pas de surveillance des accès. Les attaquants n'ont pas besoin de zero-day quand les bases ne sont pas couvertes.</p>
+                    </div>
+
+                    <h2 id="normes" class="text-2xl font-bold mt-12 mb-4">Les normes et référentiels applicables</h2>
+                    <p class="text-gray-600 leading-relaxed mb-4">Plusieurs normes et standards encadrent la cybersécurité des infrastructures de recharge. Leur adoption est inégale, mais la pression réglementaire s'intensifie.</p>
+
+                    <h3 class="text-xl font-semibold mt-8 mb-3">ISO 15118 : sécurité de la communication véhicule-borne</h3>
+                    <p class="text-gray-600 leading-relaxed mb-4">La norme ISO 15118 définit le protocole de communication entre le véhicule électrique et la borne de recharge. Sa partie sécurité (ISO 15118-2 et ISO 15118-20) impose l'utilisation de TLS 1.2 minimum pour le canal de communication, l'authentification mutuelle par certificats X.509, et le chiffrement de bout en bout des données échangées.</p>
+                    <p class="text-gray-600 leading-relaxed mb-4">Le « Plug & Charge » (PnC), prévu par ISO 15118, remplace le badge RFID par un certificat numérique stocké dans le véhicule. L'utilisateur branche son câble, le véhicule s'identifie automatiquement via un échange de certificats, et la session démarre sans intervention manuelle. Ce mécanisme élimine le risque de clonage RFID, mais nécessite une infrastructure PKI (Public Key Infrastructure) robuste pour la gestion des certificats.</p>
+                    <p class="text-gray-600 leading-relaxed mb-4">ISO 15118-20 (publiée en 2022) étend le protocole à la recharge bidirectionnelle (V2G) et impose des exigences de sécurité renforcées : rotation automatique des certificats, révocation en temps réel, et isolation cryptographique des sessions.</p>
+
+                    <h3 class="text-xl font-semibold mt-8 mb-3">OCPP 2.0.1 : les profils de sécurité</h3>
+                    <p class="text-gray-600 leading-relaxed mb-4"><a href="/demo/blog/ocpp-1-6-vs-2-0-protocole-bornes" class="text-blue-600 hover:text-blue-800 underline">OCPP 2.0.1</a> définit trois profils de sécurité hiérarchiques pour la communication borne-CSMS :</p>
+                    <ul class="list-disc pl-6 text-gray-600 space-y-2 mb-6">
+                        <li><strong>Profil 1 (Security Profile 1)</strong> : authentification par mot de passe HTTP Basic. Le mot de passe est transmis dans l'en-tête de la connexion WebSocket. Niveau de sécurité minimal, comparable à OCPP 1.6</li>
+                        <li><strong>Profil 2 (Security Profile 2)</strong> : TLS avec certificat serveur. La borne vérifie l'identité du CSMS via un certificat X.509. Le canal est chiffré. La borne s'authentifie par mot de passe dans le tunnel TLS</li>
+                        <li><strong>Profil 3 (Security Profile 3)</strong> : TLS mutuel (mTLS). La borne et le CSMS s'authentifient mutuellement par certificats X.509. C'est le niveau requis pour le Plug & Charge et le seul profil qui garantit l'identité de la borne</li>
+                    </ul>
+                    <p class="text-gray-600 leading-relaxed mb-4">OCPP 2.0.1 intègre aussi la gestion du cycle de vie des certificats (installation, renouvellement, révocation), la vérification de signature des firmwares avant installation, et le chiffrement des données sensibles stockées localement (clés, mots de passe).</p>
+
+                    <h3 class="text-xl font-semibold mt-8 mb-3">IEC 62351 : sécurité des communications pour les systèmes électriques</h3>
+                    <p class="text-gray-600 leading-relaxed mb-4">La norme IEC 62351, initialement conçue pour les réseaux électriques intelligents (smart grids), s'applique de plus en plus aux bornes IRVE dans le contexte du V2G. Elle définit des exigences de sécurité pour les protocoles de communication utilisés dans les systèmes de gestion de l'énergie : authentification, chiffrement, intégrité des messages, gestion des accès, journalisation des événements de sécurité.</p>
+                    <p class="text-gray-600 leading-relaxed mb-4">Pour les bornes intégrées dans des micro-grids ou participant à des programmes d'effacement (demand response), IEC 62351 devient un référentiel incontournable. Elle impose notamment l'utilisation de TLS 1.3, la rotation périodique des clés, et la détection d'anomalies dans les flux de données énergétiques.</p>
+
+                    <h3 class="text-xl font-semibold mt-8 mb-3">Directive NIS2 et réglement AFIR</h3>
+                    <p class="text-gray-600 leading-relaxed mb-4">La directive européenne NIS2 (Network and Information Security), entrée en application en octobre 2024, élargit le périmètre des entités soumises à des obligations de cybersécurité. Les opérateurs d'infrastructures de recharge de grande taille (plus de 1 000 points de charge ou chiffre d'affaires supérieur à 10 millions d'euros) sont désormais considérés comme des « entités importantes » au sens de NIS2.</p>
+                    <p class="text-gray-600 leading-relaxed mb-4">Les obligations incluent : analyse de risques documentée, mesures de sécurité proportionnées, notification des incidents significatifs à l'ANSSI dans les 24 heures, et responsabilité de la direction en cas de manquement. Le <a href="/demo/blog/reglement-afir-obligations-bornes-recharge" class="text-blue-600 hover:text-blue-800 underline">règlement AFIR</a> (Alternative Fuels Infrastructure Regulation) complète ce cadre en imposant des exigences d'interopérabilité et de disponibilité qui impliquent indirectement des mesures de cybersécurité.</p>
+
+                    <div class="overflow-x-auto mb-8">
+                        <table class="w-full text-sm text-gray-600 border border-gray-200 rounded-lg">
+                            <thead>
+                                <tr class="bg-gray-50">
+                                    <th scope="col" class="text-left px-4 py-3 font-semibold text-gray-900 border-b border-gray-200">Norme / Référentiel</th>
+                                    <th scope="col" class="text-left px-4 py-3 font-semibold text-gray-900 border-b border-gray-200">Périmètre</th>
+                                    <th scope="col" class="text-left px-4 py-3 font-semibold text-gray-900 border-b border-gray-200">Exigence clé</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="border-b border-gray-100">
+                                    <td class="px-4 py-3 font-medium text-gray-900">ISO 15118</td>
+                                    <td class="px-4 py-3">Communication véhicule-borne</td>
+                                    <td class="px-4 py-3">TLS mutuel, certificats X.509, Plug & Charge</td>
+                                </tr>
+                                <tr class="border-b border-gray-100">
+                                    <td class="px-4 py-3 font-medium text-gray-900">OCPP 2.0.1</td>
+                                    <td class="px-4 py-3">Communication borne-CSMS</td>
+                                    <td class="px-4 py-3">3 profils de sécurité, signature firmware, gestion certificats</td>
+                                </tr>
+                                <tr class="border-b border-gray-100">
+                                    <td class="px-4 py-3 font-medium text-gray-900">IEC 62351</td>
+                                    <td class="px-4 py-3">Systèmes électriques / V2G</td>
+                                    <td class="px-4 py-3">TLS 1.3, rotation des clés, détection d'anomalies</td>
+                                </tr>
+                                <tr class="border-b border-gray-100">
+                                    <td class="px-4 py-3 font-medium text-gray-900">NIS2</td>
+                                    <td class="px-4 py-3">Opérateurs > 1 000 PDC</td>
+                                    <td class="px-4 py-3">Analyse de risques, notification incidents 24h, responsabilité direction</td>
+                                </tr>
+                                <tr class="border-b border-gray-100">
+                                    <td class="px-4 py-3 font-medium text-gray-900">PCI DSS</td>
+                                    <td class="px-4 py-3">Terminaux de paiement</td>
+                                    <td class="px-4 py-3">Isolation réseau, chiffrement P2PE, audit annuel</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-4 py-3 font-medium text-gray-900">EN 303 645</td>
+                                    <td class="px-4 py-3">IoT grand public (applicable)</td>
+                                    <td class="px-4 py-3">Pas de mot de passe par défaut, mises à jour sécurisées, minimisation des données</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h2 id="bonnes-pratiques" class="text-2xl font-bold mt-12 mb-4">Bonnes pratiques de sécurisation</h2>
+                    <p class="text-gray-600 leading-relaxed mb-4">Sécuriser un réseau de bornes IRVE ne demande pas des investissements disproportionnés. Les mesures les plus efficaces relèvent des fondamentaux de la sécurité informatique, appliqués au contexte spécifique de la recharge électrique.</p>
+
+                    <h3 class="text-xl font-semibold mt-8 mb-3">Segmentation réseau</h3>
+                    <p class="text-gray-600 leading-relaxed mb-4">C'est la mesure la plus importante et la plus souvent négligée. Chaque borne doit être isolée dans un VLAN dédié, séparé du réseau bureautique, du réseau de vidéosurveillance et du réseau de gestion du bâtiment. Le trafic entre le VLAN des bornes et le reste de l'infrastructure doit passer par un pare-feu avec des règles restrictives (whitelist).</p>
+                    <p class="text-gray-600 leading-relaxed mb-4">En pratique, la borne ne doit pouvoir communiquer qu'avec son CSMS (un seul endpoint, un seul port). Toute communication vers d'autres destinations doit être bloquée. Si la borne dispose d'un terminal de paiement, celui-ci doit avoir son propre réseau isolé, distinct du réseau OCPP. La segmentation empêche le pivot réseau : même si la borne est compromise, l'attaquant reste confiné.</p>
+
+                    <h3 class="text-xl font-semibold mt-8 mb-3">Chiffrement TLS systématique</h3>
+                    <p class="text-gray-600 leading-relaxed mb-4">Toute communication entre la borne et le CSMS doit être chiffrée en TLS 1.2 minimum (TLS 1.3 recommandé). Le profil de sécurité 2 d'OCPP 2.0.1 est le minimum acceptable pour un déploiement en 2026. Le profil 3 (TLS mutuel) est recommandé pour les réseaux publics et obligatoire pour le Plug & Charge.</p>
+                    <p class="text-gray-600 leading-relaxed mb-4">Les certificats TLS doivent être émis par une autorité de certification de confiance, avec une durée de validité limitée (1 an maximum) et un mécanisme de renouvellement automatique. Les suites cryptographiques faibles (RC4, DES, SHA-1) doivent être désactivées côté serveur et côté borne. OCPP 2.0.1 intègre les messages nécessaires à la gestion du cycle de vie des certificats directement dans le protocole.</p>
+
+                    <h3 class="text-xl font-semibold mt-8 mb-3">Signature et vérification du firmware</h3>
+                    <p class="text-gray-600 leading-relaxed mb-4">Chaque mise à jour firmware doit être signée numériquement par le fabricant. La borne doit vérifier la signature avant d'appliquer la mise à jour. OCPP 2.0.1 prend en charge nativement ce mécanisme via le message UpdateFirmware, qui inclut un champ pour la signature et le certificat de vérification.</p>
+                    <p class="text-gray-600 leading-relaxed mb-4">Le « secure boot » garantit que seul un firmware authentique peut démarrer sur la borne. Si le firmware a été altéré (modification physique via le port USB, par exemple), la borne refuse de démarrer et signale l'anomalie. Cette fonctionnalité doit être un critère de sélection lors de l'achat de nouvelles bornes.</p>
+                    <p class="text-gray-600 leading-relaxed mb-4">Les mises à jour de sécurité doivent être déployées dans un délai raisonnable après publication par le fabricant. Un processus de <a href="/demo/exploitation" class="text-blue-600 hover:text-blue-800 underline">gestion des mises à jour</a> (patch management) doit être formalisé, avec un calendrier de déploiement, des tests sur un lot pilote, et une procédure de rollback en cas de régression.</p>
+
+                    <h3 class="text-xl font-semibold mt-8 mb-3">Surveillance et détection d'anomalies</h3>
+                    <p class="text-gray-600 leading-relaxed mb-4">Un réseau de bornes doit être surveillé en continu, pas seulement pour les pannes matérielles, mais aussi pour les événements de sécurité. Les logs de connexion OCPP, les tentatives d'authentification échouées, les changements de configuration non autorisés, les communications vers des adresses IP inconnues : tous ces signaux doivent être collectés et analysés.</p>
+                    <p class="text-gray-600 leading-relaxed mb-4">La <a href="/demo/blog/supervision-distance-bornes-irve" class="text-blue-600 hover:text-blue-800 underline">supervision à distance</a> ne se limite pas au monitoring de disponibilité. Elle doit inclure une couche de détection d'intrusion (IDS) adaptée au contexte IRVE : alertes sur les connexions OCPP depuis des adresses IP non autorisées, détection des scans de ports, surveillance des volumes de données anormaux, identification des bornes qui cessent de communiquer sans raison apparente.</p>
+                    <p class="text-gray-600 leading-relaxed mb-4">Les événements de sécurité doivent être centralisés dans un SIEM (Security Information and Event Management) et corrélés avec les données d'exploitation. Une borne qui redémarre anormalement et change de version firmware sans commande du CSMS est un signal d'alerte majeur.</p>
+
+                    <h3 class="text-xl font-semibold mt-8 mb-3">Durcissement des bornes</h3>
+                    <p class="text-gray-600 leading-relaxed mb-4">Le durcissement (hardening) consiste à réduire la surface d'attaque de chaque borne en désactivant les fonctionnalités inutiles et en renforçant les configurations par défaut :</p>
+                    <ul class="list-disc pl-6 text-gray-600 space-y-2 mb-6">
+                        <li><strong>Changer les mots de passe par défaut</strong> de toutes les interfaces d'administration (web, SSH, OCPP). Utiliser des mots de passe uniques par borne, stockés dans un gestionnaire centralisé</li>
+                        <li><strong>Désactiver les ports et services inutiles</strong> : SSH si non nécessaire, interface web d'administration locale, serveur FTP embarqué, protocoles de découverte réseau (mDNS, UPnP)</li>
+                        <li><strong>Protéger les accès physiques</strong> : verrouillage du capot avec serrure renforcée, détecteur d'ouverture connecté au CSMS, désactivation ou protection du port USB de maintenance</li>
+                        <li><strong>Configurer le pare-feu embarqué</strong> (quand disponible) pour n'autoriser que les flux sortants vers le CSMS et le serveur NTP</li>
+                        <li><strong>Activer la journalisation locale</strong> avec rotation des logs et remontée vers le CSMS pour analyse centralisée</li>
+                    </ul>
+
+                    <h3 class="text-xl font-semibold mt-8 mb-3">Gestion des accès et des identités</h3>
+                    <p class="text-gray-600 leading-relaxed mb-4">L'accès aux systèmes de gestion (CSMS, portail opérateur, outils de maintenance) doit être contrôlé par une authentification forte (MFA - Multi-Factor Authentication). Les comptes techniques doivent avoir des droits limités au strict nécessaire (principe du moindre privilège). Les sessions d'administration doivent être tracées et les accès révoqués immédiatement quand un collaborateur quitte l'organisation.</p>
+                    <p class="text-gray-600 leading-relaxed mb-4">Pour les techniciens de terrain, l'accès à l'interface locale de la borne (panneau de configuration, port de maintenance) doit nécessiter une authentification distincte de celle du CSMS. Un technicien qui intervient sur une borne ne doit pas disposer des droits d'administration du CSMS. La gestion des habilitations doit être revue trimestriellement.</p>
+
+                    <h2 id="role-cpo" class="text-2xl font-bold mt-12 mb-4">Le rôle du CPO et du mainteneur dans la cybersécurité</h2>
+                    <p class="text-gray-600 leading-relaxed mb-4">La cybersécurité d'un réseau IRVE n'est pas la responsabilité exclusive du fabricant de bornes. Elle se répartit entre trois acteurs : le fabricant, le <a href="/demo/blog/cpo-emsp-acteurs-recharge-electrique" class="text-blue-600 hover:text-blue-800 underline">CPO (Charge Point Operator)</a> et le mainteneur.</p>
+
+                    <h3 class="text-xl font-semibold mt-8 mb-3">Le fabricant : sécurité du produit</h3>
+                    <p class="text-gray-600 leading-relaxed mb-4">Le fabricant est responsable de la sécurité du firmware, du matériel et des mises à jour. Il doit intégrer la sécurité dès la conception (security by design) : secure boot, chiffrement du stockage local, ports de maintenance protégés, support des profils de sécurité OCPP 2.0.1. Il doit aussi maintenir un processus de réponse aux vulnérabilités : publication de correctifs dans des délais raisonnables, notification proactive des CPO, documentation des CVE.</p>
+                    <p class="text-gray-600 leading-relaxed mb-4">Le choix du fabricant est un acte de cybersécurité. Les critères à évaluer : fréquence des mises à jour de sécurité, durée de support du firmware (minimum 5 ans), existence d'un programme de « bug bounty » ou d'audits de sécurité indépendants, certifications obtenues (IEC 62443, EN 303 645).</p>
+
+                    <h3 class="text-xl font-semibold mt-8 mb-3">Le CPO : sécurité opérationnelle</h3>
+                    <p class="text-gray-600 leading-relaxed mb-4">Le CPO est responsable de l'environnement dans lequel les bornes opèrent. La segmentation réseau, le déploiement des mises à jour, la configuration des profils de sécurité OCPP, la surveillance des événements, la gestion des accès au CSMS : tout cela relève du CPO. Il doit disposer d'une politique de sécurité documentée et la faire appliquer par ses prestataires.</p>
+                    <p class="text-gray-600 leading-relaxed mb-4">Le CPO doit aussi anticiper les incidents : plan de réponse aux incidents documenté, contacts d'urgence identifiés, procédure de communication vers les utilisateurs en cas de compromission de données personnelles (obligation RGPD et NIS2), capacité à isoler une borne ou un groupe de bornes compromises sans affecter le reste du réseau.</p>
+
+                    <h3 class="text-xl font-semibold mt-8 mb-3">Le mainteneur : sécurité en intervention</h3>
+                    <p class="text-gray-600 leading-relaxed mb-4">Le mainteneur intervient physiquement sur les bornes. Il doit être formé aux risques de cybersécurité : ne pas brancher de clé USB non vérifiée sur le port de maintenance, vérifier l'intégrité physique du terminal de paiement à chaque intervention, signaler toute anomalie (capot déjà ouvert, câble inconnu branché, autocollant suspect sur le lecteur RFID).</p>
+                    <p class="text-gray-600 leading-relaxed mb-4">Chez JCSM, nos équipes de <a href="/demo/exploitation" class="text-blue-600 hover:text-blue-800 underline">maintenance</a> intègrent un protocole de vérification de sécurité à chaque intervention terrain. Chaque technicien dispose d'identifiants individuels, tracés et révocables. Les interventions sont documentées dans un rapport d'intervention horodaté et géolocalisé, accessible au CPO via le <a href="/demo/centre-appel" class="text-blue-600 hover:text-blue-800 underline">centre d'appel</a>.</p>
+
+                    <div class="bg-gray-50 rounded-xl p-5 mb-8">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-3">Responsabilité partagée : la matrice RACI</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-3">La répartition des responsabilités de cybersécurité entre fabricant, CPO et mainteneur doit être formalisée dans un contrat. Les zones grises sont les plus dangereuses : qui déploie les patchs firmware ? Qui surveille les logs OCPP ? Qui gère la rotation des certificats TLS ? Si ces questions n'ont pas de réponse claire, le réseau est vulnérable.</p>
+                        <p class="text-gray-600 text-sm leading-relaxed">Le <a href="/demo/pilotage-projets" class="text-blue-600 hover:text-blue-800 underline">pilotage de projets</a> IRVE doit intégrer la dimension cybersécurité dès la phase de conception, pas en fin de déploiement.</p>
+                    </div>
+
+                    <h2 id="checklist" class="text-2xl font-bold mt-12 mb-4">Checklist sécurité pour un réseau de bornes</h2>
+                    <p class="text-gray-600 leading-relaxed mb-4">Cette checklist couvre les mesures essentielles à vérifier lors du déploiement et de l'exploitation d'un réseau IRVE. Elle est organisée par priorité d'implémentation.</p>
+
+                    <h3 class="text-xl font-semibold mt-8 mb-3">Priorité 1 : mesures immédiates</h3>
+                    <ul class="list-disc pl-6 text-gray-600 space-y-2 mb-6">
+                        <li>Tous les mots de passe par défaut des bornes sont changés (interface web, SSH, OCPP)</li>
+                        <li>Les connexions OCPP utilisent TLS 1.2+ (profil de sécurité 2 minimum)</li>
+                        <li>Les bornes sont dans un VLAN dédié, isolé du réseau bureautique</li>
+                        <li>Le CSMS exige une authentification avant d'accepter une connexion de borne</li>
+                        <li>Les accès au CSMS sont protégés par MFA</li>
+                        <li>Les terminaux de paiement sont conformes PCI DSS et sur un réseau isolé</li>
+                        <li>Un inventaire à jour de toutes les bornes existe (modèle, firmware, version OCPP)</li>
+                    </ul>
+
+                    <h3 class="text-xl font-semibold mt-8 mb-3">Priorité 2 : mesures à planifier (3 mois)</h3>
+                    <ul class="list-disc pl-6 text-gray-600 space-y-2 mb-6">
+                        <li>Un processus de déploiement des mises à jour firmware est formalisé (test, validation, déploiement, rollback)</li>
+                        <li>Les bornes vérifient la signature des firmwares avant installation</li>
+                        <li>Les logs OCPP et les événements de sécurité sont centralisés et analysés</li>
+                        <li>Un pare-feu filtre le trafic des bornes (whitelist : CSMS + NTP uniquement)</li>
+                        <li>Les badges RFID utilisent un chiffrement AES (MIFARE DESFire EV2/EV3 minimum)</li>
+                        <li>Les accès physiques aux bornes sont sécurisés (serrure, détecteur d'ouverture)</li>
+                        <li>La matrice de responsabilités cybersécurité (fabricant / CPO / mainteneur) est contractualisée</li>
+                    </ul>
+
+                    <h3 class="text-xl font-semibold mt-8 mb-3">Priorité 3 : mesures d'excellence (6-12 mois)</h3>
+                    <ul class="list-disc pl-6 text-gray-600 space-y-2 mb-6">
+                        <li>Migration vers OCPP 2.0.1 profil de sécurité 3 (TLS mutuel) pour les bornes compatibles</li>
+                        <li>Déploiement du Plug & Charge (ISO 15118) avec infrastructure PKI</li>
+                        <li>Test d'intrusion annuel sur le réseau de bornes et le CSMS</li>
+                        <li>Plan de réponse aux incidents documenté et testé (exercice de simulation)</li>
+                        <li>Conformité NIS2 auditée (si applicable)</li>
+                        <li>Surveillance continue avec SIEM et alertes automatisées sur les indicateurs de compromission</li>
+                        <li>Revue trimestrielle des habilitations et des accès</li>
+                        <li>Secure boot activé sur toutes les bornes neuves</li>
+                    </ul>
+
+                    <div class="bg-amber-50 border-l-4 border-amber-400 rounded-r-xl p-5 mb-8">
+                        <p class="text-gray-700 text-sm leading-relaxed"><span class="font-semibold">Approche pragmatique :</span> aucun réseau n'atteindra un score de 100 % sur cette checklist du jour au lendemain. L'essentiel est d'adresser les mesures de priorité 1 sans délai, de planifier les mesures de priorité 2 dans le trimestre, et d'intégrer les mesures de priorité 3 dans la feuille de route annuelle. Chaque mesure implémentée réduit la surface d'attaque de manière significative.</p>
+                    </div>
+
+                    <h2 class="text-2xl font-bold mt-12 mb-4">Conclusion : la cybersécurité, un prérequis pour la mobilité électrique</h2>
+                    <p class="text-gray-600 leading-relaxed mb-4">La transition vers la mobilité électrique repose sur la confiance des utilisateurs dans l'infrastructure de recharge. Cette confiance est fragile. Un incident de cybersécurité majeur, avec fuite de données bancaires ou interruption prolongée de service, peut porter un coup durable à l'adoption des véhicules électriques.</p>
+                    <p class="text-gray-600 leading-relaxed mb-4">Les outils existent : OCPP 2.0.1, ISO 15118, TLS mutuel, signature firmware, segmentation réseau. Le cadre réglementaire se renforce avec NIS2 et AFIR. Ce qui manque le plus, c'est l'exécution sur le terrain : des bornes correctement configurées, des réseaux correctement segmentés, des mises à jour correctement déployées, des incidents correctement détectés.</p>
+                    <p class="text-gray-600 leading-relaxed mb-4">La cybersécurité IRVE n'est pas un projet ponctuel. C'est un processus continu, qui doit être intégré dans l'exploitation quotidienne du réseau au même titre que la maintenance préventive ou la gestion des pannes. Les opérateurs qui l'intégreront en amont de leurs déploiements disposeront d'un avantage compétitif décisif face à ceux qui devront réagir après un incident.</p>
+
+                    <div class="bg-gray-50 border border-gray-200 rounded-2xl p-6 my-8">
+                        <h3 class="text-lg font-bold text-gray-900 mb-2">Sécurisez votre réseau IRVE avec JCSM</h3>
+                        <p class="text-gray-600 leading-relaxed mb-4">JCSM accompagne les CPO, les entreprises et les collectivités dans la sécurisation de leurs infrastructures de recharge : audit de sécurité, segmentation réseau, déploiement OCPP 2.0.1 avec TLS mutuel, surveillance continue, gestion des mises à jour firmware. Notre approche couvre la sécurité physique et la sécurité logique, de l'installation à l'exploitation quotidienne.</p>
+                        <a href="/demo/contact" class="inline-flex items-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-xl font-semibold hover:bg-blue-700 transition-colors">
+                            Demander un audit de sécurité IRVE
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="mt-12 bg-amber-50 rounded-2xl p-8 text-center">
+                    <h3 class="text-xl font-bold mb-3">Protégez vos bornes contre les cybermenaces</h3>
+                    <p class="text-gray-600 mb-6">JCSM audite, sécurise et supervise votre réseau de bornes IRVE. De l'installation à la maintenance, la cybersécurité est intégrée à chaque étape.</p>
+                    <a href="/demo/contact" class="btn-primary px-8 py-3 rounded-xl font-medium inline-block">Nous contacter</a>
+                </div>
+
+
+                <!-- Partage social -->
+                <div class="flex items-center gap-4 pt-8 mt-8 border-t border-gray-200">
+                    <span class="text-sm font-semibold text-gray-700">Partager :</span>
+                    <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://jcsm.fr/blog/cybersecurite-bornes-recharge-irve" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-gray-100 hover:bg-blue-50 text-gray-600 hover:text-blue-700 text-sm font-medium transition-colors" aria-label="Partager sur LinkedIn">
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                        LinkedIn
+                    </a>
+                    <a href="https://twitter.com/intent/tweet?url=https://jcsm.fr/blog/cybersecurite-bornes-recharge-irve&amp;text=Cybers%C3%A9curit%C3%A9%20IRVE%20%3A%20les%20bornes%20de%20recharge%20sont-elles%20vuln%C3%A9rables%20%3F" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-gray-100 hover:bg-gray-200 text-gray-600 hover:text-gray-900 text-sm font-medium transition-colors" aria-label="Partager sur X">
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                        X
+                    </a>
+                </div>
+
+                <div class="mt-16 pt-8 border-t border-gray-100">
+                    <h3 class="text-lg font-bold mb-6">Articles similaires</h3>
+                    <div class="grid sm:grid-cols-2 gap-6">
+                        <a href="/demo/blog/ocpp-1-6-vs-2-0-protocole-bornes" class="group">
+                            <h4 class="font-semibold group-hover:text-blue-600 transition-colors mb-1">OCPP 1.6 vs 2.0.1 : comparaison des protocoles</h4>
+                            <p class="text-sm text-gray-500">Device model, sécurité TLS, ISO 15118, smart charging.</p>
+                        </a>
+                        <a href="/demo/blog/supervision-distance-bornes-irve" class="group">
+                            <h4 class="font-semibold group-hover:text-blue-600 transition-colors mb-1">Supervision à distance des bornes IRVE</h4>
+                            <p class="text-sm text-gray-500">Fonctionnement, alertes, KPI et limites.</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- Services associés -->
+            <div class="bg-gray-50 border border-gray-200 rounded-2xl p-6 mt-12 section-appear">
+                <h3 class="text-lg font-bold text-gray-900 mb-4">Services associ&#233;s</h3>
+                <div class="flex flex-wrap gap-3">
+                    <a href="/demo/securisation-installations" class="inline-flex items-center gap-2 bg-white border border-gray-200 hover:border-blue-200 rounded-xl px-4 py-2 text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+                        S&#233;curisation des installations
+                    </a>
+                    <a href="/demo/exploitation" class="inline-flex items-center gap-2 bg-white border border-gray-200 hover:border-blue-200 rounded-xl px-4 py-2 text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+                        Exploitation & maintenance
+                    </a>
+                    <a href="/demo/centre-appel" class="inline-flex items-center gap-2 bg-white border border-gray-200 hover:border-blue-200 rounded-xl px-4 py-2 text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+                        Support technique 24/7
+                    </a>
+                </div>
+            </div>
+
+        </article>
+    </main>
+
+    <footer class="border-t border-gray-100 py-16 px-6 bg-white" role="contentinfo" aria-label="Pied de page">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid md:grid-cols-4 gap-10 mb-12">
+                <div>
+                    <div class="flex items-center space-x-3 mb-4">
+                        <picture><source srcset="../images/logo.webp" type="image/webp"><img src="../images/logo.png" alt="Logo JCSM" class="w-8 h-8" width="32" height="32" loading="lazy"></picture>
+                        <span class="text-xl font-semibold text-gray-900">JCSM</span>
+                    </div>
+                    <p class="text-sm text-gray-600 mb-4">Expérience IRVE depuis 2019. Installation, maintenance et pilotage en France et Belgique. Entreprise inclusive.</p>
+                    <p class="text-sm text-gray-500">60 rue François 1er<br>75008 Paris</p>
+                    <p class="text-sm text-gray-500 mt-3"><a href="tel:+33183755706" class="hover:text-gray-900 transition-colors">+33 1 83 75 57 06</a></p>
+                    <p class="text-sm text-gray-500"><a href="mailto:contact@jcsm.fr" class="hover:text-gray-900 transition-colors">contact@jcsm.fr</a></p>
+                </div>
+                <div>
+                    <h3 class="text-sm font-semibold text-gray-900 mb-4 uppercase tracking-wide">Services</h3>
+                    <nav aria-label="Services">
+                        <ul class="space-y-3">
+                            <li><a href="/demo/pilotage-projets" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Pilotage de projets</a></li>
+                            <li><a href="/demo/installation-conformite" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Installation & conformité</a></li>
+                            <li><a href="/demo/exploitation" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Exploitation & maintenance</a></li>
+                            <li><a href="/demo/securisation-installations" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Sécurisation</a></li>
+                            <li><a href="/demo/centre-appel" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Support 24/7</a></li>
+                            <li><a href="/demo/tarification" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Tarification</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div>
+                    <h3 class="text-sm font-semibold text-gray-900 mb-4 uppercase tracking-wide">Entreprise</h3>
+                    <nav aria-label="Entreprise">
+                        <ul class="space-y-3">
+                            <li><a href="/demo/devenir-partenaire" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Devenir partenaire</a></li>
+                            <li><a href="/demo/a-propos" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">À propos</a></li>
+                            <li><a href="/demo/inclusion" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Inclusion</a></li>
+                            <li><a href="/demo/carrieres" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Carrières</a></li>
+                            <li><a href="/demo/contact" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Contact</a></li>
+                            <li><a href="/demo/blog" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Blog</a></li>
+                            <li><a href="/demo/solutions/" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Solutions</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div>
+                    <h3 class="text-sm font-semibold text-gray-900 mb-4 uppercase tracking-wide">Légal</h3>
+                    <nav aria-label="Légal">
+                        <ul class="space-y-3">
+                            <li><a href="/demo/mentions-legales" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Mentions légales</a></li>
+                            <li><a href="/demo/confidentialite" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Confidentialité</a></li>
+                            <li><a href="/demo/cgv" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">CGV</a></li>
+                        </ul>
+                    </nav>
+                    <h3 class="text-sm font-semibold text-gray-900 mb-4 uppercase tracking-wide mt-6">Zones</h3>
+                    <nav aria-label="Zones">
+                        <ul class="space-y-3">
+                            <li><a href="/demo/zones/france" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">France</a></li>
+                            <li><a href="/demo/zones/belgique" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Belgique</a></li>
+                        </ul>
+                    </nav>
+                    <div class="flex items-center gap-3 mt-4">
+                        <a href="https://www.linkedin.com/company/jcsm-elec/" target="_blank" rel="noopener noreferrer me" class="text-gray-500 hover:text-gray-900 transition-colors" aria-label="LinkedIn">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                        </a>
+                        <a href="https://www.facebook.com/profile.php?id=61587992161634" target="_blank" rel="noopener noreferrer me" class="text-gray-500 hover:text-gray-900 transition-colors" aria-label="Facebook">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                        </a>
+                        <a href="https://x.com/JCSM_ELEC" target="_blank" rel="noopener noreferrer me" class="text-gray-500 hover:text-gray-900 transition-colors" aria-label="X (Twitter)">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                        </a>
+                        <a href="https://www.instagram.com/jcsm.elec/" target="_blank" rel="noopener noreferrer me" class="text-gray-500 hover:text-gray-900 transition-colors" aria-label="Instagram">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+                        </a>
+                        <a href="https://www.youtube.com/@JCSM_ELEC" target="_blank" rel="noopener noreferrer me" class="text-gray-500 hover:text-gray-900 transition-colors" aria-label="YouTube">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="pt-8 border-t border-gray-100 flex flex-col md:flex-row md:items-center md:justify-between gap-4 text-xs text-gray-500">
+                <span>&copy; 2026 JCSM SAS - SIRET 99387429600011</span>
+                <a href="mailto:contact@jcsm.fr" class="hover:text-gray-900 transition-colors">contact@jcsm.fr</a> · <a href="tel:+33183755706" class="hover:text-gray-900 transition-colors">+33 1 83 75 57 06</a>
+            </div>
+        </div>
+    </footer>
+
+    <button class="scroll-top" id="scrollTop" aria-label="Retour en haut de page">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.5 15.75l7.5-7.5 7.5 7.5" /></svg>
+    </button>
+    <script src="../js/i18n.js?v=72" defer></script>
+    <script src="../js/config.js?v=72" defer></script>
+    <script src="../js/utils.js?v=72" defer></script>
+    <script src="../js/public.js?v=72" defer></script>
+    <script src="../js/analytics.js?v=72" defer></script>
+    <script src="../js/wow-effects.js?v=72" defer></script>
+    <script>if ('serviceWorker' in navigator) { window.addEventListener('load', () => { navigator.serviceWorker.register('/sw.js').catch(() => {}); }); }</script>
+</body>
+</html>

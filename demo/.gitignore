@@ -1,0 +1,12 @@
+.DS_Store
+node_modules/
+api/vendor/
+.env
+*.log
+/tmp/
+/public/
+/.quarantaine/
+*.bak
+*.swp
+*~
+rapports/

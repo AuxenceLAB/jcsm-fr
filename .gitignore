@@ -10,3 +10,4 @@ api/vendor/
 *.swp
 *~
 rapports/
+.superpowers/

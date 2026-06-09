@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <!-- Cookie Consent + GTM (chargé après acceptation) -->
+    <script src="/demo/js/cookie-consent.js" defer></script>
+    <title>Câbles coupés sur bornes de recharge : solutions | JCSM</title>
+    <meta name="description" content="Vandalisme et vol de câbles sur les bornes IRVE : causes, coût réel pour les exploitants et solutions de sécurisation concrètes. Analyse terrain par JCSM.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://jcsm.fr/blog/degradations-cables-coupes-bornes-recharge">
+    <link rel="alternate" hreflang="fr" href="https://jcsm.fr/blog/degradations-cables-coupes-bornes-recharge">
+    <link rel="alternate" hreflang="x-default" href="https://jcsm.fr/blog/degradations-cables-coupes-bornes-recharge">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Dégradations et câbles coupés sur les bornes de recharge : causes et solutions",
+        "description": "Vandalisme, vol de câbles, dégradations sur les stations de recharge IRVE : analyse des causes, coût réel pour les exploitants et solutions de sécurisation efficaces.",
+        "datePublished": "2026-02-12",
+        "dateModified": "2026-02-12",
+        "author": {"@type": "Organization", "name": "JCSM", "url": "https://jcsm.fr"},
+        "publisher": {"@type": "Organization", "name": "JCSM", "url": "https://jcsm.fr", "logo": {"@type": "ImageObject", "url": "https://jcsm.fr/images/logo.png", "width": 512, "height": 512}},
+        "mainEntityOfPage": {"@type": "WebPage", "@id": "https://jcsm.fr/blog/degradations-cables-coupes-bornes-recharge"},
+        "wordCount": 1550,
+        "articleSection": "Maintenance et Exploitation",
+        "image": {"@type": "ImageObject", "url": "https://jcsm.fr/images/cablecoupe.jpg", "width": 2048, "height": 1366}
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Pourquoi les câbles de bornes de recharge sont-ils volés ?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Le cuivre. Un c\u00e2ble de recharge DC contient 3-5 kg de cuivre, revendable \u00e0 7-8 \u20ac/kg. Le vol prend moins de 2 minutes."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Combien coûte le remplacement d'un câble de borne coupé ?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Entre 500 et 3 000 \u20ac selon le type de borne (AC ou DC). Ajoutez le manque \u00e0 gagner pendant l'indisponibilit\u00e9 et le co\u00fbt d'intervention du technicien."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Comment protéger une station de recharge contre le vandalisme ?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Combinaison de mesures : vid\u00e9osurveillance avec d\u00e9tection de mouvement, \u00e9clairage dissuasif, c\u00e2bles r\u00e9tractables int\u00e9gr\u00e9s \u00e0 la borne, et surtout bornes \u00e0 c\u00e2ble attach\u00e9 renforcé (gaine acier). Sur un site isol\u00e9 que nous g\u00e9rons, le passage \u00e0 des c\u00e2bles r\u00e9tractables a stopp\u00e9 net les vols."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Les assurances couvrent-elles le vandalisme sur les bornes IRVE ?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "La plupart des contrats couvrent le vandalisme, mais les franchises sont \u00e9lev\u00e9es et les d\u00e9lais de remboursement longs. Mieux vaut investir dans la pr\u00e9vention."
+                }
+            }
+        ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://jcsm.fr/"},
+            {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://jcsm.fr/blog"},
+            {"@type": "ListItem", "position": 3, "name": "Dégradations et câbles coupés sur les bornes de recharge", "item": "https://jcsm.fr/blog/degradations-cables-coupes-bornes-recharge"}
+        ]
+    }
+    </script>
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://jcsm.fr/blog/degradations-cables-coupes-bornes-recharge">
+    <meta property="og:title" content="Dégradations et câbles coupés sur les bornes de recharge : causes et solutions">
+    <meta property="og:description" content="Vandalisme, vol de câbles, dégradations sur les stations IRVE : causes, coût réel et solutions de sécurisation.">
+    <meta property="og:image" content="https://jcsm.fr/images/cablecoupe.webp">
+    <meta property="og:image:alt" content="Câble de recharge sectionné - Dégradation de borne IRVE">
+    <meta property="og:image:width" content="750">
+    <meta property="og:image:height" content="410">
+    <meta property="og:locale" content="fr_FR">
+    <meta property="og:site_name" content="JCSM - Infrastructure de Recharge">
+    <meta property="article:published_time" content="2026-02-12">
+    <meta property="article:modified_time" content="2026-02-12T00:00:00+01:00">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Dégradations et câbles coupés sur les bornes de recharge : causes et solutions">
+    <meta name="twitter:description" content="Vandalisme, vol de câbles, dégradations sur les stations IRVE : causes, coût réel et solutions de sécurisation.">
+    <meta name="twitter:image" content="https://jcsm.fr/images/cablecoupe.jpg">
+    <meta name="twitter:image:alt" content="Câble de recharge sectionné - Dégradation de borne IRVE">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet"
+        media="print" onload="this.media='all'">
+    <noscript>
+        <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap"
+            rel="stylesheet">
+    </noscript>
+    <link rel="stylesheet" href="../css/critical.css?v=72">
+    <link rel="stylesheet" href="../css/tailwind.css?v=72" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="../css/tailwind.css?v=72"></noscript>
+    <link rel="stylesheet" href="../styles.css?v=72" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="../styles.css?v=72"></noscript>
+    <link rel="manifest" href="../manifest.json">
+    <link rel="icon" type="image/x-icon" href="/demo/favicon.ico">
+    <link rel="apple-touch-icon" href="/demo/apple-touch-icon.png">
+
+    <link rel="stylesheet" href="/demo/demo-overrides.css?v=5">
+    <script src="/demo/demo-fluidity.js?v=2" defer data-cfasync="false"></script>
+    <script>window.addEventListener("DOMContentLoaded",function(){setTimeout(function(){var p=document.getElementById("preloader");if(p)p.classList.add("preloader-auto-hide");},600);});</script>
+</head>
+<body class="text-gray-900 bg-white">
+    <div class="demo-banner"><span>DEMO</span>Version proposée pour validation — non publiée</div>
+
+    <div class="reading-progress" id="reading-progress"></div>
+    <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+    <div class="preloader" id="preloader" role="status" aria-label="Chargement">
+        <div class="flex flex-col items-center justify-center">
+            <picture><source srcset="../images/logo.webp" type="image/webp"><img src="../images/logo.png" alt="JCSM" width="80" height="80" class="animate-pulse"></picture>
+        </div>
+    </div>
+    <div class="mobile-menu-overlay" id="mobile-menu-overlay"></div>
+    <nav class="mobile-menu" id="mobile-menu" role="dialog" aria-modal="true" aria-label="Menu de navigation" aria-hidden="true">
+        <div class="p-8">
+            <div class="flex justify-between items-center mb-12">
+                <span class="text-xl font-semibold">Menu</span>
+                <button class="text-gray-600 hover:text-gray-900" id="mobile-menu-close" aria-label="Fermer le menu de navigation">
+                    <svg class="w-6 h-6" fill="none" aria-hidden="true" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+                </button>
+            </div>
+                        <div class="flex flex-col space-y-6">
+                <a href="/demo/pilotage-projets" class="text-base text-gray-600 hover:text-gray-900 transition-colors">Pilotage de projets</a>
+                <a href="/demo/installation-conformite" class="text-base text-gray-600 hover:text-gray-900 transition-colors">Installation</a>
+                <a href="/demo/exploitation" class="text-base text-gray-600 hover:text-gray-900 transition-colors">Exploitation</a>
+                <a href="/demo/securisation-installations" class="text-base text-gray-600 hover:text-gray-900 transition-colors">Sécurisation</a>
+                <a href="/demo/centre-appel" class="text-base text-gray-600 hover:text-gray-900 transition-colors">Support</a>
+                <a href="/demo/solutions/" class="text-base text-gray-600 hover:text-gray-900 transition-colors">Solutions</a>
+                <a href="/demo/a-propos" class="text-base text-gray-600 hover:text-gray-900 transition-colors">À propos</a>
+                <a href="/demo/blog" class="text-base text-gray-600 hover:text-gray-900 transition-colors">Blog</a>
+                <a href="/demo/contact" class="btn-primary px-6 py-3 rounded-lg text-base font-medium inline-block text-center mt-4">Contact</a>
+            </div>
+        </div>
+    </nav>
+    <nav class="fixed top-0 w-full z-50 glass-nav border-b border-gray-200" role="navigation" aria-label="Navigation principale">
+        <div class="max-w-7xl mx-auto px-6 py-5">
+            <div class="flex justify-between items-center">
+                <a href="/demo/" class="flex items-center space-x-3 group mr-12">
+                    <picture><source srcset="../images/logo.webp" type="image/webp"><img src="../images/logo.png" alt="JCSM" class="w-9 h-9 transition-transform group-hover:scale-105 duration-300" width="36" height="36"></picture>
+                    <span class="text-xl font-bold tracking-tight">JCSM</span>
+                </a>
+                <div class="hidden lg:flex items-center space-x-6 xl:space-x-8">
+                    <a href="/demo/pilotage-projets" class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300 whitespace-nowrap">Pilotage</a>
+                    <a href="/demo/installation-conformite" class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300 whitespace-nowrap">Installation</a>
+                    <a href="/demo/exploitation" class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300 whitespace-nowrap">Exploitation</a>
+                    <a href="/demo/securisation-installations" class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300 whitespace-nowrap">Sécurisation</a>
+                    <a href="/demo/centre-appel" class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300 whitespace-nowrap">Support</a>
+                    <a href="/demo/solutions/" class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300 whitespace-nowrap">Solutions</a>
+                    <a href="/demo/a-propos" class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300 whitespace-nowrap">À propos</a>
+                    <a href="/demo/blog" class="text-base font-semibold text-blue-600 hover:text-blue-700 transition-all duration-300 whitespace-nowrap">Blog</a>
+                    <a href="/demo/contact" class="btn-primary ml-4 px-7 py-2.5 rounded-xl text-base font-medium shadow-lg hover:shadow-xl whitespace-nowrap">Contact</a>
+                </div>
+                <button class="mobile-menu-btn text-gray-600 hover:text-gray-900" id="mobile-menu-btn" aria-label="Ouvrir le menu de navigation" aria-expanded="false" aria-controls="mobile-menu">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main id="main-content" role="main">
+        <article class="pt-32 pb-16 px-6">
+            <div class="max-w-3xl mx-auto">
+                <div class="mb-8">
+                    <a href="/demo/blog" class="text-sm text-blue-600 hover:text-blue-800 transition-colors">&larr; Retour au blog</a>
+                </div>
+                <div class="mb-10">
+                    <span class="inline-block text-xs font-semibold badge-section text-blue-700 bg-blue-100 rounded-full px-3 py-1 mb-4">Sécurité</span>
+                    <h1 class="text-3xl md:text-4xl font-bold mb-4 leading-tight">Dégradations et câbles coupés sur les <span class="gradient-text">bornes de recharge</span> : un fléau qui s'aggrave</h1>
+                    <div class="flex items-center text-sm text-gray-500">
+                        <time datetime="2026-02-12">12 février 2026</time>
+                        <span class="mx-2">·</span>
+                        <span>8 min de lecture</span>
+                    </div>
+                </div>
+
+                <!-- Sommaire -->
+                <div class="bg-blue-50 rounded-2xl p-6 mb-10">
+                    <h2 class="text-lg font-bold text-blue-700 mb-4">Sommaire</h2>
+                    <ol class="list-decimal pl-5 text-sm text-blue-700 space-y-2">
+                        <li><a href="#etat-des-lieux" class="hover:underline">État des lieux : un phénomène en forte hausse</a></li>
+                        <li><a href="#types-degradations" class="hover:underline">Les types de dégradations les plus fréquents</a></li>
+                        <li><a href="#cout-reel" class="hover:underline">Le coût réel pour les exploitants</a></li>
+                        <li><a href="#pourquoi-cables" class="hover:underline">Pourquoi les câbles sont la cible principale</a></li>
+                        <li><a href="#solutions-protection" class="hover:underline">Les solutions de protection physique</a></li>
+                        <li><a href="#surveillance-detection" class="hover:underline">Surveillance et détection intelligente</a></li>
+                        <li><a href="#strategie-globale" class="hover:underline">Construire une stratégie de sécurisation globale</a></li>
+                        <li><a href="#faq" class="hover:underline">Questions fréquentes</a></li>
+                    </ol>
+                </div>
+
+                <div class="prose prose-lg max-w-none">
+                    <p class="text-lg text-gray-600 leading-relaxed mb-8">Le déploiement des bornes de recharge s'accélère en France, mais un problème croissant freine les exploitants : le vandalisme. Câbles sectionnés, écrans brisés, connecteurs arrachés - les dégradations sur les stations de recharge se multiplient et représentent un coût considérable. Tour d'horizon du phénomène, de ses causes et des solutions concrètes pour protéger vos installations.</p>
+
+                    <!-- Section 1 -->
+                    <h2 id="etat-des-lieux" class="text-2xl font-bold mt-12 mb-4">État des lieux : un phénomène en forte hausse</h2>
+                    <p class="text-gray-600 leading-relaxed mb-4">Avec plus de 170 000 <a href="/demo/blog/bornes-recharge-france-chiffres-2025" class="text-blue-600 hover:text-blue-800 underline">points de charge publics en France</a>, la surface d'exposition au vandalisme augmente mécaniquement. Les stations de recharge, souvent situées dans des parkings publics, des aires de repos ou des zones commerciales, sont des cibles accessibles.</p>
+                    <p class="text-gray-600 leading-relaxed mb-4">Le phénomène touche tous les types d'installations : bornes AC en copropriété, stations DC sur autoroute, points de charge en voirie. Les zones périurbaines et les sites isolés sont les plus exposés, mais les stations en centre-ville ne sont pas épargnées.</p>
+
+                    <div class="bg-amber-50 border-l-4 border-amber-400 rounded-r-xl p-5 mb-8">
+                        <p class="text-gray-700 text-sm leading-relaxed"><span class="font-semibold">Contexte :</span> Le cours du cuivre a dépassé les 9 000 dollars la tonne en 2025, un niveau record qui alimente directement le vol de câbles sur les infrastructures électriques, y compris les bornes de recharge.</p>
+                    </div>
+
+                    <!-- Section 2 -->
+                    <h2 id="types-degradations" class="text-2xl font-bold mt-12 mb-4">Les types de dégradations les plus fréquents</h2>
+                    <p class="text-gray-600 leading-relaxed mb-4">Les actes de vandalisme sur les bornes IRVE prennent plusieurs formes, chacune avec un impact différent sur l'exploitation :</p>
+
+                    <div class="space-y-4 mb-8">
+                        <div class="bg-gray-50 rounded-xl p-5 border border-gray-100">
+                            <h3 class="font-semibold text-gray-900 mb-2">Vol de câbles de recharge</h3>
+                            <p class="text-gray-600 text-sm leading-relaxed">C'est l'acte le plus fréquent et le plus coûteux. Les câbles sont sectionnés pour récupérer le cuivre. Les bornes DC avec câbles attachés (CCS, CHAdeMO) sont les plus ciblées en raison de leur section importante. Un câble DC peut contenir 3 à 8 kg de cuivre.</p>
+                        </div>
+                        <div class="bg-gray-50 rounded-xl p-5 border border-gray-100">
+                            <h3 class="font-semibold text-gray-900 mb-2">Dégradation des écrans et interfaces</h3>
+                            <p class="text-gray-600 text-sm leading-relaxed">Écrans tactiles brisés, lecteurs RFID/NFC arrachés, claviers endommagés. Ces dégradations rendent la borne inutilisable même si la partie électrique fonctionne.</p>
+                        </div>
+                        <div class="bg-gray-50 rounded-xl p-5 border border-gray-100">
+                            <h3 class="font-semibold text-gray-900 mb-2">Connecteurs endommagés ou arrachés</h3>
+                            <p class="text-gray-600 text-sm leading-relaxed">Les connecteurs Type 2, CCS et CHAdeMO subissent des chocs, des torsions ou des arrachements volontaires. Un connecteur CCS coûte entre 800 et 2 500 euros pièce.</p>
+                        </div>
+                        <div class="bg-gray-50 rounded-xl p-5 border border-gray-100">
+                            <h3 class="font-semibold text-gray-900 mb-2">Graffitis et dégradations esthétiques</h3>
+                            <p class="text-gray-600 text-sm leading-relaxed">Moins graves techniquement, mais ils dégradent l'image de la station et découragent les utilisateurs. Le nettoyage ou la remise en peinture représente un coût récurrent.</p>
+                        </div>
+                        <div class="bg-gray-50 rounded-xl p-5 border border-gray-100">
+                            <h3 class="font-semibold text-gray-900 mb-2">Chocs véhicules</h3>
+                            <p class="text-gray-600 text-sm leading-relaxed">Bornes percutées par des véhicules lors de manœuvres (accidentel) ou volontairement. Sans protection physique (bornes de protection, plots béton), une seule collision peut détruire une borne entière.</p>
+                        </div>
+                    </div>
+
+                    <!-- Section 3 -->
+                    <h2 id="cout-reel" class="text-2xl font-bold mt-12 mb-4">Le coût réel pour les exploitants</h2>
+                    <p class="text-gray-600 leading-relaxed mb-4">Le vandalisme sur les bornes IRVE a un impact financier qui dépasse largement le coût de la réparation elle-même. Il faut comptabiliser l'ensemble des conséquences :</p>
+
+                    <div class="grid sm:grid-cols-2 gap-4 mb-8">
+                        <div class="bg-gray-50 rounded-xl p-5 text-center">
+                            <p class="text-3xl font-bold text-blue-600 mb-1">500 - 3 000 €</p>
+                            <p class="text-sm text-gray-600">Coût de remplacement d'un câble</p>
+                        </div>
+                        <div class="bg-gray-50 rounded-xl p-5 text-center">
+                            <p class="text-3xl font-bold text-blue-600 mb-1">800 - 2 500 €</p>
+                            <p class="text-sm text-gray-600">Remplacement d'un connecteur CCS</p>
+                        </div>
+                        <div class="bg-gray-50 rounded-xl p-5 text-center">
+                            <p class="text-3xl font-bold text-blue-600 mb-1">3 - 10 jours</p>
+                            <p class="text-sm text-gray-600">Durée d'immobilisation moyenne</p>
+                        </div>
+                        <div class="bg-blue-50 rounded-xl p-5 text-center border border-blue-200">
+                            <p class="text-3xl font-bold text-blue-700 mb-1">5 000 - 15 000 €</p>
+                            <p class="text-sm text-blue-600 font-medium">Coût total par incident (pièces + MO + pertes)</p>
+                        </div>
+                    </div>
+
+                    <p class="text-gray-600 leading-relaxed mb-4">Au-delà du coût direct, chaque borne immobilisée génère une perte de revenus (facturation au kWh), une dégradation du taux de disponibilité contractuel (SLA), et un impact négatif sur la satisfaction des utilisateurs qui trouvent des bornes hors service.</p>
+                    <p class="text-gray-600 leading-relaxed mb-4">Pour un exploitant gérant un réseau de plusieurs dizaines de stations, le vandalisme peut représenter un poste budgétaire de plusieurs dizaines de milliers d'euros par an si aucune mesure de protection n'est en place.</p>
+
+                    <!-- Section 4 -->
+                    <h2 id="pourquoi-cables" class="text-2xl font-bold mt-12 mb-4">Pourquoi les câbles sont la cible principale</h2>
+                    <p class="text-gray-600 leading-relaxed mb-4">Le vol de câbles de recharge n'est pas un acte de vandalisme gratuit : c'est un vol de matière première organisé. Plusieurs facteurs expliquent pourquoi les câbles de bornes sont devenus une cible privilégiée :</p>
+                    <ul class="list-disc pl-6 text-gray-600 space-y-2 mb-6">
+                        <li><strong>Valeur du cuivre</strong> : à plus de 9 000 &dollar;/tonne, un câble DC de 5 mètres peut valoir 20 à 50 € en cuivre brut. C'est peu, mais le vol prend moins d'une minute avec une pince coupante</li>
+                        <li><strong>Accessibilité</strong> : les câbles pendent à l'extérieur des bornes, souvent dans des zones non surveillées. Contrairement aux câbles enterrés du réseau électrique, ils sont à portée de main</li>
+                        <li><strong>Faible risque perçu</strong> : les stations de recharge sont souvent situées dans des parkings peu fréquentés la nuit, sans gardien ni caméra</li>
+                        <li><strong>Revente facile</strong> : le cuivre se revend facilement auprès de ferrailleurs, sans traçabilité effective</li>
+                    </ul>
+
+                    <div class="bg-amber-50 border-l-4 border-amber-400 rounded-r-xl p-5 mb-8">
+                        <p class="text-gray-700 text-sm leading-relaxed"><span class="font-semibold">Point technique :</span> Les câbles de recharge DC utilisent des conducteurs en cuivre de section importante (35 à 70 mm²) pour supporter des courants de 200 à 500 A. C'est cette section qui en fait des cibles à forte valeur pour les voleurs de métaux.</p>
+                    </div>
+
+                    <!-- Section 5 -->
+                    <h2 id="solutions-protection" class="text-2xl font-bold mt-12 mb-4">Les solutions de protection physique</h2>
+                    <p class="text-gray-600 leading-relaxed mb-4">La première ligne de défense contre les dégradations est la protection physique des équipements. Plusieurs dispositifs peuvent être combinés selon le niveau de risque du site :</p>
+
+                    <h3 class="text-xl font-semibold mt-8 mb-3">Câbles blindés anti-coupure</h3>
+                    <p class="text-gray-600 leading-relaxed mb-4">Des gaines renforcées en acier tressé ou en kevlar enveloppent le câble de cuivre et rendent la coupe extrêmement difficile avec un outil portable. Le surcoût est de 30 à 50 % par rapport à un câble standard, mais il se rentabilise dès le premier vol évité.</p>
+
+                    <h3 class="text-xl font-semibold mt-8 mb-3">Bornes renforcées anti-vandalisme</h3>
+                    <p class="text-gray-600 leading-relaxed mb-4">Les fabricants proposent des versions renforcées avec caissons en acier inoxydable, vitrage anti-effraction pour les écrans, et systèmes de verrouillage des connecteurs. Ces bornes sont conçues pour résister aux chocs, aux tentatives d'ouverture forcée et aux intempéries.</p>
+
+                    <h3 class="text-xl font-semibold mt-8 mb-3">Protections périmétriques</h3>
+                    <p class="text-gray-600 leading-relaxed mb-4">Poteaux de protection (bornes anti-bélier), plots béton, et barrières physiques autour des stations limitent les chocs véhicules et créent une zone tampon dissuasive. L'éclairage LED haute puissance activé par détection de mouvement est un complément efficace et peu coûteux.</p>
+
+                    <h3 class="text-xl font-semibold mt-8 mb-3">Rétractation automatique des câbles</h3>
+                    <p class="text-gray-600 leading-relaxed mb-4">Certaines bornes intègrent un système de rétractation qui range le câble à l'intérieur du caisson lorsqu'il n'est pas utilisé. Le câble n'est plus accessible en permanence, ce qui complique considérablement le vol.</p>
+
+                    <!-- Section 6 -->
+                    <h2 id="surveillance-detection" class="text-2xl font-bold mt-12 mb-4">Surveillance et détection intelligente</h2>
+                    <p class="text-gray-600 leading-relaxed mb-4">La protection physique ne suffit pas toujours. Les systèmes de surveillance intelligente permettent de détecter les intrusions en temps réel et de déclencher une réponse rapide :</p>
+
+                    <ul class="list-disc pl-6 text-gray-600 space-y-2 mb-6">
+                        <li><strong>Vidéosurveillance avec analyse IA</strong> : des caméras haute définition avec vision nocturne détectent les comportements suspects (personne restant trop longtemps près d'une borne, mouvement nocturne inhabituel). L'IA réduit les fausses alertes et permet une levée de doute vidéo instantanée</li>
+                        <li><strong>Alarmes connectées</strong> : détecteurs de mouvement périmétrique, capteurs de vibration sur les câbles, et sirènes dissuasives. L'alerte est transmise en temps réel au <a href="/demo/centre-appel" class="text-blue-600 hover:text-blue-800 underline">centre de supervision</a></li>
+                        <li><strong>Capteurs de coupure</strong> : des capteurs intégrés dans les câbles détectent toute interruption du signal et déclenchent une alerte immédiate avant même que le vol ne soit terminé</li>
+                        <li><strong>Télésurveillance 24/7</strong> : un centre de supervision humain reçoit les alertes, effectue la levée de doute par vidéo et déclenche l'intervention (agents de sécurité, forces de l'ordre)</li>
+                    </ul>
+
+                    <p class="text-gray-600 leading-relaxed mb-4">L'efficacité de ces systèmes repose sur la vitesse de réaction. Un vol de câble prend moins de deux minutes. La chaîne détection → alerte → intervention doit être la plus courte possible pour être dissuasive.</p>
+
+                    <!-- Section 7 -->
+                    <h2 id="strategie-globale" class="text-2xl font-bold mt-12 mb-4">Construire une stratégie de sécurisation globale</h2>
+                    <p class="text-gray-600 leading-relaxed mb-4">Aucune solution isolée ne suffit. La sécurisation efficace d'une infrastructure de recharge repose sur une approche par couches, adaptée au niveau de risque de chaque site :</p>
+
+                    <div class="overflow-x-auto mb-6">
+                        <table class="w-full text-sm text-gray-600 border border-gray-200 rounded-lg">
+                            <thead>
+                                <tr class="bg-gray-50">
+                                    <th scope="col" class="text-left px-4 py-3 font-semibold text-gray-900 border-b border-gray-200">Niveau de risque</th>
+                                    <th scope="col" class="text-left px-4 py-3 font-semibold text-gray-900 border-b border-gray-200">Type de site</th>
+                                    <th scope="col" class="text-left px-4 py-3 font-semibold text-gray-900 border-b border-gray-200">Mesures recommandées</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="border-b border-gray-100">
+                                    <td class="px-4 py-3 font-medium text-gray-900">Faible</td>
+                                    <td class="px-4 py-3">Parking privé, copropriété fermée</td>
+                                    <td class="px-4 py-3">Éclairage, câbles renforcés, bornes verrouillées</td>
+                                </tr>
+                                <tr class="border-b border-gray-100">
+                                    <td class="px-4 py-3 font-medium text-gray-900">Moyen</td>
+                                    <td class="px-4 py-3">Parking commercial, voirie urbaine</td>
+                                    <td class="px-4 py-3">Vidéosurveillance, alarmes, protection physique</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-4 py-3 font-medium text-gray-900">Élevé</td>
+                                    <td class="px-4 py-3">Aire isolée, zone périurbaine, station DC</td>
+                                    <td class="px-4 py-3">Télésurveillance 24/7, capteurs de coupure, intervention rapide, bornes anti-vandalisme</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <p class="text-gray-600 leading-relaxed mb-4">La première étape est toujours un <strong>audit de vulnérabilité</strong> : inspection du site, analyse des accès, évaluation de l'éclairage, inventaire des points faibles. C'est sur cette base qu'un plan de protection adapté peut être construit, en équilibrant le niveau de sécurité avec le budget disponible.</p>
+
+                    <!-- CTA cross-link -->
+                    <div class="bg-gray-50 border border-gray-200 rounded-2xl p-6 my-8">
+                        <h3 class="text-lg font-bold text-gray-900 mb-2">Protégez vos bornes avec JCSM</h3>
+                        <p class="text-gray-600 leading-relaxed mb-4">JCSM propose des solutions complètes de <a href="/demo/securisation-installations" class="text-blue-600 hover:text-blue-800 underline">sécurisation des installations IRVE</a> : vidéosurveillance intelligente, alarmes connectées, câbles blindés, protection physique et intervention rapide 24/7. Nous réalisons un audit de vulnérabilité gratuit pour évaluer les risques de votre infrastructure.</p>
+                        <a href="/demo/contact" class="inline-flex items-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-xl font-semibold hover:bg-blue-700 transition-colors">
+                            Demander un audit de sécurité gratuit
+                            <svg aria-hidden="true" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                        </a>
+                    </div>
+
+                    <!-- FAQ -->
+                    <h2 id="faq" class="text-2xl font-bold mt-12 mb-6">Questions fréquentes</h2>
+                    <div class="space-y-6 mb-8">
+                        <div class="border border-gray-200 rounded-xl p-5">
+                            <h3 class="font-semibold text-gray-900 mb-2">Pourquoi les câbles de bornes de recharge sont-ils volés ?</h3>
+                            <p class="text-gray-600 text-sm leading-relaxed">Le cuivre. Un câble de recharge DC contient 3-5 kg de cuivre, revendable à 7-8 €/kg. Le vol prend moins de 2 minutes.</p>
+                        </div>
+                        <div class="border border-gray-200 rounded-xl p-5">
+                            <h3 class="font-semibold text-gray-900 mb-2">Combien coûte le remplacement d'un câble de borne coupé ?</h3>
+                            <p class="text-gray-600 text-sm leading-relaxed">Entre 500 et 3 000 € selon le type de borne (AC ou DC). Ajoutez le manque à gagner pendant l'indisponibilité et le coût d'intervention du technicien.</p>
+                        </div>
+                        <div class="border border-gray-200 rounded-xl p-5">
+                            <h3 class="font-semibold text-gray-900 mb-2">Comment protéger une station de recharge contre le vandalisme ?</h3>
+                            <p class="text-gray-600 text-sm leading-relaxed">Combinaison de mesures : vidéosurveillance avec détection de mouvement, éclairage dissuasif, câbles rétractables intégrés à la borne, et surtout bornes à câble attaché renforcé (gaine acier). Sur un site isolé que nous gérons, le passage à des câbles rétractables a stoppé net les vols.</p>
+                        </div>
+                        <div class="border border-gray-200 rounded-xl p-5">
+                            <h3 class="font-semibold text-gray-900 mb-2">Les assurances couvrent-elles le vandalisme sur les bornes IRVE ?</h3>
+                            <p class="text-gray-600 text-sm leading-relaxed">La plupart des contrats couvrent le vandalisme, mais les franchises sont élevées et les délais de remboursement longs. Mieux vaut investir dans la prévention.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CTA final -->
+                <div class="section-appear mt-12 bg-blue-50 rounded-2xl p-8 text-center">
+                    <h3 class="text-xl font-bold mb-3">Ne laissez plus le vandalisme paralyser vos bornes</h3>
+                    <p class="text-gray-600 mb-6">Audit gratuit de vos sites, plan de protection concret et intervention 24/7.</p>
+                    <a href="/demo/contact" class="btn-primary px-8 py-3 rounded-xl font-medium inline-block">Demander un audit de sécurité</a>
+                </div>
+
+
+                <!-- Partage social -->
+                <div class="flex items-center gap-4 pt-8 mt-8 border-t border-gray-200">
+                    <span class="text-sm font-semibold text-gray-700">Partager :</span>
+                    <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://jcsm.fr/blog/degradations-cables-coupes-bornes-recharge" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-gray-100 hover:bg-blue-50 text-gray-600 hover:text-blue-700 text-sm font-medium transition-colors" aria-label="Partager sur LinkedIn">
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                        LinkedIn
+                    </a>
+                    <a href="https://twitter.com/intent/tweet?url=https://jcsm.fr/blog/degradations-cables-coupes-bornes-recharge&amp;text=D%C3%A9gradations%20et%20c%C3%A2bles%20coup%C3%A9s%20sur%20les%20bornes%20de%20recharge%20%3A%20un%20fl%C3%A9au%20qui%20s%27aggrave" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-gray-100 hover:bg-gray-200 text-gray-600 hover:text-gray-900 text-sm font-medium transition-colors" aria-label="Partager sur X">
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                        X
+                    </a>
+                </div>
+
+                <!-- Articles liés -->
+                <div class="section-appear mt-16 pt-8 border-t border-gray-100">
+                    <h3 class="text-lg font-bold mb-6">Articles similaires</h3>
+                    <div class="grid sm:grid-cols-2 gap-6">
+                        <a href="/demo/blog/maintenance-bornes-recharge-guide" class="group blog-card-premium">
+                            <h4 class="font-semibold group-hover:text-blue-600 transition-colors mb-1">Guide complet de la maintenance des bornes IRVE</h4>
+                            <p class="text-sm text-gray-500">Préventive, curative, pièces détachées et SLA.</p>
+                        </a>
+                        <a href="/demo/blog/taux-disponibilite-bornes-irve" class="group blog-card-premium">
+                            <h4 class="font-semibold group-hover:text-blue-600 transition-colors mb-1">Taux de disponibilité des bornes IRVE</h4>
+                            <p class="text-sm text-gray-500">Indicateurs, objectifs et leviers d'amélioration.</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <footer class="border-t border-gray-100 py-16 px-6 bg-white" role="contentinfo" aria-label="Pied de page">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid md:grid-cols-4 gap-10 mb-12">
+                <div>
+                    <div class="flex items-center space-x-3 mb-4">
+                        <picture><source srcset="../images/logo.webp" type="image/webp"><img src="../images/logo.png" alt="Logo JCSM" class="w-8 h-8" width="32" height="32" loading="lazy"></picture>
+                        <span class="text-xl font-semibold text-gray-900">JCSM</span>
+                    </div>
+                    <p class="text-sm text-gray-600 mb-4">Expérience IRVE depuis 2019. Installation, maintenance et pilotage en France et Belgique. Entreprise inclusive.</p>
+                    <p class="text-sm text-gray-500">60 rue François 1er<br>75008 Paris</p>
+                    <p class="text-sm text-gray-500 mt-3"><a href="tel:+33183755706" class="hover:text-gray-900 transition-colors">+33 1 83 75 57 06</a></p>
+                    <p class="text-sm text-gray-500"><a href="mailto:contact@jcsm.fr" class="hover:text-gray-900 transition-colors">contact@jcsm.fr</a></p>
+                </div>
+                <div>
+                    <h3 class="text-sm font-semibold text-gray-900 mb-4 uppercase tracking-wide">Services</h3>
+                    <nav aria-label="Services">
+                        <ul class="space-y-3">
+                            <li><a href="/demo/pilotage-projets" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Pilotage de projets</a></li>
+                            <li><a href="/demo/installation-conformite" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Installation & conformité</a></li>
+                            <li><a href="/demo/exploitation" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Exploitation & maintenance</a></li>
+                            <li><a href="/demo/securisation-installations" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Sécurisation</a></li>
+                            <li><a href="/demo/centre-appel" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Support 24/7</a></li>
+                            <li><a href="/demo/tarification" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Tarification</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div>
+                    <h3 class="text-sm font-semibold text-gray-900 mb-4 uppercase tracking-wide">Entreprise</h3>
+                    <nav aria-label="Entreprise">
+                        <ul class="space-y-3">
+                            <li><a href="/demo/devenir-partenaire" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Devenir partenaire</a></li>
+                            <li><a href="/demo/a-propos" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">À propos</a></li>
+                            <li><a href="/demo/inclusion" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Inclusion</a></li>
+                            <li><a href="/demo/carrieres" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Carrières</a></li>
+                            <li><a href="/demo/contact" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Contact</a></li>
+                            <li><a href="/demo/blog" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Blog</a></li>
+                            <li><a href="/demo/solutions/" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Solutions</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div>
+                    <h3 class="text-sm font-semibold text-gray-900 mb-4 uppercase tracking-wide">Légal</h3>
+                    <nav aria-label="Légal">
+                        <ul class="space-y-3">
+                            <li><a href="/demo/mentions-legales" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Mentions légales</a></li>
+                            <li><a href="/demo/confidentialite" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Confidentialité</a></li>
+                            <li><a href="/demo/cgv" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">CGV</a></li>
+                        </ul>
+                    </nav>
+                    <h3 class="text-sm font-semibold text-gray-900 mb-4 uppercase tracking-wide mt-6">Zones</h3>
+                    <nav aria-label="Zones">
+                        <ul class="space-y-3">
+                            <li><a href="/demo/zones/france" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">France</a></li>
+                            <li><a href="/demo/zones/belgique" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Belgique</a></li>
+                        </ul>
+                    </nav>
+                    <div class="flex items-center gap-3 mt-4">
+                        <a href="https://www.linkedin.com/company/jcsm-elec/" target="_blank" rel="noopener noreferrer me" class="text-gray-500 hover:text-gray-900 transition-colors" aria-label="LinkedIn">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                        </a>
+                        <a href="https://www.facebook.com/profile.php?id=61587992161634" target="_blank" rel="noopener noreferrer me" class="text-gray-500 hover:text-gray-900 transition-colors" aria-label="Facebook">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                        </a>
+                        <a href="https://x.com/JCSM_ELEC" target="_blank" rel="noopener noreferrer me" class="text-gray-500 hover:text-gray-900 transition-colors" aria-label="X (Twitter)">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                        </a>
+                        <a href="https://www.instagram.com/jcsm.elec/" target="_blank" rel="noopener noreferrer me" class="text-gray-500 hover:text-gray-900 transition-colors" aria-label="Instagram">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+                        </a>
+                        <a href="https://www.youtube.com/@JCSM_ELEC" target="_blank" rel="noopener noreferrer me" class="text-gray-500 hover:text-gray-900 transition-colors" aria-label="YouTube">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="pt-8 border-t border-gray-100 flex flex-col md:flex-row md:items-center md:justify-between gap-4 text-xs text-gray-500">
+                <span>© 2026 JCSM SAS - SIRET 99387429600011</span>
+                <a href="mailto:contact@jcsm.fr" class="hover:text-gray-900 transition-colors">contact@jcsm.fr</a> · <a href="tel:+33183755706" class="hover:text-gray-900 transition-colors">+33 1 83 75 57 06</a>
+            </div>
+        </div>
+    </footer>
+
+    <button class="scroll-top" id="scrollTop" aria-label="Retour en haut de page">
+        <svg aria-hidden="true" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.5 15.75l7.5-7.5 7.5 7.5" /></svg>
+    </button>
+    <script src="../js/i18n.js?v=72" defer></script>
+    <script src="../js/config.js?v=72" defer></script>
+    <script src="../js/utils.js?v=72" defer></script>
+    <script src="../js/public.js?v=72" defer></script>
+    <script src="../js/analytics.js?v=72" defer></script>
+    <script src="../js/wow-effects.js?v=72" defer></script>
+    <script>if ('serviceWorker' in navigator) { window.addEventListener('load', () => { navigator.serviceWorker.register('/sw.js').catch(() => {}); }); }</script>
+</body>
+</html>

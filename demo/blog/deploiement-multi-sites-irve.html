@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <!-- Cookie Consent + GTM (chargé après acceptation) -->
+    <script src="/demo/js/cookie-consent.js" defer></script>
+    <title>Déploiement Multi-sites IRVE | Retour Terrain | JCSM</title>
+    <meta name="description" content="Comment réussir un déploiement IRVE multi-sites ? Retour d'expérience JCSM : coordination, planning, budget, conformité. De 10 à 1000+ points de charge.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://jcsm.fr/blog/deploiement-multi-sites-irve">
+    <link rel="alternate" hreflang="fr" href="https://jcsm.fr/blog/deploiement-multi-sites-irve">
+    <link rel="alternate" hreflang="x-default" href="https://jcsm.fr/blog/deploiement-multi-sites-irve">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Déploiement Multi-sites IRVE : Retour d'Expérience Terrain",
+        "description": "Comment réussir un déploiement IRVE multi-sites ? Retour d'expérience JCSM : coordination, planning, budget, conformité. De 10 à 1000+ points de charge.",
+        "datePublished": "2026-03-11",
+        "dateModified": "2026-03-11",
+        "author": {"@type": "Organization", "name": "JCSM", "url": "https://jcsm.fr"},
+        "publisher": {"@type": "Organization", "name": "JCSM", "url": "https://jcsm.fr", "logo": {"@type": "ImageObject", "url": "https://jcsm.fr/images/logo.png", "width": 512, "height": 512}},
+        "mainEntityOfPage": {"@type": "WebPage", "@id": "https://jcsm.fr/blog/deploiement-multi-sites-irve"},
+        "wordCount": 2050,
+        "articleSection": "Installation et Conformité",
+        "image": {"@type": "ImageObject", "url": "https://jcsm.fr/images/index.webp", "width": 2048, "height": 1366}
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Combien de temps faut-il pour déployer 100 bornes sur 50 sites ?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "En moyenne, un programme de cette envergure se réalise en 4 à 8 mois, selon la complexité des raccordements et la disponibilité des sites. Les sites sans besoin de raccordement Enedis peuvent être livrés en 4 à 6 semaines après validation du devis."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Faut-il choisir le même fabricant de bornes pour tous les sites ?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Pas nécessairement. L'homogénéité du parc facilite la maintenance et la gestion des pièces détachées, mais certains sites ont des contraintes techniques qui imposent un modèle spécifique. JCSM est agnostique sur les marques et recommande la solution la plus adaptée à chaque contexte."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Comment JCSM gère-t-il la maintenance après déploiement ?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Chaque site livré est intégré dans notre périmètre d'exploitation avec supervision à distance 24/7 via le protocole OCPP. La maintenance préventive est planifiée selon un calendrier défini au contrat. La maintenance corrective est déclenchée automatiquement par les alertes de supervision."
+                }
+            }
+        ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://jcsm.fr/"},
+            {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://jcsm.fr/blog"},
+            {"@type": "ListItem", "position": 3, "name": "Déploiement Multi-sites IRVE", "item": "https://jcsm.fr/blog/deploiement-multi-sites-irve"}
+        ]
+    }
+    </script>
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://jcsm.fr/blog/deploiement-multi-sites-irve">
+    <meta property="og:title" content="Déploiement Multi-sites IRVE | Retour Terrain | JCSM">
+    <meta property="og:description" content="Comment réussir un déploiement IRVE multi-sites ? Coordination, planning, budget, conformité.">
+    <meta property="og:image" content="https://jcsm.fr/images/amo.webp">
+    <meta property="og:image:alt" content="Pilotage et gestion de projets d'infrastructure de recharge">
+    <meta property="og:image:width" content="1844">
+    <meta property="og:image:height" content="1284">
+    <meta property="og:locale" content="fr_FR">
+    <meta property="og:site_name" content="JCSM - Infrastructure de Recharge">
+    <meta property="article:published_time" content="2026-03-11">
+    <meta property="article:modified_time" content="2026-03-11T00:00:00+01:00">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Déploiement Multi-sites IRVE | Retour Terrain | JCSM">
+    <meta name="twitter:description" content="Comment réussir un déploiement IRVE multi-sites ? Coordination, planning, budget, conformité.">
+    <meta name="twitter:image" content="https://jcsm.fr/images/index.webp">
+    <meta name="twitter:image:alt" content="Infrastructure de recharge pour véhicules électriques">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet"
+        media="print" onload="this.media='all'">
+    <noscript>
+        <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap"
+            rel="stylesheet">
+    </noscript>
+    <link rel="stylesheet" href="../css/critical.css?v=72">
+    <link rel="stylesheet" href="../css/tailwind.css?v=72" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="../css/tailwind.css?v=72"></noscript>
+    <link rel="stylesheet" href="../styles.css?v=72" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="../styles.css?v=72"></noscript>
+    <link rel="manifest" href="../manifest.json">
+    <link rel="icon" type="image/x-icon" href="/demo/favicon.ico">
+    <link rel="apple-touch-icon" href="/demo/apple-touch-icon.png">
+
+    <link rel="stylesheet" href="/demo/demo-overrides.css?v=5">
+    <script src="/demo/demo-fluidity.js?v=2" defer data-cfasync="false"></script>
+    <script>window.addEventListener("DOMContentLoaded",function(){setTimeout(function(){var p=document.getElementById("preloader");if(p)p.classList.add("preloader-auto-hide");},600);});</script>
+</head>
+<body class="text-gray-900 bg-white">
+    <div class="demo-banner"><span>DEMO</span>Version proposée pour validation — non publiée</div>
+
+    <div class="reading-progress" id="reading-progress"></div>
+    <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+    <div class="preloader" id="preloader" role="status" aria-label="Chargement">
+        <div class="flex flex-col items-center justify-center">
+            <picture><source srcset="../images/logo.webp" type="image/webp"><img src="../images/logo.png" alt="JCSM" width="80" height="80" class="animate-pulse"></picture>
+        </div>
+    </div>
+    <div class="mobile-menu-overlay" id="mobile-menu-overlay"></div>
+    <nav class="mobile-menu" id="mobile-menu" role="dialog" aria-modal="true" aria-label="Menu de navigation" aria-hidden="true">
+        <div class="p-8">
+            <div class="flex justify-between items-center mb-12">
+                <span class="text-xl font-semibold">Menu</span>
+                <button class="text-gray-600 hover:text-gray-900" id="mobile-menu-close" aria-label="Fermer le menu de navigation">
+                    <svg class="w-6 h-6" fill="none" aria-hidden="true" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+                </button>
+            </div>
+                        <div class="flex flex-col space-y-6">
+                <a href="/demo/pilotage-projets" class="text-base text-gray-600 hover:text-gray-900 transition-colors">Pilotage de projets</a>
+                <a href="/demo/installation-conformite" class="text-base text-gray-600 hover:text-gray-900 transition-colors">Installation</a>
+                <a href="/demo/exploitation" class="text-base text-gray-600 hover:text-gray-900 transition-colors">Exploitation</a>
+                <a href="/demo/securisation-installations" class="text-base text-gray-600 hover:text-gray-900 transition-colors">Sécurisation</a>
+                <a href="/demo/centre-appel" class="text-base text-gray-600 hover:text-gray-900 transition-colors">Support</a>
+                <a href="/demo/solutions/" class="text-base text-gray-600 hover:text-gray-900 transition-colors">Solutions</a>
+                <a href="/demo/a-propos" class="text-base text-gray-600 hover:text-gray-900 transition-colors">À propos</a>
+                <a href="/demo/blog" class="text-base text-gray-600 hover:text-gray-900 transition-colors">Blog</a>
+                <a href="/demo/contact" class="btn-primary px-6 py-3 rounded-lg text-base font-medium inline-block text-center mt-4">Contact</a>
+            </div>
+        </div>
+    </nav>
+    <nav class="fixed top-0 w-full z-50 glass-nav border-b border-gray-200" role="navigation" aria-label="Navigation principale">
+        <div class="max-w-7xl mx-auto px-6 py-5">
+            <div class="flex justify-between items-center">
+                <a href="/demo/" class="flex items-center space-x-3 group mr-12">
+                    <picture><source srcset="../images/logo.webp" type="image/webp"><img src="../images/logo.png" alt="JCSM" class="w-9 h-9 transition-transform group-hover:scale-105 duration-300" width="36" height="36"></picture>
+                    <span class="text-xl font-bold tracking-tight">JCSM</span>
+                </a>
+                <div class="hidden lg:flex items-center space-x-6 xl:space-x-8">
+                    <a href="/demo/pilotage-projets" class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300 whitespace-nowrap">Pilotage</a>
+                    <a href="/demo/installation-conformite" class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300 whitespace-nowrap">Installation</a>
+                    <a href="/demo/exploitation" class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300 whitespace-nowrap">Exploitation</a>
+                    <a href="/demo/securisation-installations" class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300 whitespace-nowrap">Sécurisation</a>
+                    <a href="/demo/centre-appel" class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300 whitespace-nowrap">Support</a>
+                    <a href="/demo/solutions/" class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300 whitespace-nowrap">Solutions</a>
+                    <a href="/demo/a-propos" class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300 whitespace-nowrap">À propos</a>
+                    <a href="/demo/blog" class="text-base font-semibold text-blue-600 hover:text-blue-700 transition-all duration-300 whitespace-nowrap">Blog</a>
+                    <a href="/demo/contact" class="btn-primary ml-4 px-7 py-2.5 rounded-xl text-base font-medium shadow-lg hover:shadow-xl whitespace-nowrap">Contact</a>
+                </div>
+                <button class="mobile-menu-btn text-gray-600 hover:text-gray-900" id="mobile-menu-btn" aria-label="Ouvrir le menu de navigation" aria-expanded="false" aria-controls="mobile-menu">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main id="main-content" role="main">
+        <article class="pt-32 pb-16 px-6">
+            <div class="max-w-3xl mx-auto">
+                <div class="mb-8">
+                    <a href="/demo/blog" class="text-sm text-blue-600 hover:text-blue-800 transition-colors">&larr; Retour au blog</a>
+                </div>
+                <div class="mb-10">
+                    <span class="inline-block text-xs font-semibold badge-section text-blue-700 bg-blue-100 rounded-full px-3 py-1 mb-4">Guide</span>
+                    <h1 class="text-3xl md:text-4xl font-bold mb-4 leading-tight">Déploiement <span class="gradient-text">Multi-sites IRVE</span> : Retour d'Expérience Terrain</h1>
+                    <div class="flex items-center text-sm text-gray-500">
+                        <time datetime="2026-03-11">11 mars 2026</time>
+                        <span class="mx-2">&middot;</span>
+                        <span>12 min de lecture</span>
+                    </div>
+                </div>
+
+                <div class="bg-blue-50 rounded-2xl p-6 mb-10">
+                    <h2 class="text-lg font-bold text-blue-700 mb-4">Sommaire</h2>
+                    <ol class="list-decimal pl-5 text-sm text-blue-700 space-y-2">
+                        <li><a href="#defis" class="hover:underline">Les défis du multi-sites</a></li>
+                        <li><a href="#methodologie" class="hover:underline">Méthodologie JCSM en 6 étapes</a></li>
+                        <li><a href="#erreurs" class="hover:underline">Les erreurs les plus fréquentes</a></li>
+                        <li><a href="#outils" class="hover:underline">Outils et process de pilotage</a></li>
+                        <li><a href="#facteurs" class="hover:underline">Facteurs clés de succès</a></li>
+                        <li><a href="#chiffres" class="hover:underline">JCSM en chiffres</a></li>
+                        <li><a href="#faq" class="hover:underline">Questions fréquentes</a></li>
+                    </ol>
+                </div>
+
+                <div class="prose prose-lg max-w-none">
+                    <p class="text-lg text-gray-600 leading-relaxed mb-8">Installer une borne de recharge sur un site, c'est un projet. En déployer 50, 200 ou 1000 sur des sites différents, répartis sur tout le territoire, c'est une tout autre discipline. Le <strong>déploiement IRVE multi-sites</strong> ne consiste pas à reproduire une intervention unitaire à grande échelle. C'est un métier à part entière, qui mobilise des compétences de pilotage de projet, de logistique, d'ingénierie électrique et de coordination terrain que peu d'acteurs maîtrisent de bout en bout.</p>
+
+                    <p class="text-gray-600 leading-relaxed mb-4">Depuis six ans, JCSM intervient sur des programmes de déploiement multi-sites en France et en Belgique, pour le compte de réseaux de distribution, de gestionnaires de flotte, d'enseignes nationales et de collectivités. Plus de 2000 interventions réalisées, sur des parcs allant de 10 à plus de 1000 points de charge.</p>
+                    <p class="text-gray-600 leading-relaxed mb-4">Cet article livre un retour d'expérience opérationnel. Pas de théorie abstraite : des constats terrain, des erreurs observées, des méthodes éprouvées. L'objectif est de fournir aux décideurs et aux chefs de projet les clés pour structurer un programme de <a href="/demo/pilotage-projets" class="text-blue-600 hover:text-blue-800">déploiement IRVE national</a> sans déraper sur les délais, le budget ou la conformité.</p>
+
+                    <h2 id="defis" class="text-2xl font-bold mt-12 mb-4">Les défis du multi-sites</h2>
+                    <p class="text-gray-600 leading-relaxed mb-4">Un projet IRVE multi-sites se heurte à des difficultés structurelles que les projets unitaires ne rencontrent jamais.</p>
+
+                    <h3 class="text-xl font-semibold mt-8 mb-3">Hétérogénéité des sites</h3>
+                    <p class="text-gray-600 leading-relaxed mb-4">Aucun site ne ressemble à un autre. La puissance disponible au TGBT varie d'un bâtiment à l'autre. Les distances entre le tableau électrique et les emplacements de stationnement peuvent aller de 5 à 80 mètres. La nature du sol (enrobé, béton, terre-plein) conditionne le génie civil. Cette hétérogénéité rend impossible l'application d'un devis type. Chaque site nécessite un audit préalable, même sommaire, pour dimensionner correctement l'installation et anticiper les surcoûts.</p>
+
+                    <h3 class="text-xl font-semibold mt-8 mb-3">Raccordement Enedis : le facteur imprévisible</h3>
+                    <p class="text-gray-600 leading-relaxed mb-4">Sur un programme de 100 sites, il est courant que 20 à 40 % nécessitent un raccordement ou un renforcement de puissance auprès d'Enedis. Les délais de raccordement varient de 2 à 12 mois selon la complexité de la demande, la charge du gestionnaire de réseau et la région. Ce facteur est la première cause de dérive calendaire sur les projets multi-sites.</p>
+                    <p class="text-gray-600 leading-relaxed mb-4">Ne pas anticiper le raccordement dès la phase d'audit, c'est accepter qu'un tiers de son parc prenne 6 mois de retard.</p>
+
+                    <h3 class="text-xl font-semibold mt-8 mb-3">Coordination des sous-traitants</h3>
+                    <p class="text-gray-600 leading-relaxed mb-4">Un déploiement national implique de mobiliser des équipes locales : électriciens IRVE qualifiés, entreprises de génie civil, parfois des bureaux d'études pour les autorisations d'urbanisme. Coordonner ces intervenants sur des dizaines de sites simultanés, avec des plannings interdépendants, suppose un pilotage centralisé rigoureux.</p>
+
+                    <h3 class="text-xl font-semibold mt-8 mb-3">Respect des délais contractuels</h3>
+                    <p class="text-gray-600 leading-relaxed mb-4">Les donneurs d'ordre imposent des jalons fermes. Un réseau de grande distribution qui prévoit une communication nationale sur ses bornes de recharge ne tolérera pas trois mois de retard sur la moitié de ses sites. Les pénalités contractuelles sont courantes, et la pression calendaire est réelle.</p>
+
+                    <h2 id="methodologie" class="text-2xl font-bold mt-12 mb-4">Méthodologie JCSM en 6 étapes</h2>
+                    <p class="text-gray-600 leading-relaxed mb-4">Notre méthode de <a href="/demo/pilotage-projets" class="text-blue-600 hover:text-blue-800">pilotage de projets IRVE</a> s'est construite au fil des programmes. Elle repose sur six phases séquentielles, chacune conditionnant la réussite de la suivante.</p>
+
+                    <h3 class="text-xl font-semibold mt-8 mb-3">Étape 1 : Audit de site</h3>
+                    <p class="text-gray-600 leading-relaxed mb-4">Chaque site fait l'objet d'une visite technique ou, a minima, d'un audit à distance sur dossier (plans électriques, photos, relevés de puissance). L'objectif est de caractériser la faisabilité technique, d'identifier les contraintes de raccordement et de dimensionner l'installation.</p>
+                    <p class="text-gray-600 leading-relaxed mb-4">L'audit produit une fiche site standardisée qui centralise toutes les informations nécessaires : puissance disponible, distance de câblage, type de sol, contraintes d'accès, besoin de raccordement Enedis, type de borne recommandé.</p>
+
+                    <h3 class="text-xl font-semibold mt-8 mb-3">Étape 2 : Dimensionnement et chiffrage</h3>
+                    <p class="text-gray-600 leading-relaxed mb-4">Sur la base des fiches sites, chaque installation est dimensionnée individuellement : choix de la puissance (AC 7-22 kW ou DC 50-300 kW), nombre de points de charge, architecture électrique (avec ou sans gestion dynamique de la puissance), infrastructure réseau pour la supervision.</p>
+                    <p class="text-gray-600 leading-relaxed mb-4">Le chiffrage est consolidé par lot géographique. Cette granularité permet d'identifier les sites simples (déploiement rapide, budget maîtrisé) et les sites complexes (raccordement, génie civil lourd, contraintes réglementaires) pour adapter le planning en conséquence.</p>
+
+                    <h3 class="text-xl font-semibold mt-8 mb-3">Étape 3 : Planning et séquençage</h3>
+                    <p class="text-gray-600 leading-relaxed mb-4">Le planning intègre les délais de raccordement Enedis, les délais d'approvisionnement matériel, la disponibilité des équipes terrain et les contraintes d'exploitation du donneur d'ordre. Les sites sont séquencés par lot, en priorisant les sites à raccordement simple pour générer des mises en service rapides.</p>
+                    <p class="text-gray-600 leading-relaxed mb-4">Cette approche permet de livrer un flux continu de sites opérationnels, plutôt que d'attendre que le dernier raccordement soit obtenu pour démarrer les travaux.</p>
+
+                    <h3 class="text-xl font-semibold mt-8 mb-3">Étape 4 : Exécution des travaux</h3>
+                    <p class="text-gray-600 leading-relaxed mb-4">L'exécution mobilise des équipes qualifiées IRVE (mention Q1 à Q4 selon la puissance). Le suivi de chantier est assuré en temps réel via notre plateforme de gestion. Chaque intervention est documentée : photos avant/pendant/après, relevés de mesures, PV de réception.</p>
+                    <p class="text-gray-600 leading-relaxed mb-4">La <a href="/demo/installation-conformite" class="text-blue-600 hover:text-blue-800">conformité de l'installation</a> est vérifiée systématiquement : mise à la terre, protection différentielle, étiquetage, respect des normes NF C 15-100 et NF C 15-722. Le certificat de conformité IRVE (Consuel) est obtenu avant toute mise sous tension.</p>
+
+                    <h3 class="text-xl font-semibold mt-8 mb-3">Étape 5 : Mise en service et tests</h3>
+                    <p class="text-gray-600 leading-relaxed mb-4">Chaque borne est mise en service individuellement : test de charge, vérification de la connectivité réseau, paramétrage de la supervision, configuration des tarifs et des accès (badges, applications). Les tests sont réalisés avec un véhicule de référence pour valider le parcours utilisateur complet.</p>
+
+                    <h3 class="text-xl font-semibold mt-8 mb-3">Étape 6 : Transfert en exploitation</h3>
+                    <p class="text-gray-600 leading-relaxed mb-4">Une fois les bornes opérationnelles, le site bascule dans notre périmètre d'<a href="/demo/exploitation" class="text-blue-600 hover:text-blue-800">exploitation et maintenance</a>. La supervision à distance est activée dès la mise en service. Le donneur d'ordre reçoit un dossier de fin de travaux complet : plans de récolement, certificats de conformité, fiches techniques, contrat de maintenance.</p>
+                    <p class="text-gray-600 leading-relaxed mb-4">Ce transfert est un moment critique. Un site mal documenté à la livraison générera des surcoûts de maintenance pendant toute la durée d'exploitation.</p>
+
+                    <h2 id="erreurs" class="text-2xl font-bold mt-12 mb-4">Retour d'expérience terrain : les erreurs les plus fréquentes</h2>
+                    <p class="text-gray-600 leading-relaxed mb-4">Six ans de déploiement multi-sites nous ont permis d'identifier des schémas d'erreur récurrents.</p>
+
+                    <h3 class="text-xl font-semibold mt-8 mb-3">Sous-estimation du raccordement électrique</h3>
+                    <p class="text-gray-600 leading-relaxed mb-4">C'est l'erreur la plus coûteuse. Un site dont la puissance disponible est insuffisante nécessite une demande de raccordement auprès d'Enedis. Si cette demande n'est pas identifiée dès l'audit, elle décale le site de 4 à 12 mois. Sur un programme de 200 sites, 40 sites en retard de 6 mois représentent un surcoût de pilotage considérable.</p>
+                    <p class="text-gray-600 leading-relaxed mb-4">La parade : intégrer systématiquement l'analyse de puissance dans l'audit initial, et lancer les demandes de raccordement en parallèle du reste du programme.</p>
+
+                    <h3 class="text-xl font-semibold mt-8 mb-3">Mauvais choix de puissance</h3>
+                    <p class="text-gray-600 leading-relaxed mb-4">Installer des bornes DC 150 kW sur un site de bureau où les véhicules stationnent 8 heures est un gaspillage. Inversement, poser des bornes AC 7 kW sur une aire d'autoroute rend le service inutilisable. Le dimensionnement doit correspondre à l'usage réel du site : durée de stationnement, profil des véhicules, rotation attendue.</p>
+
+                    <h3 class="text-xl font-semibold mt-8 mb-3">Absence de supervision dès le jour 1</h3>
+                    <p class="text-gray-600 leading-relaxed mb-4">Déployer des bornes sans supervision connectée, c'est piloter à l'aveugle. Sans remontée de données en temps réel, les pannes ne sont détectées que par les signalements des utilisateurs, avec un délai moyen de 48 à 72 heures. La supervision doit être intégrée dès la conception du projet, pas ajoutée après coup comme une couche optionnelle.</p>
+
+                    <h3 class="text-xl font-semibold mt-8 mb-3">Négliger la documentation de fin de travaux</h3>
+                    <p class="text-gray-600 leading-relaxed mb-4">Un site livré sans plans de récolement, sans certificat Consuel, sans fiche de paramétrage, c'est un site qui coûtera cher à maintenir. L'équipe de maintenance interviendra sans information, perdra du temps à diagnostiquer, et le donneur d'ordre ne pourra pas justifier la conformité de son installation en cas de contrôle.</p>
+
+                    <h2 id="outils" class="text-2xl font-bold mt-12 mb-4">Outils et process de pilotage</h2>
+                    <p class="text-gray-600 leading-relaxed mb-4">La gestion d'un programme multi-sites ne peut pas reposer sur des tableurs et des échanges d'e-mails. JCSM s'appuie sur un ensemble d'outils structurés.</p>
+
+                    <h3 class="text-xl font-semibold mt-8 mb-3">Plateforme de gestion de projet</h3>
+                    <p class="text-gray-600 leading-relaxed mb-4">Chaque site dispose d'une fiche dans notre système de gestion, avec son statut en temps réel : audit réalisé, devis validé, commande matériel passée, raccordement en cours, travaux planifiés, mise en service effectuée, transféré en exploitation. Le donneur d'ordre accède à un tableau de bord consolidé qui donne la visibilité sur l'avancement global du programme.</p>
+
+                    <h3 class="text-xl font-semibold mt-8 mb-3">Reporting temps réel</h3>
+                    <p class="text-gray-600 leading-relaxed mb-4">Des rapports hebdomadaires sont générés automatiquement : nombre de sites livrés, sites en retard (avec la cause identifiée), prochaines mises en service, alertes sur les raccordements bloqués. Cette transparence est indispensable pour maintenir la confiance du donneur d'ordre et arbitrer rapidement les priorités.</p>
+
+                    <h3 class="text-xl font-semibold mt-8 mb-3">Suivi par site et traçabilité</h3>
+                    <p class="text-gray-600 leading-relaxed mb-4">Chaque intervention est tracée avec horodatage, photos et compte-rendu. En cas de litige, de demande de garantie ou de contrôle réglementaire, l'historique complet du site est disponible en quelques clics.</p>
+
+                    <h2 id="facteurs" class="text-2xl font-bold mt-12 mb-4">Facteurs clés de succès</h2>
+                    <p class="text-gray-600 leading-relaxed mb-4">Après 2000 interventions, trois facteurs se dégagent comme déterminants dans la réussite d'un programme multi-sites.</p>
+
+                    <h3 class="text-xl font-semibold mt-8 mb-3">Un interlocuteur unique</h3>
+                    <p class="text-gray-600 leading-relaxed mb-4">Le donneur d'ordre doit avoir un seul point de contact qui maîtrise l'ensemble du programme. Multiplier les interlocuteurs par lot géographique ou par phase de projet crée des ruptures d'information et des incohérences. JCSM assigne un chef de projet dédié à chaque programme, de l'audit initial au transfert en exploitation.</p>
+
+                    <h3 class="text-xl font-semibold mt-8 mb-3">Standardisation des process</h3>
+                    <p class="text-gray-600 leading-relaxed mb-4">L'efficacité d'un déploiement à grande échelle repose sur la répétabilité. Les fiches d'audit, les cahiers des charges, les PV de réception, les protocoles de mise en service : tout est standardisé. Cela ne signifie pas rigidité. Le cadre est standard, mais chaque site est traité selon ses spécificités techniques.</p>
+
+                    <h3 class="text-xl font-semibold mt-8 mb-3">Flexibilité terrain</h3>
+                    <p class="text-gray-600 leading-relaxed mb-4">Un planning de déploiement multi-sites subit en moyenne 20 à 30 % de modifications en cours de route : retards de raccordement, indisponibilité de site, changement de priorité du donneur d'ordre, aléas météo. La capacité à réorganiser le séquençage sans perdre le rythme global est ce qui distingue un déploiement réussi d'un programme qui s'enlise.</p>
+
+                    <h2 id="chiffres" class="text-2xl font-bold mt-12 mb-4">JCSM en chiffres</h2>
+                    <div class="overflow-x-auto mb-6">
+                        <table class="w-full text-sm text-gray-600 border border-gray-200 rounded-lg">
+                            <thead>
+                                <tr class="bg-gray-50">
+                                    <th scope="col" class="text-left px-4 py-3 font-semibold text-gray-900 border-b border-gray-200">Indicateur</th>
+                                    <th scope="col" class="text-left px-4 py-3 font-semibold text-gray-900 border-b border-gray-200">Valeur</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="border-b border-gray-100">
+                                    <td class="px-4 py-3 font-medium text-gray-900">Interventions réalisées</td>
+                                    <td class="px-4 py-3">Équipe terrain</td>
+                                </tr>
+                                <tr class="border-b border-gray-100">
+                                    <td class="px-4 py-3 font-medium text-gray-900">Années d'expérience IRVE</td>
+                                    <td class="px-4 py-3">6 ans</td>
+                                </tr>
+                                <tr class="border-b border-gray-100">
+                                    <td class="px-4 py-3 font-medium text-gray-900">Couverture géographique</td>
+                                    <td class="px-4 py-3">France et Belgique</td>
+                                </tr>
+                                <tr class="border-b border-gray-100">
+                                    <td class="px-4 py-3 font-medium text-gray-900">Marques de bornes maîtrisées</td>
+                                    <td class="px-4 py-3">25+</td>
+                                </tr>
+                                <tr class="border-b border-gray-100">
+                                    <td class="px-4 py-3 font-medium text-gray-900">Types de sites</td>
+                                    <td class="px-4 py-3">Entreprises, collectivités, retail, copropriétés, hôtellerie, logistique</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-4 py-3 font-medium text-gray-900">Puissances installées</td>
+                                    <td class="px-4 py-3">AC 3,7 kW à DC 300 kW</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h2 id="faq" class="text-2xl font-bold mt-12 mb-6">Questions fréquentes</h2>
+                    <div class="space-y-6 mb-8">
+                        <div class="border border-gray-200 rounded-xl p-5">
+                            <h3 class="font-semibold text-gray-900 mb-2">Combien de temps faut-il pour déployer 100 bornes sur 50 sites ?</h3>
+                            <p class="text-gray-600 text-sm leading-relaxed">En moyenne, un programme de cette envergure se réalise en 4 à 8 mois, selon la complexité des raccordements et la disponibilité des sites. Les sites sans besoin de raccordement Enedis peuvent être livrés en 4 à 6 semaines après validation du devis. Les sites nécessitant un renforcement de puissance ajoutent 3 à 9 mois au planning individuel du site.</p>
+                        </div>
+                        <div class="border border-gray-200 rounded-xl p-5">
+                            <h3 class="font-semibold text-gray-900 mb-2">Faut-il choisir le même fabricant de bornes pour tous les sites ?</h3>
+                            <p class="text-gray-600 text-sm leading-relaxed">Pas nécessairement. L'homogénéité du parc facilite la maintenance et la gestion des pièces détachées, mais certains sites ont des contraintes techniques qui imposent un modèle spécifique (puissance, encombrement, résistance aux intempéries). JCSM est agnostique sur les marques et recommande la solution la plus adaptée à chaque contexte, tout en privilégiant la cohérence du parc quand c'est possible.</p>
+                        </div>
+                        <div class="border border-gray-200 rounded-xl p-5">
+                            <h3 class="font-semibold text-gray-900 mb-2">Comment JCSM gère-t-il la maintenance après déploiement ?</h3>
+                            <p class="text-gray-600 text-sm leading-relaxed">Chaque site livré est intégré dans notre périmètre d'<a href="/demo/exploitation" class="text-blue-600 hover:text-blue-800">exploitation</a> avec supervision à distance 24/7 via le protocole OCPP. La maintenance préventive est planifiée selon un calendrier défini au contrat. La maintenance corrective est déclenchée automatiquement par les alertes de supervision, avec un engagement de délai d'intervention (SLA) et de délai de remise en service (GTR) contractualisé.</p>
+                        </div>
+                    </div>
+
+                    <h2 class="text-2xl font-bold mt-12 mb-4">Conclusion</h2>
+                    <p class="text-gray-600 leading-relaxed mb-4">Le déploiement IRVE multi-sites est un exercice d'industrialisation. Il exige de la rigueur dans l'audit, de la méthode dans le pilotage, de la flexibilité dans l'exécution et de la transparence dans le reporting. Les erreurs les plus courantes -- sous-estimation du raccordement, absence de supervision, documentation insuffisante -- sont toutes évitables avec un process structuré et un partenaire expérimenté.</p>
+                    <p class="text-gray-600 leading-relaxed mb-4">JCSM accompagne les entreprises, les collectivités et les gestionnaires de patrimoine dans leurs programmes de déploiement, de 10 à 1000+ points de charge, en France et en Belgique. Un interlocuteur unique, une méthodologie éprouvée, une traçabilité complète.</p>
+                </div>
+
+                <div class="section-appear mt-12 bg-gradient-to-r from-blue-600 to-blue-700 rounded-2xl p-8 text-center">
+                    <h3 class="text-xl font-bold mb-3 text-white">Vous préparez un programme de déploiement multi-sites ?</h3>
+                    <p class="text-blue-100 mb-6">Contactez notre équipe projet pour un premier échange sur votre cahier des charges. Cadrage gratuit avec estimation de planning et de budget sous 48 heures.</p>
+                    <a href="/demo/contact" class="bg-white text-blue-600 px-8 py-3 rounded-xl font-medium inline-block hover:bg-blue-50 transition-colors">Nous contacter</a>
+                </div>
+
+
+                <!-- Partage social -->
+                <div class="flex items-center gap-4 pt-8 mt-8 border-t border-gray-200">
+                    <span class="text-sm font-semibold text-gray-700">Partager :</span>
+                    <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://jcsm.fr/blog/deploiement-multi-sites-irve" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-gray-100 hover:bg-blue-50 text-gray-600 hover:text-blue-700 text-sm font-medium transition-colors" aria-label="Partager sur LinkedIn">
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                        LinkedIn
+                    </a>
+                    <a href="https://twitter.com/intent/tweet?url=https://jcsm.fr/blog/deploiement-multi-sites-irve&amp;text=D%C3%A9ploiement%20Multi-sites%20IRVE%20%3A%20Retour%20d%27Exp%C3%A9rience%20sur%202000%2B%20Interventions" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-gray-100 hover:bg-gray-200 text-gray-600 hover:text-gray-900 text-sm font-medium transition-colors" aria-label="Partager sur X">
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                        X
+                    </a>
+                </div>
+
+                <div class="section-appear mt-16 pt-8 border-t border-gray-100">
+                    <h3 class="text-lg font-bold mb-6">Articles similaires</h3>
+                    <div class="grid sm:grid-cols-2 gap-6">
+                        <a href="/demo/blog/installer-bornes-recharge-entreprise" class="group blog-card-premium">
+                            <h4 class="font-semibold group-hover:text-blue-600 transition-colors mb-1">Installer des bornes de recharge en entreprise</h4>
+                            <p class="text-sm text-gray-500">Guide complet pour les entreprises et gestionnaires de flottes.</p>
+                        </a>
+                        <a href="/demo/blog/reglement-afir-obligations-bornes-recharge" class="group blog-card-premium">
+                            <h4 class="font-semibold group-hover:text-blue-600 transition-colors mb-1">Règlement AFIR : obligations bornes de recharge</h4>
+                            <p class="text-sm text-gray-500">Exigences européennes pour les infrastructures IRVE.</p>
+                        </a>
+                        <a href="/demo/blog/conformite-irve-2026-normes-nf-c-15-100" class="group blog-card-premium">
+                            <h4 class="font-semibold group-hover:text-blue-600 transition-colors mb-1">Conformité IRVE 2026 : normes NF C 15-100</h4>
+                            <p class="text-sm text-gray-500">Le cadre normatif complet pour les installations.</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <footer class="border-t border-gray-100 py-16 px-6 bg-white" role="contentinfo" aria-label="Pied de page">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid md:grid-cols-4 gap-10 mb-12">
+                <div>
+                    <div class="flex items-center space-x-3 mb-4">
+                        <picture><source srcset="../images/logo.webp" type="image/webp"><img src="../images/logo.png" alt="Logo JCSM" class="w-8 h-8" width="32" height="32" loading="lazy"></picture>
+                        <span class="text-xl font-semibold text-gray-900">JCSM</span>
+                    </div>
+                    <p class="text-sm text-gray-600 mb-4">Expérience IRVE depuis 2019. Installation, maintenance et pilotage en France et Belgique. Entreprise inclusive.</p>
+                    <p class="text-sm text-gray-500">60 rue François 1er<br>75008 Paris</p>
+                    <p class="text-sm text-gray-500 mt-3"><a href="tel:+33183755706" class="hover:text-gray-900 transition-colors">+33 1 83 75 57 06</a></p>
+                    <p class="text-sm text-gray-500"><a href="mailto:contact@jcsm.fr" class="hover:text-gray-900 transition-colors">contact@jcsm.fr</a></p>
+                </div>
+                <div>
+                    <h3 class="text-sm font-semibold text-gray-900 mb-4 uppercase tracking-wide">Services</h3>
+                    <nav aria-label="Services"><ul class="space-y-3">
+                        <li><a href="/demo/pilotage-projets" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Pilotage de projets</a></li>
+                        <li><a href="/demo/installation-conformite" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Installation &amp; conformité</a></li>
+                        <li><a href="/demo/exploitation" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Exploitation &amp; maintenance</a></li>
+                        <li><a href="/demo/securisation-installations" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Sécurisation</a></li>
+                        <li><a href="/demo/centre-appel" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Support 24/7</a></li>
+                            <li><a href="/demo/tarification" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Tarification</a></li>
+                    </ul></nav>
+                </div>
+                <div>
+                    <h3 class="text-sm font-semibold text-gray-900 mb-4 uppercase tracking-wide">Entreprise</h3>
+                    <nav aria-label="Entreprise"><ul class="space-y-3"><li><a href="/demo/devenir-partenaire" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Devenir partenaire</a></li>
+                        <li><a href="/demo/solutions/" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Solutions</a></li>
+                            <li><a href="/demo/a-propos" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">À propos</a></li>
+                            <li><a href="/demo/inclusion" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Inclusion</a></li>
+                        <li><a href="/demo/carrieres" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Carrières</a></li>
+                        <li><a href="/demo/contact" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Contact</a></li>
+                        <li><a href="/demo/blog" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Blog</a></li>
+                    </ul></nav>
+                </div>
+                <div>
+                    <h3 class="text-sm font-semibold text-gray-900 mb-4 uppercase tracking-wide">Légal</h3>
+                    <nav aria-label="Légal"><ul class="space-y-3">
+                        <li><a href="/demo/mentions-legales" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Mentions légales</a></li>
+                        <li><a href="/demo/confidentialite" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Confidentialité</a></li>
+                        <li><a href="/demo/cgv" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">CGV</a></li>
+                    </ul></nav>
+                    <h3 class="text-sm font-semibold text-gray-900 mb-4 uppercase tracking-wide mt-6">Zones</h3>
+                    <nav aria-label="Zones"><ul class="space-y-3">
+                        <li><a href="/demo/zones/france" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">France</a></li>
+                        <li><a href="/demo/zones/belgique" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Belgique</a></li>
+                    </ul></nav>
+                    <div class="flex items-center gap-3 mt-4">
+                        <a href="https://www.linkedin.com/company/jcsm-elec/" target="_blank" rel="noopener noreferrer me" class="text-gray-500 hover:text-gray-900 transition-colors" aria-label="LinkedIn"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+                        <a href="https://www.facebook.com/profile.php?id=61587992161634" target="_blank" rel="noopener noreferrer me" class="text-gray-500 hover:text-gray-900 transition-colors" aria-label="Facebook"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+                        <a href="https://x.com/JCSM_ELEC" target="_blank" rel="noopener noreferrer me" class="text-gray-500 hover:text-gray-900 transition-colors" aria-label="X (Twitter)"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+                        <a href="https://www.instagram.com/jcsm.elec/" target="_blank" rel="noopener noreferrer me" class="text-gray-500 hover:text-gray-900 transition-colors" aria-label="Instagram"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+                        <a href="https://www.youtube.com/@JCSM_ELEC" target="_blank" rel="noopener noreferrer me" class="text-gray-500 hover:text-gray-900 transition-colors" aria-label="YouTube"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+                    </div>
+                </div>
+            </div>
+            <div class="pt-8 border-t border-gray-100 flex flex-col md:flex-row md:items-center md:justify-between gap-4 text-xs text-gray-500">
+                <span>&copy; 2026 JCSM SAS - SIRET 99387429600011</span>
+                <a href="mailto:contact@jcsm.fr" class="hover:text-gray-900 transition-colors">contact@jcsm.fr</a> &middot; <a href="tel:+33183755706" class="hover:text-gray-900 transition-colors">+33 1 83 75 57 06</a>
+            </div>
+        </div>
+    </footer>
+
+    <button class="scroll-top" id="scrollTop" aria-label="Retour en haut de page">
+        <svg aria-hidden="true" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.5 15.75l7.5-7.5 7.5 7.5" /></svg>
+    </button>
+    <script src="../js/i18n.js?v=72" defer></script>
+    <script src="../js/config.js?v=72" defer></script>
+    <script src="../js/utils.js?v=72" defer></script>
+    <script src="../js/public.js?v=72" defer></script>
+    <script src="../js/analytics.js?v=72" defer></script>
+    <script src="../js/wow-effects.js?v=72" defer></script>
+    <script>if ('serviceWorker' in navigator) { window.addEventListener('load', () => { navigator.serviceWorker.register('/sw.js').catch(() => {}); }); }</script>
+</body>
+</html>

@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <!-- Cookie Consent + GTM (chargé après acceptation) -->
+    <script src="/demo/js/cookie-consent.js" defer></script>
+    <title>Maintenance préventive vs curative IRVE : guide 2026 | JCSM</title>
+    <meta name="description" content="Maintenance préventive vs curative IRVE : coûts, ROI, taux de disponibilité. Comparatif détaillé et approche hybride JCSM. Guide expert 2026.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://jcsm.fr/blog/maintenance-preventive-vs-curative-irve">
+    <link rel="alternate" hreflang="fr" href="https://jcsm.fr/blog/maintenance-preventive-vs-curative-irve">
+    <link rel="alternate" hreflang="x-default" href="https://jcsm.fr/blog/maintenance-preventive-vs-curative-irve">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Maintenance préventive vs curative IRVE : laquelle choisir ?",
+        "description": "Maintenance préventive vs curative IRVE : coûts, ROI, taux de disponibilité. Comparatif détaillé et approche hybride JCSM pour maximiser la performance de vos bornes.",
+        "datePublished": "2026-03-22",
+        "dateModified": "2026-03-22",
+        "author": {"@type": "Organization", "name": "JCSM", "url": "https://jcsm.fr"},
+        "publisher": {"@type": "Organization", "name": "JCSM", "url": "https://jcsm.fr", "logo": {"@type": "ImageObject", "url": "https://jcsm.fr/images/logo.png", "width": 512, "height": 512}},
+        "mainEntityOfPage": {"@type": "WebPage", "@id": "https://jcsm.fr/blog/maintenance-preventive-vs-curative-irve"},
+        "wordCount": 3200,
+        "articleSection": "Maintenance et Exploitation",
+        "image": {"@type": "ImageObject", "url": "https://jcsm.fr/images/index.webp", "width": 2048, "height": 1366}
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Quelle est la différence entre maintenance préventive et curative IRVE ?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "La maintenance préventive consiste à intervenir de manière planifiée (1 à 2 fois par an) pour inspecter, nettoyer et tester les bornes avant qu'une panne ne survienne. La maintenance curative intervient après une panne pour remettre la borne en service. La préventive réduit le taux de panne de 40 à 60 % et coûte 2 à 3 fois moins cher par borne que la curative sur la durée."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Combien coûte la maintenance préventive d'une borne de recharge ?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Le coût de la maintenance préventive varie de 80 à 200 EUR HT par borne AC et par an (1 à 2 visites). Pour les bornes DC, comptez 500 à 1 500 EUR HT par borne et par an (2 à 4 visites). Ces coûts incluent l'inspection, le nettoyage, les tests électriques, la mise à jour logicielle et le remplacement des pièces d'usure."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Quelle est la fréquence recommandée pour la maintenance préventive IRVE ?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Pour les bornes AC (7-22 kW) : 1 visite par an en usage résidentiel ou tertiaire léger, 2 visites par an en usage intensif (parking public, copropriété). Pour les bornes DC (50 kW+) : 2 à 4 visites par an selon l'intensité d'utilisation. Les bornes en extérieur nécessitent une fréquence plus élevée que les bornes en intérieur."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "La maintenance préventive est-elle obligatoire pour les bornes IRVE ?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Il n'existe pas d'obligation légale de maintenance préventive pour les bornes IRVE. Cependant, les garanties fabricants exigent généralement un entretien régulier pour rester valides. Le programme ADVENIR impose un taux de disponibilité minimal de 95 % pour les bornes subventionnées ouvertes au public, ce qui rend la maintenance préventive indispensable en pratique."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Quel est le ROI de la maintenance préventive IRVE ?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Le ROI de la maintenance préventive est positif dès la première année pour un parc de plus de 10 bornes. Un parc de 50 bornes AC avec maintenance préventive coûte en moyenne 8 000 EUR/an en maintenance totale (préventive + curative résiduelle). Sans préventive, le même parc coûte 15 000 à 25 000 EUR/an en curative seule, avec un taux de disponibilité inférieur de 5 à 10 points."
+                }
+            }
+        ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://jcsm.fr/"},
+            {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://jcsm.fr/blog"},
+            {"@type": "ListItem", "position": 3, "name": "Maintenance préventive vs curative IRVE", "item": "https://jcsm.fr/blog/maintenance-preventive-vs-curative-irve"}
+        ]
+    }
+    </script>
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://jcsm.fr/blog/maintenance-preventive-vs-curative-irve">
+    <meta property="og:title" content="Maintenance préventive vs curative IRVE : laquelle choisir ?">
+    <meta property="og:description" content="Maintenance préventive vs curative IRVE : coûts, ROI, taux de disponibilité. Comparatif détaillé et approche hybride JCSM. Guide expert 2026.">
+    <meta property="og:image" content="https://jcsm.fr/images/maintenance.webp">
+    <meta property="og:image:alt" content="Technicien JCSM en maintenance de borne de recharge IRVE">
+    <meta property="og:image:width" content="826">
+    <meta property="og:image:height" content="1298">
+    <meta property="og:locale" content="fr_FR">
+    <meta property="og:site_name" content="JCSM - Infrastructure de Recharge">
+    <meta property="article:published_time" content="2026-03-22">
+    <meta property="article:modified_time" content="2026-03-22T00:00:00+01:00">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Maintenance préventive vs curative IRVE : laquelle choisir ?">
+    <meta name="twitter:description" content="Maintenance préventive vs curative IRVE : coûts, ROI, taux de disponibilité. Comparatif détaillé et approche hybride JCSM. Guide expert 2026.">
+    <meta name="twitter:image" content="https://jcsm.fr/images/index.webp">
+    <meta name="twitter:image:alt" content="Infrastructure de recharge pour véhicules électriques">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet"
+        media="print" onload="this.media='all'">
+    <noscript>
+        <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap"
+            rel="stylesheet">
+    </noscript>
+    <link rel="stylesheet" href="../css/critical.css?v=72">
+    <link rel="stylesheet" href="../css/tailwind.css?v=72" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="../css/tailwind.css?v=72"></noscript>
+    <link rel="stylesheet" href="../styles.css?v=72" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="../styles.css?v=72"></noscript>
+    <link rel="manifest" href="../manifest.json">
+    <link rel="icon" type="image/x-icon" href="/demo/favicon.ico">
+    <link rel="apple-touch-icon" href="/demo/apple-touch-icon.png">
+
+    <link rel="stylesheet" href="/demo/demo-overrides.css?v=5">
+    <script src="/demo/demo-fluidity.js?v=2" defer data-cfasync="false"></script>
+    <script>window.addEventListener("DOMContentLoaded",function(){setTimeout(function(){var p=document.getElementById("preloader");if(p)p.classList.add("preloader-auto-hide");},600);});</script>
+</head>
+<body class="text-gray-900 bg-white">
+    <div class="demo-banner"><span>DEMO</span>Version proposée pour validation — non publiée</div>
+
+    <div class="reading-progress" id="reading-progress"></div>
+    <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+    <div class="preloader" id="preloader" role="status" aria-label="Chargement">
+        <div class="flex flex-col items-center justify-center">
+            <picture><source srcset="../images/logo.webp" type="image/webp"><img src="../images/logo.png" alt="JCSM" width="80" height="80" class="animate-pulse"></picture>
+        </div>
+    </div>
+    <div class="mobile-menu-overlay" id="mobile-menu-overlay"></div>
+    <nav class="mobile-menu" id="mobile-menu" role="dialog" aria-modal="true" aria-label="Menu de navigation" aria-hidden="true">
+        <div class="p-8">
+            <div class="flex justify-between items-center mb-12">
+                <span class="text-xl font-semibold">Menu</span>
+                <button class="text-gray-600 hover:text-gray-900" id="mobile-menu-close" aria-label="Fermer le menu de navigation">
+                    <svg class="w-6 h-6" fill="none" aria-hidden="true" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+                </button>
+            </div>
+                        <div class="flex flex-col space-y-6">
+                <a href="/demo/pilotage-projets" class="text-base text-gray-600 hover:text-gray-900 transition-colors">Pilotage de projets</a>
+                <a href="/demo/installation-conformite" class="text-base text-gray-600 hover:text-gray-900 transition-colors">Installation</a>
+                <a href="/demo/exploitation" class="text-base text-gray-600 hover:text-gray-900 transition-colors">Exploitation</a>
+                <a href="/demo/securisation-installations" class="text-base text-gray-600 hover:text-gray-900 transition-colors">Sécurisation</a>
+                <a href="/demo/centre-appel" class="text-base text-gray-600 hover:text-gray-900 transition-colors">Support</a>
+                <a href="/demo/solutions/" class="text-base text-gray-600 hover:text-gray-900 transition-colors">Solutions</a>
+                <a href="/demo/a-propos" class="text-base text-gray-600 hover:text-gray-900 transition-colors">À propos</a>
+                <a href="/demo/blog" class="text-base text-gray-600 hover:text-gray-900 transition-colors">Blog</a>
+                <a href="/demo/contact" class="btn-primary px-6 py-3 rounded-lg text-base font-medium inline-block text-center mt-4">Contact</a>
+            </div>
+        </div>
+    </nav>
+    <nav class="fixed top-0 w-full z-50 glass-nav border-b border-gray-200" role="navigation" aria-label="Navigation principale">
+        <div class="max-w-7xl mx-auto px-6 py-5">
+            <div class="flex justify-between items-center">
+                <a href="/demo/" class="flex items-center space-x-3 group mr-12">
+                    <picture><source srcset="../images/logo.webp" type="image/webp"><img src="../images/logo.png" alt="JCSM" class="w-9 h-9 transition-transform group-hover:scale-105 duration-300" width="36" height="36"></picture>
+                    <span class="text-xl font-bold tracking-tight">JCSM</span>
+                </a>
+                <div class="hidden lg:flex items-center space-x-6 xl:space-x-8">
+                    <a href="/demo/pilotage-projets" class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300 whitespace-nowrap">Pilotage</a>
+                    <a href="/demo/installation-conformite" class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300 whitespace-nowrap">Installation</a>
+                    <a href="/demo/exploitation" class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300 whitespace-nowrap">Exploitation</a>
+                    <a href="/demo/securisation-installations" class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300 whitespace-nowrap">Sécurisation</a>
+                    <a href="/demo/centre-appel" class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300 whitespace-nowrap">Support</a>
+                    <a href="/demo/solutions/" class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300 whitespace-nowrap">Solutions</a>
+                    <a href="/demo/a-propos" class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300 whitespace-nowrap">À propos</a>
+                    <a href="/demo/blog" class="text-base font-semibold text-blue-600 hover:text-blue-700 transition-all duration-300 whitespace-nowrap">Blog</a>
+                    <a href="/demo/contact" class="btn-primary ml-4 px-7 py-2.5 rounded-xl text-base font-medium shadow-lg hover:shadow-xl whitespace-nowrap">Contact</a>
+                </div>
+                <button class="mobile-menu-btn text-gray-600 hover:text-gray-900" id="mobile-menu-btn" aria-label="Ouvrir le menu de navigation" aria-expanded="false" aria-controls="mobile-menu">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main id="main-content" role="main">
+        <article class="pt-32 pb-16 px-6">
+            <div class="max-w-3xl mx-auto">
+                <div class="mb-8">
+                    <a href="/demo/blog" class="text-sm text-blue-600 hover:text-blue-800 transition-colors">&larr; Retour au blog</a>
+                </div>
+                <div class="mb-10">
+                    <span class="badge-section inline-block text-xs font-semibold text-blue-700 bg-blue-100 rounded-full px-3 py-1 mb-4">Maintenance</span>
+                    <h1 class="text-3xl md:text-4xl font-bold mb-4 leading-tight">Maintenance <span class="gradient-text">préventive vs curative</span> IRVE : laquelle choisir ?</h1>
+                    <div class="flex items-center text-sm text-gray-500">
+                        <time datetime="2026-03-22">22 mars 2026</time>
+                        <span class="mx-2">&middot;</span>
+                        <span>11 min de lecture</span>
+                    </div>
+                </div>
+
+                <div class="bg-blue-50 rounded-2xl p-6 mb-10">
+                    <h2 class="text-lg font-bold text-blue-700 mb-4">Sommaire</h2>
+                    <ol class="list-decimal pl-5 text-sm text-blue-700 space-y-2">
+                        <li><a href="#cout-cache" class="hover:underline">Le coût caché de la maintenance réactive</a></li>
+                        <li><a href="#curative" class="hover:underline">Maintenance curative : définition et limites</a></li>
+                        <li><a href="#preventive" class="hover:underline">Maintenance préventive : définition et ROI</a></li>
+                        <li><a href="#comparatif" class="hover:underline">Tableau comparatif détaillé</a></li>
+                        <li><a href="#approche-jcsm" class="hover:underline">L'approche hybride JCSM</a></li>
+                        <li><a href="#calculer-roi" class="hover:underline">Calculer le ROI de la préventive</a></li>
+                        <li><a href="#faq" class="hover:underline">Questions fréquentes</a></li>
+                    </ol>
+                </div>
+
+                <div class="prose prose-lg max-w-none section-appear">
+                    <p class="text-lg text-gray-600 leading-relaxed mb-8">Une borne de recharge en panne, c'est un utilisateur frustré qui ne revient pas, un chiffre d'affaires perdu et une réputation qui se dégrade. Pourtant, 60 % des opérateurs de bornes en France n'ont toujours pas de contrat de maintenance préventive en 2026. Ils attendent la panne pour agir, et paient le prix fort : des coûts de réparation 2 à 3 fois supérieurs, un taux de disponibilité inférieur de 5 à 10 points et une durée de vie des bornes réduite de 30 %. Ce guide compare en profondeur les deux approches et vous aide à construire une stratégie de maintenance optimale. JCSM, spécialiste de l'<a href="/demo/exploitation" class="text-blue-600 hover:text-blue-800 underline">exploitation et maintenance IRVE</a>, vous accompagne avec une approche hybride éprouvée sur des milliers de bornes.</p>
+
+                    <h2 id="cout-cache" class="text-2xl font-bold mt-12 mb-4">1. Le coût caché de la maintenance réactive</h2>
+                    <p class="text-gray-600 leading-relaxed mb-4">La tentation de la maintenance "au fil de l'eau" est compréhensible : pourquoi payer pour entretenir une borne qui fonctionne ? Cette logique, héritée du monde de l'électricité traditionnelle, ne résiste pas à l'analyse lorsqu'on l'applique aux bornes de recharge. Voici pourquoi.</p>
+
+                    <h3 class="text-xl font-semibold mt-8 mb-3">Une borne n'est pas un simple équipement électrique</h3>
+                    <p class="text-gray-600 leading-relaxed mb-4">Contrairement à une prise électrique ou un tableau de distribution, une borne de recharge est un système complexe qui combine de l'électronique de puissance (redresseurs, convertisseurs), de l'informatique embarquée (carte contrôleur, firmware, connectivité réseau), de la mécanique (connecteurs, câbles, verrouillage), et des composants exposés aux intempéries et aux utilisateurs (écran, lecteur RFID, boutons). Chacun de ces sous-systèmes a ses propres modes de défaillance et ses propres besoins de maintenance. Une borne AC 22 kW contient typiquement 200 à 500 composants électroniques. Une borne DC 150 kW en contient 2 000 à 5 000.</p>
+
+                    <h3 class="text-xl font-semibold mt-8 mb-3">Les pannes invisibles</h3>
+                    <p class="text-gray-600 leading-relaxed mb-4">Le problème majeur de la maintenance purement curative est qu'elle ne détecte que les pannes franches : la borne ne démarre plus, l'écran est noir, le connecteur ne se verrouille pas. Mais de nombreuses défaillances sont graduelles et invisibles pour l'utilisateur :</p>
+                    <ul class="list-disc pl-6 text-gray-600 space-y-2 mb-6">
+                        <li><strong>Dégradation de la puissance délivrée</strong> : la borne annonce 22 kW mais ne délivre que 15 kW en raison d'un composant défaillant. L'utilisateur ne s'en rend pas compte immédiatement, mais le temps de charge est rallongé de 30 %.</li>
+                        <li><strong>Échauffement anormal des connexions</strong> : des bornes desserrées ou oxydées créent des points chauds qui dégradent progressivement l'isolation et peuvent provoquer un arc électrique. Non détecté, ce défaut peut entraîner un incendie.</li>
+                        <li><strong>Perte de connectivité intermittente</strong> : la borne fonctionne en mode dégradé (pas de télémétrie, pas de facturation, pas de démarrage à distance) sans alerte visible. L'opérateur perd la visibilité sur l'état de son parc.</li>
+                        <li><strong>Usure des câbles de charge</strong> : les câbles DC refroidis par liquide se dégradent par l'usage et les UV. Une fissure dans la gaine de refroidissement entraîne une perte de liquide, une réduction de la puissance maximale, puis un arrêt complet.</li>
+                    </ul>
+                    <p class="text-gray-600 leading-relaxed mb-4">Ces défaillances graduelles ne sont détectables que par une inspection régulière incluant des mesures électriques (résistance d'isolement, thermographie infrarouge, contrôle de terre) et des tests fonctionnels. C'est précisément ce que fait la maintenance préventive.</p>
+
+                    <h3 class="text-xl font-semibold mt-8 mb-3">L'effet domino de la panne</h3>
+                    <p class="text-gray-600 leading-relaxed mb-4">Une panne de borne publique a des conséquences en cascade bien au-delà du coût de la réparation. Voici le calcul complet pour une borne DC 50 kW publique :</p>
+                    <ul class="list-disc pl-6 text-gray-600 space-y-2 mb-6">
+                        <li><strong>Perte de chiffre d'affaires</strong> : une borne DC 50 kW bien placée génère 50 à 100 EUR de CA par jour. Une panne de 5 jours (délai moyen de réparation curative sans contrat) = 250 à 500 EUR de CA perdu.</li>
+                        <li><strong>Coût de la réparation</strong> : intervention curative sans contrat = 300 à 800 EUR (déplacement + diagnostic + main d'oeuvre), hors pièces détachées.</li>
+                        <li><strong>Pièces détachées</strong> : un module de puissance DC = 2 000 à 5 000 EUR. Un câble CCS2 = 500 à 1 200 EUR. Un lecteur RFID = 150 à 300 EUR.</li>
+                        <li><strong>Pénalités de disponibilité</strong> : certains contrats de concession (aires d'autoroute, parkings publics) imposent un taux de disponibilité minimum de 95 %. Chaque point en dessous déclenche des pénalités de 500 à 2 000 EUR par mois.</li>
+                        <li><strong>Impact sur le référencement</strong> : les applications de recharge (ChargeMap, Chargeprice) affichent le taux de disponibilité des bornes. Un taux inférieur à 90 % fait chuter le classement et détourne les utilisateurs vers les bornes concurrentes.</li>
+                    </ul>
+                    <p class="text-gray-600 leading-relaxed mb-4">Au total, une seule panne non anticipée sur une borne DC publique peut coûter 3 000 à 8 000 EUR en impact direct et indirect. Le coût annuel de la maintenance préventive pour cette même borne est de 500 à 1 500 EUR.</p>
+
+                    <h2 id="curative" class="text-2xl font-bold mt-12 mb-4">2. Maintenance curative : définition et limites</h2>
+                    <p class="text-gray-600 leading-relaxed mb-4">La maintenance curative, aussi appelée maintenance corrective, consiste à intervenir uniquement lorsqu'une panne est constatée. L'objectif est de remettre la borne en état de fonctionnement le plus rapidement possible. Elle est indispensable, même avec un programme préventif exemplaire, car aucune stratégie de maintenance ne peut éliminer 100 % des pannes.</p>
+
+                    <h3 class="text-xl font-semibold mt-8 mb-3">Quand la curative est pertinente</h3>
+                    <ul class="list-disc pl-6 text-gray-600 space-y-2 mb-6">
+                        <li><strong>Panne accidentelle</strong> : collision véhicule contre la borne, vandalisme, inondation, surtension réseau. Ces événements ne sont pas prévisibles par la maintenance préventive.</li>
+                        <li><strong>Défaillance de composant aléatoire</strong> : même les composants les plus fiables ont un taux de défaillance résiduel (courbe en baignoire). La panne précoce d'un composant neuf est statistiquement inévitable.</li>
+                        <li><strong>Parc réduit</strong> : pour un particulier ou une petite entreprise avec 1 à 3 bornes AC, le coût d'un contrat de maintenance préventive peut être disproportionné par rapport au risque. La curative sur demande est alors plus pertinente.</li>
+                    </ul>
+
+                    <h3 class="text-xl font-semibold mt-8 mb-3">Coûts de la maintenance curative</h3>
+                    <div class="overflow-x-auto mb-6">
+                        <table class="w-full text-sm text-gray-600 border border-gray-200 rounded-lg">
+                            <thead>
+                                <tr class="bg-gray-50">
+                                    <th scope="col" class="text-left px-4 py-3 font-semibold text-gray-900 border-b border-gray-200">Poste</th>
+                                    <th scope="col" class="text-left px-4 py-3 font-semibold text-gray-900 border-b border-gray-200">Borne AC (7-22 kW)</th>
+                                    <th scope="col" class="text-left px-4 py-3 font-semibold text-gray-900 border-b border-gray-200">Borne DC (50-150 kW)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="border-b border-gray-100">
+                                    <td class="px-4 py-3 font-medium text-gray-900">Déplacement technicien</td>
+                                    <td class="px-4 py-3">80 - 150 EUR</td>
+                                    <td class="px-4 py-3">100 - 200 EUR</td>
+                                </tr>
+                                <tr class="border-b border-gray-100">
+                                    <td class="px-4 py-3 font-medium text-gray-900">Diagnostic</td>
+                                    <td class="px-4 py-3">50 - 100 EUR</td>
+                                    <td class="px-4 py-3">100 - 250 EUR</td>
+                                </tr>
+                                <tr class="border-b border-gray-100">
+                                    <td class="px-4 py-3 font-medium text-gray-900">Main d'oeuvre (par heure)</td>
+                                    <td class="px-4 py-3">60 - 90 EUR</td>
+                                    <td class="px-4 py-3">80 - 120 EUR</td>
+                                </tr>
+                                <tr class="border-b border-gray-100">
+                                    <td class="px-4 py-3 font-medium text-gray-900">Pièces courantes</td>
+                                    <td class="px-4 py-3">50 - 500 EUR</td>
+                                    <td class="px-4 py-3">500 - 5 000 EUR</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-4 py-3 font-medium text-gray-900">Coût moyen par intervention</td>
+                                    <td class="px-4 py-3 font-semibold">250 - 600 EUR</td>
+                                    <td class="px-4 py-3 font-semibold">800 - 3 000 EUR</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h3 class="text-xl font-semibold mt-8 mb-3">Limites de l'approche 100 % curative</h3>
+                    <ul class="list-disc pl-6 text-gray-600 space-y-2 mb-6">
+                        <li><strong>Délai d'intervention imprévisible</strong> : sans contrat, le délai de réponse d'un technicien IRVE varie de 24 heures à 2 semaines selon la disponibilité et la localisation géographique.</li>
+                        <li><strong>Diagnostic plus long et plus coûteux</strong> : sans historique de maintenance, le technicien part de zéro pour chaque intervention. Le diagnostic prend 30 à 60 minutes de plus que sur une borne suivie régulièrement.</li>
+                        <li><strong>Pas de priorisation</strong> : sans contrat, votre demande est traitée dans l'ordre d'arrivée. Les clients sous contrat sont prioritaires chez la plupart des prestataires.</li>
+                        <li><strong>Garantie fabricant compromise</strong> : la majorité des garanties fabricant (ABB, Alfen, EVBox, Kempower, Wallbox) exigent un entretien régulier documenté. Sans preuve de maintenance préventive, le fabricant peut refuser la garantie sur les composants défaillants.</li>
+                        <li><strong>Durée de vie réduite</strong> : une borne sans maintenance préventive a une durée de vie effective de 7 à 10 ans, contre 12 à 15 ans avec un entretien régulier. Sur un investissement de 3 000 EUR (AC) ou 40 000 EUR (DC), cette différence est significative.</li>
+                    </ul>
+
+                    <h2 id="preventive" class="text-2xl font-bold mt-12 mb-4">3. Maintenance préventive : définition et ROI</h2>
+                    <p class="text-gray-600 leading-relaxed mb-4">La maintenance préventive consiste à intervenir de manière planifiée et régulière pour inspecter, nettoyer, tester et remplacer les composants d'usure avant qu'ils ne provoquent une panne. L'objectif est double : maximiser le taux de disponibilité des bornes et minimiser le coût total de maintenance sur la durée de vie de l'installation.</p>
+
+                    <h3 class="text-xl font-semibold mt-8 mb-3">Contenu d'une visite de maintenance préventive</h3>
+                    <p class="text-gray-600 leading-relaxed mb-4">Une visite de maintenance préventive IRVE standard dure 30 à 45 minutes par borne AC et 1 à 2 heures par borne DC. Elle comprend systématiquement les opérations suivantes :</p>
+                    <ul class="list-disc pl-6 text-gray-600 space-y-2 mb-6">
+                        <li><strong>Inspection visuelle</strong> : état du boîtier, des câbles, des connecteurs, de la signalétique, des fixations, des joints d'étanchéité. Recherche de traces d'impact, de corrosion, de déformation, de dégradation UV.</li>
+                        <li><strong>Nettoyage</strong> : dépoussiérage des grilles de ventilation (capital pour les bornes DC avec refroidissement par air), nettoyage des connecteurs (les résidus de saleté augmentent la résistance de contact et provoquent des échauffements), nettoyage de l'écran et du lecteur RFID.</li>
+                        <li><strong>Tests électriques</strong> : mesure de la résistance d'isolement (valeur minimale : 1 Mohm), contrôle de la continuité de terre, vérification du serrage des connexions, mesure de la tension et du courant de charge. En cas de doute, thermographie infrarouge des connexions pour détecter les points chauds.</li>
+                        <li><strong>Tests fonctionnels</strong> : cycle complet de charge (démarrage, charge, arrêt), vérification du verrouillage du connecteur, test du bouton d'arrêt d'urgence, test du lecteur RFID et de l'écran, vérification de la connectivité réseau et de la communication OCPP avec le backend.</li>
+                        <li><strong>Mise à jour logicielle</strong> : installation des dernières mises à jour firmware si disponibles. Les mises à jour corrigent des bugs, améliorent la compatibilité avec les véhicules et comblent parfois des failles de sécurité.</li>
+                        <li><strong>Remplacement préventif des pièces d'usure</strong> : joints de connecteur (tous les 2 ans), câble de charge (tous les 3 à 5 ans selon l'usage), filtres de ventilation DC (tous les 6 à 12 mois), liquide de refroidissement DC (tous les 2 à 3 ans).</li>
+                        <li><strong>Rapport d'intervention</strong> : documentation complète de l'état de chaque borne, des mesures effectuées, des anomalies détectées et des actions réalisées. Ce rapport constitue une preuve d'entretien pour la garantie fabricant et pour le programme ADVENIR.</li>
+                    </ul>
+
+                    <h3 class="text-xl font-semibold mt-8 mb-3">Fréquence recommandée</h3>
+                    <div class="overflow-x-auto mb-6">
+                        <table class="w-full text-sm text-gray-600 border border-gray-200 rounded-lg">
+                            <thead>
+                                <tr class="bg-gray-50">
+                                    <th scope="col" class="text-left px-4 py-3 font-semibold text-gray-900 border-b border-gray-200">Type de borne</th>
+                                    <th scope="col" class="text-left px-4 py-3 font-semibold text-gray-900 border-b border-gray-200">Usage modéré</th>
+                                    <th scope="col" class="text-left px-4 py-3 font-semibold text-gray-900 border-b border-gray-200">Usage intensif</th>
+                                    <th scope="col" class="text-left px-4 py-3 font-semibold text-gray-900 border-b border-gray-200">Coût annuel HT</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="border-b border-gray-100">
+                                    <td class="px-4 py-3 font-medium text-gray-900">AC 7-22 kW (intérieur)</td>
+                                    <td class="px-4 py-3">1 visite / an</td>
+                                    <td class="px-4 py-3">2 visites / an</td>
+                                    <td class="px-4 py-3">80 - 200 EUR</td>
+                                </tr>
+                                <tr class="border-b border-gray-100">
+                                    <td class="px-4 py-3 font-medium text-gray-900">AC 7-22 kW (extérieur)</td>
+                                    <td class="px-4 py-3">2 visites / an</td>
+                                    <td class="px-4 py-3">2-3 visites / an</td>
+                                    <td class="px-4 py-3">150 - 350 EUR</td>
+                                </tr>
+                                <tr class="border-b border-gray-100">
+                                    <td class="px-4 py-3 font-medium text-gray-900">DC 50 kW</td>
+                                    <td class="px-4 py-3">2 visites / an</td>
+                                    <td class="px-4 py-3">4 visites / an</td>
+                                    <td class="px-4 py-3">500 - 1 200 EUR</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-4 py-3 font-medium text-gray-900">DC 150-350 kW</td>
+                                    <td class="px-4 py-3">3 visites / an</td>
+                                    <td class="px-4 py-3">4-6 visites / an</td>
+                                    <td class="px-4 py-3">1 000 - 2 500 EUR</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h3 class="text-xl font-semibold mt-8 mb-3">Impact mesuré sur le taux de disponibilité</h3>
+                    <p class="text-gray-600 leading-relaxed mb-4">Les données terrain de JCSM, collectées sur un parc de plus de 3 000 bornes maintenues en France et en Belgique, montrent un impact direct et mesurable de la maintenance préventive sur le <a href="/demo/blog/taux-disponibilite-bornes-irve" class="text-blue-600 hover:text-blue-800 underline">taux de disponibilité des bornes</a> :</p>
+                    <ul class="list-disc pl-6 text-gray-600 space-y-2 mb-6">
+                        <li><strong>Sans maintenance préventive</strong> : taux de disponibilité moyen de 88 à 92 % (AC) et 82 à 88 % (DC).</li>
+                        <li><strong>Avec maintenance préventive</strong> : taux de disponibilité moyen de 96 à 98 % (AC) et 94 à 97 % (DC).</li>
+                        <li><strong>Gain</strong> : +6 à 10 points de disponibilité, soit 22 à 36 jours supplémentaires de fonctionnement par an et par borne.</li>
+                    </ul>
+
+                    <h2 id="comparatif" class="text-2xl font-bold mt-12 mb-4">4. Tableau comparatif détaillé</h2>
+                    <p class="text-gray-600 leading-relaxed mb-4">Ce tableau met en regard les deux approches sur les critères les plus importants pour un opérateur ou un gestionnaire de bornes.</p>
+
+                    <div class="overflow-x-auto mb-6">
+                        <table class="w-full text-sm text-gray-600 border border-gray-200 rounded-lg">
+                            <thead>
+                                <tr class="bg-gray-50">
+                                    <th scope="col" class="text-left px-4 py-3 font-semibold text-gray-900 border-b border-gray-200">Critère</th>
+                                    <th scope="col" class="text-left px-4 py-3 font-semibold text-gray-900 border-b border-gray-200">Curative seule</th>
+                                    <th scope="col" class="text-left px-4 py-3 font-semibold text-gray-900 border-b border-gray-200">Préventive + curative</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="border-b border-gray-100">
+                                    <td class="px-4 py-3 font-medium text-gray-900">Coût annuel moyen (parc 50 AC)</td>
+                                    <td class="px-4 py-3">15 000 - 25 000 EUR</td>
+                                    <td class="px-4 py-3">6 000 - 10 000 EUR</td>
+                                </tr>
+                                <tr class="border-b border-gray-100">
+                                    <td class="px-4 py-3 font-medium text-gray-900">Taux de disponibilité AC</td>
+                                    <td class="px-4 py-3">88 - 92 %</td>
+                                    <td class="px-4 py-3">96 - 98 %</td>
+                                </tr>
+                                <tr class="border-b border-gray-100">
+                                    <td class="px-4 py-3 font-medium text-gray-900">Taux de disponibilité DC</td>
+                                    <td class="px-4 py-3">82 - 88 %</td>
+                                    <td class="px-4 py-3">94 - 97 %</td>
+                                </tr>
+                                <tr class="border-b border-gray-100">
+                                    <td class="px-4 py-3 font-medium text-gray-900">Délai moyen de réparation (MTTR)</td>
+                                    <td class="px-4 py-3">3 - 7 jours</td>
+                                    <td class="px-4 py-3">4 - 24 heures</td>
+                                </tr>
+                                <tr class="border-b border-gray-100">
+                                    <td class="px-4 py-3 font-medium text-gray-900">Nombre de pannes / an / borne AC</td>
+                                    <td class="px-4 py-3">0,8 - 1,5</td>
+                                    <td class="px-4 py-3">0,2 - 0,5</td>
+                                </tr>
+                                <tr class="border-b border-gray-100">
+                                    <td class="px-4 py-3 font-medium text-gray-900">Durée de vie des bornes</td>
+                                    <td class="px-4 py-3">7 - 10 ans</td>
+                                    <td class="px-4 py-3">12 - 15 ans</td>
+                                </tr>
+                                <tr class="border-b border-gray-100">
+                                    <td class="px-4 py-3 font-medium text-gray-900">Garantie fabricant</td>
+                                    <td class="px-4 py-3">Risque de déchéance</td>
+                                    <td class="px-4 py-3">Maintenue</td>
+                                </tr>
+                                <tr class="border-b border-gray-100">
+                                    <td class="px-4 py-3 font-medium text-gray-900">Prévisibilité budgétaire</td>
+                                    <td class="px-4 py-3">Faible (pics imprévisibles)</td>
+                                    <td class="px-4 py-3">Élevée (budget lissé)</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-4 py-3 font-medium text-gray-900">Conformité ADVENIR</td>
+                                    <td class="px-4 py-3">Non garantie</td>
+                                    <td class="px-4 py-3">Assurée</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <p class="text-gray-600 leading-relaxed mb-4">Le verdict est sans appel : pour tout parc de plus de 5 bornes, la maintenance préventive est économiquement et opérationnellement supérieure à la maintenance curative seule. L'investissement préventif est amorti dès la première panne évitée sur une borne DC ou dès les deux premières pannes évitées sur des bornes AC.</p>
+
+                    <h2 id="approche-jcsm" class="text-2xl font-bold mt-12 mb-4">5. L'approche hybride JCSM</h2>
+                    <p class="text-gray-600 leading-relaxed mb-4">Chez JCSM, nous ne croyons pas à l'opposition entre préventive et curative. Nous pratiquons une approche hybride qui combine le meilleur des deux mondes : une base préventive solide et programmée, couplée à un service curatif réactif avec des engagements de SLA (Service Level Agreement) contractuels. Cette approche est déployée sur l'ensemble des bornes que nous exploitons via notre <a href="/demo/centre-appel" class="text-blue-600 hover:text-blue-800 underline">centre d'appel et support technique 24/7</a>.</p>
+
+                    <h3 class="text-xl font-semibold mt-8 mb-3">Pilier 1 : Maintenance préventive planifiée</h3>
+                    <p class="text-gray-600 leading-relaxed mb-4">Nos techniciens réalisent des visites préventives selon un calendrier adapté à chaque parc (type de bornes, environnement, intensité d'usage). Chaque visite suit un protocole standardisé de 47 points de contrôle pour les bornes AC et 82 points pour les bornes DC. Les rapports d'intervention sont disponibles en temps réel sur notre plateforme de <a href="/demo/blog/supervision-distance-bornes-irve" class="text-blue-600 hover:text-blue-800 underline">supervision à distance</a>.</p>
+
+                    <h3 class="text-xl font-semibold mt-8 mb-3">Pilier 2 : Supervision à distance 24/7</h3>
+                    <p class="text-gray-600 leading-relaxed mb-4">Entre les visites préventives, nos systèmes de supervision analysent en continu les données remontées par les bornes via OCPP : tensions, courants, températures, erreurs logicielles, taux de sessions réussies. Des algorithmes de détection d'anomalies identifient les dérives avant qu'elles ne deviennent des pannes. Lorsqu'une anomalie est détectée, un technicien est alerté et peut intervenir à distance (reboot, mise à jour, reconfiguration) ou planifier une visite si l'intervention physique est nécessaire.</p>
+
+                    <h3 class="text-xl font-semibold mt-8 mb-3">Pilier 3 : Maintenance curative garantie (SLA)</h3>
+                    <p class="text-gray-600 leading-relaxed mb-4">Malgré la préventive et la supervision, des pannes surviennent. Notre engagement contractuel garantit des délais d'intervention rapides :</p>
+                    <ul class="list-disc pl-6 text-gray-600 space-y-2 mb-6">
+                        <li><strong>SLA Standard</strong> : prise en charge en 4 heures, intervention sur site en 24 heures ouvrées. Adapté aux bornes AC en parking privé.</li>
+                        <li><strong>SLA Premium</strong> : prise en charge en 1 heure, intervention sur site en 8 heures (y compris week-end). Adapté aux bornes DC publiques et aux sites critiques.</li>
+                        <li><strong>SLA Critique</strong> : prise en charge en 30 minutes, intervention sur site en 4 heures, 24/7/365. Adapté aux hubs de recharge autoroutiers et aux flottes de transport.</li>
+                    </ul>
+                    <p class="text-gray-600 leading-relaxed mb-4">Ces SLA sont possibles grâce à notre réseau de techniciens répartis sur l'ensemble du territoire français et en Belgique, et à notre stock de pièces détachées multi-marques. En savoir plus sur notre <a href="/demo/exploitation" class="text-blue-600 hover:text-blue-800 underline">offre d'exploitation et maintenance</a>.</p>
+
+                    <h2 id="calculer-roi" class="text-2xl font-bold mt-12 mb-4">6. Calculer le ROI de la maintenance préventive</h2>
+                    <p class="text-gray-600 leading-relaxed mb-4">Pour convaincre votre direction financière, voici la méthode de calcul du retour sur investissement de la maintenance préventive, avec un exemple concret.</p>
+
+                    <h3 class="text-xl font-semibold mt-8 mb-3">La formule</h3>
+                    <p class="text-gray-600 leading-relaxed mb-4">ROI de la préventive = (Coût évité - Coût de la préventive) / Coût de la préventive</p>
+                    <p class="text-gray-600 leading-relaxed mb-4">Où le coût évité = réduction du nombre de pannes x coût moyen d'une panne (réparation + perte de CA + pénalités) + gain de durée de vie (valeur résiduelle) + économie sur les pièces (remplacement préventif vs remplacement en urgence avec surcoût express).</p>
+
+                    <h3 class="text-xl font-semibold mt-8 mb-3">Exemple : parc de 30 bornes AC 22 kW (parking entreprise)</h3>
+                    <p class="text-gray-600 leading-relaxed mb-4"><strong>Sans préventive (curative seule)</strong> :</p>
+                    <ul class="list-disc pl-6 text-gray-600 space-y-2 mb-6">
+                        <li>Nombre de pannes par an : 30 bornes × 1,0 panne/borne/an = 30 pannes</li>
+                        <li>Coût moyen par panne : 400 EUR (déplacement + diagnostic + réparation)</li>
+                        <li>Coût curatif annuel : 30 × 400 = 12 000 EUR</li>
+                        <li>Durée de vie estimée : 8 ans → remplacement à l'année 8 → coût d'amortissement annuel : 30 × 3 000 / 8 = 11 250 EUR</li>
+                    </ul>
+
+                    <p class="text-gray-600 leading-relaxed mb-4"><strong>Avec préventive</strong> :</p>
+                    <ul class="list-disc pl-6 text-gray-600 space-y-2 mb-6">
+                        <li>Coût préventif annuel : 30 bornes × 150 EUR = 4 500 EUR</li>
+                        <li>Nombre de pannes par an : 30 × 0,3 panne/borne/an = 9 pannes</li>
+                        <li>Coût curatif résiduel : 9 × 350 EUR = 3 150 EUR (moins cher car diagnostic plus rapide)</li>
+                        <li>Coût maintenance total : 4 500 + 3 150 = 7 650 EUR</li>
+                        <li>Durée de vie estimée : 13 ans → coût d'amortissement annuel : 30 × 3 000 / 13 = 6 923 EUR</li>
+                    </ul>
+
+                    <p class="text-gray-600 leading-relaxed mb-4"><strong>Bilan annuel</strong> :</p>
+                    <ul class="list-disc pl-6 text-gray-600 space-y-2 mb-6">
+                        <li>Économie sur la maintenance : 12 000 - 7 650 = 4 350 EUR/an</li>
+                        <li>Économie sur l'amortissement : 11 250 - 6 923 = 4 327 EUR/an</li>
+                        <li>Économie totale : 8 677 EUR/an</li>
+                        <li>ROI : (8 677 - 4 500) / 4 500 = 93 %</li>
+                    </ul>
+
+                    <p class="text-gray-600 leading-relaxed mb-4">Le ROI est encore plus spectaculaire pour les bornes DC publiques, où la perte de chiffre d'affaires s'ajoute au coût de réparation. Sur un parc de 10 bornes DC 50 kW, l'économie annuelle dépasse régulièrement les 30 000 EUR. Consultez notre <a href="/demo/blog/cout-maintenance-borne-recharge-2026" class="text-blue-600 hover:text-blue-800 underline">guide des coûts de maintenance</a> pour des chiffres détaillés par configuration.</p>
+
+                    <h2 id="faq" class="text-2xl font-bold mt-12 mb-6">FAQ : vos questions sur la maintenance IRVE</h2>
+                    <div class="section-appear space-y-6 mb-8">
+                        <div class="border border-gray-200 rounded-xl p-5">
+                            <h3 class="font-semibold text-gray-900 mb-2">Quelle est la différence entre maintenance préventive et curative IRVE ?</h3>
+                            <p class="text-gray-600 text-sm leading-relaxed">La maintenance préventive intervient de manière planifiée (1 à 2 fois par an) pour inspecter, nettoyer et tester les bornes avant qu'une panne ne survienne. La maintenance curative intervient après une panne pour remettre la borne en service. La préventive réduit le taux de panne de 40 à 60 % et coûte 2 à 3 fois moins cher sur la durée.</p>
+                        </div>
+                        <div class="border border-gray-200 rounded-xl p-5">
+                            <h3 class="font-semibold text-gray-900 mb-2">Combien coûte la maintenance préventive d'une borne de recharge ?</h3>
+                            <p class="text-gray-600 text-sm leading-relaxed">80 à 200 EUR HT par borne AC et par an (1-2 visites), 500 à 1 500 EUR HT par borne DC et par an (2-4 visites). Ces coûts incluent l'inspection, le nettoyage, les tests, les mises à jour et le remplacement des pièces d'usure. Détails dans notre <a href="/demo/blog/cout-maintenance-borne-recharge-2026" class="text-blue-600 hover:text-blue-800 underline">guide des coûts de maintenance</a>.</p>
+                        </div>
+                        <div class="border border-gray-200 rounded-xl p-5">
+                            <h3 class="font-semibold text-gray-900 mb-2">Quelle est la fréquence recommandée pour la maintenance préventive ?</h3>
+                            <p class="text-gray-600 text-sm leading-relaxed">AC intérieur : 1 visite/an. AC extérieur ou usage intensif : 2 visites/an. DC 50 kW : 2 à 4 visites/an. DC 150+ kW : 3 à 6 visites/an. Les bornes en extérieur nécessitent une fréquence plus élevée en raison de l'exposition aux intempéries.</p>
+                        </div>
+                        <div class="border border-gray-200 rounded-xl p-5">
+                            <h3 class="font-semibold text-gray-900 mb-2">La maintenance préventive est-elle obligatoire pour les bornes IRVE ?</h3>
+                            <p class="text-gray-600 text-sm leading-relaxed">Pas d'obligation légale stricte, mais les garanties fabricants l'exigent généralement. Le programme ADVENIR impose un taux de disponibilité de 95 % pour les bornes subventionnées ouvertes au public, rendant la préventive indispensable en pratique. En savoir plus sur le <a href="/demo/blog/taux-disponibilite-bornes-irve" class="text-blue-600 hover:text-blue-800 underline">taux de disponibilité des bornes</a>.</p>
+                        </div>
+                        <div class="border border-gray-200 rounded-xl p-5">
+                            <h3 class="font-semibold text-gray-900 mb-2">Quel est le ROI de la maintenance préventive IRVE ?</h3>
+                            <p class="text-gray-600 text-sm leading-relaxed">Le ROI est positif dès la première année pour un parc de plus de 10 bornes. Exemple : un parc de 30 bornes AC avec préventive économise 8 677 EUR/an par rapport au même parc sans préventive, pour un investissement de 4 500 EUR/an, soit un ROI de 93 %. Pour les bornes DC, le ROI dépasse souvent 200 %.</p>
+                        </div>
+                    </div>
+
+                    <h2 class="text-2xl font-bold mt-12 mb-4">Conclusion : la préventive n'est pas un coût, c'est un investissement</h2>
+                    <p class="text-gray-600 leading-relaxed mb-4">Les chiffres sont éloquents : la maintenance préventive réduit les pannes de 40 à 60 %, augmente le taux de disponibilité de 6 à 10 points, prolonge la durée de vie des bornes de 50 % et génère un ROI supérieur à 90 % dès la première année. Elle transforme un poste de dépense imprévisible (la curative réactive) en un investissement planifié et budgétisé.</p>
+                    <p class="text-gray-600 leading-relaxed mb-4">L'approche optimale est hybride : une base préventive solide et planifiée, complétée par un service curatif réactif avec des engagements de SLA contractuels. C'est exactement ce que propose JCSM à travers ses contrats d'exploitation et maintenance, déployés sur des milliers de bornes en France et en Belgique.</p>
+                    <p class="text-gray-600 leading-relaxed mb-4">Ne laissez plus les pannes dicter votre agenda et votre budget. Passez à une stratégie de maintenance proactive et maîtrisée. <a href="/demo/contact" class="text-blue-600 hover:text-blue-800 underline">Contactez JCSM</a> pour un audit de votre parc existant et une proposition de contrat de maintenance adapte a votre parc, ou découvrez notre offre complète d'<a href="/demo/exploitation" class="text-blue-600 hover:text-blue-800 underline">exploitation et maintenance IRVE</a>.</p>
+                </div>
+
+                <div class="section-appear mt-12 bg-blue-50 rounded-2xl p-8 text-center">
+                    <h3 class="text-xl font-bold mb-3">Optimisez la maintenance de vos bornes de recharge</h3>
+                    <p class="text-gray-600 mb-6">JCSM propose des contrats de maintenance hybrides (préventive + curative avec SLA garanti) adaptés à chaque parc. Audit de votre parc existant gratuit.</p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <a href="/demo/contact" class="btn-primary px-8 py-3 rounded-xl font-medium inline-block">Demander un audit gratuit</a>
+                        <a href="/demo/exploitation" class="px-8 py-3 rounded-xl font-medium inline-block border border-blue-600 text-blue-600 hover:bg-blue-50 transition-colors">Notre offre maintenance</a>
+                    </div>
+                </div>
+
+
+                <!-- Partage social -->
+                <div class="flex items-center gap-4 pt-8 mt-8 border-t border-gray-200">
+                    <span class="text-sm font-semibold text-gray-700">Partager :</span>
+                    <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://jcsm.fr/blog/maintenance-preventive-vs-curative-irve" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-gray-100 hover:bg-blue-50 text-gray-600 hover:text-blue-700 text-sm font-medium transition-colors" aria-label="Partager sur LinkedIn">
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                        LinkedIn
+                    </a>
+                    <a href="https://twitter.com/intent/tweet?url=https://jcsm.fr/blog/maintenance-preventive-vs-curative-irve&amp;text=Maintenance%20pr%C3%A9ventive%20vs%20curative%20IRVE%20%3A%20laquelle%20choisir%20%3F" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-gray-100 hover:bg-gray-200 text-gray-600 hover:text-gray-900 text-sm font-medium transition-colors" aria-label="Partager sur X">
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                        X
+                    </a>
+                </div>
+
+                <div class="section-appear mt-16 pt-8 border-t border-gray-100">
+                    <h3 class="text-lg font-bold mb-6">Articles similaires</h3>
+                    <div class="grid sm:grid-cols-2 gap-6">
+                        <a href="/demo/blog/cout-maintenance-borne-recharge-2026" class="group blog-card-premium">
+                            <h4 class="font-semibold group-hover:text-blue-600 transition-colors mb-1">Coût de maintenance d'une borne de recharge en 2026</h4>
+                            <p class="text-sm text-gray-500">Tarifs préventif/curatif détaillés, contrats et optimisation.</p>
+                        </a>
+                        <a href="/demo/blog/taux-disponibilite-bornes-irve" class="group blog-card-premium">
+                            <h4 class="font-semibold group-hover:text-blue-600 transition-colors mb-1">Taux de disponibilité des bornes IRVE</h4>
+                            <p class="text-sm text-gray-500">Comment mesurer et améliorer la disponibilité de votre parc.</p>
+                        </a>
+                        <a href="/demo/blog/choisir-prestataire-maintenance-irve" class="group blog-card-premium">
+                            <h4 class="font-semibold group-hover:text-blue-600 transition-colors mb-1">Choisir son prestataire de maintenance IRVE</h4>
+                            <p class="text-sm text-gray-500">Critères de sélection, certifications et pièges à éviter.</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <footer class="border-t border-gray-100 py-16 px-6 bg-white" role="contentinfo" aria-label="Pied de page">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid md:grid-cols-4 gap-10 mb-12">
+                <div>
+                    <div class="flex items-center space-x-3 mb-4">
+                        <picture><source srcset="../images/logo.webp" type="image/webp"><img src="../images/logo.png" alt="Logo JCSM" class="w-8 h-8" width="32" height="32" loading="lazy"></picture>
+                        <span class="text-xl font-semibold text-gray-900">JCSM</span>
+                    </div>
+                    <p class="text-sm text-gray-600 mb-4">Expérience IRVE depuis 2019. Installation, maintenance et pilotage en France et Belgique. Entreprise inclusive.</p>
+                    <p class="text-sm text-gray-500">60 rue François 1er<br>75008 Paris</p>
+                    <p class="text-sm text-gray-500 mt-3"><a href="tel:+33183755706" class="hover:text-gray-900 transition-colors">+33 1 83 75 57 06</a></p>
+                    <p class="text-sm text-gray-500"><a href="mailto:contact@jcsm.fr" class="hover:text-gray-900 transition-colors">contact@jcsm.fr</a></p>
+                </div>
+                <div>
+                    <h3 class="text-sm font-semibold text-gray-900 mb-4 uppercase tracking-wide">Services</h3>
+                    <nav aria-label="Services">
+                        <ul class="space-y-3">
+                            <li><a href="/demo/pilotage-projets" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Pilotage de projets</a></li>
+                            <li><a href="/demo/installation-conformite" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Installation & conformité</a></li>
+                            <li><a href="/demo/exploitation" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Exploitation & maintenance</a></li>
+                            <li><a href="/demo/securisation-installations" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Sécurisation</a></li>
+                            <li><a href="/demo/centre-appel" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Support 24/7</a></li>
+                            <li><a href="/demo/tarification" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Tarification</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div>
+                    <h3 class="text-sm font-semibold text-gray-900 mb-4 uppercase tracking-wide">Entreprise</h3>
+                    <nav aria-label="Entreprise">
+                        <ul class="space-y-3">
+                            <li><a href="/demo/devenir-partenaire" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Devenir partenaire</a></li>
+                            <li><a href="/demo/a-propos" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">À propos</a></li>
+                            <li><a href="/demo/inclusion" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Inclusion</a></li>
+                            <li><a href="/demo/carrieres" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Carrières</a></li>
+                            <li><a href="/demo/contact" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Contact</a></li>
+                            <li><a href="/demo/blog" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Blog</a></li>
+                            <li><a href="/demo/solutions/" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Solutions</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div>
+                    <h3 class="text-sm font-semibold text-gray-900 mb-4 uppercase tracking-wide">Légal</h3>
+                    <nav aria-label="Légal">
+                        <ul class="space-y-3">
+                            <li><a href="/demo/mentions-legales" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Mentions légales</a></li>
+                            <li><a href="/demo/confidentialite" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Confidentialité</a></li>
+                            <li><a href="/demo/cgv" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">CGV</a></li>
+                        </ul>
+                    </nav>
+                    <h3 class="text-sm font-semibold text-gray-900 mb-4 uppercase tracking-wide mt-6">Zones</h3>
+                    <nav aria-label="Zones">
+                        <ul class="space-y-3">
+                            <li><a href="/demo/zones/france" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">France</a></li>
+                            <li><a href="/demo/zones/belgique" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Belgique</a></li>
+                        </ul>
+                    </nav>
+                    <div class="flex items-center gap-3 mt-4">
+                        <a href="https://www.linkedin.com/company/jcsm-elec/" target="_blank" rel="noopener noreferrer me" class="text-gray-500 hover:text-gray-900 transition-colors" aria-label="LinkedIn">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                        </a>
+                        <a href="https://www.facebook.com/profile.php?id=61587992161634" target="_blank" rel="noopener noreferrer me" class="text-gray-500 hover:text-gray-900 transition-colors" aria-label="Facebook">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                        </a>
+                        <a href="https://x.com/JCSM_ELEC" target="_blank" rel="noopener noreferrer me" class="text-gray-500 hover:text-gray-900 transition-colors" aria-label="X (Twitter)">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                        </a>
+                        <a href="https://www.instagram.com/jcsm.elec/" target="_blank" rel="noopener noreferrer me" class="text-gray-500 hover:text-gray-900 transition-colors" aria-label="Instagram">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+                        </a>
+                        <a href="https://www.youtube.com/@JCSM_ELEC" target="_blank" rel="noopener noreferrer me" class="text-gray-500 hover:text-gray-900 transition-colors" aria-label="YouTube">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="pt-8 border-t border-gray-100 flex flex-col md:flex-row md:items-center md:justify-between gap-4 text-xs text-gray-500">
+                <span>&copy; 2026 JCSM SAS - SIRET 99387429600011</span>
+                <a href="mailto:contact@jcsm.fr" class="hover:text-gray-900 transition-colors">contact@jcsm.fr</a> · <a href="tel:+33183755706" class="hover:text-gray-900 transition-colors">+33 1 83 75 57 06</a>
+            </div>
+        </div>
+    </footer>
+
+    <button class="scroll-top" id="scrollTop" aria-label="Retour en haut de page">
+        <svg aria-hidden="true" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.5 15.75l7.5-7.5 7.5 7.5" /></svg>
+    </button>
+    <script src="../js/i18n.js?v=72" defer></script>
+    <script src="../js/config.js?v=72" defer></script>
+    <script src="../js/utils.js?v=72" defer></script>
+    <script src="../js/public.js?v=72" defer></script>
+    <script src="../js/analytics.js?v=72" defer></script>
+    <script src="../js/wow-effects.js?v=72" defer></script>
+    <script>if ('serviceWorker' in navigator) { window.addEventListener('load', () => { navigator.serviceWorker.register('/sw.js').catch(() => {}); }); }</script>
+</body>
+</html>

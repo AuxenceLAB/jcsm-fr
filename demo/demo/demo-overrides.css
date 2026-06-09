@@ -1,0 +1,247 @@
+/* ========================================================================
+   JCSM DEMO — UX polish + fix responsive
+   Version overlay : aucun fichier original n'est modifié.
+   ======================================================================== */
+
+/* === 1. PRELOADER : disparition plus rapide et propre ================== */
+.preloader {
+    transition: opacity 0.35s cubic-bezier(.4,0,.2,1), visibility 0.35s !important;
+}
+/* Force fade-out après 700ms même si le JS tarde */
+.preloader.preloader-auto-hide {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+/* === 2. HERO : refonte mobile + impact visuel ========================== */
+
+/* Hero global - background plus riche */
+.hero-section {
+    background: linear-gradient(180deg, #fafbff 0%, #f8fafc 100%) !important;
+}
+.hero-section::before {
+    background-image:
+        radial-gradient(circle at 1px 1px, rgba(37,99,235,0.08) 1px, transparent 0),
+        radial-gradient(ellipse 60% 80% at 100% 0%, rgba(59,130,246,0.06), transparent),
+        radial-gradient(ellipse 60% 80% at 0% 100%, rgba(37,99,235,0.04), transparent) !important;
+    background-size: 32px 32px, 100% 100%, 100% 100% !important;
+}
+
+/* MOBILE : ordre des éléments → image AVANT le texte (impact visuel immédiat) */
+@media (max-width: 1023px) {
+    .hero-section {
+        padding-top: 6rem !important;
+        min-height: auto !important;
+    }
+    .hero-section .grid {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 1.75rem !important;
+    }
+    .hero-section .grid > div:last-child {
+        order: -1;
+    }
+    .hero-section .grid > div:last-child img {
+        max-height: 32vh;
+        object-fit: cover;
+        border-radius: 1.25rem !important;
+    }
+    .hero-section h1 {
+        font-size: clamp(1.75rem, 7vw, 2.5rem) !important;
+        line-height: 1.1 !important;
+    }
+    .hero-section p {
+        font-size: 1.0625rem !important;
+    }
+    /* CTA mobile : full-width + ordre */
+    .hero-section .flex.flex-wrap.gap-3 {
+        flex-direction: column !important;
+        width: 100%;
+    }
+    .hero-section .flex.flex-wrap.gap-3 > a {
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+    }
+}
+
+/* === 3. CTA PRIMAIRE : plus de gueule ================================== */
+.btn-primary {
+    background: linear-gradient(135deg, #2563eb 0%, #3b82f6 50%, #2563eb 100%) !important;
+    background-size: 200% 200% !important;
+    box-shadow:
+        0 10px 30px -10px rgba(37,99,235,0.45),
+        0 0 0 1px rgba(37,99,235,0.1) inset !important;
+    transition: transform 0.25s cubic-bezier(.4,0,.2,1),
+                box-shadow 0.25s cubic-bezier(.4,0,.2,1),
+                background-position 0.6s ease !important;
+    position: relative;
+    overflow: hidden;
+}
+.btn-primary::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(120deg, transparent 30%, rgba(255,255,255,0.25) 50%, transparent 70%);
+    transform: translateX(-100%);
+    transition: transform 0.6s ease;
+    pointer-events: none;
+}
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow:
+        0 18px 40px -10px rgba(37,99,235,0.55),
+        0 0 0 1px rgba(37,99,235,0.15) inset !important;
+    background-position: 100% 0% !important;
+}
+.btn-primary:hover::after {
+    transform: translateX(100%);
+}
+.btn-primary:active {
+    transform: translateY(0);
+}
+
+/* Bouton secondaire — un peu plus de présence */
+.btn-secondary {
+    background: #ffffff !important;
+    border: 1.5px solid #e5e7eb !important;
+    color: #1f2937 !important;
+    transition: all 0.25s cubic-bezier(.4,0,.2,1) !important;
+}
+.btn-secondary:hover {
+    border-color: #2563eb !important;
+    color: #2563eb !important;
+    transform: translateY(-1px);
+    box-shadow: 0 8px 20px -8px rgba(37,99,235,0.2);
+}
+
+/* === 4. HERO BADGE : un peu plus de pop ================================ */
+.hero-badge {
+    background: rgba(255,255,255,0.85) !important;
+    backdrop-filter: blur(8px) !important;
+    -webkit-backdrop-filter: blur(8px) !important;
+    border: 1px solid rgba(37,99,235,0.15) !important;
+    box-shadow:
+        0 4px 12px -4px rgba(37,99,235,0.08),
+        0 0 0 1px rgba(255,255,255,0.5) inset !important;
+}
+
+/* === 5. SERVICES CARDS : hover plus net, accent latéral coloré ========= */
+.svc-card {
+    background: #fff !important;
+    border: 1px solid #f1f5f9 !important;
+    transition: all 0.4s cubic-bezier(.4,0,.2,1) !important;
+}
+.svc-card::before {
+    width: 4px !important;
+    background: linear-gradient(180deg, #2563eb, #3b82f6) !important;
+    border-radius: 0 4px 4px 0 !important;
+}
+.svc-card:hover {
+    border-color: rgba(37,99,235,0.15) !important;
+    box-shadow:
+        0 24px 48px -16px rgba(37,99,235,0.12),
+        0 0 0 1px rgba(37,99,235,0.05) !important;
+    transform: translateY(-6px) !important;
+}
+.svc-icon {
+    transition: transform 0.4s cubic-bezier(.4,0,.2,1),
+                box-shadow 0.4s cubic-bezier(.4,0,.2,1) !important;
+}
+.svc-card:hover .svc-icon {
+    transform: scale(1.08) rotate(-3deg) !important;
+    box-shadow: 0 14px 28px -10px rgba(37,99,235,0.4) !important;
+}
+
+/* === 6. NAV : glass plus marqué ======================================== */
+.glass-nav {
+    background: rgba(255,255,255,0.78) !important;
+    backdrop-filter: blur(16px) saturate(180%) !important;
+    -webkit-backdrop-filter: blur(16px) saturate(180%) !important;
+    border-bottom: 1px solid rgba(229,231,235,0.6) !important;
+}
+
+/* === 7. WHY CARDS : harmonisation avec services ======================== */
+.why-card {
+    transition: all 0.4s cubic-bezier(.4,0,.2,1) !important;
+}
+.why-card:hover {
+    transform: translateY(-4px);
+    box-shadow:
+        0 20px 40px -12px rgba(0,0,0,0.08),
+        0 0 0 1px rgba(37,99,235,0.05) !important;
+}
+
+/* === 8. Bouton mobile menu : agrandi (tap target accessibilité) ======== */
+.mobile-menu-btn {
+    min-width: 44px;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    margin: -8px;
+    border-radius: 10px;
+    transition: background 0.2s;
+}
+.mobile-menu-btn:hover {
+    background: rgba(37,99,235,0.06);
+}
+
+/* === 9. Scroll progress : un peu plus visible ========================= */
+#scroll-progress {
+    height: 3px !important;
+    background: linear-gradient(90deg, #2563eb, #3b82f6, #60a5fa) !important;
+    box-shadow: 0 0 8px rgba(37,99,235,0.4) !important;
+}
+
+/* === 10. Accent color "Pas nous." : plus éclatant ===================== */
+.accent-pro {
+    background: linear-gradient(135deg, #2563eb 0%, #3b82f6 50%, #60a5fa 100%) !important;
+    -webkit-background-clip: text !important;
+    background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    position: relative;
+}
+
+/* === 11. Section appear : transitions plus douces ===================== */
+.section-appear {
+    transition: opacity 0.7s cubic-bezier(.4,0,.2,1),
+                transform 0.7s cubic-bezier(.4,0,.2,1) !important;
+}
+
+/* === 12. Demo banner discret (en bas) pour signaler la version démo === */
+.demo-banner {
+    position: fixed;
+    bottom: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(15,23,42,0.92);
+    color: #fff;
+    padding: 8px 18px;
+    border-radius: 100px;
+    font-size: 12px;
+    font-weight: 600;
+    z-index: 9999;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 8px 24px -8px rgba(0,0,0,0.4);
+    letter-spacing: 0.02em;
+}
+.demo-banner span {
+    color: #60a5fa;
+    margin-right: 6px;
+}
+@media (max-width: 640px) {
+    .demo-banner { bottom: 70px; font-size: 11px; padding: 6px 14px; }
+}
+
+/* === 13. prefers-reduced-motion : tout respecter ======================= */
+@media (prefers-reduced-motion: reduce) {
+    .btn-primary, .btn-secondary, .svc-card, .svc-icon, .why-card,
+    .preloader, .section-appear {
+        transition: none !important;
+        animation: none !important;
+    }
+    .btn-primary::after { display: none; }
+}

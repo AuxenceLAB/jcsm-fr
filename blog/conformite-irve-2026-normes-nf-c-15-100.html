@@ -101,13 +101,13 @@
     <link rel="dns-prefetch" href="https://fonts.googleapis.com">
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-    <noscript><link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet"></noscript>
-    <link rel="stylesheet" href="../css/critical.css?v=63">
-    <link rel="stylesheet" href="../css/tailwind.css?v=63" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="../css/tailwind.css?v=63"></noscript>
-    <link rel="stylesheet" href="../styles.css?v=63" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="../styles.css?v=63"></noscript>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet"></noscript>
+    <link rel="stylesheet" href="../css/critical.css?v=72">
+    <link rel="stylesheet" href="../css/tailwind.css?v=72" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="../css/tailwind.css?v=72"></noscript>
+    <link rel="stylesheet" href="../styles.css?v=72" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="../styles.css?v=72"></noscript>
     <link rel="manifest" href="../manifest.json">
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -119,11 +119,6 @@
     <div class="preloader" id="preloader" role="status" aria-label="Chargement">
         <div class="flex flex-col items-center justify-center">
             <picture><source srcset="../images/logo.webp" type="image/webp"><img src="../images/logo.png" alt="JCSM" width="80" height="80" class="animate-pulse"></picture>
-            <div class="mt-4 flex space-x-2" aria-hidden="true">
-                <div class="w-2 h-2 bg-blue-600 rounded-full animate-bounce" style="animation-delay: 0s"></div>
-                <div class="w-2 h-2 bg-blue-600 rounded-full animate-bounce" style="animation-delay: 0.1s"></div>
-                <div class="w-2 h-2 bg-blue-600 rounded-full animate-bounce" style="animation-delay: 0.2s"></div>
-            </div>
         </div>
     </div>
     <div class="mobile-menu-overlay" id="mobile-menu-overlay"></div>
@@ -254,7 +249,7 @@
                     <ul class="list-disc pl-6 text-gray-600 space-y-2 mb-6">
                         <li><strong>P1</strong> : installations basiques (bornes AC &le; 22 kW sans communication)</li>
                         <li><strong>P2</strong> : installations avec communication (OCPP, supervision)</li>
-                        <li><strong>P3</strong> : installations haute puissance (DC, HTA/BT) — la plus exigeante</li>
+                        <li><strong>P3</strong> : installations haute puissance (DC, HTA/BT), la plus exigeante</li>
                     </ul>
 
                     <p class="text-gray-600 leading-relaxed mb-4">JCSM dispose de la qualification <a href="/blog/certification-qualifelec-irve" class="text-blue-600 hover:text-blue-800 underline">Qualifelec IRVE</a> couvrant l'ensemble des mentions, avec une assurance RC Pro de 2 millions d'euros.</p>
@@ -406,7 +401,7 @@
 
                 <div class="mt-12 section-appear bg-gradient-to-r from-blue-600 to-blue-700 rounded-2xl p-8 text-center">
                     <h3 class="text-xl font-bold mb-3 text-white">Besoin d'un audit de conformité ou d'une installation certifiée ?</h3>
-                    <p class="text-blue-100 mb-6">JCSM — expérience IRVE depuis 2019, qualifié Qualifelec, 2000+ interventions terrain.</p>
+                    <p class="text-blue-100 mb-6">JCSM : expert IRVE depuis 2019, certifié Qualifelec, équipe terrain France et Belgique.</p>
                     <a href="/contact" class="bg-white text-blue-700 px-8 py-3 rounded-xl font-medium inline-block hover:bg-blue-50 transition-colors">Nous contacter</a>
                 </div>
 
@@ -531,15 +526,12 @@
     <button class="scroll-top" id="scrollTop" aria-label="Retour en haut de page">
         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.5 15.75l7.5-7.5 7.5 7.5" /></svg>
     </button>
-    <script src="../js/i18n.js?v=63" defer></script>
-    <script src="../js/config.js?v=63" defer></script>
-    <script src="../js/utils.js?v=63" defer></script>
-    <script src="../js/public.js?v=63" defer></script>
-    <script src="../js/analytics.js?v=63" defer></script>
-    <script src="../js/wow-effects.js?v=63" defer></script>
+    <script src="../js/i18n.js?v=72" defer></script>
+    <script src="../js/config.js?v=72" defer></script>
+    <script src="../js/utils.js?v=72" defer></script>
+    <script src="../js/public.js?v=72" defer></script>
+    <script src="../js/analytics.js?v=72" defer></script>
+    <script src="../js/wow-effects.js?v=72" defer></script>
     <script>if ('serviceWorker' in navigator) { window.addEventListener('load', () => { navigator.serviceWorker.register('/sw.js').catch(() => {}); }); }</script>
-    <link rel="stylesheet" href="/css/chatbot.css" media="print" onload="this.media='all'">
-<noscript><link rel="stylesheet" href="/css/chatbot.css"></noscript>
-<script src="/js/chatbot.js" defer></script>
 </body>
 </html>

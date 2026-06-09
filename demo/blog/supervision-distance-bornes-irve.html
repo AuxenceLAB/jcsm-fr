@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <!-- Cookie Consent + GTM (chargé après acceptation) -->
+    <script src="/demo/js/cookie-consent.js" defer></script>
+    <title>Supervision à distance des bornes IRVE : enjeux | JCSM</title>
+    <meta name="description" content="Supervision à distance des bornes IRVE : protocole OCPP, alertes temps réel, diagnostic remote, KPI de disponibilité et redémarrage à distance.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://jcsm.fr/blog/supervision-distance-bornes-irve">
+    <link rel="alternate" hreflang="fr" href="https://jcsm.fr/blog/supervision-distance-bornes-irve">
+    <link rel="alternate" hreflang="x-default" href="https://jcsm.fr/blog/supervision-distance-bornes-irve">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Supervision à distance des bornes IRVE : fonctionnement et enjeux",
+        "description": "Comment fonctionne la supervision à distance des bornes de recharge ? Protocole OCPP, alertes temps réel, diagnostic remote, KPI de disponibilité.",
+        "datePublished": "2026-02-12",
+        "dateModified": "2026-02-12",
+        "author": {"@type": "Organization", "name": "JCSM", "url": "https://jcsm.fr"},
+        "publisher": {"@type": "Organization", "name": "JCSM", "url": "https://jcsm.fr", "logo": {"@type": "ImageObject", "url": "https://jcsm.fr/images/logo.png", "width": 512, "height": 512}},
+        "mainEntityOfPage": {"@type": "WebPage", "@id": "https://jcsm.fr/blog/supervision-distance-bornes-irve"},
+        "wordCount": 1350,
+        "articleSection": "Maintenance et Exploitation",
+        "image": {"@type": "ImageObject", "url": "https://jcsm.fr/images/index.webp", "width": 2048, "height": 1366}
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Qu'est-ce que la supervision à distance d'une borne de recharge ?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Surveiller l'\u00e9tat de chaque borne en temps r\u00e9el via OCPP, sans se d\u00e9placer. D\u00e9tection de panne, red\u00e9marrage \u00e0 distance, mise \u00e0 jour firmware, gestion des acc\u00e8s."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Quel protocole est utilisé pour la supervision des bornes ?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "OCPP, maintenu par l'Open Charge Alliance. Version 1.6 encore majoritaire, 2.0.1 en d\u00e9ploiement. Choisissez un CSMS qui supporte les deux."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Peut-on redémarrer une borne à distance ?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Oui. La commande Reset via OCPP permet de red\u00e9marrer une borne \u00e0 distance. \u00c7a r\u00e9sout environ 30 % des pannes sans intervention physique."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Quels KPI suivre pour un réseau de bornes ?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Taux de disponibilit\u00e9 (objectif >95 %), MTTR (temps moyen de r\u00e9paration), nombre de sessions \u00e9chou\u00e9es, \u00e9nergie d\u00e9livr\u00e9e par point de charge, et alertes en temps r\u00e9el sur les erreurs critiques."
+                }
+            }
+        ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://jcsm.fr/"},
+            {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://jcsm.fr/blog"},
+            {"@type": "ListItem", "position": 3, "name": "Supervision à distance des bornes IRVE", "item": "https://jcsm.fr/blog/supervision-distance-bornes-irve"}
+        ]
+    }
+    </script>
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://jcsm.fr/blog/supervision-distance-bornes-irve">
+    <meta property="og:title" content="Supervision à distance des bornes IRVE : fonctionnement et enjeux">
+    <meta property="og:description" content="Protocole OCPP, alertes temps réel, diagnostic remote, KPI de disponibilité. Guide complet.">
+    <meta property="og:image" content="https://jcsm.fr/images/hotline.webp">
+    <meta property="og:image:alt" content="Centre d'appel et supervision à distance des bornes IRVE">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="775">
+    <meta property="og:locale" content="fr_FR">
+    <meta property="og:site_name" content="JCSM - Infrastructure de Recharge">
+    <meta property="article:published_time" content="2026-02-12">
+    <meta property="article:modified_time" content="2026-02-12T00:00:00+01:00">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Supervision à distance des bornes IRVE : fonctionnement et enjeux">
+    <meta name="twitter:description" content="Protocole OCPP, alertes temps réel, diagnostic remote, KPI de disponibilité.">
+    <meta name="twitter:image" content="https://jcsm.fr/images/index.webp">
+    <meta name="twitter:image:alt" content="Infrastructure de recharge pour véhicules électriques">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet"
+        media="print" onload="this.media='all'">
+    <noscript>
+        <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap"
+            rel="stylesheet">
+    </noscript>
+    <link rel="stylesheet" href="../css/critical.css?v=72">
+    <link rel="stylesheet" href="../css/tailwind.css?v=72" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="../css/tailwind.css?v=72"></noscript>
+    <link rel="stylesheet" href="../styles.css?v=72" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="../styles.css?v=72"></noscript>
+    <link rel="manifest" href="../manifest.json">
+    <link rel="icon" type="image/x-icon" href="/demo/favicon.ico">
+    <link rel="apple-touch-icon" href="/demo/apple-touch-icon.png">
+
+    <link rel="stylesheet" href="/demo/demo-overrides.css?v=5">
+    <script src="/demo/demo-fluidity.js?v=2" defer data-cfasync="false"></script>
+    <script>window.addEventListener("DOMContentLoaded",function(){setTimeout(function(){var p=document.getElementById("preloader");if(p)p.classList.add("preloader-auto-hide");},600);});</script>
+</head>
+<body class="text-gray-900 bg-white">
+    <div class="demo-banner"><span>DEMO</span>Version proposée pour validation — non publiée</div>
+
+    <div class="reading-progress" id="reading-progress"></div>
+    <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+    <div class="preloader" id="preloader" role="status" aria-label="Chargement">
+        <div class="flex flex-col items-center justify-center">
+            <picture><source srcset="../images/logo.webp" type="image/webp"><img src="../images/logo.png" alt="JCSM" width="80" height="80" class="animate-pulse"></picture>
+        </div>
+    </div>
+    <div class="mobile-menu-overlay" id="mobile-menu-overlay"></div>
+    <nav class="mobile-menu" id="mobile-menu" role="dialog" aria-modal="true" aria-label="Menu de navigation" aria-hidden="true">
+        <div class="p-8">
+            <div class="flex justify-between items-center mb-12">
+                <span class="text-xl font-semibold">Menu</span>
+                <button class="text-gray-600 hover:text-gray-900" id="mobile-menu-close" aria-label="Fermer le menu de navigation">
+                    <svg class="w-6 h-6" fill="none" aria-hidden="true" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+                </button>
+            </div>
+                        <div class="flex flex-col space-y-6">
+                <a href="/demo/pilotage-projets" class="text-base text-gray-600 hover:text-gray-900 transition-colors">Pilotage de projets</a>
+                <a href="/demo/installation-conformite" class="text-base text-gray-600 hover:text-gray-900 transition-colors">Installation</a>
+                <a href="/demo/exploitation" class="text-base text-gray-600 hover:text-gray-900 transition-colors">Exploitation</a>
+                <a href="/demo/securisation-installations" class="text-base text-gray-600 hover:text-gray-900 transition-colors">Sécurisation</a>
+                <a href="/demo/centre-appel" class="text-base text-gray-600 hover:text-gray-900 transition-colors">Support</a>
+                <a href="/demo/solutions/" class="text-base text-gray-600 hover:text-gray-900 transition-colors">Solutions</a>
+                <a href="/demo/a-propos" class="text-base text-gray-600 hover:text-gray-900 transition-colors">À propos</a>
+                <a href="/demo/blog" class="text-base text-gray-600 hover:text-gray-900 transition-colors">Blog</a>
+                <a href="/demo/contact" class="btn-primary px-6 py-3 rounded-lg text-base font-medium inline-block text-center mt-4">Contact</a>
+            </div>
+        </div>
+    </nav>
+    <nav class="fixed top-0 w-full z-50 glass-nav border-b border-gray-200" role="navigation" aria-label="Navigation principale">
+        <div class="max-w-7xl mx-auto px-6 py-5">
+            <div class="flex justify-between items-center">
+                <a href="/demo/" class="flex items-center space-x-3 group mr-12">
+                    <picture><source srcset="../images/logo.webp" type="image/webp"><img src="../images/logo.png" alt="JCSM" class="w-9 h-9 transition-transform group-hover:scale-105 duration-300" width="36" height="36"></picture>
+                    <span class="text-xl font-bold tracking-tight">JCSM</span>
+                </a>
+                <div class="hidden lg:flex items-center space-x-6 xl:space-x-8">
+                    <a href="/demo/pilotage-projets" class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300 whitespace-nowrap">Pilotage</a>
+                    <a href="/demo/installation-conformite" class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300 whitespace-nowrap">Installation</a>
+                    <a href="/demo/exploitation" class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300 whitespace-nowrap">Exploitation</a>
+                    <a href="/demo/securisation-installations" class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300 whitespace-nowrap">Sécurisation</a>
+                    <a href="/demo/centre-appel" class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300 whitespace-nowrap">Support</a>
+                    <a href="/demo/solutions/" class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300 whitespace-nowrap">Solutions</a>
+                    <a href="/demo/a-propos" class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300 whitespace-nowrap">À propos</a>
+                    <a href="/demo/blog" class="text-base font-semibold text-blue-600 hover:text-blue-700 transition-all duration-300 whitespace-nowrap">Blog</a>
+                    <a href="/demo/contact" class="btn-primary ml-4 px-7 py-2.5 rounded-xl text-base font-medium shadow-lg hover:shadow-xl whitespace-nowrap">Contact</a>
+                </div>
+                <button class="mobile-menu-btn text-gray-600 hover:text-gray-900" id="mobile-menu-btn" aria-label="Ouvrir le menu de navigation" aria-expanded="false" aria-controls="mobile-menu">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main id="main-content" role="main">
+        <article class="pt-32 pb-16 px-6">
+            <div class="max-w-3xl mx-auto">
+                <div class="mb-8">
+                    <a href="/demo/blog" class="text-sm text-blue-600 hover:text-blue-800 transition-colors">&larr; Retour au blog</a>
+                </div>
+                <div class="mb-10">
+                    <span class="badge-section inline-block text-xs font-semibold text-amber-700 bg-amber-100 rounded-full px-3 py-1 mb-4">Technique</span>
+                    <h1 class="text-3xl md:text-4xl font-bold mb-4 leading-tight">Supervision à distance des <span class="gradient-text">bornes IRVE</span> : comment ça marche</h1>
+                    <div class="flex items-center text-sm text-gray-500">
+                        <time datetime="2026-02-12">12 février 2026</time>
+                        <span class="mx-2">·</span>
+                        <span>9 min de lecture</span>
+                    </div>
+                </div>
+
+                <div class="bg-amber-50 rounded-2xl p-6 mb-10">
+                    <h2 class="text-lg font-bold text-amber-700 mb-4">Sommaire</h2>
+                    <ol class="list-decimal pl-5 text-sm text-amber-700 space-y-2">
+                        <li><a href="#principe" class="hover:underline">Le principe de la supervision à distance</a></li>
+                        <li><a href="#architecture" class="hover:underline">Architecture technique : borne, CSMS, opérateur</a></li>
+                        <li><a href="#ocpp-supervision" class="hover:underline">OCPP : le protocole de communication</a></li>
+                        <li><a href="#actions-distance" class="hover:underline">Ce qu'on peut faire à distance (et ce qu'on ne peut pas)</a></li>
+                        <li><a href="#alertes" class="hover:underline">Gestion des alertes et escalade</a></li>
+                        <li><a href="#kpi" class="hover:underline">Les KPI à suivre</a></li>
+                        <li><a href="#limites" class="hover:underline">Les limites de la supervision remote</a></li>
+                        <li><a href="#faq" class="hover:underline">Questions fréquentes</a></li>
+                    </ol>
+                </div>
+
+                <div class="prose prose-lg max-w-none section-appear">
+                    <p class="text-lg text-gray-600 leading-relaxed mb-8">Gérer un réseau de bornes de recharge sans supervision à distance, c'est piloter à l'aveugle. Chaque borne est un équipement connecté qui remonte en permanence des données sur son état, ses sessions de charge et ses erreurs. Exploiter ces données en temps réel permet de détecter les pannes avant qu'elles n'immobilisent la borne, de résoudre une partie des incidents sans déplacement, et de suivre la performance du réseau.</p>
+
+                    <h2 id="principe" class="text-2xl font-bold mt-12 mb-4">Le principe de la supervision à distance</h2>
+                    <p class="text-gray-600 leading-relaxed mb-4">Une borne de recharge n'est pas un simple point de connexion électrique. C'est un équipement informatique embarqué qui exécute un logiciel, communique avec un serveur central, authentifie les utilisateurs, mesure l'énergie délivrée et gère la facturation. Toutes ces fonctions génèrent des données exploitables à distance.</p>
+                    <p class="text-gray-600 leading-relaxed mb-4">La supervision consiste à collecter ces données en temps réel dans un système central, les analyser, et agir en conséquence : déclencher une alerte si une borne tombe en erreur, envoyer une commande de redémarrage, ou planifier une intervention terrain si le problème nécessite un déplacement.</p>
+                    <p class="text-gray-600 leading-relaxed mb-4">Concrètement, un opérateur devant son écran voit l'état de chaque borne de son réseau : disponible, en charge, en erreur, hors ligne. Il peut zoomer sur une borne spécifique pour consulter son historique d'erreurs, ses sessions récentes, sa version firmware, ou sa consommation.</p>
+
+                    <h2 id="architecture" class="text-2xl font-bold mt-12 mb-4">Architecture technique : borne, CSMS, opérateur</h2>
+                    <p class="text-gray-600 leading-relaxed mb-4">Le système de supervision repose sur trois couches :</p>
+                    <ul class="list-disc pl-6 text-gray-600 space-y-2 mb-6">
+                        <li><strong>La borne (Charge Point)</strong> : équipée d'un contrôleur embarqué, d'une connexion réseau (4G, Ethernet ou Wi-Fi) et du firmware OCPP. Elle initie la connexion vers le serveur central et envoie des messages à chaque événement (début/fin de charge, erreur, changement de statut)</li>
+                        <li><strong>Le CSMS (Charging Station Management System)</strong> : le serveur central qui reçoit les messages de toutes les bornes, les stocke, les analyse et expose une interface de gestion. C'est le cerveau du réseau. Exemples de CSMS : SteVe (open source), Driivz, ChargePoint, GreenFlux</li>
+                        <li><strong>L'opérateur</strong> : l'équipe humaine qui surveille le CSMS, traite les alertes et décide des actions à mener. Pour un réseau de plus de 50 bornes, cette surveillance est généralement assurée 24/7 par un <a href="/demo/centre-appel" class="text-blue-600 hover:text-blue-800 underline">centre de supervision dédié</a></li>
+                    </ul>
+
+                    <div class="bg-amber-50 border-l-4 border-amber-400 rounded-r-xl p-5 mb-8">
+                        <p class="text-gray-700 text-sm leading-relaxed"><span class="font-semibold">Point technique :</span> La connexion entre la borne et le CSMS utilise WebSocket (OCPP-J) ou SOAP (OCPP-S). WebSocket est préféré car il maintient une connexion persistante et bidirectionnelle, permettant au serveur d'envoyer des commandes à la borne sans attendre qu'elle interroge le serveur.</p>
+                    </div>
+
+                    <h2 id="ocpp-supervision" class="text-2xl font-bold mt-12 mb-4">OCPP : le protocole de communication</h2>
+                    <p class="text-gray-600 leading-relaxed mb-4">OCPP (Open Charge Point Protocol) est le standard ouvert qui définit les messages échangés entre la borne et le CSMS. La version 1.6 est encore la plus déployée, mais la 2.0.1 s'impose progressivement (voir notre article sur <a href="/demo/blog/ocpp-1-6-vs-2-0-protocole-bornes" class="text-blue-600 hover:text-blue-800 underline">OCPP 1.6 vs 2.0.1</a>).</p>
+                    <p class="text-gray-600 leading-relaxed mb-4">Les messages OCPP les plus utilisés en supervision :</p>
+
+                    <div class="overflow-x-auto mb-6">
+                        <table class="w-full text-sm text-gray-600 border border-gray-200 rounded-lg">
+                            <thead>
+                                <tr class="bg-gray-50">
+                                    <th scope="col" class="text-left px-4 py-3 font-semibold text-gray-900 border-b border-gray-200">Message</th>
+                                    <th scope="col" class="text-left px-4 py-3 font-semibold text-gray-900 border-b border-gray-200">Direction</th>
+                                    <th scope="col" class="text-left px-4 py-3 font-semibold text-gray-900 border-b border-gray-200">Usage</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="border-b border-gray-100">
+                                    <td class="px-4 py-3 font-medium text-gray-900">StatusNotification</td>
+                                    <td class="px-4 py-3">Borne → CSMS</td>
+                                    <td class="px-4 py-3">Signale un changement d'état (Available, Charging, Faulted...)</td>
+                                </tr>
+                                <tr class="border-b border-gray-100">
+                                    <td class="px-4 py-3 font-medium text-gray-900">Heartbeat</td>
+                                    <td class="px-4 py-3">Borne → CSMS</td>
+                                    <td class="px-4 py-3">Signal périodique confirmant que la borne est en ligne</td>
+                                </tr>
+                                <tr class="border-b border-gray-100">
+                                    <td class="px-4 py-3 font-medium text-gray-900">Reset</td>
+                                    <td class="px-4 py-3">CSMS → Borne</td>
+                                    <td class="px-4 py-3">Commande de redémarrage (soft ou hard)</td>
+                                </tr>
+                                <tr class="border-b border-gray-100">
+                                    <td class="px-4 py-3 font-medium text-gray-900">ChangeConfiguration</td>
+                                    <td class="px-4 py-3">CSMS → Borne</td>
+                                    <td class="px-4 py-3">Modifier un paramètre de la borne à distance</td>
+                                </tr>
+                                <tr class="border-b border-gray-100">
+                                    <td class="px-4 py-3 font-medium text-gray-900">UpdateFirmware</td>
+                                    <td class="px-4 py-3">CSMS → Borne</td>
+                                    <td class="px-4 py-3">Lancer une mise à jour du firmware</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-4 py-3 font-medium text-gray-900">GetDiagnostics</td>
+                                    <td class="px-4 py-3">CSMS → Borne</td>
+                                    <td class="px-4 py-3">Récupérer les logs de diagnostic</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h2 id="actions-distance" class="text-2xl font-bold mt-12 mb-4">Ce qu'on peut faire à distance (et ce qu'on ne peut pas)</h2>
+                    <p class="text-gray-600 leading-relaxed mb-4">La supervision remote résout une proportion significative des incidents sans déplacement. Mais elle a ses limites.</p>
+                    <h3 class="text-xl font-semibold mt-8 mb-3">Ce qui se traite à distance</h3>
+                    <ul class="list-disc pl-6 text-gray-600 space-y-2 mb-6">
+                        <li><strong>Redémarrage</strong> : un soft reset résout les blocages logiciels (environ 40 à 60 % des pannes signalées)</li>
+                        <li><strong>Mise à jour firmware</strong> : correction de bugs, ajout de fonctionnalités, patch de sécurité</li>
+                        <li><strong>Reconfiguration</strong> : modification des tarifs, des plages horaires, des limites de puissance</li>
+                        <li><strong>Déblocage de session</strong> : forcer l'arrêt d'une session de charge restée bloquée (RemoteStopTransaction)</li>
+                        <li><strong>Diagnostic</strong> : lecture des logs pour identifier la cause d'une erreur</li>
+                    </ul>
+                    <h3 class="text-xl font-semibold mt-8 mb-3">Ce qui nécessite un déplacement</h3>
+                    <ul class="list-disc pl-6 text-gray-600 space-y-2 mb-6">
+                        <li><strong>Panne matérielle</strong> : connecteur cassé, câble coupé, écran brisé, module de puissance HS</li>
+                        <li><strong>Défaut électrique</strong> : disjoncteur déclenché, protection différentielle, défaut d'isolement</li>
+                        <li><strong>Perte de connectivité</strong> : si la borne ne communique plus du tout, impossible d'agir à distance</li>
+                        <li><strong>Maintenance préventive</strong> : nettoyage, inspection visuelle, resserrage des connexions</li>
+                    </ul>
+
+                    <h2 id="alertes" class="text-2xl font-bold mt-12 mb-4">Gestion des alertes et escalade</h2>
+                    <p class="text-gray-600 leading-relaxed mb-4">Un CSMS bien configuré génère des alertes automatiques selon des règles définies. L'enjeu est de filtrer le bruit (alertes non critiques, faux positifs) pour ne faire remonter que les incidents nécessitant une action.</p>
+                    <p class="text-gray-600 leading-relaxed mb-4">Un modèle d'escalade typique :</p>
+
+                    <div class="space-y-4 mb-8">
+                        <div class="bg-red-50 rounded-xl p-5 border border-red-100">
+                            <h3 class="font-semibold text-red-900 mb-2">P1 - Critique</h3>
+                            <p class="text-gray-600 text-sm leading-relaxed">Borne DC hors service, station complète en panne. Alerte immédiate, tentative de reset à distance, intervention terrain sous 4h si non résolu.</p>
+                        </div>
+                        <div class="bg-amber-50 rounded-xl p-5 border border-amber-100">
+                            <h3 class="font-semibold text-amber-900 mb-2">P2 - Majeur</h3>
+                            <p class="text-gray-600 text-sm leading-relaxed">Un connecteur sur deux en panne, dégradation de performance. Diagnostic remote, intervention terrain sous 8h.</p>
+                        </div>
+                        <div class="bg-blue-50 rounded-xl p-5 border border-blue-100">
+                            <h3 class="font-semibold text-blue-900 mb-2">P3 - Mineur</h3>
+                            <p class="text-gray-600 text-sm leading-relaxed">Erreur ponctuelle, lecteur RFID lent, écran figé. Reset à distance, surveillance. Intervention planifiée si récurrence.</p>
+                        </div>
+                        <div class="bg-gray-50 rounded-xl p-5 border border-gray-100">
+                            <h3 class="font-semibold text-gray-900 mb-2">P4 - Informatif</h3>
+                            <p class="text-gray-600 text-sm leading-relaxed">Firmware obsolète, certificat TLS à renouveler, consommation anormale. Traitement lors de la maintenance planifiée.</p>
+                        </div>
+                    </div>
+
+                    <h2 id="kpi" class="text-2xl font-bold mt-12 mb-4">Les KPI à suivre</h2>
+                    <p class="text-gray-600 leading-relaxed mb-4">La supervision n'a de valeur que si elle alimente des indicateurs de performance exploitables. Les KPI essentiels pour un réseau de bornes :</p>
+
+                    <div class="grid sm:grid-cols-2 gap-4 mb-8">
+                        <div class="bg-gray-50 rounded-xl p-5 text-center">
+                            <p class="text-3xl font-bold text-amber-600 mb-1">&gt; 95 %</p>
+                            <p class="text-sm text-gray-600">Taux de disponibilité cible</p>
+                        </div>
+                        <div class="bg-gray-50 rounded-xl p-5 text-center">
+                            <p class="text-3xl font-bold text-amber-600 mb-1">&lt; 4h</p>
+                            <p class="text-sm text-gray-600">MTTR (temps moyen de résolution)</p>
+                        </div>
+                        <div class="bg-gray-50 rounded-xl p-5 text-center">
+                            <p class="text-3xl font-bold text-amber-600 mb-1">40 - 60 %</p>
+                            <p class="text-sm text-gray-600">Pannes résolues à distance</p>
+                        </div>
+                        <div class="bg-gray-50 rounded-xl p-5 text-center">
+                            <p class="text-3xl font-bold text-amber-600 mb-1">&lt; 5 %</p>
+                            <p class="text-sm text-gray-600">Taux d'erreurs OCPP acceptable</p>
+                        </div>
+                    </div>
+
+                    <p class="text-gray-600 leading-relaxed mb-4">D'autres indicateurs complètent le pilotage : énergie totale délivrée (kWh/mois), nombre de sessions par point de charge, durée moyenne de session, taux de sessions échouées (authentification refusée, erreur de communication véhicule).</p>
+
+                    <h2 id="limites" class="text-2xl font-bold mt-12 mb-4">Les limites de la supervision remote</h2>
+                    <p class="text-gray-600 leading-relaxed mb-4">La supervision à distance est un outil puissant, mais elle ne remplace pas l'intervention humaine sur site. Ses principales limites :</p>
+                    <ul class="list-disc pl-6 text-gray-600 space-y-2 mb-6">
+                        <li><strong>Dépendance au réseau</strong> : si la connexion 4G ou Ethernet tombe, la borne continue de fonctionner localement mais n'est plus supervisable. Les zones de couverture réseau faible sont un point d'attention</li>
+                        <li><strong>Angles morts matériels</strong> : un connecteur physiquement endommagé, une infiltration d'eau, un câble partiellement coupé ne sont pas détectables par le logiciel</li>
+                        <li><strong>Faux positifs</strong> : les alertes automatiques génèrent du bruit si les seuils sont mal calibrés. Un opérateur noyé sous les alertes finit par les ignorer</li>
+                        <li><strong>Hétérogénéité du parc</strong> : un réseau avec des bornes de marques et firmware différents complique la standardisation de la supervision. Toutes les bornes n'implémentent pas OCPP de la même façon</li>
+                    </ul>
+
+                    <p class="text-gray-600 leading-relaxed mb-4">C'est pourquoi la supervision à distance doit être couplée à un programme de <a href="/demo/blog/maintenance-bornes-recharge-guide" class="text-blue-600 hover:text-blue-800 underline">maintenance préventive</a> avec des visites régulières sur site.</p>
+
+                    <div class="bg-gray-50 border border-gray-200 rounded-2xl p-6 my-8">
+                        <h3 class="text-lg font-bold text-gray-900 mb-2">Supervision 24/7 par JCSM</h3>
+                        <p class="text-gray-600 leading-relaxed mb-4">Notre <a href="/demo/centre-appel" class="text-blue-600 hover:text-blue-800 underline">centre de supervision</a> surveille vos bornes en continu : détection d'anomalies, diagnostic remote, redémarrage à distance et escalade vers nos techniciens terrain quand une intervention physique est nécessaire. Un seul interlocuteur pour la supervision et la <a href="/demo/exploitation" class="text-blue-600 hover:text-blue-800 underline">maintenance</a>.</p>
+                        <a href="/demo/contact" class="inline-flex items-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-xl font-semibold hover:bg-blue-700 transition-colors">
+                            Découvrir notre supervision
+                            <svg aria-hidden="true" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                        </a>
+                    </div>
+
+                    <h2 id="faq" class="text-2xl font-bold mt-12 mb-6">Questions fréquentes</h2>
+                    <div class="section-appear space-y-6 mb-8">
+                        <div class="border border-gray-200 rounded-xl p-5">
+                            <h3 class="font-semibold text-gray-900 mb-2">Qu'est-ce que la supervision à distance d'une borne de recharge ?</h3>
+                            <p class="text-gray-600 text-sm leading-relaxed">Surveiller l'état de chaque borne en temps réel via OCPP, sans se déplacer. Détection de panne, redémarrage à distance, mise à jour firmware, gestion des accès.</p>
+                        </div>
+                        <div class="border border-gray-200 rounded-xl p-5">
+                            <h3 class="font-semibold text-gray-900 mb-2">Peut-on redémarrer une borne à distance ?</h3>
+                            <p class="text-gray-600 text-sm leading-relaxed">OCPP, maintenu par l'Open Charge Alliance. Version 1.6 encore majoritaire, 2.0.1 en déploiement. Choisissez un CSMS qui supporte les deux.</p>
+                        </div>
+                        <div class="border border-gray-200 rounded-xl p-5">
+                            <h3 class="font-semibold text-gray-900 mb-2">Quels KPI suivre pour un réseau de bornes ?</h3>
+                            <p class="text-gray-600 text-sm leading-relaxed">Oui. La commande Reset via OCPP permet de redémarrer une borne à distance. Ça résout environ 30 % des pannes sans intervention physique.</p>
+                        </div>
+                        <div class="border border-gray-200 rounded-xl p-5">
+                            <h3 class="font-semibold text-gray-900 mb-2">Quel protocole est utilisé pour la supervision des bornes ?</h3>
+                            <p class="text-gray-600 text-sm leading-relaxed">Taux de disponibilité (objectif >95 %), MTTR (temps moyen de réparation), nombre de sessions échouées, énergie délivrée par point de charge, et alertes en temps réel sur les erreurs critiques.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-appear mt-12 bg-amber-50 rounded-2xl p-8 text-center">
+                    <h3 class="text-xl font-bold mb-3">Besoin de superviser vos bornes ?</h3>
+                    <p class="text-gray-600 mb-6">JCSM surveille votre réseau 24/7, du diagnostic remote à l'intervention terrain.</p>
+                    <a href="/demo/contact" class="btn-primary px-8 py-3 rounded-xl font-medium inline-block">Nous contacter</a>
+                </div>
+
+
+                <!-- Partage social -->
+                <div class="flex items-center gap-4 pt-8 mt-8 border-t border-gray-200">
+                    <span class="text-sm font-semibold text-gray-700">Partager :</span>
+                    <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://jcsm.fr/blog/supervision-distance-bornes-irve" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-gray-100 hover:bg-blue-50 text-gray-600 hover:text-blue-700 text-sm font-medium transition-colors" aria-label="Partager sur LinkedIn">
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                        LinkedIn
+                    </a>
+                    <a href="https://twitter.com/intent/tweet?url=https://jcsm.fr/blog/supervision-distance-bornes-irve&amp;text=Supervision%20%C3%A0%20distance%20des%20bornes%20IRVE%20%3A%20comment%20%C3%A7a%20marche" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-gray-100 hover:bg-gray-200 text-gray-600 hover:text-gray-900 text-sm font-medium transition-colors" aria-label="Partager sur X">
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                        X
+                    </a>
+                </div>
+
+                <div class="section-appear mt-16 pt-8 border-t border-gray-100">
+                    <h3 class="text-lg font-bold mb-6">Articles similaires</h3>
+                    <div class="grid sm:grid-cols-2 gap-6">
+                        <a href="/demo/blog/ocpp-1-6-vs-2-0-protocole-bornes" class="group blog-card-premium">
+                            <h4 class="font-semibold group-hover:text-blue-600 transition-colors mb-1">OCPP 1.6 vs 2.0.1 : ce qui change</h4>
+                            <p class="text-sm text-gray-500">Différences techniques et migration.</p>
+                        </a>
+                        <a href="/demo/blog/maintenance-bornes-recharge-guide" class="group blog-card-premium">
+                            <h4 class="font-semibold group-hover:text-blue-600 transition-colors mb-1">Guide de la maintenance IRVE</h4>
+                            <p class="text-sm text-gray-500">Préventive, curative, SLA et pièces détachées.</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <footer class="border-t border-gray-100 py-16 px-6 bg-white" role="contentinfo" aria-label="Pied de page">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid md:grid-cols-4 gap-10 mb-12">
+                <div>
+                    <div class="flex items-center space-x-3 mb-4">
+                        <picture><source srcset="../images/logo.webp" type="image/webp"><img src="../images/logo.png" alt="Logo JCSM" class="w-8 h-8" width="32" height="32" loading="lazy"></picture>
+                        <span class="text-xl font-semibold text-gray-900">JCSM</span>
+                    </div>
+                    <p class="text-sm text-gray-600 mb-4">Expérience IRVE depuis 2019. Installation, maintenance et pilotage en France et Belgique. Entreprise inclusive.</p>
+                    <p class="text-sm text-gray-500">60 rue François 1er<br>75008 Paris</p>
+                    <p class="text-sm text-gray-500 mt-3"><a href="tel:+33183755706" class="hover:text-gray-900 transition-colors">+33 1 83 75 57 06</a></p>
+                    <p class="text-sm text-gray-500"><a href="mailto:contact@jcsm.fr" class="hover:text-gray-900 transition-colors">contact@jcsm.fr</a></p>
+                </div>
+                <div>
+                    <h3 class="text-sm font-semibold text-gray-900 mb-4 uppercase tracking-wide">Services</h3>
+                    <nav aria-label="Services">
+                        <ul class="space-y-3">
+                            <li><a href="/demo/pilotage-projets" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Pilotage de projets</a></li>
+                            <li><a href="/demo/installation-conformite" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Installation & conformité</a></li>
+                            <li><a href="/demo/exploitation" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Exploitation & maintenance</a></li>
+                            <li><a href="/demo/securisation-installations" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Sécurisation</a></li>
+                            <li><a href="/demo/centre-appel" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Support 24/7</a></li>
+                            <li><a href="/demo/tarification" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Tarification</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div>
+                    <h3 class="text-sm font-semibold text-gray-900 mb-4 uppercase tracking-wide">Entreprise</h3>
+                    <nav aria-label="Entreprise">
+                        <ul class="space-y-3">
+                            <li><a href="/demo/devenir-partenaire" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Devenir partenaire</a></li>
+                            <li><a href="/demo/a-propos" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">À propos</a></li>
+                            <li><a href="/demo/inclusion" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Inclusion</a></li>
+                            <li><a href="/demo/carrieres" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Carrières</a></li>
+                            <li><a href="/demo/contact" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Contact</a></li>
+                            <li><a href="/demo/blog" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Blog</a></li>
+                            <li><a href="/demo/solutions/" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Solutions</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div>
+                    <h3 class="text-sm font-semibold text-gray-900 mb-4 uppercase tracking-wide">Légal</h3>
+                    <nav aria-label="Légal">
+                        <ul class="space-y-3">
+                            <li><a href="/demo/mentions-legales" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Mentions légales</a></li>
+                            <li><a href="/demo/confidentialite" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Confidentialité</a></li>
+                            <li><a href="/demo/cgv" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">CGV</a></li>
+                        </ul>
+                    </nav>
+                    <h3 class="text-sm font-semibold text-gray-900 mb-4 uppercase tracking-wide mt-6">Zones</h3>
+                    <nav aria-label="Zones">
+                        <ul class="space-y-3">
+                            <li><a href="/demo/zones/france" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">France</a></li>
+                            <li><a href="/demo/zones/belgique" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Belgique</a></li>
+                        </ul>
+                    </nav>
+                    <div class="flex items-center gap-3 mt-4">
+                        <a href="https://www.linkedin.com/company/jcsm-elec/" target="_blank" rel="noopener noreferrer me" class="text-gray-500 hover:text-gray-900 transition-colors" aria-label="LinkedIn">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                        </a>
+                        <a href="https://www.facebook.com/profile.php?id=61587992161634" target="_blank" rel="noopener noreferrer me" class="text-gray-500 hover:text-gray-900 transition-colors" aria-label="Facebook">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                        </a>
+                        <a href="https://x.com/JCSM_ELEC" target="_blank" rel="noopener noreferrer me" class="text-gray-500 hover:text-gray-900 transition-colors" aria-label="X (Twitter)">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                        </a>
+                        <a href="https://www.instagram.com/jcsm.elec/" target="_blank" rel="noopener noreferrer me" class="text-gray-500 hover:text-gray-900 transition-colors" aria-label="Instagram">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+                        </a>
+                        <a href="https://www.youtube.com/@JCSM_ELEC" target="_blank" rel="noopener noreferrer me" class="text-gray-500 hover:text-gray-900 transition-colors" aria-label="YouTube">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="pt-8 border-t border-gray-100 flex flex-col md:flex-row md:items-center md:justify-between gap-4 text-xs text-gray-500">
+                <span>© 2026 JCSM SAS - SIRET 99387429600011</span>
+                <a href="mailto:contact@jcsm.fr" class="hover:text-gray-900 transition-colors">contact@jcsm.fr</a> · <a href="tel:+33183755706" class="hover:text-gray-900 transition-colors">+33 1 83 75 57 06</a>
+            </div>
+        </div>
+    </footer>
+
+    <button class="scroll-top" id="scrollTop" aria-label="Retour en haut de page">
+        <svg aria-hidden="true" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.5 15.75l7.5-7.5 7.5 7.5" /></svg>
+    </button>
+    <script src="../js/i18n.js?v=72" defer></script>
+    <script src="../js/config.js?v=72" defer></script>
+    <script src="../js/utils.js?v=72" defer></script>
+    <script src="../js/public.js?v=72" defer></script>
+    <script src="../js/analytics.js?v=72" defer></script>
+    <script src="../js/wow-effects.js?v=72" defer></script>
+    <script>if ('serviceWorker' in navigator) { window.addEventListener('load', () => { navigator.serviceWorker.register('/sw.js').catch(() => {}); }); }</script>
+</body>
+</html>
