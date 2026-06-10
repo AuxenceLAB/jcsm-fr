@@ -18,13 +18,14 @@ JCSM is a static website for an electric vehicle charging infrastructure (IRVE) 
 - **Solutions pages**: `solutions/*.html`: segment-specific landing pages (cpo-operateurs, fabricants-bornes, entreprises-flottes, retail-grande-distribution).
 - **Multilingual**: `en/`, `de/`, `es/`, `it/`, `nl/`, `pl/`, `pt/`: translated versions of the main marketing pages. Each directory mirrors a subset of root pages. When adding new language directories, update `tailwind.config.js` `content` glob to include them or their classes will be purged.
 - **CSS**: `styles.css` — custom design system with CSS variables defined in `:root`. Tailwind utilities used alongside custom classes. Dark mode is disabled (light mode forced).
-- **PWA**: `manifest.json` + `sw.js` (cache v64). Strategies: network-first for HTML/API, cache-first for assets.
+- **Design system (refonte 2026-06, "Clarté éditoriale B1")**: cream background `#FAFAF7` (`--color-bg`), ink text `#0F1B2D` (`--color-ink`), JCSM blue `#2563EB` accents only (violet/cyan banned), borders `#E3E2DB` (`--color-line`). Fonts: Fraunces serif for h1-h3 (`--font-serif`, `em` inside headings renders italic blue), Inter for body (`--font-sans`). Components: `.card-lead` (ink), `.card-feature` (white+border), `.card-quote`, `.card-cta` (blue, bring own padding), `.sec-label`, `.section-dark` (one per page max, with `.step`), `.section-alt`, pill `.btn-primary`/`.btn-secondary` (border-radius forced via `!important`). Animations kept: scroll fade-in, counters, logo marquee (grayscale logos), scroll progress. Banned: particles, magnetic, spotlight, parallax, splittext, glassmorphism (except nav blur 8px), animated gradients, `bg-gradient-to-*` utilities. Wording rules: "réponse sous 24h ouvrées" (never "4h"), "France entière et Belgique" (never "7 régions"), no Google-rating claims ("4,9/5") or `aggregateRating`. Spec: `docs/superpowers/specs/2026-06-09-refonte-design-editorial-design.md`.
+- **PWA**: `manifest.json` + `sw.js` (cache v73). Strategies: network-first for HTML/API, cache-first for assets.
 
 ### JavaScript Modules (`js/`)
 
 | File | Role |
 |------|------|
-| `config.js` | API endpoints (all server-side proxied), auth helpers (session CRUD, Bearer token headers), cache TTLs. Version 2.45.0. |
+| `config.js` | API endpoints (all server-side proxied), auth helpers (session CRUD, Bearer token headers), cache TTLs. Version 2.54.0. |
 | `public.js` | All public page effects: mobile menu, particles (8 on mobile, 20 desktop), scroll animations, cookie consent, magnetic buttons, form validation, toast notifications (XSS-safe via `textContent`), rAF counters with `aria-label`. Skips magnetic/spotlight/hover if `wow-effects.js` is loaded. |
 | `wow-effects.js` | Premium animation classes: AnimatedCounter, ScrollProgress, LogoMarquee, TextSplit, ParallaxSection. Respects `prefers-reduced-motion`. Style injection with `id="jcsm-wow-styles"` dedup guard. |
 | `map.js` | Leaflet map integration with geocoded intervention markers. Uses centralized `window.escapeHtml()`. Filters Null Island (0,0) coordinates. |
@@ -104,9 +105,11 @@ Cache-bust by hard-refreshing (Ctrl+Shift+R). When adding a new language directo
 
 ### Service Worker
 
-After CSS/JS changes, bump the cache version in `sw.js` (lines 2-4: `STATIC_CACHE`, `DYNAMIC_CACHE`, `API_CACHE`) to invalidate old caches. Current version: **v64**.
+After CSS/JS changes, bump the cache version in `sw.js` (lines 1-4: comment + `STATIC_CACHE`, `DYNAMIC_CACHE`, `API_CACHE`) to invalidate old caches. Current version: **v73**.
 
-Also bump `version` in `js/config.js`. Current: **2.45.0**.
+Also bump `version` in `js/config.js`. Current: **2.54.0**.
+
+HTML pages also carry `?v=NN` cache-buster query strings on their CSS/JS links (~149 files). After significant CSS/JS changes, bump them too: `grep -rln '?v=NN' --include='*.html' . | grep -v '^./demo' | xargs sed -i 's/?v=NN/?v=MM/g'`. Keep this number in sync with the sw.js version.
 
 ## Authentication
 
