@@ -1,7 +1,7 @@
-// JCSM Service Worker - Enhanced PWA Support v73
-const STATIC_CACHE = 'jcsm-static-v73';
-const DYNAMIC_CACHE = 'jcsm-dynamic-v73';
-const API_CACHE = 'jcsm-api-v73';
+// JCSM Service Worker - Enhanced PWA Support v74
+const STATIC_CACHE = 'jcsm-static-v74';
+const DYNAMIC_CACHE = 'jcsm-dynamic-v74';
+const API_CACHE = 'jcsm-api-v74';
 
 // Critical assets pre-cached on install (small set for fast startup)
 const CRITICAL_URLS = [
