@@ -40,7 +40,7 @@
     --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
     --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
     --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    --font-serif: 'Fraunces', Georgia, 'Times New Roman', serif;
+    --font-serif: 'Fraunces', 'Fraunces-fallback', Georgia, 'Times New Roman', serif;
     --font-size-base: clamp(0.9rem, 0.85rem + 0.25vw, 1rem);
     --spacing-md: 1rem;
     --spacing-lg: 1.5rem;
@@ -75,6 +75,15 @@
     --ease: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
+/* Fallback serif a metriques ajustees : reduit le layout shift pendant le chargement de Fraunces */
+@font-face {
+    font-family: 'Fraunces-fallback';
+    src: local('Georgia');
+    size-adjust: 98%;
+    ascent-override: 97%;
+    descent-override: 25%;
+    line-gap-override: 0%;
+}
 
 /* === Base Styles === */
 *, *::before, *::after { font-family: var(--font-sans); }
