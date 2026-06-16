@@ -22,8 +22,8 @@ module.exports = {
         secondary: '#1D4ED8',
       },
       fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
-        serif: ['Fraunces', 'Georgia', 'serif'],
+        sans: ['system-ui', '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', '"Helvetica Neue"', 'Arial', 'sans-serif'],
+        serif: ['Georgia', '"Times New Roman"', 'serif'],
       }
     }
   },

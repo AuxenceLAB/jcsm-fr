@@ -28,17 +28,6 @@
     <meta name="twitter:description" content="CPO et opérateurs de recharge : maintenance terrain toutes marques, monitoring 24/7. Un seul contrat pour tout votre parc IRVE.">
     <meta name="twitter:image" content="https://jcsm.fr/images/index.jpg">
     <meta name="twitter:image:alt" content="JCSM - Solutions IRVE pour CPO et opérateurs de recharge">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
-    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"
-        media="print" onload="this.media='all'">
-    <noscript>
-        <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600;700;800&display=swap"
-            rel="stylesheet">
-    </noscript>
     <link rel="stylesheet" href="../css/critical.css?v=74">
     <link rel="stylesheet" href="../css/tailwind.css?v=74" media="print" onload="this.media='all'">
     <noscript><link rel="stylesheet" href="../css/tailwind.css?v=74"></noscript>
@@ -109,7 +98,7 @@
     <script src="../js/config.js?v=74" defer></script>
 
 </head>
-<body class="text-gray-900 bg-white">
+<body class="text-gray-900">
     <a href="#main-content" class="skip-link">Aller au contenu principal</a>
 
     <div class="preloader" id="preloader" role="status" aria-label="Chargement">
@@ -134,9 +123,9 @@
                 <a href="/exploitation" class="text-base text-gray-600 hover:text-gray-900 transition-colors">Exploitation</a>
                 <a href="/securisation-installations" class="text-base text-gray-600 hover:text-gray-900 transition-colors">Sécurisation</a>
                 <a href="/centre-appel" class="text-base text-gray-600 hover:text-gray-900 transition-colors">Support</a>
-                <a href="/solutions/" class="text-base text-gray-600 hover:text-gray-900 transition-colors">Solutions</a>
+                <a href="/solutions/" class="text-base text-gray-600 hover:text-gray-900 transition-colors" aria-current="page">Solutions</a>
                 <a href="/a-propos" class="text-base text-gray-600 hover:text-gray-900 transition-colors">À propos</a>
-                <a href="/contact" class="btn-primary text-white px-6 py-3 rounded-lg text-base font-medium inline-block text-center mt-4">Contact</a>
+                <a href="/contact" class="btn-primary text-white px-6 py-3 rounded-lg text-base font-medium inline-block text-center mt-4">Devis gratuit</a>
             </div>
         </div>
     </nav>
@@ -154,7 +143,7 @@
                     <a href="/exploitation" class="nav-link text-[15px] font-semibold text-gray-700 whitespace-nowrap">Exploitation</a>
                     <a href="/securisation-installations" class="nav-link text-[15px] font-semibold text-gray-700 whitespace-nowrap">Sécurisation</a>
                     <a href="/centre-appel" class="nav-link text-[15px] font-semibold text-gray-700 whitespace-nowrap">Support</a>
-                    <a href="/solutions/" class="nav-link text-[15px] font-semibold text-gray-700 whitespace-nowrap">Solutions</a>
+                    <a href="/solutions/" class="nav-link nav-link-active text-[15px] font-semibold text-gray-700 whitespace-nowrap">Solutions</a>
                     <a href="/a-propos" class="nav-link text-[15px] font-semibold text-gray-700 whitespace-nowrap">À propos</a>
                     <a href="/contact" class="btn-primary ml-5 px-8 py-3 rounded-xl text-[15px] font-semibold text-white shadow-lg hover:shadow-xl whitespace-nowrap">Devis gratuit</a>
                 </div>
@@ -174,208 +163,306 @@
                 <li><span class="text-gray-300">/</span></li>
                 <li><a href="/solutions" class="hover:text-blue-600 transition-colors">Solutions</a></li>
                 <li><span class="text-gray-300">/</span></li>
-                <li class="text-gray-600 font-medium">Opérateurs &amp; CPO</li>
+                <li class="text-gray-600 font-medium">Operateurs &amp; CPO</li>
             </ol>
         </nav>
         <!-- Hero -->
-        <section class="pt-32 pb-20 px-6 bg-blue-50">
+        <section class="pt-32 pb-20 px-6">
             <div class="max-w-6xl mx-auto">
                 <div class="text-center mb-12">
-                    <div class="badge-section inline-flex items-center bg-blue-50 text-blue-700 rounded-full px-4 py-2 mb-6">
-                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
-                        <span class="text-sm font-semibold">Partenaire terrain des opérateurs de recharge</span>
-                    </div>
-                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-                        CPO : <span class="gradient-text">votre uptime, c'est notre réputation.</span>
+                    <p class="sec-label mb-4">Partenaire terrain des operateurs de recharge</p>
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl mb-6">
+                        CPO : <em>votre uptime, c'est notre reputation.</em>
                     </h1>
                     <p class="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
-                        Uptime en chute, sous-traitants multiples, aucune visibilité terrain, coûts qui explosent : les CPO connaissent ces impasses. JCSM les résout avec un contrat unique couvrant ABB, Alfen, EVBox, Schneider, Kempower, Autel, BYD, Delta, Tritium, Efacec, Wallbox et plus encore. SLA garanti, réponse sous 24h ouvrées, dashboard temps réel et rapports horodatés, partout en France et en Belgique.
+                        Uptime en chute, sous-traitants multiples, aucune visibilite terrain, couts qui explosent : les CPO connaissent ces impasses. JCSM les resout avec un contrat unique couvrant ABB, Alfen, EVBox, Schneider, Kempower, Autel, BYD, Delta, Tritium, Efacec, Wallbox et plus encore. SLA garanti, reponse sous 24h ouvrees, dashboard temps reel et rapports horodates, partout en France et en Belgique.
                     </p>
                     <div class="flex flex-wrap gap-4 justify-center">
-                        <a href="/contact" class="bg-blue-600 text-white px-8 py-4 rounded-xl font-medium hover:bg-blue-700 transition-colors">
+                        <a href="/contact" class="btn-primary px-8 py-4 text-white font-medium">
                             Cadrer mon parc IRVE
                         </a>
-                        <a href="tel:+33183755706" class="border border-gray-300 px-8 py-4 rounded-xl font-medium hover:bg-gray-50 transition-colors">
-                            Parler à un expert CPO
+                        <a href="tel:+33183755706" class="btn-secondary px-8 py-4 font-medium">
+                            Parler a un expert CPO
                         </a>
                     </div>
                 </div>
 
                 <!-- Stats -->
                 <div class="grid md:grid-cols-3 gap-6 mt-16">
-                    <div class="bg-white rounded-2xl p-6 text-center shadow-sm border border-gray-100">
-                        <div class="text-3xl font-bold text-blue-600 mb-2">25+</div>
-                        <p class="text-gray-600 text-sm">Marques de bornes supportées</p>
+                    <div class="card-feature text-center">
+                        <div class="num text-2xl mb-2">25+</div>
+                        <p class="text-gray-600 text-sm">Marques de bornes supportees</p>
                     </div>
-                    <div class="bg-white rounded-2xl p-6 text-center shadow-sm border border-gray-100">
-                        <div class="text-3xl font-bold text-blue-600 mb-2">FR + BE</div>
+                    <div class="card-feature text-center">
+                        <div class="num text-2xl mb-2">FR + BE</div>
                         <p class="text-gray-600 text-sm">Couverture terrain France et Belgique</p>
                     </div>
-                    <div class="bg-white rounded-2xl p-6 text-center shadow-sm border border-gray-100">
-                        <div class="text-3xl font-bold text-blue-600 mb-2">2019</div>
-                        <p class="text-gray-600 text-sm">Équipe IRVE certifiée Qualifelec</p>
+                    <div class="card-feature text-center">
+                        <div class="num text-2xl mb-2">2019</div>
+                        <p class="text-gray-600 text-sm">Equipe IRVE certifiee Qualifelec</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Problématiques CPO -->
-        <section class="py-20 px-6 bg-white section-appear">
+        <!-- Problematiques CPO -->
+        <section class="py-20 px-6 section-alt section-appear">
             <div class="max-w-6xl mx-auto">
-                <h2 class="text-3xl md:text-4xl font-bold text-center mb-4">Les problématiques des CPO et opérateurs de recharge</h2>
-                <p class="text-gray-600 text-center max-w-2xl mx-auto mb-12">Uptime insuffisant, multiplicité de sous-traitants sans coordination, zéro visibilité sur les opérations terrain, coûts de maintenance en hausse constante : les CPO ont besoin d'un partenaire unique, structuré et engagé sur des résultats mesurables.</p>
+                <p class="sec-label text-center mb-3">Diagnostic</p>
+                <h2 class="text-3xl md:text-4xl text-center mb-4">Les problematiques des CPO et operateurs de recharge</h2>
+                <p class="text-gray-600 text-center max-w-2xl mx-auto mb-12">Uptime insuffisant, multiplicite de sous-traitants sans coordination, zero visibilite sur les operations terrain, couts de maintenance en hausse constante : les CPO ont besoin d'un partenaire unique, structure et engage sur des resultats mesurables.</p>
 
                 <div class="grid md:grid-cols-2 gap-8">
-                    <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 card-hover why-card-industrial">
-                        <div class="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center mb-6 icon-pulse-hover">
-                            <svg class="w-7 h-7 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
+                    <div class="card-feature">
+                        <div class="flex items-start gap-4 mb-4">
+                            <div class="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0" style="background:rgba(37,99,235,0.08)">
+                                <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
+                            </div>
+                            <h3 class="text-xl font-bold pt-2">Un uptime trop bas qui coute cher</h3>
                         </div>
-                        <h3 class="text-xl font-bold mb-3">Un uptime trop bas qui coûte cher</h3>
-                        <p class="text-gray-600">Chaque point de pourcentage de disponibilité perdu, c'est du chiffre d'affaires en moins et des pénalités contractuelles en plus. Les DSP et contrats collectivités imposent souvent un uptime supérieur à 95%. Avec un parc multi-marques réparti sur des centaines de sites, atteindre cet objectif sans un partenaire terrain dédié relève de l'impossible. Résultat : bornes hors service pendant des jours, utilisateurs qui fuient vers la concurrence, et notes AFIREV qui chutent.</p>
+                        <p class="text-gray-600">Chaque point de pourcentage de disponibilite perdu, c'est du chiffre d'affaires en moins et des penalites contractuelles en plus. Les DSP et contrats collectivites imposent souvent un uptime superieur a 95%. Avec un parc multi-marques reparti sur des centaines de sites, atteindre cet objectif sans un partenaire terrain dedie releve de l'impossible.</p>
                     </div>
-                    <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 card-hover why-card-industrial">
-                        <div class="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center mb-6 icon-pulse-hover">
-                            <svg class="w-7 h-7 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    <div class="card-feature">
+                        <div class="flex items-start gap-4 mb-4">
+                            <div class="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0" style="background:rgba(37,99,235,0.08)">
+                                <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            </div>
+                            <h3 class="text-xl font-bold pt-2">Trop de sous-traitants, aucune visibilite</h3>
                         </div>
-                        <h3 class="text-xl font-bold mb-3">Trop de sous-traitants, aucune visibilité</h3>
-                        <p class="text-gray-600">Un prestataire par région, un autre par marque de borne, des freelances pour les urgences : la multiplication des intervenants rend le pilotage impossible. Pas de reporting unifié, pas de traçabilité des pièces, des factures qui s'empilent sans corrélation avec la qualité de service. Les coûts de maintenance augmentent de 15 à 30% par an sans que l'uptime progresse.</p>
+                        <p class="text-gray-600">Un prestataire par region, un autre par marque de borne, des freelances pour les urgences : la multiplication des intervenants rend le pilotage impossible. Pas de reporting unifie, pas de tracabilite des pieces, des factures qui s'empilent sans correlation avec la qualite de service.</p>
                     </div>
-                    <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 card-hover why-card-industrial">
-                        <div class="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center mb-6 icon-pulse-hover">
-                            <svg class="w-7 h-7 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
+                    <div class="card-feature">
+                        <div class="flex items-start gap-4 mb-4">
+                            <div class="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0" style="background:rgba(37,99,235,0.08)">
+                                <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
+                            </div>
+                            <h3 class="text-xl font-bold pt-2">Un parc multi-marques ingerable</h3>
                         </div>
-                        <h3 class="text-xl font-bold mb-3">Un parc multi-marques ingérable</h3>
-                        <p class="text-gray-600">ABB, Alfen, EVBox, Schneider, Kempower, Tritium, Efacec : chaque fabricant a ses spécificités firmware, ses protocoles de diagnostic et ses pièces détachées. Former des techniciens internes sur toutes ces marques est irréaliste. Faire appel au SAV de chaque fabricant allonge les délais et fragmente la responsabilité. Vous avez besoin d'un interlocuteur unique qui maîtrise tout le spectre.</p>
+                        <p class="text-gray-600">ABB, Alfen, EVBox, Schneider, Kempower, Tritium, Efacec : chaque fabricant a ses specificites firmware, ses protocoles de diagnostic et ses pieces detachees. Former des techniciens internes sur toutes ces marques est irrealiste. Vous avez besoin d'un interlocuteur unique qui maitrise tout le spectre.</p>
                     </div>
-                    <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 card-hover why-card-industrial">
-                        <div class="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center mb-6 icon-pulse-hover">
-                            <svg class="w-7 h-7 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+                    <div class="card-feature">
+                        <div class="flex items-start gap-4 mb-4">
+                            <div class="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0" style="background:rgba(37,99,235,0.08)">
+                                <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+                            </div>
+                            <h3 class="text-xl font-bold pt-2">Zero visibilite sur les operations terrain</h3>
                         </div>
-                        <h3 class="text-xl font-bold mb-3">Zéro visibilité sur les opérations terrain</h3>
-                        <p class="text-gray-600">Votre plateforme de supervision détecte la panne, mais ensuite ? Impossible de savoir si le technicien est en route, quelle pièce a été remplacée, ni quand la borne sera de nouveau opérationnelle. Sans dashboard terrain ni rapports horodatés, vous pilotez à l'aveugle et vos équipes perdent des heures en relances téléphoniques.</p>
+                        <p class="text-gray-600">Votre plateforme de supervision detecte la panne, mais ensuite ? Impossible de savoir si le technicien est en route, quelle piece a ete remplacee, ni quand la borne sera de nouveau operationnelle. Sans dashboard terrain ni rapports horodates, vous pilotez a l'aveugle.</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Solutions JCSM -->
-        <section class="py-20 px-6 bg-gray-50 section-appear">
+        <section class="py-20 px-6 section-appear">
             <div class="max-w-6xl mx-auto">
-                <h2 class="text-3xl md:text-4xl font-bold text-center mb-4">Les solutions JCSM pour les opérateurs de recharge</h2>
-                <p class="text-gray-600 text-center max-w-2xl mx-auto mb-12">Un contrat unique couvrant ABB, Alfen, EVBox, Schneider, Kempower, Autel, BYD, Delta, Tritium, Efacec et Wallbox. Du diagnostic OCPP à l'intervention terrain, avec des SLA contractuels et un dashboard de suivi en temps réel.</p>
+                <p class="sec-label text-center mb-3">Nos solutions</p>
+                <h2 class="text-3xl md:text-4xl text-center mb-4">Les solutions JCSM pour les operateurs de recharge</h2>
+                <p class="text-gray-600 text-center max-w-2xl mx-auto mb-12">Un contrat unique couvrant ABB, Alfen, EVBox, Schneider, Kempower, Autel, BYD, Delta, Tritium, Efacec et Wallbox. Du diagnostic OCPP a l'intervention terrain, avec des SLA contractuels et un dashboard de suivi en temps reel.</p>
 
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <div class="bg-white rounded-2xl p-8 shadow-sm card-hover svc-card-industrial">
-                        <div class="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center mb-6 icon-pulse-hover">
-                            <svg class="w-7 h-7 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                    <div class="card-feature">
+                        <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-5" style="background:rgba(37,99,235,0.08)">
+                            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
                         </div>
-                        <h3 class="text-xl font-bold mb-3">Maintenance contractualisée et préventive</h3>
-                        <p class="text-gray-600">Plan de maintenance adapté à votre parc, quelle que soit la marque : corrective (diagnostic, remplacement de modules, remise en service) et préventive (inspections trimestrielles, nettoyage connecteurs, mises à jour firmware). GTR garanti sous 24 heures. Rapport d'intervention horodaté avec photos, pièces remplacées et statut de remise en service, livré dans les 24h et intégrable directement dans votre plateforme de supervision.</p>
+                        <h3 class="text-xl font-bold mb-3">Maintenance contractualisee et preventive</h3>
+                        <p class="text-gray-600">Plan de maintenance adapte a votre parc, quelle que soit la marque : corrective (diagnostic, remplacement de modules, remise en service) et preventive (inspections trimestrielles, nettoyage connecteurs, mises a jour firmware). GTR garanti sous 24 heures. Rapport d'intervention horodate avec photos, pieces remplacees et statut de remise en service.</p>
                     </div>
-                    <div class="bg-white rounded-2xl p-8 shadow-sm card-hover svc-card-industrial">
-                        <div class="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center mb-6 icon-pulse-hover">
-                            <svg class="w-7 h-7 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+                    <div class="card-feature">
+                        <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-5" style="background:rgba(37,99,235,0.08)">
+                            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
                         </div>
                         <h3 class="text-xl font-bold mb-3">Hotline marque blanche</h3>
-                        <p class="text-gray-600">Support téléphonique opéré sous votre marque, avec des techniciens formés aux spécificités de votre réseau et de vos procédures. Résolution à distance (redémarrage OCPP, guidage utilisateur, diagnostic de connecteur) avant tout déclenchement terrain. Plus de 40% des incidents résolus sans déplacement, ce qui réduit vos coûts et accélère la remise en service.</p>
+                        <p class="text-gray-600">Support telephonique opere sous votre marque, avec des techniciens formes aux specificites de votre reseau. Resolution a distance (redemarrage OCPP, guidage utilisateur, diagnostic de connecteur) avant tout declenchement terrain. Plus de 40% des incidents resolus sans deplacement.</p>
                     </div>
-                    <div class="bg-white rounded-2xl p-8 shadow-sm card-hover svc-card-industrial">
-                        <div class="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center mb-6 icon-pulse-hover">
-                            <svg class="w-7 h-7 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                    <div class="card-feature">
+                        <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-5" style="background:rgba(37,99,235,0.08)">
+                            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
                         </div>
                         <h3 class="text-xl font-bold mb-3">Supervision et diagnostic OCPP</h3>
-                        <p class="text-gray-600">Maîtrise complète des protocoles OCPP 1.6 et 2.0.1 sur toutes les marques : ABB, Alfen, EVBox, Schneider, Kempower, Autel, BYD, Delta, Tritium, Efacec, Wallbox. Diagnostic à distance systématique avant chaque déplacement pour qualifier la panne, identifier la pièce nécessaire et préparer l'intervention. Résultat : moins de déplacements inutiles, taux de résolution en première intervention maximisé.</p>
+                        <p class="text-gray-600">Maitrise complete des protocoles OCPP 1.6 et 2.0.1 sur toutes les marques. Diagnostic a distance systematique avant chaque deplacement pour qualifier la panne, identifier la piece necessaire et preparer l'intervention. Resultat : taux de resolution en premiere intervention maximise.</p>
                     </div>
-                    <div class="bg-white rounded-2xl p-8 shadow-sm card-hover svc-card-industrial">
-                        <div class="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center mb-6 icon-pulse-hover">
-                            <svg class="w-7 h-7 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                    <div class="card-feature">
+                        <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-5" style="background:rgba(37,99,235,0.08)">
+                            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
                         </div>
-                        <h3 class="text-xl font-bold mb-3">Dashboard temps réel et rapports horodatés</h3>
-                        <p class="text-gray-600">Suivez chaque intervention en temps réel : statut du technicien, heure d'arrivée estimée, diagnostic en cours, remise en service confirmée. Rapport mensuel consolidé avec KPI par site et par marque : MTTR, taux de first-time fix, disponibilité effective, tendances de pannes récurrentes et recommandations d'optimisation de votre parc.</p>
+                        <h3 class="text-xl font-bold mb-3">Dashboard temps reel et rapports horodates</h3>
+                        <p class="text-gray-600">Suivez chaque intervention en temps reel : statut du technicien, heure d'arrivee estimee, diagnostic en cours, remise en service confirmee. Rapport mensuel consolide avec KPI par site et par marque : MTTR, taux de first-time fix, disponibilite effective.</p>
                     </div>
-                    <div class="bg-white rounded-2xl p-8 shadow-sm card-hover svc-card-industrial">
-                        <div class="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center mb-6 icon-pulse-hover">
-                            <svg class="w-7 h-7 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                    <div class="card-feature">
+                        <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-5" style="background:rgba(37,99,235,0.08)">
+                            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
                         </div>
-                        <h3 class="text-xl font-bold mb-3">SLA négociés, mesurés, reportés</h3>
-                        <p class="text-gray-600">SLA d'intervention, GTR, taux de disponibilité cible : les engagements sont chiffrés dans votre contrat et assortis de pénalités en cas de non-respect. Chaque mois, vous recevez un bilan détaillé avec les KPI réels vs. les objectifs : MTTR par site, taux de first-time fix, nombre de récidives, et plan d'action correctif. Nos SLA sont alignés sur les exigences des DSP et contrats collectivités, pour que vous puissiez les répercuter à vos donneurs d'ordre en toute confiance.</p>
+                        <h3 class="text-xl font-bold mb-3">SLA negocies, mesures, reportes</h3>
+                        <p class="text-gray-600">SLA d'intervention, GTR, taux de disponibilite cible : les engagements sont chiffres dans votre contrat et assortis de penalites en cas de non-respect. Chaque mois, vous recevez un bilan detaille avec les KPI reels vs. les objectifs. Nos SLA sont alignes sur les exigences des DSP et contrats collectivites.</p>
                     </div>
-                    <div class="bg-white rounded-2xl p-8 shadow-sm card-hover svc-card-industrial">
-                        <div class="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center mb-6 icon-pulse-hover">
-                            <svg class="w-7 h-7 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    <div class="card-feature">
+                        <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-5" style="background:rgba(37,99,235,0.08)">
+                            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                         </div>
-                        <h3 class="text-xl font-bold mb-3">Couverture nationale et transfrontalière</h3>
-                        <p class="text-gray-600">Réseau de techniciens salariés couvrant toute la France métropolitaine et la Belgique, sans recours aux freelances. Maillage territorial calibré sur l'implantation de votre parc, avec capacité de montée en charge rapide lors de déploiements massifs. Un seul interlocuteur coordonne l'ensemble des interventions, quelle que soit la région, pour vous garantir une qualité de service homogène de Lille à Marseille, de Bruxelles à Bordeaux.</p>
+                        <h3 class="text-xl font-bold mb-3">Couverture nationale et transfrontaliere</h3>
+                        <p class="text-gray-600">Reseau de techniciens salaries couvrant toute la France metropolitaine et la Belgique, sans recours aux freelances. Maillage territorial calibre sur l'implantation de votre parc, avec capacite de montee en charge rapide lors de deployements massifs.</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Pourquoi les CPO nous choisissent -->
-        <section class="py-20 px-6 bg-white section-appear">
+        <section class="section-dark py-20 px-6 section-appear">
             <div class="max-w-6xl mx-auto">
-                <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Pourquoi les CPO nous choisissent</h2>
+                <p class="sec-label text-center mb-3">Nos atouts</p>
+                <h2 class="text-3xl md:text-4xl text-center mb-12">Pourquoi les CPO nous choisissent</h2>
                 <div class="grid md:grid-cols-2 gap-8">
-                    <div class="bg-gray-50 rounded-2xl p-8 card-hover why-card-industrial">
-                        <h3 class="text-xl font-bold mb-3">Un seul contrat, toutes vos marques</h3>
-                        <p class="text-gray-600">Fini la fragmentation : ABB, Alfen, EVBox, Schneider, Kempower, Autel, BYD, Delta, Tritium, Efacec, Wallbox -- un contrat unique couvre l'intégralité de votre parc. Plus besoin de coordonner cinq prestataires, de gérer autant de factures et de jongler entre les niveaux de service. Vous consolidez vos coûts, simplifiez votre gestion et obtenez un engagement de résultat global sur l'uptime de votre réseau.</p>
+                    <div class="step p-6">
+                        <div class="flex items-start gap-4 mb-3">
+                            <svg class="w-6 h-6 text-blue-400 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                            <h3 class="text-xl font-bold">Un seul contrat, toutes vos marques</h3>
+                        </div>
+                        <p class="opacity-80">Fini la fragmentation : ABB, Alfen, EVBox, Schneider, Kempower, Autel, BYD, Delta, Tritium, Efacec, Wallbox -- un contrat unique couvre l'integralite de votre parc. Vous consolidez vos couts, simplifiez votre gestion et obtenez un engagement de resultat global sur l'uptime de votre reseau.</p>
                     </div>
-                    <div class="bg-gray-50 rounded-2xl p-8 card-hover why-card-industrial">
-                        <h3 class="text-xl font-bold mb-3">SLA contractuel, réponse sous 24h ouvrées</h3>
-                        <p class="text-gray-600">Nos SLA ne sont pas des promesses marketing : ils sont contractuels et assortis de pénalités. Réponse sous 24h ouvrées par un technicien certifié, et la borne est remise en service dans plus de 92% des cas dès la première intervention. Notre stock de pièces détachées multi-marques et notre diagnostic OCPP préalable maximisent le taux de résolution.</p>
+                    <div class="step p-6">
+                        <div class="flex items-start gap-4 mb-3">
+                            <svg class="w-6 h-6 text-blue-400 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            <h3 class="text-xl font-bold">SLA contractuel, reponse sous 24h ouvrees</h3>
+                        </div>
+                        <p class="opacity-80">Nos SLA ne sont pas des promesses marketing : ils sont contractuels et assortis de penalites. Reponse sous 24h ouvrees par un technicien certifie, et la borne est remise en service dans plus de 92% des cas des la premiere intervention.</p>
                     </div>
-                    <div class="bg-gray-50 rounded-2xl p-8 card-hover why-card-industrial">
-                        <h3 class="text-xl font-bold mb-3">Dashboard temps réel et rapports horodatés</h3>
-                        <p class="text-gray-600">Chaque intervention est tracée de bout en bout : ouverture du ticket, départ du technicien, arrivée sur site, diagnostic, pièce remplacée, remise en service. Vous suivez tout en temps réel depuis votre espace dédié. Les rapports horodatés avec photos sont livrés sous 24h et compatibles avec vos outils de supervision (export API, CSV, PDF). Fini le pilotage à l'aveugle et les relances téléphoniques.</p>
+                    <div class="step p-6">
+                        <div class="flex items-start gap-4 mb-3">
+                            <svg class="w-6 h-6 text-blue-400 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                            <h3 class="text-xl font-bold">Dashboard temps reel et rapports horodates</h3>
+                        </div>
+                        <p class="opacity-80">Chaque intervention est tracee de bout en bout : ouverture du ticket, depart du technicien, arrivee sur site, diagnostic, piece remplacee, remise en service. Les rapports horodates avec photos sont livres sous 24h et compatibles avec vos outils de supervision (export API, CSV, PDF).</p>
                     </div>
-                    <div class="bg-gray-50 rounded-2xl p-8 card-hover why-card-industrial">
-                        <h3 class="text-xl font-bold mb-3">Techniciens certifiés, zéro freelance</h3>
-                        <p class="text-gray-600">Tous nos techniciens sont salariés, formés en continu sur les évolutions firmware et matérielles de chaque fabricant, et habilités aux interventions AC et DC haute puissance. Aucun recours aux freelances ou intérimaires : vous avez la garantie d'un niveau de compétence constant, d'une connaissance approfondie de votre parc et d'une responsabilité claire en cas d'incident.</p>
+                    <div class="step p-6">
+                        <div class="flex items-start gap-4 mb-3">
+                            <svg class="w-6 h-6 text-blue-400 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                            <h3 class="text-xl font-bold">Techniciens certifies, zero freelance</h3>
+                        </div>
+                        <p class="opacity-80">Tous nos techniciens sont salaries, formes en continu sur les evolutions firmware et materielles de chaque fabricant, et habilites aux interventions AC et DC haute puissance. Aucun recours aux freelances ou interimaires.</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- FAQ -->
-        <section class="py-20 px-6 bg-gray-50 section-appear">
+        <section class="py-20 px-6 section-alt section-appear">
             <div class="max-w-4xl mx-auto">
-                <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Questions fréquentes</h2>
+                <p class="sec-label text-center mb-3">FAQ</p>
+                <h2 class="text-3xl md:text-4xl text-center mb-12">Questions frequentes</h2>
                 <div class="space-y-6">
-                    <div class="bg-white rounded-2xl p-8 shadow-sm card-hover svc-card-industrial">
-                        <h3 class="text-lg font-bold mb-3">Pouvez-vous reprendre un parc multi-marques en exploitation ?</h3>
-                        <p class="text-gray-600">Oui, c'est notre coeur de metier. Nous reprenons des parcs en exploitation comprenant ABB, Alfen, EVBox, Schneider, Kempower, Autel, BYD, Delta, Tritium, Efacec, Wallbox et d'autres marques, sous un contrat unique. La transition se fait en deux a quatre semaines : audit de votre parc, inventaire des équipements et firmwares, formation de nos équipés a vos procedures specifiques, puis montee en charge progressive. Nous assurons la continuite de service pendant toute la phase de transition pour eviter toute degradation de votre uptime.</p>
+                    <div class="card-feature">
+                        <div class="flex items-start gap-4 mb-3">
+                            <svg class="w-6 h-6 text-blue-600 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            <h3 class="text-lg font-bold">Pouvez-vous reprendre un parc multi-marques en exploitation ?</h3>
+                        </div>
+                        <p class="text-gray-600">Oui, c'est notre coeur de metier. Nous reprenons des parcs en exploitation comprenant ABB, Alfen, EVBox, Schneider, Kempower, Autel, BYD, Delta, Tritium, Efacec, Wallbox et d'autres marques, sous un contrat unique. La transition se fait en deux a quatre semaines : audit de votre parc, inventaire des equipements et firmwares, formation de nos equipes a vos procedures specifiques, puis montee en charge progressive.</p>
                     </div>
-                    <div class="bg-white rounded-2xl p-8 shadow-sm card-hover svc-card-industrial">
-                        <h3 class="text-lg font-bold mb-3">Comment suivre les interventions en temps réel ?</h3>
-                        <p class="text-gray-600">Vous disposez d'un dashboard temps réel accessible 24/7 depuis votre espace dédié. Chaque intervention y est tracee de bout en bout : creation du ticket, affectation du technicien, depart, arrivee sur site, diagnostic, piece remplacee, remise en service. Les rapports horodates avec photos sont disponibles sous 24h et exportables en PDF, CSV ou via API pour alimenter directement votre plateforme de supervision. Vous recevez egalement un bilan mensuel consolide avec les KPI par site, par marque et par region.</p>
+                    <div class="card-feature">
+                        <div class="flex items-start gap-4 mb-3">
+                            <svg class="w-6 h-6 text-blue-600 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            <h3 class="text-lg font-bold">Comment suivre les interventions en temps reel ?</h3>
+                        </div>
+                        <p class="text-gray-600">Vous disposez d'un dashboard temps reel accessible 24/7 depuis votre espace dedie. Chaque intervention y est tracee de bout en bout : creation du ticket, affectation du technicien, depart, arrivee sur site, diagnostic, piece remplacee, remise en service. Les rapports horodates avec photos sont disponibles sous 24h et exportables en PDF, CSV ou via API.</p>
                     </div>
-                    <div class="bg-white rounded-2xl p-8 shadow-sm card-hover svc-card-industrial">
-                        <h3 class="text-lg font-bold mb-3">Comment sont fixés vos SLA de disponibilité ?</h3>
-                        <p class="text-gray-600">Nos SLA sont négociés au cas par cas : taux de disponibilité cible, GTR, pénalités, reporting. Nous alignons nos engagements sur les exigences des DSP, contrats de collectivités et cahiers des charges AFIREV, afin que vous puissiez les répercuter à vos propres donneurs d'ordre en toute transparence.</p>
+                    <div class="card-feature">
+                        <div class="flex items-start gap-4 mb-3">
+                            <svg class="w-6 h-6 text-blue-600 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            <h3 class="text-lg font-bold">Comment sont fixes vos SLA de disponibilite ?</h3>
+                        </div>
+                        <p class="text-gray-600">Nos SLA sont negocies au cas par cas : taux de disponibilite cible, GTR, penalites, reporting. Nous alignons nos engagements sur les exigences des DSP, contrats de collectivites et cahiers des charges AFIREV, afin que vous puissiez les repercuter a vos propres donneurs d'ordre en toute transparence.</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- CTA -->
-        <section class="py-20 px-6 bg-blue-600 text-white">
+        <section class="card-cta py-20 px-6">
             <div class="max-w-4xl mx-auto text-center">
-                <h2 class="text-3xl md:text-4xl font-bold mb-6 text-white">Votre réseau mérite mieux qu'un sous-traitant de plus</h2>
-                <p class="text-xl text-blue-100 mb-8">Audit gratuit de votre parc, proposition tarifaire sous 48h, mise en service sous 4 semaines. Rejoignez les CPO qui ont choisi un interlocuteur unique pour toutes leurs marques, des SLA tenus et une visibilité totale sur leurs opérations terrain. JCSM intervient partout en France et en Belgique.</p>
-                <a href="/contact" class="inline-block bg-white text-blue-600 px-8 py-4 rounded-xl font-medium hover:bg-blue-50 transition-colors">
+                <h2 class="text-3xl md:text-4xl mb-6">Votre reseau merite mieux qu'un sous-traitant de plus</h2>
+                <p class="text-lg opacity-80 mb-8">Audit gratuit de votre parc, proposition tarifaire sous 48h, mise en service sous 4 semaines. Rejoignez les CPO qui ont choisi un interlocuteur unique pour toutes leurs marques, des SLA tenus et une visibilite totale sur leurs operations terrain. JCSM intervient partout en France et en Belgique.</p>
+                <a href="/contact" class="inline-block bg-white text-blue-600 px-8 py-4 rounded-full font-medium hover:bg-gray-100 transition-colors">
                     Cadrer mon projet
                 </a>
             </div>
         </section>
 
         <!-- Autres solutions -->
-        <section class="py-16 px-6 bg-white section-appear">
+        <section class="py-16 px-6 section-appear">
             <div class="max-w-6xl mx-auto">
-                <h2 class="text-2xl font-bold text-center mb-8">Découvrez nos solutions par secteur</h2>
+                <p class="sec-label text-center mb-3">Autres secteurs</p>
+                <h2 class="text-2xl text-center mb-8">Decouvrez nos solutions par secteur</h2>
                 <div class="flex flex-wrap justify-center gap-4">
-                    <a href="/solutions/fabricants-bornes" class="px-4 py-2 bg-gray-100 rounded-lg text-sm hover:bg-blue-100 hover:text-blue-700 transition-colors">Fabricants de bornes</a>
-                    <a href="/solutions/entreprises-flottes" class="px-4 py-2 bg-gray-100 rounded-lg text-sm hover:bg-blue-100 hover:text-blue-700 transition-colors">Entreprises et flottes</a>
-                    <a href="/solutions/retail-grande-distribution" class="px-4 py-2 bg-gray-100 rounded-lg text-sm hover:bg-blue-100 hover:text-blue-700 transition-colors">Retail et grande distribution</a>
+                    <a href="/solutions/fabricants-bornes" class="card-feature px-5 py-3 inline-flex items-center gap-2 text-sm hover:border-blue-600 transition-colors">
+                        <svg class="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                        Fabricants de bornes
+                    </a>
+                    <a href="/solutions/entreprises-flottes" class="card-feature px-5 py-3 inline-flex items-center gap-2 text-sm hover:border-blue-600 transition-colors">
+                        <svg class="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
+                        Entreprises et flottes
+                    </a>
+                    <a href="/solutions/retail-grande-distribution" class="card-feature px-5 py-3 inline-flex items-center gap-2 text-sm hover:border-blue-600 transition-colors">
+                        <svg class="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 100 4 2 2 0 000-4z"></path></svg>
+                        Retail et grande distribution
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Voir aussi : nos services -->
+        <section class="py-20 px-6" aria-label="Nos services IRVE">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-10 section-appear">
+                    <div class="sec-label mb-5">Voir aussi</div>
+                    <h2 class="text-2xl sm:text-3xl tracking-tight">Nos services</h2>
+                </div>
+                <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-4">
+                    <a href="/pilotage-projets" title="Voir notre service de pilotage de projets" class="card-feature block text-center section-appear">
+                        <div class="flex justify-center mb-4">
+                            <svg class="w-8 h-8" style="color: var(--color-primary)" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                            </svg>
+                        </div>
+                        <h3 class="font-bold text-sm mb-1" style="font-family: var(--font-sans)">Pilotage</h3>
+                        <p class="text-xs" style="color: var(--color-text-secondary)">Coordination de projets IRVE</p>
+                    </a>
+                    <a href="/installation-conformite" title="Voir notre service d'installation et conformite" class="card-feature block text-center section-appear">
+                        <div class="flex justify-center mb-4">
+                            <svg class="w-8 h-8" style="color: var(--color-primary)" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.066 2.573c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.573 1.066c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.066-2.573c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                            </svg>
+                        </div>
+                        <h3 class="font-bold text-sm mb-1" style="font-family: var(--font-sans)">Installation</h3>
+                        <p class="text-xs" style="color: var(--color-text-secondary)">Installation certifiee Qualifelec</p>
+                    </a>
+                    <a href="/exploitation" title="Voir notre service d'exploitation et maintenance" class="card-feature block text-center section-appear">
+                        <div class="flex justify-center mb-4">
+                            <svg class="w-8 h-8" style="color: var(--color-primary)" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
+                            </svg>
+                        </div>
+                        <h3 class="font-bold text-sm mb-1" style="font-family: var(--font-sans)">Exploitation</h3>
+                        <p class="text-xs" style="color: var(--color-text-secondary)">Maintenance preventive et curative</p>
+                    </a>
+                    <a href="/securisation-installations" title="Voir notre service de securisation" class="card-feature block text-center section-appear">
+                        <div class="flex justify-center mb-4">
+                            <svg class="w-8 h-8" style="color: var(--color-primary)" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+                            </svg>
+                        </div>
+                        <h3 class="font-bold text-sm mb-1" style="font-family: var(--font-sans)">Securisation</h3>
+                        <p class="text-xs" style="color: var(--color-text-secondary)">Protection anti-vandalisme</p>
+                    </a>
+                    <a href="/centre-appel" title="Voir notre support technique 24/7" class="card-feature block text-center section-appear">
+                        <div class="flex justify-center mb-4">
+                            <svg class="w-8 h-8" style="color: var(--color-primary)" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C8.716 21 3 15.284 3 8V5z"/>
+                            </svg>
+                        </div>
+                        <h3 class="font-bold text-sm mb-1" style="font-family: var(--font-sans)">Support 24/7</h3>
+                        <p class="text-xs" style="color: var(--color-text-secondary)">Hotline et telegestion</p>
+                    </a>
                 </div>
             </div>
         </section>
@@ -419,6 +506,7 @@
                             <li><a href="/carrieres" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Carrières</a></li>
                             <li><a href="/contact" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Contact</a></li>
                             <li><a href="/blog" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Blog</a></li>
+                            <li><a href="/presse" title="Presse et relations médias" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Presse</a></li>
                         </ul>
                     </nav>
                 </div>

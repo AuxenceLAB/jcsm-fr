@@ -4,7 +4,7 @@
   <!-- Homepage -->
   <url>
     <loc>https://jcsm.fr/</loc>
-    <lastmod>2026-04-22</lastmod>
+    <lastmod>2026-06-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
@@ -19,7 +19,7 @@
   <!-- Service pages (priority 0.9) -->
   <url>
     <loc>https://jcsm.fr/pilotage-projets</loc>
-    <lastmod>2026-04-22</lastmod>
+    <lastmod>2026-06-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -29,7 +29,7 @@
   </url>
   <url>
     <loc>https://jcsm.fr/installation-conformite</loc>
-    <lastmod>2026-04-22</lastmod>
+    <lastmod>2026-06-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -39,7 +39,7 @@
   </url>
   <url>
     <loc>https://jcsm.fr/exploitation</loc>
-    <lastmod>2026-04-22</lastmod>
+    <lastmod>2026-06-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -49,7 +49,7 @@
   </url>
   <url>
     <loc>https://jcsm.fr/securisation-installations</loc>
-    <lastmod>2026-04-22</lastmod>
+    <lastmod>2026-06-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -59,7 +59,7 @@
   </url>
   <url>
     <loc>https://jcsm.fr/centre-appel</loc>
-    <lastmod>2026-04-22</lastmod>
+    <lastmod>2026-06-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -70,533 +70,533 @@
   <!-- Solutions pages (priority 0.8) -->
   <url>
     <loc>https://jcsm.fr/solutions/</loc>
-    <lastmod>2026-04-22</lastmod>
+    <lastmod>2026-06-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://jcsm.fr/solutions/cpo-operateurs</loc>
-    <lastmod>2026-04-22</lastmod>
+    <lastmod>2026-06-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://jcsm.fr/solutions/fabricants-bornes</loc>
-    <lastmod>2026-04-22</lastmod>
+    <lastmod>2026-06-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://jcsm.fr/solutions/entreprises-flottes</loc>
-    <lastmod>2026-04-22</lastmod>
+    <lastmod>2026-06-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://jcsm.fr/solutions/retail-grande-distribution</loc>
-    <lastmod>2026-04-22</lastmod>
+    <lastmod>2026-06-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <!-- Other public pages -->
   <url>
     <loc>https://jcsm.fr/a-propos</loc>
-    <lastmod>2026-04-22</lastmod>
+    <lastmod>2026-06-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://jcsm.fr/devenir-partenaire</loc>
-    <lastmod>2026-04-22</lastmod>
+    <lastmod>2026-06-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://jcsm.fr/carrieres</loc>
-    <lastmod>2026-04-22</lastmod>
+    <lastmod>2026-06-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://jcsm.fr/contact</loc>
-    <lastmod>2026-04-22</lastmod>
+    <lastmod>2026-06-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://jcsm.fr/presse</loc>
-    <lastmod>2026-04-22</lastmod>
+    <lastmod>2026-06-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://jcsm.fr/couverture</loc>
-    <lastmod>2026-04-22</lastmod>
+    <lastmod>2026-06-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://jcsm.fr/mentions-legales</loc>
-    <lastmod>2026-04-22</lastmod>
+    <lastmod>2026-06-16</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
     <loc>https://jcsm.fr/cgv</loc>
-    <lastmod>2026-04-22</lastmod>
+    <lastmod>2026-06-16</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
     <loc>https://jcsm.fr/confidentialite</loc>
-    <lastmod>2026-04-22</lastmod>
+    <lastmod>2026-06-16</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <!-- Tarification page -->
   <url>
     <loc>https://jcsm.fr/tarification</loc>
-    <lastmod>2026-04-02</lastmod>
+    <lastmod>2026-06-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <!-- Inclusion page -->
   <url>
     <loc>https://jcsm.fr/inclusion</loc>
-    <lastmod>2026-04-02</lastmod>
+    <lastmod>2026-06-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <!-- Zone pages (priority 0.7) -->
   <url>
     <loc>https://jcsm.fr/zones/france</loc>
-    <lastmod>2026-04-22</lastmod>
+    <lastmod>2026-06-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://jcsm.fr/zones/ile-de-france</loc>
-    <lastmod>2026-04-22</lastmod>
+    <lastmod>2026-06-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://jcsm.fr/zones/paca</loc>
-    <lastmod>2026-04-22</lastmod>
+    <lastmod>2026-06-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://jcsm.fr/zones/auvergne-rhone-alpes</loc>
-    <lastmod>2026-04-22</lastmod>
+    <lastmod>2026-06-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://jcsm.fr/zones/occitanie</loc>
-    <lastmod>2026-04-22</lastmod>
+    <lastmod>2026-06-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://jcsm.fr/zones/nouvelle-aquitaine</loc>
-    <lastmod>2026-04-22</lastmod>
+    <lastmod>2026-06-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://jcsm.fr/zones/hauts-de-france</loc>
-    <lastmod>2026-04-22</lastmod>
+    <lastmod>2026-06-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://jcsm.fr/zones/belgique</loc>
-    <lastmod>2026-04-22</lastmod>
+    <lastmod>2026-06-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <!-- Blog index -->
   <url>
     <loc>https://jcsm.fr/blog</loc>
-    <lastmod>2026-04-22</lastmod>
+    <lastmod>2026-06-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <!-- Blog articles (priority 0.6, changefreq weekly) -->
   <url>
     <loc>https://jcsm.fr/blog/prix-installation-borne-recharge-2026</loc>
-    <lastmod>2026-04-22</lastmod>
+    <lastmod>2026-06-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://jcsm.fr/blog/conformite-irve-2026-normes-nf-c-15-100</loc>
-    <lastmod>2026-04-22</lastmod>
+    <lastmod>2026-06-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://jcsm.fr/blog/cout-maintenance-borne-recharge-2026</loc>
-    <lastmod>2026-04-22</lastmod>
+    <lastmod>2026-06-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://jcsm.fr/blog/aides-installation-borne-recharge-entreprise-2026</loc>
-    <lastmod>2026-04-22</lastmod>
+    <lastmod>2026-06-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://jcsm.fr/blog/taux-disponibilite-bornes-irve</loc>
-    <lastmod>2026-04-22</lastmod>
+    <lastmod>2026-06-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://jcsm.fr/blog/certification-qualifelec-irve</loc>
-    <lastmod>2026-04-22</lastmod>
+    <lastmod>2026-06-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://jcsm.fr/blog/hotline-irve-marque-blanche</loc>
-    <lastmod>2026-04-22</lastmod>
+    <lastmod>2026-06-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://jcsm.fr/blog/deploiement-multi-sites-irve</loc>
-    <lastmod>2026-04-22</lastmod>
+    <lastmod>2026-06-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://jcsm.fr/blog/borne-recharge-copropriete-2026</loc>
-    <lastmod>2026-04-22</lastmod>
+    <lastmod>2026-06-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://jcsm.fr/blog/comparatif-bornes-dc-puissance</loc>
-    <lastmod>2026-04-22</lastmod>
+    <lastmod>2026-06-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://jcsm.fr/blog/immatriculations-vehicules-electriques-bilan-2025</loc>
-    <lastmod>2026-04-22</lastmod>
+    <lastmod>2026-06-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://jcsm.fr/blog/ce-qui-change-2026-mobilite-electrique</loc>
-    <lastmod>2026-04-22</lastmod>
+    <lastmod>2026-06-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://jcsm.fr/blog/installer-borne-copropriete</loc>
-    <lastmod>2026-04-22</lastmod>
+    <lastmod>2026-06-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://jcsm.fr/blog/aide-advenir-subventions-irve</loc>
-    <lastmod>2026-04-22</lastmod>
+    <lastmod>2026-06-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://jcsm.fr/blog/recharge-poids-lourds-france-afir</loc>
-    <lastmod>2026-04-22</lastmod>
+    <lastmod>2026-06-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://jcsm.fr/blog/bilan-advenir-2025-irve</loc>
-    <lastmod>2026-04-22</lastmod>
+    <lastmod>2026-06-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://jcsm.fr/blog/prix-recharge-publique-comparatif-2025</loc>
-    <lastmod>2026-04-22</lastmod>
+    <lastmod>2026-06-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://jcsm.fr/blog/record-recharge-ete-2025</loc>
-    <lastmod>2026-04-22</lastmod>
+    <lastmod>2026-06-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://jcsm.fr/blog/belgique-100000-bornes-recharge-2025</loc>
-    <lastmod>2026-04-22</lastmod>
+    <lastmod>2026-06-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://jcsm.fr/blog/top-ventes-voitures-electriques-2025</loc>
-    <lastmod>2026-04-22</lastmod>
+    <lastmod>2026-06-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://jcsm.fr/blog/recharge-autoroute-france-2025</loc>
-    <lastmod>2026-04-22</lastmod>
+    <lastmod>2026-06-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://jcsm.fr/blog/aides-subventions-borne-recharge-2025</loc>
-    <lastmod>2026-04-22</lastmod>
+    <lastmod>2026-06-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://jcsm.fr/blog/plan-gouvernement-400000-bornes-2030</loc>
-    <lastmod>2026-04-22</lastmod>
+    <lastmod>2026-06-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://jcsm.fr/blog/reglement-afir-obligations-bornes-recharge</loc>
-    <lastmod>2026-04-22</lastmod>
+    <lastmod>2026-06-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://jcsm.fr/blog/bornes-recharge-france-chiffres-2025</loc>
-    <lastmod>2026-04-22</lastmod>
+    <lastmod>2026-06-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://jcsm.fr/blog/borne-ac-dc-difference</loc>
-    <lastmod>2026-04-22</lastmod>
+    <lastmod>2026-06-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://jcsm.fr/blog/installer-borne-recharge-maison-particulier</loc>
-    <lastmod>2026-04-22</lastmod>
+    <lastmod>2026-06-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://jcsm.fr/blog/courbes-de-charge-recharge-electrique</loc>
-    <lastmod>2026-04-22</lastmod>
+    <lastmod>2026-06-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://jcsm.fr/blog/vehicule-electrique-batterie-guide</loc>
-    <lastmod>2026-04-22</lastmod>
+    <lastmod>2026-06-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://jcsm.fr/blog/maintenance-bornes-recharge-guide</loc>
-    <lastmod>2026-04-22</lastmod>
+    <lastmod>2026-06-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://jcsm.fr/blog/degradations-cables-coupes-bornes-recharge</loc>
-    <lastmod>2026-04-22</lastmod>
+    <lastmod>2026-06-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://jcsm.fr/blog/choisir-prestataire-maintenance-irve</loc>
-    <lastmod>2026-04-22</lastmod>
+    <lastmod>2026-06-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://jcsm.fr/blog/installer-bornes-recharge-entreprise</loc>
-    <lastmod>2026-04-22</lastmod>
+    <lastmod>2026-06-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://jcsm.fr/blog/ocpp-1-6-vs-2-0-protocole-bornes</loc>
-    <lastmod>2026-04-22</lastmod>
+    <lastmod>2026-06-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://jcsm.fr/blog/raccordement-electrique-bornes-dc</loc>
-    <lastmod>2026-04-22</lastmod>
+    <lastmod>2026-06-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://jcsm.fr/blog/recharge-belgique-reglementation-aides</loc>
-    <lastmod>2026-04-22</lastmod>
+    <lastmod>2026-06-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://jcsm.fr/blog/supervision-distance-bornes-irve</loc>
-    <lastmod>2026-04-22</lastmod>
+    <lastmod>2026-06-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://jcsm.fr/blog/cpo-emsp-acteurs-recharge-electrique</loc>
-    <lastmod>2026-04-22</lastmod>
+    <lastmod>2026-06-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://jcsm.fr/blog/v2g-v2h-recharge-bidirectionnelle</loc>
-    <lastmod>2026-04-22</lastmod>
+    <lastmod>2026-06-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://jcsm.fr/blog/bonnes-pratiques-recharge-vehicule-electrique</loc>
-    <lastmod>2026-04-22</lastmod>
+    <lastmod>2026-06-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://jcsm.fr/blog/flottes-electriques-guide-entreprises</loc>
-    <lastmod>2026-04-22</lastmod>
+    <lastmod>2026-06-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://jcsm.fr/blog/connecteurs-type-2-ccs-chademo-guide</loc>
-    <lastmod>2026-04-22</lastmod>
+    <lastmod>2026-06-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://jcsm.fr/blog/interoperabilite-roaming-recharge-europe</loc>
-    <lastmod>2026-04-22</lastmod>
+    <lastmod>2026-06-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://jcsm.fr/blog/smart-charging-pilotage-energetique-bornes</loc>
-    <lastmod>2026-04-22</lastmod>
+    <lastmod>2026-06-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://jcsm.fr/blog/temps-recharge-calculer-optimiser</loc>
-    <lastmod>2026-04-22</lastmod>
+    <lastmod>2026-06-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <!-- English pages -->
-  <url><loc>https://jcsm.fr/en/</loc><lastmod>2026-04-22</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://jcsm.fr/en/project-management</loc><lastmod>2026-04-22</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://jcsm.fr/en/installation-compliance</loc><lastmod>2026-04-22</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://jcsm.fr/en/operations-maintenance</loc><lastmod>2026-04-22</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://jcsm.fr/en/installation-security</loc><lastmod>2026-04-22</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://jcsm.fr/en/call-center</loc><lastmod>2026-04-22</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://jcsm.fr/en/about</loc><lastmod>2026-04-22</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://jcsm.fr/en/contact</loc><lastmod>2026-04-22</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://jcsm.fr/en/become-partner</loc><lastmod>2026-04-22</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://jcsm.fr/en/careers</loc><lastmod>2026-04-22</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://jcsm.fr/en/coverage</loc><lastmod>2026-04-22</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://jcsm.fr/en/legal-notice</loc><lastmod>2026-04-22</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
-  <url><loc>https://jcsm.fr/en/terms</loc><lastmod>2026-04-22</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
-  <url><loc>https://jcsm.fr/en/privacy</loc><lastmod>2026-04-22</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://jcsm.fr/en/</loc><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://jcsm.fr/en/project-management</loc><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://jcsm.fr/en/installation-compliance</loc><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://jcsm.fr/en/operations-maintenance</loc><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://jcsm.fr/en/installation-security</loc><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://jcsm.fr/en/call-center</loc><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://jcsm.fr/en/about</loc><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://jcsm.fr/en/contact</loc><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://jcsm.fr/en/become-partner</loc><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://jcsm.fr/en/careers</loc><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://jcsm.fr/en/coverage</loc><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://jcsm.fr/en/legal-notice</loc><lastmod>2026-06-16</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://jcsm.fr/en/terms</loc><lastmod>2026-06-16</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://jcsm.fr/en/privacy</loc><lastmod>2026-06-16</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
   <!-- Spanish pages -->
-  <url><loc>https://jcsm.fr/es/</loc><lastmod>2026-04-22</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://jcsm.fr/es/gestion-proyectos</loc><lastmod>2026-04-22</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://jcsm.fr/es/instalacion-conformidad</loc><lastmod>2026-04-22</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://jcsm.fr/es/operacion-mantenimiento</loc><lastmod>2026-04-22</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://jcsm.fr/es/seguridad-instalaciones</loc><lastmod>2026-04-22</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://jcsm.fr/es/centro-llamadas</loc><lastmod>2026-04-22</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://jcsm.fr/es/nosotros</loc><lastmod>2026-04-22</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://jcsm.fr/es/contacto</loc><lastmod>2026-04-22</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://jcsm.fr/es/</loc><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://jcsm.fr/es/gestion-proyectos</loc><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://jcsm.fr/es/instalacion-conformidad</loc><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://jcsm.fr/es/operacion-mantenimiento</loc><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://jcsm.fr/es/seguridad-instalaciones</loc><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://jcsm.fr/es/centro-llamadas</loc><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://jcsm.fr/es/nosotros</loc><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://jcsm.fr/es/contacto</loc><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <!-- German pages -->
-  <url><loc>https://jcsm.fr/de/</loc><lastmod>2026-04-22</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://jcsm.fr/de/projektmanagement</loc><lastmod>2026-04-22</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://jcsm.fr/de/installation-konformitaet</loc><lastmod>2026-04-22</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://jcsm.fr/de/betrieb-wartung</loc><lastmod>2026-04-22</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://jcsm.fr/de/anlagensicherung</loc><lastmod>2026-04-22</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://jcsm.fr/de/callcenter</loc><lastmod>2026-04-22</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://jcsm.fr/de/ueber-uns</loc><lastmod>2026-04-22</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://jcsm.fr/de/kontakt</loc><lastmod>2026-04-22</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://jcsm.fr/de/</loc><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://jcsm.fr/de/projektmanagement</loc><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://jcsm.fr/de/installation-konformitaet</loc><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://jcsm.fr/de/betrieb-wartung</loc><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://jcsm.fr/de/anlagensicherung</loc><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://jcsm.fr/de/callcenter</loc><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://jcsm.fr/de/ueber-uns</loc><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://jcsm.fr/de/kontakt</loc><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <!-- Portuguese pages -->
-  <url><loc>https://jcsm.fr/pt/</loc><lastmod>2026-04-22</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://jcsm.fr/pt/gestao-projetos</loc><lastmod>2026-04-22</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://jcsm.fr/pt/instalacao-conformidade</loc><lastmod>2026-04-22</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://jcsm.fr/pt/operacao-manutencao</loc><lastmod>2026-04-22</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://jcsm.fr/pt/seguranca-instalacoes</loc><lastmod>2026-04-22</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://jcsm.fr/pt/central-atendimento</loc><lastmod>2026-04-22</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://jcsm.fr/pt/sobre-nos</loc><lastmod>2026-04-22</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://jcsm.fr/pt/contato</loc><lastmod>2026-04-22</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://jcsm.fr/pt/cobertura</loc><lastmod>2026-04-22</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://jcsm.fr/pt/</loc><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://jcsm.fr/pt/gestao-projetos</loc><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://jcsm.fr/pt/instalacao-conformidade</loc><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://jcsm.fr/pt/operacao-manutencao</loc><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://jcsm.fr/pt/seguranca-instalacoes</loc><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://jcsm.fr/pt/central-atendimento</loc><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://jcsm.fr/pt/sobre-nos</loc><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://jcsm.fr/pt/contato</loc><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://jcsm.fr/pt/cobertura</loc><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <!-- Dutch pages -->
-  <url><loc>https://jcsm.fr/nl/</loc><lastmod>2026-04-22</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://jcsm.fr/nl/projectbeheer</loc><lastmod>2026-04-22</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://jcsm.fr/nl/installatie-conformiteit</loc><lastmod>2026-04-22</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://jcsm.fr/nl/exploitatie-onderhoud</loc><lastmod>2026-04-22</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://jcsm.fr/nl/beveiliging-installaties</loc><lastmod>2026-04-22</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://jcsm.fr/nl/callcenter</loc><lastmod>2026-04-22</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://jcsm.fr/nl/over-ons</loc><lastmod>2026-04-22</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://jcsm.fr/nl/contact</loc><lastmod>2026-04-22</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://jcsm.fr/nl/</loc><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://jcsm.fr/nl/projectbeheer</loc><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://jcsm.fr/nl/installatie-conformiteit</loc><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://jcsm.fr/nl/exploitatie-onderhoud</loc><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://jcsm.fr/nl/beveiliging-installaties</loc><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://jcsm.fr/nl/callcenter</loc><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://jcsm.fr/nl/over-ons</loc><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://jcsm.fr/nl/contact</loc><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <!-- Polish pages -->
-  <url><loc>https://jcsm.fr/pl/</loc><lastmod>2026-04-22</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://jcsm.fr/pl/zarzadzanie-projektami</loc><lastmod>2026-04-22</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://jcsm.fr/pl/instalacja-zgodnosc</loc><lastmod>2026-04-22</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://jcsm.fr/pl/eksploatacja-konserwacja</loc><lastmod>2026-04-22</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://jcsm.fr/pl/zabezpieczenie-instalacji</loc><lastmod>2026-04-22</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://jcsm.fr/pl/centrum-telefoniczne</loc><lastmod>2026-04-22</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://jcsm.fr/pl/o-nas</loc><lastmod>2026-04-22</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://jcsm.fr/pl/kontakt</loc><lastmod>2026-04-22</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://jcsm.fr/pl/</loc><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://jcsm.fr/pl/zarzadzanie-projektami</loc><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://jcsm.fr/pl/instalacja-zgodnosc</loc><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://jcsm.fr/pl/eksploatacja-konserwacja</loc><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://jcsm.fr/pl/zabezpieczenie-instalacji</loc><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://jcsm.fr/pl/centrum-telefoniczne</loc><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://jcsm.fr/pl/o-nas</loc><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://jcsm.fr/pl/kontakt</loc><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <!-- Italian pages -->
-  <url><loc>https://jcsm.fr/it/</loc><lastmod>2026-04-22</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://jcsm.fr/it/gestione-progetti</loc><lastmod>2026-04-22</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://jcsm.fr/it/installazione-conformita</loc><lastmod>2026-04-22</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://jcsm.fr/it/gestione-manutenzione</loc><lastmod>2026-04-22</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://jcsm.fr/it/sicurezza-installazioni</loc><lastmod>2026-04-22</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://jcsm.fr/it/centro-chiamate</loc><lastmod>2026-04-22</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://jcsm.fr/it/chi-siamo</loc><lastmod>2026-04-22</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://jcsm.fr/it/contatti</loc><lastmod>2026-04-22</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://jcsm.fr/it/</loc><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://jcsm.fr/it/gestione-progetti</loc><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://jcsm.fr/it/installazione-conformita</loc><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://jcsm.fr/it/gestione-manutenzione</loc><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://jcsm.fr/it/sicurezza-installazioni</loc><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://jcsm.fr/it/centro-chiamate</loc><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://jcsm.fr/it/chi-siamo</loc><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://jcsm.fr/it/contatti</loc><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url>
     <loc>https://jcsm.fr/blog/comparatif-bornes-recharge-marques-2026</loc>
-    <lastmod>2026-04-22</lastmod>
+    <lastmod>2026-06-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://jcsm.fr/blog/borne-recharge-entreprise-obligations-2026</loc>
-    <lastmod>2026-04-22</lastmod>
+    <lastmod>2026-06-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://jcsm.fr/blog/maintenance-preventive-vs-curative-irve</loc>
-    <lastmod>2026-04-22</lastmod>
+    <lastmod>2026-06-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://jcsm.fr/blog/cybersecurite-bornes-recharge-irve</loc>
-    <lastmod>2026-04-22</lastmod>
+    <lastmod>2026-06-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://jcsm.fr/blog/stockage-batterie-bess-recharge-irve</loc>
-    <lastmod>2026-04-22</lastmod>
+    <lastmod>2026-06-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://jcsm.fr/blog/tai-taxe-verdissement-flottes-2026</loc>
-    <lastmod>2026-06-10</lastmod>
+    <lastmod>2026-06-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>

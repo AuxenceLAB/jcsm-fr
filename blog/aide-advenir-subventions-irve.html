@@ -111,17 +111,6 @@
     <meta name="twitter:description" content="Programme ADVENIR, crédit d'impôt, TVA réduite : financer vos bornes de recharge IRVE en 2026.">
     <meta name="twitter:image" content="https://jcsm.fr/images/index.webp">
     <meta name="twitter:image:alt" content="Infrastructure de recharge pour véhicules électriques">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
-    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"
-        media="print" onload="this.media='all'">
-    <noscript>
-        <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600;700;800&display=swap"
-            rel="stylesheet">
-    </noscript>
     <link rel="stylesheet" href="../css/critical.css?v=74">
     <link rel="stylesheet" href="../css/tailwind.css?v=74" media="print" onload="this.media='all'">
     <noscript><link rel="stylesheet" href="../css/tailwind.css?v=74"></noscript>
@@ -131,6 +120,7 @@
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
+<noscript><style>.preloader{display:none!important}</style></noscript>
 </head>
 <body class="text-gray-900 bg-white">
     <div class="reading-progress" id="reading-progress"></div>
@@ -239,7 +229,7 @@
                     <div class="overflow-x-auto mb-6">
                         <table class="w-full text-sm text-gray-600 border border-gray-200 rounded-lg">
                             <thead>
-                                <tr class="bg-gray-50">
+                                <tr style="background:#FAFAF7">
                                     <th scope="col" class="text-left px-4 py-3 font-semibold text-gray-900 border-b border-gray-200">Type de projet</th>
                                     <th scope="col" class="text-left px-4 py-3 font-semibold text-gray-900 border-b border-gray-200">Usage</th>
                                     <th scope="col" class="text-left px-4 py-3 font-semibold text-gray-900 border-b border-gray-200">Taux</th>
@@ -303,9 +293,9 @@
                         <li><strong>Localisation</strong> : le programme est valable pour les installations situées en France métropolitaine et dans les DOM-TOM. Les projets en <a href="/zones/belgique" class="text-blue-600 hover:text-blue-800 underline">Belgique</a> ne sont pas éligibles à ADVENIR mais peuvent bénéficier de primes régionales belges</li>
                     </ul>
 
-                    <div class="bg-amber-50 border-l-4 border-amber-400 p-4 rounded-r-lg my-6">
-                        <p class="font-semibold text-amber-800">Point de vigilance</p>
-                        <p class="text-amber-700 mt-1">Le non-respect de la condition de demande préalable est la première cause de refus de dossier ADVENIR. Ne commencez jamais les travaux avant d'avoir reçu la confirmation de validation de votre dossier sur la plateforme.</p>
+                    <div class="border-l-4 border-blue-200 p-4 rounded-r-lg my-6" style="background:rgba(37,99,235,0.06)">
+                        <p class="font-semibold text-gray-800">Point de vigilance</p>
+                        <p class="text-gray-700 mt-1">Le non-respect de la condition de demande préalable est la première cause de refus de dossier ADVENIR. Ne commencez jamais les travaux avant d'avoir reçu la confirmation de validation de votre dossier sur la plateforme.</p>
                     </div>
 
                     <h2 id="aides-cumulables" class="text-2xl font-bold mt-12 mb-4">Les autres aides cumulables</h2>
@@ -401,7 +391,7 @@
                     <p class="text-gray-600 leading-relaxed mb-4">Nous intervenons sur l'ensemble du territoire français, de l'<a href="/zones/ile-de-france" class="text-blue-600 hover:text-blue-800 underline">Île-de-France</a> à la <a href="/zones/paca" class="text-blue-600 hover:text-blue-800 underline">région PACA</a>, en passant par les <a href="/zones/hauts-de-france" class="text-blue-600 hover:text-blue-800 underline">Hauts-de-France</a> et la <a href="/zones/nouvelle-aquitaine" class="text-blue-600 hover:text-blue-800 underline">Nouvelle-Aquitaine</a>. Nous opérons également en <a href="/zones/belgique" class="text-blue-600 hover:text-blue-800 underline">Belgique</a> pour les projets de recharge transfrontaliers.</p>
                     <p class="text-gray-600 leading-relaxed mb-4">Vous avez un projet ? <a href="/contact" class="text-blue-600 hover:text-blue-800 underline font-medium">Contactez-nous</a> pour un diagnostic gratuit et un devis incluant le calcul de vos aides.</p>
 
-                    <div class="bg-gray-50 border border-gray-200 rounded-2xl p-6 my-8">
+                    <div class="border border-gray-200 rounded-2xl p-6 my-8" style="background:#FAFAF7">
                         <h3 class="text-lg font-bold text-gray-900 mb-2">JCSM vous accompagne</h3>
                         <p class="text-gray-600 leading-relaxed mb-4">De la constitution de votre dossier ADVENIR à la mise en service de vos bornes, JCSM prend en charge l'intégralité de votre projet IRVE. Certifiés Qualifelec IRVE, nous réalisons des installations conformes aux normes en vigueur et vous garantissons l'éligibilité aux aides. Un seul interlocuteur, du diagnostic au versement de votre prime.</p>
                         <a href="/installation-conformite" class="inline-flex items-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-xl font-semibold hover:bg-blue-700 transition-colors">
@@ -414,23 +404,23 @@
                     <section class="mt-16 section-appear">
                         <h2 id="faq" class="text-2xl font-bold text-gray-900 mb-8">Questions fréquentes</h2>
                         <div class="space-y-4">
-                            <details class="bg-gray-50 rounded-xl p-5 border border-gray-100" open>
+                            <details class="rounded-xl p-5 border border-gray-100" style="background:#FAFAF7" open>
                                 <summary class="font-semibold cursor-pointer">Qui peut bénéficier de l'aide ADVENIR en 2026 ?</summary>
                                 <p class="mt-3 text-gray-600 leading-relaxed">Copropriétés, entreprises, collectivités, bailleurs sociaux et opérateurs de recharge ouverts au public. Les particuliers en maison individuelle n'y ont pas droit, mais ils bénéficient du crédit d'impôt (300 €) et de la TVA à 5,5 %.</p>
                             </details>
-                            <details class="bg-gray-50 rounded-xl p-5 border border-gray-100">
+                            <details class="rounded-xl p-5 border border-gray-100" style="background:#FAFAF7">
                                 <summary class="font-semibold cursor-pointer">Quel est le montant maximum de l'aide ADVENIR ?</summary>
                                 <p class="mt-3 text-gray-600 leading-relaxed">Ça dépend du projet. Quelques exemples concrets : 2 700 € HT par point AC ouvert au public, 9 000 € HT pour un point DC, 8 000 € HT pour le backbone en copropriété. Une flotte d'entreprise ? 960 € HT par point.</p>
                             </details>
-                            <details class="bg-gray-50 rounded-xl p-5 border border-gray-100">
+                            <details class="rounded-xl p-5 border border-gray-100" style="background:#FAFAF7">
                                 <summary class="font-semibold cursor-pointer">Peut-on cumuler ADVENIR avec le crédit d'impôt et la TVA réduite ?</summary>
                                 <p class="mt-3 text-gray-600 leading-relaxed">Oui. ADVENIR + crédit d'impôt de 300 € + TVA à 5,5 % + aides régionales : tout est cumulable. En copropriété, ça peut réduire le reste à charge de 40 à 60 %.</p>
                             </details>
-                            <details class="bg-gray-50 rounded-xl p-5 border border-gray-100">
+                            <details class="rounded-xl p-5 border border-gray-100" style="background:#FAFAF7">
                                 <summary class="font-semibold cursor-pointer">Combien de temps faut-il pour obtenir la prime ADVENIR ?</summary>
                                 <p class="mt-3 text-gray-600 leading-relaxed">Comptez 4 à 6 mois au total. La validation du dossier prend 4 à 6 semaines, puis les travaux, puis 2 à 3 mois pour recevoir la prime.</p>
                             </details>
-                            <details class="bg-gray-50 rounded-xl p-5 border border-gray-100">
+                            <details class="rounded-xl p-5 border border-gray-100" style="background:#FAFAF7">
                                 <summary class="font-semibold cursor-pointer">Faut-il déposer le dossier ADVENIR avant les travaux ?</summary>
                                 <p class="mt-3 text-gray-600 leading-relaxed">Obligatoire. Le dossier doit être déposé et validé sur la plateforme ADVENIR avant le premier coup de pioche. Pas de rétroactivité possible.</p>
                             </details>

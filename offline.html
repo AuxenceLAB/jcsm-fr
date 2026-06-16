@@ -10,16 +10,6 @@
     <meta name="description" content="Vous êtes actuellement hors ligne. Reconnectez-vous pour accéder aux services JCSM.">
     <meta name="robots" content="noindex, nofollow">
     <meta property="og:site_name" content="JCSM - Infrastructure de Recharge">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
-    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"
-        media="print" onload="this.media='all'">
-    <noscript>
-        <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600;700;800&display=swap"
-            rel="stylesheet">
-    </noscript>
     <link rel="stylesheet" href="/css/critical.css?v=74">
     <link rel="stylesheet" href="/css/tailwind.css?v=74" media="print" onload="this.media='all'">
     <noscript><link rel="stylesheet" href="/css/tailwind.css?v=74"></noscript>
@@ -48,11 +38,11 @@
     </div>
 
     <nav class="fixed top-0 w-full z-50 glass-nav border-b border-gray-200" role="navigation" aria-label="Navigation principale">
-        <div class="max-w-7xl mx-auto px-6 py-5">
+        <div class="max-w-7xl mx-auto px-6 py-4">
             <div class="flex justify-between items-center">
                 <a href="/" class="flex items-center space-x-3 group">
-                    <picture><source srcset="images/logo.webp" type="image/webp"><img src="images/logo.png" alt="JCSM" class="w-9 h-9 transition-transform group-hover:scale-105 duration-300" width="36" height="36"></picture>
-                    <span class="text-xl font-bold tracking-tight">JCSM</span>
+                    <picture><source srcset="images/logo.webp" type="image/webp"><img src="images/logo.png" alt="JCSM - Accueil" class="w-10 h-10 transition-transform group-hover:scale-105 duration-300" width="40" height="40"></picture>
+                    <span class="text-2xl font-extrabold tracking-tight text-gray-900">JCSM</span>
                 </a>
                 <div class="flex items-center gap-2 text-sm text-gray-500">
                     <span class="w-2 h-2 bg-blue-500 rounded-full pulse-dot" aria-hidden="true"></span>
@@ -63,7 +53,7 @@
     </nav>
 
     <main id="main-content" role="main">
-        <section class="min-h-screen flex items-center justify-center px-6 bg-white pt-24 pb-16">
+        <section class="min-h-screen flex items-center justify-center px-6 pt-24 pb-16">
             <div class="max-w-lg mx-auto text-center">
                 <div class="mb-8">
                     <div class="w-20 h-20 bg-gray-100 rounded-2xl flex items-center justify-center mx-auto">
@@ -85,7 +75,7 @@
                     R&eacute;essayer la connexion
                 </button>
 
-                <div class="mt-8 p-4 bg-blue-50 rounded-xl" id="status" role="status" aria-live="polite">
+                <div class="mt-8 p-4 rounded-xl" style="background:rgba(37,99,235,0.08)" id="status" role="status" aria-live="polite">
                     <div class="flex items-center justify-center gap-2 text-sm text-blue-600 font-medium">
                         <span class="w-2 h-2 bg-blue-500 rounded-full pulse-dot" aria-hidden="true"></span>
                         <span id="status-text">Hors ligne</span>
@@ -104,7 +94,7 @@
                             Rapprochez-vous de votre point d&rsquo;acc&egrave;s
                         </li>
                     </ul>
-                    <div class="bg-blue-50 rounded-xl p-5 text-center">
+                    <div class="rounded-xl p-5 text-center" style="background:rgba(37,99,235,0.08)">
                         <p class="text-sm text-gray-600 mb-2">Besoin d&rsquo;aide imm&eacute;diate ?</p>
                         <a href="tel:+33183755706" class="text-xl font-bold text-blue-600 hover:text-blue-800 transition-colors">+33 1 83 75 57 06</a>
                         <p class="text-xs text-gray-500 mt-1">Disponible 24h/24, 7j/7</p>
@@ -136,7 +126,7 @@
             const status = document.getElementById('status');
             const statusText = document.getElementById('status-text');
             if (status && statusText) {
-                status.classList.remove('bg-blue-50');
+                status.style.background = '';
                 status.classList.add('bg-gray-100');
                 statusText.textContent = 'Connexion r\u00e9tablie\u00a0!';
                 statusText.closest('.flex').querySelector('.pulse-dot').classList.remove('bg-blue-500');

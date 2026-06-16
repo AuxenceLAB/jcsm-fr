@@ -10,7 +10,7 @@
     <script src="/js/cookie-consent.js" defer></script>
     <title>Maintenance IRVE terrain France &amp; Belgique | JCSM</title>
     <meta name="description"
-        content="Installation et maintenance de bornes de recharge IRVE en France et Belgique. Multi-marques AC/DC, certifié Qualifelec, équipe terrain depuis 2019. Devis gratuit.">
+        content="Installation et maintenance de bornes de recharge IRVE en France et Belgique. Multi-marques AC/DC, certifié Qualifelec, équipe terrain depuis 2019.">
     <meta name="robots" content="index, follow">
     <!-- Schema.org -->
     <script type="application/ld+json">
@@ -282,18 +282,8 @@
     <meta name="twitter:image" content="https://jcsm.fr/images/logo.png">
     <meta name="twitter:image:alt" content="Logo JCSM - Expert infrastructure de recharge pour véhicules électriques">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     <link rel="dns-prefetch" href="https://formspree.io">
     <link rel="preconnect" href="https://formspree.io" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"
-        media="print" onload="this.media='all'">
-    <noscript>
-        <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600;700;800&display=swap"
-            rel="stylesheet">
-    </noscript>
     <link rel="preload" as="image" href="/images/index.webp" type="image/webp">
     <link rel="stylesheet" href="/css/critical.css?v=74">
     <link rel="stylesheet" href="/css/tailwind.css?v=74" media="print" onload="this.media='all'">
@@ -382,6 +372,69 @@
             text-shadow: 0 1px 2px rgba(0,0,0,0.04);
         }
         .icon-pulse-hover { transition: transform 0.3s var(--ease); }
+
+        /* --- Service cards enrichment --- */
+        .svc-icon {
+            width: 44px; height: 44px; border-radius: 12px;
+            display: flex; align-items: center; justify-content: center;
+            flex-shrink: 0;
+            transition: transform 0.35s var(--ease), box-shadow 0.35s var(--ease);
+        }
+        .card-lead .svc-icon {
+            background: rgba(255,255,255,0.12);
+        }
+        .card-feature .svc-icon {
+            background: rgba(37,99,235,0.08);
+        }
+        .card-lead:hover .svc-icon,
+        .card-feature:hover .svc-icon {
+            transform: scale(1.08);
+            box-shadow: 0 4px 12px rgba(37,99,235,0.15);
+        }
+        .svc-arrow {
+            display: flex; align-items: center; gap: 6px;
+            font-size: 0.8125rem; font-weight: 600;
+            margin-top: auto; padding-top: 1rem;
+            transition: gap 0.3s var(--ease), color 0.3s var(--ease);
+        }
+        .card-lead .svc-arrow { color: rgba(255,255,255,0.5); }
+        .card-lead:hover .svc-arrow { color: #fff; gap: 10px; }
+        .card-feature .svc-arrow { color: var(--color-primary); opacity: 0.6; }
+        .card-feature:hover .svc-arrow { opacity: 1; gap: 10px; }
+        .svc-arrow svg {
+            transition: transform 0.3s var(--ease);
+        }
+        .card-lead:hover .svc-arrow svg,
+        .card-feature:hover .svc-arrow svg { transform: translateX(3px); }
+
+        /* card-lead hover lift */
+        .card-lead {
+            transition: transform var(--duration-normal), box-shadow var(--duration-normal);
+        }
+        .card-lead:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 20px 40px -12px rgba(15,27,45,0.25);
+        }
+
+        /* card-feature enhanced hover */
+        .card-feature:hover {
+            box-shadow: 0 16px 32px -8px rgba(37,99,235,0.10), 0 0 0 1px rgba(37,99,235,0.08);
+        }
+
+        /* Service cards flex layout */
+        .svc-card-inner {
+            display: flex; flex-direction: column; height: 100%;
+        }
+
+        /* --- Method section step icons --- */
+        .step-icon {
+            width: 40px; height: 40px; border-radius: 10px;
+            background: rgba(37,99,235,0.15);
+            display: flex; align-items: center; justify-content: center;
+            margin-bottom: 0.875rem;
+            flex-shrink: 0;
+        }
+
         .badge-section {
             animation: badgeFade 0.6s var(--ease) both;
             animation-delay: 0.2s;
@@ -398,6 +451,122 @@
             .js-loaded:not(.animations-disabled) .section-appear { transition: none; opacity: 1; transform: none; }
             .icon-pulse-hover { transition: none !important; }
             .badge-section, details .faq-answer { animation: none !important; }
+            .svc-icon, .svc-arrow, .svc-arrow svg,
+            .card-lead, .card-feature { transition: none !important; }
+            .blog-card-header svg { transition: none !important; }
+        }
+
+        /* --- FAQ numbered badges --- */
+        .faq-num {
+            width: 28px; height: 28px; border-radius: 8px;
+            background: rgba(37,99,235,0.07);
+            color: var(--blue);
+            font-size: 0.75rem; font-weight: 700;
+            display: flex; align-items: center; justify-content: center;
+            flex-shrink: 0;
+            transition: background 0.3s var(--ease), color 0.3s var(--ease);
+        }
+        details[open] .faq-num {
+            background: var(--blue); color: #fff;
+        }
+
+        /* --- Blog card visual header --- */
+        .blog-card-header {
+            height: 140px; border-radius: 12px; margin-bottom: 1rem;
+            background: var(--color-cream-alt);
+            display: flex; align-items: center; justify-content: center;
+            position: relative; overflow: hidden;
+        }
+        .blog-card-header::before {
+            content: ''; position: absolute; inset: 0;
+            background-image: radial-gradient(circle at 1px 1px, rgba(37,99,235,0.05) 1px, transparent 0);
+            background-size: 20px 20px;
+        }
+        .blog-card-header svg {
+            opacity: 0.15; transition: opacity 0.35s var(--ease), transform 0.35s var(--ease);
+        }
+        .blog-card:hover .blog-card-header svg {
+            opacity: 0.25; transform: scale(1.05);
+        }
+        .blog-card-meta {
+            display: flex; align-items: center; gap: 8px; margin-top: auto;
+        }
+        .blog-reading-time {
+            font-size: 0.6875rem; color: var(--gray-500);
+            display: inline-flex; align-items: center; gap: 4px;
+        }
+
+        /* --- Contact info card enhanced --- */
+        .contact-info-card {
+            background: #fff;
+            border: 1px solid var(--color-line);
+            border-radius: var(--radius-2xl);
+            overflow: hidden;
+        }
+        .contact-info-header {
+            background: var(--blue);
+            padding: 1.25rem 1.5rem;
+            color: #fff;
+        }
+        .contact-info-body {
+            padding: 1.5rem;
+        }
+        .contact-info-item {
+            display: flex; gap: 0.75rem; align-items: flex-start;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--color-cream-alt);
+        }
+        .contact-info-item:last-child { border-bottom: none; }
+        .contact-info-icon {
+            width: 36px; height: 36px; border-radius: 10px;
+            background: rgba(37,99,235,0.07);
+            display: flex; align-items: center; justify-content: center;
+            flex-shrink: 0;
+        }
+
+        /* --- CTA Final enhanced --- */
+        .cta-final {
+            position: relative; overflow: hidden;
+        }
+        .cta-final::before {
+            content: ''; position: absolute; inset: 0;
+            background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.08) 1px, transparent 0);
+            background-size: 24px 24px;
+        }
+        .cta-final-icon {
+            width: 56px; height: 56px; border-radius: 16px;
+            background: rgba(255,255,255,0.15);
+            display: flex; align-items: center; justify-content: center;
+            margin: 0 auto 1.25rem;
+        }
+
+        /* --- Devenir Partenaire enhanced --- */
+        .partenaire-card {
+            position: relative; overflow: hidden;
+        }
+        .partenaire-card::before {
+            content: ''; position: absolute; top: 0; right: 0;
+            width: 200px; height: 200px;
+            background: radial-gradient(circle, rgba(37,99,235,0.04) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .partenaire-icon {
+            width: 64px; height: 64px; border-radius: 16px;
+            background: rgba(37,99,235,0.06);
+            border: 1px solid rgba(37,99,235,0.10);
+            display: flex; align-items: center; justify-content: center;
+            flex-shrink: 0;
+        }
+        .partenaire-stats {
+            display: flex; gap: 1.5rem; margin-top: 1rem; padding-top: 1rem;
+            border-top: 1px solid var(--color-cream-alt);
+        }
+        .partenaire-stat-val {
+            font-size: 1.25rem; font-weight: 800; color: var(--blue);
+            line-height: 1;
+        }
+        .partenaire-stat-label {
+            font-size: 0.6875rem; color: var(--gray-500); margin-top: 2px;
         }
     </style>
 </head>
@@ -464,7 +633,7 @@
         </div>
     </nav>
 
-    <main id="main-content">
+    <main id="main-content" role="main">
 
         <!-- ============ HERO ============ -->
         <section class="hero-section pt-28 sm:pt-32 lg:pt-36 pb-16 sm:pb-20 px-4 sm:px-6" aria-label="Expérience IRVE depuis 2019" style="min-height: calc(100svh - 80px); display: flex; align-items: center;">
@@ -473,7 +642,7 @@
                     <div class="space-y-6">
                         <div class="sec-label">Maintenance IRVE &middot; France &amp; Belgique &middot; depuis 2019</div>
                         <h1 class="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl leading-tight tracking-tight section-appear">
-                            L'infrastructure de recharge, entretenue <em>comme elle le mérite</em>.
+                            Maintenance IRVE : vos bornes entretenues <em>comme elles le méritent</em>.
                         </h1>
                         <p class="text-base sm:text-lg leading-relaxed max-w-xl" style="color: var(--color-text-secondary)">
                             Maintenance préventive et curative, installation et supervision de bornes AC/DC
@@ -493,10 +662,10 @@
                         <div class="flex flex-wrap gap-x-8 gap-y-3 pt-5 mt-2" style="border-top: 1px solid var(--color-line)">
                             <div><div class="text-xl font-extrabold" style="color: var(--color-primary-dark); font-family: var(--font-sans)">98%</div><div class="text-xs" style="color: var(--color-text-secondary)">disponibilité réseau</div></div>
                             <div><div class="text-xl font-extrabold" style="color: var(--color-primary-dark); font-family: var(--font-sans)">24h</div><div class="text-xs" style="color: var(--color-text-secondary)">réponse ouvrée</div></div>
-                            <div><div class="text-xl font-extrabold" style="color: var(--color-primary-dark); font-family: var(--font-sans)">2&nbsp;500+</div><div class="text-xs" style="color: var(--color-text-secondary)">interventions</div></div>
+                            <div><div class="text-xl font-extrabold" style="color: var(--color-primary-dark); font-family: var(--font-sans)">2&nbsp;000+</div><div class="text-xs" style="color: var(--color-text-secondary)">interventions</div></div>
                             <div><div class="text-xl font-extrabold" style="color: var(--color-primary-dark); font-family: var(--font-sans)">400 kW</div><div class="text-xs" style="color: var(--color-text-secondary)">AC &amp; DC, multi-marques</div></div>
                         </div>
-                        <div class="inline-flex items-center gap-2 bg-blue-50 border border-blue-100 rounded-full px-4 py-2 text-sm">
+                        <div class="inline-flex items-center gap-2 border border-blue-100 rounded-full px-4 py-2 text-sm" style="background:rgba(37,99,235,0.08)">
                             <svg class="w-4 h-4 text-blue-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
                             <span class="font-semibold text-gray-900">Certifié Qualifelec IRVE</span>
                         </div>
@@ -534,29 +703,114 @@
 
                 <div class="grid md:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1fr] gap-4 section-appear">
                     <a href="/exploitation" title="En savoir plus sur notre service d'exploitation et maintenance IRVE" class="card-lead block">
-                        <div class="num">01</div>
-                        <h3 class="text-lg font-bold mt-8 text-white" style="font-family: var(--font-sans)">Maintenance préventive &amp; curative</h3>
-                        <p class="text-sm mt-2" style="color: rgba(255,255,255,.7)">Préventif, curatif, HTA/BT. Diagnostic à distance puis intervention sur site, avec les pièces nécessaires à bord.</p>
+                        <div class="svc-card-inner">
+                            <div class="flex items-center gap-3 mb-5">
+                                <div class="svc-icon">
+                                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
+                                </div>
+                                <div class="num">01</div>
+                            </div>
+                            <h3 class="text-lg font-bold text-white" style="font-family: var(--font-sans)">Maintenance préventive &amp; curative</h3>
+                            <p class="text-sm mt-2" style="color: rgba(255,255,255,.7)">Préventif, curatif, HTA/BT. Diagnostic à distance puis intervention sur site, avec les pièces nécessaires à bord.</p>
+                            <div class="svc-arrow">
+                                <span>En savoir plus</span>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                            </div>
+                        </div>
                     </a>
                     <a href="/installation-conformite" title="En savoir plus sur notre service d'installation et conformité IRVE" class="card-feature block">
-                        <div class="num">02</div>
-                        <h3 class="text-base font-bold mt-8" style="font-family: var(--font-sans)">Installation &amp; conformité</h3>
-                        <p class="text-sm mt-2" style="color: var(--color-text-secondary)">Vos bornes de recharge passent le contrôle NF C 15-100 du premier coup. Et si le parc existant a des lacunes, on audite et on corrige.</p>
+                        <div class="svc-card-inner">
+                            <div class="flex items-center gap-3 mb-5">
+                                <div class="svc-icon">
+                                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+                                </div>
+                                <div class="num">02</div>
+                            </div>
+                            <h3 class="text-base font-bold" style="font-family: var(--font-sans)">Installation &amp; conformité</h3>
+                            <p class="text-sm mt-2" style="color: var(--color-text-secondary)">Vos bornes de recharge passent le contrôle NF C 15-100 du premier coup. Et si le parc existant a des lacunes, on audite et on corrige.</p>
+                            <div class="svc-arrow">
+                                <span>En savoir plus</span>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                            </div>
+                        </div>
                     </a>
                     <a href="/centre-appel" title="En savoir plus sur notre support technique IRVE 24/7" class="card-feature block">
-                        <div class="num">03</div>
-                        <h3 class="text-base font-bold mt-8" style="font-family: var(--font-sans)">Supervision &amp; hotline</h3>
-                        <p class="text-sm mt-2" style="color: var(--color-text-secondary)">Vos utilisateurs appellent, on décroche. En votre nom si vous le voulez. Hotline IRVE 100% basée en France, 7j/7.</p>
+                        <div class="svc-card-inner">
+                            <div class="flex items-center gap-3 mb-5">
+                                <div class="svc-icon">
+                                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 18v-6a9 9 0 0118 0v6"/><path d="M21 19a2 2 0 01-2 2h-1a2 2 0 01-2-2v-3a2 2 0 012-2h3zM3 19a2 2 0 002 2h1a2 2 0 002-2v-3a2 2 0 00-2-2H3z"/></svg>
+                                </div>
+                                <div class="num">03</div>
+                            </div>
+                            <h3 class="text-base font-bold" style="font-family: var(--font-sans)">Supervision &amp; hotline</h3>
+                            <p class="text-sm mt-2" style="color: var(--color-text-secondary)">Vos utilisateurs appellent, on décroche. En votre nom si vous le voulez. Hotline IRVE 100% basée en France, 7j/7.</p>
+                            <div class="svc-arrow">
+                                <span>En savoir plus</span>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                            </div>
+                        </div>
                     </a>
                     <a href="/securisation-installations" title="En savoir plus sur notre service de sécurisation des installations IRVE" class="card-feature block">
-                        <div class="num">04</div>
-                        <h3 class="text-base font-bold mt-8" style="font-family: var(--font-sans)">Sécurisation</h3>
-                        <p class="text-sm mt-2" style="color: var(--color-text-secondary)">Câbles coupés, écrans cassés, bornes arrachées : on connaît le problème. Vidéo, anti-vandalisme, alertes temps réel.</p>
+                        <div class="svc-card-inner">
+                            <div class="flex items-center gap-3 mb-5">
+                                <div class="svc-icon">
+                                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+                                </div>
+                                <div class="num">04</div>
+                            </div>
+                            <h3 class="text-base font-bold" style="font-family: var(--font-sans)">Sécurisation</h3>
+                            <p class="text-sm mt-2" style="color: var(--color-text-secondary)">Câbles coupés, écrans cassés, bornes arrachées : on connaît le problème. Vidéo, anti-vandalisme, alertes temps réel.</p>
+                            <div class="svc-arrow">
+                                <span>En savoir plus</span>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                            </div>
+                        </div>
                     </a>
                 </div>
                 <div class="flex flex-wrap justify-center gap-6 mt-8 section-appear">
                     <a href="/pilotage-projets" title="Pilotage de projets IRVE" class="text-sm font-semibold hover:underline" style="color: var(--color-primary)">Pilotage de projets</a>
                     <a href="/solutions/" title="Solutions IRVE par secteur" class="text-sm font-semibold hover:underline" style="color: var(--color-primary)">Solutions par secteur</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ POURQUOI JCSM ============ -->
+        <section class="section-alt py-20 px-6" aria-label="Pourquoi choisir JCSM">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-14 section-appear">
+                    <div class="sec-label">Pourquoi JCSM</div>
+                    <h2 class="text-3xl sm:text-4xl tracking-tight mb-5 leading-tight">
+                        Ce qui change quand vous travaillez <em>avec nous</em>.
+                    </h2>
+                </div>
+                <div class="grid md:grid-cols-3 gap-6 section-appear">
+                    <div class="card-feature">
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="svc-icon">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+                            </div>
+                        </div>
+                        <h3 class="text-base font-bold mb-2" style="font-family: var(--font-sans)">Un seul contrat, zéro friction</h3>
+                        <p class="text-sm" style="color: var(--color-text-secondary)">HTA/BT + bornes AC/DC + hotline sous un seul interlocuteur. Vous n'avez plus à jongler entre prestataires.</p>
+                    </div>
+                    <div class="card-feature">
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="svc-icon">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
+                            </div>
+                        </div>
+                        <h3 class="text-base font-bold mb-2" style="font-family: var(--font-sans)">Multi-marques sans sous-traitance</h3>
+                        <p class="text-sm" style="color: var(--color-text-secondary)">ABB, Schneider, EVBox, Alfen, Kempower... Nos techniciens sont salariés, pas des freelances envoyés par défaut.</p>
+                    </div>
+                    <div class="card-feature">
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="svc-icon">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/><path d="M10 9H8"/></svg>
+                            </div>
+                        </div>
+                        <h3 class="text-base font-bold mb-2" style="font-family: var(--font-sans)">Rapport horodaté à chaque passage</h3>
+                        <p class="text-sm" style="color: var(--color-text-secondary)">Photos, mesures, recommandations. Traçabilité complète, dashboard temps réel.</p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -567,9 +821,24 @@
                 <div class="sec-label">Comment on travaille</div>
                 <h2 class="text-3xl sm:text-4xl mt-3 text-white">Diagnostic. Intervention. Compte rendu.</h2>
                 <div class="grid sm:grid-cols-3 gap-8 mt-10">
-                    <div class="step"><strong>Diagnostic sous 48h</strong><p class="text-sm mt-2" style="opacity:.65">Audit technique sur site ou à distance, devis transparent. Toutes marques, AC 3,7 kW à DC 400 kW, postes HTA/BT inclus.</p></div>
-                    <div class="step"><strong>Réponse sous 24h ouvrées</strong><p class="text-sm mt-2" style="opacity:.65">Techniciens certifiés Qualifelec IRVE, habilités et autonomes. Pièces multi-marques à bord, intervention résolue au premier passage.</p></div>
-                    <div class="step"><strong>Rapport détaillé</strong><p class="text-sm mt-2" style="opacity:.65">Photos, mesures, recommandations. Rapport horodaté à chaque passage, dashboard temps réel. Traçabilité complète.</p></div>
+                    <div class="step">
+                        <div class="step-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#93B4F4" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><path d="M11 8v6"/><path d="M8 11h6"/></svg>
+                        </div>
+                        <strong>Diagnostic sous 48h</strong><p class="text-sm mt-2" style="opacity:.65">Audit technique sur site ou à distance, devis transparent. Toutes marques, AC 3,7 kW à DC 400 kW, postes HTA/BT inclus.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#93B4F4" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                        </div>
+                        <strong>Réponse sous 24h ouvrées</strong><p class="text-sm mt-2" style="opacity:.65">Techniciens certifiés Qualifelec IRVE, habilités et autonomes. Pièces multi-marques à bord, intervention résolue au premier passage.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#93B4F4" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/><path d="M10 9H8"/></svg>
+                        </div>
+                        <strong>Rapport détaillé</strong><p class="text-sm mt-2" style="opacity:.65">Photos, mesures, recommandations. Rapport horodaté à chaque passage, dashboard temps réel. Traçabilité complète.</p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -577,7 +846,7 @@
         <!-- ============ PARTNERS ============ -->
         <section class="py-20 px-6 bg-white overflow-hidden" aria-label="Partenaires et clients">
             <div class="max-w-7xl mx-auto mb-10 text-center section-appear">
-                <p class="text-xs font-bold uppercase tracking-[2px] text-blue-600 mb-3">Partenaires & clients</p>
+                <div class="sec-label">Partenaires & clients</div>
                 <h2 class="text-2xl md:text-3xl font-bold tracking-tight mb-2 text-gray-900">Ils nous font confiance. Vous êtes le prochain.</h2>
             </div>
             <div class="logo-marquee w-full" role="region" aria-label="Logos de nos partenaires et clients">
@@ -732,6 +1001,45 @@
             </div>
         </section>
 
+        <!-- ============ TEMOIGNAGES (exemples a remplacer par de vrais avis clients) ============ -->
+        <section class="py-20 px-6" aria-label="Témoignages clients">
+            <div class="max-w-5xl mx-auto">
+                <div class="text-center mb-14 section-appear">
+                    <div class="sec-label">Témoignages</div>
+                    <h2 class="text-3xl sm:text-4xl tracking-tight mb-5 leading-tight">
+                        Ce que nos clients <em>en disent</em>.
+                    </h2>
+                </div>
+                <div class="grid md:grid-cols-3 gap-6 section-appear">
+                    <!-- EXEMPLE 1 - A remplacer par un vrai temoignage client -->
+                    <div class="card-quote">
+                        <p class="text-sm leading-relaxed mb-4" style="color: var(--color-text-secondary)">&laquo; Depuis qu'on travaille avec JCSM, le taux de disponibilité de nos bornes est passé de 82% à 97%. Un seul interlocuteur, des rapports clairs, zéro mauvaise surprise. &raquo;</p>
+                        <div class="mt-auto">
+                            <p class="text-sm font-bold" style="color: var(--color-ink)">Exemple - Directeur exploitation</p>
+                            <p class="text-xs" style="color: var(--color-text-secondary)">Réseau de recharge, 120 points de charge</p>
+                        </div>
+                    </div>
+                    <!-- EXEMPLE 2 - A remplacer par un vrai temoignage client -->
+                    <div class="card-quote">
+                        <p class="text-sm leading-relaxed mb-4" style="color: var(--color-text-secondary)">&laquo; On avait un parc multi-marques installé par trois prestataires différents. JCSM a tout repris, audité et stabilisé en moins de deux mois. &raquo;</p>
+                        <div class="mt-auto">
+                            <p class="text-sm font-bold" style="color: var(--color-ink)">Exemple - Responsable services généraux</p>
+                            <p class="text-xs" style="color: var(--color-text-secondary)">Grande distribution, 45 bornes</p>
+                        </div>
+                    </div>
+                    <!-- EXEMPLE 3 - A remplacer par un vrai temoignage client -->
+                    <div class="card-quote">
+                        <p class="text-sm leading-relaxed mb-4" style="color: var(--color-text-secondary)">&laquo; La hotline en marque blanche a changé la donne. Nos utilisateurs sont pris en charge immédiatement, et nous on recoit un recap chaque semaine. &raquo;</p>
+                        <div class="mt-auto">
+                            <p class="text-sm font-bold" style="color: var(--color-ink)">Exemple - CPO régional</p>
+                            <p class="text-xs" style="color: var(--color-text-secondary)">Opérateur de bornes, 200+ stations</p>
+                        </div>
+                    </div>
+                </div>
+                <p class="text-center mt-6 text-xs" style="color: var(--color-text-secondary)"><!-- TODO: remplacer ces exemples par de vrais temoignages clients --></p>
+            </div>
+        </section>
+
         <!-- ============ COUVERTURE ============ -->
         <section class="section-alt py-20 px-6" aria-label="Zone d'intervention">
             <div class="max-w-6xl mx-auto grid lg:grid-cols-2 gap-10 items-center">
@@ -746,19 +1054,121 @@
                     <a href="/couverture" class="btn-secondary inline-block px-6 py-3 text-sm font-semibold mt-6">Voir notre couverture</a>
                 </div>
                 <div style="background:#fff; border:1px solid var(--color-line); border-radius: var(--radius-xl); padding: 1.5rem;">
-                    <svg viewBox="0 0 400 420" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="width:100%;height:auto;max-width:380px;margin:0 auto;display:block;">
-                        <!-- France simplified outline -->
-                        <path d="M200 30 L260 50 L300 90 L340 130 L360 180 L350 230 L330 280 L290 330 L250 360 L200 380 L160 370 L120 340 L80 290 L60 240 L50 190 L60 140 L90 100 L130 60 L170 40 Z" stroke="var(--color-line)" stroke-width="2" fill="var(--color-cream-alt)"/>
-                        <!-- Belgium simplified -->
-                        <path d="M170 30 L200 20 L250 25 L270 40 L260 50 L200 30 L170 40 Z" stroke="var(--color-line)" stroke-width="2" fill="var(--color-cream-alt)"/>
-                        <!-- Region dots -->
-                        <circle cx="195" cy="120" r="6" fill="var(--color-primary)" opacity="0.8"/><text x="210" y="124" fill="var(--color-ink)" font-size="11" font-family="var(--font-sans)">Île-de-France</text>
-                        <circle cx="180" cy="80" r="5" fill="var(--color-primary)" opacity="0.6"/><text x="192" y="84" fill="var(--color-ink)" font-size="10" font-family="var(--font-sans)">Hauts-de-France</text>
-                        <circle cx="310" cy="290" r="5" fill="var(--color-primary)" opacity="0.6"/><text x="302" y="284" fill="var(--color-ink)" font-size="10" font-family="var(--font-sans)" text-anchor="end">PACA</text>
-                        <circle cx="200" cy="300" r="5" fill="var(--color-primary)" opacity="0.6"/><text x="212" y="304" fill="var(--color-ink)" font-size="10" font-family="var(--font-sans)">Occitanie</text>
-                        <circle cx="270" cy="185" r="5" fill="var(--color-primary)" opacity="0.6"/><text x="262" y="179" fill="var(--color-ink)" font-size="10" font-family="var(--font-sans)" text-anchor="end">Auvergne-Rhône-Alpes</text>
-                        <circle cx="110" cy="255" r="5" fill="var(--color-primary)" opacity="0.6"/><text x="60" y="275" fill="var(--color-ink)" font-size="10" font-family="var(--font-sans)">Nouvelle-Aquitaine</text>
-                        <circle cx="225" cy="35" r="4" fill="var(--color-primary)" opacity="0.6"/><text x="237" y="39" fill="var(--color-ink)" font-size="10" font-family="var(--font-sans)">Belgique</text>
+                    <svg viewBox="0 0 440 480" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="width:100%;height:auto;max-width:420px;margin:0 auto;display:block;">
+                        <!-- France realistic outline -->
+                        <path d="M185 52 L205 48 L228 55 L255 50 L275 58 L298 72 L320 85 L338 78 L355 90 L370 108 L378 130 L385 155 L380 178 L370 200 L365 225 L355 248 L340 268 L325 290 L310 308 L295 325 L275 340 L258 355 L240 368 L220 378 L200 385 L182 380 L165 372 L148 358 L132 345 L118 330 L105 310 L92 290 L80 268 L72 245 L65 222 L60 198 L58 175 L62 152 L70 130 L82 112 L95 98 L110 85 L128 72 L148 62 L168 55 Z" stroke="var(--color-line)" stroke-width="1.5" fill="var(--color-cream-alt)"/>
+                        <!-- Bretagne peninsula -->
+                        <path d="M62 152 L52 148 L38 155 L28 162 L22 172 L28 180 L40 185 L52 188 L60 192 L65 198" stroke="var(--color-line)" stroke-width="1.5" fill="var(--color-cream-alt)"/>
+                        <!-- Corse -->
+                        <path d="M395 310 L400 318 L402 332 L398 348 L392 358 L388 348 L390 332 L392 318 Z" stroke="var(--color-line)" stroke-width="1.5" fill="var(--color-cream-alt)"/>
+                        <!-- Belgique -->
+                        <path d="M185 52 L205 48 L228 55 L255 50 L275 58 L282 48 L275 38 L260 30 L240 25 L218 22 L198 25 L180 32 L172 42 L178 50 Z" stroke="var(--color-line)" stroke-width="1.5" fill="var(--color-cream-alt)"/>
+
+                        <!-- Region labels -->
+                        <text x="202" y="118" fill="var(--color-ink)" font-size="9" font-weight="600" font-family="var(--font-sans)" text-anchor="middle" opacity="0.5">IDF</text>
+                        <text x="195" y="78" fill="var(--color-ink)" font-size="9" font-weight="600" font-family="var(--font-sans)" text-anchor="middle" opacity="0.5">HDF</text>
+                        <text x="288" y="198" fill="var(--color-ink)" font-size="9" font-weight="600" font-family="var(--font-sans)" text-anchor="middle" opacity="0.5">AURA</text>
+                        <text x="330" y="298" fill="var(--color-ink)" font-size="9" font-weight="600" font-family="var(--font-sans)" text-anchor="middle" opacity="0.5">PACA</text>
+                        <text x="210" y="325" fill="var(--color-ink)" font-size="9" font-weight="600" font-family="var(--font-sans)" text-anchor="middle" opacity="0.5">OCC</text>
+                        <text x="108" y="268" fill="var(--color-ink)" font-size="9" font-weight="600" font-family="var(--font-sans)" text-anchor="middle" opacity="0.5">NAQ</text>
+                        <text x="230" y="36" fill="var(--color-ink)" font-size="9" font-weight="600" font-family="var(--font-sans)" text-anchor="middle" opacity="0.5">BE</text>
+
+                        <!-- === INTERVENTION POINTS === -->
+                        <!-- IDF : Paris + couronne -->
+                        <circle cx="202" cy="108" r="7" fill="var(--color-primary)" opacity="0.9"><title>Paris</title></circle>
+                        <circle cx="190" cy="102" r="3.5" fill="var(--color-primary)" opacity="0.5"><title>Versailles</title></circle>
+                        <circle cx="215" cy="104" r="3" fill="var(--color-primary)" opacity="0.5"><title>Meaux</title></circle>
+                        <circle cx="195" cy="115" r="3" fill="var(--color-primary)" opacity="0.5"><title>Evry</title></circle>
+                        <circle cx="212" cy="112" r="3" fill="var(--color-primary)" opacity="0.5"><title>Marne-la-Vallée</title></circle>
+                        <circle cx="185" cy="110" r="3" fill="var(--color-primary)" opacity="0.4"><title>Cergy</title></circle>
+
+                        <!-- Hauts-de-France -->
+                        <circle cx="195" cy="68" r="5.5" fill="var(--color-primary)" opacity="0.8"><title>Lille</title></circle>
+                        <circle cx="175" cy="75" r="3" fill="var(--color-primary)" opacity="0.45"><title>Arras</title></circle>
+                        <circle cx="165" cy="82" r="3" fill="var(--color-primary)" opacity="0.45"><title>Amiens</title></circle>
+                        <circle cx="210" cy="72" r="3" fill="var(--color-primary)" opacity="0.4"><title>Valenciennes</title></circle>
+                        <circle cx="185" cy="88" r="2.5" fill="var(--color-primary)" opacity="0.35"><title>Beauvais</title></circle>
+                        <circle cx="225" cy="82" r="2.5" fill="var(--color-primary)" opacity="0.35"><title>Laon</title></circle>
+
+                        <!-- Grand Est -->
+                        <circle cx="268" cy="92" r="4" fill="var(--color-primary)" opacity="0.55"><title>Reims</title></circle>
+                        <circle cx="312" cy="100" r="3.5" fill="var(--color-primary)" opacity="0.5"><title>Strasbourg</title></circle>
+                        <circle cx="295" cy="108" r="3" fill="var(--color-primary)" opacity="0.4"><title>Nancy</title></circle>
+                        <circle cx="305" cy="118" r="2.5" fill="var(--color-primary)" opacity="0.35"><title>Mulhouse</title></circle>
+                        <circle cx="280" cy="105" r="2.5" fill="var(--color-primary)" opacity="0.35"><title>Metz</title></circle>
+
+                        <!-- Normandie / Bretagne -->
+                        <circle cx="128" cy="98" r="3.5" fill="var(--color-primary)" opacity="0.5"><title>Rouen</title></circle>
+                        <circle cx="108" cy="105" r="3" fill="var(--color-primary)" opacity="0.45"><title>Caen</title></circle>
+                        <circle cx="52" cy="155" r="3" fill="var(--color-primary)" opacity="0.4"><title>Brest</title></circle>
+                        <circle cx="62" cy="162" r="3.5" fill="var(--color-primary)" opacity="0.45"><title>Rennes</title></circle>
+                        <circle cx="48" cy="172" r="2.5" fill="var(--color-primary)" opacity="0.35"><title>Lorient</title></circle>
+
+                        <!-- Pays de la Loire / Centre -->
+                        <circle cx="82" cy="185" r="4" fill="var(--color-primary)" opacity="0.55"><title>Nantes</title></circle>
+                        <circle cx="105" cy="175" r="3" fill="var(--color-primary)" opacity="0.4"><title>Le Mans</title></circle>
+                        <circle cx="155" cy="145" r="3" fill="var(--color-primary)" opacity="0.45"><title>Orléans</title></circle>
+                        <circle cx="138" cy="158" r="3" fill="var(--color-primary)" opacity="0.4"><title>Tours</title></circle>
+                        <circle cx="90" cy="200" r="2.5" fill="var(--color-primary)" opacity="0.35"><title>La Roche-sur-Yon</title></circle>
+
+                        <!-- AURA -->
+                        <circle cx="275" cy="188" r="5.5" fill="var(--color-primary)" opacity="0.8"><title>Lyon</title></circle>
+                        <circle cx="295" cy="200" r="3.5" fill="var(--color-primary)" opacity="0.5"><title>Grenoble</title></circle>
+                        <circle cx="260" cy="198" r="3" fill="var(--color-primary)" opacity="0.45"><title>Saint-Étienne</title></circle>
+                        <circle cx="240" cy="178" r="3" fill="var(--color-primary)" opacity="0.4"><title>Clermont-Ferrand</title></circle>
+                        <circle cx="288" cy="175" r="2.5" fill="var(--color-primary)" opacity="0.35"><title>Bourg-en-Bresse</title></circle>
+                        <circle cx="310" cy="210" r="2.5" fill="var(--color-primary)" opacity="0.35"><title>Valence</title></circle>
+                        <circle cx="260" cy="210" r="2.5" fill="var(--color-primary)" opacity="0.3"><title>Le Puy</title></circle>
+
+                        <!-- PACA -->
+                        <circle cx="320" cy="288" r="5.5" fill="var(--color-primary)" opacity="0.8"><title>Marseille</title></circle>
+                        <circle cx="352" cy="278" r="4" fill="var(--color-primary)" opacity="0.6"><title>Nice</title></circle>
+                        <circle cx="335" cy="295" r="3" fill="var(--color-primary)" opacity="0.45"><title>Toulon</title></circle>
+                        <circle cx="305" cy="268" r="3" fill="var(--color-primary)" opacity="0.45"><title>Avignon</title></circle>
+                        <circle cx="340" cy="265" r="2.5" fill="var(--color-primary)" opacity="0.35"><title>Cannes</title></circle>
+                        <circle cx="295" cy="255" r="2.5" fill="var(--color-primary)" opacity="0.3"><title>Gap</title></circle>
+
+                        <!-- Occitanie -->
+                        <circle cx="185" cy="318" r="5" fill="var(--color-primary)" opacity="0.75"><title>Toulouse</title></circle>
+                        <circle cx="240" cy="312" r="4" fill="var(--color-primary)" opacity="0.6"><title>Montpellier</title></circle>
+                        <circle cx="265" cy="310" r="3" fill="var(--color-primary)" opacity="0.45"><title>Nîmes</title></circle>
+                        <circle cx="215" cy="345" r="3.5" fill="var(--color-primary)" opacity="0.5"><title>Perpignan</title></circle>
+                        <circle cx="158" cy="332" r="2.5" fill="var(--color-primary)" opacity="0.35"><title>Tarbes</title></circle>
+                        <circle cx="200" cy="305" r="2.5" fill="var(--color-primary)" opacity="0.35"><title>Albi</title></circle>
+                        <circle cx="230" cy="330" r="2.5" fill="var(--color-primary)" opacity="0.3"><title>Béziers</title></circle>
+
+                        <!-- Nouvelle-Aquitaine -->
+                        <circle cx="115" cy="255" r="5" fill="var(--color-primary)" opacity="0.75"><title>Bordeaux</title></circle>
+                        <circle cx="145" cy="225" r="3" fill="var(--color-primary)" opacity="0.45"><title>Limoges</title></circle>
+                        <circle cx="85" cy="228" r="3" fill="var(--color-primary)" opacity="0.4"><title>La Rochelle</title></circle>
+                        <circle cx="125" cy="295" r="3" fill="var(--color-primary)" opacity="0.45"><title>Pau</title></circle>
+                        <circle cx="135" cy="275" r="2.5" fill="var(--color-primary)" opacity="0.35"><title>Agen</title></circle>
+                        <circle cx="100" cy="240" r="2.5" fill="var(--color-primary)" opacity="0.3"><title>Angoulême</title></circle>
+                        <circle cx="140" cy="305" r="2.5" fill="var(--color-primary)" opacity="0.3"><title>Bayonne</title></circle>
+
+                        <!-- Bourgogne / Centre -->
+                        <circle cx="228" cy="145" r="3.5" fill="var(--color-primary)" opacity="0.45"><title>Dijon</title></circle>
+                        <circle cx="210" cy="155" r="2.5" fill="var(--color-primary)" opacity="0.35"><title>Nevers</title></circle>
+                        <circle cx="248" cy="158" r="2.5" fill="var(--color-primary)" opacity="0.35"><title>Besançon</title></circle>
+
+                        <!-- Belgique -->
+                        <circle cx="228" cy="32" r="5" fill="var(--color-primary)" opacity="0.75"><title>Bruxelles</title></circle>
+                        <circle cx="248" cy="28" r="3.5" fill="var(--color-primary)" opacity="0.5"><title>Anvers</title></circle>
+                        <circle cx="212" cy="28" r="3" fill="var(--color-primary)" opacity="0.45"><title>Gand</title></circle>
+                        <circle cx="265" cy="38" r="3" fill="var(--color-primary)" opacity="0.45"><title>Liège</title></circle>
+                        <circle cx="238" cy="40" r="2.5" fill="var(--color-primary)" opacity="0.35"><title>Namur</title></circle>
+                        <circle cx="200" cy="35" r="2.5" fill="var(--color-primary)" opacity="0.35"><title>Bruges</title></circle>
+
+                        <!-- Corse -->
+                        <circle cx="396" cy="328" r="3" fill="var(--color-primary)" opacity="0.4"><title>Ajaccio</title></circle>
+                        <circle cx="398" cy="318" r="2.5" fill="var(--color-primary)" opacity="0.35"><title>Bastia</title></circle>
+
+                        <!-- Legend -->
+                        <circle cx="30" cy="430" r="6" fill="var(--color-primary)" opacity="0.8"/>
+                        <text x="42" y="434" fill="var(--color-ink)" font-size="9" font-family="var(--font-sans)" opacity="0.6">Siege / Agence</text>
+                        <circle cx="130" cy="430" r="3.5" fill="var(--color-primary)" opacity="0.5"/>
+                        <text x="140" y="434" fill="var(--color-ink)" font-size="9" font-family="var(--font-sans)" opacity="0.6">Zone d'intervention</text>
+                        <text x="30" y="455" fill="var(--color-ink)" font-size="10" font-weight="600" font-family="var(--font-sans)" opacity="0.7">60+ villes couvertes</text>
                     </svg>
                 </div>
             </div>
@@ -768,7 +1178,7 @@
         <section class="py-20 px-6 bg-white" aria-label="Questions fréquentes">
             <div class="max-w-3xl mx-auto">
                 <div class="text-center mb-14 section-appear">
-                    <p class="text-xs font-bold uppercase tracking-[2px] text-blue-600 mb-3">FAQ</p>
+                    <div class="sec-label">FAQ</div>
                     <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-4 text-gray-900">
                         Vos questions. Nos réponses directes.
                     </h2>
@@ -776,7 +1186,10 @@
                 <div class="space-y-3" role="region" aria-label="Questions fréquentes">
                     <details class="group bg-white border border-gray-200 rounded-xl p-5 hover:border-gray-300 transition-colors">
                         <summary class="font-medium text-gray-900 cursor-pointer flex items-center justify-between list-none [&::-webkit-details-marker]:hidden">
-                            <span>On a un gros déploiement à lancer, vous gérez ?</span>
+                            <div class="flex items-center gap-3">
+                                <span class="faq-num" aria-hidden="true">1</span>
+                                <span>On a un gros déploiement à lancer, vous gérez ?</span>
+                            </div>
                             <span class="faq-chevron"><svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg></span>
                         </summary>
                         <div class="faq-answer mt-4 space-y-3 text-gray-600 leading-relaxed text-sm">
@@ -786,7 +1199,10 @@
                     </details>
                     <details class="group bg-white border border-gray-200 rounded-xl p-5 hover:border-gray-300 transition-colors">
                         <summary class="font-medium text-gray-900 cursor-pointer flex items-center justify-between list-none [&::-webkit-details-marker]:hidden">
-                            <span>Notre parc existant a des problèmes de conformité</span>
+                            <div class="flex items-center gap-3">
+                                <span class="faq-num" aria-hidden="true">2</span>
+                                <span>Notre parc existant a des problèmes de conformité</span>
+                            </div>
                             <span class="faq-chevron"><svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg></span>
                         </summary>
                         <div class="faq-answer mt-4 space-y-3 text-gray-600 leading-relaxed text-sm">
@@ -796,7 +1212,10 @@
                     </details>
                     <details class="group bg-white border border-gray-200 rounded-xl p-5 hover:border-gray-300 transition-colors">
                         <summary class="font-medium text-gray-900 cursor-pointer flex items-center justify-between list-none [&::-webkit-details-marker]:hidden">
-                            <span>Nos bornes sont souvent indisponibles</span>
+                            <div class="flex items-center gap-3">
+                                <span class="faq-num" aria-hidden="true">3</span>
+                                <span>Nos bornes sont souvent indisponibles</span>
+                            </div>
                             <span class="faq-chevron"><svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg></span>
                         </summary>
                         <div class="faq-answer mt-4 space-y-3 text-gray-600 leading-relaxed text-sm">
@@ -806,7 +1225,10 @@
                     </details>
                     <details class="group bg-white border border-gray-200 rounded-xl p-5 hover:border-gray-300 transition-colors">
                         <summary class="font-medium text-gray-900 cursor-pointer flex items-center justify-between list-none [&::-webkit-details-marker]:hidden">
-                            <span>On a des problèmes de vandalisme sur nos sites</span>
+                            <div class="flex items-center gap-3">
+                                <span class="faq-num" aria-hidden="true">4</span>
+                                <span>On a des problèmes de vandalisme sur nos sites</span>
+                            </div>
                             <span class="faq-chevron"><svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg></span>
                         </summary>
                         <div class="faq-answer mt-4 space-y-3 text-gray-600 leading-relaxed text-sm">
@@ -816,7 +1238,10 @@
                     </details>
                     <details class="group bg-white border border-gray-200 rounded-xl p-5 hover:border-gray-300 transition-colors">
                         <summary class="font-medium text-gray-900 cursor-pointer flex items-center justify-between list-none [&::-webkit-details-marker]:hidden">
-                            <span>Nos utilisateurs appellent trop et on ne peut pas gérer</span>
+                            <div class="flex items-center gap-3">
+                                <span class="faq-num" aria-hidden="true">5</span>
+                                <span>Nos utilisateurs appellent trop et on ne peut pas gérer</span>
+                            </div>
                             <span class="faq-chevron"><svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg></span>
                         </summary>
                         <div class="faq-answer mt-4 space-y-3 text-gray-600 leading-relaxed text-sm">
@@ -828,40 +1253,21 @@
             </div>
         </section>
 
-        <!-- ============ BLOG ============ -->
-        <section class="py-20 px-6 bg-white" aria-label="Blog IRVE">
-            <div class="max-w-6xl mx-auto">
-                <div class="text-center mb-12 section-appear">
-                    <p class="text-xs font-bold uppercase tracking-[2px] text-blue-600 mb-3">Blog</p>
-                    <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-4 text-gray-900">Du terrain au clavier. Nos analyses sans filtre.</h2>
-                    <p class="text-lg text-gray-600 max-w-2xl mx-auto">Chiffres, retours terrain, décryptages réglementaires. Pas de blabla, que du concret.</p>
-                </div>
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 section-appear">
-                    <a href="/blog/prix-installation-borne-recharge-2026" title="Lire l'article : Prix installation borne de recharge 2026" class="blog-card bg-white rounded-2xl p-6 border border-gray-100 hover:shadow-lg transition-all hover:-translate-y-1 group">
-                        <span class="text-[10px] font-bold uppercase tracking-wider text-blue-600 bg-blue-50 border border-blue-200 inline-block px-2.5 py-1 rounded-full">Guide</span>
-                        <h3 class="font-bold text-gray-900 mt-3 mb-2 group-hover:text-blue-600 transition-colors">Prix installation borne de recharge 2026</h3>
-                        <p class="text-sm text-gray-600 mb-3">Combien coûte l'installation d'une borne ? Grille tarifaire par puissance et cas d'usage.</p>
-                        <p class="text-xs text-gray-500">11 mars 2026</p>
-                    </a>
-                    <a href="/blog/cout-maintenance-borne-recharge-2026" title="Lire l'article : Coût de maintenance d'une borne de recharge" class="blog-card bg-white rounded-2xl p-6 border border-gray-100 hover:shadow-lg transition-all hover:-translate-y-1 group">
-                        <span class="text-[10px] font-bold uppercase tracking-wider text-blue-600 bg-blue-50 border border-blue-200 inline-block px-2.5 py-1 rounded-full">Guide</span>
-                        <h3 class="font-bold text-gray-900 mt-3 mb-2 group-hover:text-blue-600 transition-colors">Coût de maintenance d'une borne de recharge</h3>
-                        <p class="text-sm text-gray-600 mb-3">Tarifs préventif/curatif, contrats, comparatif. Guide des prix 2026.</p>
-                        <p class="text-xs text-gray-500">11 mars 2026</p>
-                    </a>
-                    <a href="/blog/aides-installation-borne-recharge-entreprise-2026" title="Lire l'article : Aides installation borne recharge 2026" class="blog-card bg-white rounded-2xl p-6 border border-gray-100 hover:shadow-lg transition-all hover:-translate-y-1 group">
-                        <span class="text-[10px] font-bold uppercase tracking-wider text-blue-600 bg-blue-50 border border-blue-200 inline-block px-2.5 py-1 rounded-full">Guide</span>
-                        <h3 class="font-bold text-gray-900 mt-3 mb-2 group-hover:text-blue-600 transition-colors">Aides installation borne recharge 2026</h3>
-                        <p class="text-sm text-gray-600 mb-3">ADVENIR, CEE, aides régionales : toutes les subventions pour votre projet.</p>
-                        <p class="text-xs text-gray-500">11 mars 2026</p>
-                    </a>
-                </div>
-                <div class="text-center mt-10 section-appear">
-                    <a href="/blog" title="Voir tous nos articles sur l'IRVE" class="inline-flex items-center gap-2 text-blue-600 font-semibold hover:text-blue-700 transition-colors">
-                        Tous nos articles
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-                    </a>
-                </div>
+        <!-- ============ BLOG CTA ============ -->
+        <section class="py-12 px-6 bg-white" aria-label="Guides IRVE">
+            <div class="max-w-3xl mx-auto section-appear">
+                <a href="/blog" title="Voir nos guides et articles IRVE" class="card-feature flex items-center justify-between gap-4 group">
+                    <div class="flex items-center gap-4">
+                        <div class="svc-icon flex-shrink-0">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+                        </div>
+                        <div>
+                            <h3 class="text-base font-bold" style="font-family: var(--font-sans)">Découvrez nos guides IRVE</h3>
+                            <p class="text-sm mt-1" style="color: var(--color-text-secondary)">Prix, aides, maintenance, réglementation. Des articles concrets, écrits par des techniciens terrain.</p>
+                        </div>
+                    </div>
+                    <svg class="w-5 h-5 flex-shrink-0 transition-transform group-hover:translate-x-1" style="color: var(--color-primary)" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                </a>
             </div>
         </section>
 
@@ -869,7 +1275,7 @@
         <section id="contact" class="py-20 px-6 section-alt" aria-label="Formulaire de contact">
             <div class="max-w-6xl mx-auto">
                 <div class="text-center mb-14 section-appear">
-                    <p class="text-xs font-bold uppercase tracking-[2px] text-blue-600 mb-3">Contact</p>
+                    <div class="sec-label">Contact</div>
                     <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-4 text-gray-900">
                         Prêt à confier vos bornes à un mainteneur IRVE certifié ?
                     </h2>
@@ -931,40 +1337,56 @@
                     </div>
 
                     <div class="lg:col-span-1">
-                        <div class="bg-white border border-blue-200 rounded-2xl p-6 sticky top-28">
-                            <h3 class="font-bold text-gray-900 text-lg mb-5">Besoin d'aide rapide ?</h3>
-                            <div class="space-y-4">
-                                <div class="flex gap-3">
-                                    <svg class="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                        <div class="contact-info-card sticky top-28">
+                            <div class="contact-info-header">
+                                <div class="flex items-center gap-3">
+                                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
                                     <div>
-                                        <p class="font-semibold text-gray-900 text-sm">Réponse sous 24h</p>
-                                        <p class="text-gray-500 text-xs mt-0.5">Un expert vous contacte rapidement</p>
+                                        <h3 class="font-bold text-white text-lg">Besoin d'aide rapide ?</h3>
+                                        <p class="text-blue-100 text-xs mt-0.5">Support technique disponible 24/7</p>
                                     </div>
                                 </div>
-                                <div class="flex gap-3">
-                                    <svg class="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+                            </div>
+                            <div class="contact-info-body">
+                                <div class="contact-info-item">
+                                    <div class="contact-info-icon">
+                                        <svg class="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                                    </div>
                                     <div>
-                                        <p class="font-semibold text-gray-900 text-sm">Support 24/7</p>
-                                        <p class="text-gray-500 text-xs mt-0.5">Urgence technique disponible</p>
+                                        <p class="font-semibold text-gray-900 text-sm">Réponse sous 24h ouvrées</p>
+                                        <p class="text-gray-500 text-xs mt-0.5">Un technicien terrain vous contacte</p>
                                     </div>
                                 </div>
-                                <div class="flex gap-3">
-                                    <svg class="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+                                <div class="contact-info-item">
+                                    <div class="contact-info-icon">
+                                        <svg class="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+                                    </div>
                                     <div>
                                         <p class="font-semibold text-gray-900 text-sm">Appel direct</p>
                                         <a href="tel:+33183755706" class="text-blue-600 text-sm font-medium hover:text-blue-800 transition-colors">+33 1 83 75 57 06</a>
                                     </div>
                                 </div>
-                                <div class="flex gap-3">
-                                    <svg class="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                                <div class="contact-info-item">
+                                    <div class="contact-info-icon">
+                                        <svg class="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                                    </div>
                                     <div>
                                         <p class="font-semibold text-gray-900 text-sm">Email direct</p>
                                         <a href="mailto:contact@jcsm.fr" class="text-blue-600 text-sm font-medium hover:text-blue-800 transition-colors">contact@jcsm.fr</a>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="border-t border-blue-200 mt-5 pt-5">
-                                <p class="text-xs text-gray-500 leading-relaxed">60 rue François 1er, 75008 Paris<br>SIRET 99387429600011</p>
+                                <div class="contact-info-item">
+                                    <div class="contact-info-icon">
+                                        <svg class="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                                    </div>
+                                    <div>
+                                        <p class="font-semibold text-gray-900 text-sm">Siège social</p>
+                                        <p class="text-gray-500 text-xs mt-0.5">60 rue François 1er, 75008 Paris</p>
+                                    </div>
+                                </div>
+                                <div class="mt-4 pt-4 border-t border-gray-100">
+                                    <p class="text-[11px] text-gray-400 leading-relaxed">SIRET 99387429600011 -- France entière et Belgique</p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -974,32 +1396,19 @@
 
         <!-- ============ CTA FINAL ============ -->
         <section class="py-16 px-6" aria-label="Contactez JCSM">
-            <div class="max-w-6xl mx-auto card-cta py-12 px-8">
-                <h2 class="text-2xl sm:text-3xl text-white">Une borne en panne ? Un parc à entretenir ?</h2>
-                <p class="text-sm mt-2 text-white">Réponse sous 24h ouvrées, France entière et Belgique.</p>
-                <a href="#contact" class="inline-block bg-white font-bold text-sm px-7 py-3 mt-5" style="color: var(--color-primary-dark); border-radius: var(--radius-full)">Demander un diagnostic gratuit</a>
-            </div>
-        </section>
-
-        <!-- ============ DEVENIR PARTENAIRE ============ -->
-        <section class="py-20 px-6 bg-white" aria-label="Devenir partenaire">
-            <div class="max-w-4xl mx-auto section-appear">
-                <div class="bg-white border border-blue-200 rounded-2xl p-8 md:p-10 flex flex-col md:flex-row items-center gap-8">
-                    <div class="flex-1">
-                        <p class="text-xs font-bold uppercase tracking-[2px] text-blue-600 mb-2">Recherche partenaires</p>
-                        <h2 class="text-2xl md:text-3xl font-bold tracking-tight mb-3 text-gray-900">Techniciens IRVE : le réseau n°1 recrute.</h2>
-                        <p class="text-gray-600 text-sm leading-relaxed">Nous recrutons des techniciens et entreprises de maintenance certifiés sur <strong>toute la France et la Belgique</strong>. Habilitation B2V/BR/BC, expérience bornes AC/DC toutes marques. CDI, véhicule, formation constructeurs prise en charge.</p>
+            <div class="max-w-6xl mx-auto card-cta cta-final py-14 px-8">
+                <div class="relative z-10">
+                    <div class="sec-label" style="color: rgba(255,255,255,0.7); border-color: rgba(255,255,255,0.2)">Passez à l'action</div>
+                    <div class="cta-final-icon mt-4" aria-hidden="true">
+                        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
                     </div>
-                    <div class="flex flex-col items-center gap-3 flex-shrink-0">
-                        <a href="/devenir-partenaire" title="En savoir plus sur le partenariat" class="btn-primary px-7 py-3 rounded-xl text-sm font-medium text-white shadow-lg hover:shadow-xl whitespace-nowrap inline-flex items-center gap-2">
-                            En savoir plus
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-                        </a>
-                        <a href="mailto:contact@jcsm.fr" class="text-sm text-blue-600 hover:text-blue-800 transition-colors font-medium">contact@jcsm.fr</a>
-                    </div>
+                    <h2 class="text-2xl sm:text-3xl text-white">Une borne en panne ? Un parc à entretenir ?</h2>
+                    <p class="text-sm mt-2 text-white" style="opacity:0.8">Réponse sous 24h ouvrées, France entière et Belgique.</p>
+                    <a href="#contact" class="inline-block bg-white font-bold text-sm px-7 py-3 mt-6 hover:shadow-lg transition-shadow" style="color: var(--color-primary-dark); border-radius: var(--radius-full)">Demander un diagnostic gratuit</a>
                 </div>
             </div>
         </section>
+
     </main>
 
     <footer class="border-t border-gray-100 py-16 px-6 bg-white" role="contentinfo" aria-label="Pied de page">
@@ -1085,6 +1494,10 @@
         </div>
     </footer>
 
+    <a href="/contact" class="fixed bottom-4 left-4 right-4 z-40 btn-primary py-4 text-center font-semibold text-white text-sm lg:hidden" style="display:none" id="mobile-cta">
+        Demander un diagnostic gratuit
+    </a>
+
     <button class="scroll-top" id="scrollTop" aria-label="Retour en haut de page">
         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
@@ -1150,6 +1563,16 @@
         else{bar.style.display='none'}
     });
     close.addEventListener('click',function(){bar.style.display='none';sessionStorage.setItem('stickyCtaClosed','1')});
+})();
+</script>
+<script>
+(function(){
+    var mcta=document.getElementById('mobile-cta');
+    if(!mcta)return;
+    window.addEventListener('scroll',function(){
+        if(window.scrollY>400){mcta.style.display=''}
+        else{mcta.style.display='none'}
+    });
 })();
 </script>
 

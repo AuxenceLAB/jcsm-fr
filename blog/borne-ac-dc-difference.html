@@ -106,17 +106,6 @@
     <meta name="twitter:description" content="Comparatif complet borne AC vs DC : puissance, coût, batterie, OCPP. Guide 2026.">
     <meta name="twitter:image" content="https://jcsm.fr/images/index.webp">
     <meta name="twitter:image:alt" content="Infrastructure de recharge pour véhicules électriques">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
-    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"
-        media="print" onload="this.media='all'">
-    <noscript>
-        <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600;700;800&display=swap"
-            rel="stylesheet">
-    </noscript>
     <link rel="stylesheet" href="../css/critical.css?v=74">
     <link rel="stylesheet" href="../css/tailwind.css?v=74" media="print" onload="this.media='all'">
     <noscript><link rel="stylesheet" href="../css/tailwind.css?v=74"></noscript>
@@ -126,6 +115,7 @@
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
+<noscript><style>.preloader{display:none!important}</style></noscript>
 </head>
 <body class="text-gray-900 bg-white">
     <div class="reading-progress" id="reading-progress"></div>
@@ -191,7 +181,7 @@
                     <a href="/blog" class="text-sm text-blue-600 hover:text-blue-800 transition-colors">&larr; Retour au blog</a>
                 </div>
                 <div class="mb-10">
-                    <span class="inline-block text-xs font-semibold badge-section text-amber-700 bg-amber-100 rounded-full px-3 py-1 mb-4">Technique</span>
+                    <span class="inline-block text-xs font-semibold badge-section text-gray-700 bg-blue-100 rounded-full px-3 py-1 mb-4">Technique</span>
                     <h1 class="text-3xl md:text-4xl font-bold mb-4 leading-tight"><span class="gradient-text">Borne AC vs DC</span> : quelle différence et comment choisir ?</h1>
                     <div class="flex items-center text-sm text-gray-500">
                         <time datetime="2025-05-02">2 mai 2025</time>
@@ -204,9 +194,9 @@
                     <p class="text-lg text-gray-600 leading-relaxed mb-8">Le marché du véhicule électrique accélère. En France, une voiture neuve sur quatre est désormais électrique ou hybride rechargeable. Mais face à la diversité des bornes de recharge, une question revient systématiquement : faut-il opter pour une borne AC ou DC ? Derrière ces deux sigles se cachent des technologies très différentes en termes de puissance, de vitesse de charge, de coût et d'usage. Voici les clés pour faire le bon choix.</p>
 
                     <!-- Sommaire -->
-                    <nav class="bg-amber-50 rounded-xl p-6 mb-10" aria-label="Sommaire">
+                    <nav class="rounded-xl p-6 mb-10" style="background:rgba(37,99,235,0.06)" aria-label="Sommaire">
                         <p class="font-semibold text-gray-900 mb-3">Sommaire</p>
-                        <ol class="space-y-2 text-amber-700">
+                        <ol class="space-y-2 text-gray-700">
                             <li><a href="#bases-ac-dc" class="hover:underline">1. Courant alternatif (AC) vs courant continu (DC) : les bases</a></li>
                             <li><a href="#bornes-ac" class="hover:underline">2. Bornes AC : la recharge du quotidien</a></li>
                             <li><a href="#bornes-dc" class="hover:underline">3. Bornes DC : la recharge rapide</a></li>
@@ -225,9 +215,9 @@
                     <p class="text-gray-600 leading-relaxed mb-4">Avec une <strong>borne AC</strong>, le courant alternatif du réseau est envoyé tel quel au véhicule. C'est le <strong>chargeur embarqué</strong> (l'onduleur intégré dans la voiture) qui se charge de convertir l'AC en DC avant d'alimenter la batterie. Ce chargeur embarqué a une puissance limitée, généralement entre 7 et 11 kW, ce qui freine la vitesse de charge.</p>
                     <p class="text-gray-600 leading-relaxed mb-4">Avec une <strong>borne DC</strong>, la conversion est réalisée directement par la borne elle-même, grâce à un redresseur intégré beaucoup plus puissant. Le courant continu est injecté directement dans la batterie, en contournant le chargeur embarqué. Résultat : des puissances de charge bien supérieures, de 50 kW à plus de 350 kW.</p>
 
-                    <div class="bg-amber-50 border-l-4 border-amber-400 p-4 rounded-r-lg my-6">
-                        <p class="font-semibold text-amber-800">Bon à savoir</p>
-                        <p class="text-amber-700 mt-1">Le connecteur diffère aussi : les bornes AC utilisent le <strong>Type 2</strong> (standard européen), tandis que les bornes DC utilisent le <strong>CCS Combo 2</strong> (Combined Charging System) qui ajoute deux broches DC au connecteur Type 2. Tous les véhicules vendus en Europe depuis 2018 sont compatibles CCS.</p>
+                    <div class="border-l-4 border-blue-200 p-4 rounded-r-lg my-6" style="background:rgba(37,99,235,0.06)">
+                        <p class="font-semibold text-gray-800">Bon à savoir</p>
+                        <p class="text-gray-700 mt-1">Le connecteur diffère aussi : les bornes AC utilisent le <strong>Type 2</strong> (standard européen), tandis que les bornes DC utilisent le <strong>CCS Combo 2</strong> (Combined Charging System) qui ajoute deux broches DC au connecteur Type 2. Tous les véhicules vendus en Europe depuis 2018 sont compatibles CCS.</p>
                     </div>
 
                     <h2 id="bornes-ac" class="text-2xl font-bold mt-12 mb-4">Bornes AC : la recharge du quotidien</h2>
@@ -252,9 +242,9 @@
                         <li><strong>Maintenance</strong> : plus exigeante (refroidissement liquide, électronique de puissance) -- consultez notre <a href="/blog/maintenance-bornes-recharge-guide" class="text-blue-600 hover:text-blue-800 underline">guide maintenance</a></li>
                     </ul>
 
-                    <div class="bg-amber-50 border-l-4 border-amber-400 p-4 rounded-r-lg my-6">
-                        <p class="font-semibold text-amber-800">Bon à savoir</p>
-                        <p class="text-amber-700 mt-1">Les bornes DC de nouvelle génération (Kempower, Alpitronic) sont modulaires : vous pouvez démarrer à 100 kW et ajouter des modules de puissance ultérieurement sans changer l'ensemble de l'installation. Un vrai atout pour une montée en charge progressive.</p>
+                    <div class="border-l-4 border-blue-200 p-4 rounded-r-lg my-6" style="background:rgba(37,99,235,0.06)">
+                        <p class="font-semibold text-gray-800">Bon à savoir</p>
+                        <p class="text-gray-700 mt-1">Les bornes DC de nouvelle génération (Kempower, Alpitronic) sont modulaires : vous pouvez démarrer à 100 kW et ajouter des modules de puissance ultérieurement sans changer l'ensemble de l'installation. Un vrai atout pour une montée en charge progressive.</p>
                     </div>
 
                     <h2 id="comparatif" class="text-2xl font-bold mt-12 mb-4">Comparatif visuel AC vs DC</h2>
@@ -275,9 +265,9 @@
                                 <li class="flex justify-between"><span class="font-medium">Coût/kWh</span><span>0,15 - 0,40 EUR</span></li>
                             </ul>
                         </div>
-                        <div class="bg-amber-50 rounded-xl p-6 border border-amber-100">
+                        <div class="rounded-xl p-6 border border-blue-200" style="background:rgba(37,99,235,0.06)">
                             <div class="text-center mb-4">
-                                <span class="inline-block text-sm font-semibold text-amber-700 bg-amber-100 rounded-full px-4 py-1">Borne DC</span>
+                                <span class="inline-block text-sm font-semibold text-gray-700 bg-blue-100 rounded-full px-4 py-1">Borne DC</span>
                             </div>
                             <ul class="space-y-3 text-sm text-gray-700">
                                 <li class="flex justify-between"><span class="font-medium">Puissance</span><span>50 - 350 kW</span></li>
@@ -294,7 +284,7 @@
                     <!-- Detailed comparison table -->
                     <div class="overflow-x-auto mb-8">
                         <table class="w-full text-sm text-left border border-gray-200 rounded-lg overflow-hidden">
-                            <thead class="bg-gray-50">
+                            <thead style="background:#FAFAF7">
                                 <tr>
                                     <th scope="col" class="px-4 py-3 font-semibold text-gray-900 border-b border-gray-200">Critère</th>
                                     <th scope="col" class="px-4 py-3 font-semibold text-gray-900 border-b border-gray-200">Borne AC</th>
@@ -307,7 +297,7 @@
                                     <td class="px-4 py-3">3,7 à 22 kW</td>
                                     <td class="px-4 py-3">50 à 350 kW</td>
                                 </tr>
-                                <tr class="border-b border-gray-100 bg-gray-50">
+                                <tr class="border-b border-gray-100" style="background:#FAFAF7">
                                     <td class="px-4 py-3 font-medium text-gray-900">Temps de charge (60 kWh)</td>
                                     <td class="px-4 py-3">3 à 16 heures</td>
                                     <td class="px-4 py-3">15 à 40 minutes</td>
@@ -317,7 +307,7 @@
                                     <td class="px-4 py-3">Domicile, bureau, commerce</td>
                                     <td class="px-4 py-3">Autoroute, station-service, flotte</td>
                                 </tr>
-                                <tr class="border-b border-gray-100 bg-gray-50">
+                                <tr class="border-b border-gray-100" style="background:#FAFAF7">
                                     <td class="px-4 py-3 font-medium text-gray-900">Connecteur</td>
                                     <td class="px-4 py-3">Type 2</td>
                                     <td class="px-4 py-3">CCS Combo 2</td>
@@ -327,7 +317,7 @@
                                     <td class="px-4 py-3">1 000 - 3 000 EUR</td>
                                     <td class="px-4 py-3">30 000 - 150 000 EUR</td>
                                 </tr>
-                                <tr class="border-b border-gray-100 bg-gray-50">
+                                <tr class="border-b border-gray-100" style="background:#FAFAF7">
                                     <td class="px-4 py-3 font-medium text-gray-900">Maintenance</td>
                                     <td class="px-4 py-3">Faible</td>
                                     <td class="px-4 py-3">Elevée (refroidissement, électronique)</td>
@@ -349,17 +339,17 @@
                     <h2 id="cas-concrets" class="text-2xl font-bold mt-12 mb-4">Cas concrets : AC, DC ou les deux ?</h2>
                     <p class="text-gray-600 leading-relaxed mb-4">Pour rendre le choix plus concret, voici trois scénarios types illustrant les configurations les plus courantes.</p>
 
-                    <div class="bg-gray-50 rounded-xl p-6 border border-gray-100 mb-6">
+                    <div class="rounded-xl p-6 border border-gray-100 mb-6" style="background:#FAFAF7">
                         <h3 class="text-lg font-semibold mb-2">Scénario 1 : un hôtel 4 étoiles avec 30 places de parking</h3>
                         <p class="text-gray-600 leading-relaxed mb-3">Les clients arrivent en fin de journée et repartent le matin. Le temps de stationnement moyen est de 10 à 12 heures. <strong>Solution recommandée</strong> : 8 bornes AC 7 kW avec <a href="/installation-conformite" class="text-blue-600 hover:text-blue-800 underline">gestion dynamique de charge</a>. Investissement total : environ 15 000 euros. Les véhicules se rechargent intégralement pendant la nuit, le load balancing évite de surdimensionner le raccordement électrique, et l'hôtel peut proposer la recharge comme service premium.</p>
                     </div>
 
-                    <div class="bg-gray-50 rounded-xl p-6 border border-gray-100 mb-6">
+                    <div class="rounded-xl p-6 border border-gray-100 mb-6" style="background:#FAFAF7">
                         <h3 class="text-lg font-semibold mb-2">Scénario 2 : une aire d'autoroute avec 8 bornes de recharge</h3>
                         <p class="text-gray-600 leading-relaxed mb-3">Les conducteurs s'arrêtent 20 à 30 minutes pour une pause café. Le taux de rotation doit être maximal. <strong>Solution recommandée</strong> : 4 bornes DC 150 kW (type ABB Terra 184 ou Kempower Satellite) + 4 bornes AC 22 kW pour les véhicules qui stationnent plus longtemps. Les bornes DC assurent la rotation rapide, les AC absorbent le surplus en heures de pointe.</p>
                     </div>
 
-                    <div class="bg-gray-50 rounded-xl p-6 border border-gray-100 mb-6">
+                    <div class="rounded-xl p-6 border border-gray-100 mb-6" style="background:#FAFAF7">
                         <h3 class="text-lg font-semibold mb-2">Scénario 3 : un dépôt de 40 utilitaires électriques</h3>
                         <p class="text-gray-600 leading-relaxed mb-3">Les véhicules rentrent le soir et repartent à 6h. Mais certains doivent être rechargés en urgence entre deux tournées. <strong>Solution recommandée</strong> : 20 bornes AC 11 kW pour la charge nocturne planifiée + 2 bornes DC 50 kW pour les recharges d'appoint en journée. Le système de <a href="/exploitation" class="text-blue-600 hover:text-blue-800 underline">supervision à distance</a> pilote la priorité des charges selon les plannings de tournée.</p>
                     </div>
@@ -388,9 +378,9 @@
                         <li><strong><a href="/exploitation" class="text-blue-600 hover:text-blue-800 underline">Télémaintenance</a></strong> : diagnostics à distance, redémarrage des bornes, alertes en cas de panne. Résultat : un taux de disponibilité supérieur à 98 % et des interventions terrain réduites au strict nécessaire.</li>
                     </ul>
 
-                    <div class="bg-amber-50 border-l-4 border-amber-400 p-4 rounded-r-lg my-6">
-                        <p class="font-semibold text-amber-800">Bon à savoir</p>
-                        <p class="text-amber-700 mt-1">Depuis 2024, le décret IRVE impose que toute borne installée sur un parking ouvert au public soit compatible OCPP. Même pour un usage privé, nous recommandons systématiquement l'OCPP : le surcoût est négligeable et la pérennité de votre investissement est garantie.</p>
+                    <div class="border-l-4 border-blue-200 p-4 rounded-r-lg my-6" style="background:rgba(37,99,235,0.06)">
+                        <p class="font-semibold text-gray-800">Bon à savoir</p>
+                        <p class="text-gray-700 mt-1">Depuis 2024, le décret IRVE impose que toute borne installée sur un parking ouvert au public soit compatible OCPP. Même pour un usage privé, nous recommandons systématiquement l'OCPP : le surcoût est négligeable et la pérennité de votre investissement est garantie.</p>
                     </div>
 
                     <h2 id="mythe-degradation" class="text-2xl font-bold mt-12 mb-4">Charge rapide DC et dégradation batterie : mythe ou réalité ?</h2>
@@ -398,9 +388,9 @@
                     <p class="text-gray-600 leading-relaxed mb-4">Les batteries lithium-ion modernes intègrent un <strong>BMS</strong> (Battery Management System) sophistiqué qui régule en permanence la température, la tension et le courant de charge. Lorsqu'une borne DC délivre 150 kW, le BMS ajuste la courbe de charge en temps réel : la puissance maximale n'est acceptée que lorsque la batterie est entre 10 et 60 %, puis elle diminue progressivement pour protéger les cellules.</p>
                     <p class="text-gray-600 leading-relaxed mb-4">Des études de terrain sur des Tesla Model 3 ayant parcouru plus de 300 000 km montrent une dégradation inférieure à 10 %, y compris avec un usage régulier de Superchargers DC. La recommandation des constructeurs est simple : privilégiez la charge AC au quotidien (domicile, bureau), utilisez la charge DC pour les longs trajets et les situations d'urgence. Cette combinaison offre le meilleur compromis entre praticité et longévité.</p>
 
-                    <div class="bg-amber-50 border-l-4 border-amber-400 p-4 rounded-r-lg my-6">
-                        <p class="font-semibold text-amber-800">Bon à savoir</p>
-                        <p class="text-amber-700 mt-1">Evitez de charger systématiquement au-delà de 80 % en DC : c'est entre 80 et 100 % que la vitesse de charge ralentit le plus et que le stress sur les cellules est maximal. Pour un usage quotidien, la plage 20-80 % est optimale en AC comme en DC.</p>
+                    <div class="border-l-4 border-blue-200 p-4 rounded-r-lg my-6" style="background:rgba(37,99,235,0.06)">
+                        <p class="font-semibold text-gray-800">Bon à savoir</p>
+                        <p class="text-gray-700 mt-1">Evitez de charger systématiquement au-delà de 80 % en DC : c'est entre 80 et 100 % que la vitesse de charge ralentit le plus et que le stress sur les cellules est maximal. Pour un usage quotidien, la plage 20-80 % est optimale en AC comme en DC.</p>
                     </div>
 
                     <h2 id="expertise-jcsm" class="text-2xl font-bold mt-12 mb-4">L'expertise JCSM : AC et DC, on maîtrise les deux</h2>
@@ -413,7 +403,7 @@
                     </ul>
                     <p class="text-gray-600 leading-relaxed mb-4">Notre force : un interlocuteur unique, un devis transparent et une connaissance terrain des deux technologies. Nous vous aidons à choisir la solution adaptée à votre contexte, sans surdimensionner ni sous-estimer vos besoins.</p>
 
-                    <div class="bg-gray-50 border border-gray-200 rounded-2xl p-6 my-8">
+                    <div class="border border-gray-200 rounded-2xl p-6 my-8" style="background:#FAFAF7">
                         <h3 class="text-lg font-bold text-gray-900 mb-2">JCSM vous accompagne</h3>
                         <p class="text-gray-600 leading-relaxed mb-4">Vous hésitez entre une borne AC et DC pour votre projet ? JCSM vous aide à choisir la solution la plus adaptée à votre usage et à votre budget. Certifiés Qualifelec IRVE, nous concevons, installons et mettons en conformité des infrastructures AC (7 à 22 kW) et DC (50 à 500 kW) sur tout le territoire.</p>
                         <a href="/installation-conformite" class="inline-flex items-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-xl font-semibold hover:bg-blue-700 transition-colors">
@@ -426,23 +416,23 @@
                     <section class="mt-16 section-appear">
                         <h2 id="faq" class="text-2xl font-bold text-gray-900 mb-8">Questions fréquentes</h2>
                         <div class="space-y-4">
-                            <details class="bg-gray-50 rounded-xl p-5 border border-gray-100" open>
+                            <details class="rounded-xl p-5 border border-gray-100" style="background:#FAFAF7" open>
                                 <summary class="font-semibold cursor-pointer">Quelle est la différence de vitesse entre une borne AC et DC ?</summary>
                                 <p class="mt-3 text-gray-600 leading-relaxed">En AC 7 kW : environ 8h pour 60 kWh. En DC 150 kW : 80 % en 25 minutes. Pour un usage quotidien à domicile ou au bureau, l'AC suffit largement.</p>
                             </details>
-                            <details class="bg-gray-50 rounded-xl p-5 border border-gray-100">
+                            <details class="rounded-xl p-5 border border-gray-100" style="background:#FAFAF7">
                                 <summary class="font-semibold cursor-pointer">La charge rapide DC abîme-t-elle la batterie ?</summary>
                                 <p class="mt-3 text-gray-600 leading-relaxed">Le BMS régule température et tension en temps réel. Utiliser régulièrement la DC rapide n'abîme pas la batterie sur les modèles récents. Tesla garantit 70 % de capacité après 200 000 km, charge rapide incluse.</p>
                             </details>
-                            <details class="bg-gray-50 rounded-xl p-5 border border-gray-100">
+                            <details class="rounded-xl p-5 border border-gray-100" style="background:#FAFAF7">
                                 <summary class="font-semibold cursor-pointer">Peut-on installer une borne DC à domicile ?</summary>
                                 <p class="mt-3 text-gray-600 leading-relaxed">En théorie oui, en pratique rarement pertinent. Le raccordement triphasé haute puissance et le coût du matériel (30 000 à 80 000 €) ne se justifient pas pour un usage domestique.</p>
                             </details>
-                            <details class="bg-gray-50 rounded-xl p-5 border border-gray-100">
+                            <details class="rounded-xl p-5 border border-gray-100" style="background:#FAFAF7">
                                 <summary class="font-semibold cursor-pointer">Quel est le coût au kWh en charge AC vs DC ?</summary>
                                 <p class="mt-3 text-gray-600 leading-relaxed">À domicile en heures creuses : 0,15-0,20 €/kWh. Borne publique AC : 0,25-0,40 €/kWh. Borne DC rapide : 0,50-0,80 €/kWh. La recharge à domicile reste 3 à 4 fois moins chère que la DC publique.</p>
                             </details>
-                            <details class="bg-gray-50 rounded-xl p-5 border border-gray-100">
+                            <details class="rounded-xl p-5 border border-gray-100" style="background:#FAFAF7">
                                 <summary class="font-semibold cursor-pointer">Comment préparer son infrastructure pour l'avenir ?</summary>
                                 <p class="mt-3 text-gray-600 leading-relaxed">Prenez des bornes compatibles OCPP. Ce protocole ouvert vous évite d'être enfermé chez un fabricant et permet la supervision à distance, les mises à jour firmware, et le smart charging.</p>
                             </details>
@@ -491,7 +481,7 @@
                 </div>
             </div>
             <!-- Services associés -->
-            <div class="bg-gray-50 border border-gray-200 rounded-2xl p-6 mt-12 section-appear">
+            <div class="border border-gray-200 rounded-2xl p-6 mt-12 section-appear" style="background:#FAFAF7">
                 <h3 class="text-lg font-bold text-gray-900 mb-4">Services associ&#233;s</h3>
                 <div class="flex flex-wrap gap-3">
                     <a href="/installation-conformite" class="inline-flex items-center gap-2 bg-white border border-gray-200 hover:border-blue-200 rounded-xl px-4 py-2 text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors">

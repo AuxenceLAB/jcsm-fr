@@ -54,17 +54,6 @@
     <meta name="twitter:description" content="Chiffres clés 2025, immatriculations VE record, guides installation. Analyse d'experts JCSM.">
     <meta name="twitter:image" content="https://jcsm.fr/images/index.webp">
     <meta name="twitter:image:alt" content="Blog JCSM - Actualités et guides bornes de recharge">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
-    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"
-        media="print" onload="this.media='all'">
-    <noscript>
-        <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600;700;800&display=swap"
-            rel="stylesheet">
-    </noscript>
     <link rel="stylesheet" href="/css/critical.css?v=74">
     <link rel="stylesheet" href="/css/tailwind.css?v=74" media="print" onload="this.media='all'">
     <noscript><link rel="stylesheet" href="/css/tailwind.css?v=74"></noscript>
@@ -74,6 +63,8 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="theme-color" content="#2563EB">
+    <noscript><style>
+.preloader{display:none!important}</style></noscript>
     <style>
         .section-appear.visible:nth-child(2) { transition-delay: 0.04s; }
         .section-appear.visible:nth-child(3) { transition-delay: 0.08s; }
@@ -86,7 +77,7 @@
         }
     </style>
 </head>
-<body class="text-gray-900">
+<body class="text-gray-900 blog-article-body">
     <div id="scroll-progress" class="fixed top-0 left-0 h-1 bg-blue-600 z-[60] transition-all duration-150" style="width: 0%;" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Progression de la page"></div>
     <a href="#main-content" class="skip-link">Aller au contenu principal</a>
     <div class="mobile-menu-overlay" id="mobile-menu-overlay"></div>
@@ -147,10 +138,11 @@
 
     <main id="main-content">
         <!-- Hero -->
-        <section class="pt-32 pb-12 px-6 bg-blue-50 section-appear">
+        <section class="pt-32 pb-12 px-6 section-alt section-appear">
             <div class="max-w-4xl mx-auto text-center">
-                <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight tracking-tight mb-4 section-appear">Blog <span class="gradient-text">IRVE</span></h1>
-                <p class="text-xl text-gray-600 max-w-2xl mx-auto mt-4">Chiffres clés, analyses de marché et guides pratiques pour comprendre l'écosystème des bornes de recharge en France et en Belgique.</p>
+                <p class="sec-label mb-4 section-appear">Blog</p>
+                <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-tight tracking-tight mb-4 section-appear" style="font-family:var(--font-serif)">Actualit&#233;s <em class="text-blue-600 italic">IRVE</em></h1>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto mt-4">Chiffres cl&#233;s, analyses de march&#233; et guides pratiques pour comprendre l'&#233;cosyst&#232;me des bornes de recharge en France et en Belgique.</p>
             </div>
         </section>
 
@@ -182,23 +174,24 @@
         <!-- Article à la une -->
         <section class="py-20 px-6 section-appear">
             <div class="max-w-5xl mx-auto">
-                <h2 class="text-sm font-semibold text-gray-500 uppercase tracking-widest mb-6">À la une</h2>
+                <p class="sec-label mb-6">&#192; la une</p>
                 <a href="/blog/immatriculations-vehicules-electriques-bilan-2025" class="group block bg-white rounded-2xl border border-gray-100 overflow-hidden hover:shadow-xl transition-all hover:-translate-y-1 blog-card-premium">
                     <div class="grid md:grid-cols-2">
-                        <div class="bg-blue-50 p-8 md:p-10 flex flex-col justify-center">
-                            <span class="inline-block text-xs font-semibold text-blue-700 bg-blue-50 rounded-full px-3 py-1 mb-4 w-fit badge-section">Marché</span>
-                            <h3 class="text-2xl md:text-3xl font-bold group-hover:text-blue-600 transition-colors leading-snug mb-4">Immatriculations VE en France : bilan record 2025</h3>
-                            <p class="text-gray-600 text-sm mb-4 leading-relaxed">326 923 véhicules 100 % électriques vendus, 20 % de part de marché, la Renault 5 en tête : retour sur une année historique pour la mobilité électrique.</p>
-                            <div class="flex items-center text-xs text-gray-500">
+                        <div class="p-8 md:p-10 flex flex-col justify-center" style="background:var(--color-cream-alt)">
+                            <span class="blog-badge mb-4 w-fit">March&#233;</span>
+                            <h2 class="text-2xl md:text-3xl font-bold group-hover:text-blue-600 transition-colors leading-snug mb-4">Immatriculations VE en France : bilan record 2025</h2>
+                            <p class="text-gray-600 text-sm mb-4 leading-relaxed">326 923 v&#233;hicules 100 % &#233;lectriques vendus, 20 % de part de march&#233;, la Renault 5 en t&#234;te : retour sur une ann&#233;e historique pour la mobilit&#233; &#233;lectrique.</p>
+                            <div class="blog-meta">
                                 <time datetime="2026-01-15">15 janvier 2026</time>
-                                <span class="mx-2">·</span>
-                                <span>8 min</span>
+                                <span class="mx-1">&#183;</span>
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                                <span>8 min de lecture</span>
                             </div>
                         </div>
-                        <div class="bg-blue-100 p-10 flex items-center justify-center">
-                            <div class="text-center icon-pulse-hover">
-                                <p class="text-6xl md:text-7xl font-bold text-blue-600">+12,5%</p>
-                                <p class="text-sm text-blue-700 mt-2 font-medium">de croissance vs 2024</p>
+                        <div class="p-10 flex items-center justify-center" style="background:var(--color-ink)">
+                            <div class="text-center">
+                                <p class="text-6xl md:text-7xl font-bold text-blue-400">+12,5%</p>
+                                <p class="text-sm mt-2 font-medium" style="color:#9DB8E8">de croissance vs 2024</p>
                             </div>
                         </div>
                     </div>
@@ -211,12 +204,12 @@
             <div class="max-w-5xl mx-auto">
                 <nav aria-label="Catégories du blog">
                     <div class="flex flex-wrap justify-center gap-3 mb-4">
-                        <a href="#aides" class="px-4 py-2 rounded-full text-sm font-semibold bg-blue-50 text-blue-700 border border-blue-100 hover:bg-blue-100 transition-colors">Aides &amp; Subventions</a>
-                        <a href="#installation" class="px-4 py-2 rounded-full text-sm font-semibold bg-blue-50 text-blue-700 border border-blue-100 hover:bg-blue-100 transition-colors">Installation &amp; Conformité</a>
-                        <a href="#maintenance" class="px-4 py-2 rounded-full text-sm font-semibold bg-blue-50 text-blue-700 border border-blue-100 hover:bg-blue-100 transition-colors">Maintenance &amp; Exploitation</a>
-                        <a href="#technologie" class="px-4 py-2 rounded-full text-sm font-semibold bg-blue-50 text-blue-700 border border-blue-100 hover:bg-blue-100 transition-colors">Technologie &amp; Standards</a>
-                        <a href="#marche" class="px-4 py-2 rounded-full text-sm font-semibold bg-blue-50 text-blue-700 border border-blue-100 hover:bg-blue-100 transition-colors">Marché &amp; Tendances</a>
-                        <a href="#reglementation" class="px-4 py-2 rounded-full text-sm font-semibold bg-blue-50 text-blue-700 border border-blue-100 hover:bg-blue-100 transition-colors">Réglementation</a>
+                        <a href="#aides" class="px-4 py-2 rounded-full text-sm font-semibold bg-white text-gray-700 border border-gray-200 hover:border-blue-600 hover:text-blue-600 transition-colors">Aides &amp; Subventions</a>
+                        <a href="#installation" class="px-4 py-2 rounded-full text-sm font-semibold bg-white text-gray-700 border border-gray-200 hover:border-blue-600 hover:text-blue-600 transition-colors">Installation &amp; Conformit&#233;</a>
+                        <a href="#maintenance" class="px-4 py-2 rounded-full text-sm font-semibold bg-white text-gray-700 border border-gray-200 hover:border-blue-600 hover:text-blue-600 transition-colors">Maintenance &amp; Exploitation</a>
+                        <a href="#technologie" class="px-4 py-2 rounded-full text-sm font-semibold bg-white text-gray-700 border border-gray-200 hover:border-blue-600 hover:text-blue-600 transition-colors">Technologie &amp; Standards</a>
+                        <a href="#marche" class="px-4 py-2 rounded-full text-sm font-semibold bg-white text-gray-700 border border-gray-200 hover:border-blue-600 hover:text-blue-600 transition-colors">March&#233; &amp; Tendances</a>
+                        <a href="#reglementation" class="px-4 py-2 rounded-full text-sm font-semibold bg-white text-gray-700 border border-gray-200 hover:border-blue-600 hover:text-blue-600 transition-colors">R&#233;glementation</a>
                     </div>
                 </nav>
             </div>
@@ -225,88 +218,94 @@
         <!-- Aides &amp; Subventions -->
         <section class="pb-16 px-6 section-appear">
             <div class="max-w-5xl mx-auto">
-                <div id="aides" class="scroll-mt-24 mb-8 mt-0">
-                    <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">Aides &amp; Subventions</h2>
-                    <p class="text-gray-600 mb-8">Tout comprendre sur les aides ADVENIR, les subventions régionales et le financement de votre projet IRVE.</p>
+                <div id="aides" class="scroll-mt-24 mb-8 mt-0 blog-section-header">
+                    <p class="sec-label mb-3">Aides &amp; Subventions</p>
+                    <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-2" style="font-family:var(--font-serif)">Aides &amp; Subventions</h2>
+                    <p class="text-gray-600 mb-8">Tout comprendre sur les aides ADVENIR, les subventions r&#233;gionales et le financement de votre projet IRVE.</p>
                 </div>
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
 
                     <!-- ADVENIR -->
                     <a href="/blog/aide-advenir-subventions-irve" class="group bg-white rounded-2xl border border-gray-100 overflow-hidden hover:shadow-lg transition-all hover:-translate-y-1 blog-card-premium">
-                        <div class="bg-blue-50 p-6 icon-pulse-hover">
-                            <span class="inline-block text-xs font-semibold text-blue-700 bg-blue-50 rounded-full px-3 py-1 mb-3 badge-section">Financement</span>
+                        <div class="p-6" style="background:var(--color-cream-alt)">
+                            <span class="blog-badge mb-3">Financement</span>
                             <h3 class="text-lg font-bold group-hover:text-blue-600 transition-colors leading-snug">Aide ADVENIR 2026 : guide complet des subventions IRVE</h3>
                         </div>
                         <div class="p-5">
                             <p class="text-gray-600 text-sm mb-3 line-clamp-3">Programme ADVENIR prolongé jusqu'en 2027 (520 M€), TVA réduite, aides régionales : tout pour financer vos bornes de recharge.</p>
-                            <div class="flex items-center text-xs text-gray-500">
+                            <div class="blog-meta">
                                 <time datetime="2025-12-01">1 décembre 2025</time>
-                                <span class="mx-2">·</span>
-                                <span>7 min</span>
+                                <span class="mx-1">&#183;</span>
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                                <span>7 min de lecture</span>
                             </div>
                         </div>
                     </a>
 
                     <!-- Aides installation borne entreprise 2026 -->
                     <a href="/blog/aides-installation-borne-recharge-entreprise-2026" class="group bg-white rounded-2xl border border-gray-100 overflow-hidden hover:shadow-lg transition-all hover:-translate-y-1 blog-card-premium">
-                        <div class="bg-blue-50 p-6 icon-pulse-hover">
-                            <span class="inline-block text-xs font-semibold text-blue-700 bg-blue-50 rounded-full px-3 py-1 mb-3 badge-section">Financement</span>
+                        <div class="p-6" style="background:var(--color-cream-alt)">
+                            <span class="blog-badge mb-3">Financement</span>
                             <h3 class="text-lg font-bold group-hover:text-blue-600 transition-colors leading-snug">Aides installation borne de recharge entreprise 2026</h3>
                         </div>
                         <div class="p-5">
                             <p class="text-gray-600 text-sm mb-3 line-clamp-3">ADVENIR, crédit d'impôt, aides régionales : panorama complet des subventions disponibles pour équiper votre entreprise en bornes IRVE.</p>
-                            <div class="flex items-center text-xs text-gray-500">
+                            <div class="blog-meta">
                                 <time datetime="2026-03-11">11 mars 2026</time>
-                                <span class="mx-2">·</span>
-                                <span>8 min</span>
+                                <span class="mx-1">&#183;</span>
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                                <span>8 min de lecture</span>
                             </div>
                         </div>
                     </a>
 
                     <!-- Aides 2025 -->
                     <a href="/blog/aides-subventions-borne-recharge-2025" class="group bg-white rounded-2xl border border-gray-100 overflow-hidden hover:shadow-lg transition-all hover:-translate-y-1 blog-card-premium">
-                        <div class="bg-blue-50 p-6 icon-pulse-hover">
-                            <span class="inline-block text-xs font-semibold text-blue-700 bg-blue-50 rounded-full px-3 py-1 mb-3 badge-section">Financement</span>
+                        <div class="p-6" style="background:var(--color-cream-alt)">
+                            <span class="blog-badge mb-3">Financement</span>
                             <h3 class="text-lg font-bold group-hover:text-blue-600 transition-colors leading-snug">Aides et subventions pour bornes de recharge en 2025</h3>
                         </div>
                         <div class="p-5">
                             <p class="text-gray-600 text-sm mb-3 line-clamp-3">Crédit d'impôt 500 €, TVA 5,5 %, programme ADVENIR, aides régionales : panorama complet des financements disponibles en 2025.</p>
-                            <div class="flex items-center text-xs text-gray-500">
+                            <div class="blog-meta">
                                 <time datetime="2025-09-10">10 septembre 2025</time>
-                                <span class="mx-2">·</span>
-                                <span>7 min</span>
+                                <span class="mx-1">&#183;</span>
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                                <span>7 min de lecture</span>
                             </div>
                         </div>
                     </a>
 
                     <!-- Bilan ADVENIR -->
                     <a href="/blog/bilan-advenir-2025-irve" class="group bg-white rounded-2xl border border-gray-100 overflow-hidden hover:shadow-lg transition-all hover:-translate-y-1 blog-card-premium">
-                        <div class="bg-blue-50 p-6 icon-pulse-hover">
-                            <span class="inline-block text-xs font-semibold text-blue-700 bg-blue-50 rounded-full px-3 py-1 mb-3 badge-section">Financement</span>
+                        <div class="p-6" style="background:var(--color-cream-alt)">
+                            <span class="blog-badge mb-3">Financement</span>
                             <h3 class="text-lg font-bold group-hover:text-blue-600 transition-colors leading-snug">Bilan ADVENIR 2025 : chiffres et évolutions du programme</h3>
                         </div>
                         <div class="p-5">
                             <p class="text-gray-600 text-sm mb-3 line-clamp-3">Plus de 100 000 points financés depuis 2016, budget porté à 520 M€, objectif 250 000 bornes : bilan complet du programme phare de l'IRVE.</p>
-                            <div class="flex items-center text-xs text-gray-500">
+                            <div class="blog-meta">
                                 <time datetime="2025-11-20">20 novembre 2025</time>
-                                <span class="mx-2">·</span>
-                                <span>6 min</span>
+                                <span class="mx-1">&#183;</span>
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                                <span>6 min de lecture</span>
                             </div>
                         </div>
                     </a>
 
                     <!-- Prix installation borne recharge 2026 -->
                     <a href="/blog/prix-installation-borne-recharge-2026" class="group bg-white rounded-2xl border border-gray-100 overflow-hidden hover:shadow-lg transition-all hover:-translate-y-1 blog-card-premium">
-                        <div class="bg-blue-50 p-6 icon-pulse-hover">
-                            <span class="inline-block text-xs font-semibold text-blue-700 bg-blue-50 rounded-full px-3 py-1 mb-3 badge-section">Guide</span>
+                        <div class="p-6" style="background:var(--color-cream-alt)">
+                            <span class="blog-badge mb-3">Guide</span>
                             <h3 class="text-lg font-bold group-hover:text-blue-600 transition-colors leading-snug">Prix installation borne de recharge 2026 : guide complet</h3>
                         </div>
                         <div class="p-5">
                             <p class="text-gray-600 text-sm mb-3 line-clamp-3">De 1 200 &euro; à 50 000 &euro; selon la puissance : découvrez tous les coûts d'installation d'une borne de recharge en 2026, aides déduites.</p>
-                            <div class="flex items-center text-xs text-gray-500">
+                            <div class="blog-meta">
                                 <time datetime="2026-03-11">11 mars 2026</time>
-                                <span class="mx-2">·</span>
-                                <span>10 min</span>
+                                <span class="mx-1">&#183;</span>
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                                <span>10 min de lecture</span>
                             </div>
                         </div>
                     </a>
@@ -318,168 +317,179 @@
         <!-- Installation &amp; Conformité -->
         <section class="pb-16 px-6 section-appear">
             <div class="max-w-5xl mx-auto">
-                <div id="installation" class="scroll-mt-24 mb-8 mt-16">
-                    <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">Installation &amp; Conformité</h2>
-                    <p class="text-gray-600 mb-8">Guides pratiques pour installer vos bornes de recharge : normes, certifications, raccordement et mise en conformité.</p>
+                <div id="installation" class="scroll-mt-24 mb-8 mt-16 blog-section-header">
+                    <p class="sec-label mb-3">Installation &amp; Conformit&#233;</p>
+                    <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-2" style="font-family:var(--font-serif)">Installation &amp; Conformit&#233;</h2>
+                    <p class="text-gray-600 mb-8">Guides pratiques pour installer vos bornes de recharge : normes, certifications, raccordement et mise en conformit&#233;.</p>
                 </div>
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
 
                     <!-- Borne recharge entreprise obligations 2026 -->
                     <a href="/blog/borne-recharge-entreprise-obligations-2026" class="group bg-white rounded-2xl border border-gray-100 overflow-hidden hover:shadow-lg transition-all hover:-translate-y-1 blog-card-premium">
-                        <div class="bg-blue-50 p-6 icon-pulse-hover">
-                            <span class="inline-block text-xs font-semibold text-blue-700 bg-blue-50 rounded-full px-3 py-1 mb-3 badge-section">Réglementation</span>
+                        <div class="p-6" style="background:var(--color-cream-alt)">
+                            <span class="blog-badge mb-3">Réglementation</span>
                             <h3 class="text-lg font-bold group-hover:text-blue-600 transition-colors leading-snug">Borne de recharge en entreprise : obligations légales 2026</h3>
                         </div>
                         <div class="p-5">
                             <p class="text-gray-600 text-sm mb-3 line-clamp-3">Loi LOM, décret tertiaire, pré-équipement parking : toutes les obligations légales pour les entreprises en matière de bornes de recharge en 2026.</p>
-                            <div class="flex items-center text-xs text-gray-500">
+                            <div class="blog-meta">
                                 <time datetime="2026-03-22">22 mars 2026</time>
-                                <span class="mx-2">·</span>
-                                <span>7 min</span>
+                                <span class="mx-1">&#183;</span>
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                                <span>7 min de lecture</span>
                             </div>
                         </div>
                     </a>
 
                     <!-- Certification Qualifelec IRVE -->
                     <a href="/blog/certification-qualifelec-irve" class="group bg-white rounded-2xl border border-gray-100 overflow-hidden hover:shadow-lg transition-all hover:-translate-y-1 blog-card-premium">
-                        <div class="bg-blue-50 p-6 icon-pulse-hover">
-                            <span class="inline-block text-xs font-semibold text-blue-700 bg-blue-50 rounded-full px-3 py-1 mb-3 badge-section">Réglementation</span>
+                        <div class="p-6" style="background:var(--color-cream-alt)">
+                            <span class="blog-badge mb-3">Réglementation</span>
                             <h3 class="text-lg font-bold group-hover:text-blue-600 transition-colors leading-snug">Certification Qualifelec IRVE : pourquoi c'est indispensable</h3>
                         </div>
                         <div class="p-5">
                             <p class="text-gray-600 text-sm mb-3 line-clamp-3">Niveaux P1 à P3, obligations légales, processus d'obtention : tout savoir sur la certification incontournable pour les installateurs IRVE.</p>
-                            <div class="flex items-center text-xs text-gray-500">
+                            <div class="blog-meta">
                                 <time datetime="2026-03-11">11 mars 2026</time>
-                                <span class="mx-2">·</span>
-                                <span>6 min</span>
+                                <span class="mx-1">&#183;</span>
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                                <span>6 min de lecture</span>
                             </div>
                         </div>
                     </a>
 
                     <!-- Conformité IRVE 2026 normes NF C 15-100 -->
                     <a href="/blog/conformite-irve-2026-normes-nf-c-15-100" class="group bg-white rounded-2xl border border-gray-100 overflow-hidden hover:shadow-lg transition-all hover:-translate-y-1 blog-card-premium">
-                        <div class="bg-blue-50 p-6 icon-pulse-hover">
-                            <span class="inline-block text-xs font-semibold text-blue-700 bg-blue-50 rounded-full px-3 py-1 mb-3 badge-section">Réglementation</span>
+                        <div class="p-6" style="background:var(--color-cream-alt)">
+                            <span class="blog-badge mb-3">Réglementation</span>
                             <h3 class="text-lg font-bold group-hover:text-blue-600 transition-colors leading-snug">Conformité IRVE 2026 : normes NF C 15-100-7-722</h3>
                         </div>
                         <div class="p-5">
                             <p class="text-gray-600 text-sm mb-3 line-clamp-3">Norme NF C 15-100 section 722, décret IRVE, Consuel : tout ce qu'il faut savoir pour une installation conforme en 2026.</p>
-                            <div class="flex items-center text-xs text-gray-500">
+                            <div class="blog-meta">
                                 <time datetime="2026-03-11">11 mars 2026</time>
-                                <span class="mx-2">·</span>
-                                <span>12 min</span>
+                                <span class="mx-1">&#183;</span>
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                                <span>12 min de lecture</span>
                             </div>
                         </div>
                     </a>
 
                     <!-- Copropriété -->
                     <a href="/blog/installer-borne-copropriete" class="group bg-white rounded-2xl border border-gray-100 overflow-hidden hover:shadow-lg transition-all hover:-translate-y-1 blog-card-premium">
-                        <div class="bg-blue-50 p-6 icon-pulse-hover">
-                            <span class="inline-block text-xs font-semibold text-blue-700 bg-blue-50 rounded-full px-3 py-1 mb-3 badge-section">Guide</span>
+                        <div class="p-6" style="background:var(--color-cream-alt)">
+                            <span class="blog-badge mb-3">Guide</span>
                             <h3 class="text-lg font-bold group-hover:text-blue-600 transition-colors leading-snug">Installer une borne de recharge en copropriété</h3>
                         </div>
                         <div class="p-5">
                             <p class="text-gray-600 text-sm mb-3 line-clamp-3">Droit à la prise, démarches syndic, choix individuel ou collectif, aides ADVENIR : le guide complet pour réussir votre projet en copropriété.</p>
-                            <div class="flex items-center text-xs text-gray-500">
+                            <div class="blog-meta">
                                 <time datetime="2025-12-15">15 décembre 2025</time>
-                                <span class="mx-2">·</span>
-                                <span>8 min</span>
+                                <span class="mx-1">&#183;</span>
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                                <span>8 min de lecture</span>
                             </div>
                         </div>
                     </a>
 
                     <!-- Particuliers -->
                     <a href="/blog/installer-borne-recharge-maison-particulier" class="group bg-white rounded-2xl border border-gray-100 overflow-hidden hover:shadow-lg transition-all hover:-translate-y-1 blog-card-premium">
-                        <div class="bg-blue-50 p-6 icon-pulse-hover">
-                            <span class="inline-block text-xs font-semibold text-blue-700 bg-blue-50 rounded-full px-3 py-1 mb-3 badge-section">Guide</span>
+                        <div class="p-6" style="background:var(--color-cream-alt)">
+                            <span class="blog-badge mb-3">Guide</span>
                             <h3 class="text-lg font-bold group-hover:text-blue-600 transition-colors leading-snug">Installer une borne chez soi : guide pour les particuliers</h3>
                         </div>
                         <div class="p-5">
                             <p class="text-gray-600 text-sm mb-3 line-clamp-3">Prise renforcée, wallbox 7-22 kW, prérequis électriques, aides financières : le guide complet pour recharger à domicile.</p>
-                            <div class="flex items-center text-xs text-gray-500">
+                            <div class="blog-meta">
                                 <time datetime="2025-04-14">14 avril 2025</time>
-                                <span class="mx-2">·</span>
-                                <span>9 min</span>
+                                <span class="mx-1">&#183;</span>
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                                <span>9 min de lecture</span>
                             </div>
                         </div>
                     </a>
 
                     <!-- Installer bornes entreprise -->
                     <a href="/blog/installer-bornes-recharge-entreprise" class="group bg-white rounded-2xl border border-gray-100 overflow-hidden hover:shadow-lg transition-all hover:-translate-y-1 blog-card-premium">
-                        <div class="bg-blue-50 p-6 icon-pulse-hover">
-                            <span class="inline-block text-xs font-semibold text-blue-700 bg-blue-50 rounded-full px-3 py-1 mb-3 badge-section">Guide</span>
+                        <div class="p-6" style="background:var(--color-cream-alt)">
+                            <span class="blog-badge mb-3">Guide</span>
                             <h3 class="text-lg font-bold group-hover:text-blue-600 transition-colors leading-snug">Installer des bornes de recharge en entreprise</h3>
                         </div>
                         <div class="p-5">
                             <p class="text-gray-600 text-sm mb-3 line-clamp-3">Loi LOM, programme ADVENIR, dimensionnement électrique, pilotage dynamique : le guide complet pour l'entreprise.</p>
-                            <div class="flex items-center text-xs text-gray-500">
+                            <div class="blog-meta">
                                 <time datetime="2026-02-12">12 février 2026</time>
-                                <span class="mx-2">·</span>
-                                <span>9 min</span>
+                                <span class="mx-1">&#183;</span>
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                                <span>9 min de lecture</span>
                             </div>
                         </div>
                     </a>
 
                     <!-- Borne recharge copropriété 2026 -->
                     <a href="/blog/borne-recharge-copropriete-2026" class="group bg-white rounded-2xl border border-gray-100 overflow-hidden hover:shadow-lg transition-all hover:-translate-y-1 blog-card-premium">
-                        <div class="bg-blue-50 p-6 icon-pulse-hover">
-                            <span class="inline-block text-xs font-semibold text-blue-700 bg-blue-50 rounded-full px-3 py-1 mb-3 badge-section">Guide</span>
+                        <div class="p-6" style="background:var(--color-cream-alt)">
+                            <span class="blog-badge mb-3">Guide</span>
                             <h3 class="text-lg font-bold group-hover:text-blue-600 transition-colors leading-snug">Borne de recharge en copropriété : normes et démarches 2026</h3>
                         </div>
                         <div class="p-5">
                             <p class="text-gray-600 text-sm mb-3 line-clamp-3">Droit à la prise, vote en AG, infrastructure collective, aides ADVENIR : le guide actualisé pour équiper votre copropriété en 2026.</p>
-                            <div class="flex items-center text-xs text-gray-500">
+                            <div class="blog-meta">
                                 <time datetime="2026-03-11">11 mars 2026</time>
-                                <span class="mx-2">·</span>
-                                <span>8 min</span>
+                                <span class="mx-1">&#183;</span>
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                                <span>8 min de lecture</span>
                             </div>
                         </div>
                     </a>
 
                     <!-- Raccordement DC -->
                     <a href="/blog/raccordement-electrique-bornes-dc" class="group bg-white rounded-2xl border border-gray-100 overflow-hidden hover:shadow-lg transition-all hover:-translate-y-1 blog-card-premium">
-                        <div class="bg-blue-50 p-6 icon-pulse-hover">
-                            <span class="inline-block text-xs font-semibold text-blue-700 bg-blue-50 rounded-full px-3 py-1 mb-3 badge-section">Technique</span>
+                        <div class="p-6" style="background:var(--color-cream-alt)">
+                            <span class="blog-badge mb-3">Technique</span>
                             <h3 class="text-lg font-bold group-hover:text-blue-600 transition-colors leading-snug">Raccordement électrique des bornes DC : guide technique</h3>
                         </div>
                         <div class="p-5">
                             <p class="text-gray-600 text-sm mb-3 line-clamp-3">Dimensionnement, raccordement BT vs HTA, process Enedis (PTF), coûts et délais pour les stations de recharge rapide.</p>
-                            <div class="flex items-center text-xs text-gray-500">
+                            <div class="blog-meta">
                                 <time datetime="2026-02-12">12 février 2026</time>
-                                <span class="mx-2">·</span>
-                                <span>9 min</span>
+                                <span class="mx-1">&#183;</span>
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                                <span>9 min de lecture</span>
                             </div>
                         </div>
                     </a>
 
                     <!-- Connecteurs -->
                     <a href="/blog/connecteurs-type-2-ccs-chademo-guide" class="group bg-white rounded-2xl border border-gray-100 overflow-hidden hover:shadow-lg transition-all hover:-translate-y-1 blog-card-premium">
-                        <div class="bg-blue-50 p-6 icon-pulse-hover">
-                            <span class="inline-block text-xs font-semibold text-blue-700 bg-blue-50 rounded-full px-3 py-1 mb-3 badge-section">Technique</span>
+                        <div class="p-6" style="background:var(--color-cream-alt)">
+                            <span class="blog-badge mb-3">Technique</span>
                             <h3 class="text-lg font-bold group-hover:text-blue-600 transition-colors leading-snug">Connecteurs : Type 2, CCS, CHAdeMO, le guide complet</h3>
                         </div>
                         <div class="p-5">
                             <p class="text-gray-600 text-sm mb-3 line-clamp-3">Type 2, CCS Combo 2, CHAdeMO, NACS : quel connecteur pour quel véhicule ? Compatibilité, puissance et évolutions.</p>
-                            <div class="flex items-center text-xs text-gray-500">
+                            <div class="blog-meta">
                                 <time datetime="2026-01-28">28 janvier 2026</time>
-                                <span class="mx-2">·</span>
-                                <span>7 min</span>
+                                <span class="mx-1">&#183;</span>
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                                <span>7 min de lecture</span>
                             </div>
                         </div>
                     </a>
 
                     <!-- AC vs DC -->
                     <a href="/blog/borne-ac-dc-difference" class="group bg-white rounded-2xl border border-gray-100 overflow-hidden hover:shadow-lg transition-all hover:-translate-y-1 blog-card-premium">
-                        <div class="bg-blue-50 p-6 icon-pulse-hover">
-                            <span class="inline-block text-xs font-semibold text-blue-700 bg-blue-50 rounded-full px-3 py-1 mb-3 badge-section">Technique</span>
+                        <div class="p-6" style="background:var(--color-cream-alt)">
+                            <span class="blog-badge mb-3">Technique</span>
                             <h3 class="text-lg font-bold group-hover:text-blue-600 transition-colors leading-snug">Borne AC vs DC : quelle différence et comment choisir ?</h3>
                         </div>
                         <div class="p-5">
                             <p class="text-gray-600 text-sm mb-3 line-clamp-3">Courant alternatif ou continu, puissance, temps de charge, coût : tout comprendre pour choisir entre une borne AC et DC.</p>
-                            <div class="flex items-center text-xs text-gray-500">
+                            <div class="blog-meta">
                                 <time datetime="2025-05-02">2 mai 2025</time>
-                                <span class="mx-2">·</span>
-                                <span>6 min</span>
+                                <span class="mx-1">&#183;</span>
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                                <span>6 min de lecture</span>
                             </div>
                         </div>
                     </a>
@@ -491,184 +501,196 @@
         <!-- Maintenance &amp; Exploitation -->
         <section class="pb-16 px-6 section-appear">
             <div class="max-w-5xl mx-auto">
-                <div id="maintenance" class="scroll-mt-24 mb-8 mt-16">
-                    <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">Maintenance &amp; Exploitation</h2>
-                    <p class="text-gray-600 mb-8">Optimisez la disponibilité de vos bornes : maintenance préventive, supervision, coûts et bonnes pratiques.</p>
+                <div id="maintenance" class="scroll-mt-24 mb-8 mt-16 blog-section-header">
+                    <p class="sec-label mb-3">Maintenance &amp; Exploitation</p>
+                    <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-2" style="font-family:var(--font-serif)">Maintenance &amp; Exploitation</h2>
+                    <p class="text-gray-600 mb-8">Optimisez la disponibilit&#233; de vos bornes : maintenance pr&#233;ventive, supervision, co&#251;ts et bonnes pratiques.</p>
                 </div>
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
 
                     <!-- Maintenance préventive vs curative IRVE -->
                     <a href="/blog/maintenance-preventive-vs-curative-irve" class="group bg-white rounded-2xl border border-gray-100 overflow-hidden hover:shadow-lg transition-all hover:-translate-y-1 blog-card-premium">
-                        <div class="bg-blue-50 p-6 icon-pulse-hover">
-                            <span class="inline-block text-xs font-semibold text-blue-700 bg-blue-50 rounded-full px-3 py-1 mb-3 badge-section">Maintenance</span>
+                        <div class="p-6" style="background:var(--color-cream-alt)">
+                            <span class="blog-badge mb-3">Maintenance</span>
                             <h3 class="text-lg font-bold group-hover:text-blue-600 transition-colors leading-snug">Maintenance préventive vs curative IRVE : laquelle choisir ?</h3>
                         </div>
                         <div class="p-5">
                             <p class="text-gray-600 text-sm mb-3 line-clamp-3">Préventive ou curative ? Comparaison des stratégies de maintenance IRVE : coûts, disponibilité, SLA et retour d'expérience terrain.</p>
-                            <div class="flex items-center text-xs text-gray-500">
+                            <div class="blog-meta">
                                 <time datetime="2026-03-22">22 mars 2026</time>
-                                <span class="mx-2">·</span>
-                                <span>8 min</span>
+                                <span class="mx-1">&#183;</span>
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                                <span>8 min de lecture</span>
                             </div>
                         </div>
                     </a>
 
                     <!-- Maintenance -->
                     <a href="/blog/maintenance-bornes-recharge-guide" class="group bg-white rounded-2xl border border-gray-100 overflow-hidden hover:shadow-lg transition-all hover:-translate-y-1 blog-card-premium">
-                        <div class="bg-blue-50 p-6 icon-pulse-hover">
-                            <span class="inline-block text-xs font-semibold text-blue-700 bg-blue-50 rounded-full px-3 py-1 mb-3 badge-section">Maintenance</span>
+                        <div class="p-6" style="background:var(--color-cream-alt)">
+                            <span class="blog-badge mb-3">Maintenance</span>
                             <h3 class="text-lg font-bold group-hover:text-blue-600 transition-colors leading-snug">Maintenance des bornes de recharge : guide complet</h3>
                         </div>
                         <div class="p-5">
                             <p class="text-gray-600 text-sm mb-3 line-clamp-3">Préventive, curative, télégestion OCPP, obligations réglementaires : tout savoir pour maximiser la disponibilité de vos bornes.</p>
-                            <div class="flex items-center text-xs text-gray-500">
+                            <div class="blog-meta">
                                 <time datetime="2025-02-18">18 février 2025</time>
-                                <span class="mx-2">·</span>
-                                <span>7 min</span>
+                                <span class="mx-1">&#183;</span>
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                                <span>7 min de lecture</span>
                             </div>
                         </div>
                     </a>
 
                     <!-- Coût maintenance borne 2026 -->
                     <a href="/blog/cout-maintenance-borne-recharge-2026" class="group bg-white rounded-2xl border border-gray-100 overflow-hidden hover:shadow-lg transition-all hover:-translate-y-1 blog-card-premium">
-                        <div class="bg-blue-50 p-6 icon-pulse-hover">
-                            <span class="inline-block text-xs font-semibold text-blue-700 bg-blue-50 rounded-full px-3 py-1 mb-3 badge-section">Guide</span>
+                        <div class="p-6" style="background:var(--color-cream-alt)">
+                            <span class="blog-badge mb-3">Guide</span>
                             <h3 class="text-lg font-bold group-hover:text-blue-600 transition-colors leading-snug">Coût de maintenance d'une borne de recharge en 2026</h3>
                         </div>
                         <div class="p-5">
                             <p class="text-gray-600 text-sm mb-3 line-clamp-3">Budget préventif, curatif, pièces détachées, contrats SLA : décryptage complet des coûts de maintenance IRVE pour optimiser vos dépenses.</p>
-                            <div class="flex items-center text-xs text-gray-500">
+                            <div class="blog-meta">
                                 <time datetime="2026-03-11">11 mars 2026</time>
-                                <span class="mx-2">·</span>
-                                <span>7 min</span>
+                                <span class="mx-1">&#183;</span>
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                                <span>7 min de lecture</span>
                             </div>
                         </div>
                     </a>
 
                     <!-- Choisir prestataire maintenance -->
                     <a href="/blog/choisir-prestataire-maintenance-irve" class="group bg-white rounded-2xl border border-gray-100 overflow-hidden hover:shadow-lg transition-all hover:-translate-y-1 blog-card-premium">
-                        <div class="bg-blue-50 p-6 icon-pulse-hover">
-                            <span class="inline-block text-xs font-semibold text-blue-700 bg-blue-50 rounded-full px-3 py-1 mb-3 badge-section">Guide</span>
+                        <div class="p-6" style="background:var(--color-cream-alt)">
+                            <span class="blog-badge mb-3">Guide</span>
                             <h3 class="text-lg font-bold group-hover:text-blue-600 transition-colors leading-snug">Comment choisir un prestataire de maintenance IRVE</h3>
                         </div>
                         <div class="p-5">
                             <p class="text-gray-600 text-sm mb-3 line-clamp-3">Certifications IRVE, SLA, SLA/GTR, OCPP, pièces détachées : les critères objectifs pour sélectionner votre prestataire.</p>
-                            <div class="flex items-center text-xs text-gray-500">
+                            <div class="blog-meta">
                                 <time datetime="2026-02-12">12 février 2026</time>
-                                <span class="mx-2">·</span>
-                                <span>8 min</span>
+                                <span class="mx-1">&#183;</span>
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                                <span>8 min de lecture</span>
                             </div>
                         </div>
                     </a>
 
                     <!-- Taux de disponibilité bornes IRVE -->
                     <a href="/blog/taux-disponibilite-bornes-irve" class="group bg-white rounded-2xl border border-gray-100 overflow-hidden hover:shadow-lg transition-all hover:-translate-y-1 blog-card-premium">
-                        <div class="bg-blue-50 p-6 icon-pulse-hover">
-                            <span class="inline-block text-xs font-semibold text-blue-700 bg-blue-50 rounded-full px-3 py-1 mb-3 badge-section">Technique</span>
+                        <div class="p-6" style="background:var(--color-cream-alt)">
+                            <span class="blog-badge mb-3">Technique</span>
                             <h3 class="text-lg font-bold group-hover:text-blue-600 transition-colors leading-snug">Taux de disponibilité des bornes IRVE : comment l'améliorer</h3>
                         </div>
                         <div class="p-5">
                             <p class="text-gray-600 text-sm mb-3 line-clamp-3">Maintenance préventive, supervision OCPP, SLA/GTR : les leviers concrets pour maintenir un taux de disponibilité supérieur à 97 %.</p>
-                            <div class="flex items-center text-xs text-gray-500">
+                            <div class="blog-meta">
                                 <time datetime="2026-03-11">11 mars 2026</time>
-                                <span class="mx-2">·</span>
-                                <span>7 min</span>
+                                <span class="mx-1">&#183;</span>
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                                <span>7 min de lecture</span>
                             </div>
                         </div>
                     </a>
 
                     <!-- Supervision à distance -->
                     <a href="/blog/supervision-distance-bornes-irve" class="group bg-white rounded-2xl border border-gray-100 overflow-hidden hover:shadow-lg transition-all hover:-translate-y-1 blog-card-premium">
-                        <div class="bg-blue-50 p-6 icon-pulse-hover">
-                            <span class="inline-block text-xs font-semibold text-blue-700 bg-blue-50 rounded-full px-3 py-1 mb-3 badge-section">Technique</span>
+                        <div class="p-6" style="background:var(--color-cream-alt)">
+                            <span class="blog-badge mb-3">Technique</span>
                             <h3 class="text-lg font-bold group-hover:text-blue-600 transition-colors leading-snug">Supervision à distance des bornes IRVE</h3>
                         </div>
                         <div class="p-5">
                             <p class="text-gray-600 text-sm mb-3 line-clamp-3">Protocole OCPP, alertes temps réel, diagnostic remote, KPI de disponibilité : comment fonctionne la supervision.</p>
-                            <div class="flex items-center text-xs text-gray-500">
+                            <div class="blog-meta">
                                 <time datetime="2026-02-12">12 février 2026</time>
-                                <span class="mx-2">·</span>
-                                <span>9 min</span>
+                                <span class="mx-1">&#183;</span>
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                                <span>9 min de lecture</span>
                             </div>
                         </div>
                     </a>
 
                     <!-- Hotline IRVE marque blanche -->
                     <a href="/blog/hotline-irve-marque-blanche" class="group bg-white rounded-2xl border border-gray-100 overflow-hidden hover:shadow-lg transition-all hover:-translate-y-1 blog-card-premium">
-                        <div class="bg-blue-50 p-6 icon-pulse-hover">
-                            <span class="inline-block text-xs font-semibold text-blue-700 bg-blue-50 rounded-full px-3 py-1 mb-3 badge-section">Service</span>
+                        <div class="p-6" style="background:var(--color-cream-alt)">
+                            <span class="blog-badge mb-3">Service</span>
                             <h3 class="text-lg font-bold group-hover:text-blue-600 transition-colors leading-snug">Hotline IRVE en marque blanche : support 24/7 pour CPO</h3>
                         </div>
                         <div class="p-5">
                             <p class="text-gray-600 text-sm mb-3 line-clamp-3">Centre d'appels dédié, ticketing, escalade technique : comment externaliser le support utilisateur de vos bornes en marque blanche.</p>
-                            <div class="flex items-center text-xs text-gray-500">
+                            <div class="blog-meta">
                                 <time datetime="2026-03-11">11 mars 2026</time>
-                                <span class="mx-2">·</span>
-                                <span>6 min</span>
+                                <span class="mx-1">&#183;</span>
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                                <span>6 min de lecture</span>
                             </div>
                         </div>
                     </a>
 
                     <!-- Déploiement multi-sites IRVE -->
                     <a href="/blog/deploiement-multi-sites-irve" class="group bg-white rounded-2xl border border-gray-100 overflow-hidden hover:shadow-lg transition-all hover:-translate-y-1 blog-card-premium">
-                        <div class="bg-blue-50 p-6 icon-pulse-hover">
-                            <span class="inline-block text-xs font-semibold text-blue-700 bg-blue-50 rounded-full px-3 py-1 mb-3 badge-section">Terrain</span>
+                        <div class="p-6" style="background:var(--color-cream-alt)">
+                            <span class="blog-badge mb-3">Terrain</span>
                             <h3 class="text-lg font-bold group-hover:text-blue-600 transition-colors leading-snug">Déploiement multi-sites IRVE : retour d'expérience terrain</h3>
                         </div>
                         <div class="p-5">
                             <p class="text-gray-600 text-sm mb-3 line-clamp-3">Planification, coordination sous-traitants, réception Consuel, supervision : les étapes clés d'un déploiement IRVE à grande échelle.</p>
-                            <div class="flex items-center text-xs text-gray-500">
+                            <div class="blog-meta">
                                 <time datetime="2026-03-11">11 mars 2026</time>
-                                <span class="mx-2">·</span>
-                                <span>9 min</span>
+                                <span class="mx-1">&#183;</span>
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                                <span>9 min de lecture</span>
                             </div>
                         </div>
                     </a>
 
                     <!-- Bonnes pratiques recharge -->
                     <a href="/blog/bonnes-pratiques-recharge-vehicule-electrique" class="group bg-white rounded-2xl border border-gray-100 overflow-hidden hover:shadow-lg transition-all hover:-translate-y-1 blog-card-premium">
-                        <div class="bg-blue-50 p-6 icon-pulse-hover">
-                            <span class="inline-block text-xs font-semibold text-blue-700 bg-blue-50 rounded-full px-3 py-1 mb-3 badge-section">Guide</span>
+                        <div class="p-6" style="background:var(--color-cream-alt)">
+                            <span class="blog-badge mb-3">Guide</span>
                             <h3 class="text-lg font-bold group-hover:text-blue-600 transition-colors leading-snug">Bonnes pratiques pour recharger son véhicule électrique</h3>
                         </div>
                         <div class="p-5">
                             <p class="text-gray-600 text-sm mb-3 line-clamp-3">Règle des 20-80 %, charge lente vs rapide, préconditionnement en hiver : les réflexes pour préserver votre batterie.</p>
-                            <div class="flex items-center text-xs text-gray-500">
+                            <div class="blog-meta">
                                 <time datetime="2026-02-05">5 février 2026</time>
-                                <span class="mx-2">·</span>
-                                <span>8 min</span>
+                                <span class="mx-1">&#183;</span>
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                                <span>8 min de lecture</span>
                             </div>
                         </div>
                     </a>
 
                     <!-- Temps de recharge -->
                     <a href="/blog/temps-recharge-calculer-optimiser" class="group bg-white rounded-2xl border border-gray-100 overflow-hidden hover:shadow-lg transition-all hover:-translate-y-1 blog-card-premium">
-                        <div class="bg-blue-50 p-6 icon-pulse-hover">
-                            <span class="inline-block text-xs font-semibold text-blue-700 bg-blue-50 rounded-full px-3 py-1 mb-3 badge-section">Guide</span>
+                        <div class="p-6" style="background:var(--color-cream-alt)">
+                            <span class="blog-badge mb-3">Guide</span>
                             <h3 class="text-lg font-bold group-hover:text-blue-600 transition-colors leading-snug">Temps de recharge : comment calculer et optimiser</h3>
                         </div>
                         <div class="p-5">
                             <p class="text-gray-600 text-sm mb-3 line-clamp-3">Formule de calcul, facteurs réels (température, courbe de charge, chargeur embarqué), exemples concrets par modèle.</p>
-                            <div class="flex items-center text-xs text-gray-500">
+                            <div class="blog-meta">
                                 <time datetime="2026-01-12">12 janvier 2026</time>
-                                <span class="mx-2">·</span>
-                                <span>7 min</span>
+                                <span class="mx-1">&#183;</span>
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                                <span>7 min de lecture</span>
                             </div>
                         </div>
                     </a>
 
                     <!-- Courbes de charge -->
                     <a href="/blog/courbes-de-charge-recharge-electrique" class="group bg-white rounded-2xl border border-gray-100 overflow-hidden hover:shadow-lg transition-all hover:-translate-y-1 blog-card-premium">
-                        <div class="bg-blue-50 p-6 icon-pulse-hover">
-                            <span class="inline-block text-xs font-semibold text-blue-700 bg-blue-50 rounded-full px-3 py-1 mb-3 badge-section">Technique</span>
+                        <div class="p-6" style="background:var(--color-cream-alt)">
+                            <span class="blog-badge mb-3">Technique</span>
                             <h3 class="text-lg font-bold group-hover:text-blue-600 transition-colors leading-snug">Courbes de charge : comprendre la recharge électrique</h3>
                         </div>
                         <div class="p-5">
                             <p class="text-gray-600 text-sm mb-3 line-clamp-3">Pourquoi la puissance de recharge varie-t-elle ? Comprendre les courbes de charge pour optimiser vos sessions.</p>
-                            <div class="flex items-center text-xs text-gray-500">
+                            <div class="blog-meta">
                                 <time datetime="2025-03-12">12 mars 2025</time>
-                                <span class="mx-2">·</span>
-                                <span>7 min</span>
+                                <span class="mx-1">&#183;</span>
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                                <span>7 min de lecture</span>
                             </div>
                         </div>
                     </a>
@@ -680,166 +702,177 @@
         <!-- Technologie &amp; Standards -->
         <section class="pb-16 px-6 section-appear">
             <div class="max-w-5xl mx-auto">
-                <div id="technologie" class="scroll-mt-24 mb-8 mt-16">
-                    <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">Technologie &amp; Standards</h2>
-                    <p class="text-gray-600 mb-8">OCPP, smart charging, V2G, connecteurs : plongez dans les technologies qui façonnent la recharge électrique.</p>
+                <div id="technologie" class="scroll-mt-24 mb-8 mt-16 blog-section-header">
+                    <p class="sec-label mb-3">Technologie &amp; Standards</p>
+                    <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-2" style="font-family:var(--font-serif)">Technologie &amp; Standards</h2>
+                    <p class="text-gray-600 mb-8">OCPP, smart charging, V2G, connecteurs : plongez dans les technologies qui fa&#231;onnent la recharge &#233;lectrique.</p>
                 </div>
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
 
                     <!-- Comparatif bornes recharge marques 2026 -->
                     <a href="/blog/comparatif-bornes-recharge-marques-2026" class="group bg-white rounded-2xl border border-gray-100 overflow-hidden hover:shadow-lg transition-all hover:-translate-y-1 blog-card-premium">
-                        <div class="bg-blue-50 p-6 icon-pulse-hover">
-                            <span class="inline-block text-xs font-semibold text-blue-700 bg-blue-50 rounded-full px-3 py-1 mb-3 badge-section">Comparatif</span>
+                        <div class="p-6" style="background:var(--color-cream-alt)">
+                            <span class="blog-badge mb-3">Comparatif</span>
                             <h3 class="text-lg font-bold group-hover:text-blue-600 transition-colors leading-snug">Comparatif bornes de recharge 2026 : ABB, Alfen, EVBox, Kempower, Wallbox</h3>
                         </div>
                         <div class="p-5">
                             <p class="text-gray-600 text-sm mb-3 line-clamp-3">ABB, Alfen, EVBox, Kempower, Wallbox : performances, fiabilité, prix et SAV comparés pour choisir la borne adaptée à votre projet.</p>
-                            <div class="flex items-center text-xs text-gray-500">
+                            <div class="blog-meta">
                                 <time datetime="2026-03-22">22 mars 2026</time>
-                                <span class="mx-2">·</span>
-                                <span>9 min</span>
+                                <span class="mx-1">&#183;</span>
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                                <span>9 min de lecture</span>
                             </div>
                         </div>
                     </a>
 
                     <!-- OCPP 1.6 vs 2.0 -->
                     <a href="/blog/ocpp-1-6-vs-2-0-protocole-bornes" class="group bg-white rounded-2xl border border-gray-100 overflow-hidden hover:shadow-lg transition-all hover:-translate-y-1 blog-card-premium">
-                        <div class="bg-blue-50 p-6 icon-pulse-hover">
-                            <span class="inline-block text-xs font-semibold text-blue-700 bg-blue-50 rounded-full px-3 py-1 mb-3 badge-section">Technique</span>
+                        <div class="p-6" style="background:var(--color-cream-alt)">
+                            <span class="blog-badge mb-3">Technique</span>
                             <h3 class="text-lg font-bold group-hover:text-blue-600 transition-colors leading-snug">OCPP 1.6 vs 2.0.1 : ce qui change pour vos bornes</h3>
                         </div>
                         <div class="p-5">
                             <p class="text-gray-600 text-sm mb-3 line-clamp-3">Device model, sécurité TLS, ISO 15118, smart charging : comparaison technique des deux versions du protocole OCPP.</p>
-                            <div class="flex items-center text-xs text-gray-500">
+                            <div class="blog-meta">
                                 <time datetime="2026-02-12">12 février 2026</time>
-                                <span class="mx-2">·</span>
-                                <span>8 min</span>
+                                <span class="mx-1">&#183;</span>
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                                <span>8 min de lecture</span>
                             </div>
                         </div>
                     </a>
 
                     <!-- Cybersécurité IRVE -->
                     <a href="/blog/cybersecurite-bornes-recharge-irve" class="group bg-white rounded-2xl border border-gray-100 overflow-hidden hover:shadow-lg transition-all hover:-translate-y-1 blog-card-premium">
-                        <div class="bg-blue-50 p-6 icon-pulse-hover">
-                            <span class="inline-block text-xs font-semibold text-blue-700 bg-blue-50 rounded-full px-3 py-1 mb-3 badge-section">Sécurité</span>
+                        <div class="p-6" style="background:var(--color-cream-alt)">
+                            <span class="blog-badge mb-3">Sécurité</span>
                             <h3 class="text-lg font-bold group-hover:text-blue-600 transition-colors leading-snug">Cybersécurité IRVE : protéger vos bornes contre les cyberattaques</h3>
                         </div>
                         <div class="p-5">
                             <p class="text-gray-600 text-sm mb-3 line-clamp-3">Vecteurs d'attaque, normes ISO 15118, profils de sécurité OCPP 2.0.1 : guide complet pour sécuriser votre réseau de bornes.</p>
-                            <div class="flex items-center text-xs text-gray-500">
+                            <div class="blog-meta">
                                 <time datetime="2026-03-22">22 mars 2026</time>
-                                <span class="mx-2">·</span>
+                                <span class="mx-1">&#183;</span>
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
                                 <span>20 min de lecture</span>
                             </div>
                         </div>
                     </a>
                     <!-- BESS + IRVE -->
                     <a href="/blog/stockage-batterie-bess-recharge-irve" class="group bg-white rounded-2xl border border-gray-100 overflow-hidden hover:shadow-lg transition-all hover:-translate-y-1 blog-card-premium">
-                        <div class="bg-blue-50 p-6 icon-pulse-hover">
-                            <span class="inline-block text-xs font-semibold text-blue-700 bg-blue-50 rounded-full px-3 py-1 mb-3 badge-section">Énergie</span>
+                        <div class="p-6" style="background:var(--color-cream-alt)">
+                            <span class="blog-badge mb-3">Énergie</span>
                             <h3 class="text-lg font-bold group-hover:text-blue-600 transition-colors leading-snug">BESS et IRVE : coupler stockage batterie et bornes de recharge</h3>
                         </div>
                         <div class="p-5">
                             <p class="text-gray-600 text-sm mb-3 line-clamp-3">Peak shaving, dimensionnement, ROI : pourquoi le stockage batterie est l'allié des hubs de recharge haute puissance.</p>
-                            <div class="flex items-center text-xs text-gray-500">
+                            <div class="blog-meta">
                                 <time datetime="2026-03-22">22 mars 2026</time>
-                                <span class="mx-2">·</span>
+                                <span class="mx-1">&#183;</span>
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
                                 <span>18 min de lecture</span>
                             </div>
                         </div>
                     </a>
                     <!-- Smart charging -->
                     <a href="/blog/smart-charging-pilotage-energetique-bornes" class="group bg-white rounded-2xl border border-gray-100 overflow-hidden hover:shadow-lg transition-all hover:-translate-y-1 blog-card-premium">
-                        <div class="bg-blue-50 p-6 icon-pulse-hover">
-                            <span class="inline-block text-xs font-semibold text-blue-700 bg-blue-50 rounded-full px-3 py-1 mb-3 badge-section">Technique</span>
+                        <div class="p-6" style="background:var(--color-cream-alt)">
+                            <span class="blog-badge mb-3">Technique</span>
                             <h3 class="text-lg font-bold group-hover:text-blue-600 transition-colors leading-snug">Smart charging : piloter intelligemment vos bornes</h3>
                         </div>
                         <div class="p-5">
                             <p class="text-gray-600 text-sm mb-3 line-clamp-3">Load balancing, peak shaving, optimisation solaire, OCPP : le pilotage énergétique concret pour exploitants et entreprises.</p>
-                            <div class="flex items-center text-xs text-gray-500">
+                            <div class="blog-meta">
                                 <time datetime="2026-01-20">20 janvier 2026</time>
-                                <span class="mx-2">·</span>
-                                <span>8 min</span>
+                                <span class="mx-1">&#183;</span>
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                                <span>8 min de lecture</span>
                             </div>
                         </div>
                     </a>
 
                     <!-- V2G V2H V2L -->
                     <a href="/blog/v2g-v2h-recharge-bidirectionnelle" class="group bg-white rounded-2xl border border-gray-100 overflow-hidden hover:shadow-lg transition-all hover:-translate-y-1 blog-card-premium">
-                        <div class="bg-blue-50 p-6 icon-pulse-hover">
-                            <span class="inline-block text-xs font-semibold text-blue-700 bg-blue-50 rounded-full px-3 py-1 mb-3 badge-section">Innovation</span>
+                        <div class="p-6" style="background:var(--color-cream-alt)">
+                            <span class="blog-badge mb-3">Innovation</span>
                             <h3 class="text-lg font-bold group-hover:text-blue-600 transition-colors leading-snug">V2G, V2H, V2L : la recharge bidirectionnelle expliquée</h3>
                         </div>
                         <div class="p-5">
                             <p class="text-gray-600 text-sm mb-3 line-clamp-3">Votre VE comme batterie domestique : Vehicle-to-Grid, Vehicle-to-Home, Vehicle-to-Load. Véhicules compatibles et perspectives.</p>
-                            <div class="flex items-center text-xs text-gray-500">
+                            <div class="blog-meta">
                                 <time datetime="2026-02-08">8 février 2026</time>
-                                <span class="mx-2">·</span>
-                                <span>8 min</span>
+                                <span class="mx-1">&#183;</span>
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                                <span>8 min de lecture</span>
                             </div>
                         </div>
                     </a>
 
                     <!-- Comparatif bornes DC puissance -->
                     <a href="/blog/comparatif-bornes-dc-puissance" class="group bg-white rounded-2xl border border-gray-100 overflow-hidden hover:shadow-lg transition-all hover:-translate-y-1 blog-card-premium">
-                        <div class="bg-blue-50 p-6 icon-pulse-hover">
-                            <span class="inline-block text-xs font-semibold text-blue-700 bg-blue-50 rounded-full px-3 py-1 mb-3 badge-section">Technique</span>
+                        <div class="p-6" style="background:var(--color-cream-alt)">
+                            <span class="blog-badge mb-3">Technique</span>
                             <h3 class="text-lg font-bold group-hover:text-blue-600 transition-colors leading-snug">Comparatif bornes DC 50kW à 350kW : quelle puissance choisir</h3>
                         </div>
                         <div class="p-5">
                             <p class="text-gray-600 text-sm mb-3 line-clamp-3">50 kW, 150 kW, 350 kW : coûts, cas d'usage, raccordement et ROI comparés pour choisir la bonne puissance de charge rapide.</p>
-                            <div class="flex items-center text-xs text-gray-500">
+                            <div class="blog-meta">
                                 <time datetime="2026-03-11">11 mars 2026</time>
-                                <span class="mx-2">·</span>
-                                <span>7 min</span>
+                                <span class="mx-1">&#183;</span>
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                                <span>7 min de lecture</span>
                             </div>
                         </div>
                     </a>
 
                     <!-- Batterie guide -->
                     <a href="/blog/vehicule-electrique-batterie-guide" class="group bg-white rounded-2xl border border-gray-100 overflow-hidden hover:shadow-lg transition-all hover:-translate-y-1 blog-card-premium">
-                        <div class="bg-blue-50 p-6 icon-pulse-hover">
-                            <span class="inline-block text-xs font-semibold text-blue-700 bg-blue-50 rounded-full px-3 py-1 mb-3 badge-section">Guide</span>
+                        <div class="p-6" style="background:var(--color-cream-alt)">
+                            <span class="blog-badge mb-3">Guide</span>
                             <h3 class="text-lg font-bold group-hover:text-blue-600 transition-colors leading-snug">Véhicule électrique et batterie : le guide essentiel</h3>
                         </div>
                         <div class="p-5">
                             <p class="text-gray-600 text-sm mb-3 line-clamp-3">Capacité, autonomie, dégradation, technologies Li-ion : tout ce qu'il faut savoir sur les batteries de véhicules électriques.</p>
-                            <div class="flex items-center text-xs text-gray-500">
+                            <div class="blog-meta">
                                 <time datetime="2025-01-15">15 janvier 2025</time>
-                                <span class="mx-2">·</span>
-                                <span>8 min</span>
+                                <span class="mx-1">&#183;</span>
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                                <span>8 min de lecture</span>
                             </div>
                         </div>
                     </a>
 
                     <!-- Interopérabilité roaming -->
                     <a href="/blog/interoperabilite-roaming-recharge-europe" class="group bg-white rounded-2xl border border-gray-100 overflow-hidden hover:shadow-lg transition-all hover:-translate-y-1 blog-card-premium">
-                        <div class="bg-blue-50 p-6 icon-pulse-hover">
-                            <span class="inline-block text-xs font-semibold text-blue-700 bg-blue-50 rounded-full px-3 py-1 mb-3 badge-section">Europe</span>
+                        <div class="p-6" style="background:var(--color-cream-alt)">
+                            <span class="blog-badge mb-3">Europe</span>
                             <h3 class="text-lg font-bold group-hover:text-blue-600 transition-colors leading-snug">Interopérabilité et roaming : recharger partout en Europe</h3>
                         </div>
                         <div class="p-5">
                             <p class="text-gray-600 text-sm mb-3 line-clamp-3">OCPI, Gireve, Hubject, paiement ad-hoc : comment fonctionne l'interopérabilité des bornes et le roaming en Europe.</p>
-                            <div class="flex items-center text-xs text-gray-500">
+                            <div class="blog-meta">
                                 <time datetime="2026-01-25">25 janvier 2026</time>
-                                <span class="mx-2">·</span>
-                                <span>7 min</span>
+                                <span class="mx-1">&#183;</span>
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                                <span>7 min de lecture</span>
                             </div>
                         </div>
                     </a>
 
                     <!-- CPO et EMSP -->
                     <a href="/blog/cpo-emsp-acteurs-recharge-electrique" class="group bg-white rounded-2xl border border-gray-100 overflow-hidden hover:shadow-lg transition-all hover:-translate-y-1 blog-card-premium">
-                        <div class="bg-blue-50 p-6 icon-pulse-hover">
-                            <span class="inline-block text-xs font-semibold text-blue-700 bg-blue-50 rounded-full px-3 py-1 mb-3 badge-section">Écosystème</span>
+                        <div class="p-6" style="background:var(--color-cream-alt)">
+                            <span class="blog-badge mb-3">Écosystème</span>
                             <h3 class="text-lg font-bold group-hover:text-blue-600 transition-colors leading-snug">CPO et EMSP : comprendre les acteurs de la recharge</h3>
                         </div>
                         <div class="p-5">
                             <p class="text-gray-600 text-sm mb-3 line-clamp-3">CPO, EMSP, roaming, Gireve, Hubject : qui fait quoi dans l'écosystème de la recharge électrique et comment ça impacte votre facture.</p>
-                            <div class="flex items-center text-xs text-gray-500">
+                            <div class="blog-meta">
                                 <time datetime="2026-02-10">10 février 2026</time>
-                                <span class="mx-2">·</span>
-                                <span>9 min</span>
+                                <span class="mx-1">&#183;</span>
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                                <span>9 min de lecture</span>
                             </div>
                         </div>
                     </a>
@@ -851,136 +884,145 @@
         <!-- Marché &amp; Tendances -->
         <section class="pb-16 px-6 section-appear">
             <div class="max-w-5xl mx-auto">
-                <div id="marche" class="scroll-mt-24 mb-8 mt-16">
-                    <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">Marché &amp; Tendances</h2>
-                    <p class="text-gray-600 mb-8">Chiffres clés, immatriculations, déploiement des bornes : suivez l'évolution du marché de la mobilité électrique.</p>
+                <div id="marche" class="scroll-mt-24 mb-8 mt-16 blog-section-header">
+                    <p class="sec-label mb-3">March&#233; &amp; Tendances</p>
+                    <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-2" style="font-family:var(--font-serif)">March&#233; &amp; Tendances</h2>
+                    <p class="text-gray-600 mb-8">Chiffres cl&#233;s, immatriculations, d&#233;ploiement des bornes : suivez l'&#233;volution du march&#233; de la mobilit&#233; &#233;lectrique.</p>
                 </div>
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
 
                     <!-- Chiffres France -->
                     <a href="/blog/bornes-recharge-france-chiffres-2025" class="group bg-white rounded-2xl border border-gray-100 overflow-hidden hover:shadow-lg transition-all hover:-translate-y-1 blog-card-premium">
-                        <div class="bg-blue-50 p-6 icon-pulse-hover">
-                            <span class="inline-block text-xs font-semibold text-blue-700 bg-blue-50 rounded-full px-3 py-1 mb-3 badge-section">Marché</span>
+                        <div class="p-6" style="background:var(--color-cream-alt)">
+                            <span class="blog-badge mb-3">Marché</span>
                             <h3 class="text-lg font-bold group-hover:text-blue-600 transition-colors leading-snug">Bornes de recharge en France : chiffres clés 2025</h3>
                         </div>
                         <div class="p-5">
                             <p class="text-gray-600 text-sm mb-3 line-clamp-3">185 501 points de charge, +20 % en un an, 53 837 stations : état des lieux complet du réseau français et répartition régionale.</p>
-                            <div class="flex items-center text-xs text-gray-500">
+                            <div class="blog-meta">
                                 <time datetime="2025-05-08">8 mai 2025</time>
-                                <span class="mx-2">·</span>
-                                <span>7 min</span>
+                                <span class="mx-1">&#183;</span>
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                                <span>7 min de lecture</span>
                             </div>
                         </div>
                     </a>
 
                     <!-- Top ventes -->
                     <a href="/blog/top-ventes-voitures-electriques-2025" class="group bg-white rounded-2xl border border-gray-100 overflow-hidden hover:shadow-lg transition-all hover:-translate-y-1 blog-card-premium">
-                        <div class="bg-blue-50 p-6 icon-pulse-hover">
-                            <span class="inline-block text-xs font-semibold text-blue-700 bg-blue-50 rounded-full px-3 py-1 mb-3 badge-section">Marché</span>
+                        <div class="p-6" style="background:var(--color-cream-alt)">
+                            <span class="blog-badge mb-3">Marché</span>
                             <h3 class="text-lg font-bold group-hover:text-blue-600 transition-colors leading-snug">Top ventes voitures électriques 2025</h3>
                         </div>
                         <div class="p-5">
                             <p class="text-gray-600 text-sm mb-3 line-clamp-3">Renault 5 E-Tech (37 797 ventes), Tesla Model Y, Citroën ë-C3 : le classement complet des véhicules électriques les plus vendus.</p>
-                            <div class="flex items-center text-xs text-gray-500">
+                            <div class="blog-meta">
                                 <time datetime="2025-06-24">24 juin 2025</time>
-                                <span class="mx-2">·</span>
-                                <span>6 min</span>
+                                <span class="mx-1">&#183;</span>
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                                <span>6 min de lecture</span>
                             </div>
                         </div>
                     </a>
 
                     <!-- Belgique -->
                     <a href="/blog/belgique-100000-bornes-recharge-2025" class="group bg-white rounded-2xl border border-gray-100 overflow-hidden hover:shadow-lg transition-all hover:-translate-y-1 blog-card-premium">
-                        <div class="bg-blue-50 p-6 icon-pulse-hover">
-                            <span class="inline-block text-xs font-semibold text-blue-700 bg-blue-50 rounded-full px-3 py-1 mb-3 badge-section">Europe</span>
+                        <div class="p-6" style="background:var(--color-cream-alt)">
+                            <span class="blog-badge mb-3">Europe</span>
                             <h3 class="text-lg font-bold group-hover:text-blue-600 transition-colors leading-snug">La Belgique franchit les 100 000 bornes publiques</h3>
                         </div>
                         <div class="p-5">
                             <p class="text-gray-600 text-sm mb-3 line-clamp-3">3e rang européen en densité, 107 667 bornes, objectif 220 000 en 2030 : la Belgique accélère sur la recharge électrique.</p>
-                            <div class="flex items-center text-xs text-gray-500">
+                            <div class="blog-meta">
                                 <time datetime="2025-09-08">8 septembre 2025</time>
-                                <span class="mx-2">·</span>
-                                <span>6 min</span>
+                                <span class="mx-1">&#183;</span>
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                                <span>6 min de lecture</span>
                             </div>
                         </div>
                     </a>
 
                     <!-- Record été -->
                     <a href="/blog/record-recharge-ete-2025" class="group bg-white rounded-2xl border border-gray-100 overflow-hidden hover:shadow-lg transition-all hover:-translate-y-1 blog-card-premium">
-                        <div class="bg-blue-50 p-6 icon-pulse-hover">
-                            <span class="inline-block text-xs font-semibold text-blue-700 bg-blue-50 rounded-full px-3 py-1 mb-3 badge-section">Marché</span>
+                        <div class="p-6" style="background:var(--color-cream-alt)">
+                            <span class="blog-badge mb-3">Marché</span>
                             <h3 class="text-lg font-bold group-hover:text-blue-600 transition-colors leading-snug">Été 2025 : record d'utilisation des bornes de recharge</h3>
                         </div>
                         <div class="p-5">
                             <p class="text-gray-600 text-sm mb-3 line-clamp-3">+71 % d'utilisation vs 2024, 113 GWh consommés en août, 31 sessions/point : les bornes françaises n'ont jamais autant servi.</p>
-                            <div class="flex items-center text-xs text-gray-500">
+                            <div class="blog-meta">
                                 <time datetime="2025-09-18">18 septembre 2025</time>
-                                <span class="mx-2">·</span>
-                                <span>6 min</span>
+                                <span class="mx-1">&#183;</span>
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                                <span>6 min de lecture</span>
                             </div>
                         </div>
                     </a>
 
                     <!-- Autoroute -->
                     <a href="/blog/recharge-autoroute-france-2025" class="group bg-white rounded-2xl border border-gray-100 overflow-hidden hover:shadow-lg transition-all hover:-translate-y-1 blog-card-premium">
-                        <div class="bg-blue-50 p-6 icon-pulse-hover">
-                            <span class="inline-block text-xs font-semibold text-blue-700 bg-blue-50 rounded-full px-3 py-1 mb-3 badge-section">Infrastructure</span>
+                        <div class="p-6" style="background:var(--color-cream-alt)">
+                            <span class="blog-badge mb-3">Infrastructure</span>
                             <h3 class="text-lg font-bold group-hover:text-blue-600 transition-colors leading-snug">Recharge sur autoroute : couverture et chiffres 2025</h3>
                         </div>
                         <div class="p-5">
                             <p class="text-gray-600 text-sm mb-3 line-clamp-3">100 % des aires équipées, 3 673 points de charge, 71 % en haute puissance : la France couvre ses autoroutes en recharge rapide.</p>
-                            <div class="flex items-center text-xs text-gray-500">
+                            <div class="blog-meta">
                                 <time datetime="2025-07-10">10 juillet 2025</time>
-                                <span class="mx-2">·</span>
-                                <span>6 min</span>
+                                <span class="mx-1">&#183;</span>
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                                <span>6 min de lecture</span>
                             </div>
                         </div>
                     </a>
 
                     <!-- Prix recharge -->
                     <a href="/blog/prix-recharge-publique-comparatif-2025" class="group bg-white rounded-2xl border border-gray-100 overflow-hidden hover:shadow-lg transition-all hover:-translate-y-1 blog-card-premium">
-                        <div class="bg-blue-50 p-6 icon-pulse-hover">
-                            <span class="inline-block text-xs font-semibold text-blue-700 bg-blue-50 rounded-full px-3 py-1 mb-3 badge-section">Pratique</span>
+                        <div class="p-6" style="background:var(--color-cream-alt)">
+                            <span class="blog-badge mb-3">Pratique</span>
                             <h3 class="text-lg font-bold group-hover:text-blue-600 transition-colors leading-snug">Prix de la recharge publique : comparatif 2025</h3>
                         </div>
                         <div class="p-5">
                             <p class="text-gray-600 text-sm mb-3 line-clamp-3">De 0,23 €/kWh à domicile à 0,69 € chez Ionity : comparaison des tarifs par opérateur, puissance et type d'abonnement.</p>
-                            <div class="flex items-center text-xs text-gray-500">
+                            <div class="blog-meta">
                                 <time datetime="2025-10-22">22 octobre 2025</time>
-                                <span class="mx-2">·</span>
-                                <span>7 min</span>
+                                <span class="mx-1">&#183;</span>
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                                <span>7 min de lecture</span>
                             </div>
                         </div>
                     </a>
 
                     <!-- Flottes électriques -->
                     <a href="/blog/flottes-electriques-guide-entreprises" class="group bg-white rounded-2xl border border-gray-100 overflow-hidden hover:shadow-lg transition-all hover:-translate-y-1 blog-card-premium">
-                        <div class="bg-blue-50 p-6 icon-pulse-hover">
-                            <span class="inline-block text-xs font-semibold text-blue-700 bg-blue-50 rounded-full px-3 py-1 mb-3 badge-section">Entreprise</span>
+                        <div class="p-6" style="background:var(--color-cream-alt)">
+                            <span class="blog-badge mb-3">Entreprise</span>
                             <h3 class="text-lg font-bold group-hover:text-blue-600 transition-colors leading-snug">Flottes électriques : guide complet pour les entreprises</h3>
                         </div>
                         <div class="p-5">
                             <p class="text-gray-600 text-sm mb-3 line-clamp-3">TCO, obligations loi LOM, infrastructure de recharge, smart charging : le guide pratique pour électrifier votre parc automobile.</p>
-                            <div class="flex items-center text-xs text-gray-500">
+                            <div class="blog-meta">
                                 <time datetime="2026-02-02">2 février 2026</time>
-                                <span class="mx-2">·</span>
-                                <span>9 min</span>
+                                <span class="mx-1">&#183;</span>
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                                <span>9 min de lecture</span>
                             </div>
                         </div>
                     </a>
 
                     <!-- Ce qui change 2026 -->
                     <a href="/blog/ce-qui-change-2026-mobilite-electrique" class="group bg-white rounded-2xl border border-gray-100 overflow-hidden hover:shadow-lg transition-all hover:-translate-y-1 blog-card-premium">
-                        <div class="bg-blue-50 p-6 icon-pulse-hover">
-                            <span class="inline-block text-xs font-semibold text-blue-700 bg-blue-50 rounded-full px-3 py-1 mb-3 badge-section">Réglementation</span>
+                        <div class="p-6" style="background:var(--color-cream-alt)">
+                            <span class="blog-badge mb-3">Réglementation</span>
                             <h3 class="text-lg font-bold group-hover:text-blue-600 transition-colors leading-snug">Mobilité électrique : ce qui change au 1er janvier 2026</h3>
                         </div>
                         <div class="p-5">
                             <p class="text-gray-600 text-sm mb-3 line-clamp-3">Fin du crédit d'impôt CIBRE, nouveau malus au poids, norme ISO 15118 obligatoire, ADVENIR prolongé : tout ce qui change pour les bornes et les VE.</p>
-                            <div class="flex items-center text-xs text-gray-500">
+                            <div class="blog-meta">
                                 <time datetime="2026-01-06">6 janvier 2026</time>
-                                <span class="mx-2">·</span>
-                                <span>7 min</span>
+                                <span class="mx-1">&#183;</span>
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                                <span>7 min de lecture</span>
                             </div>
                         </div>
                     </a>
@@ -992,104 +1034,111 @@
         <!-- Réglementation -->
         <section class="pb-16 px-6 section-appear">
             <div class="max-w-5xl mx-auto">
-                <div id="reglementation" class="scroll-mt-24 mb-8 mt-16">
-                    <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">Réglementation</h2>
-                    <p class="text-gray-600 mb-8">Règlement AFIR, obligations légales et cadre réglementaire européen pour les infrastructures de recharge.</p>
+                <div id="reglementation" class="scroll-mt-24 mb-8 mt-16 blog-section-header">
+                    <p class="sec-label mb-3">R&#233;glementation</p>
+                    <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-2" style="font-family:var(--font-serif)">R&#233;glementation</h2>
+                    <p class="text-gray-600 mb-8">R&#232;glement AFIR, obligations l&#233;gales et cadre r&#233;glementaire europ&#233;en pour les infrastructures de recharge.</p>
                 </div>
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
 
                     <!-- TAI 2026 -->
                     <a href="/blog/tai-taxe-verdissement-flottes-2026" class="group bg-white rounded-2xl border border-gray-100 overflow-hidden hover:shadow-lg transition-all hover:-translate-y-1 blog-card-premium">
-                        <div class="bg-blue-50 p-6 icon-pulse-hover">
-                            <span class="inline-block text-xs font-semibold text-blue-700 bg-blue-50 rounded-full px-3 py-1 mb-3 badge-section">Réglementation</span>
+                        <div class="p-6" style="background:var(--color-cream-alt)">
+                            <span class="blog-badge mb-3">Réglementation</span>
                             <h3 class="text-lg font-bold group-hover:text-blue-600 transition-colors leading-snug">TAI 2026 : la taxe sur les flottes double, la recharge devient urgente</h3>
                         </div>
                         <div class="p-5">
                             <p class="text-gray-600 text-sm mb-3 line-clamp-3">La Taxe Annuelle Incitative passe de 2 000 à 4 000 € par véhicule manquant. Quota 18 %, fin du crédit d'impôt, ADVENIR : ce qui change pour les flottes.</p>
-                            <div class="flex items-center text-xs text-gray-500">
+                            <div class="blog-meta">
                                 <time datetime="2026-06-10">10 juin 2026</time>
-                                <span class="mx-2">·</span>
-                                <span>7 min</span>
+                                <span class="mx-1">&#183;</span>
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                                <span>7 min de lecture</span>
                             </div>
                         </div>
                     </a>
 
                     <!-- AFIR -->
                     <a href="/blog/reglement-afir-obligations-bornes-recharge" class="group bg-white rounded-2xl border border-gray-100 overflow-hidden hover:shadow-lg transition-all hover:-translate-y-1 blog-card-premium">
-                        <div class="bg-blue-50 p-6 icon-pulse-hover">
-                            <span class="inline-block text-xs font-semibold text-blue-700 bg-blue-50 rounded-full px-3 py-1 mb-3 badge-section">Réglementation</span>
+                        <div class="p-6" style="background:var(--color-cream-alt)">
+                            <span class="blog-badge mb-3">Réglementation</span>
                             <h3 class="text-lg font-bold group-hover:text-blue-600 transition-colors leading-snug">Règlement AFIR : obligations bornes de recharge en Europe</h3>
                         </div>
                         <div class="p-5">
                             <p class="text-gray-600 text-sm mb-3 line-clamp-3">1 station tous les 60 km, paiement par carte obligatoire, sanctions 15 000-75 000 € : le règlement européen décrypté.</p>
-                            <div class="flex items-center text-xs text-gray-500">
+                            <div class="blog-meta">
                                 <time datetime="2025-05-19">19 mai 2025</time>
-                                <span class="mx-2">·</span>
-                                <span>8 min</span>
+                                <span class="mx-1">&#183;</span>
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                                <span>8 min de lecture</span>
                             </div>
                         </div>
                     </a>
 
                     <!-- Plan gouvernement -->
                     <a href="/blog/plan-gouvernement-400000-bornes-2030" class="group bg-white rounded-2xl border border-gray-100 overflow-hidden hover:shadow-lg transition-all hover:-translate-y-1 blog-card-premium">
-                        <div class="bg-blue-50 p-6 icon-pulse-hover">
-                            <span class="inline-block text-xs font-semibold text-blue-700 bg-blue-50 rounded-full px-3 py-1 mb-3 badge-section">Politique</span>
+                        <div class="p-6" style="background:var(--color-cream-alt)">
+                            <span class="blog-badge mb-3">Politique</span>
                             <h3 class="text-lg font-bold group-hover:text-blue-600 transition-colors leading-snug">Plan Bornes 2030 : 400 000 points de recharge publics</h3>
                         </div>
                         <div class="p-5">
                             <p class="text-gray-600 text-sm mb-3 line-clamp-3">7 millions de bornes totales, 50 000 rapides, 9 GW de puissance : le gouvernement fixe le cap pour 2030. Analyse de la trajectoire.</p>
-                            <div class="flex items-center text-xs text-gray-500">
+                            <div class="blog-meta">
                                 <time datetime="2025-06-02">2 juin 2025</time>
-                                <span class="mx-2">·</span>
-                                <span>7 min</span>
+                                <span class="mx-1">&#183;</span>
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                                <span>7 min de lecture</span>
                             </div>
                         </div>
                     </a>
 
                     <!-- Poids lourds -->
                     <a href="/blog/recharge-poids-lourds-france-afir" class="group bg-white rounded-2xl border border-gray-100 overflow-hidden hover:shadow-lg transition-all hover:-translate-y-1 blog-card-premium">
-                        <div class="bg-blue-50 p-6 icon-pulse-hover">
-                            <span class="inline-block text-xs font-semibold text-blue-700 bg-blue-50 rounded-full px-3 py-1 mb-3 badge-section">Infrastructure</span>
+                        <div class="p-6" style="background:var(--color-cream-alt)">
+                            <span class="blog-badge mb-3">Infrastructure</span>
                             <h3 class="text-lg font-bold group-hover:text-blue-600 transition-colors leading-snug">Recharge des poids lourds électriques : où en est la France ?</h3>
                         </div>
                         <div class="p-5">
                             <p class="text-gray-600 text-sm mb-3 line-clamp-3">6 000 points de recharge pour camions nécessaires d'ici 2030. Règlement AFIR, premiers déploiements, bornes 400-500 kW : état des lieux.</p>
-                            <div class="flex items-center text-xs text-gray-500">
+                            <div class="blog-meta">
                                 <time datetime="2025-11-20">20 novembre 2025</time>
-                                <span class="mx-2">·</span>
-                                <span>8 min</span>
+                                <span class="mx-1">&#183;</span>
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                                <span>8 min de lecture</span>
                             </div>
                         </div>
                     </a>
 
                     <!-- Recharge Belgique -->
                     <a href="/blog/recharge-belgique-reglementation-aides" class="group bg-white rounded-2xl border border-gray-100 overflow-hidden hover:shadow-lg transition-all hover:-translate-y-1 blog-card-premium">
-                        <div class="bg-blue-50 p-6 icon-pulse-hover">
-                            <span class="inline-block text-xs font-semibold text-blue-700 bg-blue-50 rounded-full px-3 py-1 mb-3 badge-section">Marché</span>
+                        <div class="p-6" style="background:var(--color-cream-alt)">
+                            <span class="blog-badge mb-3">Marché</span>
                             <h3 class="text-lg font-bold group-hover:text-blue-600 transition-colors leading-snug">Recharge VE en Belgique : réglementation et aides</h3>
                         </div>
                         <div class="p-5">
                             <p class="text-gray-600 text-sm mb-3 line-clamp-3">Fiscalité voitures de société, aides régionales Flandre/Wallonie/Bruxelles, raccordement réseau et spécificités techniques.</p>
-                            <div class="flex items-center text-xs text-gray-500">
+                            <div class="blog-meta">
                                 <time datetime="2026-02-12">12 février 2026</time>
-                                <span class="mx-2">·</span>
-                                <span>8 min</span>
+                                <span class="mx-1">&#183;</span>
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                                <span>8 min de lecture</span>
                             </div>
                         </div>
                     </a>
 
                     <!-- Dégradations câbles coupés -->
                     <a href="/blog/degradations-cables-coupes-bornes-recharge" class="group bg-white rounded-2xl border border-gray-100 overflow-hidden hover:shadow-lg transition-all hover:-translate-y-1 blog-card-premium">
-                        <div class="bg-blue-50 p-6 icon-pulse-hover">
-                            <span class="inline-block text-xs font-semibold text-blue-700 bg-blue-50 rounded-full px-3 py-1 mb-3 badge-section">Sécurité</span>
+                        <div class="p-6" style="background:var(--color-cream-alt)">
+                            <span class="blog-badge mb-3">Sécurité</span>
                             <h3 class="text-lg font-bold group-hover:text-blue-600 transition-colors leading-snug">Dégradations et câbles coupés sur les bornes : causes et solutions</h3>
                         </div>
                         <div class="p-5">
                             <p class="text-gray-600 text-sm mb-3 line-clamp-3">Vandalisme, vol de cuivre, écrans brisés : analyse du phénomène, coût réel pour les exploitants et solutions de sécurisation efficaces.</p>
-                            <div class="flex items-center text-xs text-gray-500">
+                            <div class="blog-meta">
                                 <time datetime="2026-02-12">12 février 2026</time>
-                                <span class="mx-2">·</span>
-                                <span>8 min</span>
+                                <span class="mx-1">&#183;</span>
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                                <span>8 min de lecture</span>
                             </div>
                         </div>
                     </a>
@@ -1101,10 +1150,10 @@
         <!-- Guide gratuit lead magnet -->
         <section class="py-12 px-6 section-appear">
             <div class="max-w-3xl mx-auto">
-                <div class="bg-blue-600 rounded-2xl p-8 text-white text-center section-appear">
+                <div class="card-cta p-8 section-appear">
                     <h3 class="text-2xl font-bold mb-3">Guide gratuit : Comment choisir son prestataire IRVE</h3>
-                    <p class="text-blue-100 mb-6 max-w-xl mx-auto">10 critères essentiels pour sélectionner un partenaire maintenance fiable. PDF téléchargeable.</p>
-                    <a href="/contact?objet=guide-irve" class="inline-flex items-center gap-2 bg-white text-blue-700 hover:bg-blue-50 px-6 py-3 rounded-xl font-semibold transition-colors">
+                    <p class="mb-6 max-w-xl mx-auto" style="color:#c7d9f5">10 crit&#232;res essentiels pour s&#233;lectionner un partenaire maintenance fiable. PDF t&#233;l&#233;chargeable.</p>
+                    <a href="/contact?objet=guide-irve" class="inline-flex items-center gap-2 bg-white text-blue-700 hover:bg-gray-100 px-6 py-3 rounded-xl font-semibold transition-colors">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
                         Télécharger le guide
                     </a>
@@ -1114,8 +1163,8 @@
 
         <!-- Contact CTA -->
         <section class="py-20 px-6 section-appear">
-            <div class="max-w-3xl mx-auto text-center bg-blue-50 rounded-2xl p-10">
-                <h2 class="text-xl font-bold mb-3">Besoin d'un conseil personnalisé ?</h2>
+            <div class="max-w-3xl mx-auto text-center card-feature p-10">
+                <h2 class="text-xl font-bold mb-3" style="font-family:var(--font-serif)">Besoin d'un conseil personnalis&#233; ?</h2>
                 <p class="text-gray-600 mb-6">Nos experts IRVE répondent à vos questions sur l'installation, le financement ou la maintenance de vos bornes de recharge.</p>
                 <a href="/contact" class="inline-flex items-center text-blue-600 font-semibold hover:text-blue-800 transition-colors group">
                     Contacter un expert JCSM
@@ -1125,7 +1174,7 @@
         </section>
 
         <!-- CTA -->
-        <section class="py-20 px-6 bg-gray-50 section-appear">
+        <section class="py-20 px-6 section-alt section-appear">
             <div class="max-w-4xl mx-auto text-center">
                 <h2 class="text-2xl font-bold mb-4">Un projet IRVE ? Parlons-en.</h2>
                 <p class="text-gray-600 mb-8">Installation, maintenance, support 24/7 : JCSM s'adapte à vos besoins. Plus de 2 000 interventions réalisées en France et en Belgique.</p>
@@ -1171,6 +1220,7 @@
                             <li><a href="/solutions/" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Solutions</a></li>
                             <li><a href="/a-propos" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">À propos</a></li>
                             <li><a href="/inclusion" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Inclusion</a></li>
+                            <li><a href="/presse" title="Presse et relations médias" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Presse</a></li>
                         </ul>
                     </nav>
                 </div>

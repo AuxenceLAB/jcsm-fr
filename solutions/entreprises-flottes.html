@@ -28,17 +28,6 @@
     <meta name="twitter:description" content="Entreprises et flottes VE : audit, installation et maintenance de bornes IRVE. Aide ADVENIR, conformité LOM, support utilisateurs. Devis gratuit sous 24h.">
     <meta name="twitter:image" content="https://jcsm.fr/images/index.jpg">
     <meta name="twitter:image:alt" content="JCSM - Bornes de recharge pour entreprises et flottes">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
-    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"
-        media="print" onload="this.media='all'">
-    <noscript>
-        <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600;700;800&display=swap"
-            rel="stylesheet">
-    </noscript>
     <link rel="stylesheet" href="../css/critical.css?v=74">
     <link rel="stylesheet" href="../css/tailwind.css?v=74" media="print" onload="this.media='all'">
     <noscript><link rel="stylesheet" href="../css/tailwind.css?v=74"></noscript>
@@ -109,7 +98,7 @@
     <script src="../js/config.js?v=74" defer></script>
 
 </head>
-<body class="text-gray-900 bg-white">
+<body class="text-gray-900">
     <a href="#main-content" class="skip-link">Aller au contenu principal</a>
 
     <div class="preloader" id="preloader" role="status" aria-label="Chargement">
@@ -134,9 +123,9 @@
                 <a href="/exploitation" class="text-base text-gray-600 hover:text-gray-900 transition-colors">Exploitation</a>
                 <a href="/securisation-installations" class="text-base text-gray-600 hover:text-gray-900 transition-colors">Sécurisation</a>
                 <a href="/centre-appel" class="text-base text-gray-600 hover:text-gray-900 transition-colors">Support</a>
-                <a href="/solutions/" class="text-base text-gray-600 hover:text-gray-900 transition-colors">Solutions</a>
+                <a href="/solutions/" class="text-base text-gray-600 hover:text-gray-900 transition-colors" aria-current="page">Solutions</a>
                 <a href="/a-propos" class="text-base text-gray-600 hover:text-gray-900 transition-colors">À propos</a>
-                <a href="/contact" class="btn-primary text-white px-6 py-3 rounded-lg text-base font-medium inline-block text-center mt-4">Contact</a>
+                <a href="/contact" class="btn-primary text-white px-6 py-3 rounded-lg text-base font-medium inline-block text-center mt-4">Devis gratuit</a>
             </div>
         </div>
     </nav>
@@ -154,7 +143,7 @@
                     <a href="/exploitation" class="nav-link text-[15px] font-semibold text-gray-700 whitespace-nowrap">Exploitation</a>
                     <a href="/securisation-installations" class="nav-link text-[15px] font-semibold text-gray-700 whitespace-nowrap">Sécurisation</a>
                     <a href="/centre-appel" class="nav-link text-[15px] font-semibold text-gray-700 whitespace-nowrap">Support</a>
-                    <a href="/solutions/" class="nav-link text-[15px] font-semibold text-gray-700 whitespace-nowrap">Solutions</a>
+                    <a href="/solutions/" class="nav-link nav-link-active text-[15px] font-semibold text-gray-700 whitespace-nowrap">Solutions</a>
                     <a href="/a-propos" class="nav-link text-[15px] font-semibold text-gray-700 whitespace-nowrap">À propos</a>
                     <a href="/contact" class="btn-primary ml-5 px-8 py-3 rounded-xl text-[15px] font-semibold text-white shadow-lg hover:shadow-xl whitespace-nowrap">Devis gratuit</a>
                 </div>
@@ -178,235 +167,314 @@
             </ol>
         </nav>
         <!-- Hero -->
-        <section class="pt-32 pb-20 px-6 bg-blue-50">
+        <section class="pt-32 pb-20 px-6">
             <div class="max-w-6xl mx-auto">
                 <div class="text-center mb-12">
-                    <div class="badge-section inline-flex items-center bg-blue-50 text-blue-700 rounded-full px-4 py-2 mb-6">
-                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
-                        <span class="text-sm font-semibold">Solution clé en main pour entreprises</span>
-                    </div>
-                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-                        Entreprises : <span class="gradient-text">conforme LOM, opérationnel demain.</span>
+                    <p class="sec-label mb-4">Solution cle en main pour entreprises</p>
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl mb-6">
+                        Entreprises : <em>conforme LOM, operationnel demain.</em>
                     </h1>
                     <p class="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
-                        Conformité LOM, échéances qui approchent, dossier ADVENIR a monter, flotte a électrifier : la recharge sur vos sites est devenue incontournable mais le parcours administratif et technique est un casse-tête. JCSM vous accompagne de l'audit au contrat de maintenance, en passant par le dimensionnement conforme a la loi LOM, le montage de votre dossier de subvention ADVENIR de A a Z, et la formation de vos collaborateurs a l'utilisation des bornes.
+                        Conformite LOM, echeances qui approchent, dossier ADVENIR a monter, flotte a electrifier : la recharge sur vos sites est devenue incontournable mais le parcours administratif et technique est un casse-tete. JCSM vous accompagne de l'audit au contrat de maintenance, en passant par le dimensionnement conforme a la loi LOM, le montage de votre dossier de subvention ADVENIR de A a Z, et la formation de vos collaborateurs a l'utilisation des bornes.
                     </p>
                     <div class="flex flex-wrap gap-4 justify-center">
-                        <a href="/contact" class="bg-blue-600 text-white px-8 py-4 rounded-xl font-medium hover:bg-blue-700 transition-colors">
+                        <a href="/contact" class="btn-primary px-8 py-4 text-white font-medium">
                             Demander un audit gratuit
                         </a>
-                        <a href="tel:+33183755706" class="border border-gray-300 px-8 py-4 rounded-xl font-medium hover:bg-gray-50 transition-colors">
-                            Parler à un conseiller
+                        <a href="tel:+33183755706" class="btn-secondary px-8 py-4 font-medium">
+                            Parler a un conseiller
                         </a>
                     </div>
                 </div>
 
                 <!-- Stats -->
                 <div class="grid md:grid-cols-4 gap-6 mt-16">
-                    <div class="bg-white rounded-2xl p-6 text-center shadow-sm border border-gray-100">
-                        <div class="text-3xl font-bold text-blue-600 mb-2 stat-glow num-highlight">50%</div>
-                        <p class="text-gray-600 text-sm">Aide ADVENIR jusqu'à 50% du coût</p>
+                    <div class="card-feature text-center">
+                        <div class="num text-2xl mb-2">50%</div>
+                        <p class="text-gray-600 text-sm">Aide ADVENIR jusqu'a 50% du cout</p>
                     </div>
-                    <div class="bg-white rounded-2xl p-6 text-center shadow-sm border border-gray-100">
-                        <div class="text-3xl font-bold text-blue-600 mb-2 stat-glow num-highlight">10-15 ans</div>
-                        <p class="text-gray-600 text-sm">Durée de vie des bornes entretenues</p>
+                    <div class="card-feature text-center">
+                        <div class="num text-2xl mb-2">10-15 ans</div>
+                        <p class="text-gray-600 text-sm">Duree de vie des bornes entretenues</p>
                     </div>
-                    <div class="bg-white rounded-2xl p-6 text-center shadow-sm border border-gray-100">
-                        <div class="text-3xl font-bold text-blue-600 mb-2 stat-glow num-highlight">LOM</div>
-                        <p class="text-gray-600 text-sm">Conformité réglementaire assurée</p>
+                    <div class="card-feature text-center">
+                        <div class="num text-2xl mb-2">LOM</div>
+                        <p class="text-gray-600 text-sm">Conformite reglementaire assuree</p>
                     </div>
-                    <div class="bg-white rounded-2xl p-6 text-center shadow-sm border border-gray-100">
-                        <div class="text-3xl font-bold text-blue-600 mb-2 stat-glow num-highlight">24h</div>
-                        <p class="text-gray-600 text-sm">Devis personnalisé sous 24h</p>
+                    <div class="card-feature text-center">
+                        <div class="num text-2xl mb-2">24h</div>
+                        <p class="text-gray-600 text-sm">Devis personnalise sous 24h</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Obligation LOM -->
-        <section class="py-20 px-6 bg-white section-appear">
+        <section class="py-20 px-6 section-alt section-appear">
             <div class="max-w-6xl mx-auto">
-                <h2 class="text-3xl md:text-4xl font-bold text-center mb-4">L'obligation légale : ce que dit la loi LOM</h2>
-                <p class="text-gray-600 text-center max-w-2xl mx-auto mb-12">La loi d'orientation des mobilités impose des obligations concrètes aux entreprises en matière d'infrastructure de recharge. Les échéances sont progressives mais les sanctions sont réelles. Conformité LOM : nous dimensionnons et installons le nombre de bornes requis par la loi pour que vous soyez en règle sans surprises.</p>
+                <p class="sec-label text-center mb-3">Cadre reglementaire</p>
+                <h2 class="text-3xl md:text-4xl text-center mb-4">L'obligation legale : ce que dit la loi LOM</h2>
+                <p class="text-gray-600 text-center max-w-2xl mx-auto mb-12">La loi d'orientation des mobilites impose des obligations concretes aux entreprises en matiere d'infrastructure de recharge. Les echeances sont progressives mais les sanctions sont reelles.</p>
 
                 <div class="grid md:grid-cols-3 gap-8">
-                    <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 card-hover why-card-industrial">
-                        <div class="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center mb-6 icon-pulse-hover">
-                            <svg class="w-7 h-7 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
+                    <div class="card-feature">
+                        <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-5" style="background:rgba(37,99,235,0.08)">
+                            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
                         </div>
                         <h3 class="text-xl font-bold mb-3">Parkings de plus de 20 places</h3>
-                        <p class="text-gray-600">Les bâtiments non résidentiels avec parking de plus de 20 places doivent etre équipés d'un point de recharge par tranche de 20 places. Échéances progressives selon la date de construction. Combien de bornes devez-vous installer pour etre conforme ? Notre audit gratuit calcule le nombre exact requis et planifie le déploiement pour respecter les délais légaux.</p>
+                        <p class="text-gray-600">Les batiments non residentiels avec parking de plus de 20 places doivent etre equipes d'un point de recharge par tranche de 20 places. Echeances progressives selon la date de construction. Notre audit gratuit calcule le nombre exact requis.</p>
                     </div>
-                    <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 card-hover why-card-industrial">
-                        <div class="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center mb-6 icon-pulse-hover">
-                            <svg class="w-7 h-7 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path></svg>
+                    <div class="card-feature">
+                        <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-5" style="background:rgba(37,99,235,0.08)">
+                            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path></svg>
                         </div>
                         <h3 class="text-xl font-bold mb-3">Constructions neuves</h3>
-                        <p class="text-gray-600">Le pre-équipement électrique doit permettre l'installation ulterieure de bornes sur un pourcentage significatif des places de stationnement. Anticiper des la construction evite des travaux de génie civil coûteux par la suite. JCSM intervient en phase de conception pour dimensionner correctement l'infrastructure électrique.</p>
+                        <p class="text-gray-600">Le pre-equipement electrique doit permettre l'installation ulterieure de bornes sur un pourcentage significatif des places de stationnement. Anticiper des la construction evite des travaux de genie civil couteux par la suite.</p>
                     </div>
-                    <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 card-hover why-card-industrial">
-                        <div class="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center mb-6 icon-pulse-hover">
-                            <svg class="w-7 h-7 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"></path></svg>
+                    <div class="card-feature">
+                        <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-5" style="background:rgba(37,99,235,0.08)">
+                            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"></path></svg>
                         </div>
-                        <h3 class="text-xl font-bold mb-3">Flottes de plus de 100 véhicules</h3>
-                        <p class="text-gray-600">Proportion croissante de véhicules a faibles emissions lors du renouvellement. L'installation de bornes est un prérequis logistique pour cette transition. Sans infrastructure de recharge sur site, l'électrification de votre flotte reste un voeu pieux. JCSM dimensionne votre parc de bornes en fonction du planning de renouvellement de vos véhicules.</p>
+                        <h3 class="text-xl font-bold mb-3">Flottes de plus de 100 vehicules</h3>
+                        <p class="text-gray-600">Proportion croissante de vehicules a faibles emissions lors du renouvellement. L'installation de bornes est un prerequis logistique pour cette transition. JCSM dimensionne votre parc de bornes en fonction du planning de renouvellement.</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Avantages -->
-        <section class="py-20 px-6 bg-gray-50 section-appear">
+        <section class="py-20 px-6 section-appear">
             <div class="max-w-6xl mx-auto">
-                <h2 class="text-3xl md:text-4xl font-bold text-center mb-4">Ce que ça change, concrètement</h2>
-                <p class="text-gray-600 text-center max-w-2xl mx-auto mb-12">Au-dela de la conformité LOM, la recharge sur site est un levier de performance, d'attractivite employeur et d'optimisation des coûts de flotte. Avec les aides ADVENIR qui couvrent jusqu'a 50% du coût d'installation, le retour sur investissement est accéléré.</p>
+                <p class="sec-label text-center mb-3">Benefices concrets</p>
+                <h2 class="text-3xl md:text-4xl text-center mb-4">Ce que ca change, concretement</h2>
+                <p class="text-gray-600 text-center max-w-2xl mx-auto mb-12">Au-dela de la conformite LOM, la recharge sur site est un levier de performance, d'attractivite employeur et d'optimisation des couts de flotte. Avec les aides ADVENIR qui couvrent jusqu'a 50% du cout d'installation, le retour sur investissement est accelere.</p>
 
                 <div class="grid md:grid-cols-2 gap-8">
-                    <div class="bg-white rounded-2xl p-8 shadow-sm card-hover svc-card-industrial">
-                        <div class="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center mb-6 icon-pulse-hover">
-                            <svg class="w-7 h-7 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                    <div class="card-feature">
+                        <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-5" style="background:rgba(37,99,235,0.08)">
+                            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
                         </div>
-                        <h3 class="text-xl font-bold mb-3">Attractivité employeur et rétention</h3>
-                        <p class="text-gray-600">La recharge au travail est devenue un critère de choix pour les collaborateurs en électrique. Un avantage en nature concret qui réduit le stress lié à l'autonomie et démontre l'engagement de l'entreprise.</p>
+                        <h3 class="text-xl font-bold mb-3">Attractivite employeur et retention</h3>
+                        <p class="text-gray-600">La recharge au travail est devenue un critere de choix pour les collaborateurs en electrique. Un avantage en nature concret qui reduit le stress lie a l'autonomie et demontre l'engagement de l'entreprise.</p>
                     </div>
-                    <div class="bg-white rounded-2xl p-8 shadow-sm card-hover svc-card-industrial">
-                        <div class="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center mb-6 icon-pulse-hover">
-                            <svg class="w-7 h-7 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    <div class="card-feature">
+                        <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-5" style="background:rgba(37,99,235,0.08)">
+                            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                         </div>
                         <h3 class="text-xl font-bold mb-3">Politique RSE et bilan carbone</h3>
-                        <p class="text-gray-600">Réduction mesurable de l'empreinte carbone avec des bornes alimentées en énergie renouvelable. Un élément tangible de votre politique RSE, valorisable dans vos rapports extra-financiers.</p>
+                        <p class="text-gray-600">Reduction mesurable de l'empreinte carbone avec des bornes alimentees en energie renouvelable. Un element tangible de votre politique RSE, valorisable dans vos rapports extra-financiers.</p>
                     </div>
-                    <div class="bg-white rounded-2xl p-8 shadow-sm card-hover svc-card-industrial">
-                        <div class="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center mb-6 icon-pulse-hover">
-                            <svg class="w-7 h-7 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    <div class="card-feature">
+                        <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-5" style="background:rgba(37,99,235,0.08)">
+                            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                         </div>
-                        <h3 class="text-xl font-bold mb-3">Optimisation des coûts de flotte</h3>
-                        <p class="text-gray-600">Recharger sur votre propre infrastructure revient nettement moins cher que les bornes publiques. Gestion de parc : supervision des sessions de charge, répartition intelligente de puissance entre les bornes (smart charging), reporting détaillé de consommation par véhicule et par conducteur. Maitrisez vos coûts énergétiques et garantissez la disponibilité de vos véhicules chaque matin.</p>
+                        <h3 class="text-xl font-bold mb-3">Optimisation des couts de flotte</h3>
+                        <p class="text-gray-600">Recharger sur votre propre infrastructure revient nettement moins cher que les bornes publiques. Smart charging, reporting detaille par vehicule et par conducteur. Maitrisez vos couts energetiques et garantissez la disponibilite de vos vehicules chaque matin.</p>
                     </div>
-                    <div class="bg-white rounded-2xl p-8 shadow-sm card-hover svc-card-industrial">
-                        <div class="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center mb-6 icon-pulse-hover">
-                            <svg class="w-7 h-7 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 14l6-6m-5.5.5h.01m4.99 5h.01M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16l3.5-2 3.5 2 3.5-2 3.5 2zM10 8.5a.5.5 0 11-1 0 .5.5 0 011 0zm5 5a.5.5 0 11-1 0 .5.5 0 011 0z"></path></svg>
+                    <div class="card-feature">
+                        <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-5" style="background:rgba(37,99,235,0.08)">
+                            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 14l6-6m-5.5.5h.01m4.99 5h.01M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16l3.5-2 3.5 2 3.5-2 3.5 2zM10 8.5a.5.5 0 11-1 0 .5.5 0 011 0zm5 5a.5.5 0 11-1 0 .5.5 0 011 0z"></path></svg>
                         </div>
                         <h3 class="text-xl font-bold mb-3">Aides ADVENIR et avantage fiscal</h3>
-                        <p class="text-gray-600">Aide ADVENIR : nous montons votre dossier de subvention de A a Z. Verification de l'éligibilité de votre projet, selection du matériel conforme aux criteres ADVENIR, constitution du dossier complet, soumission et suivi jusqu'a l'obtention de la prime (jusqu'a 50% du coût d'installation). Vous ne gérez aucune démarche administrative, nous maximisons le financement obtenu.</p>
+                        <p class="text-gray-600">Nous montons votre dossier de subvention de A a Z. Verification de l'eligibilite de votre projet, selection du materiel conforme, constitution du dossier complet, soumission et suivi jusqu'a l'obtention de la prime (jusqu'a 50% du cout d'installation).</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Services JCSM -->
-        <section class="py-20 px-6 bg-white section-appear">
+        <section class="py-20 px-6 section-alt section-appear">
             <div class="max-w-6xl mx-auto">
-                <h2 class="text-3xl md:text-4xl font-bold text-center mb-4">Les services JCSM pour les entreprises</h2>
-                <p class="text-gray-600 text-center max-w-2xl mx-auto mb-12">De l'audit technique au contrat de maintenance, une offre complète et clé en main pour équiper vos sites en toute sérénité. Un seul prestataire de bout en bout : audit, dimensionnement LOM, installation certifiée, montage ADVENIR, formation de vos collaborateurs et maintenance avec SLA.</p>
+                <p class="sec-label text-center mb-3">Nos services</p>
+                <h2 class="text-3xl md:text-4xl text-center mb-4">Les services JCSM pour les entreprises</h2>
+                <p class="text-gray-600 text-center max-w-2xl mx-auto mb-12">De l'audit technique au contrat de maintenance, une offre complete et cle en main pour equiper vos sites en toute serenite.</p>
 
                 <div class="grid md:grid-cols-2 gap-8">
-                    <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 card-hover why-card-industrial">
-                        <div class="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center mb-6 icon-pulse-hover">
-                            <svg class="w-7 h-7 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path></svg>
+                    <div class="card-feature">
+                        <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-5" style="background:rgba(37,99,235,0.08)">
+                            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path></svg>
                         </div>
                         <h3 class="text-xl font-bold mb-3">Audit et dimensionnement</h3>
-                        <p class="text-gray-600">Conformité LOM : nous dimensionnons le nombre exact de bornes requis par la loi en fonction de la taille de votre parking et de votre flotte. Évaluation de la capacité électrique, configuration du parking, usages prévisionnels et contraintes budgetaires. Étude de smart charging (répartition dynamique de puissance) pour eviter les depassements de puissance souscrite et les coûts de renforcement inutiles.</p>
+                        <p class="text-gray-600">Conformite LOM : nous dimensionnons le nombre exact de bornes requis par la loi. Evaluation de la capacite electrique, configuration du parking, usages previsionnels. Etude de smart charging pour eviter les depassements de puissance souscrite.</p>
                     </div>
-                    <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 card-hover why-card-industrial">
-                        <div class="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center mb-6 icon-pulse-hover">
-                            <svg class="w-7 h-7 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
+                    <div class="card-feature">
+                        <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-5" style="background:rgba(37,99,235,0.08)">
+                            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
                         </div>
-                        <h3 class="text-xl font-bold mb-3">Installation certifiée et conforme</h3>
-                        <p class="text-gray-600">Techniciens habilités mention IRVE. Conformité NF C 15-100, NF EN 61851. Génie civil, tirage de câbles, pose, raccordement, paramétrage et mise en service complète.</p>
+                        <h3 class="text-xl font-bold mb-3">Installation certifiee et conforme</h3>
+                        <p class="text-gray-600">Techniciens habilites mention IRVE. Conformite NF C 15-100, NF EN 61851. Genie civil, tirage de cables, pose, raccordement, parametrage et mise en service complete.</p>
                     </div>
-                    <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 card-hover why-card-industrial">
-                        <div class="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center mb-6 icon-pulse-hover">
-                            <svg class="w-7 h-7 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                    <div class="card-feature">
+                        <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-5" style="background:rgba(37,99,235,0.08)">
+                            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
                         </div>
                         <h3 class="text-xl font-bold mb-3">Maintenance et exploitation</h3>
-                        <p class="text-gray-600">Contrats preventifs (visites semestrielles ou trimestrielles) et correctifs avec engagement de délai. Gestion de parc : supervision des sessions de charge, répartition de puissance, reporting consommation par véhicule. Controle des connexions, nettoyage, verification sécurité et mises a jour firmware. Formation de vos collaborateurs a l'utilisation des bornes incluse.</p>
+                        <p class="text-gray-600">Contrats preventifs et correctifs avec engagement de delai. Supervision des sessions de charge, repartition de puissance, reporting consommation par vehicule. Formation de vos collaborateurs a l'utilisation des bornes incluse.</p>
                     </div>
-                    <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 card-hover why-card-industrial">
-                        <div class="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center mb-6 icon-pulse-hover">
-                            <svg class="w-7 h-7 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 14l6-6m-5.5.5h.01m4.99 5h.01M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16l3.5-2 3.5 2 3.5-2 3.5 2zM10 8.5a.5.5 0 11-1 0 .5.5 0 011 0zm5 5a.5.5 0 11-1 0 .5.5 0 011 0z"></path></svg>
+                    <div class="card-feature">
+                        <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-5" style="background:rgba(37,99,235,0.08)">
+                            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 14l6-6m-5.5.5h.01m4.99 5h.01M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16l3.5-2 3.5 2 3.5-2 3.5 2zM10 8.5a.5.5 0 11-1 0 .5.5 0 011 0zm5 5a.5.5 0 11-1 0 .5.5 0 011 0z"></path></svg>
                         </div>
                         <h3 class="text-xl font-bold mb-3">Accompagnement aides ADVENIR</h3>
-                        <p class="text-gray-600">Etes-vous eligibles au programme ADVENIR ? Nous le verifions pour vous. Prise en charge integrale du montage administratif : verification éligibilité, constitution du dossier complet, selection du matériel conforme aux criteres ADVENIR, soumission et suivi jusqu'a l'obtention de la prime. La complexité administrative du programme ADVENIR ne doit pas retarder votre projet, nous gérons tout.</p>
+                        <p class="text-gray-600">Prise en charge integrale du montage administratif : verification eligibilite, constitution du dossier complet, selection du materiel conforme aux criteres ADVENIR, soumission et suivi jusqu'a l'obtention de la prime.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Étapes du projet -->
-        <section class="py-20 px-6 bg-gray-50 section-appear">
+        <!-- Etapes du projet -->
+        <section class="section-dark py-20 px-6 section-appear">
             <div class="max-w-6xl mx-auto">
-                <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Les étapes de votre projet</h2>
+                <p class="sec-label text-center mb-3">Processus</p>
+                <h2 class="text-3xl md:text-4xl text-center mb-12">Les etapes de votre projet</h2>
                 <div class="grid md:grid-cols-2 lg:grid-cols-5 gap-6">
-                    <div class="bg-white rounded-2xl p-6 text-center shadow-sm card-hover why-card-industrial">
+                    <div class="step p-6 text-center">
                         <div class="w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 font-bold">1</div>
                         <h3 class="font-bold text-sm mb-2">Prise de contact</h3>
-                        <p class="text-gray-600 text-xs">Description du projet, cadrage et calendrier prévisionnel.</p>
+                        <p class="opacity-80 text-xs">Description du projet, cadrage et calendrier previsionnel.</p>
                     </div>
-                    <div class="bg-white rounded-2xl p-6 text-center shadow-sm card-hover why-card-industrial">
+                    <div class="step p-6 text-center">
                         <div class="w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 font-bold">2</div>
                         <h3 class="font-bold text-sm mb-2">Audit technique</h3>
-                        <p class="text-gray-600 text-xs">Déplacement sur site, audit électrique et étude d'implantation.</p>
+                        <p class="opacity-80 text-xs">Deplacement sur site, audit electrique et etude d'implantation.</p>
                     </div>
-                    <div class="bg-white rounded-2xl p-6 text-center shadow-sm card-hover why-card-industrial">
+                    <div class="step p-6 text-center">
                         <div class="w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 font-bold">3</div>
                         <h3 class="font-bold text-sm mb-2">Proposition et financement</h3>
-                        <p class="text-gray-600 text-xs">Devis détaillé avec aide ADVENIR clairement identifiée.</p>
+                        <p class="opacity-80 text-xs">Devis detaille avec aide ADVENIR clairement identifiee.</p>
                     </div>
-                    <div class="bg-white rounded-2xl p-6 text-center shadow-sm card-hover why-card-industrial">
+                    <div class="step p-6 text-center">
                         <div class="w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 font-bold">4</div>
                         <h3 class="font-bold text-sm mb-2">Installation et formation</h3>
-                        <p class="text-gray-600 text-xs">Travaux planifies, mise en service et formation de vos collaborateurs a l'utilisation des bornes.</p>
+                        <p class="opacity-80 text-xs">Travaux planifies, mise en service et formation de vos collaborateurs.</p>
                     </div>
-                    <div class="bg-white rounded-2xl p-6 text-center shadow-sm card-hover why-card-industrial">
+                    <div class="step p-6 text-center">
                         <div class="w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 font-bold">5</div>
                         <h3 class="font-bold text-sm mb-2">Exploitation et suivi</h3>
-                        <p class="text-gray-600 text-xs">Contrat de maintenance, tableau de bord et interlocuteur dédié.</p>
+                        <p class="opacity-80 text-xs">Contrat de maintenance, tableau de bord et interlocuteur dedie.</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- FAQ -->
-        <section class="py-20 px-6 bg-white section-appear">
+        <section class="py-20 px-6 section-appear">
             <div class="max-w-4xl mx-auto">
-                <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Questions fréquentes</h2>
+                <p class="sec-label text-center mb-3">FAQ</p>
+                <h2 class="text-3xl md:text-4xl text-center mb-12">Questions frequentes</h2>
                 <div class="space-y-6">
-                    <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 card-hover why-card-industrial">
-                        <h3 class="text-lg font-bold mb-3">Etes-vous eligibles au programme ADVENIR ?</h3>
-                        <p class="text-gray-600">Oui, JCSM est qualifié pour le programme ADVENIR. Nous montons votre dossier de subvention de A a Z : verification de l'éligibilité de votre projet, selection du matériel conforme aux criteres, constitution du dossier complet, soumission et suivi jusqu'a l'obtention de la prime (jusqu'a 50% du coût d'installation). La complexité administrative du programme ne doit pas retarder votre projet, nous gérons l'intégralité des démarches pour maximiser le financement obtenu.</p>
+                    <div class="card-feature">
+                        <div class="flex items-start gap-4 mb-3">
+                            <svg class="w-6 h-6 text-blue-600 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            <h3 class="text-lg font-bold">Etes-vous eligibles au programme ADVENIR ?</h3>
+                        </div>
+                        <p class="text-gray-600">Oui, JCSM est qualifie pour le programme ADVENIR. Nous montons votre dossier de subvention de A a Z : verification de l'eligibilite de votre projet, selection du materiel conforme aux criteres, constitution du dossier complet, soumission et suivi jusqu'a l'obtention de la prime (jusqu'a 50% du cout d'installation).</p>
                     </div>
-                    <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 card-hover why-card-industrial">
-                        <h3 class="text-lg font-bold mb-3">Combien de bornes dois-je installer pour etre conforme a la loi LOM ?</h3>
-                        <p class="text-gray-600">Le nombre depend de la taille de votre parking, de la date de construction du bâtiment et du type d'usage (salaries, visiteurs, flotte). Pour un parking de plus de 20 places, la loi impose au minimum un point de recharge par tranche de 20 places, avec des échéances progressives. Notre audit gratuit calcule le nombre exact requis pour votre situation et planifie le déploiement pour respecter les délais légaux sans surinvestissement.</p>
+                    <div class="card-feature">
+                        <div class="flex items-start gap-4 mb-3">
+                            <svg class="w-6 h-6 text-blue-600 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            <h3 class="text-lg font-bold">Combien de bornes dois-je installer pour etre conforme a la loi LOM ?</h3>
+                        </div>
+                        <p class="text-gray-600">Le nombre depend de la taille de votre parking, de la date de construction du batiment et du type d'usage. Pour un parking de plus de 20 places, la loi impose au minimum un point de recharge par tranche de 20 places, avec des echeances progressives. Notre audit gratuit calcule le nombre exact requis.</p>
                     </div>
-                    <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 card-hover why-card-industrial">
-                        <h3 class="text-lg font-bold mb-3">Faut-il augmenter la puissance électrique souscrite ?</h3>
-                        <p class="text-gray-600">Pas nécessairement. La gestion dynamique de la charge (smart charging) répartit la puissance disponible entre les bornes selon la demande réelle et les priorités de votre flotte. Dans de nombreux cas, cela evite un renforcement coûteux du raccordement électrique. Notre audit intégré systematiquement cette analyse et vous présente les scénarios avec et sans augmentation de puissance.</p>
+                    <div class="card-feature">
+                        <div class="flex items-start gap-4 mb-3">
+                            <svg class="w-6 h-6 text-blue-600 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            <h3 class="text-lg font-bold">Faut-il augmenter la puissance electrique souscrite ?</h3>
+                        </div>
+                        <p class="text-gray-600">Pas necessairement. La gestion dynamique de la charge (smart charging) repartit la puissance disponible entre les bornes selon la demande reelle et les priorites de votre flotte. Notre audit integre systematiquement cette analyse et vous presente les scenarios avec et sans augmentation de puissance.</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- CTA -->
-        <section class="py-20 px-6 bg-blue-600 text-white">
+        <section class="card-cta py-20 px-6">
             <div class="max-w-4xl mx-auto text-center">
-                <h2 class="text-3xl md:text-4xl font-bold mb-6 text-white">Chaque jour sans borne est un jour de retard</h2>
-                <p class="text-xl text-blue-100 mb-8">Les échéances LOM approchent et les fonds ADVENIR ne sont pas illimités. Chaque jour sans borne est un jour de retard sur la transition de votre entreprise et un risque de non-conformité. Contactez JCSM pour un audit gratuit de vos sites : dimensionnement LOM, estimation des aides ADVENIR et proposition clé en main avec formation de vos collaborateurs incluse.</p>
-                <a href="/contact" class="inline-block bg-white text-blue-600 px-8 py-4 rounded-xl font-medium hover:bg-blue-50 transition-colors">
+                <h2 class="text-3xl md:text-4xl mb-6">Chaque jour sans borne est un jour de retard</h2>
+                <p class="text-lg opacity-80 mb-8">Les echeances LOM approchent et les fonds ADVENIR ne sont pas illimites. Contactez JCSM pour un audit gratuit de vos sites : dimensionnement LOM, estimation des aides ADVENIR et proposition cle en main avec formation de vos collaborateurs incluse.</p>
+                <a href="/contact" class="inline-block bg-white text-blue-600 px-8 py-4 rounded-full font-medium hover:bg-gray-100 transition-colors">
                     Demander un audit gratuit
                 </a>
             </div>
         </section>
 
         <!-- Autres solutions -->
-        <section class="py-16 px-6 bg-white section-appear">
+        <section class="py-16 px-6 section-appear">
             <div class="max-w-6xl mx-auto">
-                <h2 class="text-2xl font-bold text-center mb-8">Découvrez nos solutions par secteur</h2>
+                <p class="sec-label text-center mb-3">Autres secteurs</p>
+                <h2 class="text-2xl text-center mb-8">Decouvrez nos solutions par secteur</h2>
                 <div class="flex flex-wrap justify-center gap-4">
-                    <a href="/solutions/cpo-operateurs" class="px-4 py-2 bg-gray-100 rounded-lg text-sm hover:bg-blue-100 hover:text-blue-700 transition-colors">CPO et opérateurs</a>
-                    <a href="/solutions/fabricants-bornes" class="px-4 py-2 bg-gray-100 rounded-lg text-sm hover:bg-blue-100 hover:text-blue-700 transition-colors">Fabricants de bornes</a>
-                    <a href="/solutions/retail-grande-distribution" class="px-4 py-2 bg-gray-100 rounded-lg text-sm hover:bg-blue-100 hover:text-blue-700 transition-colors">Retail et grande distribution</a>
+                    <a href="/solutions/cpo-operateurs" class="card-feature px-5 py-3 inline-flex items-center gap-2 text-sm hover:border-blue-600 transition-colors">
+                        <svg class="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6z"></path></svg>
+                        CPO et operateurs
+                    </a>
+                    <a href="/solutions/fabricants-bornes" class="card-feature px-5 py-3 inline-flex items-center gap-2 text-sm hover:border-blue-600 transition-colors">
+                        <svg class="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                        Fabricants de bornes
+                    </a>
+                    <a href="/solutions/retail-grande-distribution" class="card-feature px-5 py-3 inline-flex items-center gap-2 text-sm hover:border-blue-600 transition-colors">
+                        <svg class="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 100 4 2 2 0 000-4z"></path></svg>
+                        Retail et grande distribution
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Voir aussi : nos services -->
+        <section class="py-20 px-6" aria-label="Nos services IRVE">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-10 section-appear">
+                    <div class="sec-label mb-5">Voir aussi</div>
+                    <h2 class="text-2xl sm:text-3xl tracking-tight">Nos services</h2>
+                </div>
+                <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-4">
+                    <a href="/pilotage-projets" title="Voir notre service de pilotage de projets" class="card-feature block text-center section-appear">
+                        <div class="flex justify-center mb-4">
+                            <svg class="w-8 h-8" style="color: var(--color-primary)" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                            </svg>
+                        </div>
+                        <h3 class="font-bold text-sm mb-1" style="font-family: var(--font-sans)">Pilotage</h3>
+                        <p class="text-xs" style="color: var(--color-text-secondary)">Coordination de projets IRVE</p>
+                    </a>
+                    <a href="/installation-conformite" title="Voir notre service d'installation et conformite" class="card-feature block text-center section-appear">
+                        <div class="flex justify-center mb-4">
+                            <svg class="w-8 h-8" style="color: var(--color-primary)" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.066 2.573c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.573 1.066c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.066-2.573c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                            </svg>
+                        </div>
+                        <h3 class="font-bold text-sm mb-1" style="font-family: var(--font-sans)">Installation</h3>
+                        <p class="text-xs" style="color: var(--color-text-secondary)">Installation certifiee Qualifelec</p>
+                    </a>
+                    <a href="/exploitation" title="Voir notre service d'exploitation et maintenance" class="card-feature block text-center section-appear">
+                        <div class="flex justify-center mb-4">
+                            <svg class="w-8 h-8" style="color: var(--color-primary)" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
+                            </svg>
+                        </div>
+                        <h3 class="font-bold text-sm mb-1" style="font-family: var(--font-sans)">Exploitation</h3>
+                        <p class="text-xs" style="color: var(--color-text-secondary)">Maintenance preventive et curative</p>
+                    </a>
+                    <a href="/securisation-installations" title="Voir notre service de securisation" class="card-feature block text-center section-appear">
+                        <div class="flex justify-center mb-4">
+                            <svg class="w-8 h-8" style="color: var(--color-primary)" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+                            </svg>
+                        </div>
+                        <h3 class="font-bold text-sm mb-1" style="font-family: var(--font-sans)">Securisation</h3>
+                        <p class="text-xs" style="color: var(--color-text-secondary)">Protection anti-vandalisme</p>
+                    </a>
+                    <a href="/centre-appel" title="Voir notre support technique 24/7" class="card-feature block text-center section-appear">
+                        <div class="flex justify-center mb-4">
+                            <svg class="w-8 h-8" style="color: var(--color-primary)" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C8.716 21 3 15.284 3 8V5z"/>
+                            </svg>
+                        </div>
+                        <h3 class="font-bold text-sm mb-1" style="font-family: var(--font-sans)">Support 24/7</h3>
+                        <p class="text-xs" style="color: var(--color-text-secondary)">Hotline et telegestion</p>
+                    </a>
                 </div>
             </div>
         </section>
@@ -450,6 +518,7 @@
                             <li><a href="/carrieres" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Carrières</a></li>
                             <li><a href="/contact" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Contact</a></li>
                             <li><a href="/blog" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Blog</a></li>
+                            <li><a href="/presse" title="Presse et relations médias" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Presse</a></li>
                         </ul>
                     </nav>
                 </div>

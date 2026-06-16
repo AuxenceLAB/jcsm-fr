@@ -124,17 +124,6 @@
         content="Support client IRVE 24/7 en marque blanche : hotline, chat et email. 95% de résolution au premier contact en France et Belgique.">
     <meta name="twitter:image" content="https://jcsm.fr/images/supporttech.jpg">
     <meta name="twitter:image:alt" content="Équipe support technique IRVE du centre d'appel JCSM">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
-    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"
-        media="print" onload="this.media='all'">
-    <noscript>
-        <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600;700;800&display=swap"
-            rel="stylesheet">
-    </noscript>
     <link rel="stylesheet" href="/css/critical.css?v=74">
     <link rel="stylesheet" href="/css/tailwind.css?v=74" media="print" onload="this.media='all'">
     <noscript><link rel="stylesheet" href="/css/tailwind.css?v=74"></noscript>
@@ -212,8 +201,6 @@
         </div>
     </nav>
 
-    <!-- Particules subtiles en arrière-plan -->
-
     <main id="main-content" role="main">
         <nav aria-label="Fil d'Ariane" class="max-w-6xl mx-auto px-4 sm:px-6 pt-24 pb-0">
             <ol class="flex items-center gap-2 text-sm text-gray-500">
@@ -222,19 +209,15 @@
                 <li class="text-gray-600 font-medium">Support 24/7</li>
             </ol>
         </nav>
+
         <!-- Hero -->
-        <section class="pt-[calc(5rem+0.75rem)] pb-6 px-4 sm:px-6 min-h-[60vh] flex items-center bg-white">
+        <section class="pt-[calc(5rem+0.75rem)] pb-6 px-4 sm:px-6 min-h-[60vh] flex items-center">
             <div class="max-w-6xl mx-auto w-full">
                 <div class="grid lg:grid-cols-2 gap-5 sm:gap-7 lg:gap-10 items-center">
                     <div class="space-y-4 sm:space-y-5 md:space-y-6 order-1 lg:order-1">
-                        <div
-                            class="inline-flex items-center space-x-2 glass-badge badge-section rounded-full px-3 py-1.5 sm:px-4 sm:py-2 section-appear">
-                            <span
-                                class="text-[10px] sm:text-xs font-semibold text-gray-600 uppercase tracking-wide">Réactivité & Disponibilité 24/7</span>
-                        </div>
-                        <h1
-                            class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight tracking-tight section-appear">
-                            Support IRVE 24/7 : <span class="gradient-text">chaque appel décroché. Chaque panne résolue.</span>
+                        <div class="sec-label section-appear">Support & Hotline 24/7</div>
+                        <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight tracking-tight section-appear">
+                            Support IRVE 24/7 : <em>chaque appel décroché. Chaque panne résolue.</em>
                         </h1>
                         <p class="text-sm sm:text-base md:text-lg text-gray-600 leading-snug section-appear">
                             Hotline basée en France, chat, email : un support multicanal en marque blanche pour assurer la satisfaction de chaque utilisateur. Entreprise engagée dans l'inclusion (RQTH/AAH).
@@ -266,155 +249,105 @@
         </section>
 
         <!-- Services -->
-        <section id="services" class="py-20 px-6 bg-white">
+        <section id="services" class="py-20 px-6 section-alt">
             <div class="max-w-6xl mx-auto">
-                <div class="text-center mb-20 section-appear">
+                <div class="text-center mb-16 section-appear">
+                    <p class="sec-label mb-3">Canaux de support</p>
                     <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-6">
-                        Téléphone, chat, email. On décroche. Toujours.
+                        Téléphone, chat, email. <em>On décroche. Toujours.</em>
                     </h2>
-                    <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                    <p class="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
                         Une assistance technique multicanal, professionnelle et réactive, disponible 24/7 pour assurer
                         la satisfaction de vos utilisateurs finaux.
                     </p>
                 </div>
 
-                <div class="grid md:grid-cols-3 gap-6 mb-20">
-                    <div class="card-hover why-card-industrial bg-white border border-gray-200 rounded-2xl p-6 section-appear">
-                        <div
-                            class="w-14 h-14 bg-blue-600 rounded-xl flex items-center justify-center text-white mb-8 icon-pulse-hover">
-                            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <div class="grid md:grid-cols-3 gap-6 mb-12">
+                    <div class="card-feature section-appear">
+                        <div class="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center text-white mb-6 icon-pulse-hover">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                             </svg>
                         </div>
-                        <h3 class="text-2xl font-bold mb-4">Hotline 24/7</h3>
-                        <p class="text-gray-600 leading-relaxed mb-6">Prise d'appels en marque blanche pour assister vos
+                        <h3 class="text-xl font-bold mb-3">Hotline 24/7</h3>
+                        <p class="text-gray-600 leading-relaxed mb-5">Prise d'appels en marque blanche pour assister vos
                             utilisateurs à toute heure. Agents formés spécifiquement aux bornes IRVE.</p>
-                        <ul class="space-y-2 text-gray-600 text-sm">
+                        <ul class="space-y-2.5 text-gray-600 text-sm">
                             <li class="flex items-start">
-                                <svg class="w-4 h-4 mr-2 text-blue-600 flex-shrink-0 mt-0.5" fill="none"
-                                    stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M5 13l4 4L19 7" />
-                                </svg>
+                                <svg class="w-4 h-4 mr-2 text-blue-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
                                 <span>Disponibilité 24/7/365</span>
                             </li>
                             <li class="flex items-start">
-                                <svg class="w-4 h-4 mr-2 text-blue-600 flex-shrink-0 mt-0.5" fill="none"
-                                    stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M5 13l4 4L19 7" />
-                                </svg>
+                                <svg class="w-4 h-4 mr-2 text-blue-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
                                 <span>Numéro attitré à votre marque</span>
                             </li>
                             <li class="flex items-start">
-                                <svg class="w-4 h-4 mr-2 text-blue-600 flex-shrink-0 mt-0.5" fill="none"
-                                    stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M5 13l4 4L19 7" />
-                                </svg>
+                                <svg class="w-4 h-4 mr-2 text-blue-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
                                 <span>Multilangue (FR, EN, NL)</span>
                             </li>
                             <li class="flex items-start">
-                                <svg class="w-4 h-4 mr-2 text-blue-600 flex-shrink-0 mt-0.5" fill="none"
-                                    stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M5 13l4 4L19 7" />
-                                </svg>
+                                <svg class="w-4 h-4 mr-2 text-blue-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
                                 <span>Enregistrement des appels</span>
                             </li>
                         </ul>
                     </div>
 
-                    <div class="card-hover why-card-industrial bg-white border border-gray-200 rounded-2xl p-6 section-appear">
-                        <div
-                            class="w-14 h-14 bg-blue-600 rounded-xl flex items-center justify-center text-white mb-8 icon-pulse-hover">
-                            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <div class="card-feature section-appear">
+                        <div class="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center text-white mb-6 icon-pulse-hover">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
                             </svg>
                         </div>
-                        <h3 class="text-2xl font-bold mb-4">Chat en Direct</h3>
-                        <p class="text-gray-600 leading-relaxed mb-6">Support instantané par chat pour répondre
+                        <h3 class="text-xl font-bold mb-3">Chat en Direct</h3>
+                        <p class="text-gray-600 leading-relaxed mb-5">Support instantané par chat pour répondre
                             rapidement aux questions des utilisateurs. Intégration transparente sur votre interface.</p>
-                        <ul class="space-y-2 text-gray-600 text-sm">
+                        <ul class="space-y-2.5 text-gray-600 text-sm">
                             <li class="flex items-start">
-                                <svg class="w-4 h-4 mr-2 text-blue-600 flex-shrink-0 mt-0.5" fill="none"
-                                    stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M5 13l4 4L19 7" />
-                                </svg>
+                                <svg class="w-4 h-4 mr-2 text-blue-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
                                 <span>Réponse rapide, objectif &lt; 30 secondes</span>
                             </li>
                             <li class="flex items-start">
-                                <svg class="w-4 h-4 mr-2 text-blue-600 flex-shrink-0 mt-0.5" fill="none"
-                                    stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M5 13l4 4L19 7" />
-                                </svg>
+                                <svg class="w-4 h-4 mr-2 text-blue-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
                                 <span>Chat bot IA + agents humains</span>
                             </li>
                             <li class="flex items-start">
-                                <svg class="w-4 h-4 mr-2 text-blue-600 flex-shrink-0 mt-0.5" fill="none"
-                                    stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M5 13l4 4L19 7" />
-                                </svg>
+                                <svg class="w-4 h-4 mr-2 text-blue-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
                                 <span>Personnalisation aux couleurs</span>
                             </li>
                             <li class="flex items-start">
-                                <svg class="w-4 h-4 mr-2 text-blue-600 flex-shrink-0 mt-0.5" fill="none"
-                                    stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M5 13l4 4L19 7" />
-                                </svg>
+                                <svg class="w-4 h-4 mr-2 text-blue-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
                                 <span>Historique des conversations</span>
                             </li>
                         </ul>
                     </div>
 
-                    <div class="card-hover why-card-industrial bg-white border border-gray-200 rounded-2xl p-6 section-appear">
-                        <div
-                            class="w-14 h-14 bg-blue-600 rounded-xl flex items-center justify-center text-white mb-8 icon-pulse-hover">
-                            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <div class="card-feature section-appear">
+                        <div class="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center text-white mb-6 icon-pulse-hover">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                             </svg>
                         </div>
-                        <h3 class="text-2xl font-bold mb-4">Support Email</h3>
-                        <p class="text-gray-600 leading-relaxed mb-6">Gestion professionnelle de vos tickets email avec
+                        <h3 class="text-xl font-bold mb-3">Support Email</h3>
+                        <p class="text-gray-600 leading-relaxed mb-5">Gestion professionnelle de vos tickets email avec
                             suivi et traçabilité complète. SLA garanti sur les temps de réponse.</p>
-                        <ul class="space-y-2 text-gray-600 text-sm">
+                        <ul class="space-y-2.5 text-gray-600 text-sm">
                             <li class="flex items-start">
-                                <svg class="w-4 h-4 mr-2 text-blue-600 flex-shrink-0 mt-0.5" fill="none"
-                                    stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M5 13l4 4L19 7" />
-                                </svg>
+                                <svg class="w-4 h-4 mr-2 text-blue-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
                                 <span>Réponse sous 2h ouvrées</span>
                             </li>
                             <li class="flex items-start">
-                                <svg class="w-4 h-4 mr-2 text-blue-600 flex-shrink-0 mt-0.5" fill="none"
-                                    stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M5 13l4 4L19 7" />
-                                </svg>
+                                <svg class="w-4 h-4 mr-2 text-blue-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
                                 <span>Plateforme de ticketing</span>
                             </li>
                             <li class="flex items-start">
-                                <svg class="w-4 h-4 mr-2 text-blue-600 flex-shrink-0 mt-0.5" fill="none"
-                                    stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M5 13l4 4L19 7" />
-                                </svg>
+                                <svg class="w-4 h-4 mr-2 text-blue-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
                                 <span>Suivi de résolution en temps réel</span>
                             </li>
                             <li class="flex items-start">
-                                <svg class="w-4 h-4 mr-2 text-blue-600 flex-shrink-0 mt-0.5" fill="none"
-                                    stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M5 13l4 4L19 7" />
-                                </svg>
+                                <svg class="w-4 h-4 mr-2 text-blue-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
                                 <span>Base de connaissances intégrée</span>
                             </li>
                         </ul>
@@ -422,28 +355,26 @@
                 </div>
 
                 <div class="grid md:grid-cols-2 gap-6">
-                    <div class="card-hover why-card-industrial bg-white border border-gray-200 rounded-2xl p-6 section-appear">
-                        <div
-                            class="w-14 h-14 bg-blue-600 rounded-xl flex items-center justify-center text-white mb-6 icon-pulse-hover">
-                            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <div class="card-feature section-appear">
+                        <div class="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center text-white mb-6 icon-pulse-hover">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                             </svg>
                         </div>
-                        <h3 class="text-2xl font-bold mb-3">Marque Blanche</h3>
+                        <h3 class="text-xl font-bold mb-3">Marque Blanche</h3>
                         <p class="text-gray-600 leading-relaxed">Service sous votre propre identité : vos couleurs,
                             votre logo, votre discours. Transparence totale pour vos utilisateurs.</p>
                     </div>
 
-                    <div class="card-hover why-card-industrial bg-white border border-gray-200 rounded-2xl p-6 section-appear">
-                        <div
-                            class="w-14 h-14 bg-blue-600 rounded-xl flex items-center justify-center text-white mb-6 icon-pulse-hover">
-                            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <div class="card-feature section-appear">
+                        <div class="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center text-white mb-6 icon-pulse-hover">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
                             </svg>
                         </div>
-                        <h3 class="text-2xl font-bold mb-3">Reporting Détaillé</h3>
+                        <h3 class="text-xl font-bold mb-3">Reporting Détaillé</h3>
                         <p class="text-gray-600 leading-relaxed">Tableaux de bord et rapports mensuels complets : volume
                             d'appels, satisfaction, temps de réponse, problèmes récurrents.</p>
                     </div>
@@ -452,85 +383,98 @@
         </section>
 
         <!-- Stats -->
-        <section class="py-20 px-6 bg-gray-50">
+        <section class="py-20 px-6">
             <div class="max-w-6xl mx-auto">
                 <div class="text-center mb-16 section-appear">
+                    <p class="sec-label mb-3">Performances</p>
                     <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-4">
-                        Les preuves, en chiffres
+                        Les preuves, <em>en chiffres</em>
                     </h2>
                 </div>
-                <div class="grid md:grid-cols-4 gap-12 text-center">
-                    <div class="section-appear">
-                        <div class="text-4xl md:text-6xl font-bold mb-3 num-highlight stat-glow">100<span class="text-3xl md:text-4xl text-gray-500">%</span></div>
-                        <p class="text-sm text-gray-500 font-semibold uppercase tracking-wide">Des appels traités (humain ou IA+humain)</p>
-                        <p class="text-xs text-gray-500 mt-2">Moyenne secteur : 85%</p>
+                <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                    <div class="card-feature p-8 section-appear">
+                        <div class="w-10 h-10 mx-auto mb-4 rounded-lg bg-blue-600 flex items-center justify-center text-white">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                        </div>
+                        <div class="text-4xl md:text-5xl font-bold mb-2 num-highlight">100<span class="text-2xl md:text-3xl text-gray-400">%</span></div>
+                        <p class="text-sm text-gray-600 font-semibold">Appels traités</p>
+                        <p class="text-xs text-gray-400 mt-1">Moyenne secteur : 85%</p>
                     </div>
-                    <div class="section-appear">
-                        <div class="text-4xl md:text-6xl font-bold mb-3 num-highlight stat-glow">1:27</div>
-                        <p class="text-sm text-gray-500 font-semibold uppercase tracking-wide">DMR Moyenne</p>
-                        <p class="text-xs text-gray-500 mt-2">Moyenne secteur : 3:45</p>
+                    <div class="card-feature p-8 section-appear">
+                        <div class="w-10 h-10 mx-auto mb-4 rounded-lg bg-blue-600 flex items-center justify-center text-white">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                        </div>
+                        <div class="text-4xl md:text-5xl font-bold mb-2 num-highlight">1:27</div>
+                        <p class="text-sm text-gray-600 font-semibold">DMR moyenne</p>
+                        <p class="text-xs text-gray-400 mt-1">Moyenne secteur : 3:45</p>
                     </div>
-                    <div class="section-appear">
-                        <div class="text-4xl md:text-6xl font-bold mb-3 num-highlight stat-glow">3.7<span class="text-3xl md:text-4xl text-gray-500">%</span></div>
-                        <p class="text-sm text-gray-500 font-semibold uppercase tracking-wide">Appels Abandonnés</p>
-                        <p class="text-xs text-gray-500 mt-2">Moyenne secteur : 15%</p>
+                    <div class="card-feature p-8 section-appear">
+                        <div class="w-10 h-10 mx-auto mb-4 rounded-lg bg-blue-600 flex items-center justify-center text-white">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
+                        </div>
+                        <div class="text-4xl md:text-5xl font-bold mb-2 num-highlight">3.7<span class="text-2xl md:text-3xl text-gray-400">%</span></div>
+                        <p class="text-sm text-gray-600 font-semibold">Appels abandonnés</p>
+                        <p class="text-xs text-gray-400 mt-1">Moyenne secteur : 15%</p>
                     </div>
-                    <div class="section-appear">
-                        <div class="text-4xl md:text-6xl font-bold mb-3 num-highlight stat-glow">150<span
-                                class="text-3xl md:text-4xl text-gray-500">+</span></div>
-                        <p class="text-sm text-gray-500 font-semibold uppercase tracking-wide">Appels / Mois</p>
+                    <div class="card-feature p-8 section-appear">
+                        <div class="w-10 h-10 mx-auto mb-4 rounded-lg bg-blue-600 flex items-center justify-center text-white">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                        </div>
+                        <div class="text-4xl md:text-5xl font-bold mb-2 num-highlight">150<span class="text-2xl md:text-3xl text-gray-400">+</span></div>
+                        <p class="text-sm text-gray-600 font-semibold">Appels / mois</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Notre équipe -->
-        <section class="py-20 px-6 bg-white">
+        <section class="py-20 px-6 section-alt">
             <div class="max-w-6xl mx-auto">
                 <div class="grid lg:grid-cols-2 gap-12 items-center">
                     <div class="section-appear">
                         <picture>
                             <source srcset="images/supporttech.webp" type="image/webp">
                             <img loading="lazy" src="images/supporttech.jpg" alt="Équipe support client JCSM - Centre d'appel IRVE"
-                                class="w-full h-auto rounded-2xl shadow-xl" width="785" height="785">
+                                class="w-full h-auto rounded-2xl" width="785" height="785">
                         </picture>
                     </div>
                     <div class="section-appear">
+                        <p class="sec-label mb-3">Notre équipe</p>
                         <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-6">
-                            Des experts IRVE basés en France. Pas un script offshore.
+                            Des experts IRVE basés en France. <em>Pas un script offshore.</em>
                         </h2>
-                        <p class="text-xl text-gray-600 leading-relaxed mb-6">
+                        <p class="text-lg text-gray-600 leading-relaxed mb-8">
                             Notre centre d'appel est 100% basé en France, avec des agents formés spécifiquement aux problématiques IRVE. Disponibles 24/7, ils assurent un support technique de qualité dans votre langue.
                         </p>
                         <ul class="space-y-4">
                             <li class="flex items-start">
-                                <svg class="w-6 h-6 mr-3 text-blue-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                                </svg>
+                                <div class="w-8 h-8 rounded-lg bg-blue-600 flex items-center justify-center text-white flex-shrink-0 mr-3 mt-0.5">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 21v-4m0 0V5a2 2 0 012-2h6.5l1 1H21l-3 6 3 6h-8.5l-1-1H5a2 2 0 00-2 2z"/></svg>
+                                </div>
                                 <span class="text-gray-700"><strong>Hotline 100% France</strong>, aucun plateau offshore, agents basés en France</span>
                             </li>
                             <li class="flex items-start">
-                                <svg class="w-6 h-6 mr-3 text-blue-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                                </svg>
+                                <div class="w-8 h-8 rounded-lg bg-blue-600 flex items-center justify-center text-white flex-shrink-0 mr-3 mt-0.5">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+                                </div>
                                 <span class="text-gray-700">Formation continue sur les nouvelles bornes</span>
                             </li>
                             <li class="flex items-start">
-                                <svg class="w-6 h-6 mr-3 text-blue-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                                </svg>
+                                <div class="w-8 h-8 rounded-lg bg-blue-600 flex items-center justify-center text-white flex-shrink-0 mr-3 mt-0.5">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+                                </div>
                                 <span class="text-gray-700"><strong>Entreprise inclusive</strong>, recrutement actif de personnes RQTH/AAH</span>
                             </li>
                             <li class="flex items-start">
-                                <svg class="w-6 h-6 mr-3 text-blue-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                                </svg>
+                                <div class="w-8 h-8 rounded-lg bg-blue-600 flex items-center justify-center text-white flex-shrink-0 mr-3 mt-0.5">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"/></svg>
+                                </div>
                                 <span class="text-gray-700">Scripts adaptés à votre marque</span>
                             </li>
                             <li class="flex items-start">
-                                <svg class="w-6 h-6 mr-3 text-blue-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                                </svg>
+                                <div class="w-8 h-8 rounded-lg bg-blue-600 flex items-center justify-center text-white flex-shrink-0 mr-3 mt-0.5">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+                                </div>
                                 <span class="text-gray-700">Supervision qualité en temps réel</span>
                             </li>
                         </ul>
@@ -540,146 +484,159 @@
         </section>
 
         <!-- Features -->
-        <section class="py-20 px-6 bg-gray-50">
+        <section class="py-20 px-6">
             <div class="max-w-6xl mx-auto">
-                <div class="text-center mb-20 section-appear">
+                <div class="text-center mb-16 section-appear">
+                    <p class="sec-label mb-3">Inclus dans le service</p>
                     <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-6">
-                        Ce qui est inclus. Sans petites lignes.
+                        Ce qui est inclus. <em>Sans petites lignes.</em>
                     </h2>
                 </div>
 
-                <div class="grid md:grid-cols-3 gap-6">
-                    <div class="card-hover why-card-industrial bg-white border border-gray-200 rounded-2xl p-6 section-appear">
-                        <h3 class="text-xl font-bold mb-3">Techniciens formés IRVE</h3>
-                        <p class="text-gray-600 leading-relaxed">Agents spécialement formés aux problématiques des bornes de recharge électrique.</p>
+                <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="card-feature section-appear">
+                        <div class="w-10 h-10 rounded-lg bg-blue-600 flex items-center justify-center text-white mb-5">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
+                        </div>
+                        <h3 class="text-base font-bold mb-2">Techniciens formés IRVE</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">Agents spécialement formés aux problématiques des bornes de recharge électrique.</p>
                     </div>
 
-                    <div class="card-hover why-card-industrial bg-white border border-gray-200 rounded-2xl p-6 section-appear">
-                        <h3 class="text-xl font-bold mb-3">Temps de réponse</h3>
-                        <p class="text-gray-600 leading-relaxed">Objectif : décroché en moins de 30 secondes.</p>
+                    <div class="card-feature section-appear">
+                        <div class="w-10 h-10 rounded-lg bg-blue-600 flex items-center justify-center text-white mb-5">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                        </div>
+                        <h3 class="text-base font-bold mb-2">Temps de réponse</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">Objectif : décroché en moins de 30 secondes.</p>
                     </div>
 
-                    <div class="card-hover why-card-industrial bg-white border border-gray-200 rounded-2xl p-6 section-appear">
-                        <h3 class="text-xl font-bold mb-3">Conformité RGPD</h3>
-                        <p class="text-gray-600 leading-relaxed">Hébergement des données en France et respect strict de
+                    <div class="card-feature section-appear">
+                        <div class="w-10 h-10 rounded-lg bg-blue-600 flex items-center justify-center text-white mb-5">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+                        </div>
+                        <h3 class="text-base font-bold mb-2">Conformité RGPD</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">Hébergement des données en France et respect strict de
                             la confidentialité.</p>
                     </div>
 
-                    <div class="card-hover why-card-industrial bg-white border border-gray-200 rounded-2xl p-6 section-appear">
-                        <h3 class="text-xl font-bold mb-3">Diagnostic assisté</h3>
-                        <p class="text-gray-600 leading-relaxed">Assistance IA pour traiter les demandes simples et
+                    <div class="card-feature section-appear">
+                        <div class="w-10 h-10 rounded-lg bg-blue-600 flex items-center justify-center text-white mb-5">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                        </div>
+                        <h3 class="text-base font-bold mb-2">Diagnostic assisté</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">Assistance IA pour traiter les demandes simples et
                             orienter efficacement.</p>
                     </div>
 
-                    <div class="card-hover why-card-industrial bg-white border border-gray-200 rounded-2xl p-6 section-appear">
-                        <h3 class="text-xl font-bold mb-3">Reporting mensuel</h3>
-                        <p class="text-gray-600 leading-relaxed">Dashboards en temps réel pour piloter la qualité de
+                    <div class="card-feature section-appear">
+                        <div class="w-10 h-10 rounded-lg bg-blue-600 flex items-center justify-center text-white mb-5">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+                        </div>
+                        <h3 class="text-base font-bold mb-2">Reporting mensuel</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">Dashboards en temps réel pour piloter la qualité de
                             votre support.</p>
                     </div>
 
-                    <div class="card-hover why-card-industrial bg-white border border-gray-200 rounded-2xl p-6 section-appear">
-                        <h3 class="text-xl font-bold mb-3">Multilingue</h3>
-                        <p class="text-gray-600 leading-relaxed">Support en français, anglais et néerlandais pour vos
+                    <div class="card-feature section-appear">
+                        <div class="w-10 h-10 rounded-lg bg-blue-600 flex items-center justify-center text-white mb-5">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"/></svg>
+                        </div>
+                        <h3 class="text-base font-bold mb-2">Multilingue</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">Support en français, anglais et néerlandais pour vos
                             utilisateurs internationaux.</p>
                     </div>
 
-                    <div class="card-hover why-card-industrial bg-white border border-gray-200 rounded-2xl p-6 section-appear">
-                        <h3 class="text-xl font-bold mb-3">100% basé en France</h3>
-                        <p class="text-gray-600 leading-relaxed">Pas de délocalisation : nos agents sont basés en France. Données hébergées en France, conformité RGPD native.</p>
+                    <div class="card-feature section-appear">
+                        <div class="w-10 h-10 rounded-lg bg-blue-600 flex items-center justify-center text-white mb-5">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                        </div>
+                        <h3 class="text-base font-bold mb-2">100% basé en France</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">Pas de délocalisation : nos agents sont basés en France. Données hébergées en France, conformité RGPD native.</p>
                     </div>
 
-                    <div class="card-hover why-card-industrial bg-white border border-gray-200 rounded-2xl p-6 section-appear">
-                        <h3 class="text-xl font-bold mb-3">Inclusion & RQTH</h3>
-                        <p class="text-gray-600 leading-relaxed">Nos postes d'agents support sont ouverts aux bénéficiaires RQTH/AAH. Postes adaptés, télétravail possible, accompagnement personnalisé.</p>
+                    <div class="card-feature section-appear">
+                        <div class="w-10 h-10 rounded-lg bg-blue-600 flex items-center justify-center text-white mb-5">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+                        </div>
+                        <h3 class="text-base font-bold mb-2">Inclusion & RQTH</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">Nos postes d'agents support sont ouverts aux bénéficiaires RQTH/AAH. Postes adaptés, télétravail possible, accompagnement personnalisé.</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Process -->
-        <section class="py-20 px-6 bg-white">
-            <div class="max-w-6xl mx-auto">
-                <div class="text-center mb-20 section-appear">
+        <section class="section-dark py-20 px-6">
+            <div class="max-w-5xl mx-auto">
+                <div class="text-center mb-16 section-appear">
+                    <p class="sec-label mb-3">Mise en place</p>
                     <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-6">
                         Déployé en 48h. Fiable pour des années.
                     </h2>
                 </div>
 
-                <div class="space-y-6">
-                    <div class="card-hover why-card-industrial bg-white border border-gray-200 rounded-2xl p-6 section-appear">
-                        <div class="flex items-start gap-6">
-                            <div
-                                class="w-12 h-12 bg-gray-900 rounded-xl flex items-center justify-center text-white font-bold flex-shrink-0 icon-pulse-hover">
-                                1</div>
-                            <div>
-                                <h3 class="text-2xl font-bold mb-3">Configuration Initiale</h3>
-                                <p class="text-gray-600 leading-relaxed">Nous paramétrons le service selon vos besoins :
-                                    canaux, horaires, scripts, escalade, identité de marque.</p>
-                            </div>
-                        </div>
+                <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="step section-appear">
+                        <span class="num block mb-3">01</span>
+                        <h3 class="text-lg font-bold mb-2 text-white">Configuration</h3>
+                        <p class="text-sm leading-relaxed" style="color: #b8c5d6;">Canaux, horaires, scripts d'appel, procédures d'escalade, identité de marque.</p>
                     </div>
 
-                    <div class="card-hover why-card-industrial bg-white border border-gray-200 rounded-2xl p-6 section-appear">
-                        <div class="flex items-start gap-6">
-                            <div
-                                class="w-12 h-12 bg-gray-900 rounded-xl flex items-center justify-center text-white font-bold flex-shrink-0 icon-pulse-hover">
-                                2</div>
-                            <div>
-                                <h3 class="text-2xl font-bold mb-3">Formation des Équipes</h3>
-                                <p class="text-gray-600 leading-relaxed">Nos agents sont formés spécifiquement à votre
-                                    infrastructure et à vos processus.</p>
-                            </div>
-                        </div>
+                    <div class="step section-appear">
+                        <span class="num block mb-3">02</span>
+                        <h3 class="text-lg font-bold mb-2 text-white">Formation</h3>
+                        <p class="text-sm leading-relaxed" style="color: #b8c5d6;">Agents formés spécifiquement à votre infrastructure et à vos processus.</p>
                     </div>
 
-                    <div class="card-hover why-card-industrial bg-white border border-gray-200 rounded-2xl p-6 section-appear">
-                        <div class="flex items-start gap-6">
-                            <div
-                                class="w-12 h-12 bg-gray-900 rounded-xl flex items-center justify-center text-white font-bold flex-shrink-0 icon-pulse-hover">
-                                3</div>
-                            <div>
-                                <h3 class="text-2xl font-bold mb-3">Mise en Production</h3>
-                                <p class="text-gray-600 leading-relaxed">Activation progressive du service avec
-                                    accompagnement et ajustements en temps réel.</p>
-                            </div>
-                        </div>
+                    <div class="step section-appear">
+                        <span class="num block mb-3">03</span>
+                        <h3 class="text-lg font-bold mb-2 text-white">Production</h3>
+                        <p class="text-sm leading-relaxed" style="color: #b8c5d6;">Activation progressive du service avec accompagnement et ajustements en temps réel.</p>
                     </div>
 
-                    <div class="card-hover why-card-industrial bg-white border border-gray-200 rounded-2xl p-6 section-appear">
-                        <div class="flex items-start gap-6">
-                            <div
-                                class="w-12 h-12 bg-gray-900 rounded-xl flex items-center justify-center text-white font-bold flex-shrink-0 icon-pulse-hover">
-                                4</div>
-                            <div>
-                                <h3 class="text-2xl font-bold mb-4">Amélioration Continue</h3>
-                                <p class="text-gray-600 leading-relaxed">Analyses régulières, optimisations et rapports
-                                    mensuels pour améliorer constamment la qualité.</p>
-                            </div>
-                        </div>
+                    <div class="step section-appear">
+                        <span class="num block mb-3">04</span>
+                        <h3 class="text-lg font-bold mb-2 text-white">Amélioration</h3>
+                        <p class="text-sm leading-relaxed" style="color: #b8c5d6;">Analyses régulières, optimisations et rapports mensuels pour améliorer la qualité.</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Autres services -->
-        <section class="py-20 px-6 bg-gray-50">
+        <section class="py-16 px-6">
             <div class="max-w-6xl mx-auto">
-                <h2 class="text-2xl font-bold text-center mb-8 section-appear">Nos autres services</h2>
-                <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                    <a href="/pilotage-projets" class="bg-white rounded-xl p-5 hover:shadow-lg transition-shadow text-center section-appear">
-                        <h3 class="font-bold text-sm mb-1">Pilotage de projets</h3>
+                <div class="text-center mb-10 section-appear">
+                    <p class="sec-label mb-3">Voir aussi</p>
+                    <h2 class="text-2xl font-bold">Nos autres expertises</h2>
+                </div>
+                <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+                    <a href="/pilotage-projets" class="card-feature group block text-center section-appear">
+                        <div class="w-10 h-10 mx-auto rounded-lg bg-blue-600 flex items-center justify-center text-white mb-4">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"/></svg>
+                        </div>
+                        <h3 class="font-bold text-sm mb-1 group-hover:text-blue-600 transition-colors">Pilotage de projets</h3>
                         <p class="text-gray-500 text-xs">Coordination et suivi de vos projets IRVE</p>
                     </a>
-                    <a href="/installation-conformite" class="bg-white rounded-xl p-5 hover:shadow-lg transition-shadow text-center section-appear">
-                        <h3 class="font-bold text-sm mb-1">Installation</h3>
+                    <a href="/installation-conformite" class="card-feature group block text-center section-appear">
+                        <div class="w-10 h-10 mx-auto rounded-lg bg-blue-600 flex items-center justify-center text-white mb-4">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
+                        </div>
+                        <h3 class="font-bold text-sm mb-1 group-hover:text-blue-600 transition-colors">Installation</h3>
                         <p class="text-gray-500 text-xs">Installation certifiée Qualifelec</p>
                     </a>
-                    <a href="/exploitation" class="bg-white rounded-xl p-5 hover:shadow-lg transition-shadow text-center section-appear">
-                        <h3 class="font-bold text-sm mb-1">Exploitation</h3>
+                    <a href="/exploitation" class="card-feature group block text-center section-appear">
+                        <div class="w-10 h-10 mx-auto rounded-lg bg-blue-600 flex items-center justify-center text-white mb-4">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.066 2.573c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.573 1.066c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.066-2.573c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                        </div>
+                        <h3 class="font-bold text-sm mb-1 group-hover:text-blue-600 transition-colors">Exploitation</h3>
                         <p class="text-gray-500 text-xs">Maintenance préventive et curative</p>
                     </a>
-                    <a href="/securisation-installations" class="bg-white rounded-xl p-5 hover:shadow-lg transition-shadow text-center section-appear">
-                        <h3 class="font-bold text-sm mb-1">Sécurisation</h3>
+                    <a href="/securisation-installations" class="card-feature group block text-center section-appear">
+                        <div class="w-10 h-10 mx-auto rounded-lg bg-blue-600 flex items-center justify-center text-white mb-4">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                        </div>
+                        <h3 class="font-bold text-sm mb-1 group-hover:text-blue-600 transition-colors">Sécurisation</h3>
                         <p class="text-gray-500 text-xs">Protection anti-vandalisme</p>
                     </a>
                 </div>
@@ -687,112 +644,114 @@
         </section>
 
         <!-- FAQ -->
-        <section class="py-20 px-6 bg-white">
+        <section class="py-20 px-6 section-alt">
             <div class="max-w-4xl mx-auto">
-                <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-12 text-center section-appear">Questions fréquentes</h2>
-                <div class="space-y-6">
-                    <details class="bg-white rounded-xl p-6 shadow-sm border border-gray-100 section-appear" open>
-                        <summary class="font-semibold text-lg cursor-pointer">Quels canaux de support proposez-vous ?</summary>
-                        <p class="mt-4 text-gray-600 leading-relaxed">Notre support est multicanal : hotline téléphonique 24/7, chat en direct sur votre application ou site web, email avec accusé de réception et suivi de tickets. Tous les canaux sont intégrés dans un outil unique pour une traçabilité complète.</p>
+                <div class="text-center mb-12 section-appear">
+                    <p class="sec-label mb-3">FAQ</p>
+                    <h2 class="text-3xl md:text-4xl font-bold tracking-tight">Questions fréquentes</h2>
+                </div>
+                <div class="space-y-4">
+                    <details class="faq-item bg-white rounded-xl border border-gray-200 section-appear" open>
+                        <summary class="flex items-center justify-between p-6 font-semibold text-lg cursor-pointer">
+                            <span>Quels canaux de support proposez-vous ?</span>
+                            <svg class="w-5 h-5 text-blue-600 flex-shrink-0 ml-4 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/></svg>
+                        </summary>
+                        <div class="faq-content px-6 pb-6">
+                            <p class="text-gray-600 leading-relaxed">Notre support est multicanal : hotline téléphonique 24/7, chat en direct sur votre application ou site web, email avec accusé de réception et suivi de tickets. Tous les canaux sont intégrés dans un outil unique pour une traçabilité complète.</p>
+                        </div>
                     </details>
-                    <details class="bg-white rounded-xl p-6 shadow-sm border border-gray-100 section-appear">
-                        <summary class="font-semibold text-lg cursor-pointer">Qu'est-ce que le service en marque blanche ?</summary>
-                        <p class="mt-4 text-gray-600 leading-relaxed">Nos agents répondent au nom de votre entreprise, avec vos procédures et votre identité visuelle. Vos utilisateurs finaux ne savent pas que le support est externalisé. Nous adaptons les scripts d'appel, les signatures email et les interfaces chat à votre charte.</p>
+                    <details class="faq-item bg-white rounded-xl border border-gray-200 section-appear">
+                        <summary class="flex items-center justify-between p-6 font-semibold text-lg cursor-pointer">
+                            <span>Qu'est-ce que le service en marque blanche ?</span>
+                            <svg class="w-5 h-5 text-blue-600 flex-shrink-0 ml-4 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/></svg>
+                        </summary>
+                        <div class="faq-content px-6 pb-6">
+                            <p class="text-gray-600 leading-relaxed">Nos agents répondent au nom de votre entreprise, avec vos procédures et votre identité visuelle. Vos utilisateurs finaux ne savent pas que le support est externalisé. Nous adaptons les scripts d'appel, les signatures email et les interfaces chat à votre charte.</p>
+                        </div>
                     </details>
-                    <details class="bg-white rounded-xl p-6 shadow-sm border border-gray-100 section-appear">
-                        <summary class="font-semibold text-lg cursor-pointer">Quel est votre taux de résolution au premier appel ?</summary>
-                        <p class="mt-4 text-gray-600 leading-relaxed">Notre taux de résolution au premier contact est de 95%. Grâce à la télégestion et au diagnostic à distance, nos techniciens peuvent résoudre la majorité des incidents (redémarrage de borne, réinitialisation de session, déblocage de connecteur) sans déplacement sur site.</p>
+                    <details class="faq-item bg-white rounded-xl border border-gray-200 section-appear">
+                        <summary class="flex items-center justify-between p-6 font-semibold text-lg cursor-pointer">
+                            <span>Quel est votre taux de résolution au premier appel ?</span>
+                            <svg class="w-5 h-5 text-blue-600 flex-shrink-0 ml-4 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/></svg>
+                        </summary>
+                        <div class="faq-content px-6 pb-6">
+                            <p class="text-gray-600 leading-relaxed">Notre taux de résolution au premier contact est de 95%. Grâce à la télégestion et au diagnostic à distance, nos techniciens peuvent résoudre la majorité des incidents (redémarrage de borne, réinitialisation de session, déblocage de connecteur) sans déplacement sur site.</p>
+                        </div>
                     </details>
-                    <details class="bg-white rounded-xl p-6 shadow-sm border border-gray-100 section-appear">
-                        <summary class="font-semibold text-lg cursor-pointer">Gérez-vous le support en plusieurs langues ?</summary>
-                        <p class="mt-4 text-gray-600 leading-relaxed">Oui, notre équipe assure le support en français, néerlandais et anglais pour couvrir la France et la Belgique (Wallonie, Flandre, Bruxelles). D'autres langues peuvent être ajoutées selon vos besoins.</p>
+                    <details class="faq-item bg-white rounded-xl border border-gray-200 section-appear">
+                        <summary class="flex items-center justify-between p-6 font-semibold text-lg cursor-pointer">
+                            <span>Gérez-vous le support en plusieurs langues ?</span>
+                            <svg class="w-5 h-5 text-blue-600 flex-shrink-0 ml-4 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/></svg>
+                        </summary>
+                        <div class="faq-content px-6 pb-6">
+                            <p class="text-gray-600 leading-relaxed">Oui, notre équipe assure le support en français, néerlandais et anglais pour couvrir la France et la Belgique (Wallonie, Flandre, Bruxelles). D'autres langues peuvent être ajoutées selon vos besoins.</p>
+                        </div>
                     </details>
                 </div>
             </div>
         </section>
 
         <!-- CTA -->
-        <section class="py-20 px-6 bg-gray-50">
-            <div class="max-w-4xl mx-auto text-center section-appear">
-                <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-6">
-                    Votre marque. Notre hotline. Zéro friction.
-                </h2>
-                <p class="text-xl text-gray-600 mb-10 leading-relaxed max-w-3xl mx-auto">
-                    Découvrez notre solution de support technique multicanal 24/7 en France et Belgique et offrez un service fiable à
-                    vos utilisateurs finaux.
-                </p>
-                <div class="flex flex-wrap gap-4 justify-center">
-                    <a href="/contact"
-                        class="btn-primary px-10 py-5 rounded-xl font-medium text-lg inline-block transition-transform text-white">
-                        Échanger avec un expert
-                    </a>
-                    <a href="tel:+33183755706"
-                        class="border border-gray-300 text-gray-700 px-10 py-5 rounded-xl font-medium text-lg inline-block hover:bg-gray-100 transition-colors">
-                        01 83 75 57 06
-                    </a>
+        <section class="py-20 px-6">
+            <div class="max-w-4xl mx-auto section-appear">
+                <div class="card-cta px-8 py-14 sm:px-12 sm:py-16">
+                    <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-6">
+                        Votre marque. Notre hotline. Zéro friction.
+                    </h2>
+                    <p class="text-lg mb-10 leading-relaxed max-w-2xl mx-auto" style="color: rgba(255,255,255,0.85);">
+                        Découvrez notre solution de support technique multicanal 24/7 en France et Belgique et offrez un service fiable à
+                        vos utilisateurs finaux.
+                    </p>
+                    <div class="flex flex-wrap gap-4 justify-center">
+                        <a href="/contact"
+                            class="bg-white text-blue-600 px-10 py-4 rounded-full font-semibold text-base inline-block transition-all hover:bg-gray-50 hover:shadow-lg">
+                            Échanger avec un expert
+                        </a>
+                        <a href="tel:+33183755706"
+                            class="border-2 border-white text-white px-10 py-4 rounded-full font-semibold text-base inline-block hover:bg-white hover:text-blue-600 transition-all">
+                            01 83 75 57 06
+                        </a>
+                    </div>
                 </div>
             </div>
         </section>
 
         <!-- Articles du blog -->
-        <section class="py-20 bg-white">
+        <section class="py-20 section-alt">
             <div class="max-w-5xl mx-auto px-6">
-                <h2 class="text-2xl font-bold text-center mb-8 section-appear">À lire aussi</h2>
+                <div class="text-center mb-10 section-appear">
+                    <p class="sec-label mb-3">Blog</p>
+                    <h2 class="text-2xl font-bold">À lire aussi</h2>
+                </div>
                 <div class="grid sm:grid-cols-3 gap-6">
-                    <a href="/blog/hotline-irve-marque-blanche" class="group bg-white border border-gray-200 rounded-xl p-5 hover:border-blue-200 transition-colors section-appear">
+                    <a href="/blog/hotline-irve-marque-blanche" class="card-feature group block section-appear">
+                        <div class="w-10 h-10 rounded-lg bg-blue-600 flex items-center justify-center text-white mb-4">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+                        </div>
                         <h3 class="font-bold text-gray-900 group-hover:text-blue-600 transition-colors mb-2">Hotline IRVE en marque blanche</h3>
                         <p class="text-sm text-gray-600">Pourquoi et comment externaliser votre support technique 24/7 pour les utilisateurs de bornes de recharge.</p>
-                        <span class="text-sm font-semibold text-blue-600 mt-3 inline-block">Lire →</span>
+                        <span class="text-sm font-semibold text-blue-600 mt-3 inline-block group-hover:translate-x-1 transition-transform">Lire l'article &#8594;</span>
                     </a>
-                    <a href="/blog/supervision-distance-bornes-irve" class="group bg-white border border-gray-200 rounded-xl p-5 hover:border-blue-200 transition-colors section-appear">
+                    <a href="/blog/supervision-distance-bornes-irve" class="card-feature group block section-appear">
+                        <div class="w-10 h-10 rounded-lg bg-blue-600 flex items-center justify-center text-white mb-4">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+                        </div>
                         <h3 class="font-bold text-gray-900 group-hover:text-blue-600 transition-colors mb-2">Supervision à distance des bornes IRVE</h3>
                         <p class="text-sm text-gray-600">Comment le monitoring à distance permet de résoudre la majorité des incidents sans déplacement de technicien.</p>
-                        <span class="text-sm font-semibold text-blue-600 mt-3 inline-block">Lire →</span>
+                        <span class="text-sm font-semibold text-blue-600 mt-3 inline-block group-hover:translate-x-1 transition-transform">Lire l'article &#8594;</span>
                     </a>
-                    <a href="/blog/smart-charging-pilotage-energetique-bornes" class="group bg-white border border-gray-200 rounded-xl p-5 hover:border-blue-200 transition-colors section-appear">
+                    <a href="/blog/smart-charging-pilotage-energetique-bornes" class="card-feature group block section-appear">
+                        <div class="w-10 h-10 rounded-lg bg-blue-600 flex items-center justify-center text-white mb-4">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                        </div>
                         <h3 class="font-bold text-gray-900 group-hover:text-blue-600 transition-colors mb-2">Smart charging : piloter la recharge de vos bornes</h3>
                         <p class="text-sm text-gray-600">Le pilotage intelligent de la recharge pour optimiser la consommation énergétique et réduire les coûts d'exploitation.</p>
-                        <span class="text-sm font-semibold text-blue-600 mt-3 inline-block">Lire →</span>
+                        <span class="text-sm font-semibold text-blue-600 mt-3 inline-block group-hover:translate-x-1 transition-transform">Lire l'article &#8594;</span>
                     </a>
                 </div>
             </div>
         </section>
 
-        <!-- ============ CROSS-SELLING ============ -->
-        <section class="py-20 px-6 bg-gray-50" aria-label="Services complémentaires">
-            <div class="max-w-6xl mx-auto">
-                <div class="text-center mb-14 section-appear">
-                    <p class="text-xs font-bold uppercase tracking-[2px] text-blue-600 mb-3">Aller plus loin</p>
-                    <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-4 text-gray-900">Services complémentaires</h2>
-                </div>
-                <div class="grid md:grid-cols-3 gap-8">
-                    <a href="/exploitation" class="card-hover bg-white border border-gray-200 rounded-2xl p-8 section-appear group block">
-                        <div class="w-12 h-12 bg-blue-50 border border-blue-100 rounded-xl flex items-center justify-center text-blue-600 mb-6">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.066 2.573c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.573 1.066c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.066-2.573c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-                        </div>
-                        <h3 class="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors">Exploitation & maintenance</h3>
-                        <p class="text-gray-600 text-sm leading-relaxed">Maintenance préventive et curative multi-marques, SLA garanti, rapports d'intervention détaillés.</p>
-                        <span class="text-sm font-semibold text-blue-600 mt-4 inline-block">Découvrir →</span>
-                    </a>
-                    <a href="/securisation-installations" class="card-hover bg-white border border-gray-200 rounded-2xl p-8 section-appear group block">
-                        <div class="w-12 h-12 bg-blue-50 border border-blue-100 rounded-xl flex items-center justify-center text-blue-600 mb-6">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
-                        </div>
-                        <h3 class="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors">Sécurisation</h3>
-                        <p class="text-gray-600 text-sm leading-relaxed">Audits de conformité, mise aux normes, sécurisation électrique et physique de vos installations IRVE.</p>
-                        <span class="text-sm font-semibold text-blue-600 mt-4 inline-block">Découvrir →</span>
-                    </a>
-                    <a href="/couverture" class="card-hover bg-white border border-gray-200 rounded-2xl p-8 section-appear group block">
-                        <div class="w-12 h-12 bg-blue-50 border border-blue-100 rounded-xl flex items-center justify-center text-blue-600 mb-6">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                        </div>
-                        <h3 class="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors">Couverture nationale</h3>
-                        <p class="text-gray-600 text-sm leading-relaxed">Intervention sur toute la France et la Belgique. Vérifiez la couverture de votre site en quelques clics.</p>
-                        <span class="text-sm font-semibold text-blue-600 mt-4 inline-block">Voir la carte →</span>
-                    </a>
-                </div>
-            </div>
-        </section>
     </main>
 
         <footer class="border-t border-gray-100 py-16 px-6 bg-white" role="contentinfo" aria-label="Pied de page">
@@ -832,6 +791,7 @@
                             <li><a href="/solutions/" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Solutions</a></li>
                             <li><a href="/a-propos" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">À propos</a></li>
                             <li><a href="/inclusion" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Inclusion</a></li>
+                            <li><a href="/presse" title="Presse et relations médias" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Presse</a></li>
                         </ul>
                     </nav>
                 </div>

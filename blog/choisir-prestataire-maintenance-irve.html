@@ -96,17 +96,6 @@
     <meta name="twitter:description" content="Critères objectifs pour sélectionner un prestataire de maintenance de bornes de recharge.">
     <meta name="twitter:image" content="https://jcsm.fr/images/index.webp">
     <meta name="twitter:image:alt" content="Infrastructure de recharge pour véhicules électriques">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
-    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"
-        media="print" onload="this.media='all'">
-    <noscript>
-        <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600;700;800&display=swap"
-            rel="stylesheet">
-    </noscript>
     <link rel="stylesheet" href="../css/critical.css?v=74">
     <link rel="stylesheet" href="../css/tailwind.css?v=74" media="print" onload="this.media='all'">
     <noscript><link rel="stylesheet" href="../css/tailwind.css?v=74"></noscript>
@@ -116,6 +105,7 @@
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
+<noscript><style>.preloader{display:none!important}</style></noscript>
 </head>
 <body class="text-gray-900 bg-white">
     <div class="reading-progress" id="reading-progress"></div>
@@ -224,8 +214,8 @@
                             <p class="text-gray-600 text-sm leading-relaxed mb-2">Visites planifiées (généralement 1 à 2 par an) pour inspecter, nettoyer et vérifier l'état des équipements avant qu'une panne ne survienne.</p>
                             <p class="text-gray-600 text-sm leading-relaxed"><strong>Inclut typiquement :</strong> inspection visuelle, vérification des serrages, test des protections électriques (différentiel, parafoudre), contrôle des connecteurs, nettoyage, test de charge, vérification firmware, rapport d'intervention.</p>
                         </div>
-                        <div class="bg-amber-50 rounded-xl p-5 border border-amber-100">
-                            <h3 class="font-semibold text-amber-900 mb-2">Maintenance curative</h3>
+                        <div class="rounded-xl p-5 border border-blue-200" style="background:rgba(37,99,235,0.06)">
+                            <h3 class="font-semibold text-gray-900 mb-2">Maintenance curative</h3>
                             <p class="text-gray-600 text-sm leading-relaxed mb-2">Intervention sur panne, déclenchée par un signalement utilisateur, une alerte de supervision ou un appel au support. L'objectif est de remettre la borne en service le plus vite possible.</p>
                             <p class="text-gray-600 text-sm leading-relaxed"><strong>Inclut typiquement :</strong> diagnostic (à distance puis sur site si nécessaire), remplacement de pièces défectueuses, reconfiguration, mise à jour logicielle, test de remise en service. Les pièces détachées peuvent être incluses ou facturées en sus selon le contrat.</p>
                         </div>
@@ -299,7 +289,7 @@
                     <div class="overflow-x-auto mb-6">
                         <table class="w-full text-sm text-gray-600 border border-gray-200 rounded-lg">
                             <thead>
-                                <tr class="bg-gray-50">
+                                <tr style="background:#FAFAF7">
                                     <th scope="col" class="text-left px-4 py-3 font-semibold text-gray-900 border-b border-gray-200">Clause</th>
                                     <th scope="col" class="text-left px-4 py-3 font-semibold text-gray-900 border-b border-gray-200">Valeur typique</th>
                                     <th scope="col" class="text-left px-4 py-3 font-semibold text-gray-900 border-b border-gray-200">Ce qu'il faut vérifier</th>
@@ -357,7 +347,7 @@
                     <h2 id="checklist" class="text-2xl font-bold mt-12 mb-4">Questions à poser avant de signer</h2>
                     <p class="text-gray-600 leading-relaxed mb-4">Une liste de questions concrètes à adresser à chaque prestataire candidat. Les réponses doivent être précises, pas évasives.</p>
 
-                    <div class="bg-gray-50 rounded-2xl p-6 mb-8">
+                    <div class="rounded-2xl p-6 mb-8" style="background:#FAFAF7">
                         <h3 class="font-semibold text-gray-900 mb-4">Checklist d'évaluation</h3>
                         <ol class="list-decimal pl-5 text-gray-600 space-y-3 text-sm leading-relaxed">
                             <li><strong>Qualifications</strong> : « Quel est votre numéro de qualification IRVE ? À quelle date expire-t-elle ? Quels niveaux (Q1 à Q4) ? »</li>
@@ -378,7 +368,7 @@
 
                     <p class="text-gray-600 leading-relaxed mb-4">Pour aller plus loin sur les aspects techniques de la maintenance, consultez notre <a href="/blog/maintenance-bornes-recharge-guide" class="text-blue-600 hover:text-blue-800 underline">guide complet de la maintenance IRVE</a>.</p>
 
-                    <div class="bg-gray-50 border border-gray-200 rounded-2xl p-6 my-8">
+                    <div class="border border-gray-200 rounded-2xl p-6 my-8" style="background:#FAFAF7">
                         <h3 class="text-lg font-bold text-gray-900 mb-2">Maintenance IRVE par JCSM</h3>
                         <p class="text-gray-600 leading-relaxed mb-4">JCSM propose des contrats de maintenance préventive et curative avec supervision intégrée. Nos techniciens sont qualifiés IRVE, équipés en stock embarqué, et interviennent en France et en Belgique. Nous ne sommes pas le seul acteur du marché, mais nous répondons volontiers aux 11 questions ci-dessus si vous souhaitez nous inclure dans votre comparatif.</p>
                         <a href="/contact" class="inline-flex items-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-xl font-semibold hover:bg-blue-700 transition-colors">

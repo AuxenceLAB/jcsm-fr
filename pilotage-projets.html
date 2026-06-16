@@ -123,17 +123,6 @@
     <meta name="twitter:description" content="AMO et pilotage de projets IRVE de A à Z : étude, coordination et suivi budgétaire pour CPO, EMSP et collectivités.">
     <meta name="twitter:image" content="https://jcsm.fr/images/amo.png">
     <meta name="twitter:image:alt" content="Pilotage et coordination de projets d'infrastructure de recharge">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
-    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"
-        media="print" onload="this.media='all'">
-    <noscript>
-        <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600;700;800&display=swap"
-            rel="stylesheet">
-    </noscript>
     <link rel="stylesheet" href="/css/critical.css?v=74">
     <link rel="stylesheet" href="/css/tailwind.css?v=74" media="print" onload="this.media='all'">
     <noscript><link rel="stylesheet" href="/css/tailwind.css?v=74"></noscript>
@@ -176,7 +165,7 @@
                 <a href="/centre-appel" class="text-base text-gray-600 hover:text-gray-900 transition-colors py-2">Support</a>
                 <a href="/solutions/" class="text-base text-gray-600 hover:text-gray-900 transition-colors py-2">Solutions</a>
                 <a href="/a-propos" class="text-base text-gray-600 hover:text-gray-900 transition-colors py-2">À propos</a>
-                <a href="/contact" class="btn-primary px-6 py-3 rounded-lg text-base font-medium text-white inline-block text-center mt-4">Devis gratuit</a>
+                <a href="/contact" class="btn-primary px-6 py-3 text-base font-medium text-white inline-block text-center mt-4">Devis gratuit</a>
             </div>
         </div>
     </nav>
@@ -199,7 +188,7 @@
                     <a href="/centre-appel" class="nav-link text-[15px] font-semibold text-gray-700 whitespace-nowrap">Support</a>
                     <a href="/solutions/" class="nav-link text-[15px] font-semibold text-gray-700 whitespace-nowrap">Solutions</a>
                     <a href="/a-propos" class="nav-link text-[15px] font-semibold text-gray-700 whitespace-nowrap">À propos</a>
-                    <a href="/contact" class="btn-primary ml-5 px-8 py-3 rounded-xl text-[15px] font-semibold text-white shadow-lg hover:shadow-xl whitespace-nowrap">Devis gratuit</a>
+                    <a href="/contact" class="btn-primary ml-5 px-8 py-3 text-[15px] font-semibold text-white shadow-lg hover:shadow-xl whitespace-nowrap">Devis gratuit</a>
                 </div>
                 <button class="mobile-menu-btn text-gray-700 hover:text-gray-900" id="mobile-menu-btn" aria-label="Ouvrir le menu de navigation" aria-expanded="false" aria-controls="mobile-menu">
                     <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -210,9 +199,7 @@
         </div>
     </nav>
 
-    <!-- Particules subtiles en arrière-plan -->
-
-    <main id="main-content">
+    <main id="main-content" role="main">
         <nav aria-label="Fil d'Ariane" class="max-w-6xl mx-auto px-4 sm:px-6 pt-24 pb-0">
             <ol class="flex items-center gap-2 text-sm text-gray-500">
                 <li><a href="/" class="hover:text-blue-600 transition-colors">Accueil</a></li>
@@ -223,38 +210,40 @@
         <!-- Hero -->
         <section class="pt-[calc(5rem+0.75rem)] pb-6 px-4 sm:px-6 min-h-[60vh] flex items-center">
             <div class="max-w-6xl mx-auto w-full">
-                <div class="grid lg:grid-cols-2 gap-5 sm:gap-7 lg:gap-10 items-center">
-                    <div class="space-y-4 sm:space-y-5 md:space-y-6 order-1 lg:order-1">
-                        <div
-                            class="inline-flex items-center space-x-2 glass-badge badge-section rounded-full px-3 py-1.5 sm:px-4 sm:py-2 section-appear">
-                            <span
-                                class="text-[10px] sm:text-xs font-semibold text-gray-600 uppercase tracking-wide">Maîtrise stratégique de vos projets IRVE</span>
-                        </div>
-                        <h1
-                            class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight tracking-tight section-appear">
-                            Pilotage IRVE : <span class="gradient-text">50 bornes ou 500, livré. Point.</span>
+                <div class="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+                    <div class="space-y-6">
+                        <div class="sec-label section-appear">AMO IRVE &middot; France &amp; Belgique</div>
+                        <h1 class="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl leading-tight tracking-tight section-appear">
+                            50 bornes ou 500, <em>livré. Point.</em>
                         </h1>
-                        <p class="text-sm sm:text-base md:text-lg text-gray-600 leading-snug section-appear">
-                            Du cahier des charges à la réception : nous assurons le pilotage du planning, la coordination des prestataires et le suivi budgétaire. Conformité NF C 15-100 garantie.
+                        <p class="text-base sm:text-lg leading-relaxed max-w-xl section-appear" style="color: var(--color-text-secondary)">
+                            Du cahier des charges à la réception : pilotage du planning, coordination des prestataires et suivi budgétaire. Conformité NF C 15-100 garantie.
                         </p>
-                        <div class="flex flex-wrap gap-2 sm:gap-3 section-appear">
+                        <div class="flex flex-wrap gap-3 section-appear">
                             <a href="/contact"
-                                class="btn-primary px-4 py-2 sm:px-6 sm:py-3 rounded-xl font-medium text-xs sm:text-sm text-white">
+                                class="btn-primary px-7 py-3.5 font-bold text-[15px] text-white inline-flex items-center gap-2.5">
                                 Planifier mon projet
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
                             </a>
                             <a href="#services"
-                                class="btn-secondary px-4 py-2 sm:px-6 sm:py-3 rounded-xl font-medium text-xs sm:text-sm">
+                                class="btn-secondary px-7 py-3.5 font-bold text-[15px]">
                                 Notre méthode
                             </a>
                         </div>
+                        <div class="flex flex-wrap gap-x-8 gap-y-3 pt-5 mt-2 section-appear" style="border-top: 1px solid var(--color-line)">
+                            <div><div class="text-xl font-extrabold" style="color: var(--color-primary-dark); font-family: var(--font-sans)">100+</div><div class="text-xs" style="color: var(--color-text-secondary)">projets livrés</div></div>
+                            <div><div class="text-xl font-extrabold" style="color: var(--color-primary-dark); font-family: var(--font-sans)">98%</div><div class="text-xs" style="color: var(--color-text-secondary)">délais respectés</div></div>
+                            <div><div class="text-xl font-extrabold" style="color: var(--color-primary-dark); font-family: var(--font-sans)">NF C 15-100</div><div class="text-xs" style="color: var(--color-text-secondary)">conformité garantie</div></div>
+                        </div>
                     </div>
-                    <div class="section-appear order-2 lg:order-2 mb-4 lg:mb-0">
-                        <div class="hero-image-container relative w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg mx-auto">
+                    <div class="section-appear">
+                        <div class="relative w-full max-w-lg mx-auto lg:ml-auto">
                             <picture>
                                 <source media="(max-width: 768px)" srcset="images/amo-mobile.webp" type="image/webp"><source srcset="images/amo.webp" type="image/webp">
                                 <img id="hero-image" src="images/amo.png" fetchpriority="high"
                                     alt="Assistance à maîtrise d'ouvrage IRVE - Pilotage de projets de recharge électrique par JCSM"
-                                    class="w-full h-auto object-contain"
+                                    class="w-full h-auto rounded-2xl object-contain"
+                                    style="box-shadow: 0 32px 64px -16px rgba(0,0,0,.12), 0 0 0 1px rgba(0,0,0,.04)"
                                     width="1844" height="1284">
                             </picture>
                         </div>
@@ -264,307 +253,333 @@
         </section>
 
         <!-- Services -->
-        <section id="services" class="py-20 px-6 bg-white">
+        <section id="services" class="py-24 sm:py-28 px-6" aria-label="Nos expertises de pilotage">
             <div class="max-w-6xl mx-auto">
-                <div class="text-center mb-20 section-appear">
-                    <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-6">
-                        Méthodologie. Pas de place au hasard.
+                <div class="text-center mb-16 section-appear">
+                    <div class="sec-label mb-5">Nos expertises</div>
+                    <h2 class="text-3xl sm:text-4xl tracking-tight mb-5 leading-tight">
+                        Méthodologie. <em>Pas de place au hasard.</em>
                     </h2>
-                    <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                        Un suivi de projet carré pour sécuriser chaque étape de votre infrastructure de
-                        recharge.
+                    <p class="text-base sm:text-lg max-w-xl mx-auto leading-relaxed" style="color: var(--color-text-secondary)">
+                        Un suivi de projet carré pour sécuriser chaque étape de votre infrastructure de recharge.
                     </p>
                 </div>
 
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <div
-                        class="card-hover why-card-industrial bg-white border border-gray-200 rounded-2xl overflow-hidden section-appear">
-                        <div class="p-10">
-                            <div
-                                class="w-14 h-14 bg-blue-600 rounded-xl flex items-center justify-center text-white mb-8 icon-pulse-hover">
-                                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
-                                </svg>
-                            </div>
-                            <h3 class="text-2xl font-bold mb-4">Avant-Projet
-                            </h3>
-                            <p class="text-gray-600 leading-relaxed">Études préliminaires, analyse de faisabilité et
-                                dimensionnement adapté à vos usages et contraintes.</p>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4 section-appear">
+                    <div class="card-feature section-appear">
+                        <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-6" style="background: var(--color-ink)">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                            </svg>
                         </div>
+                        <h3 class="text-lg font-bold mb-3" style="font-family: var(--font-sans)">Avant-Projet</h3>
+                        <p class="text-sm leading-relaxed" style="color: var(--color-text-secondary)">Études préliminaires, analyse de faisabilité et dimensionnement adapté à vos usages et contraintes.</p>
                     </div>
 
-                    <div
-                        class="card-hover why-card-industrial bg-white border border-gray-200 rounded-2xl overflow-hidden section-appear">
-                        <div class="p-10">
-                            <div
-                                class="w-14 h-14 bg-blue-600 rounded-xl flex items-center justify-center text-white mb-8 icon-pulse-hover">
-                                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-                                </svg>
-                            </div>
-                            <h3 class="text-2xl font-bold mb-4">Coordination</h3>
-                            <p class="text-gray-600 leading-relaxed">Pilotage des intervenants, planification des opérations
-                                et coordination entre les corps de métier.</p>
+                    <div class="card-feature section-appear">
+                        <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-6" style="background: var(--color-ink)">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                            </svg>
                         </div>
+                        <h3 class="text-lg font-bold mb-3" style="font-family: var(--font-sans)">Coordination</h3>
+                        <p class="text-sm leading-relaxed" style="color: var(--color-text-secondary)">Pilotage des intervenants, planification des opérations et coordination entre les corps de métier.</p>
                     </div>
 
-                    <div
-                        class="card-hover why-card-industrial bg-white border border-gray-200 rounded-2xl overflow-hidden section-appear">
-                        <div class="p-10">
-                            <div
-                                class="w-14 h-14 bg-blue-600 rounded-xl flex items-center justify-center text-white mb-8 icon-pulse-hover">
-                                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-                                </svg>
-                            </div>
-                            <h3 class="text-2xl font-bold mb-4">Suivi Budgétaire</h3>
-                            <p class="text-gray-600 leading-relaxed">Maîtrise des coûts, contrôle des dépenses et reporting
-                                clair en temps réel.</p>
+                    <div class="card-feature section-appear">
+                        <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-6" style="background: var(--color-ink)">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                            </svg>
                         </div>
+                        <h3 class="text-lg font-bold mb-3" style="font-family: var(--font-sans)">Suivi Budgétaire</h3>
+                        <p class="text-sm leading-relaxed" style="color: var(--color-text-secondary)">Maîtrise des coûts, contrôle des dépenses et reporting clair en temps réel.</p>
                     </div>
 
-                    <div
-                        class="card-hover why-card-industrial bg-white border border-gray-200 rounded-2xl overflow-hidden section-appear">
-                        <div class="p-10">
-                            <div
-                                class="w-14 h-14 bg-blue-600 rounded-xl flex items-center justify-center text-white mb-8 icon-pulse-hover">
-                                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                                </svg>
-                            </div>
-                            <h3 class="text-2xl font-bold mb-4">Conformité</h3>
-                            <p class="text-gray-600 leading-relaxed">Respect strict des normes IRVE (NF C 15-100, UTE C
-                                15-722) et des obligations réglementaires applicables.</p>
+                    <div class="card-feature section-appear">
+                        <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-6" style="background: var(--color-ink)">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                            </svg>
                         </div>
+                        <h3 class="text-lg font-bold mb-3" style="font-family: var(--font-sans)">Conformité</h3>
+                        <p class="text-sm leading-relaxed" style="color: var(--color-text-secondary)">Respect strict des normes IRVE (NF C 15-100, UTE C 15-722) et des obligations réglementaires applicables.</p>
                     </div>
 
-                    <div
-                        class="card-hover why-card-industrial bg-white border border-gray-200 rounded-2xl overflow-hidden section-appear">
-                        <div class="p-10">
-                            <div
-                                class="w-14 h-14 bg-blue-600 rounded-xl flex items-center justify-center text-white mb-8 icon-pulse-hover">
-                                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                </svg>
-                            </div>
-                            <h3 class="text-2xl font-bold mb-4">Planification</h3>
-                            <p class="text-gray-600 leading-relaxed">Construction des jalons clés, tenue des délais et
-                                anticipation des risques.</p>
+                    <div class="card-feature section-appear">
+                        <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-6" style="background: var(--color-ink)">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
                         </div>
+                        <h3 class="text-lg font-bold mb-3" style="font-family: var(--font-sans)">Planification</h3>
+                        <p class="text-sm leading-relaxed" style="color: var(--color-text-secondary)">Construction des jalons clés, tenue des délais et anticipation des risques.</p>
                     </div>
 
-                    <div
-                        class="card-hover why-card-industrial bg-white border border-gray-200 rounded-2xl overflow-hidden section-appear">
-                        <div class="p-10">
-                            <div
-                                class="w-14 h-14 bg-blue-600 rounded-xl flex items-center justify-center text-white mb-8 icon-pulse-hover">
-                                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                </svg>
-                            </div>
-                            <h3 class="text-2xl font-bold mb-4">Mise en Service</h3>
-                            <p class="text-gray-600 leading-relaxed">Tests, recette finale et transition vers
-                                l’exploitation opérationnelle.</p>
+                    <div class="card-feature section-appear">
+                        <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-6" style="background: var(--color-ink)">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
                         </div>
+                        <h3 class="text-lg font-bold mb-3" style="font-family: var(--font-sans)">Mise en Service</h3>
+                        <p class="text-sm leading-relaxed" style="color: var(--color-text-secondary)">Tests, recette finale et transition vers l’exploitation opérationnelle.</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Process -->
-        <section class="py-20 px-6 bg-gray-50">
+        <section class="section-dark py-20 px-6" aria-label="Notre méthode en 4 étapes">
             <div class="max-w-6xl mx-auto">
-                <div class="text-center mb-20 section-appear">
-                    <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-6">
-                        Du cahier des charges à la mise en service
-                    </h2>
-                    <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-                        Une approche en quatre étapes pour mener vos projets IRVE à terme.
-                    </p>
-                </div>
+                <div class="sec-label section-appear">Notre méthode</div>
+                <h2 class="text-3xl sm:text-4xl mt-3 text-white section-appear">
+                    Du cahier des charges à la <em>mise en service</em>.
+                </h2>
+                <p class="text-base sm:text-lg mt-4 max-w-xl leading-relaxed section-appear" style="opacity:.65">
+                    Une approche en quatre étapes pour mener vos projets IRVE à terme.
+                </p>
 
-                <div class="space-y-6">
-                    <div class="card-hover why-card-industrial bg-white border border-gray-200 rounded-2xl p-6 section-appear">
-                        <div class="flex items-start gap-6">
-                            <div
-                                class="w-12 h-12 bg-gray-900 rounded-xl flex items-center justify-center text-white font-bold flex-shrink-0 icon-pulse-hover">
-                                1</div>
-                            <div>
-                                <h3 class="text-2xl font-bold mb-3">Analyse & Cadrage</h3>
-                                <p class="text-gray-600 leading-relaxed">Compréhension des usages, analyse du site,
-                                    études de faisabilité et définition précise du périmètre.</p>
-                            </div>
+                <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 mt-12">
+                    <div class="step section-appear">
+                        <div class="flex items-center gap-3 mb-3">
+                            <svg class="w-5 h-5 flex-shrink-0" style="color: var(--color-primary)" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                            </svg>
+                            <strong>Analyse &amp; Cadrage</strong>
                         </div>
+                        <p class="text-sm mt-2" style="opacity:.65">Compréhension des usages, analyse du site, études de faisabilité et définition précise du périmètre.</p>
                     </div>
-
-                    <div class="card-hover why-card-industrial bg-white border border-gray-200 rounded-2xl p-6 section-appear">
-                        <div class="flex items-start gap-6">
-                            <div
-                                class="w-12 h-12 bg-gray-900 rounded-xl flex items-center justify-center text-white font-bold flex-shrink-0 icon-pulse-hover">
-                                2</div>
-                            <div>
-                                <h3 class="text-2xl font-bold mb-3">Planification Détaillée</h3>
-                                <p class="text-gray-600 leading-relaxed">Élaboration du planning, jalons critiques,
-                                    allocation des ressources et organisation du projet.</p>
-                            </div>
+                    <div class="step section-appear">
+                        <div class="flex items-center gap-3 mb-3">
+                            <svg class="w-5 h-5 flex-shrink-0" style="color: var(--color-primary)" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                            </svg>
+                            <strong>Planification</strong>
                         </div>
+                        <p class="text-sm mt-2" style="opacity:.65">Élaboration du planning, jalons critiques, allocation des ressources et organisation du projet.</p>
                     </div>
-
-                    <div class="card-hover why-card-industrial bg-white border border-gray-200 rounded-2xl p-6 section-appear">
-                        <div class="flex items-start gap-6">
-                            <div
-                                class="w-12 h-12 bg-gray-900 rounded-xl flex items-center justify-center text-white font-bold flex-shrink-0 icon-pulse-hover">
-                                3</div>
-                            <div>
-                                <h3 class="text-2xl font-bold mb-3">Suivi & Pilotage</h3>
-                                <p class="text-gray-600 leading-relaxed">Coordination opérationnelle, gestion des
-                                    risques, reporting régulier et ajustements continus.</p>
-                            </div>
+                    <div class="step section-appear">
+                        <div class="flex items-center gap-3 mb-3">
+                            <svg class="w-5 h-5 flex-shrink-0" style="color: var(--color-primary)" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                            </svg>
+                            <strong>Suivi &amp; Pilotage</strong>
                         </div>
+                        <p class="text-sm mt-2" style="opacity:.65">Coordination opérationnelle, gestion des risques, reporting régulier et ajustements continus.</p>
                     </div>
-
-                    <div class="card-hover why-card-industrial bg-white border border-gray-200 rounded-2xl p-6 section-appear">
-                        <div class="flex items-start gap-6">
-                            <div
-                                class="w-12 h-12 bg-gray-900 rounded-xl flex items-center justify-center text-white font-bold flex-shrink-0 icon-pulse-hover">
-                                4</div>
-                            <div>
-                                <h3 class="text-2xl font-bold mb-4">Recette & Livraison</h3>
-                                <p class="text-gray-600 leading-relaxed">Contrôle qualité final, validation de la
-                                    conformité, documentation complète et transfert de compétences.</p>
-                            </div>
+                    <div class="step section-appear">
+                        <div class="flex items-center gap-3 mb-3">
+                            <svg class="w-5 h-5 flex-shrink-0" style="color: var(--color-primary)" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                            <strong>Recette &amp; Livraison</strong>
                         </div>
+                        <p class="text-sm mt-2" style="opacity:.65">Contrôle qualité final, validation de la conformité, documentation complète et transfert de compétences.</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Stats -->
-        <section class="py-20 px-6 bg-white">
+        <section class="section-alt py-24 px-6" aria-label="Chiffres clés">
             <div class="max-w-6xl mx-auto">
                 <div class="text-center mb-16 section-appear">
-                    <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-4">
-                        Les preuves, en chiffres
+                    <div class="sec-label mb-5">Résultats</div>
+                    <h2 class="text-3xl sm:text-4xl tracking-tight leading-tight">
+                        Les preuves, <em>en chiffres</em>.
                     </h2>
                 </div>
-                <div class="grid md:grid-cols-4 gap-12 text-center">
-                    <div class="section-appear">
-                        <div class="text-6xl font-bold mb-3 num-highlight stat-glow">100<span class="text-4xl text-gray-500">+</span></div>
-                        <p class="text-sm text-gray-600 font-semibold uppercase tracking-wide">Projets livrés</p>
+                <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
+                    <div class="card-feature text-center section-appear">
+                        <div class="flex justify-center mb-4">
+                            <svg class="w-8 h-8" style="color: var(--color-primary)" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+                        </div>
+                        <div class="text-4xl font-bold mb-2 num-highlight stat-glow">100<span class="text-2xl" style="color: var(--color-text-secondary)">+</span></div>
+                        <p class="text-sm font-semibold uppercase tracking-wide" style="color: var(--color-text-secondary)">Projets livrés</p>
                     </div>
-                    <div class="section-appear">
-                        <div class="text-6xl font-bold mb-3 num-highlight stat-glow">98<span class="text-4xl text-gray-500">%</span></div>
-                        <p class="text-sm text-gray-600 font-semibold uppercase tracking-wide">Délais respectés sur nos derniers projets</p>
+                    <div class="card-feature text-center section-appear">
+                        <div class="flex justify-center mb-4">
+                            <svg class="w-8 h-8" style="color: var(--color-primary)" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                        </div>
+                        <div class="text-4xl font-bold mb-2 num-highlight stat-glow">98<span class="text-2xl" style="color: var(--color-text-secondary)">%</span></div>
+                        <p class="text-sm font-semibold uppercase tracking-wide" style="color: var(--color-text-secondary)">Délais respectés</p>
                     </div>
-                    <div class="section-appear">
-                        <div class="text-6xl font-bold mb-3 num-highlight stat-glow">100<span class="text-4xl text-gray-500">%</span></div>
-                        <p class="text-sm text-gray-600 font-semibold uppercase tracking-wide">Conformité NF C 15-100 systématique</p>
+                    <div class="card-feature text-center section-appear">
+                        <div class="flex justify-center mb-4">
+                            <svg class="w-8 h-8" style="color: var(--color-primary)" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                        </div>
+                        <div class="text-4xl font-bold mb-2 num-highlight stat-glow">100<span class="text-2xl" style="color: var(--color-text-secondary)">%</span></div>
+                        <p class="text-sm font-semibold uppercase tracking-wide" style="color: var(--color-text-secondary)">Conformité NF C 15-100</p>
                     </div>
-                    <div class="section-appear">
-                        <div class="mb-3 flex justify-center"><svg class="w-12 h-12 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div>
-                        <p class="text-sm text-gray-600 font-semibold uppercase tracking-wide">Budget maîtrisé</p>
+                    <div class="card-feature text-center section-appear">
+                        <div class="flex justify-center mb-4">
+                            <svg class="w-8 h-8" style="color: var(--color-primary)" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
+                        </div>
+                        <div class="flex justify-center mb-2">
+                            <svg class="w-6 h-6" style="color: var(--color-primary)" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                        </div>
+                        <p class="text-sm font-semibold uppercase tracking-wide" style="color: var(--color-text-secondary)">Budget maîtrisé</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Autres services -->
-        <section class="py-20 px-6 bg-gray-50">
+        <section class="py-20 px-6" aria-label="Nos autres expertises">
             <div class="max-w-6xl mx-auto">
-                <h2 class="text-2xl font-bold text-center mb-8 section-appear">Nos autres expertises</h2>
+                <div class="text-center mb-10 section-appear">
+                    <div class="sec-label mb-5">Voir aussi</div>
+                    <h2 class="text-2xl sm:text-3xl tracking-tight">Nos autres expertises</h2>
+                </div>
                 <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                    <a href="/installation-conformite" class="card-hover why-card-industrial bg-white rounded-xl p-5 hover:shadow-lg transition-shadow text-center section-appear">
-                        <h3 class="font-bold text-sm mb-1">Installation</h3>
-                        <p class="text-gray-500 text-xs">Installation certifiée Qualifelec</p>
+                    <a href="/installation-conformite" title="Voir notre service d'installation et conformité" class="card-feature block text-center section-appear">
+                        <div class="flex justify-center mb-4">
+                            <svg class="w-8 h-8" style="color: var(--color-primary)" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.066 2.573c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.573 1.066c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.066-2.573c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                            </svg>
+                        </div>
+                        <h3 class="font-bold text-sm mb-1" style="font-family: var(--font-sans)">Installation</h3>
+                        <p class="text-xs" style="color: var(--color-text-secondary)">Installation certifiée Qualifelec</p>
                     </a>
-                    <a href="/exploitation" class="card-hover why-card-industrial bg-white rounded-xl p-5 hover:shadow-lg transition-shadow text-center section-appear">
-                        <h3 class="font-bold text-sm mb-1">Exploitation</h3>
-                        <p class="text-gray-500 text-xs">Maintenance préventive et curative</p>
+                    <a href="/exploitation" title="Voir notre service d'exploitation et maintenance" class="card-feature block text-center section-appear">
+                        <div class="flex justify-center mb-4">
+                            <svg class="w-8 h-8" style="color: var(--color-primary)" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
+                            </svg>
+                        </div>
+                        <h3 class="font-bold text-sm mb-1" style="font-family: var(--font-sans)">Exploitation</h3>
+                        <p class="text-xs" style="color: var(--color-text-secondary)">Maintenance préventive et curative</p>
                     </a>
-                    <a href="/securisation-installations" class="card-hover why-card-industrial bg-white rounded-xl p-5 hover:shadow-lg transition-shadow text-center section-appear">
-                        <h3 class="font-bold text-sm mb-1">Sécurisation</h3>
-                        <p class="text-gray-500 text-xs">Protection anti-vandalisme</p>
+                    <a href="/securisation-installations" title="Voir notre service de sécurisation" class="card-feature block text-center section-appear">
+                        <div class="flex justify-center mb-4">
+                            <svg class="w-8 h-8" style="color: var(--color-primary)" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+                            </svg>
+                        </div>
+                        <h3 class="font-bold text-sm mb-1" style="font-family: var(--font-sans)">Sécurisation</h3>
+                        <p class="text-xs" style="color: var(--color-text-secondary)">Protection anti-vandalisme</p>
                     </a>
-                    <a href="/centre-appel" class="card-hover why-card-industrial bg-white rounded-xl p-5 hover:shadow-lg transition-shadow text-center section-appear">
-                        <h3 class="font-bold text-sm mb-1">Support 24/7</h3>
-                        <p class="text-gray-500 text-xs">Hotline et télégestion</p>
+                    <a href="/centre-appel" title="Voir notre support technique 24/7" class="card-feature block text-center section-appear">
+                        <div class="flex justify-center mb-4">
+                            <svg class="w-8 h-8" style="color: var(--color-primary)" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C8.716 21 3 15.284 3 8V5z"/>
+                            </svg>
+                        </div>
+                        <h3 class="font-bold text-sm mb-1" style="font-family: var(--font-sans)">Support 24/7</h3>
+                        <p class="text-xs" style="color: var(--color-text-secondary)">Hotline et télégestion</p>
                     </a>
                 </div>
             </div>
         </section>
 
         <!-- FAQ -->
-        <section class="py-20 px-6 bg-white">
+        <section class="section-alt py-24 px-6" aria-label="Questions fréquentes">
             <div class="max-w-4xl mx-auto">
-                <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-12 text-center section-appear">Questions fréquentes</h2>
-                <div class="space-y-6">
-                    <details class="bg-white rounded-xl p-6 shadow-sm border border-gray-100 section-appear" open>
-                        <summary class="font-semibold text-lg cursor-pointer">Qu'est-ce que l'AMO IRVE ?</summary>
-                        <p class="mt-4 text-gray-600 leading-relaxed">L'Assistance à Maîtrise d'Ouvrage (AMO) IRVE consiste à accompagner le maître d'ouvrage dans toutes les phases de son projet de déploiement de bornes : étude de faisabilité, rédaction des cahiers des charges, sélection des prestataires, suivi des travaux et réception des installations.</p>
+                <div class="text-center mb-12 section-appear">
+                    <div class="sec-label mb-5">FAQ</div>
+                    <h2 class="text-3xl sm:text-4xl tracking-tight leading-tight">Questions <em>fréquentes</em></h2>
+                </div>
+                <div class="space-y-4">
+                    <details class="card-feature section-appear" open>
+                        <summary class="font-bold text-base cursor-pointer flex items-center gap-3" style="font-family: var(--font-sans)">
+                            <svg class="w-5 h-5 flex-shrink-0" style="color: var(--color-primary)" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                            Qu'est-ce que l'AMO IRVE ?
+                        </summary>
+                        <p class="mt-4 text-sm leading-relaxed" style="color: var(--color-text-secondary)">L'Assistance à Maîtrise d'Ouvrage (AMO) IRVE consiste à accompagner le maître d'ouvrage dans toutes les phases de son projet de déploiement de bornes : étude de faisabilité, rédaction des cahiers des charges, sélection des prestataires, suivi des travaux et réception des installations.</p>
                     </details>
-                    <details class="bg-white rounded-xl p-6 shadow-sm border border-gray-100 section-appear">
-                        <summary class="font-semibold text-lg cursor-pointer">Combien coûte un projet de déploiement IRVE ?</summary>
-                        <p class="mt-4 text-gray-600 leading-relaxed">Le coût varie selon le nombre de points de charge, la puissance (AC ou DC), les travaux de génie civil et le raccordement réseau. Nous réalisons une étude budgétaire détaillée dès la phase de cadrage, avec identification des aides publiques (ADVENIR, CEE) pour réduire votre reste à charge.</p>
+                    <details class="card-feature section-appear">
+                        <summary class="font-bold text-base cursor-pointer flex items-center gap-3" style="font-family: var(--font-sans)">
+                            <svg class="w-5 h-5 flex-shrink-0" style="color: var(--color-primary)" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                            Combien coûte un projet de déploiement IRVE ?
+                        </summary>
+                        <p class="mt-4 text-sm leading-relaxed" style="color: var(--color-text-secondary)">Le coût varie selon le nombre de points de charge, la puissance (AC ou DC), les travaux de génie civil et le raccordement réseau. Nous réalisons une étude budgétaire détaillée dès la phase de cadrage, avec identification des aides publiques (ADVENIR, CEE) pour réduire votre reste à charge.</p>
                     </details>
-                    <details class="bg-white rounded-xl p-6 shadow-sm border border-gray-100 section-appear">
-                        <summary class="font-semibold text-lg cursor-pointer">Quelle est la durée typique d'un projet IRVE ?</summary>
-                        <p class="mt-4 text-gray-600 leading-relaxed">Un projet complet (étude + installation + mise en service) dure en moyenne 3 à 6 mois. Les projets simples (quelques bornes AC) peuvent être réalisés en 4 à 8 semaines. Les déploiements multi-sites à grande échelle nécessitent 6 à 12 mois de pilotage.</p>
+                    <details class="card-feature section-appear">
+                        <summary class="font-bold text-base cursor-pointer flex items-center gap-3" style="font-family: var(--font-sans)">
+                            <svg class="w-5 h-5 flex-shrink-0" style="color: var(--color-primary)" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                            Quelle est la durée typique d'un projet IRVE ?
+                        </summary>
+                        <p class="mt-4 text-sm leading-relaxed" style="color: var(--color-text-secondary)">Un projet complet (étude + installation + mise en service) dure en moyenne 3 à 6 mois. Les projets simples (quelques bornes AC) peuvent être réalisés en 4 à 8 semaines. Les déploiements multi-sites à grande échelle nécessitent 6 à 12 mois de pilotage.</p>
                     </details>
-                    <details class="bg-white rounded-xl p-6 shadow-sm border border-gray-100 section-appear">
-                        <summary class="font-semibold text-lg cursor-pointer">Travaillez-vous avec les CPO et EMSP ?</summary>
-                        <p class="mt-4 text-gray-600 leading-relaxed">Oui, nous collaborons avec les Charge Point Operators (CPO) et les e-Mobility Service Providers (EMSP) pour le déploiement, la maintenance et la supervision de leurs réseaux. Notre approche couvre la France métropolitaine et la Belgique (Wallonie, Flandre, Bruxelles). Nous intervenons comme bras armé terrain des CPO pour l'installation, la mise en service et la maintenance de leurs parcs multi-marques, avec un reporting consolidé et des SLA contractuels adaptés à chaque opérateur.</p>
+                    <details class="card-feature section-appear">
+                        <summary class="font-bold text-base cursor-pointer flex items-center gap-3" style="font-family: var(--font-sans)">
+                            <svg class="w-5 h-5 flex-shrink-0" style="color: var(--color-primary)" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                            Travaillez-vous avec les CPO et EMSP ?
+                        </summary>
+                        <p class="mt-4 text-sm leading-relaxed" style="color: var(--color-text-secondary)">Oui, nous collaborons avec les Charge Point Operators (CPO) et les e-Mobility Service Providers (EMSP) pour le déploiement, la maintenance et la supervision de leurs réseaux. Notre approche couvre la France métropolitaine et la Belgique (Wallonie, Flandre, Bruxelles). Nous intervenons comme bras armé terrain des CPO pour l'installation, la mise en service et la maintenance de leurs parcs multi-marques, avec un reporting consolidé et des SLA contractuels adaptés à chaque opérateur.</p>
                     </details>
                 </div>
             </div>
         </section>
 
         <!-- CTA -->
-        <section class="py-20 px-6 bg-gray-50">
-            <div class="max-w-4xl mx-auto text-center section-appear">
-                <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-6">
-                    Votre déploiement commence ici.
-                </h2>
-                <p class="text-xl text-gray-600 mb-10 leading-relaxed max-w-3xl mx-auto">
-                    Un chef de projet attitré, une méthode claire et un engagement de résultat en France et Belgique. Parlons de vos objectifs IRVE.
-                </p>
-                <div class="flex flex-wrap gap-4 justify-center">
-                    <a href="/contact"
-                        class="btn-primary px-10 py-5 rounded-xl font-medium text-lg text-white inline-block transition-transform">
-                        Lancer mon projet avec JCSM
-                    </a>
-                    <a href="tel:+33183755706"
-                        class="border border-gray-300 text-gray-700 px-10 py-5 rounded-xl font-medium text-lg inline-block hover:bg-gray-100 transition-colors">
-                        01 83 75 57 06
-                    </a>
+        <section class="py-24 px-6" aria-label="Lancer votre projet">
+            <div class="max-w-4xl mx-auto">
+                <div class="card-cta px-8 py-14 sm:px-12 sm:py-16 section-appear">
+                    <h2 class="text-3xl sm:text-4xl tracking-tight mb-5 leading-tight text-white">
+                        Votre déploiement <em>commence ici</em>.
+                    </h2>
+                    <p class="text-base sm:text-lg mb-10 leading-relaxed max-w-2xl mx-auto" style="opacity:.85">
+                        Un chef de projet attitré, une méthode claire et un engagement de résultat en France et Belgique. Parlons de vos objectifs IRVE.
+                    </p>
+                    <div class="flex flex-wrap gap-4 justify-center">
+                        <a href="/contact"
+                            class="bg-white px-8 py-4 rounded-full font-bold text-[15px] inline-flex items-center gap-2.5 transition-transform hover:scale-105" style="color: var(--color-primary)">
+                            Lancer mon projet
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                        </a>
+                        <a href="tel:+33183755706"
+                            class="border-2 border-white text-white px-8 py-4 rounded-full font-bold text-[15px] inline-flex items-center gap-2.5 hover:bg-white transition-colors" style="--tw-hover-text: var(--color-primary)" onmouseenter="this.style.color='var(--color-primary)'" onmouseleave="this.style.color='white'">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C8.716 21 3 15.284 3 8V5z"/></svg>
+                            01 83 75 57 06
+                        </a>
+                    </div>
                 </div>
             </div>
         </section>
 
         <!-- Articles du blog -->
-        <section class="py-20 bg-white">
-            <div class="max-w-5xl mx-auto px-6">
-                <h2 class="text-2xl font-bold text-center mb-8 section-appear">À lire aussi</h2>
-                <div class="grid sm:grid-cols-3 gap-6">
-                    <a href="/blog/deploiement-multi-sites-irve" class="group bg-white border border-gray-200 rounded-xl p-5 hover:border-blue-200 transition-colors section-appear">
-                        <h3 class="font-bold text-gray-900 group-hover:text-blue-600 transition-colors mb-2">Déploiement multi-sites IRVE : retour d'expérience terrain</h3>
-                        <p class="text-sm text-gray-600">Méthodologie et enseignements tirés de plus de 2 000 interventions sur des projets IRVE multi-sites en France et Belgique.</p>
-                        <span class="text-sm font-semibold text-blue-600 mt-3 inline-block">Lire →</span>
+        <section class="section-alt py-20 px-6" aria-label="Articles de blog">
+            <div class="max-w-5xl mx-auto">
+                <div class="text-center mb-10 section-appear">
+                    <div class="sec-label mb-5">Ressources</div>
+                    <h2 class="text-2xl sm:text-3xl tracking-tight leading-tight">À lire <em>aussi</em></h2>
+                </div>
+                <div class="grid sm:grid-cols-3 gap-4">
+                    <a href="/blog/deploiement-multi-sites-irve" class="card-feature group block section-appear">
+                        <div class="flex items-center gap-2 mb-3">
+                            <svg class="w-5 h-5 flex-shrink-0" style="color: var(--color-primary)" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"/></svg>
+                            <span class="text-xs font-semibold uppercase tracking-wide" style="color: var(--color-text-secondary)">Retour terrain</span>
+                        </div>
+                        <h3 class="font-bold text-sm mb-2 group-hover:text-blue-600 transition-colors" style="font-family: var(--font-sans); color: var(--color-ink)">Déploiement multi-sites IRVE : retour d'expérience terrain</h3>
+                        <p class="text-xs leading-relaxed" style="color: var(--color-text-secondary)">Méthodologie et enseignements tirés de plus de 2 000 interventions sur des projets IRVE multi-sites en France et Belgique.</p>
+                        <span class="text-sm font-semibold mt-3 inline-block" style="color: var(--color-primary)">Lire l'article</span>
                     </a>
-                    <a href="/blog/prix-installation-borne-recharge-2026" class="group bg-white border border-gray-200 rounded-xl p-5 hover:border-blue-200 transition-colors section-appear">
-                        <h3 class="font-bold text-gray-900 group-hover:text-blue-600 transition-colors mb-2">Prix installation borne de recharge en 2026</h3>
-                        <p class="text-sm text-gray-600">Tarifs détaillés par puissance et cas d'usage, avec les aides disponibles pour optimiser votre budget d'installation.</p>
-                        <span class="text-sm font-semibold text-blue-600 mt-3 inline-block">Lire →</span>
+                    <a href="/blog/prix-installation-borne-recharge-2026" class="card-feature group block section-appear">
+                        <div class="flex items-center gap-2 mb-3">
+                            <svg class="w-5 h-5 flex-shrink-0" style="color: var(--color-primary)" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
+                            <span class="text-xs font-semibold uppercase tracking-wide" style="color: var(--color-text-secondary)">Guide tarifs</span>
+                        </div>
+                        <h3 class="font-bold text-sm mb-2 group-hover:text-blue-600 transition-colors" style="font-family: var(--font-sans); color: var(--color-ink)">Prix installation borne de recharge en 2026</h3>
+                        <p class="text-xs leading-relaxed" style="color: var(--color-text-secondary)">Tarifs détaillés par puissance et cas d'usage, avec les aides disponibles pour optimiser votre budget d'installation.</p>
+                        <span class="text-sm font-semibold mt-3 inline-block" style="color: var(--color-primary)">Lire l'article</span>
                     </a>
-                    <a href="/blog/plan-gouvernement-400000-bornes-2030" class="group bg-white border border-gray-200 rounded-xl p-5 hover:border-blue-200 transition-colors section-appear">
-                        <h3 class="font-bold text-gray-900 group-hover:text-blue-600 transition-colors mb-2">Plan 400 000 bornes 2030 : objectifs de la France</h3>
-                        <p class="text-sm text-gray-600">Décryptage du plan gouvernemental visant 400 000 points de recharge publics d'ici 2030 et ses implications pour les acteurs IRVE.</p>
-                        <span class="text-sm font-semibold text-blue-600 mt-3 inline-block">Lire →</span>
+                    <a href="/blog/plan-gouvernement-400000-bornes-2030" class="card-feature group block section-appear">
+                        <div class="flex items-center gap-2 mb-3">
+                            <svg class="w-5 h-5 flex-shrink-0" style="color: var(--color-primary)" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 21v-4m0 0V5a2 2 0 012-2h6.5l1 1H21l-3 6 3 6h-8.5l-1-1H5a2 2 0 00-2 2zm9-13.5V9"/></svg>
+                            <span class="text-xs font-semibold uppercase tracking-wide" style="color: var(--color-text-secondary)">Réglementation</span>
+                        </div>
+                        <h3 class="font-bold text-sm mb-2 group-hover:text-blue-600 transition-colors" style="font-family: var(--font-sans); color: var(--color-ink)">Plan 400 000 bornes 2030 : objectifs de la France</h3>
+                        <p class="text-xs leading-relaxed" style="color: var(--color-text-secondary)">Décryptage du plan gouvernemental visant 400 000 points de recharge publics d'ici 2030 et ses implications pour les acteurs IRVE.</p>
+                        <span class="text-sm font-semibold mt-3 inline-block" style="color: var(--color-primary)">Lire l'article</span>
                     </a>
                 </div>
             </div>
@@ -608,6 +623,7 @@
                             <li><a href="/solutions/" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Solutions</a></li>
                             <li><a href="/a-propos" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">À propos</a></li>
                             <li><a href="/inclusion" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Inclusion</a></li>
+                            <li><a href="/presse" title="Presse et relations médias" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Presse</a></li>
                         </ul>
                     </nav>
                 </div>

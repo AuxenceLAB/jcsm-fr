@@ -28,17 +28,6 @@
     <meta name="twitter:description" content="Retail et grande distribution : déploiement multi-sites, maintenance anti-vandalisme, support usagers 24/7. Maximisez le taux de dispo de vos bornes IRVE.">
     <meta name="twitter:image" content="https://jcsm.fr/images/index.jpg">
     <meta name="twitter:image:alt" content="JCSM - Bornes de recharge pour retail et grande distribution">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
-    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"
-        media="print" onload="this.media='all'">
-    <noscript>
-        <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600;700;800&display=swap"
-            rel="stylesheet">
-    </noscript>
     <link rel="stylesheet" href="../css/critical.css?v=74">
     <link rel="stylesheet" href="../css/tailwind.css?v=74" media="print" onload="this.media='all'">
     <noscript><link rel="stylesheet" href="../css/tailwind.css?v=74"></noscript>
@@ -109,7 +98,7 @@
     <script src="../js/config.js?v=74" defer></script>
 
 </head>
-<body class="text-gray-900 bg-white">
+<body class="text-gray-900">
     <a href="#main-content" class="skip-link">Aller au contenu principal</a>
 
     <div class="preloader" id="preloader" role="status" aria-label="Chargement">
@@ -134,9 +123,9 @@
                 <a href="/exploitation" class="text-base text-gray-600 hover:text-gray-900 transition-colors">Exploitation</a>
                 <a href="/securisation-installations" class="text-base text-gray-600 hover:text-gray-900 transition-colors">Sécurisation</a>
                 <a href="/centre-appel" class="text-base text-gray-600 hover:text-gray-900 transition-colors">Support</a>
-                <a href="/solutions/" class="text-base text-gray-600 hover:text-gray-900 transition-colors">Solutions</a>
+                <a href="/solutions/" class="text-base text-gray-600 hover:text-gray-900 transition-colors" aria-current="page">Solutions</a>
                 <a href="/a-propos" class="text-base text-gray-600 hover:text-gray-900 transition-colors">À propos</a>
-                <a href="/contact" class="btn-primary text-white px-6 py-3 rounded-lg text-base font-medium inline-block text-center mt-4">Contact</a>
+                <a href="/contact" class="btn-primary text-white px-6 py-3 rounded-lg text-base font-medium inline-block text-center mt-4">Devis gratuit</a>
             </div>
         </div>
     </nav>
@@ -154,7 +143,7 @@
                     <a href="/exploitation" class="nav-link text-[15px] font-semibold text-gray-700 whitespace-nowrap">Exploitation</a>
                     <a href="/securisation-installations" class="nav-link text-[15px] font-semibold text-gray-700 whitespace-nowrap">Sécurisation</a>
                     <a href="/centre-appel" class="nav-link text-[15px] font-semibold text-gray-700 whitespace-nowrap">Support</a>
-                    <a href="/solutions/" class="nav-link text-[15px] font-semibold text-gray-700 whitespace-nowrap">Solutions</a>
+                    <a href="/solutions/" class="nav-link nav-link-active text-[15px] font-semibold text-gray-700 whitespace-nowrap">Solutions</a>
                     <a href="/a-propos" class="nav-link text-[15px] font-semibold text-gray-700 whitespace-nowrap">À propos</a>
                     <a href="/contact" class="btn-primary ml-5 px-8 py-3 rounded-xl text-[15px] font-semibold text-white shadow-lg hover:shadow-xl whitespace-nowrap">Devis gratuit</a>
                 </div>
@@ -178,202 +167,288 @@
             </ol>
         </nav>
         <!-- Hero -->
-        <section class="pt-32 pb-20 px-6 bg-blue-50">
+        <section class="pt-32 pb-20 px-6">
             <div class="max-w-6xl mx-auto">
                 <div class="text-center mb-12">
-                    <div class="badge-section inline-flex items-center bg-blue-50 text-blue-700 rounded-full px-4 py-2 mb-6">
-                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path></svg>
-                        <span class="text-sm font-semibold">Recharge sur parkings commerciaux</span>
-                    </div>
-                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-                        Retail : <span class="gradient-text">zéro panne, zéro friction, zéro excuse</span>
+                    <p class="sec-label mb-4">Recharge sur parkings commerciaux</p>
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl mb-6">
+                        Retail : <em>zero panne, zero friction, zero excuse</em>
                     </h1>
                     <p class="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
-                        Vos clients rechargent pendant qu'ils font leurs courses. Si la borne est en panne, ils vont chez le concurrent. Chaque minute d'indisponibilite vous coute en satisfaction client et en chiffre d'affaires. JCSM gère vos sites sous contrat unique avec SLA homogène, une protection anti-vandalisme proactive et un support utilisateur en marque blanche intégré a votre enseigne.
+                        Vos clients rechargent pendant qu'ils font leurs courses. Si la borne est en panne, ils vont chez le concurrent. Chaque minute d'indisponibilite vous coute en satisfaction client et en chiffre d'affaires. JCSM gere vos sites sous contrat unique avec SLA homogene, une protection anti-vandalisme proactive et un support utilisateur en marque blanche integre a votre enseigne.
                     </p>
                     <div class="flex flex-wrap gap-4 justify-center">
-                        <a href="/contact" class="bg-blue-600 text-white px-8 py-4 rounded-xl font-medium hover:bg-blue-700 transition-colors">
-                            Demander une étude de déploiement
+                        <a href="/contact" class="btn-primary px-8 py-4 text-white font-medium">
+                            Demander une etude de deploiement
                         </a>
-                        <a href="tel:+33183755706" class="border border-gray-300 px-8 py-4 rounded-xl font-medium hover:bg-gray-50 transition-colors">
-                            Parler à un expert retail
+                        <a href="tel:+33183755706" class="btn-secondary px-8 py-4 font-medium">
+                            Parler a un expert retail
                         </a>
                     </div>
                 </div>
 
-                <!-- Repères techniques -->
+                <!-- Reperes techniques -->
                 <div class="grid md:grid-cols-3 gap-6 mt-16">
-                    <div class="bg-white rounded-2xl p-6 text-center shadow-sm border border-gray-100">
-                        <div class="text-3xl font-bold text-blue-600 mb-2">IK10 / IP54</div>
-                        <p class="text-gray-600 text-sm">Résistance anti-vandalisme et intempéries</p>
+                    <div class="card-feature text-center">
+                        <div class="num text-2xl mb-2">IK10 / IP54</div>
+                        <p class="text-gray-600 text-sm">Resistance anti-vandalisme et intemperies</p>
                     </div>
-                    <div class="bg-white rounded-2xl p-6 text-center shadow-sm border border-gray-100">
-                        <div class="text-3xl font-bold text-blue-600 mb-2">Multi-sites</div>
-                        <p class="text-gray-600 text-sm">Déploiement coordonné, coordination centralisee</p>
+                    <div class="card-feature text-center">
+                        <div class="num text-2xl mb-2">Multi-sites</div>
+                        <p class="text-gray-600 text-sm">Deploiement coordonne, coordination centralisee</p>
                     </div>
-                    <div class="bg-white rounded-2xl p-6 text-center shadow-sm border border-gray-100">
-                        <div class="text-3xl font-bold text-blue-600 mb-2">AC + DC</div>
-                        <p class="text-gray-600 text-sm">De 7 kW à 400 kW, toutes marques</p>
+                    <div class="card-feature text-center">
+                        <div class="num text-2xl mb-2">AC + DC</div>
+                        <p class="text-gray-600 text-sm">De 7 kW a 400 kW, toutes marques</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Enjeux retail -->
-        <section class="py-20 px-6 bg-white section-appear">
+        <section class="py-20 px-6 section-alt section-appear">
             <div class="max-w-6xl mx-auto">
-                <h2 class="text-3xl md:text-4xl font-bold text-center mb-4">Les enjeux de la recharge pour le retail</h2>
-                <p class="text-gray-600 text-center max-w-2xl mx-auto mb-12">Vandalisme sur des parkings ouverts 24h/24, pannes qui font fuir les clients vers le concurrent, plaintes utilisateurs qui remontent en magasin, gestion eclatee sur des dizaines de sites : les parkings commerciaux concentrent les defis les plus exigeants de l'IRVE. Sans réponse adaptée, le taux de panne explose et la satisfaction client s'effondre.</p>
+                <p class="sec-label text-center mb-3">Diagnostic</p>
+                <h2 class="text-3xl md:text-4xl text-center mb-4">Les enjeux de la recharge pour le retail</h2>
+                <p class="text-gray-600 text-center max-w-2xl mx-auto mb-12">Vandalisme sur des parkings ouverts 24h/24, pannes qui font fuir les clients vers le concurrent, plaintes utilisateurs qui remontent en magasin : les parkings commerciaux concentrent les defis les plus exigeants de l'IRVE.</p>
 
                 <div class="grid md:grid-cols-2 gap-8">
-                    <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 card-hover why-card-industrial">
-                        <div class="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center mb-6 icon-pulse-hover">
-                            <svg class="w-7 h-7 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    <div class="card-feature">
+                        <div class="flex items-start gap-4 mb-4">
+                            <div class="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0" style="background:rgba(37,99,235,0.08)">
+                                <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            </div>
+                            <h3 class="text-xl font-bold pt-2">Temps de charge = temps de shopping</h3>
                         </div>
-                        <h3 class="text-xl font-bold mb-3">Temps de charge = temps de shopping</h3>
-                        <p class="text-gray-600">30 a 90 minutes de recharge utile, exactement le temps d'une session de courses. La borne ne cree pas de l'attente : elle valorise un temps deja passe sur place. Les conducteurs de VE choisissent les enseignes equipees pour recharger pendant qu'ils font leurs courses. Si la borne est hors service a leur arrivee, ils partent chez le concurrent, et ne reviennent pas.</p>
+                        <p class="text-gray-600">30 a 90 minutes de recharge utile, exactement le temps d'une session de courses. La borne ne cree pas de l'attente : elle valorise un temps deja passe sur place. Si la borne est hors service a leur arrivee, ils partent chez le concurrent.</p>
                     </div>
-                    <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 card-hover why-card-industrial">
-                        <div class="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center mb-6 icon-pulse-hover">
-                            <svg class="w-7 h-7 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
+                    <div class="card-feature">
+                        <div class="flex items-start gap-4 mb-4">
+                            <div class="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0" style="background:rgba(37,99,235,0.08)">
+                                <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
+                            </div>
+                            <h3 class="text-xl font-bold pt-2">Fidelisation et differenciation</h3>
                         </div>
-                        <h3 class="text-xl font-bold mb-3">Fidelisation et differenciation</h3>
-                        <p class="text-gray-600">Dans un secteur ou la concurrence se joue a quelques kilometres, la recharge est un levier de differenciation decisif. Intégrée a votre programme de fidelite (recharge offerte, tarif preferentiel carte), la borne devient un outil marketing puissant. Mais une borne en panne produit l'effet inverse : frustration, avis negatifs en ligne et client perdu au profit du concurrent équipe. Le taux de disponibilité n'est pas un indicateur technique, c'est un indicateur commercial.</p>
+                        <p class="text-gray-600">La concurrence se joue a quelques kilometres. Integree a votre programme de fidelite, la borne devient un outil marketing puissant. Le taux de disponibilite n'est pas un indicateur technique, c'est un indicateur commercial.</p>
                     </div>
-                    <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 card-hover why-card-industrial">
-                        <div class="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center mb-6 icon-pulse-hover">
-                            <svg class="w-7 h-7 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                    <div class="card-feature">
+                        <div class="flex items-start gap-4 mb-4">
+                            <div class="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0" style="background:rgba(37,99,235,0.08)">
+                                <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                            </div>
+                            <h3 class="text-xl font-bold pt-2">Conformite LOM</h3>
                         </div>
-                        <h3 class="text-xl font-bold mb-3">Conformité LOM</h3>
-                        <p class="text-gray-600">La loi impose aux parkings de plus de 20 places l'installation progressive de points de recharge. Anticiper cette obligation vous positionne comme une enseigne engagée dans la transition écologique.</p>
+                        <p class="text-gray-600">La loi impose aux parkings de plus de 20 places l'installation progressive de points de recharge. Anticiper cette obligation vous positionne comme une enseigne engagee dans la transition ecologique.</p>
                     </div>
-                    <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 card-hover why-card-industrial">
-                        <div class="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center mb-6 icon-pulse-hover">
-                            <svg class="w-7 h-7 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.618 5.984A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016zM12 9v2m0 4h.01"></path></svg>
+                    <div class="card-feature">
+                        <div class="flex items-start gap-4 mb-4">
+                            <div class="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0" style="background:rgba(37,99,235,0.08)">
+                                <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.618 5.984A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016zM12 9v2m0 4h.01"></path></svg>
+                            </div>
+                            <h3 class="text-xl font-bold pt-2">Robustesse en environnement public</h3>
                         </div>
-                        <h3 class="text-xl font-bold mb-3">Robustesse en environnement public</h3>
-                        <p class="text-gray-600">Vandalisme, chocs de véhicules, intemperies, utilisation intensive 24h/24 : un parking commercial ouvert est l'environnement le plus hostile pour une borne de recharge. Sans protection anti-vandalisme adaptée, cameras IA, alarmes, le taux de panne explose et les plaintes utilisateurs saturent vos équipés en magasin. Le choix du matériel (IK10, IP54), la qualité d'installation et la réactivité de la maintenance conditionnent directement votre taux de disponibilité.</p>
+                        <p class="text-gray-600">Vandalisme, chocs de vehicules, intemperies, utilisation intensive 24h/24. Sans protection anti-vandalisme adaptee, le taux de panne explose et les plaintes utilisateurs saturent vos equipes en magasin. Le choix du materiel (IK10, IP54) et la reactivite de la maintenance conditionnent votre taux de disponibilite.</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Solutions JCSM -->
-        <section class="py-20 px-6 bg-gray-50 section-appear">
+        <section class="py-20 px-6 section-appear">
             <div class="max-w-6xl mx-auto">
-                <h2 class="text-3xl md:text-4xl font-bold text-center mb-4">Les solutions JCSM pour le retail</h2>
-                <p class="text-gray-600 text-center max-w-2xl mx-auto mb-12">Contrat unique multi-sites, SLA homogène. Protection anti-vandalisme : cameras IA, alarmes. Support utilisateur en marque blanche intégré pour zero sollicitation de vos équipés en magasin. Une offre concue pour les exigences du commerce a fort trafic.</p>
+                <p class="sec-label text-center mb-3">Nos solutions</p>
+                <h2 class="text-3xl md:text-4xl text-center mb-4">Les solutions JCSM pour le retail</h2>
+                <p class="text-gray-600 text-center max-w-2xl mx-auto mb-12">Contrat unique multi-sites, SLA homogene. Protection anti-vandalisme : cameras IA, alarmes. Support utilisateur en marque blanche integre pour zero sollicitation de vos equipes en magasin.</p>
 
                 <div class="grid md:grid-cols-2 gap-8">
-                    <div class="bg-white rounded-2xl p-8 shadow-sm card-hover svc-card-industrial">
-                        <div class="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center mb-6 icon-pulse-hover">
-                            <svg class="w-7 h-7 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    <div class="card-feature">
+                        <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-5" style="background:rgba(37,99,235,0.08)">
+                            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                         </div>
-                        <h3 class="text-xl font-bold mb-3">Déploiement multi-sites coordonne</h3>
-                        <p class="text-gray-600">Pouvez-vous couvrir tous nos sites avec un seul contrat ? C'est la première question que nous posent les directeurs de parc. La réponse est oui, que vous ayez 5 ou 200 points de vente. Methodologie industrielle : cartographie du parc, priorisation des sites par potentiel VE, déploiement par vagues avec retour d'experience intégré. Une equipe dediee, un SLA uniforme, un reporting consolide et une coordination centralisee des interventions sur tout le territoire national.</p>
+                        <h3 class="text-xl font-bold mb-3">Deploiement multi-sites coordonne</h3>
+                        <p class="text-gray-600">Que vous ayez 5 ou 200 points de vente, un seul contrat couvre l'ensemble. Methodologie industrielle : cartographie du parc, priorisation des sites par potentiel VE, deploiement par vagues avec retour d'experience integre. Un SLA uniforme, un reporting consolide et une coordination centralisee des interventions.</p>
                     </div>
-                    <div class="bg-white rounded-2xl p-8 shadow-sm card-hover svc-card-industrial">
-                        <div class="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center mb-6 icon-pulse-hover">
-                            <svg class="w-7 h-7 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                    <div class="card-feature">
+                        <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-5" style="background:rgba(37,99,235,0.08)">
+                            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
                         </div>
-                        <h3 class="text-xl font-bold mb-3">Maintenance avec SLA adapté au retail</h3>
-                        <p class="text-gray-600">Chaque heure de panne, ce sont des clients qui repartent sans acheter et qui notent mal votre enseigne en ligne. Notre supervision 24/7 détecté les anomalies avant vos clients et declenche les interventions automatiquement. Maintenance preventive trimestrielle, corrective avec engagement de délai strict et fiche technique par site pour une efficacité des la première visite. Resultat : un taux de disponibilité optimise en continu et des reclamations utilisateurs qui chutent drastiquement.</p>
+                        <h3 class="text-xl font-bold mb-3">Maintenance avec SLA adapte au retail</h3>
+                        <p class="text-gray-600">Notre supervision 24/7 detecte les anomalies avant vos clients et declenche les interventions automatiquement. Maintenance preventive trimestrielle, corrective avec engagement de delai strict et fiche technique par site. Resultat : un taux de disponibilite optimise en continu.</p>
                     </div>
-                    <div class="bg-white rounded-2xl p-8 shadow-sm card-hover svc-card-industrial">
-                        <div class="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center mb-6 icon-pulse-hover">
-                            <svg class="w-7 h-7 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.618 5.984A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016zM12 9v2m0 4h.01"></path></svg>
+                    <div class="card-feature">
+                        <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-5" style="background:rgba(37,99,235,0.08)">
+                            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.618 5.984A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016zM12 9v2m0 4h.01"></path></svg>
                         </div>
                         <h3 class="text-xl font-bold mb-3">Protection anti-vandalisme renforcee</h3>
-                        <p class="text-gray-600">Comment proteger les bornes sur un parking ouvert 24h/24 ? C'est le defi numéro un du retail. Notre réponse : trois niveaux de protection combines. Matériel renforce (bornes IP54 minimum, resistance IK10, protections physiques anti-belier). Dispositifs actifs (cameras IA avec detection d'anomalies, alarmes connectees). Implantation reflechie (zones eclairees, positionnement strategique, videoprotection intégrée). Documentation systematique pour vos assurances en cas de degradation.</p>
+                        <p class="text-gray-600">Trois niveaux de protection combines. Materiel renforce (bornes IP54 minimum, resistance IK10, protections physiques anti-belier). Dispositifs actifs (cameras IA avec detection d'anomalies, alarmes connectees). Implantation reflechie (zones eclairees, positionnement strategique). Documentation systematique pour vos assurances.</p>
                     </div>
-                    <div class="bg-white rounded-2xl p-8 shadow-sm card-hover svc-card-industrial">
-                        <div class="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center mb-6 icon-pulse-hover">
-                            <svg class="w-7 h-7 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+                    <div class="card-feature">
+                        <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-5" style="background:rgba(37,99,235,0.08)">
+                            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
                         </div>
                         <h3 class="text-xl font-bold mb-3">Support utilisateur en marque blanche</h3>
-                        <p class="text-gray-600">Support utilisateur en marque blanche intégré : vos clients appellent votre enseigne, nos techniciens repondent. Fini les reclamations qui remontent a l'accueil du magasin et monopolisent vos équipés. Accessible via QR code sur chaque borne, notre centre d'appel resout la majorite des incidents a distance (redemarrage, guidage, deblocage) sans mobiliser vos collaborateurs. Vos clients ne voient que votre marque, beneficient d'une assistance immediate et repartent satisfaits.</p>
+                        <p class="text-gray-600">Vos clients appellent votre enseigne, nos techniciens repondent. Accessible via QR code sur chaque borne, notre centre d'appel resout la majorite des incidents a distance (redemarrage, guidage, deblocage) sans mobiliser vos collaborateurs. Zero reclamation a l'accueil du magasin.</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- ROI -->
-        <section class="py-20 px-6 bg-white section-appear">
+        <section class="section-dark py-20 px-6 section-appear">
             <div class="max-w-6xl mx-auto">
-                <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Le retour sur investissement pour le retail</h2>
+                <p class="sec-label text-center mb-3">ROI</p>
+                <h2 class="text-3xl md:text-4xl text-center mb-12">Le retour sur investissement pour le retail</h2>
                 <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <div class="bg-gray-50 rounded-2xl p-8 text-center card-hover why-card-industrial">
-                        <div class="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center mx-auto mb-4 icon-pulse-hover">
-                            <svg class="w-7 h-7 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    <div class="step p-6 text-center">
+                        <div class="w-12 h-12 bg-blue-600/20 rounded-xl flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                         </div>
                         <h3 class="font-bold text-lg mb-2">Revenus directs</h3>
-                        <p class="text-gray-600 text-sm">Vente d'électricité via vos bornes. Modèles flexibles : au kWh, à la minute, forfait ou gratuit. Rentabilité en 18 à 36 mois.</p>
+                        <p class="opacity-80 text-sm">Vente d'electricite via vos bornes. Modeles flexibles : au kWh, a la minute, forfait ou gratuit. Rentabilite en 18 a 36 mois.</p>
                     </div>
-                    <div class="bg-gray-50 rounded-2xl p-8 text-center card-hover why-card-industrial">
-                        <div class="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center mx-auto mb-4 icon-pulse-hover">
-                            <svg class="w-7 h-7 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path></svg>
+                    <div class="step p-6 text-center">
+                        <div class="w-12 h-12 bg-blue-600/20 rounded-xl flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path></svg>
                         </div>
-                        <h3 class="font-bold text-lg mb-2">Temps passé en magasin</h3>
-                        <p class="text-gray-600 text-sm">Une session de recharge lente dure 20 à 30 minutes : exactement le temps d'une session de courses.</p>
+                        <h3 class="font-bold text-lg mb-2">Temps passe en magasin</h3>
+                        <p class="opacity-80 text-sm">Une session de recharge lente dure 20 a 30 minutes : exactement le temps d'une session de courses.</p>
                     </div>
-                    <div class="bg-gray-50 rounded-2xl p-8 text-center card-hover why-card-industrial">
-                        <div class="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center mx-auto mb-4 icon-pulse-hover">
-                            <svg class="w-7 h-7 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
+                    <div class="step p-6 text-center">
+                        <div class="w-12 h-12 bg-blue-600/20 rounded-xl flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
                         </div>
-                        <h3 class="font-bold text-lg mb-2">Valorisation foncière</h3>
-                        <p class="text-gray-600 text-sm">Un parking équipé est un argument commercial pour les foncières et les enseignes. Signal de modernité et d'accessibilité.</p>
+                        <h3 class="font-bold text-lg mb-2">Valorisation fonciere</h3>
+                        <p class="opacity-80 text-sm">Un parking equipe est un argument commercial pour les foncieres et les enseignes. Signal de modernite et d'accessibilite.</p>
                     </div>
-                    <div class="bg-gray-50 rounded-2xl p-8 text-center card-hover why-card-industrial">
-                        <div class="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center mx-auto mb-4 icon-pulse-hover">
-                            <svg class="w-7 h-7 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    <div class="step p-6 text-center">
+                        <div class="w-12 h-12 bg-blue-600/20 rounded-xl flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                         </div>
                         <h3 class="font-bold text-lg mb-2">Image RSE</h3>
-                        <p class="text-gray-600 text-sm">Geste visible et concret en faveur de la transition écologique. Valorisable en communication, rapports RSE et échanges avec les collectivités.</p>
+                        <p class="opacity-80 text-sm">Geste visible et concret en faveur de la transition ecologique. Valorisable en communication et rapports RSE.</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- FAQ -->
-        <section class="py-20 px-6 bg-gray-50 section-appear">
+        <section class="py-20 px-6 section-alt section-appear">
             <div class="max-w-4xl mx-auto">
-                <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Questions fréquentes</h2>
+                <p class="sec-label text-center mb-3">FAQ</p>
+                <h2 class="text-3xl md:text-4xl text-center mb-12">Questions frequentes</h2>
                 <div class="space-y-6">
-                    <div class="bg-white rounded-2xl p-8 shadow-sm card-hover svc-card-industrial">
-                        <h3 class="text-lg font-bold mb-3">Comment proteger les bornes sur un parking ouvert 24h/24 ?</h3>
-                        <p class="text-gray-600">Trois niveaux de protection combines : matériel renforce (resistance IK10, IP54, bornes anti-belier), dispositifs actifs (cameras IA avec detection d'anomalies, alarmes connectees) et implantation reflechie (zones eclairees, positionnement strategique, videoprotection intégrée). Notre expérience terrain en France nous permet d'adapter la strategie anti-vandalisme a chaque configuration de site, parking couvert, exterieur, zone sensible, pour maintenir un taux de disponibilité maximal malgre un environnement hostile.</p>
+                    <div class="card-feature">
+                        <div class="flex items-start gap-4 mb-3">
+                            <svg class="w-6 h-6 text-blue-600 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            <h3 class="text-lg font-bold">Comment proteger les bornes sur un parking ouvert 24h/24 ?</h3>
+                        </div>
+                        <p class="text-gray-600">Trois niveaux de protection combines : materiel renforce (resistance IK10, IP54, bornes anti-belier), dispositifs actifs (cameras IA avec detection d'anomalies, alarmes connectees) et implantation reflechie (zones eclairees, positionnement strategique). Notre experience terrain nous permet d'adapter la strategie anti-vandalisme a chaque configuration de site.</p>
                     </div>
-                    <div class="bg-white rounded-2xl p-8 shadow-sm card-hover svc-card-industrial">
-                        <h3 class="text-lg font-bold mb-3">Pouvez-vous couvrir tous nos sites avec un seul contrat ?</h3>
-                        <p class="text-gray-600">Oui, c'est meme notre spécialité. JCSM propose des contrats de maintenance multi-sites avec un seul interlocuteur et un SLA uniforme sur l'ensemble de votre parc. Que vous ayez 5 ou 200 points de vente, vous bénéficiez d'une homogeneite de service, d'un reporting consolide par site et par region, et d'une coordination centralisee des interventions sur tout le territoire national. Plus besoin de gérer des prestataires differents par zone geographique : un seul numéro, un seul tableau de bord, une seule facturation.</p>
+                    <div class="card-feature">
+                        <div class="flex items-start gap-4 mb-3">
+                            <svg class="w-6 h-6 text-blue-600 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            <h3 class="text-lg font-bold">Pouvez-vous couvrir tous nos sites avec un seul contrat ?</h3>
+                        </div>
+                        <p class="text-gray-600">Oui, c'est meme notre specialite. JCSM propose des contrats de maintenance multi-sites avec un seul interlocuteur et un SLA uniforme sur l'ensemble de votre parc. Que vous ayez 5 ou 200 points de vente, un seul numero, un seul tableau de bord, une seule facturation.</p>
                     </div>
-                    <div class="bg-white rounded-2xl p-8 shadow-sm card-hover svc-card-industrial">
-                        <h3 class="text-lg font-bold mb-3">Qui gere la facturation et le support aupres des utilisateurs ?</h3>
-                        <p class="text-gray-600">Plusieurs modeles de facturation : exploitation en propre, délégation a un CPO ou modele hybride. Cote support, JCSM propose un service en marque blanche intégré : vos clients appellent votre enseigne, nos techniciens repondent et resolvent la majorite des incidents a distance (redemarrage, guidage, deblocage). Resultat : zero reclamation a l'accueil du magasin, zero sollicitation de vos équipés terrain. Vos clients ne voient que votre marque et beneficient d'une assistance professionnelle immediate.</p>
+                    <div class="card-feature">
+                        <div class="flex items-start gap-4 mb-3">
+                            <svg class="w-6 h-6 text-blue-600 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            <h3 class="text-lg font-bold">Qui gere la facturation et le support aupres des utilisateurs ?</h3>
+                        </div>
+                        <p class="text-gray-600">Plusieurs modeles de facturation : exploitation en propre, delegation a un CPO ou modele hybride. JCSM propose un service de support en marque blanche integre : vos clients appellent votre enseigne, nos techniciens repondent et resolvent la majorite des incidents a distance.</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- CTA -->
-        <section class="py-20 px-6 bg-blue-600 text-white">
+        <section class="card-cta py-20 px-6">
             <div class="max-w-4xl mx-auto text-center">
-                <h2 class="text-3xl md:text-4xl font-bold mb-6 text-white">Une borne en panne = un client chez le concurrent</h2>
-                <p class="text-xl text-blue-100 mb-8">Vos clients rechargent pendant qu'ils font leurs courses. Si la borne est en panne, ils vont chez le concurrent. Ne laissez plus une borne hors service couter des clients a votre enseigne. JCSM : contrat unique multi-sites, protection anti-vandalisme et support utilisateur en marque blanche pour un taux de disponibilité maximal sur l'ensemble de votre parc.</p>
-                <a href="/contact" class="inline-block bg-white text-blue-600 px-8 py-4 rounded-xl font-medium hover:bg-blue-50 transition-colors">
-                    Demander une étude de déploiement
+                <h2 class="text-3xl md:text-4xl mb-6">Une borne en panne = un client chez le concurrent</h2>
+                <p class="text-lg opacity-80 mb-8">Ne laissez plus une borne hors service couter des clients a votre enseigne. JCSM : contrat unique multi-sites, protection anti-vandalisme et support utilisateur en marque blanche pour un taux de disponibilite maximal sur l'ensemble de votre parc.</p>
+                <a href="/contact" class="inline-block bg-white text-blue-600 px-8 py-4 rounded-full font-medium hover:bg-gray-100 transition-colors">
+                    Demander une etude de deploiement
                 </a>
             </div>
         </section>
 
         <!-- Autres solutions -->
-        <section class="py-16 px-6 bg-white section-appear">
+        <section class="py-16 px-6 section-appear">
             <div class="max-w-6xl mx-auto">
-                <h2 class="text-2xl font-bold text-center mb-8">Découvrez nos solutions par secteur</h2>
+                <p class="sec-label text-center mb-3">Autres secteurs</p>
+                <h2 class="text-2xl text-center mb-8">Decouvrez nos solutions par secteur</h2>
                 <div class="flex flex-wrap justify-center gap-4">
-                    <a href="/solutions/cpo-operateurs" class="px-4 py-2 bg-gray-100 rounded-lg text-sm hover:bg-blue-100 hover:text-blue-700 transition-colors">CPO et opérateurs</a>
-                    <a href="/solutions/fabricants-bornes" class="px-4 py-2 bg-gray-100 rounded-lg text-sm hover:bg-blue-100 hover:text-blue-700 transition-colors">Fabricants de bornes</a>
-                    <a href="/solutions/entreprises-flottes" class="px-4 py-2 bg-gray-100 rounded-lg text-sm hover:bg-blue-100 hover:text-blue-700 transition-colors">Entreprises et flottes</a>
+                    <a href="/solutions/cpo-operateurs" class="card-feature px-5 py-3 inline-flex items-center gap-2 text-sm hover:border-blue-600 transition-colors">
+                        <svg class="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6z"></path></svg>
+                        CPO et operateurs
+                    </a>
+                    <a href="/solutions/fabricants-bornes" class="card-feature px-5 py-3 inline-flex items-center gap-2 text-sm hover:border-blue-600 transition-colors">
+                        <svg class="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                        Fabricants de bornes
+                    </a>
+                    <a href="/solutions/entreprises-flottes" class="card-feature px-5 py-3 inline-flex items-center gap-2 text-sm hover:border-blue-600 transition-colors">
+                        <svg class="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
+                        Entreprises et flottes
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Voir aussi : nos services -->
+        <section class="py-20 px-6" aria-label="Nos services IRVE">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-10 section-appear">
+                    <div class="sec-label mb-5">Voir aussi</div>
+                    <h2 class="text-2xl sm:text-3xl tracking-tight">Nos services</h2>
+                </div>
+                <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-4">
+                    <a href="/pilotage-projets" title="Voir notre service de pilotage de projets" class="card-feature block text-center section-appear">
+                        <div class="flex justify-center mb-4">
+                            <svg class="w-8 h-8" style="color: var(--color-primary)" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                            </svg>
+                        </div>
+                        <h3 class="font-bold text-sm mb-1" style="font-family: var(--font-sans)">Pilotage</h3>
+                        <p class="text-xs" style="color: var(--color-text-secondary)">Coordination de projets IRVE</p>
+                    </a>
+                    <a href="/installation-conformite" title="Voir notre service d'installation et conformite" class="card-feature block text-center section-appear">
+                        <div class="flex justify-center mb-4">
+                            <svg class="w-8 h-8" style="color: var(--color-primary)" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.066 2.573c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.573 1.066c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.066-2.573c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                            </svg>
+                        </div>
+                        <h3 class="font-bold text-sm mb-1" style="font-family: var(--font-sans)">Installation</h3>
+                        <p class="text-xs" style="color: var(--color-text-secondary)">Installation certifiee Qualifelec</p>
+                    </a>
+                    <a href="/exploitation" title="Voir notre service d'exploitation et maintenance" class="card-feature block text-center section-appear">
+                        <div class="flex justify-center mb-4">
+                            <svg class="w-8 h-8" style="color: var(--color-primary)" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
+                            </svg>
+                        </div>
+                        <h3 class="font-bold text-sm mb-1" style="font-family: var(--font-sans)">Exploitation</h3>
+                        <p class="text-xs" style="color: var(--color-text-secondary)">Maintenance preventive et curative</p>
+                    </a>
+                    <a href="/securisation-installations" title="Voir notre service de securisation" class="card-feature block text-center section-appear">
+                        <div class="flex justify-center mb-4">
+                            <svg class="w-8 h-8" style="color: var(--color-primary)" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+                            </svg>
+                        </div>
+                        <h3 class="font-bold text-sm mb-1" style="font-family: var(--font-sans)">Securisation</h3>
+                        <p class="text-xs" style="color: var(--color-text-secondary)">Protection anti-vandalisme</p>
+                    </a>
+                    <a href="/centre-appel" title="Voir notre support technique 24/7" class="card-feature block text-center section-appear">
+                        <div class="flex justify-center mb-4">
+                            <svg class="w-8 h-8" style="color: var(--color-primary)" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C8.716 21 3 15.284 3 8V5z"/>
+                            </svg>
+                        </div>
+                        <h3 class="font-bold text-sm mb-1" style="font-family: var(--font-sans)">Support 24/7</h3>
+                        <p class="text-xs" style="color: var(--color-text-secondary)">Hotline et telegestion</p>
+                    </a>
                 </div>
             </div>
         </section>
@@ -417,6 +492,7 @@
                             <li><a href="/carrieres" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Carrières</a></li>
                             <li><a href="/contact" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Contact</a></li>
                             <li><a href="/blog" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Blog</a></li>
+                            <li><a href="/presse" title="Presse et relations médias" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Presse</a></li>
                         </ul>
                     </nav>
                 </div>

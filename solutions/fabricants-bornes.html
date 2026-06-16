@@ -28,17 +28,6 @@
     <meta name="twitter:description" content="Fabricants de bornes : installation certifiée, SAV terrain France et Belgique, remontée data produit. Votre bras armé sur le territoire, équipes internes dédiées.">
     <meta name="twitter:image" content="https://jcsm.fr/images/index.jpg">
     <meta name="twitter:image:alt" content="JCSM - Partenaire terrain pour fabricants de bornes IRVE">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
-    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"
-        media="print" onload="this.media='all'">
-    <noscript>
-        <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600;700;800&display=swap"
-            rel="stylesheet">
-    </noscript>
     <link rel="stylesheet" href="../css/critical.css?v=74">
     <link rel="stylesheet" href="../css/tailwind.css?v=74" media="print" onload="this.media='all'">
     <noscript><link rel="stylesheet" href="../css/tailwind.css?v=74"></noscript>
@@ -109,7 +98,7 @@
     <script src="../js/config.js?v=74" defer></script>
 
 </head>
-<body class="text-gray-900 bg-white">
+<body class="text-gray-900">
     <a href="#main-content" class="skip-link">Aller au contenu principal</a>
 
     <div class="preloader" id="preloader" role="status" aria-label="Chargement">
@@ -134,9 +123,9 @@
                 <a href="/exploitation" class="text-base text-gray-600 hover:text-gray-900 transition-colors">Exploitation</a>
                 <a href="/securisation-installations" class="text-base text-gray-600 hover:text-gray-900 transition-colors">Sécurisation</a>
                 <a href="/centre-appel" class="text-base text-gray-600 hover:text-gray-900 transition-colors">Support</a>
-                <a href="/solutions/" class="text-base text-gray-600 hover:text-gray-900 transition-colors">Solutions</a>
+                <a href="/solutions/" class="text-base text-gray-600 hover:text-gray-900 transition-colors" aria-current="page">Solutions</a>
                 <a href="/a-propos" class="text-base text-gray-600 hover:text-gray-900 transition-colors">À propos</a>
-                <a href="/contact" class="btn-primary text-white px-6 py-3 rounded-lg text-base font-medium inline-block text-center mt-4">Contact</a>
+                <a href="/contact" class="btn-primary text-white px-6 py-3 rounded-lg text-base font-medium inline-block text-center mt-4">Devis gratuit</a>
             </div>
         </div>
     </nav>
@@ -154,7 +143,7 @@
                     <a href="/exploitation" class="nav-link text-[15px] font-semibold text-gray-700 whitespace-nowrap">Exploitation</a>
                     <a href="/securisation-installations" class="nav-link text-[15px] font-semibold text-gray-700 whitespace-nowrap">Sécurisation</a>
                     <a href="/centre-appel" class="nav-link text-[15px] font-semibold text-gray-700 whitespace-nowrap">Support</a>
-                    <a href="/solutions/" class="nav-link text-[15px] font-semibold text-gray-700 whitespace-nowrap">Solutions</a>
+                    <a href="/solutions/" class="nav-link nav-link-active text-[15px] font-semibold text-gray-700 whitespace-nowrap">Solutions</a>
                     <a href="/a-propos" class="nav-link text-[15px] font-semibold text-gray-700 whitespace-nowrap">À propos</a>
                     <a href="/contact" class="btn-primary ml-5 px-8 py-3 rounded-xl text-[15px] font-semibold text-white shadow-lg hover:shadow-xl whitespace-nowrap">Devis gratuit</a>
                 </div>
@@ -178,198 +167,284 @@
             </ol>
         </nav>
         <!-- Hero -->
-        <section class="pt-32 pb-20 px-6 bg-blue-50">
+        <section class="pt-32 pb-20 px-6">
             <div class="max-w-6xl mx-auto">
                 <div class="text-center mb-12">
-                    <div class="badge-section inline-flex items-center bg-blue-50 text-blue-700 rounded-full px-4 py-2 mb-6">
-                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
-                        <span class="text-sm font-semibold">Prolongement opérationnel des fabricants</span>
-                    </div>
-                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-                        Fabricants : <span class="gradient-text">votre SAV terrain. Notre problème.</span>
+                    <p class="sec-label mb-4">Prolongement operationnel des fabricants</p>
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl mb-6">
+                        Fabricants : <em>votre SAV terrain. Notre probleme.</em>
                     </h1>
                     <p class="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
-                        Vous concevez et fabriquez les bornes. Nous assurons l'installation certifiée Qualifelec de vos bornes chez les clients finaux, la mise en service, le SAV garantie constructeur et le handover client, partout en France et en Belgique. Couverture nationale avec des équipes terrain structurées : un seul interlocuteur, une qualité homogène. Nos techniciens sont formés sur vos produits spécifiques et assurent la remontée data terrain : pannes récurrentes, retours firmware, photos avant/après.
+                        Vous concevez et fabriquez les bornes. Nous assurons l'installation certifiee Qualifelec de vos bornes chez les clients finaux, la mise en service, le SAV garantie constructeur et le handover client, partout en France et en Belgique. Nos techniciens sont formes sur vos produits specifiques et assurent la remontee data terrain : pannes recurrentes, retours firmware, photos avant/apres.
                     </p>
                     <div class="flex flex-wrap gap-4 justify-center">
-                        <a href="/contact" class="bg-blue-600 text-white px-8 py-4 rounded-xl font-medium hover:bg-blue-700 transition-colors">
+                        <a href="/contact" class="btn-primary px-8 py-4 text-white font-medium">
                             Nous contacter
                         </a>
-                        <a href="tel:+33183755706" class="border border-gray-300 px-8 py-4 rounded-xl font-medium hover:bg-gray-50 transition-colors">
-                            Parler à un expert terrain
+                        <a href="tel:+33183755706" class="btn-secondary px-8 py-4 font-medium">
+                            Parler a un expert terrain
                         </a>
                     </div>
                 </div>
 
                 <!-- Stats -->
                 <div class="grid md:grid-cols-4 gap-6 mt-16">
-                    <div class="bg-white rounded-2xl p-6 text-center shadow-sm border border-gray-100">
-                        <div class="text-3xl font-bold text-blue-600 mb-2 stat-glow num-highlight">25+</div>
-                        <p class="text-gray-600 text-sm">Marques de bornes maîtrisées</p>
+                    <div class="card-feature text-center">
+                        <div class="num text-2xl mb-2">25+</div>
+                        <p class="text-gray-600 text-sm">Marques de bornes maitrisees</p>
                     </div>
-                    <div class="bg-white rounded-2xl p-6 text-center shadow-sm border border-gray-100">
-                        <div class="text-3xl font-bold text-blue-600 mb-2 stat-glow num-highlight">350 kW</div>
-                        <p class="text-gray-600 text-sm">Puissance max installée (AC et DC)</p>
+                    <div class="card-feature text-center">
+                        <div class="num text-2xl mb-2">350 kW</div>
+                        <p class="text-gray-600 text-sm">Puissance max installee (AC et DC)</p>
                     </div>
-                    <div class="bg-white rounded-2xl p-6 text-center shadow-sm border border-gray-100">
-                        <div class="text-3xl font-bold text-blue-600 mb-2 stat-glow num-highlight">24h</div>
+                    <div class="card-feature text-center">
+                        <div class="num text-2xl mb-2">24h</div>
                         <p class="text-gray-600 text-sm">Rapport d'intervention transmis</p>
                     </div>
-                    <div class="bg-white rounded-2xl p-6 text-center shadow-sm border border-gray-100">
-                        <div class="text-3xl font-bold text-blue-600 mb-2 stat-glow num-highlight">7 ans</div>
-                        <p class="text-gray-600 text-sm">D'expérience terrain IRVE</p>
+                    <div class="card-feature text-center">
+                        <div class="num text-2xl mb-2">7 ans</div>
+                        <p class="text-gray-600 text-sm">D'experience terrain IRVE</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Problématiques fabricants -->
-        <section class="py-20 px-6 bg-white section-appear">
+        <!-- Problematiques fabricants -->
+        <section class="py-20 px-6 section-alt section-appear">
             <div class="max-w-6xl mx-auto">
-                <h2 class="text-3xl md:text-4xl font-bold text-center mb-4">Les problématiques des fabricants de bornes</h2>
-                <p class="text-gray-600 text-center max-w-2xl mx-auto mb-12">Installation certifiée chez le client final, SAV garantie constructeur réactif, mise en service et handover, remontée data terrain : autant d'enjeux qui nécessitent un partenaire terrain structuré avec des équipes terrain structurées.</p>
+                <p class="sec-label text-center mb-3">Diagnostic</p>
+                <h2 class="text-3xl md:text-4xl text-center mb-4">Les problematiques des fabricants de bornes</h2>
+                <p class="text-gray-600 text-center max-w-2xl mx-auto mb-12">Installation certifiee chez le client final, SAV garantie constructeur reactif, mise en service et handover, remontee data terrain : autant d'enjeux qui necessitent un partenaire terrain structure.</p>
 
                 <div class="grid md:grid-cols-2 gap-8">
-                    <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 card-hover why-card-industrial">
-                        <div class="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center mb-6 icon-pulse-hover">
-                            <svg class="w-7 h-7 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    <div class="card-feature">
+                        <div class="flex items-start gap-4 mb-4">
+                            <div class="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0" style="background:rgba(37,99,235,0.08)">
+                                <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            </div>
+                            <h3 class="text-xl font-bold pt-2">Le deploiement national, un defi logistique</h3>
                         </div>
-                        <h3 class="text-xl font-bold mb-3">Le déploiement national, un défi logistique</h3>
-                        <p class="text-gray-600">Vos clients sont répartis sur l'ensemble du territoire. Constituer un réseau d'installateurs qualifiés dans chaque région, les former à vos produits et coordonner les plannings représente un investissement considérable. Gérer 15 sous-traitants régionaux différents génère des écarts de qualité et une perte de visibilité sur le terrain.</p>
+                        <p class="text-gray-600">Vos clients sont repartis sur l'ensemble du territoire. Constituer un reseau d'installateurs qualifies dans chaque region, les former a vos produits et coordonner les plannings represente un investissement considerable. Gerer 15 sous-traitants regionaux differents genere des ecarts de qualite et une perte de visibilite sur le terrain.</p>
                     </div>
-                    <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 card-hover why-card-industrial">
-                        <div class="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center mb-6 icon-pulse-hover">
-                            <svg class="w-7 h-7 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                    <div class="card-feature">
+                        <div class="flex items-start gap-4 mb-4">
+                            <div class="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0" style="background:rgba(37,99,235,0.08)">
+                                <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                            </div>
+                            <h3 class="text-xl font-bold pt-2">Le SAV terrain, maillon faible de la chaine</h3>
                         </div>
-                        <h3 class="text-xl font-bold mb-3">Le SAV terrain, maillon faible de la chaîne</h3>
-                        <p class="text-gray-600">Un client qui attend deux semaines pour une intervention SAV ne recommandera pas votre marque. Assurer un SAV réactif sur un parc installé national nécessite une organisation terrain que peu de fabricants peuvent internaliser.</p>
+                        <p class="text-gray-600">Un client qui attend deux semaines pour une intervention SAV ne recommandera pas votre marque. Assurer un SAV reactif sur un parc installe national necessite une organisation terrain que peu de fabricants peuvent internaliser.</p>
                     </div>
-                    <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 card-hover why-card-industrial">
-                        <div class="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center mb-6 icon-pulse-hover">
-                            <svg class="w-7 h-7 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                    <div class="card-feature">
+                        <div class="flex items-start gap-4 mb-4">
+                            <div class="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0" style="background:rgba(37,99,235,0.08)">
+                                <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                            </div>
+                            <h3 class="text-xl font-bold pt-2">La gestion de la garantie</h3>
                         </div>
-                        <h3 class="text-xl font-bold mb-3">La gestion de la garantie</h3>
-                        <p class="text-gray-600">Chaque remplacement de composant doit être tracé, documenté et conforme à vos procédures. Sans processus rigoureux, les coûts de garantie dérapent et les litiges se multiplient.</p>
+                        <p class="text-gray-600">Chaque remplacement de composant doit etre trace, documente et conforme a vos procedures. Sans processus rigoureux, les couts de garantie derapent et les litiges se multiplient.</p>
                     </div>
-                    <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 card-hover why-card-industrial">
-                        <div class="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center mb-6 icon-pulse-hover">
-                            <svg class="w-7 h-7 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                    <div class="card-feature">
+                        <div class="flex items-start gap-4 mb-4">
+                            <div class="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0" style="background:rgba(37,99,235,0.08)">
+                                <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                            </div>
+                            <h3 class="text-xl font-bold pt-2">Les retours terrain pour l'amelioration produit</h3>
                         </div>
-                        <h3 class="text-xl font-bold mb-3">Les retours terrain pour l'amélioration produit</h3>
-                        <p class="text-gray-600">Le terrain est votre meilleur laboratoire. Modes de panne récurrents, problèmes firmware constatés en conditions réelles, retours utilisateurs, photos avant/après : ces données ne remontent que si le prestataire est formé à les collecter et les structurer pour vos équipes produit.</p>
+                        <p class="text-gray-600">Le terrain est votre meilleur laboratoire. Modes de panne recurrents, problemes firmware constates en conditions reelles, retours utilisateurs, photos avant/apres : ces donnees ne remontent que si le prestataire est forme a les collecter et les structurer pour vos equipes produit.</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Solutions JCSM -->
-        <section class="py-20 px-6 bg-gray-50 section-appear">
+        <section class="py-20 px-6 section-appear">
             <div class="max-w-6xl mx-auto">
-                <h2 class="text-3xl md:text-4xl font-bold text-center mb-4">Les solutions JCSM pour les fabricants</h2>
-                <p class="text-gray-600 text-center max-w-2xl mx-auto mb-12">Installation certifiée Qualifelec, mise en service et handover client, SAV garantie constructeur, reporting produit et remontée terrain. Couverture FR + BE, un seul interlocuteur.</p>
+                <p class="sec-label text-center mb-3">Nos solutions</p>
+                <h2 class="text-3xl md:text-4xl text-center mb-4">Les solutions JCSM pour les fabricants</h2>
+                <p class="text-gray-600 text-center max-w-2xl mx-auto mb-12">Installation certifiee Qualifelec, mise en service et handover client, SAV garantie constructeur, reporting produit et remontee terrain. Couverture FR + BE, un seul interlocuteur.</p>
 
                 <div class="grid md:grid-cols-2 gap-8">
-                    <div class="bg-white rounded-2xl p-8 shadow-sm card-hover svc-card-industrial">
-                        <div class="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center mb-6 icon-pulse-hover">
-                            <svg class="w-7 h-7 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
+                    <div class="card-feature">
+                        <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-5" style="background:rgba(37,99,235,0.08)">
+                            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
                         </div>
-                        <h3 class="text-xl font-bold mb-3">Installation certifiée et mise en service</h3>
-                        <p class="text-gray-600">Installation certifiée Qualifelec de vos bornes chez les clients finaux. Formation de nos techniciens sur vos produits spécifiques avant tout déploiement. Protocole standardisé : vérification électrique, pose, raccordement, paramétrage, tests de charge, mise en service et handover client avec démonstration d'utilisation. Dossier photographique complet. Bornes AC et DC de 3,7 kW à 350 kW. Couverture nationale avec nos équipes internes.</p>
+                        <h3 class="text-xl font-bold mb-3">Installation certifiee et mise en service</h3>
+                        <p class="text-gray-600">Installation certifiee Qualifelec de vos bornes chez les clients finaux. Formation de nos techniciens sur vos produits specifiques avant tout deployement. Protocole standardise : verification electrique, pose, raccordement, parametrage, tests de charge, mise en service et handover client. Bornes AC et DC de 3,7 kW a 350 kW.</p>
                     </div>
-                    <div class="bg-white rounded-2xl p-8 shadow-sm card-hover svc-card-industrial">
-                        <div class="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center mb-6 icon-pulse-hover">
-                            <svg class="w-7 h-7 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+                    <div class="card-feature">
+                        <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-5" style="background:rgba(37,99,235,0.08)">
+                            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
                         </div>
                         <h3 class="text-xl font-bold mb-3">SAV garantie constructeur</h3>
-                        <p class="text-gray-600">SAV garantie constructeur opéré sous votre identité de marque. Vos clients contactent votre support, nous intervenons en votre nom en respectant vos procédures et délais contractuels. Processus structuré : qualification à distance, diagnostic OCPP, préparation des pièces, intervention, tests et clôture du ticket. Un seul interlocuteur pour toute la France et la Belgique, avec nos équipes internes.</p>
+                        <p class="text-gray-600">SAV garantie constructeur opere sous votre identite de marque. Vos clients contactent votre support, nous intervenons en votre nom en respectant vos procedures et delais contractuels. Processus structure : qualification a distance, diagnostic OCPP, preparation des pieces, intervention, tests et cloture du ticket.</p>
                     </div>
-                    <div class="bg-white rounded-2xl p-8 shadow-sm card-hover svc-card-industrial">
-                        <div class="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center mb-6 icon-pulse-hover">
-                            <svg class="w-7 h-7 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path></svg>
+                    <div class="card-feature">
+                        <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-5" style="background:rgba(37,99,235,0.08)">
+                            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path></svg>
                         </div>
                         <h3 class="text-xl font-bold mb-3">Gestion rigoureuse de la garantie</h3>
-                        <p class="text-gray-600">Application stricte de vos arbres de diagnostic et procédures de remplacement. Chaque pièce tracée (référence, numéro de série, motif, photos avant/après). Rapports compatibles avec votre système de gestion de garantie. Stock tampon dimensionné selon votre parc installé.</p>
+                        <p class="text-gray-600">Application stricte de vos arbres de diagnostic et procedures de remplacement. Chaque piece tracee (reference, numero de serie, motif, photos avant/apres). Rapports compatibles avec votre systeme de gestion de garantie. Stock tampon dimensionne selon votre parc installe.</p>
                     </div>
-                    <div class="bg-white rounded-2xl p-8 shadow-sm card-hover svc-card-industrial">
-                        <div class="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center mb-6 icon-pulse-hover">
-                            <svg class="w-7 h-7 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                    <div class="card-feature">
+                        <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-5" style="background:rgba(37,99,235,0.08)">
+                            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
                         </div>
-                        <h3 class="text-xl font-bold mb-3">Reporting produit et remontée terrain</h3>
-                        <p class="text-gray-600">Remontée data terrain structurée pour vos équipes produit et qualité : pannes récurrentes par modèle, retours firmware constatés en conditions réelles, photos avant/après, retours utilisateurs. Rapports périodiques identifiant les tendances par modèle, lot de fabrication et type d'environnement. Des données actionnables pour améliorer vos prochaines générations de bornes.</p>
+                        <h3 class="text-xl font-bold mb-3">Reporting produit et remontee terrain</h3>
+                        <p class="text-gray-600">Remontee data terrain structuree pour vos equipes produit et qualite : pannes recurrentes par modele, retours firmware constates en conditions reelles, photos avant/apres, retours utilisateurs. Rapports periodiques identifiant les tendances par modele, lot de fabrication et type d'environnement.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Approche en 4 étapes -->
-        <section class="py-20 px-6 bg-white section-appear">
+        <!-- Approche en 4 etapes -->
+        <section class="section-dark py-20 px-6 section-appear">
             <div class="max-w-6xl mx-auto">
-                <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Notre approche en 4 étapes</h2>
+                <p class="sec-label text-center mb-3">Processus</p>
+                <h2 class="text-3xl md:text-4xl text-center mb-12">Notre approche en 4 etapes</h2>
                 <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <div class="bg-gray-50 rounded-2xl p-8 text-center card-hover why-card-industrial">
+                    <div class="step p-6 text-center">
                         <div class="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">1</div>
                         <h3 class="font-bold text-lg mb-3">Audit et cadrage</h3>
-                        <p class="text-gray-600 text-sm">Analyse de votre gamme, procédures existantes et base installée. Identification des zones prioritaires et dimensionnement du dispositif.</p>
+                        <p class="opacity-80 text-sm">Analyse de votre gamme, procedures existantes et base installee. Identification des zones prioritaires et dimensionnement du dispositif.</p>
                     </div>
-                    <div class="bg-gray-50 rounded-2xl p-8 text-center card-hover why-card-industrial">
+                    <div class="step p-6 text-center">
                         <div class="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">2</div>
                         <h3 class="font-bold text-lg mb-3">Formation et qualification</h3>
-                        <p class="text-gray-600 text-sm">Formation dédiée à vos produits, dispensée par vos équipes techniques. Validation des compétences par tests pratiques avant toute intervention client.</p>
+                        <p class="opacity-80 text-sm">Formation dediee a vos produits, dispensee par vos equipes techniques. Validation des competences par tests pratiques avant toute intervention client.</p>
                     </div>
-                    <div class="bg-gray-50 rounded-2xl p-8 text-center card-hover why-card-industrial">
+                    <div class="step p-6 text-center">
                         <div class="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">3</div>
-                        <h3 class="font-bold text-lg mb-3">Déploiement opérationnel</h3>
-                        <p class="text-gray-600 text-sm">Lancement sur les zones prioritaires : installation certifiée, mise en service et handover client avec démonstration. Ajustement des procédures en temps réel en fonction des retours terrain.</p>
+                        <h3 class="font-bold text-lg mb-3">Deploiement operationnel</h3>
+                        <p class="opacity-80 text-sm">Lancement sur les zones prioritaires : installation certifiee, mise en service et handover client avec demonstration. Ajustement des procedures en temps reel.</p>
                     </div>
-                    <div class="bg-gray-50 rounded-2xl p-8 text-center card-hover why-card-industrial">
+                    <div class="step p-6 text-center">
                         <div class="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">4</div>
-                        <h3 class="font-bold text-lg mb-3">Pilotage et amélioration</h3>
-                        <p class="text-gray-600 text-sm">Comité de pilotage régulier : suivi des indicateurs de performance, analyse des tendances de pannes et optimisation du dispositif.</p>
+                        <h3 class="font-bold text-lg mb-3">Pilotage et amelioration</h3>
+                        <p class="opacity-80 text-sm">Comite de pilotage regulier : suivi des indicateurs de performance, analyse des tendances de pannes et optimisation du dispositif.</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- FAQ -->
-        <section class="py-20 px-6 bg-gray-50 section-appear">
+        <section class="py-20 px-6 section-alt section-appear">
             <div class="max-w-4xl mx-auto">
-                <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Questions fréquentes</h2>
+                <p class="sec-label text-center mb-3">FAQ</p>
+                <h2 class="text-3xl md:text-4xl text-center mb-12">Questions frequentes</h2>
                 <div class="space-y-6">
-                    <div class="bg-white rounded-2xl p-8 shadow-sm card-hover svc-card-industrial">
-                        <h3 class="text-lg font-bold mb-3">Comment formez-vous vos techniciens sur nos bornes ?</h3>
-                        <p class="text-gray-600">Chaque nouveau partenariat fabricant commence par une phase de formation dédiée sur vos produits spécifiques. Nous accueillons vos formateurs dans nos locaux ou organisons des sessions sur site. Les techniciens sont validés par tests pratiques avant toute intervention client. Lors de l'introduction de nouveaux modèles ou mises à jour firmware, nous organisons des sessions de recyclage pour maintenir le niveau de compétence. Vos procédures de diagnostic et de mise en service sont intégrées dans nos protocoles d'intervention.</p>
+                    <div class="card-feature">
+                        <div class="flex items-start gap-4 mb-3">
+                            <svg class="w-6 h-6 text-blue-600 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            <h3 class="text-lg font-bold">Comment formez-vous vos techniciens sur nos bornes ?</h3>
+                        </div>
+                        <p class="text-gray-600">Chaque nouveau partenariat fabricant commence par une phase de formation dediee sur vos produits specifiques. Nous accueillons vos formateurs dans nos locaux ou organisons des sessions sur site. Les techniciens sont valides par tests pratiques avant toute intervention client.</p>
                     </div>
-                    <div class="bg-white rounded-2xl p-8 shadow-sm card-hover svc-card-industrial">
-                        <h3 class="text-lg font-bold mb-3">Comment remontez-vous les données terrain ?</h3>
-                        <p class="text-gray-600">Chaque intervention génère un rapport structuré sous 24h : nature de la panne, conditions environnementales, photos avant/après, version firmware constatée, retours utilisateur. Ces données sont consolidées dans un tableau de bord mensuel (volumes, modes de panne récurrents, taux de résolution) et un rapport trimestriel d'analyse des tendances par modèle et lot de fabrication, avec recommandations produit actionnables pour vos équipes R&D et qualité.</p>
+                    <div class="card-feature">
+                        <div class="flex items-start gap-4 mb-3">
+                            <svg class="w-6 h-6 text-blue-600 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            <h3 class="text-lg font-bold">Comment remontez-vous les donnees terrain ?</h3>
+                        </div>
+                        <p class="text-gray-600">Chaque intervention genere un rapport structure sous 24h : nature de la panne, conditions environnementales, photos avant/apres, version firmware constatee, retours utilisateur. Ces donnees sont consolidees dans un tableau de bord mensuel et un rapport trimestriel d'analyse des tendances.</p>
                     </div>
-                    <div class="bg-white rounded-2xl p-8 shadow-sm card-hover svc-card-industrial">
-                        <h3 class="text-lg font-bold mb-3">Couvrez-vous la garantie constructeur ?</h3>
-                        <p class="text-gray-600">Oui. Nous appliquons strictement vos arbres de diagnostic et procédures de remplacement sous garantie. Chaque pièce est tracée (référence, numéro de série, motif, photos avant/après) et les rapports sont compatibles avec votre système de gestion de garantie. Le stock de pièces détachées est dimensionné selon votre parc installé, avec un circuit express pour les composants critiques. Vous gardez la maîtrise de vos coûts de garantie avec une visibilité complète.</p>
+                    <div class="card-feature">
+                        <div class="flex items-start gap-4 mb-3">
+                            <svg class="w-6 h-6 text-blue-600 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            <h3 class="text-lg font-bold">Couvrez-vous la garantie constructeur ?</h3>
+                        </div>
+                        <p class="text-gray-600">Oui. Nous appliquons strictement vos arbres de diagnostic et procedures de remplacement sous garantie. Chaque piece est tracee (reference, numero de serie, motif, photos avant/apres) et les rapports sont compatibles avec votre systeme de gestion de garantie.</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- CTA -->
-        <section class="py-20 px-6 bg-blue-600 text-white">
+        <section class="card-cta py-20 px-6">
             <div class="max-w-4xl mx-auto text-center">
-                <h2 class="text-3xl md:text-4xl font-bold mb-6 text-white">Vos bornes sur le terrain. Notre affaire.</h2>
-                <p class="text-xl text-blue-100 mb-8">Vous cherchez un partenaire terrain fiable pour l'installation certifiée, la mise en service, le SAV garantie constructeur et la remontée data terrain de vos bornes en France et en Belgique. JCSM : votre réseau SAV terrain externalisé, un seul interlocuteur, avec nos équipes dédiées.</p>
-                <a href="/contact" class="inline-block bg-white text-blue-600 px-8 py-4 rounded-xl font-medium hover:bg-blue-50 transition-colors">
+                <h2 class="text-3xl md:text-4xl mb-6">Vos bornes sur le terrain. Notre affaire.</h2>
+                <p class="text-lg opacity-80 mb-8">Vous cherchez un partenaire terrain fiable pour l'installation certifiee, la mise en service, le SAV garantie constructeur et la remontee data terrain de vos bornes en France et en Belgique. JCSM : votre reseau SAV terrain externalise, un seul interlocuteur, avec nos equipes dediees.</p>
+                <a href="/contact" class="inline-block bg-white text-blue-600 px-8 py-4 rounded-full font-medium hover:bg-gray-100 transition-colors">
                     Nous contacter
                 </a>
             </div>
         </section>
 
         <!-- Autres solutions -->
-        <section class="py-16 px-6 bg-white section-appear">
+        <section class="py-16 px-6 section-appear">
             <div class="max-w-6xl mx-auto">
-                <h2 class="text-2xl font-bold text-center mb-8">Découvrez nos solutions par secteur</h2>
+                <p class="sec-label text-center mb-3">Autres secteurs</p>
+                <h2 class="text-2xl text-center mb-8">Decouvrez nos solutions par secteur</h2>
                 <div class="flex flex-wrap justify-center gap-4">
-                    <a href="/solutions/cpo-operateurs" class="px-4 py-2 bg-gray-100 rounded-lg text-sm hover:bg-blue-100 hover:text-blue-700 transition-colors">CPO et opérateurs</a>
-                    <a href="/solutions/entreprises-flottes" class="px-4 py-2 bg-gray-100 rounded-lg text-sm hover:bg-blue-100 hover:text-blue-700 transition-colors">Entreprises et flottes</a>
-                    <a href="/solutions/retail-grande-distribution" class="px-4 py-2 bg-gray-100 rounded-lg text-sm hover:bg-blue-100 hover:text-blue-700 transition-colors">Retail et grande distribution</a>
+                    <a href="/solutions/cpo-operateurs" class="card-feature px-5 py-3 inline-flex items-center gap-2 text-sm hover:border-blue-600 transition-colors">
+                        <svg class="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6z"></path></svg>
+                        CPO et operateurs
+                    </a>
+                    <a href="/solutions/entreprises-flottes" class="card-feature px-5 py-3 inline-flex items-center gap-2 text-sm hover:border-blue-600 transition-colors">
+                        <svg class="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
+                        Entreprises et flottes
+                    </a>
+                    <a href="/solutions/retail-grande-distribution" class="card-feature px-5 py-3 inline-flex items-center gap-2 text-sm hover:border-blue-600 transition-colors">
+                        <svg class="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 100 4 2 2 0 000-4z"></path></svg>
+                        Retail et grande distribution
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Voir aussi : nos services -->
+        <section class="py-20 px-6" aria-label="Nos services IRVE">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-10 section-appear">
+                    <div class="sec-label mb-5">Voir aussi</div>
+                    <h2 class="text-2xl sm:text-3xl tracking-tight">Nos services</h2>
+                </div>
+                <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-4">
+                    <a href="/pilotage-projets" title="Voir notre service de pilotage de projets" class="card-feature block text-center section-appear">
+                        <div class="flex justify-center mb-4">
+                            <svg class="w-8 h-8" style="color: var(--color-primary)" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                            </svg>
+                        </div>
+                        <h3 class="font-bold text-sm mb-1" style="font-family: var(--font-sans)">Pilotage</h3>
+                        <p class="text-xs" style="color: var(--color-text-secondary)">Coordination de projets IRVE</p>
+                    </a>
+                    <a href="/installation-conformite" title="Voir notre service d'installation et conformite" class="card-feature block text-center section-appear">
+                        <div class="flex justify-center mb-4">
+                            <svg class="w-8 h-8" style="color: var(--color-primary)" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.066 2.573c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.573 1.066c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.066-2.573c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                            </svg>
+                        </div>
+                        <h3 class="font-bold text-sm mb-1" style="font-family: var(--font-sans)">Installation</h3>
+                        <p class="text-xs" style="color: var(--color-text-secondary)">Installation certifiee Qualifelec</p>
+                    </a>
+                    <a href="/exploitation" title="Voir notre service d'exploitation et maintenance" class="card-feature block text-center section-appear">
+                        <div class="flex justify-center mb-4">
+                            <svg class="w-8 h-8" style="color: var(--color-primary)" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
+                            </svg>
+                        </div>
+                        <h3 class="font-bold text-sm mb-1" style="font-family: var(--font-sans)">Exploitation</h3>
+                        <p class="text-xs" style="color: var(--color-text-secondary)">Maintenance preventive et curative</p>
+                    </a>
+                    <a href="/securisation-installations" title="Voir notre service de securisation" class="card-feature block text-center section-appear">
+                        <div class="flex justify-center mb-4">
+                            <svg class="w-8 h-8" style="color: var(--color-primary)" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+                            </svg>
+                        </div>
+                        <h3 class="font-bold text-sm mb-1" style="font-family: var(--font-sans)">Securisation</h3>
+                        <p class="text-xs" style="color: var(--color-text-secondary)">Protection anti-vandalisme</p>
+                    </a>
+                    <a href="/centre-appel" title="Voir notre support technique 24/7" class="card-feature block text-center section-appear">
+                        <div class="flex justify-center mb-4">
+                            <svg class="w-8 h-8" style="color: var(--color-primary)" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C8.716 21 3 15.284 3 8V5z"/>
+                            </svg>
+                        </div>
+                        <h3 class="font-bold text-sm mb-1" style="font-family: var(--font-sans)">Support 24/7</h3>
+                        <p class="text-xs" style="color: var(--color-text-secondary)">Hotline et telegestion</p>
+                    </a>
                 </div>
             </div>
         </section>
@@ -413,6 +488,7 @@
                             <li><a href="/carrieres" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Carrières</a></li>
                             <li><a href="/contact" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Contact</a></li>
                             <li><a href="/blog" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Blog</a></li>
+                            <li><a href="/presse" title="Presse et relations médias" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Presse</a></li>
                         </ul>
                     </nav>
                 </div>
