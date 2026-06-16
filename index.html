@@ -1013,45 +1013,6 @@
 
         <hr class="divider-premium">
 
-        <!-- ============ TEMOIGNAGES (exemples a remplacer par de vrais avis clients) ============ -->
-        <section class="py-20 px-6" aria-label="Témoignages clients">
-            <div class="max-w-5xl mx-auto">
-                <div class="text-center mb-14 section-appear">
-                    <div class="sec-label">Témoignages</div>
-                    <h2 class="text-3xl sm:text-4xl tracking-tight mb-5 leading-tight">
-                        Ce que nos clients <em>en disent</em>.
-                    </h2>
-                </div>
-                <div class="grid md:grid-cols-3 gap-6 section-appear">
-                    <!-- EXEMPLE 1 - A remplacer par un vrai temoignage client -->
-                    <div class="card-quote card-shine card-lift">
-                        <p class="text-sm leading-relaxed mb-4" style="color: var(--color-text-secondary)">&laquo; Depuis qu'on travaille avec JCSM, le taux de disponibilité de nos bornes est passé de 82% à 97%. Un seul interlocuteur, des rapports clairs, zéro mauvaise surprise. &raquo;</p>
-                        <div class="mt-auto">
-                            <p class="text-sm font-bold" style="color: var(--color-ink)">Exemple - Directeur exploitation</p>
-                            <p class="text-xs" style="color: var(--color-text-secondary)">Réseau de recharge, 120 points de charge</p>
-                        </div>
-                    </div>
-                    <!-- EXEMPLE 2 - A remplacer par un vrai temoignage client -->
-                    <div class="card-quote card-shine card-lift">
-                        <p class="text-sm leading-relaxed mb-4" style="color: var(--color-text-secondary)">&laquo; On avait un parc multi-marques installé par trois prestataires différents. JCSM a tout repris, audité et stabilisé en moins de deux mois. &raquo;</p>
-                        <div class="mt-auto">
-                            <p class="text-sm font-bold" style="color: var(--color-ink)">Exemple - Responsable services généraux</p>
-                            <p class="text-xs" style="color: var(--color-text-secondary)">Grande distribution, 45 bornes</p>
-                        </div>
-                    </div>
-                    <!-- EXEMPLE 3 - A remplacer par un vrai temoignage client -->
-                    <div class="card-quote card-shine card-lift">
-                        <p class="text-sm leading-relaxed mb-4" style="color: var(--color-text-secondary)">&laquo; La hotline en marque blanche a changé la donne. Nos utilisateurs sont pris en charge immédiatement, et nous on recoit un recap chaque semaine. &raquo;</p>
-                        <div class="mt-auto">
-                            <p class="text-sm font-bold" style="color: var(--color-ink)">Exemple - CPO régional</p>
-                            <p class="text-xs" style="color: var(--color-text-secondary)">Opérateur de bornes, 200+ stations</p>
-                        </div>
-                    </div>
-                </div>
-                <p class="text-center mt-6 text-xs" style="color: var(--color-text-secondary)"><!-- TODO: remplacer ces exemples par de vrais temoignages clients --></p>
-            </div>
-        </section>
-
         <!-- ============ COUVERTURE ============ -->
         <section class="section-alt py-20 px-6" aria-label="Zone d'intervention">
             <div class="max-w-6xl mx-auto grid lg:grid-cols-2 gap-10 items-center">
@@ -1492,15 +1453,15 @@ document.addEventListener('DOMContentLoaded', function() {
     // JCSM blue marker
     var icon = L.divIcon({
         className: 'jcsm-marker',
-        html: '<div style="width:12px;height:12px;background:#2563EB;border-radius:50%;border:2px solid #fff;box-shadow:0 2px 8px rgba(37,99,235,0.4)"></div>',
-        iconSize: [12, 12],
-        iconAnchor: [6, 6]
+        html: '<div style="width:14px;height:14px;background:#2563EB;border-radius:50%;border:2px solid #fff;box-shadow:0 0 0 1px rgba(15,27,45,0.28),0 2px 6px rgba(37,99,235,0.55)"></div>',
+        iconSize: [18, 18],
+        iconAnchor: [9, 9]
     });
     var iconLg = L.divIcon({
         className: 'jcsm-marker-lg',
-        html: '<div style="width:16px;height:16px;background:#2563EB;border-radius:50%;border:3px solid #fff;box-shadow:0 2px 12px rgba(37,99,235,0.5)"></div>',
-        iconSize: [16, 16],
-        iconAnchor: [8, 8]
+        html: '<div style="width:20px;height:20px;background:#1D4ED8;border-radius:50%;border:3px solid #fff;box-shadow:0 0 0 1.5px rgba(15,27,45,0.32),0 3px 10px rgba(37,99,235,0.6)"></div>',
+        iconSize: [26, 26],
+        iconAnchor: [13, 13]
     });
 
     // Major cities (large markers)
