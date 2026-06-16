@@ -97,11 +97,11 @@
     <meta name="twitter:description" content="OCPI, Gireve, Hubject, paiement ad-hoc : comment fonctionne l'interopérabilité des bornes de recharge en Europe.">
     <meta name="twitter:image" content="https://jcsm.fr/images/index.webp">
     <meta name="twitter:image:alt" content="Infrastructure de recharge pour véhicules électriques">
-    <link rel="stylesheet" href="../css/critical.css?v=82">
-    <link rel="stylesheet" href="../css/tailwind.css?v=82" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="../css/tailwind.css?v=82"></noscript>
-    <link rel="stylesheet" href="../styles.css?v=82" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="../styles.css?v=82"></noscript>
+    <link rel="stylesheet" href="../css/critical.css?v=83">
+    <link rel="stylesheet" href="../css/tailwind.css?v=83" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="../css/tailwind.css?v=83"></noscript>
+    <link rel="stylesheet" href="../styles.css?v=83" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="../styles.css?v=83"></noscript>
     <link rel="manifest" href="../manifest.json">
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -171,7 +171,7 @@
                     <a href="/blog" class="text-sm text-blue-600 hover:text-blue-800 transition-colors">← Retour au blog</a>
                 </div>
                 <div class="mb-10">
-                    <span class="inline-block text-xs font-semibold badge-section text-sky-700 bg-sky-200 rounded-full px-3 py-1 mb-4">Europe</span>
+                    <span class="inline-block text-xs font-semibold badge-section text-blue-700 bg-blue-200 rounded-full px-3 py-1 mb-4">Europe</span>
                     <h1 class="text-3xl md:text-4xl font-bold mb-4 leading-tight">Interopérabilité et roaming : <span class="gradient-text">recharger partout en Europe</span></h1>
                     <div class="flex items-center text-sm text-gray-500">
                         <time datetime="2026-01-25">25 janvier 2026</time>
@@ -182,8 +182,8 @@
 
                 <!-- Sommaire -->
                 <div class="bg-blue-50 rounded-2xl p-6 mb-10">
-                    <h2 class="text-lg font-bold text-sky-700 mb-4">Sommaire</h2>
-                    <ol class="list-decimal pl-5 text-sm text-sky-700 space-y-2">
+                    <h2 class="text-lg font-bold text-blue-700 mb-4">Sommaire</h2>
+                    <ol class="list-decimal pl-5 text-sm text-blue-700 space-y-2">
                         <li><a href="#probleme-depart" class="hover:underline">Le problème de départ : un badge par réseau</a></li>
                         <li><a href="#roaming-comment" class="hover:underline">Le roaming : comment ça marche concrètement</a></li>
                         <li><a href="#plateformes-roaming" class="hover:underline">Les plateformes de roaming : Gireve, Hubject et les autres</a></li>
@@ -203,7 +203,7 @@
                     <p class="text-gray-600 leading-relaxed mb-4">Imaginez : chaque autoroute a son propre péage incompatible avec les autres. C'est exactement ce qu'était la recharge électrique il y a cinq ans. Chaque CPO (Charge Point Operator, l'opérateur de bornes) avait son propre badge, sa propre application, son propre système de paiement. Pour traverser la France du nord au sud, il fallait 3 à 4 badges différents et autant d'applications installées sur son téléphone.</p>
                     <p class="text-gray-600 leading-relaxed mb-4">Le roaming résout ce problème : un seul badge ou une seule app donne accès à la quasi-totalité des réseaux. C'est l'équivalent du roaming téléphonique : votre opérateur Orange vous permet d'utiliser le réseau Vodafone à l'étranger. Ici, votre EMSP (e-Mobility Service Provider, le fournisseur de service de mobilité) vous donne accès aux bornes d'autres CPO.</p>
 
-                    <div class="bg-amber-50 border-l-4 border-amber-400 rounded-r-xl p-5 mb-8">
+                    <div class="bg-blue-50 border-l-4 border-blue-400 rounded-r-xl p-5 mb-8">
                         <p class="text-gray-700 text-sm leading-relaxed"><span class="font-semibold">Vocabulaire clé :</span> <strong>CPO</strong> = opérateur qui installe et gère les bornes (TotalEnergies, Ionity, Freshmile...). <strong>EMSP</strong> = fournisseur de service qui vous donne un badge et vous facture (Chargemap, Shell Recharge, Electroverse...). Un même acteur peut être les deux.</p>
                     </div>
 
@@ -213,31 +213,31 @@
 
                     <div class="space-y-3 mb-8">
                         <div class="flex items-start gap-3 bg-gray-50 rounded-xl p-4 border border-gray-100">
-                            <span class="flex-shrink-0 w-7 h-7 bg-sky-100 text-sky-700 rounded-full flex items-center justify-center text-sm font-bold">1</span>
+                            <span class="flex-shrink-0 w-7 h-7 bg-blue-100 text-blue-700 rounded-full flex items-center justify-center text-sm font-bold">1</span>
                             <p class="text-gray-600 text-sm leading-relaxed">Vous badgez avec votre carte Chargemap sur une borne TotalEnergies</p>
                         </div>
                         <div class="flex items-start gap-3 bg-gray-50 rounded-xl p-4 border border-gray-100">
-                            <span class="flex-shrink-0 w-7 h-7 bg-sky-100 text-sky-700 rounded-full flex items-center justify-center text-sm font-bold">2</span>
+                            <span class="flex-shrink-0 w-7 h-7 bg-blue-100 text-blue-700 rounded-full flex items-center justify-center text-sm font-bold">2</span>
                             <p class="text-gray-600 text-sm leading-relaxed">La borne envoie votre identifiant au CPO (TotalEnergies)</p>
                         </div>
                         <div class="flex items-start gap-3 bg-gray-50 rounded-xl p-4 border border-gray-100">
-                            <span class="flex-shrink-0 w-7 h-7 bg-sky-100 text-sky-700 rounded-full flex items-center justify-center text-sm font-bold">3</span>
+                            <span class="flex-shrink-0 w-7 h-7 bg-blue-100 text-blue-700 rounded-full flex items-center justify-center text-sm font-bold">3</span>
                             <p class="text-gray-600 text-sm leading-relaxed">Le CPO interroge la plateforme de roaming (Gireve)</p>
                         </div>
                         <div class="flex items-start gap-3 bg-gray-50 rounded-xl p-4 border border-gray-100">
-                            <span class="flex-shrink-0 w-7 h-7 bg-sky-100 text-sky-700 rounded-full flex items-center justify-center text-sm font-bold">4</span>
+                            <span class="flex-shrink-0 w-7 h-7 bg-blue-100 text-blue-700 rounded-full flex items-center justify-center text-sm font-bold">4</span>
                             <p class="text-gray-600 text-sm leading-relaxed">Gireve vérifie auprès de votre EMSP (Chargemap) que vous êtes autorisé</p>
                         </div>
                         <div class="flex items-start gap-3 bg-gray-50 rounded-xl p-4 border border-gray-100">
-                            <span class="flex-shrink-0 w-7 h-7 bg-sky-100 text-sky-700 rounded-full flex items-center justify-center text-sm font-bold">5</span>
+                            <span class="flex-shrink-0 w-7 h-7 bg-blue-100 text-blue-700 rounded-full flex items-center justify-center text-sm font-bold">5</span>
                             <p class="text-gray-600 text-sm leading-relaxed">Chargemap confirme → la charge démarre</p>
                         </div>
                         <div class="flex items-start gap-3 bg-gray-50 rounded-xl p-4 border border-gray-100">
-                            <span class="flex-shrink-0 w-7 h-7 bg-sky-100 text-sky-700 rounded-full flex items-center justify-center text-sm font-bold">6</span>
+                            <span class="flex-shrink-0 w-7 h-7 bg-blue-100 text-blue-700 rounded-full flex items-center justify-center text-sm font-bold">6</span>
                             <p class="text-gray-600 text-sm leading-relaxed">En fin de session, le CPO envoie le CDR (Charge Detail Record) à Gireve</p>
                         </div>
                         <div class="flex items-start gap-3 bg-gray-50 rounded-xl p-4 border border-gray-100">
-                            <span class="flex-shrink-0 w-7 h-7 bg-sky-100 text-sky-700 rounded-full flex items-center justify-center text-sm font-bold">7</span>
+                            <span class="flex-shrink-0 w-7 h-7 bg-blue-100 text-blue-700 rounded-full flex items-center justify-center text-sm font-bold">7</span>
                             <p class="text-gray-600 text-sm leading-relaxed">Gireve transmet à Chargemap, qui vous facture</p>
                         </div>
                     </div>
@@ -278,7 +278,7 @@
                     </ul>
                     <p class="text-gray-600 leading-relaxed mb-4">L'avantage principal d'OCPI : pas de dépendance à un intermédiaire. Deux opérateurs peuvent se connecter directement l'un à l'autre. C'est le protocole recommandé par la Commission européenne.</p>
 
-                    <div class="bg-amber-50 border-l-4 border-amber-400 rounded-r-xl p-5 mb-8">
+                    <div class="bg-blue-50 border-l-4 border-blue-400 rounded-r-xl p-5 mb-8">
                         <p class="text-gray-700 text-sm leading-relaxed"><span class="font-semibold">Attention, ne pas confondre :</span> <strong>OCPI</strong> &ne; <strong>OCPP</strong>. OCPP (Open Charge Point Protocol) gère la communication entre une borne et son système de supervision (le « back-office »). OCPI gère la communication entre CPO et EMSP (le roaming). Ce sont deux protocoles complémentaires : l'un est technique (OCPP), l'autre est business (OCPI). Pour en savoir plus sur OCPP, consultez notre article sur les <a href="/blog/ocpp-1-6-vs-2-0-protocole-bornes" class="text-blue-600 hover:text-blue-800 underline">différences entre OCPP 1.6 et 2.0</a>.</p>
                     </div>
 
@@ -306,31 +306,31 @@
 
                     <div class="space-y-4 mb-8">
                         <div class="flex items-start gap-3 bg-gray-50 rounded-xl p-4 border border-gray-100">
-                            <span class="flex-shrink-0 w-2 h-2 bg-sky-500 rounded-full mt-2"></span>
+                            <span class="flex-shrink-0 w-2 h-2 bg-blue-500 rounded-full mt-2"></span>
                             <p class="text-gray-600 text-sm leading-relaxed"><strong>Paiement par carte bancaire</strong> obligatoire sur les bornes DC de plus de 50 kW</p>
                         </div>
                         <div class="flex items-start gap-3 bg-gray-50 rounded-xl p-4 border border-gray-100">
-                            <span class="flex-shrink-0 w-2 h-2 bg-sky-500 rounded-full mt-2"></span>
+                            <span class="flex-shrink-0 w-2 h-2 bg-blue-500 rounded-full mt-2"></span>
                             <p class="text-gray-600 text-sm leading-relaxed"><strong>Affichage du prix au kWh</strong> avant le démarrage de la session</p>
                         </div>
                         <div class="flex items-start gap-3 bg-gray-50 rounded-xl p-4 border border-gray-100">
-                            <span class="flex-shrink-0 w-2 h-2 bg-sky-500 rounded-full mt-2"></span>
+                            <span class="flex-shrink-0 w-2 h-2 bg-blue-500 rounded-full mt-2"></span>
                             <p class="text-gray-600 text-sm leading-relaxed"><strong>Stations tous les 60 km</strong> sur le réseau RTE-T (routes principales européennes)</p>
                         </div>
                         <div class="flex items-start gap-3 bg-gray-50 rounded-xl p-4 border border-gray-100">
-                            <span class="flex-shrink-0 w-2 h-2 bg-sky-500 rounded-full mt-2"></span>
+                            <span class="flex-shrink-0 w-2 h-2 bg-blue-500 rounded-full mt-2"></span>
                             <p class="text-gray-600 text-sm leading-relaxed"><strong>Interopérabilité obligatoire</strong> : les CPO doivent accepter les badges roaming</p>
                         </div>
                         <div class="flex items-start gap-3 bg-gray-50 rounded-xl p-4 border border-gray-100">
-                            <span class="flex-shrink-0 w-2 h-2 bg-sky-500 rounded-full mt-2"></span>
+                            <span class="flex-shrink-0 w-2 h-2 bg-blue-500 rounded-full mt-2"></span>
                             <p class="text-gray-600 text-sm leading-relaxed"><strong>Open data</strong> : publication des données de localisation et de disponibilité en temps réel</p>
                         </div>
                         <div class="flex items-start gap-3 bg-gray-50 rounded-xl p-4 border border-gray-100">
-                            <span class="flex-shrink-0 w-2 h-2 bg-sky-500 rounded-full mt-2"></span>
+                            <span class="flex-shrink-0 w-2 h-2 bg-blue-500 rounded-full mt-2"></span>
                             <p class="text-gray-600 text-sm leading-relaxed"><strong>Puissance minimale par station</strong> sur autoroute : 400 kW par station DC, 600 kW d'ici 2028</p>
                         </div>
                         <div class="flex items-start gap-3 bg-gray-50 rounded-xl p-4 border border-gray-100">
-                            <span class="flex-shrink-0 w-2 h-2 bg-sky-500 rounded-full mt-2"></span>
+                            <span class="flex-shrink-0 w-2 h-2 bg-blue-500 rounded-full mt-2"></span>
                             <p class="text-gray-600 text-sm leading-relaxed"><strong>Sanctions nationales</strong> : en France, 15 000 à 75 000 € par infraction</p>
                         </div>
                     </div>
@@ -348,7 +348,7 @@
                         <li><strong>La transparence tarifaire</strong> progresse mais reste imparfaite : les frais de stationnement, les tarifs par tranche horaire et les majorations de roaming ne sont pas toujours clairement affichés</li>
                     </ul>
 
-                    <div class="bg-amber-50 border-l-4 border-amber-400 rounded-r-xl p-5 mb-8">
+                    <div class="bg-blue-50 border-l-4 border-blue-400 rounded-r-xl p-5 mb-8">
                         <p class="text-gray-700 text-sm leading-relaxed"><span class="font-semibold">Conseil pratique :</span> Pour les longs trajets en Europe, combinez un bon EMSP (couverture maximale) avec une carte bancaire (filet de sécurité ad-hoc). Vérifiez les <a href="/blog/prix-recharge-publique-comparatif-2025" class="text-blue-600 hover:text-blue-800 underline">tarifs de recharge publique</a> de votre EMSP sur les réseaux que vous traverserez.</p>
                     </div>
 
@@ -356,7 +356,7 @@
                     <div class="bg-gray-50 border border-gray-200 rounded-2xl p-6 my-8">
                         <h3 class="text-lg font-bold text-gray-900 mb-2">JCSM accompagne les CPO dans l'interopérabilité</h3>
                         <p class="text-gray-600 leading-relaxed mb-4">Vous exploitez un réseau de bornes de recharge ? JCSM vous accompagne dans la mise en conformité AFIR, le raccordement aux plateformes de roaming (Gireve, Hubject) et l'intégration du paiement ad-hoc. De la supervision à distance à la maintenance terrain, nous assurons la disponibilité et l'interopérabilité de vos installations.</p>
-                        <a href="/contact" class="inline-flex items-center gap-2 bg-sky-600 text-white px-6 py-3 rounded-xl font-semibold hover:bg-sky-700 transition-colors">
+                        <a href="/contact" class="inline-flex items-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-xl font-semibold hover:bg-blue-700 transition-colors">
                             Discuter de votre projet
                             <svg aria-hidden="true" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
                         </a>
@@ -508,12 +508,12 @@
     <button class="scroll-top" id="scrollTop" aria-label="Retour en haut de page">
         <svg aria-hidden="true" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.5 15.75l7.5-7.5 7.5 7.5" /></svg>
     </button>
-    <script src="../js/i18n.js?v=82" defer></script>
-    <script src="../js/config.js?v=82" defer></script>
-    <script src="../js/utils.js?v=82" defer></script>
-    <script src="../js/public.js?v=82" defer></script>
-    <script src="../js/analytics.js?v=82" defer></script>
-    <script src="../js/wow-effects.js?v=82" defer></script>
+    <script src="../js/i18n.js?v=83" defer></script>
+    <script src="../js/config.js?v=83" defer></script>
+    <script src="../js/utils.js?v=83" defer></script>
+    <script src="../js/public.js?v=83" defer></script>
+    <script src="../js/analytics.js?v=83" defer></script>
+    <script src="../js/wow-effects.js?v=83" defer></script>
     <script>if ('serviceWorker' in navigator) { window.addEventListener('load', () => { navigator.serviceWorker.register('/sw.js').catch(() => {}); }); }</script>
 </body>
 </html>
