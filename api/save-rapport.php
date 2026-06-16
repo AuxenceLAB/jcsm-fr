@@ -94,7 +94,7 @@ if (!is_dir($rapportsDir)) {
 $ticket = isset($data['ticket']) ? preg_replace('/[^a-zA-Z0-9_-]/', '_', $data['ticket']) : 'RAPPORT';
 $dateIntervention = isset($data['dateIntervention']) ? preg_replace('/[^0-9\-]/', '', $data['dateIntervention']) : date('Y-m-d');
 $timestamp = date('Ymd_His');
-$randomSuffix = bin2hex(random_bytes(4));
+$randomSuffix = bin2hex(random_bytes(16));
 $filename = "Rapport_{$ticket}_{$dateIntervention}_{$timestamp}_{$randomSuffix}.json";
 
 // Chemin complet du fichier

@@ -29,7 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
 
 require_once __DIR__ . '/auth.php';
 require_once __DIR__ . '/helpers.php';
-requireAuth();
+$payload = requireAuth();
 
 $GOOGLE_SHEETS_URLS = [
     'admin' => loadEnvVar('GOOGLE_SHEETS_ADMIN_URL'),
@@ -47,6 +47,22 @@ $context = $_GET['context'] ?? 'terrain';
 if (!in_array($context, ['admin', 'terrain'], true)) {
     $context = 'terrain';
 }
+
+// La feuille "admin" est réservée aux administrateurs. Le portail technicien
+// n'utilise QUE context=terrain : ce garde-fou ne casse donc aucun usage légitime.
+if ($context === 'admin' && empty($payload['isAdmin'])) {
+    http_response_code(403);
+    echo json_encode(['error' => 'Accès réservé aux administrateurs']);
+    exit;
+}
+
+// Un technicien ne peut pas pivoter vers une autre région via ?region= / ?sheet=
+// (le frontend ne transmet jamais ces paramètres). Fail-open : aucun impact sur
+// le flux normal, on retire seulement le vecteur de pivot manuel.
+if (empty($payload['isAdmin'])) {
+    unset($_GET['region'], $_GET['sheet']);
+}
+
 $GOOGLE_SHEETS_URL = $GOOGLE_SHEETS_URLS[$context];
 
 // Rate limiting par IP (100 req/min)

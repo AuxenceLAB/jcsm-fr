@@ -1978,9 +1978,11 @@ h2 {
 :root {
   /* JetBrains Mono n'est plus chargee : les badges "mono" passent en Inter espacee (style editorial) */
   --jcsm-mono: system-ui, -apple-system, "Segoe UI", sans-serif;
-  --jcsm-graphite: #0a0a0a;
-  --jcsm-hairline: rgba(10, 10, 10, 0.08);
-  --jcsm-bg-alt: #f5f5f5;
+  /* Reconciled with the B1 palette: these legacy tokens now resolve to the
+     design-system values (ink / cream-alt / line) instead of graphite/grey. */
+  --jcsm-graphite: var(--color-ink);
+  --jcsm-hairline: var(--color-line);
+  --jcsm-bg-alt: var(--color-cream-alt);
 }
 .accent-pro {
   color: #2563eb;
@@ -2114,14 +2116,6 @@ h2 {
 section.bg-gray-50 {
   background: var(--jcsm-bg-alt) !important;
 }
-/* Gradient backgrounds from-gray-50 : flatten to bg-alt */
-section.bg-gradient-to-b.from-white.to-gray-50 {
-  background: linear-gradient(
-    to bottom,
-    #ffffff 0%,
-    var(--jcsm-bg-alt) 100%
-  ) !important;
-}
 /* Stat grids: numbers pick up mono automatically when they have .num-highlight or .stat-number */
 .num-highlight,
 .stat-number,
@@ -2182,11 +2176,6 @@ section.bg-gradient-to-b.from-white.to-gray-50 {
   letter-spacing: 0.12em;
   font-size: 0.65rem;
   border-color: transparent !important;
-}
-/* Gradient bg-blue-50 / via-white / to-blue-50 on hero sections : flatten */
-.bg-gradient-to-br.from-blue-50.via-white.to-blue-50,
-.bg-gradient-to-br.from-blue-50.to-blue-50 {
-  background: #ffffff !important;
 }
 /* Leaflet popup badges alignement */
 .leaflet-popup-content .text-blue-600 {
@@ -2468,28 +2457,6 @@ section.bg-gradient-to-b.from-white.to-gray-50 {
   box-shadow: 0 20px 40px -15px rgba(37, 99, 235, 0.12), 0 0 0 1px rgba(37, 99, 235, 0.06);
 }
 
-/* 2. Shine sweep effect on hover (for premium cards) */
-.card-shine {
-  position: relative;
-  overflow: hidden;
-}
-.card-shine::after {
-  content: '';
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: linear-gradient(115deg, transparent 40%, rgba(255,255,255,0.4) 50%, transparent 60%);
-  transform: translateX(-100%) rotate(25deg);
-  transition: none;
-  pointer-events: none;
-}
-.card-shine:hover::after {
-  transform: translateX(100%) rotate(25deg);
-  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-}
-
 /* 3. Animated gradient border */
 .card-gradient-border {
   position: relative;
@@ -2579,8 +2546,6 @@ section.bg-gradient-to-b.from-white.to-gray-50 {
 /* 9. Accessibility: disable animations for reduced-motion preference */
 @media (prefers-reduced-motion: reduce) {
   .card-interactive,
-  .card-shine,
-  .card-shine::after,
   .card-lift,
   .counter-animate,
   .float-label,

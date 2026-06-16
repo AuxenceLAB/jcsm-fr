@@ -234,7 +234,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $ticket   = preg_replace('/[^a-zA-Z0-9_\-]/', '', $rapportPayload['ticket'] ?: 'NOID');
     $datePart = str_replace('-', '', $dateIntv);
-    $suffix   = bin2hex(random_bytes(3));
+    $suffix   = bin2hex(random_bytes(16));
     $baseName = "Rapport_{$ticket}_{$datePart}_{$suffix}";
 
     // Sauvegarder le JSON

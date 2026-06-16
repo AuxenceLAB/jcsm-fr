@@ -24,8 +24,10 @@
     <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js" integrity="sha384-eXVCORTRlv4FUUgS/xmOyr66XBVraen8ATNLMESp92FKXLAMiKkerixTiBvXriZr" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.5.1/dist/chart.umd.min.js" integrity="sha384-jb8JQMbMoBUzgWatfe6COACi2ljcDdZQ2OxczGA3bGNeWe+6DChMTBJemed7ZnvJ" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@twilio/voice-sdk@2.18.1/dist/twilio.min.js" integrity="sha384-LzKz9y+8WXmqRYaRNg0w7zDvcSqdT8LEPxjo01Ing3j3062CP8S56jjsb5cpffiF" crossorigin="anonymous"></script>
-    <script src="/js/config.js?v=74"></script>
+    <script src="/js/config.js?v=75"></script>
     <style>
+        .skip-link { position: absolute; top: -60px; left: 16px; z-index: 10000; background: var(--primary, #1B365D); color: #fff; padding: 10px 18px; border-radius: 10px; font-weight: 700; font-size: 14px; text-decoration: none; transition: top .15s; }
+        .skip-link:focus { top: 16px; outline: 2px solid #fff; outline-offset: 2px; }
         :root {
             --primary: #1B365D;
             --primary-dark: #0F2440;
@@ -650,6 +652,7 @@
     </style>
 </head>
 <body>
+<a href="#app-wrapper" class="skip-link">Aller au contenu</a>
 <div id="toasts"></div>
 
 <!-- LOGIN SCREEN -->
@@ -663,7 +666,7 @@
         <form id="login-form" aria-label="Connexion au portail interne">
             <div style="position:relative">
                 <svg style="position:absolute;left:16px;top:50%;transform:translateY(-50%);width:18px;height:18px;color:var(--muted);pointer-events:none" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
-                <input type="password" id="login-password" class="login-input" style="padding-left:46px" placeholder="Mot de passe" autocomplete="current-password" autofocus required>
+                <input type="password" id="login-password" class="login-input" style="padding-left:46px" placeholder="Mot de passe" aria-label="Mot de passe" autocomplete="current-password" autofocus required>
             </div>
             <button type="submit" class="login-btn" id="login-btn">
                 <span id="login-btn-text">Se connecter</span>
@@ -676,7 +679,7 @@
 </div>
 
 <!-- APP (hidden until auth) -->
-<div id="app-wrapper" style="display:none">
+<div id="app-wrapper" style="display:none" tabindex="-1">
 <div class="offline-bar" id="offline-bar">Mode hors ligne - Les modifications seront synchronisees</div>
 <div class="pull-indicator" id="pull-indicator">Relachez pour actualiser</div>
 <div class="loading-overlay" id="loading-overlay">

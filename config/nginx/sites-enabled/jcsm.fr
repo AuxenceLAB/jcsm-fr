@@ -93,6 +93,10 @@ server {
     location ~ \.(env|sql|sh|log)$ {
         deny all;
     }
+    # Block backup/source/temp files
+    location ~* \.(bak|old|orig|swp|tmp)$ {
+        deny all;
+    }
     # Block .md files, package.json, and scripts directory
     location ~ \.(md)$ {
         deny all;
@@ -160,6 +164,7 @@ server {
     location /rapports/ {
         include /etc/nginx/snippets/security.conf;
         add_header Cache-Control "no-cache, no-store, must-revalidate" always;
+        add_header X-Robots-Tag "noindex, nofollow" always;
         try_files $uri =404;
     }
 

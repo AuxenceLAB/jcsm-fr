@@ -84,17 +84,21 @@ function saveData($file, $data)
 
 // GET: Récupérer les interventions (authentification requise)
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-    requireAuth();
+    $payload = requireAuth();
     $data = loadData($storageFile);
 
-    // Filtrage optionnel par région (si passé en paramètre ?region=PACA)
-    if (isset($_GET['region']) && !empty($_GET['region']) && $_GET['region'] !== 'Admin') {
-        $region = $_GET['region'];
-        $data = array_filter($data, function ($item) use ($region) {
-            return isset($item['region']) && $item['region'] === $region;
-        });
-        // Ré-indexer le tableau
-        $data = array_values($data);
+    if (!empty($payload['isAdmin'])) {
+        // Admin : filtrage optionnel explicite (?region=PACA)
+        if (isset($_GET['region']) && !empty($_GET['region']) && $_GET['region'] !== 'Admin') {
+            $region = $_GET['region'];
+            $data = array_values(array_filter($data, function ($item) use ($region) {
+                return isset($item['region']) && $item['region'] === $region;
+            }));
+        }
+    } else {
+        // Technicien : région imposée par le token (le ?region= client est ignoré).
+        // Fail-open : si la région n'est pas dérivable du rôle, renvoie tout (statu quo).
+        $data = filterRowsByRegion($data, $payload);
     }
 
     echo json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
@@ -103,7 +107,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 
 // POST: Ajouter ou modifier une intervention (authentification requise)
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    requireAuth();
+    $payload = requireAuth();
 
     // Rate limiting (30 req/min par IP)
     if (!checkRateLimit('interventions_write', 30, 60)) {
@@ -142,6 +146,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         http_response_code(400);
         echo json_encode(['error' => 'Action non reconnue: ' . htmlspecialchars($action)]);
         exit;
+    }
+
+    // Garde-fou région (avant le verrou pour ne pas exit() à l'intérieur du flock).
+    // Un technicien ne peut modifier/supprimer qu'une intervention de sa région.
+    // Fail-open : admin, région du token non dérivable, ou item/cible inconnu => autorisé.
+    if (userRegion($payload) !== '') {
+        $targetId = $action === 'delete' ? ($input['id'] ?? null) : ($input['data']['id'] ?? null);
+        if ($targetId) {
+            $existing = loadData($storageFile);
+            foreach ($existing as $row) {
+                if (($row['id'] ?? null) === $targetId) {
+                    assertCanWriteRegion($payload, $row['region'] ?? null);
+                    break;
+                }
+            }
+        }
     }
 
     // File locking to prevent race conditions on concurrent writes

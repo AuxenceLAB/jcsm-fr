@@ -1,4 +1,5 @@
 # JCSM - Robots.txt
+Disallow: /_design-preview.html
 # https://jcsm.fr
 
 User-agent: *
@@ -49,6 +50,7 @@ Disallow: /admin
 Disallow: /api/
 Disallow: /offline
 Disallow: /404
+Disallow: /demo/
 
 # Disallow sensitive file patterns
 Disallow: /*.json$
@@ -59,9 +61,7 @@ Disallow: /*.log
 
 # Old URLs now have 301 redirects in nginx — no longer blocked
 
-# Disallow backup, reports & internal pages
-Disallow: /blog_backup_faq/
-Disallow: /blog_schema_backup_20260320/
+# Disallow reports & internal pages
 Disallow: /rapports/
 Disallow: /evergreen
 

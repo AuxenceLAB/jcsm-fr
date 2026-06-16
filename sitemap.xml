@@ -1,9 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <!-- Homepage -->
   <url>
     <loc>https://jcsm.fr/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://jcsm.fr/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jcsm.fr/en/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://jcsm.fr/nl/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://jcsm.fr/de/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jcsm.fr/es/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://jcsm.fr/pt/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://jcsm.fr/pl/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://jcsm.fr/it/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jcsm.fr/"/>
     <lastmod>2026-06-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
@@ -19,6 +29,15 @@
   <!-- Service pages (priority 0.9) -->
   <url>
     <loc>https://jcsm.fr/pilotage-projets</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://jcsm.fr/pilotage-projets"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jcsm.fr/en/project-management"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://jcsm.fr/nl/projectbeheer"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://jcsm.fr/de/projektmanagement"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jcsm.fr/es/gestion-proyectos"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://jcsm.fr/pt/gestao-projetos"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://jcsm.fr/pl/zarzadzanie-projektami"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://jcsm.fr/it/gestione-progetti"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jcsm.fr/pilotage-projets"/>
     <lastmod>2026-06-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
@@ -29,6 +48,15 @@
   </url>
   <url>
     <loc>https://jcsm.fr/installation-conformite</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://jcsm.fr/installation-conformite"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jcsm.fr/en/installation-compliance"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://jcsm.fr/nl/installatie-conformiteit"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://jcsm.fr/de/installation-konformitaet"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jcsm.fr/es/instalacion-conformidad"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://jcsm.fr/pt/instalacao-conformidade"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://jcsm.fr/pl/instalacja-zgodnosc"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://jcsm.fr/it/installazione-conformita"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jcsm.fr/installation-conformite"/>
     <lastmod>2026-06-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
@@ -39,6 +67,15 @@
   </url>
   <url>
     <loc>https://jcsm.fr/exploitation</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://jcsm.fr/exploitation"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jcsm.fr/en/operations-maintenance"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://jcsm.fr/nl/exploitatie-onderhoud"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://jcsm.fr/de/betrieb-wartung"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jcsm.fr/es/operacion-mantenimiento"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://jcsm.fr/pt/operacao-manutencao"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://jcsm.fr/pl/eksploatacja-konserwacja"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://jcsm.fr/it/gestione-manutenzione"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jcsm.fr/exploitation"/>
     <lastmod>2026-06-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
@@ -49,6 +86,15 @@
   </url>
   <url>
     <loc>https://jcsm.fr/securisation-installations</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://jcsm.fr/securisation-installations"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jcsm.fr/en/installation-security"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://jcsm.fr/nl/beveiliging-installaties"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://jcsm.fr/de/anlagensicherung"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jcsm.fr/es/seguridad-instalaciones"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://jcsm.fr/pt/seguranca-instalacoes"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://jcsm.fr/pl/zabezpieczenie-instalacji"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://jcsm.fr/it/sicurezza-installazioni"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jcsm.fr/securisation-installations"/>
     <lastmod>2026-06-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
@@ -59,6 +105,15 @@
   </url>
   <url>
     <loc>https://jcsm.fr/centre-appel</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://jcsm.fr/centre-appel"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jcsm.fr/en/call-center"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://jcsm.fr/nl/callcenter"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://jcsm.fr/de/callcenter"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jcsm.fr/es/centro-llamadas"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://jcsm.fr/pt/central-atendimento"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://jcsm.fr/pl/centrum-telefoniczne"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://jcsm.fr/it/centro-chiamate"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jcsm.fr/centre-appel"/>
     <lastmod>2026-06-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
@@ -101,24 +156,48 @@
   <!-- Other public pages -->
   <url>
     <loc>https://jcsm.fr/a-propos</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://jcsm.fr/a-propos"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jcsm.fr/en/about"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://jcsm.fr/nl/over-ons"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://jcsm.fr/de/ueber-uns"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jcsm.fr/es/nosotros"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://jcsm.fr/pt/sobre-nos"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://jcsm.fr/pl/o-nas"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://jcsm.fr/it/chi-siamo"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jcsm.fr/a-propos"/>
     <lastmod>2026-06-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://jcsm.fr/devenir-partenaire</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://jcsm.fr/devenir-partenaire"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jcsm.fr/en/become-partner"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jcsm.fr/devenir-partenaire"/>
     <lastmod>2026-06-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://jcsm.fr/carrieres</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://jcsm.fr/carrieres"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jcsm.fr/en/careers"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jcsm.fr/carrieres"/>
     <lastmod>2026-06-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://jcsm.fr/contact</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://jcsm.fr/contact"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jcsm.fr/en/contact"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://jcsm.fr/nl/contact"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://jcsm.fr/de/kontakt"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jcsm.fr/es/contacto"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://jcsm.fr/pt/contato"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://jcsm.fr/pl/kontakt"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://jcsm.fr/it/contatti"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jcsm.fr/contact"/>
     <lastmod>2026-06-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -131,24 +210,37 @@
   </url>
   <url>
     <loc>https://jcsm.fr/couverture</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://jcsm.fr/couverture"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jcsm.fr/en/coverage"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://jcsm.fr/pt/cobertura"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jcsm.fr/couverture"/>
     <lastmod>2026-06-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://jcsm.fr/mentions-legales</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://jcsm.fr/mentions-legales"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jcsm.fr/en/legal-notice"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jcsm.fr/mentions-legales"/>
     <lastmod>2026-06-16</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
     <loc>https://jcsm.fr/cgv</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://jcsm.fr/cgv"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jcsm.fr/en/terms"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jcsm.fr/cgv"/>
     <lastmod>2026-06-16</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
     <loc>https://jcsm.fr/confidentialite</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://jcsm.fr/confidentialite"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jcsm.fr/en/privacy"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jcsm.fr/confidentialite"/>
     <lastmod>2026-06-16</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
@@ -495,75 +587,602 @@
     <priority>0.6</priority>
   </url>
   <!-- English pages -->
-  <url><loc>https://jcsm.fr/en/</loc><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://jcsm.fr/en/project-management</loc><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://jcsm.fr/en/installation-compliance</loc><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://jcsm.fr/en/operations-maintenance</loc><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://jcsm.fr/en/installation-security</loc><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://jcsm.fr/en/call-center</loc><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://jcsm.fr/en/about</loc><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://jcsm.fr/en/contact</loc><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://jcsm.fr/en/become-partner</loc><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://jcsm.fr/en/careers</loc><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://jcsm.fr/en/coverage</loc><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://jcsm.fr/en/legal-notice</loc><lastmod>2026-06-16</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
-  <url><loc>https://jcsm.fr/en/terms</loc><lastmod>2026-06-16</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
-  <url><loc>https://jcsm.fr/en/privacy</loc><lastmod>2026-06-16</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://jcsm.fr/en/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://jcsm.fr/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jcsm.fr/en/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://jcsm.fr/nl/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://jcsm.fr/de/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jcsm.fr/es/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://jcsm.fr/pt/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://jcsm.fr/pl/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://jcsm.fr/it/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jcsm.fr/"/><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://jcsm.fr/en/project-management</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://jcsm.fr/pilotage-projets"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jcsm.fr/en/project-management"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://jcsm.fr/nl/projectbeheer"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://jcsm.fr/de/projektmanagement"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jcsm.fr/es/gestion-proyectos"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://jcsm.fr/pt/gestao-projetos"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://jcsm.fr/pl/zarzadzanie-projektami"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://jcsm.fr/it/gestione-progetti"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jcsm.fr/pilotage-projets"/><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://jcsm.fr/en/installation-compliance</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://jcsm.fr/installation-conformite"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jcsm.fr/en/installation-compliance"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://jcsm.fr/nl/installatie-conformiteit"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://jcsm.fr/de/installation-konformitaet"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jcsm.fr/es/instalacion-conformidad"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://jcsm.fr/pt/instalacao-conformidade"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://jcsm.fr/pl/instalacja-zgodnosc"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://jcsm.fr/it/installazione-conformita"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jcsm.fr/installation-conformite"/><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://jcsm.fr/en/operations-maintenance</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://jcsm.fr/exploitation"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jcsm.fr/en/operations-maintenance"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://jcsm.fr/nl/exploitatie-onderhoud"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://jcsm.fr/de/betrieb-wartung"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jcsm.fr/es/operacion-mantenimiento"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://jcsm.fr/pt/operacao-manutencao"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://jcsm.fr/pl/eksploatacja-konserwacja"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://jcsm.fr/it/gestione-manutenzione"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jcsm.fr/exploitation"/><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://jcsm.fr/en/installation-security</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://jcsm.fr/securisation-installations"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jcsm.fr/en/installation-security"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://jcsm.fr/nl/beveiliging-installaties"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://jcsm.fr/de/anlagensicherung"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jcsm.fr/es/seguridad-instalaciones"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://jcsm.fr/pt/seguranca-instalacoes"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://jcsm.fr/pl/zabezpieczenie-instalacji"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://jcsm.fr/it/sicurezza-installazioni"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jcsm.fr/securisation-installations"/><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://jcsm.fr/en/call-center</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://jcsm.fr/centre-appel"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jcsm.fr/en/call-center"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://jcsm.fr/nl/callcenter"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://jcsm.fr/de/callcenter"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jcsm.fr/es/centro-llamadas"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://jcsm.fr/pt/central-atendimento"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://jcsm.fr/pl/centrum-telefoniczne"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://jcsm.fr/it/centro-chiamate"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jcsm.fr/centre-appel"/><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://jcsm.fr/en/about</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://jcsm.fr/a-propos"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jcsm.fr/en/about"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://jcsm.fr/nl/over-ons"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://jcsm.fr/de/ueber-uns"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jcsm.fr/es/nosotros"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://jcsm.fr/pt/sobre-nos"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://jcsm.fr/pl/o-nas"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://jcsm.fr/it/chi-siamo"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jcsm.fr/a-propos"/><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://jcsm.fr/en/contact</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://jcsm.fr/contact"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jcsm.fr/en/contact"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://jcsm.fr/nl/contact"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://jcsm.fr/de/kontakt"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jcsm.fr/es/contacto"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://jcsm.fr/pt/contato"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://jcsm.fr/pl/kontakt"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://jcsm.fr/it/contatti"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jcsm.fr/contact"/><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://jcsm.fr/en/become-partner</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://jcsm.fr/devenir-partenaire"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jcsm.fr/en/become-partner"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jcsm.fr/devenir-partenaire"/><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://jcsm.fr/en/careers</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://jcsm.fr/carrieres"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jcsm.fr/en/careers"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jcsm.fr/carrieres"/><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://jcsm.fr/en/coverage</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://jcsm.fr/couverture"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jcsm.fr/en/coverage"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://jcsm.fr/pt/cobertura"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jcsm.fr/couverture"/><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://jcsm.fr/en/legal-notice</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://jcsm.fr/mentions-legales"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jcsm.fr/en/legal-notice"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jcsm.fr/mentions-legales"/><lastmod>2026-06-16</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://jcsm.fr/en/terms</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://jcsm.fr/cgv"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jcsm.fr/en/terms"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jcsm.fr/cgv"/><lastmod>2026-06-16</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://jcsm.fr/en/privacy</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://jcsm.fr/confidentialite"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jcsm.fr/en/privacy"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jcsm.fr/confidentialite"/><lastmod>2026-06-16</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
   <!-- Spanish pages -->
-  <url><loc>https://jcsm.fr/es/</loc><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://jcsm.fr/es/gestion-proyectos</loc><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://jcsm.fr/es/instalacion-conformidad</loc><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://jcsm.fr/es/operacion-mantenimiento</loc><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://jcsm.fr/es/seguridad-instalaciones</loc><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://jcsm.fr/es/centro-llamadas</loc><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://jcsm.fr/es/nosotros</loc><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://jcsm.fr/es/contacto</loc><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://jcsm.fr/es/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://jcsm.fr/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jcsm.fr/en/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://jcsm.fr/nl/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://jcsm.fr/de/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jcsm.fr/es/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://jcsm.fr/pt/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://jcsm.fr/pl/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://jcsm.fr/it/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jcsm.fr/"/><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://jcsm.fr/es/gestion-proyectos</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://jcsm.fr/pilotage-projets"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jcsm.fr/en/project-management"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://jcsm.fr/nl/projectbeheer"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://jcsm.fr/de/projektmanagement"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jcsm.fr/es/gestion-proyectos"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://jcsm.fr/pt/gestao-projetos"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://jcsm.fr/pl/zarzadzanie-projektami"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://jcsm.fr/it/gestione-progetti"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jcsm.fr/pilotage-projets"/><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://jcsm.fr/es/instalacion-conformidad</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://jcsm.fr/installation-conformite"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jcsm.fr/en/installation-compliance"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://jcsm.fr/nl/installatie-conformiteit"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://jcsm.fr/de/installation-konformitaet"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jcsm.fr/es/instalacion-conformidad"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://jcsm.fr/pt/instalacao-conformidade"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://jcsm.fr/pl/instalacja-zgodnosc"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://jcsm.fr/it/installazione-conformita"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jcsm.fr/installation-conformite"/><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://jcsm.fr/es/operacion-mantenimiento</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://jcsm.fr/exploitation"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jcsm.fr/en/operations-maintenance"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://jcsm.fr/nl/exploitatie-onderhoud"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://jcsm.fr/de/betrieb-wartung"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jcsm.fr/es/operacion-mantenimiento"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://jcsm.fr/pt/operacao-manutencao"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://jcsm.fr/pl/eksploatacja-konserwacja"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://jcsm.fr/it/gestione-manutenzione"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jcsm.fr/exploitation"/><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://jcsm.fr/es/seguridad-instalaciones</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://jcsm.fr/securisation-installations"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jcsm.fr/en/installation-security"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://jcsm.fr/nl/beveiliging-installaties"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://jcsm.fr/de/anlagensicherung"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jcsm.fr/es/seguridad-instalaciones"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://jcsm.fr/pt/seguranca-instalacoes"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://jcsm.fr/pl/zabezpieczenie-instalacji"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://jcsm.fr/it/sicurezza-installazioni"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jcsm.fr/securisation-installations"/><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://jcsm.fr/es/centro-llamadas</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://jcsm.fr/centre-appel"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jcsm.fr/en/call-center"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://jcsm.fr/nl/callcenter"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://jcsm.fr/de/callcenter"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jcsm.fr/es/centro-llamadas"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://jcsm.fr/pt/central-atendimento"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://jcsm.fr/pl/centrum-telefoniczne"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://jcsm.fr/it/centro-chiamate"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jcsm.fr/centre-appel"/><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://jcsm.fr/es/nosotros</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://jcsm.fr/a-propos"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jcsm.fr/en/about"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://jcsm.fr/nl/over-ons"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://jcsm.fr/de/ueber-uns"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jcsm.fr/es/nosotros"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://jcsm.fr/pt/sobre-nos"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://jcsm.fr/pl/o-nas"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://jcsm.fr/it/chi-siamo"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jcsm.fr/a-propos"/><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://jcsm.fr/es/contacto</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://jcsm.fr/contact"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jcsm.fr/en/contact"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://jcsm.fr/nl/contact"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://jcsm.fr/de/kontakt"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jcsm.fr/es/contacto"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://jcsm.fr/pt/contato"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://jcsm.fr/pl/kontakt"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://jcsm.fr/it/contatti"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jcsm.fr/contact"/><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <!-- German pages -->
-  <url><loc>https://jcsm.fr/de/</loc><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://jcsm.fr/de/projektmanagement</loc><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://jcsm.fr/de/installation-konformitaet</loc><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://jcsm.fr/de/betrieb-wartung</loc><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://jcsm.fr/de/anlagensicherung</loc><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://jcsm.fr/de/callcenter</loc><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://jcsm.fr/de/ueber-uns</loc><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://jcsm.fr/de/kontakt</loc><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://jcsm.fr/de/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://jcsm.fr/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jcsm.fr/en/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://jcsm.fr/nl/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://jcsm.fr/de/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jcsm.fr/es/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://jcsm.fr/pt/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://jcsm.fr/pl/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://jcsm.fr/it/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jcsm.fr/"/><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://jcsm.fr/de/projektmanagement</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://jcsm.fr/pilotage-projets"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jcsm.fr/en/project-management"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://jcsm.fr/nl/projectbeheer"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://jcsm.fr/de/projektmanagement"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jcsm.fr/es/gestion-proyectos"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://jcsm.fr/pt/gestao-projetos"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://jcsm.fr/pl/zarzadzanie-projektami"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://jcsm.fr/it/gestione-progetti"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jcsm.fr/pilotage-projets"/><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://jcsm.fr/de/installation-konformitaet</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://jcsm.fr/installation-conformite"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jcsm.fr/en/installation-compliance"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://jcsm.fr/nl/installatie-conformiteit"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://jcsm.fr/de/installation-konformitaet"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jcsm.fr/es/instalacion-conformidad"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://jcsm.fr/pt/instalacao-conformidade"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://jcsm.fr/pl/instalacja-zgodnosc"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://jcsm.fr/it/installazione-conformita"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jcsm.fr/installation-conformite"/><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://jcsm.fr/de/betrieb-wartung</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://jcsm.fr/exploitation"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jcsm.fr/en/operations-maintenance"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://jcsm.fr/nl/exploitatie-onderhoud"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://jcsm.fr/de/betrieb-wartung"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jcsm.fr/es/operacion-mantenimiento"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://jcsm.fr/pt/operacao-manutencao"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://jcsm.fr/pl/eksploatacja-konserwacja"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://jcsm.fr/it/gestione-manutenzione"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jcsm.fr/exploitation"/><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://jcsm.fr/de/anlagensicherung</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://jcsm.fr/securisation-installations"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jcsm.fr/en/installation-security"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://jcsm.fr/nl/beveiliging-installaties"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://jcsm.fr/de/anlagensicherung"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jcsm.fr/es/seguridad-instalaciones"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://jcsm.fr/pt/seguranca-instalacoes"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://jcsm.fr/pl/zabezpieczenie-instalacji"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://jcsm.fr/it/sicurezza-installazioni"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jcsm.fr/securisation-installations"/><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://jcsm.fr/de/callcenter</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://jcsm.fr/centre-appel"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jcsm.fr/en/call-center"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://jcsm.fr/nl/callcenter"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://jcsm.fr/de/callcenter"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jcsm.fr/es/centro-llamadas"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://jcsm.fr/pt/central-atendimento"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://jcsm.fr/pl/centrum-telefoniczne"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://jcsm.fr/it/centro-chiamate"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jcsm.fr/centre-appel"/><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://jcsm.fr/de/ueber-uns</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://jcsm.fr/a-propos"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jcsm.fr/en/about"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://jcsm.fr/nl/over-ons"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://jcsm.fr/de/ueber-uns"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jcsm.fr/es/nosotros"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://jcsm.fr/pt/sobre-nos"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://jcsm.fr/pl/o-nas"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://jcsm.fr/it/chi-siamo"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jcsm.fr/a-propos"/><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://jcsm.fr/de/kontakt</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://jcsm.fr/contact"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jcsm.fr/en/contact"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://jcsm.fr/nl/contact"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://jcsm.fr/de/kontakt"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jcsm.fr/es/contacto"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://jcsm.fr/pt/contato"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://jcsm.fr/pl/kontakt"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://jcsm.fr/it/contatti"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jcsm.fr/contact"/><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <!-- Portuguese pages -->
-  <url><loc>https://jcsm.fr/pt/</loc><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://jcsm.fr/pt/gestao-projetos</loc><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://jcsm.fr/pt/instalacao-conformidade</loc><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://jcsm.fr/pt/operacao-manutencao</loc><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://jcsm.fr/pt/seguranca-instalacoes</loc><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://jcsm.fr/pt/central-atendimento</loc><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://jcsm.fr/pt/sobre-nos</loc><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://jcsm.fr/pt/contato</loc><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://jcsm.fr/pt/cobertura</loc><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://jcsm.fr/pt/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://jcsm.fr/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jcsm.fr/en/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://jcsm.fr/nl/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://jcsm.fr/de/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jcsm.fr/es/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://jcsm.fr/pt/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://jcsm.fr/pl/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://jcsm.fr/it/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jcsm.fr/"/><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://jcsm.fr/pt/gestao-projetos</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://jcsm.fr/pilotage-projets"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jcsm.fr/en/project-management"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://jcsm.fr/nl/projectbeheer"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://jcsm.fr/de/projektmanagement"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jcsm.fr/es/gestion-proyectos"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://jcsm.fr/pt/gestao-projetos"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://jcsm.fr/pl/zarzadzanie-projektami"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://jcsm.fr/it/gestione-progetti"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jcsm.fr/pilotage-projets"/><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://jcsm.fr/pt/instalacao-conformidade</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://jcsm.fr/installation-conformite"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jcsm.fr/en/installation-compliance"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://jcsm.fr/nl/installatie-conformiteit"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://jcsm.fr/de/installation-konformitaet"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jcsm.fr/es/instalacion-conformidad"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://jcsm.fr/pt/instalacao-conformidade"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://jcsm.fr/pl/instalacja-zgodnosc"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://jcsm.fr/it/installazione-conformita"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jcsm.fr/installation-conformite"/><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://jcsm.fr/pt/operacao-manutencao</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://jcsm.fr/exploitation"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jcsm.fr/en/operations-maintenance"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://jcsm.fr/nl/exploitatie-onderhoud"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://jcsm.fr/de/betrieb-wartung"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jcsm.fr/es/operacion-mantenimiento"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://jcsm.fr/pt/operacao-manutencao"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://jcsm.fr/pl/eksploatacja-konserwacja"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://jcsm.fr/it/gestione-manutenzione"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jcsm.fr/exploitation"/><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://jcsm.fr/pt/seguranca-instalacoes</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://jcsm.fr/securisation-installations"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jcsm.fr/en/installation-security"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://jcsm.fr/nl/beveiliging-installaties"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://jcsm.fr/de/anlagensicherung"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jcsm.fr/es/seguridad-instalaciones"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://jcsm.fr/pt/seguranca-instalacoes"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://jcsm.fr/pl/zabezpieczenie-instalacji"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://jcsm.fr/it/sicurezza-installazioni"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jcsm.fr/securisation-installations"/><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://jcsm.fr/pt/central-atendimento</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://jcsm.fr/centre-appel"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jcsm.fr/en/call-center"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://jcsm.fr/nl/callcenter"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://jcsm.fr/de/callcenter"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jcsm.fr/es/centro-llamadas"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://jcsm.fr/pt/central-atendimento"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://jcsm.fr/pl/centrum-telefoniczne"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://jcsm.fr/it/centro-chiamate"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jcsm.fr/centre-appel"/><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://jcsm.fr/pt/sobre-nos</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://jcsm.fr/a-propos"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jcsm.fr/en/about"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://jcsm.fr/nl/over-ons"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://jcsm.fr/de/ueber-uns"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jcsm.fr/es/nosotros"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://jcsm.fr/pt/sobre-nos"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://jcsm.fr/pl/o-nas"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://jcsm.fr/it/chi-siamo"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jcsm.fr/a-propos"/><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://jcsm.fr/pt/contato</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://jcsm.fr/contact"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jcsm.fr/en/contact"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://jcsm.fr/nl/contact"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://jcsm.fr/de/kontakt"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jcsm.fr/es/contacto"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://jcsm.fr/pt/contato"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://jcsm.fr/pl/kontakt"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://jcsm.fr/it/contatti"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jcsm.fr/contact"/><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://jcsm.fr/pt/cobertura</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://jcsm.fr/couverture"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jcsm.fr/en/coverage"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://jcsm.fr/pt/cobertura"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jcsm.fr/couverture"/><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <!-- Dutch pages -->
-  <url><loc>https://jcsm.fr/nl/</loc><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://jcsm.fr/nl/projectbeheer</loc><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://jcsm.fr/nl/installatie-conformiteit</loc><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://jcsm.fr/nl/exploitatie-onderhoud</loc><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://jcsm.fr/nl/beveiliging-installaties</loc><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://jcsm.fr/nl/callcenter</loc><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://jcsm.fr/nl/over-ons</loc><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://jcsm.fr/nl/contact</loc><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://jcsm.fr/nl/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://jcsm.fr/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jcsm.fr/en/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jcsm.fr/es/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://jcsm.fr/de/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://jcsm.fr/pt/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://jcsm.fr/nl/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://jcsm.fr/pl/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://jcsm.fr/it/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jcsm.fr/"/><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://jcsm.fr/nl/projectbeheer</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://jcsm.fr/pilotage-projets"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jcsm.fr/en/project-management"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://jcsm.fr/nl/projectbeheer"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://jcsm.fr/de/projektmanagement"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jcsm.fr/es/gestion-proyectos"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://jcsm.fr/pt/gestao-projetos"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://jcsm.fr/pl/zarzadzanie-projektami"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://jcsm.fr/it/gestione-progetti"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jcsm.fr/pilotage-projets"/><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://jcsm.fr/nl/installatie-conformiteit</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://jcsm.fr/installation-conformite"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jcsm.fr/en/installation-compliance"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://jcsm.fr/nl/installatie-conformiteit"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://jcsm.fr/de/installation-konformitaet"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jcsm.fr/es/instalacion-conformidad"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://jcsm.fr/pt/instalacao-conformidade"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://jcsm.fr/pl/instalacja-zgodnosc"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://jcsm.fr/it/installazione-conformita"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jcsm.fr/installation-conformite"/><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://jcsm.fr/nl/exploitatie-onderhoud</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://jcsm.fr/exploitation"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jcsm.fr/en/operations-maintenance"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://jcsm.fr/nl/exploitatie-onderhoud"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://jcsm.fr/de/betrieb-wartung"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jcsm.fr/es/operacion-mantenimiento"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://jcsm.fr/pt/operacao-manutencao"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://jcsm.fr/pl/eksploatacja-konserwacja"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://jcsm.fr/it/gestione-manutenzione"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jcsm.fr/exploitation"/><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://jcsm.fr/nl/beveiliging-installaties</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://jcsm.fr/securisation-installations"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jcsm.fr/en/installation-security"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://jcsm.fr/nl/beveiliging-installaties"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://jcsm.fr/de/anlagensicherung"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jcsm.fr/es/seguridad-instalaciones"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://jcsm.fr/pt/seguranca-instalacoes"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://jcsm.fr/pl/zabezpieczenie-instalacji"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://jcsm.fr/it/sicurezza-installazioni"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jcsm.fr/securisation-installations"/><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://jcsm.fr/nl/callcenter</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://jcsm.fr/centre-appel"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jcsm.fr/en/call-center"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://jcsm.fr/nl/callcenter"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://jcsm.fr/de/callcenter"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jcsm.fr/es/centro-llamadas"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://jcsm.fr/pt/central-atendimento"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://jcsm.fr/pl/centrum-telefoniczne"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://jcsm.fr/it/centro-chiamate"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jcsm.fr/centre-appel"/><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://jcsm.fr/nl/over-ons</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://jcsm.fr/a-propos"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jcsm.fr/en/about"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://jcsm.fr/nl/over-ons"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://jcsm.fr/de/ueber-uns"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jcsm.fr/es/nosotros"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://jcsm.fr/pt/sobre-nos"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://jcsm.fr/pl/o-nas"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://jcsm.fr/it/chi-siamo"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jcsm.fr/a-propos"/><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://jcsm.fr/nl/contact</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://jcsm.fr/contact"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jcsm.fr/en/contact"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://jcsm.fr/nl/contact"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://jcsm.fr/de/kontakt"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jcsm.fr/es/contacto"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://jcsm.fr/pt/contato"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://jcsm.fr/pl/kontakt"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://jcsm.fr/it/contatti"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jcsm.fr/contact"/><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <!-- Polish pages -->
-  <url><loc>https://jcsm.fr/pl/</loc><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://jcsm.fr/pl/zarzadzanie-projektami</loc><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://jcsm.fr/pl/instalacja-zgodnosc</loc><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://jcsm.fr/pl/eksploatacja-konserwacja</loc><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://jcsm.fr/pl/zabezpieczenie-instalacji</loc><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://jcsm.fr/pl/centrum-telefoniczne</loc><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://jcsm.fr/pl/o-nas</loc><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://jcsm.fr/pl/kontakt</loc><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://jcsm.fr/pl/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://jcsm.fr/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jcsm.fr/en/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://jcsm.fr/nl/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://jcsm.fr/de/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jcsm.fr/es/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://jcsm.fr/pt/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://jcsm.fr/pl/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://jcsm.fr/it/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jcsm.fr/"/><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://jcsm.fr/pl/zarzadzanie-projektami</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://jcsm.fr/pilotage-projets"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jcsm.fr/en/project-management"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://jcsm.fr/nl/projectbeheer"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://jcsm.fr/de/projektmanagement"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jcsm.fr/es/gestion-proyectos"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://jcsm.fr/pt/gestao-projetos"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://jcsm.fr/pl/zarzadzanie-projektami"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://jcsm.fr/it/gestione-progetti"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jcsm.fr/pilotage-projets"/><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://jcsm.fr/pl/instalacja-zgodnosc</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://jcsm.fr/installation-conformite"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jcsm.fr/en/installation-compliance"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://jcsm.fr/nl/installatie-conformiteit"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://jcsm.fr/de/installation-konformitaet"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jcsm.fr/es/instalacion-conformidad"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://jcsm.fr/pt/instalacao-conformidade"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://jcsm.fr/pl/instalacja-zgodnosc"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://jcsm.fr/it/installazione-conformita"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jcsm.fr/installation-conformite"/><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://jcsm.fr/pl/eksploatacja-konserwacja</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://jcsm.fr/exploitation"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jcsm.fr/en/operations-maintenance"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://jcsm.fr/nl/exploitatie-onderhoud"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://jcsm.fr/de/betrieb-wartung"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jcsm.fr/es/operacion-mantenimiento"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://jcsm.fr/pt/operacao-manutencao"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://jcsm.fr/pl/eksploatacja-konserwacja"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://jcsm.fr/it/gestione-manutenzione"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jcsm.fr/exploitation"/><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://jcsm.fr/pl/zabezpieczenie-instalacji</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://jcsm.fr/securisation-installations"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jcsm.fr/en/installation-security"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://jcsm.fr/nl/beveiliging-installaties"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://jcsm.fr/de/anlagensicherung"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jcsm.fr/es/seguridad-instalaciones"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://jcsm.fr/pt/seguranca-instalacoes"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://jcsm.fr/pl/zabezpieczenie-instalacji"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://jcsm.fr/it/sicurezza-installazioni"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jcsm.fr/securisation-installations"/><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://jcsm.fr/pl/centrum-telefoniczne</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://jcsm.fr/centre-appel"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jcsm.fr/en/call-center"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://jcsm.fr/nl/callcenter"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://jcsm.fr/de/callcenter"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jcsm.fr/es/centro-llamadas"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://jcsm.fr/pt/central-atendimento"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://jcsm.fr/pl/centrum-telefoniczne"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://jcsm.fr/it/centro-chiamate"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jcsm.fr/centre-appel"/><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://jcsm.fr/pl/o-nas</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://jcsm.fr/a-propos"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jcsm.fr/en/about"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://jcsm.fr/nl/over-ons"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://jcsm.fr/de/ueber-uns"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jcsm.fr/es/nosotros"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://jcsm.fr/pt/sobre-nos"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://jcsm.fr/pl/o-nas"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://jcsm.fr/it/chi-siamo"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jcsm.fr/a-propos"/><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://jcsm.fr/pl/kontakt</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://jcsm.fr/contact"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jcsm.fr/en/contact"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://jcsm.fr/nl/contact"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://jcsm.fr/de/kontakt"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jcsm.fr/es/contacto"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://jcsm.fr/pt/contato"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://jcsm.fr/pl/kontakt"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://jcsm.fr/it/contatti"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jcsm.fr/contact"/><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <!-- Italian pages -->
-  <url><loc>https://jcsm.fr/it/</loc><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://jcsm.fr/it/gestione-progetti</loc><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://jcsm.fr/it/installazione-conformita</loc><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://jcsm.fr/it/gestione-manutenzione</loc><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://jcsm.fr/it/sicurezza-installazioni</loc><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://jcsm.fr/it/centro-chiamate</loc><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://jcsm.fr/it/chi-siamo</loc><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://jcsm.fr/it/contatti</loc><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://jcsm.fr/it/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://jcsm.fr/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jcsm.fr/en/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://jcsm.fr/nl/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://jcsm.fr/de/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jcsm.fr/es/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://jcsm.fr/pt/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://jcsm.fr/pl/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://jcsm.fr/it/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jcsm.fr/"/><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://jcsm.fr/it/gestione-progetti</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://jcsm.fr/pilotage-projets"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jcsm.fr/en/project-management"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://jcsm.fr/nl/projectbeheer"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://jcsm.fr/de/projektmanagement"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jcsm.fr/es/gestion-proyectos"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://jcsm.fr/pt/gestao-projetos"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://jcsm.fr/pl/zarzadzanie-projektami"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://jcsm.fr/it/gestione-progetti"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jcsm.fr/pilotage-projets"/><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://jcsm.fr/it/installazione-conformita</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://jcsm.fr/installation-conformite"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jcsm.fr/en/installation-compliance"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://jcsm.fr/nl/installatie-conformiteit"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://jcsm.fr/de/installation-konformitaet"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jcsm.fr/es/instalacion-conformidad"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://jcsm.fr/pt/instalacao-conformidade"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://jcsm.fr/pl/instalacja-zgodnosc"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://jcsm.fr/it/installazione-conformita"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jcsm.fr/installation-conformite"/><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://jcsm.fr/it/gestione-manutenzione</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://jcsm.fr/exploitation"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jcsm.fr/en/operations-maintenance"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://jcsm.fr/nl/exploitatie-onderhoud"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://jcsm.fr/de/betrieb-wartung"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jcsm.fr/es/operacion-mantenimiento"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://jcsm.fr/pt/operacao-manutencao"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://jcsm.fr/pl/eksploatacja-konserwacja"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://jcsm.fr/it/gestione-manutenzione"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jcsm.fr/exploitation"/><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://jcsm.fr/it/sicurezza-installazioni</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://jcsm.fr/securisation-installations"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jcsm.fr/en/installation-security"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://jcsm.fr/nl/beveiliging-installaties"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://jcsm.fr/de/anlagensicherung"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jcsm.fr/es/seguridad-instalaciones"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://jcsm.fr/pt/seguranca-instalacoes"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://jcsm.fr/pl/zabezpieczenie-instalacji"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://jcsm.fr/it/sicurezza-installazioni"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jcsm.fr/securisation-installations"/><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://jcsm.fr/it/centro-chiamate</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://jcsm.fr/centre-appel"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jcsm.fr/en/call-center"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://jcsm.fr/nl/callcenter"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://jcsm.fr/de/callcenter"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jcsm.fr/es/centro-llamadas"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://jcsm.fr/pt/central-atendimento"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://jcsm.fr/pl/centrum-telefoniczne"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://jcsm.fr/it/centro-chiamate"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jcsm.fr/centre-appel"/><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://jcsm.fr/it/chi-siamo</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://jcsm.fr/a-propos"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jcsm.fr/en/about"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://jcsm.fr/nl/over-ons"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://jcsm.fr/de/ueber-uns"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jcsm.fr/es/nosotros"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://jcsm.fr/pt/sobre-nos"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://jcsm.fr/pl/o-nas"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://jcsm.fr/it/chi-siamo"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jcsm.fr/a-propos"/><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://jcsm.fr/it/contatti</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://jcsm.fr/contact"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jcsm.fr/en/contact"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://jcsm.fr/nl/contact"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://jcsm.fr/de/kontakt"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://jcsm.fr/es/contacto"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://jcsm.fr/pt/contato"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://jcsm.fr/pl/kontakt"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://jcsm.fr/it/contatti"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jcsm.fr/contact"/><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url>
     <loc>https://jcsm.fr/blog/comparatif-bornes-recharge-marques-2026</loc>
     <lastmod>2026-06-16</lastmod>

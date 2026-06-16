@@ -171,18 +171,10 @@
             ".js-loaded .will-reveal { opacity: 0; transform: translateY(20px); transition: all 1s cubic-bezier(0.16, 1, 0.3, 1); }",
             ".revealed { opacity: 1 !important; transform: none !important; }",
             ".reveal-clip { transition: clip-path 1.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 1.4s ease; }",
-            ".cursor-glow { mix-blend-mode: screen; filter: blur(40px); }",
             ".card-hover, .card-premium { transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease; }",
-            "@keyframes rippleEffect { to { transform: scale(4); opacity: 0; } }",
             "@keyframes staggerIn { to { opacity: 1; transform: translateY(0); } }",
             "#scroll-progress { transition: width 0.1s linear; }",
-            ".glow-border { position: relative; }",
-            ".glow-border::before { content: ''; position: absolute; inset: -2px; background: rgba(37, 99, 235, 0.15); border-radius: inherit; z-index: -1; opacity: 0; transition: opacity 0.4s ease; filter: blur(12px); }",
-            ".glow-border:hover::before { opacity: 1; }",
             ".counter-glow { text-shadow: 0 0 30px rgba(37, 99, 235, 0.3), 0 0 60px rgba(37, 99, 235, 0.15); }",
-            ".service-card.wow-glow { position: relative; }",
-            ".service-card.wow-glow::before { content: ''; position: absolute; inset: -1px; background: linear-gradient(135deg, rgba(37, 99, 235, 0.3), rgba(6, 182, 212, 0.2), rgba(37, 99, 235, 0.3)); border-radius: inherit; z-index: -1; opacity: 0; transition: opacity 0.5s ease; filter: blur(6px); }",
-            ".service-card.wow-glow:hover::before { opacity: 1; }",
             ".stat-card.wow-pop:hover .stat-number { transform: scale(1.08); transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1); }",
             "@keyframes trustBounce { 0% { opacity: 0; transform: translateY(16px) scale(0.95); } 60% { transform: translateY(-4px) scale(1.02); } 100% { opacity: 1; transform: translateY(0) scale(1); } }",
             ".trust-badge.wow-in { animation: trustBounce 0.6s cubic-bezier(0.16, 1, 0.3, 1) both; }"
@@ -227,64 +219,6 @@
                 }, 300);
             }
         })();
-
-        // Desktop-only: cursor glow, 3D card tilt
-        if (isDesktop) {
-            // Cursor glow with proper cleanup on hidden tab
-            (function cursorGlow() {
-                var glow = document.createElement("div");
-                glow.className = "cursor-glow";
-                glow.style.cssText = "position:fixed;width:600px;height:600px;border-radius:50%;pointer-events:none;background:radial-gradient(circle, rgba(37, 99, 235, 0.08) 0%, rgba(59, 130, 246, 0.04) 30%, transparent 70%);transform:translate(-50%, -50%);z-index:1;opacity:0;transition:opacity 0.5s ease;mix-blend-mode:plus-lighter;";
-                document.body.appendChild(glow);
-
-                var mouseX = 0, mouseY = 0, glowX = 0, glowY = 0;
-                var rafId = null;
-
-                document.addEventListener("mousemove", function (e) {
-                    mouseX = e.clientX;
-                    mouseY = e.clientY;
-                    if (glow.style.opacity === "0") {
-                        glow.style.opacity = "1";
-                    }
-                }, { passive: true });
-
-                function loop() {
-                    glowX += 0.08 * (mouseX - glowX);
-                    glowY += 0.08 * (mouseY - glowY);
-                    glow.style.left = glowX + "px";
-                    glow.style.top = glowY + "px";
-                    rafId = requestAnimationFrame(loop);
-                }
-
-                document.addEventListener("visibilitychange", function () {
-                    if (document.hidden) {
-                        if (rafId) { cancelAnimationFrame(rafId); rafId = null; }
-                    } else {
-                        if (!rafId) { rafId = requestAnimationFrame(loop); }
-                    }
-                });
-
-                rafId = requestAnimationFrame(loop);
-            })();
-
-            // 3D tilt on cards : reset to empty string on leave so CSS hover takes over
-            document.querySelectorAll(".card-hover, .card-premium, [data-tilt]").forEach(function (card) {
-                card.addEventListener("mousemove", function (e) {
-                    var rect = card.getBoundingClientRect();
-                    var rotateX = -8 * ((e.clientY - rect.top) / rect.height - 0.5);
-                    var rotateY = 8 * ((e.clientX - rect.left) / rect.width - 0.5);
-                    requestAnimationFrame(function () {
-                        card.style.transform = "perspective(1000px) rotateX(" + rotateX + "deg) rotateY(" + rotateY + "deg) translateY(-4px) scale3d(1.02, 1.02, 1.02)";
-                    });
-                });
-                card.addEventListener("mouseleave", function () {
-                    requestAnimationFrame(function () {
-                        card.style.transform = "";
-                    });
-                });
-            });
-
-        }
 
         // ─── Section reveal (IntersectionObserver, fire once) ───
         (function sectionReveal() {
@@ -339,10 +273,7 @@
             if (parent) trustObserver.observe(parent);
         })();
 
-        // ─── Service card glow border + stat card pop ───
-        document.querySelectorAll(".service-card").forEach(function (card) {
-            card.classList.add("wow-glow");
-        });
+        // ─── Stat card pop ───
         document.querySelectorAll(".stat-card").forEach(function (card) {
             card.classList.add("wow-pop");
         });
@@ -395,22 +326,6 @@
         el.classList.add("counter-glow");
     });
 
-    // Ripple effect on buttons/cards (self-cleaning DOM node)
-    document.querySelectorAll(".btn-primary, .btn-secondary, .card-hover").forEach(function (el) {
-        el.addEventListener("click", function (e) {
-            var ripple = document.createElement("span");
-            var rect = this.getBoundingClientRect();
-            var size = Math.max(rect.width, rect.height);
-            var x = e.clientX - rect.left - size / 2;
-            var y = e.clientY - rect.top - size / 2;
-            ripple.style.cssText = "position:absolute;width:" + size + "px;height:" + size + "px;left:" + x + "px;top:" + y + "px;background:radial-gradient(circle, rgba(255,255,255,0.4) 0%, transparent 70%);border-radius:50%;transform:scale(0);animation:rippleEffect 0.6s ease-out forwards;pointer-events:none;";
-            this.style.position = "relative";
-            this.style.overflow = "hidden";
-            this.appendChild(ripple);
-            setTimeout(function () { ripple.remove(); }, 600);
-        });
-    });
-
     // Hover transition enhancement : only cards and nav links (not buttons)
     document.querySelectorAll(".card-hover, nav a").forEach(function (el) {
         el.addEventListener("mouseenter", function () {
@@ -419,10 +334,5 @@
         el.addEventListener("mouseleave", function () {
             el.style.transition = "";
         });
-    });
-
-    // Glow border class
-    document.querySelectorAll(".service-step, .card-hover").forEach(function (el) {
-        el.classList.add("glow-border");
     });
 }();
