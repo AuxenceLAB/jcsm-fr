@@ -1,22 +1,24 @@
 <!DOCTYPE html>
-<html lang="de" class="js-enabled">
+<html lang="de">
 
 <head>
 <link rel="preload" as="font" type="font/woff2" href="/fonts/fraunces-600-latin.woff2" crossorigin>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <!-- Cookie Consent + GTM (nach Zustimmung geladen) -->
     <script src="/js/cookie-consent.js" defer></script>
     <title>Wartung von Ladestationen & HV/LV-Transformatoren | JCSM</title>
     <meta name="description"
-        content="Betrieb und Wartung von Ladestationen sowie HV/LV-Transformatoren. Inbetriebnahme, präventive und korrektive Wartung in Frankreich und Belgien.">
+        content="Wartung von AC/DC-Ladestationen und HV/LV-Transformatoren. Kontinuierliche Überwachung per OCPP. Frankreich-weit und Belgien. Alle Marken von AC 3,7 kW bis DC 400 kW. Reaktion innerhalb von 24 Arbeitsstunden.">
     <meta name="robots" content="index, follow">
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "Service",
         "name": "Betrieb & Wartung von Ladestationen",
-        "description": "Betrieb und Wartung von Ladeinfrastruktur und HV/LV-Transformatoren. Inbetriebnahme, präventive und korrektive Wartung in Frankreich und Belgien.",
+        "description": "Präventive und korrektive Wartung von IRVE-Ladeinfrastruktur und HV/LV-Transformatoren. OCPP-Überwachung, Inbetriebnahme und Flottenmanagement in Frankreich und Belgien.",
         "provider": {
             "@type": "Organization",
             "name": "JCSM",
@@ -26,7 +28,20 @@
         "serviceType": "Ladeinfrastruktur-Wartung",
         "url": "https://jcsm.fr/de/betrieb-wartung",
         "image": "https://jcsm.fr/images/maintenance.jpeg",
-        "category": "Infrastrukturwartung"
+        "category": "Infrastrukturwartung",
+        "priceRange": "€€-€€€"
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "Betrieb & Wartung von Ladestationen",
+        "speakable": {
+            "@type": "SpeakableSpecification",
+            "cssSelector": ["h1", "meta[name='description']"]
+        },
+        "url": "https://jcsm.fr/de/betrieb-wartung"
     }
     </script>
     <script type="application/ld+json">
@@ -46,36 +61,59 @@
         "mainEntity": [
             {
                 "@type": "Question",
-                "name": "Welche Ladestationstypen warten Sie?",
+                "name": "Wie schnell sind Sie bei einer Störung vor Ort?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Wir warten alle AC-Ladestationen (3,7 bis 22 kW) und DC-Ladestationen (50 bis 350 kW) führender Marken: ABB, Schneider, EVBox, Alfen, Kempower, Tritium und mehr. Wir warten auch die zugehörigen HV/LV-Transformatoren."
+                    "text": "Die Reaktionszeiten sind in Ihrem Vertrag festgelegt (getrennte SLA für städtische und ländliche Gebiete). Dank der OCPP-Überwachung wird ein Teil der Störungen ohne Vor-Ort-Einsatz aus der Ferne behoben. Für Einsätze vor Ort verfügen unsere regionalen Techniker über ausgestattete Werkstattfahrzeuge und Ersatzteile auf Lager."
                 }
             },
             {
                 "@type": "Question",
-                "name": "Wie schnell sind Sie vor Ort?",
+                "name": "Welche Ladestationsmarken warten Sie?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Unsere Reaktionszeit beträgt innerhalb von 24 Arbeitsstunden. Unser 24/7-Support ermöglicht sofortige Ferndiagnose."
+                    "text": "Wir warten alle Marken des Marktes: ABB, Schneider, EVBox, Alfen, Kempower, Autel, Tritium, Wallbox, Hager, Legrand, DBT-CEV, Circontrol, Delta und viele weitere. Unsere Techniker sind herstellerzertifiziert und haben direkten Zugang zu Originalersatzteilen und herstellereigenen Diagnosewerkzeugen."
                 }
             },
             {
                 "@type": "Question",
-                "name": "Bieten Sie präventive Wartung an?",
+                "name": "Wie funktioniert die Fernüberwachung?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Ja, unsere Verträge beinhalten geplante präventive Besuche (vierteljährlich oder halbjährlich je nach Vertrag). Wir prüfen Steckverbinder, Stromversorgung, Firmware-Updates und Gerätereinigung."
+                    "text": "Unsere Überwachungsplattform nutzt das OCPP-Protokoll, um in Echtzeit die Daten jeder Ladestation zu erfassen: Ladezustand, Fehlercodes, Energieverbrauch und Verfügbarkeit. Automatische Warnungen lösen eine sofortige Diagnose aus. Techniker können eine Ladestation neu starten, die Firmware aktualisieren oder die Konfiguration anpassen, ohne anreisen zu müssen."
                 }
             },
             {
                 "@type": "Question",
-                "name": "Sind Sie auch in Belgien tätig?",
+                "name": "Worin besteht der Unterschied zwischen präventiver und korrektiver Wartung?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Ja, wir decken das französische Festland und Belgien (Brüssel, Wallonien, Flandern) ab. Unsere Teams sind flächendeckend im Einsatz, um schnelle Reaktionszeiten zu gewährleisten."
+                    "text": "Die präventive Wartung beugt Störungen durch geplante Besuche (vierteljährlich oder halbjährlich) vor: Steckverbinderinspektion, Isolationsmessung, Drehmomentprüfung, Test der FI-Schutzschalter, Firmware-Update und Infrarot-Thermografie. Die korrektive Wartung greift nach einem Ausfall ein, um den Betrieb wiederherzustellen. Kunden mit regelmäßiger präventiver Wartung verzeichnen 60 % weniger Störungen und eine verlängerte Lebensdauer ihrer Geräte."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Bieten Sie an Ihren Bestand angepasste Wartungsverträge an?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Jeder Vertrag wird an die Konfiguration des Bestands angepasst: Anzahl der Ladestationen, Leistungen (AC und/oder DC), geografische Verteilung der Standorte und Kritikalitätsgrad. Wir definieren gemeinsam die SLA, die Häufigkeit der präventiven Besuche, den Einsatzumfang (Ladestationen, Kabel, Hauptverteilung, HV/LV-Transformatoren) und die Reporting-Modalitäten. Ein dedizierter Ansprechpartner koordiniert sämtliche Abläufe."
                 }
             }
+        ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "HowTo",
+        "name": "So strukturieren Sie den Betrieb eines IRVE-Ladestationsbestands",
+        "description": "Die wichtigsten Schritte für einen leistungsstarken Betrieb Ihrer Ladeinfrastruktur.",
+        "step": [
+            {"@type": "HowToStep", "position": 1, "name": "Audit des bestehenden Bestands", "text": "Vollständige Inventarisierung der Ladestationen, Zustandserfassung, Analyse der Verfügbarkeitsraten und Identifizierung der Schwachstellen."},
+            {"@type": "HowToStep", "position": 2, "name": "Einrichtung der OCPP-Überwachung", "text": "Anbindung aller Ladestationen an eine Überwachungsplattform für Echtzeit-Monitoring, Warnungen und Ferndiagnose."},
+            {"@type": "HowToStep", "position": 3, "name": "Definition der SLA und des Wartungsplans", "text": "Festlegung der Servicelevel laut Vertrag, präventiver und korrektiver Wartungsplan, angepasst an jeden Standort."},
+            {"@type": "HowToStep", "position": 4, "name": "Einsatz regionaler Techniker", "text": "Zuweisung zertifizierter Techniker nach geografischer Zone mit ausgestatteten Werkstattfahrzeugen und Ersatzteillager."},
+            {"@type": "HowToStep", "position": 5, "name": "Reporting und kontinuierliche Verbesserung", "text": "Monatliche QoS-Berichte, Analyse von Störungstrends, Optimierungsempfehlungen und Firmware-Updates."}
         ]
     }
     </script>
@@ -95,7 +133,7 @@
     <meta property="og:url" content="https://jcsm.fr/de/betrieb-wartung">
     <meta property="og:title" content="Wartung von Ladestationen & HV/LV-Transformatoren | JCSM">
     <meta property="og:description"
-        content="Betrieb und Wartung von Ladeinfrastruktur sowie HV/LV-Transformatoren. Inbetriebnahme, präventive und korrektive Wartung in Frankreich und Belgien.">
+        content="Wartung von AC/DC-Ladestationen und HV/LV-Transformatoren. Kontinuierliche Überwachung per OCPP.">
     <meta property="og:image" content="https://jcsm.fr/images/maintenance.webp">
     <meta property="og:image:width" content="826">
     <meta property="og:image:height" content="1298">
@@ -107,18 +145,21 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Wartung von Ladestationen & HV/LV-Transformatoren | JCSM">
     <meta name="twitter:description"
-        content="Betrieb und Wartung von Ladeinfrastruktur sowie HV/LV-Transformatoren in Frankreich und Belgien.">
+        content="AC/DC-Ladestationen und HV/LV-Transformatoren. Kontinuierliche Überwachung. Frankreich und Belgien.">
     <meta name="twitter:image" content="https://jcsm.fr/images/maintenance.jpeg">
     <meta name="twitter:image:alt" content="JCSM-Techniker bei der Wartung einer Ladestation">
-    <link rel="stylesheet" href="../css/critical.css?v=83">
-    <link rel="stylesheet" href="../css/tailwind.css?v=83" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="../css/tailwind.css?v=83"></noscript>
-    <link rel="stylesheet" href="../styles.css?v=83" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="../styles.css?v=83"></noscript>
+
+    <link rel="dns-prefetch" href="https://formspree.io">
+    <link rel="preload" as="image" href="/images/maintenance.webp" type="image/webp">
+    <link rel="stylesheet" href="../css/critical.css?v=84">
+    <link rel="stylesheet" href="../css/tailwind.css?v=84" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="../css/tailwind.css?v=84"></noscript>
+    <link rel="stylesheet" href="../styles.css?v=84" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="../styles.css?v=84"></noscript>
     <link rel="manifest" href="../manifest.json">
-    <link rel="icon" type="image/x-icon" href="/favicon.ico">
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
     <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="theme-color" content="#2563EB">
 
     <link rel="stylesheet" href="../css/leaflet.css" media="print" onload="this.media='all'">
     <noscript><link rel="stylesheet" href="../css/leaflet.css"></noscript>
@@ -148,44 +189,41 @@
                 </button>
             </div>
                         <div class="flex flex-col space-y-6">
-                <a href="/de/" class="text-base text-gray-600 hover:text-gray-900 transition-colors">Startseite</a>
-                <a href="/de/projektmanagement" class="text-base text-gray-600 hover:text-gray-900 transition-colors">Projektmanagement</a>
-                <a href="/de/installation-konformitaet" class="text-base text-gray-600 hover:text-gray-900 transition-colors">Installation</a>
-                <a href="/de/betrieb-wartung" class="text-base text-gray-600 hover:text-gray-900 transition-colors">Betrieb</a>
-                <a href="/de/anlagensicherung" class="text-base text-gray-600 hover:text-gray-900 transition-colors">Sicherung</a>
-                <a href="/de/callcenter" class="text-base text-gray-600 hover:text-gray-900 transition-colors">Support</a>
-                <a href="/de/ueber-uns" class="text-base text-gray-600 hover:text-gray-900 transition-colors">Über uns</a>
+                <a href="/de/" class="text-base text-gray-600 hover:text-gray-900 transition-colors py-2">Startseite</a>
+                <a href="/de/projektmanagement" class="text-base text-gray-600 hover:text-gray-900 transition-colors py-2">Projektmanagement</a>
+                <a href="/de/installation-konformitaet" class="text-base text-gray-600 hover:text-gray-900 transition-colors py-2">Installation</a>
+                <a href="/de/betrieb-wartung" class="text-base text-gray-600 hover:text-gray-900 transition-colors py-2" aria-current="page">Betrieb</a>
+                <a href="/de/anlagensicherung" class="text-base text-gray-600 hover:text-gray-900 transition-colors py-2">Sicherung</a>
+                <a href="/de/callcenter" class="text-base text-gray-600 hover:text-gray-900 transition-colors py-2">Support</a>
+                <a href="/de/ueber-uns" class="text-base text-gray-600 hover:text-gray-900 transition-colors py-2">Über uns</a>
                 <div class="lang-selector relative"></div>
-                <a href="/de/kontakt" class="btn-primary px-6 py-3 rounded-lg text-base font-medium inline-block text-center mt-4">Kontakt</a>
+                <a href="/de/kontakt" class="btn-primary px-6 py-3 rounded-lg text-base font-medium text-white inline-block text-center mt-4">Kontakt</a>
             </div>
         </div>
     </nav>
 
     <!-- Scrollfortschrittsleiste -->
-    <div id="scroll-progress"
-        class="fixed top-0 left-0 h-1 bg-blue-600 z-[60] transition-all duration-150"
-        style="width: 0%;"></div>
+    <div id="scroll-progress" class="fixed top-0 left-0 h-1 bg-blue-600 z-[60] transition-all duration-150" style="width: 0%;" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Lesefortschritt"></div>
 
-    <nav class="fixed top-0 w-full z-50 glass-nav" role="navigation" aria-label="Hauptnavigation">
+    <nav class="fixed top-0 w-full z-50 glass-nav border-b border-gray-200" role="navigation" aria-label="Hauptnavigation">
         <div class="max-w-7xl mx-auto px-6 py-4">
             <div class="flex justify-between items-center">
-                <a href="/de/" class="flex items-center space-x-3 group">
-                    <picture><source srcset="../images/logo.webp" type="image/webp"><img src="../images/logo.png" alt="JCSM" class="w-9 h-9 transition-transform group-hover:scale-105 duration-300" width="36" height="36"></picture>
-                    <span class="text-xl font-bold tracking-tight">JCSM</span>
+                <a href="/de/" class="flex items-center space-x-3 group mr-10">
+                    <picture><source srcset="../images/logo.webp" type="image/webp"><img src="../images/logo.png" alt="JCSM - Startseite" class="w-10 h-10 transition-transform group-hover:scale-105 duration-300" width="40" height="40"></picture>
+                    <span class="text-2xl font-extrabold tracking-tight text-gray-900">JCSM</span>
                 </a>
-                <div class="hidden lg:flex items-center space-x-10">
-                    <a href="/de/" class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300">Startseite</a>
-                    <a href="/de/projektmanagement" class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300">Projektmanagement</a>
-                    <a href="/de/installation-konformitaet" class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300">Installation</a>
-                    <a href="/de/betrieb-wartung" class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300">Betrieb</a>
-                    <a href="/de/anlagensicherung" class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300">Sicherung</a>
-                    <a href="/de/callcenter" class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300">Support</a>
-                    <a href="/de/ueber-uns" class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300">Über uns</a>
+                <div class="hidden lg:flex items-center space-x-2">
+                    <a href="/de/projektmanagement" class="nav-link text-[15px] font-semibold text-gray-700 whitespace-nowrap">Projektmanagement</a>
+                    <a href="/de/installation-konformitaet" class="nav-link text-[15px] font-semibold text-gray-700 whitespace-nowrap">Installation</a>
+                    <a href="/de/betrieb-wartung" class="nav-link nav-link-active text-[15px] font-semibold text-gray-700 whitespace-nowrap">Betrieb</a>
+                    <a href="/de/anlagensicherung" class="nav-link text-[15px] font-semibold text-gray-700 whitespace-nowrap">Sicherung</a>
+                    <a href="/de/callcenter" class="nav-link text-[15px] font-semibold text-gray-700 whitespace-nowrap">Support</a>
+                    <a href="/de/ueber-uns" class="nav-link text-[15px] font-semibold text-gray-700 whitespace-nowrap">Über uns</a>
                     <div class="lang-selector relative"></div>
-                    <a href="/de/kontakt" class="btn-primary px-7 py-2.5 rounded-xl text-base font-medium shadow-lg hover:shadow-xl">Kontakt</a>
+                    <a href="/de/kontakt" class="btn-primary ml-5 px-8 py-3 rounded-xl text-[15px] font-semibold text-white shadow-lg hover:shadow-xl whitespace-nowrap">Kontakt</a>
                 </div>
-                <button class="mobile-menu-btn text-gray-600 hover:text-gray-900" id="mobile-menu-btn" aria-label="Navigationsmenü öffnen" aria-expanded="false" aria-controls="mobile-menu">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <button class="mobile-menu-btn text-gray-700 hover:text-gray-900" id="mobile-menu-btn" aria-label="Navigationsmenü öffnen" aria-expanded="false" aria-controls="mobile-menu">
+                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                     </svg>
                 </button>
@@ -194,31 +232,35 @@
     </nav>
 
     <main id="main-content" tabindex="-1" role="main">
+        <nav aria-label="Brotkrümelnavigation" class="max-w-6xl mx-auto px-4 sm:px-6 pt-24 pb-0">
+            <ol class="flex items-center gap-2 text-sm text-gray-500">
+                <li><a href="/de/" class="hover:text-blue-600 transition-colors">Startseite</a></li>
+                <li><span class="text-gray-300">/</span></li>
+                <li class="text-gray-600 font-medium">Betrieb &amp; Wartung</li>
+            </ol>
+        </nav>
         <!-- Hero -->
-        <section class="pt-8 pb-6 px-4 sm:px-6 min-h-[calc(100vh-5rem)] flex items-center">
-            <div class="max-w-7xl mx-auto w-full">
+        <section class="pt-[calc(5rem+0.75rem)] pb-6 px-4 sm:px-6 min-h-[60vh] flex items-center">
+            <div class="max-w-6xl mx-auto w-full">
                 <div class="grid lg:grid-cols-2 gap-5 sm:gap-7 lg:gap-10 items-center">
                     <div class="space-y-4 sm:space-y-5 md:space-y-6 order-1 lg:order-1">
-                        <div
-                            class="inline-flex items-center space-x-2 glass-badge badge-section rounded-full px-3 py-1.5 sm:px-4 sm:py-2 section-appear">
-                            <span
-                                class="text-[10px] sm:text-xs font-semibold text-gray-600 uppercase tracking-wide">Operative Exzellenz in der Ladeinfrastruktur</span>
-                        </div>
+                        <div class="sec-label section-appear">Betrieb & Wartung von Ladestationen</div>
                         <h1
                             class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight tracking-tight section-appear">
-                            Ihre Ladestationen immer <span class="gradient-text">verfügbar und leistungsfähig</span>
+                            Wir überwachen Ihre Ladestationen nicht einfach. <em>Wir behandeln sie wie unsere eigenen.</em>
                         </h1>
-                        <p class="text-sm sm:text-base md:text-lg text-gray-600 leading-snug section-appear">
-                            Von der Inbetriebnahme bis zum täglichen Betrieb garantieren wir die Zuverlässigkeit und Leistung jedes Ladepunkts. Schnelle Einsatzbereitschaft, lückenlose Überwachung, ohne Kompromisse.
+                        <p class="text-sm sm:text-base md:text-lg text-gray-600 leading-relaxed section-appear">
+                            Ferndiagnose, Vor-Ort-Einsatz mit Ersatzteilen an Bord. AC-, DC-Ladestationen, HV/LV-Transformatoren. Frankreich-weit und Belgien.
                         </p>
                         <div class="flex flex-wrap gap-2 sm:gap-3 section-appear">
                             <a href="/de/kontakt"
-                                class="btn-primary px-4 py-2 sm:px-6 sm:py-3 rounded-xl font-medium text-xs sm:text-sm">
-                                Kostenloses Audit anfordern
+                                class="btn-primary px-6 py-3 sm:px-8 sm:py-3.5 font-medium text-sm text-white inline-flex items-center gap-2">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg>
+                                Kostenloses Audit erhalten
                             </a>
                             <a href="#services"
-                                class="btn-secondary px-4 py-2 sm:px-6 sm:py-3 rounded-xl font-medium text-xs sm:text-sm">
-                                Unsere Zusagen entdecken
+                                class="btn-secondary px-6 py-3 sm:px-8 sm:py-3.5 font-medium text-sm">
+                                Unsere Zusagen
                             </a>
                         </div>
                     </div>
@@ -227,7 +269,7 @@
                             <picture>
                                 <source srcset="../images/maintenance.webp" type="image/webp">
                                 <img id="hero-image" src="../images/maintenance.jpeg" fetchpriority="high"
-                                    alt="Zertifizierter JCSM-Techniker bei der Wartung von Ladeinfrastruktur"
+                                    alt="Wartung und Betrieb von IRVE-Ladeinfrastruktur durch zertifizierten JCSM-Techniker"
                                     class="w-full h-auto max-h-[200px] sm:max-h-[300px] md:max-h-[400px] lg:max-h-[500px] object-cover rounded-2xl shadow-2xl"
                                     width="826" height="1298">
                             </picture>
@@ -238,336 +280,248 @@
         </section>
 
         <!-- Services -->
-        <section id="services" class="py-20 px-6 bg-white">
-            <div class="max-w-7xl mx-auto">
-                <div class="text-center mb-20 section-appear">
+        <section id="services" class="py-20 px-6 section-alt">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-16 section-appear">
+                    <div class="sec-label mb-4">Unsere Leistungen</div>
                     <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-6">
-                        Ein Fundament der Exzellenz für jede Ladestation
+                        2.000 behobene Störungen pro Jahr. <em>So geht das.</em>
                     </h2>
-                    <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                        Sechs Leistungssäulen für maximale Verfügbarkeit, geringere Betriebskosten und ein einwandfreies Ladeerlebnis.
+                    <p class="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                        Sechs Disziplinen. Ein einziger Ansprechpartner. Von der Inbetriebnahme bis zum Mainboard-Austausch decken wir die gesamte Kette ab.
                     </p>
                 </div>
 
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <div class="card-hover why-card-industrial bg-white border border-gray-200 rounded-2xl overflow-hidden section-appear">
-                        <div class="p-10">
-                            <div
-                                class="w-14 h-14 bg-blue-600 rounded-xl flex items-center justify-center text-white mb-8 icon-pulse-hover">
-                                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M13 10V3L4 14h7v7l9-11h-7z" />
-                                </svg>
-                            </div>
-                            <h3 class="text-2xl font-bold mb-4">Inbetriebnahme</h3>
-                            <p class="text-gray-600 leading-relaxed mb-4">Aktivierung und Konfiguration der Ladestationen, Ladetests, Teamschulung und Produktivstart.</p>
-                            <ul class="space-y-2 text-gray-600 text-sm">
-                                <li class="flex items-start">
-                                    <svg class="w-4 h-4 mr-2 text-blue-600 flex-shrink-0 mt-0.5" fill="none"
-                                        stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M5 13l4 4L19 7" />
-                                    </svg>
-                                    <span>Supervisor-Konfiguration</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <svg class="w-4 h-4 mr-2 text-blue-600 flex-shrink-0 mt-0.5" fill="none"
-                                        stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M5 13l4 4L19 7" />
-                                    </svg>
-                                    <span>Vollständige Ladetests</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <svg class="w-4 h-4 mr-2 text-blue-600 flex-shrink-0 mt-0.5" fill="none"
-                                        stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M5 13l4 4L19 7" />
-                                    </svg>
-                                    <span>Technische Dokumentation</span>
-                                </li>
-                            </ul>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 grid-stagger">
+                    <!-- Inbetriebnahme -->
+                    <div class="card-feature card-lift section-appear">
+                        <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-6" style="background:rgba(37,99,235,0.08)">
+                            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+                            </svg>
                         </div>
+                        <h3 class="text-xl font-bold mb-3">Inbetriebnahme</h3>
+                        <p class="text-gray-600 leading-relaxed mb-5 text-sm">OCPP-Konfiguration 1.6/2.0.1, Anbindung an den Supervisor, Tarifraster (HT/NT, Roaming), Steckverbindertest mit Fahrzeug, Schulung vor Ort. Unterzeichnetes Abnahmeprotokoll.</p>
+                        <ul class="space-y-2.5 text-gray-600 text-sm">
+                            <li class="flex items-start gap-2.5">
+                                <svg class="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                                <span>OCPP-Konfiguration und Supervisor-Anbindung (CSMS)</span>
+                            </li>
+                            <li class="flex items-start gap-2.5">
+                                <svg class="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                                <span>Tarifeinstellung, Ladetests und Roaming-Validierung</span>
+                            </li>
+                            <li class="flex items-start gap-2.5">
+                                <svg class="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                                <span>Betreiberschulung vor Ort und Abnahmeprotokoll</span>
+                            </li>
+                        </ul>
                     </div>
 
-                    <div class="card-hover why-card-industrial bg-white border border-gray-200 rounded-2xl overflow-hidden section-appear">
-                        <div class="p-10">
-                            <div
-                                class="w-14 h-14 bg-blue-600 rounded-xl flex items-center justify-center text-white mb-8 icon-pulse-hover">
-                                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                </svg>
-                            </div>
-                            <h3 class="text-2xl font-bold mb-4">Präventive Wartung</h3>
-                            <p class="text-gray-600 leading-relaxed mb-4">Geplante regelmäßige Wartung zur Fehlervermeidung und Aufrechterhaltung optimaler Leistung.</p>
-                            <ul class="space-y-2 text-gray-600 text-sm">
-                                <li class="flex items-start">
-                                    <svg class="w-4 h-4 mr-2 text-blue-600 flex-shrink-0 mt-0.5" fill="none"
-                                        stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M5 13l4 4L19 7" />
-                                    </svg>
-                                    <span>Geplante Besuche</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <svg class="w-4 h-4 mr-2 text-blue-600 flex-shrink-0 mt-0.5" fill="none"
-                                        stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M5 13l4 4L19 7" />
-                                    </svg>
-                                    <span>Elektrische Prüfungen</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <svg class="w-4 h-4 mr-2 text-blue-600 flex-shrink-0 mt-0.5" fill="none"
-                                        stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M5 13l4 4L19 7" />
-                                    </svg>
-                                    <span>Firmware-Updates</span>
-                                </li>
-                            </ul>
+                    <!-- Präventive Wartung -->
+                    <div class="card-feature card-lift section-appear">
+                        <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-6" style="background:rgba(37,99,235,0.08)">
+                            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                            </svg>
                         </div>
+                        <h3 class="text-xl font-bold mb-3">Präventive Wartung</h3>
+                        <p class="text-gray-600 leading-relaxed mb-5 text-sm">Vierteljährliche oder halbjährliche Besuche: Isolation, Drehmoment, FI-Schutzschalter, Firmware, CCS/T2-Steckverbinder, Wärmebildkamera. Ergebnis: 60 % weniger Störungen.</p>
+                        <ul class="space-y-2.5 text-gray-600 text-sm">
+                            <li class="flex items-start gap-2.5">
+                                <svg class="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                                <span>Vierteljährliche Inspektionen mit normierter Checkliste</span>
+                            </li>
+                            <li class="flex items-start gap-2.5">
+                                <svg class="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                                <span>Elektrische Prüfungen, Drehmoment und Firmware-Updates</span>
+                            </li>
+                            <li class="flex items-start gap-2.5">
+                                <svg class="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                                <span>Reinigung der CCS/T2-Steckverbinder und Infrarot-Thermografie</span>
+                            </li>
+                        </ul>
                     </div>
 
-                    <div class="card-hover why-card-industrial bg-white border border-gray-200 rounded-2xl overflow-hidden section-appear">
-                        <div class="p-10">
-                            <div
-                                class="w-14 h-14 bg-blue-600 rounded-xl flex items-center justify-center text-white mb-8 icon-pulse-hover">
-                                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37-2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                                </svg>
-                            </div>
-                            <h3 class="text-2xl font-bold mb-4">Korrektive Wartung</h3>
-                            <p class="text-gray-600 leading-relaxed mb-4">Schnelle Störungsbehebung mit Vor-Ort-Einsatz innerhalb von 24 Arbeitsstunden.</p>
-                            <ul class="space-y-2 text-gray-600 text-sm">
-                                <li class="flex items-start">
-                                    <svg class="w-4 h-4 mr-2 text-blue-600 flex-shrink-0 mt-0.5" fill="none"
-                                        stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M5 13l4 4L19 7" />
-                                    </svg>
-                                    <span>Ferndiagnose</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <svg class="w-4 h-4 mr-2 text-blue-600 flex-shrink-0 mt-0.5" fill="none"
-                                        stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M5 13l4 4L19 7" />
-                                    </svg>
-                                    <span>Schneller Einsatz</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <svg class="w-4 h-4 mr-2 text-blue-600 flex-shrink-0 mt-0.5" fill="none"
-                                        stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M5 13l4 4L19 7" />
-                                    </svg>
-                                    <span>Ersatzteile</span>
-                                </li>
-                            </ul>
+                    <!-- Korrektive Wartung -->
+                    <div class="card-feature card-lift section-appear">
+                        <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-6" style="background:rgba(37,99,235,0.08)">
+                            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                            </svg>
                         </div>
+                        <h3 class="text-xl font-bold mb-3">Korrektive Wartung</h3>
+                        <p class="text-gray-600 leading-relaxed mb-5 text-sm">Ferndiagnose per OCPP (40 % ohne Anfahrt gelöst), Techniker vor Ort innerhalb von 24 Arbeitsstunden. Kritische Ersatzteile auf regionalem Lager. Leihladestation bei Bedarf.</p>
+                        <ul class="space-y-2.5 text-gray-600 text-sm">
+                            <li class="flex items-start gap-2.5">
+                                <svg class="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                                <span>OCPP-Ferndiagnose und Reaktion innerhalb von 24 Arbeitsstunden</span>
+                            </li>
+                            <li class="flex items-start gap-2.5">
+                                <svg class="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                                <span>Kritische Ersatzteile auf regionalem Lager</span>
+                            </li>
+                            <li class="flex items-start gap-2.5">
+                                <svg class="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                                <span>Ersatz durch Leihladestation innerhalb von 24 Stunden</span>
+                            </li>
+                        </ul>
                     </div>
 
-                    <div class="card-hover why-card-industrial bg-white border border-gray-200 rounded-2xl overflow-hidden section-appear">
-                        <div class="p-10">
-                            <div
-                                class="w-14 h-14 bg-blue-600 rounded-xl flex items-center justify-center text-white mb-8 icon-pulse-hover">
-                                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-                                </svg>
-                            </div>
-                            <h3 class="text-2xl font-bold mb-4">24/7-Überwachung</h3>
-                            <p class="text-gray-600 leading-relaxed mb-4">Echtzeit-Flottenüberwachung mit automatischen Warnungen bei Anomalien.</p>
-                            <ul class="space-y-2 text-gray-600 text-sm">
-                                <li class="flex items-start">
-                                    <svg class="w-4 h-4 mr-2 text-blue-600 flex-shrink-0 mt-0.5" fill="none"
-                                        stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M5 13l4 4L19 7" />
-                                    </svg>
-                                    <span>Echtzeit-Dashboard</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <svg class="w-4 h-4 mr-2 text-blue-600 flex-shrink-0 mt-0.5" fill="none"
-                                        stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M5 13l4 4L19 7" />
-                                    </svg>
-                                    <span>Proaktive Warnungen</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <svg class="w-4 h-4 mr-2 text-blue-600 flex-shrink-0 mt-0.5" fill="none"
-                                        stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M5 13l4 4L19 7" />
-                                    </svg>
-                                    <span>Monatliche Berichte</span>
-                                </li>
-                            </ul>
+                    <!-- Monitoring 24/7 -->
+                    <div class="card-feature card-lift section-appear">
+                        <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-6" style="background:rgba(37,99,235,0.08)">
+                            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                            </svg>
                         </div>
+                        <h3 class="text-xl font-bold mb-3">24/7-Überwachung</h3>
+                        <p class="text-gray-600 leading-relaxed mb-5 text-sm">Zustand jeder Ladestation in Echtzeit. Konfigurierbare SMS-/E-Mail-Warnungen. Monatliche KPI-Berichte: Verfügbarkeit, abgegebene kWh, Anzahl der Sitzungen. SLA werden kontinuierlich verfolgt.</p>
+                        <ul class="space-y-2.5 text-gray-600 text-sm">
+                            <li class="flex items-start gap-2.5">
+                                <svg class="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                                <span>Echtzeit-Dashboard pro Standort und pro Ladestation</span>
+                            </li>
+                            <li class="flex items-start gap-2.5">
+                                <svg class="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                                <span>Konfigurierbare automatische SMS-/E-Mail-Warnungen</span>
+                            </li>
+                            <li class="flex items-start gap-2.5">
+                                <svg class="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                                <span>Monatliche KPI-Berichte: Verfügbarkeit, kWh, Sitzungen</span>
+                            </li>
+                        </ul>
                     </div>
 
-                    <div class="card-hover why-card-industrial bg-white border border-gray-200 rounded-2xl overflow-hidden section-appear">
-                        <div class="p-10">
-                            <div
-                                class="w-14 h-14 bg-blue-600 rounded-xl flex items-center justify-center text-white mb-8 icon-pulse-hover">
-                                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
-                                </svg>
-                            </div>
-                            <h3 class="text-2xl font-bold mb-4">Flottenmanagement</h3>
-                            <p class="text-gray-600 leading-relaxed mb-4">Kontinuierliche Optimierung Ihrer Infrastruktur zur Maximierung der Rentabilität und Nutzererfahrung.</p>
-                            <ul class="space-y-2 text-gray-600 text-sm">
-                                <li class="flex items-start">
-                                    <svg class="w-4 h-4 mr-2 text-blue-600 flex-shrink-0 mt-0.5" fill="none"
-                                        stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M5 13l4 4L19 7" />
-                                    </svg>
-                                    <span>Nutzungsanalyse</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <svg class="w-4 h-4 mr-2 text-blue-600 flex-shrink-0 mt-0.5" fill="none"
-                                        stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M5 13l4 4L19 7" />
-                                    </svg>
-                                    <span>Upgrade-Empfehlungen</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <svg class="w-4 h-4 mr-2 text-blue-600 flex-shrink-0 mt-0.5" fill="none"
-                                        stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M5 13l4 4L19 7" />
-                                    </svg>
-                                    <span>Zugangsmanagement</span>
-                                </li>
-                            </ul>
+                    <!-- Flottenmanagement -->
+                    <div class="card-feature card-lift section-appear">
+                        <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-6" style="background:rgba(37,99,235,0.08)">
+                            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                            </svg>
                         </div>
+                        <h3 class="text-xl font-bold mb-3">Flottenmanagement</h3>
+                        <p class="text-gray-600 leading-relaxed mb-5 text-sm">Nutzungsanalyse pro Ladestation: Sitzungen, kWh, Auslastung. Empfehlungen zu Leistung/Ladepunkten. RFID-/Badge-Verwaltung und Energiesteuerung.</p>
+                        <ul class="space-y-2.5 text-gray-600 text-sm">
+                            <li class="flex items-start gap-2.5">
+                                <svg class="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                                <span>Nutzungsanalyse pro Ladestation, Standort und Empfehlungen</span>
+                            </li>
+                            <li class="flex items-start gap-2.5">
+                                <svg class="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                                <span>Zentrale Verwaltung der RFID-Zugänge und Badges</span>
+                            </li>
+                            <li class="flex items-start gap-2.5">
+                                <svg class="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                                <span>Energiesteuerung, Lastverteilung und Lastabwurf</span>
+                            </li>
+                        </ul>
                     </div>
 
-                    <div class="card-hover why-card-industrial bg-white border border-gray-200 rounded-2xl overflow-hidden section-appear">
-                        <div class="p-10">
-                            <div
-                                class="w-14 h-14 bg-blue-600 rounded-xl flex items-center justify-center text-white mb-8 icon-pulse-hover">
-                                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                                </svg>
-                            </div>
-                            <h3 class="text-2xl font-bold mb-4">Nutzer-Support</h3>
-                            <p class="text-gray-600 leading-relaxed mb-4">24/7-technische Unterstützung für Ihre Endnutzer über eine spezielle Hotline.</p>
-                            <ul class="space-y-2 text-gray-600 text-sm">
-                                <li class="flex items-start">
-                                    <svg class="w-4 h-4 mr-2 text-blue-600 flex-shrink-0 mt-0.5" fill="none"
-                                        stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M5 13l4 4L19 7" />
-                                    </svg>
-                                    <span>24/7-Hotline</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <svg class="w-4 h-4 mr-2 text-blue-600 flex-shrink-0 mt-0.5" fill="none"
-                                        stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M5 13l4 4L19 7" />
-                                    </svg>
-                                    <span>Echtzeit-Chat</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <svg class="w-4 h-4 mr-2 text-blue-600 flex-shrink-0 mt-0.5" fill="none"
-                                        stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M5 13l4 4L19 7" />
-                                    </svg>
-                                    <span>Mehrsprachiger Support</span>
-                                </li>
-                            </ul>
+                    <!-- Nutzer-Support -->
+                    <div class="card-feature card-lift section-appear">
+                        <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-6" style="background:rgba(37,99,235,0.08)">
+                            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                            </svg>
                         </div>
+                        <h3 class="text-xl font-bold mb-3">Nutzer-Support</h3>
+                        <p class="text-gray-600 leading-relaxed mb-5 text-sm">24/7-Hotline (FR/EN/NL), Ihrer Marke vorbehaltene Rufnummer. Eskalation an den Außendiensttechniker bei Bedarf. Das Ticket bleibt bis zur Lösung offen.</p>
+                        <ul class="space-y-2.5 text-gray-600 text-sm">
+                            <li class="flex items-start gap-2.5">
+                                <svg class="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                                <span>Mehrsprachige 24/7-Hotline mit dedizierter Rufnummer pro CPO</span>
+                            </li>
+                            <li class="flex items-start gap-2.5">
+                                <svg class="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                                <span>Echtzeit-Chat für Fahrer und Wissensdatenbank</span>
+                            </li>
+                            <li class="flex items-start gap-2.5">
+                                <svg class="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                                <span>Eskalation an den Außendiensttechniker mit Ticketverfolgung</span>
+                            </li>
+                        </ul>
                     </div>
 
                 </div>
             </div>
         </section>
 
-        <!-- Transformer Wartung - Intro -->
-        <section class="py-20 px-6 bg-gray-50">
-            <div class="max-w-7xl mx-auto">
-                <div class="grid lg:grid-cols-2 gap-16 items-center">
+        <!-- Transformator-Wartung - Intro -->
+        <section class="py-20 px-6">
+            <div class="max-w-6xl mx-auto">
+                <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
                     <div class="section-appear">
+                        <div class="sec-label mb-4">HV/LV-Transformatoren</div>
                         <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-6">
-                            <span class="text-blue-600">Transformator</span>-Wartung HV/LV
+                            Wartung der <em>HV/LV-Transformatoren</em>
                         </h2>
                         <p class="text-lg text-gray-600 leading-relaxed mb-6">
-                            JCSM bietet präventive und korrektive Wartung für Ihre Hoch- und Niederspannungstransformatoren in ganz Frankreich und Belgien. Eine leistungsstarke Ladestationsflotte hängt von einer zuverlässigen Stromversorgung ab.
+                            70 % der Störungen an DC-Ladestationen stammen aus der vorgelagerten HV/LV-Station. Nicht von der Ladestation selbst. Die meisten IRVE-Dienstleister fassen den Transformator nicht an. Wir schon.
                         </p>
                         <p class="text-gray-600 leading-relaxed mb-8">
-                            Unsere zertifizierten Techniker warten die gesamte HV/LV-Kette: Schaltanlagen, Kabelfelder, Sammelschienen, Hauptverteilungen, Öl- und Trockentransformatoren, Kondensatorbatterien und Leistungsschalter-Trenner.
+                            Unsere HV-befähigten Techniker warten Schutzzellen, Kabelfelder, Sammelschienen, Hauptverteilungen, Öl- und Trockentransformatoren, Kondensatorbatterien und Leistungsschalter-Trenner. Ein einziger Vertrag, ein einziger Dienstleister, von der HV-Zelle bis zum Ladepunkt.
                         </p>
                         <div class="grid sm:grid-cols-3 gap-4 mb-8">
-                            <div class="bg-white rounded-xl p-4 text-center border border-gray-200">
-                                <div class="text-3xl font-bold text-blue-600 mb-1 num-highlight stat-glow">70%</div>
-                                <p class="text-xs text-gray-600">der Ladestationsstörungen auf vorgelagerte Stromversorgung zurückzuführen</p>
+                            <div class="card-lead text-center">
+                                <div class="text-3xl font-bold mb-1 num-highlight counter-animate" style="color:#9DB8E8">70 %</div>
+                                <p class="text-xs text-gray-300">der DC-Störungen stammen vom Transformator</p>
                             </div>
-                            <div class="bg-white rounded-xl p-4 text-center border border-gray-200">
-                                <div class="text-3xl font-bold text-blue-600 mb-1 num-highlight stat-glow">x3</div>
-                                <p class="text-xs text-gray-600">verlängerte Lebensdauer durch präventive Wartung</p>
+                            <div class="card-feature text-center">
+                                <div class="text-3xl font-bold text-gray-900 mb-1 num-highlight counter-animate">x3</div>
+                                <p class="text-xs text-gray-500">Lebensdauer mit präventiver Wartung</p>
                             </div>
-                            <div class="bg-white rounded-xl p-4 text-center border border-gray-200">
-                                <div class="text-3xl font-bold text-blue-600 mb-1 num-highlight stat-glow">0</div>
-                                <p class="text-xs text-gray-600">ungeplante Ausfälle dank kontinuierlicher Überwachung</p>
+                            <div class="card-feature text-center">
+                                <div class="text-3xl font-bold text-gray-900 mb-1 num-highlight counter-animate">0</div>
+                                <p class="text-xs text-gray-500">ungeplante Ausfälle bei überwachtem Transformator</p>
                             </div>
                         </div>
                         <div class="flex flex-wrap gap-3">
-                            <a href="/de/kontakt" class="btn-primary px-8 py-3 rounded-xl font-medium text-sm inline-block">
+                            <a href="/de/kontakt" class="btn-primary px-8 py-3 font-medium text-sm text-white inline-flex items-center gap-2">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
                                 Transformator-Angebot anfordern
                             </a>
-                            <a href="/blog/raccordement-electrique-bornes-dc" class="inline-flex items-center px-6 py-3 rounded-xl font-medium text-sm text-blue-600 border border-blue-200 hover:bg-gray-100 transition-colors">
+                            <a href="/blog/raccordement-electrique-bornes-dc" class="btn-secondary px-6 py-3 font-medium text-sm inline-flex items-center gap-2">
                                 Unseren Artikel lesen
-                                <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
                             </a>
                         </div>
                     </div>
                     <div class="section-appear">
-                        <div class="bg-white rounded-2xl p-8 border border-gray-200 shadow-lg">
-                            <div class="text-center mb-6">
-                                <div class="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center mx-auto mb-4 icon-pulse-hover">
-                                    <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                        <div class="card-feature p-8">
+                            <div class="flex items-center gap-3 mb-6">
+                                <div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style="background:rgba(37,99,235,0.08)">
+                                    <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
                                     </svg>
                                 </div>
-                                <h3 class="text-xl font-bold mb-2">Unsere Fachgebiete</h3>
+                                <h3 class="text-xl font-bold">Unsere Einsatzbereiche</h3>
                             </div>
-                            <div class="space-y-3">
-                                <div class="flex items-center space-x-3 p-3 bg-gray-50 rounded-xl">
+                            <div class="space-y-2.5">
+                                <div class="flex items-center gap-3 p-3 rounded-lg bg-gray-50 hover:bg-gray-100 transition-colors">
                                     <svg class="w-5 h-5 text-blue-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
-                                    <p class="text-sm text-gray-700">HV-Schaltanlagenzellen & Kabelfelder</p>
+                                    <p class="text-sm text-gray-700">HV-Schaltanlagenzellen &amp; Kabelfelder</p>
                                 </div>
-                                <div class="flex items-center space-x-3 p-3 bg-gray-50 rounded-xl">
+                                <div class="flex items-center gap-3 p-3 rounded-lg bg-gray-50 hover:bg-gray-100 transition-colors">
                                     <svg class="w-5 h-5 text-blue-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
-                                    <p class="text-sm text-gray-700">Öl- & Trockentransformatoren</p>
+                                    <p class="text-sm text-gray-700">Öl- &amp; Trockentransformatoren</p>
                                 </div>
-                                <div class="flex items-center space-x-3 p-3 bg-gray-50 rounded-xl">
+                                <div class="flex items-center gap-3 p-3 rounded-lg bg-gray-50 hover:bg-gray-100 transition-colors">
                                     <svg class="w-5 h-5 text-blue-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
-                                    <p class="text-sm text-gray-700">Hauptverteilungen & Sammelschienen</p>
+                                    <p class="text-sm text-gray-700">Hauptverteilungen &amp; Sammelschienen</p>
                                 </div>
-                                <div class="flex items-center space-x-3 p-3 bg-gray-50 rounded-xl">
+                                <div class="flex items-center gap-3 p-3 rounded-lg bg-gray-50 hover:bg-gray-100 transition-colors">
                                     <svg class="w-5 h-5 text-blue-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
-                                    <p class="text-sm text-gray-700">Leistungsschalter-Trenner & Sicherungen</p>
+                                    <p class="text-sm text-gray-700">Leistungsschalter-Trenner &amp; Sicherungen</p>
                                 </div>
-                                <div class="flex items-center space-x-3 p-3 bg-gray-50 rounded-xl">
+                                <div class="flex items-center gap-3 p-3 rounded-lg bg-gray-50 hover:bg-gray-100 transition-colors">
                                     <svg class="w-5 h-5 text-blue-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
                                     <p class="text-sm text-gray-700">Kondensatorbatterien</p>
                                 </div>
-                                <div class="flex items-center space-x-3 p-3 bg-gray-50 rounded-xl">
+                                <div class="flex items-center gap-3 p-3 rounded-lg bg-gray-50 hover:bg-gray-100 transition-colors">
                                     <svg class="w-5 h-5 text-blue-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
-                                    <p class="text-sm text-gray-700">Dielektrische Analyse & Thermografie</p>
+                                    <p class="text-sm text-gray-700">Dielektrische Analyse &amp; Thermografie</p>
                                 </div>
                             </div>
                         </div>
@@ -576,33 +530,34 @@
             </div>
         </section>
 
-        <!-- Detailed services - Chargers / Transformers -->
-        <section class="py-20 px-6 bg-white">
+        <!-- Detaillierte Leistungen - Auswahl Ladestationen / Transformatoren -->
+        <section class="py-20 px-6 section-alt">
             <div class="max-w-6xl mx-auto">
                 <div class="text-center mb-12 section-appear">
-                    <span class="inline-block px-4 py-1 bg-blue-100 text-blue-700 rounded-full text-sm font-semibold mb-4">Detaillierte Leistungen</span>
-                    <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-4">Umfassendes Wartungsprogramm</h2>
-                    <p class="text-gray-600 text-lg max-w-3xl mx-auto">Wählen Sie den für Sie relevanten Bereich, um die vollständigen Details unserer Leistungen zu sehen</p>
+                    <div class="sec-label mb-4">Detaillierte Leistungen</div>
+                    <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-4">Das Detail jedes <em>Einsatzes</em></h2>
+                    <p class="text-gray-600 text-lg max-w-3xl mx-auto">Ladestationen oder Transformatoren: genau das macht unser Techniker vor Ort</p>
                 </div>
                 <div class="space-y-4 section-appear">
 
-                    <!-- EV Chargers -->
-                    <details class="bg-gray-50 rounded-2xl border border-gray-200 overflow-hidden" open>
-                        <summary class="flex items-center justify-between p-6 cursor-pointer">
-                            <div class="flex items-center space-x-4">
-                                <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                    <!-- Ladestationen -->
+                    <details class="card-feature overflow-hidden">
+                        <summary class="flex items-center justify-between p-6 cursor-pointer hover:bg-gray-50 transition-colors rounded-xl">
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0" style="background:rgba(37,99,235,0.08)">
                                     <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
                                 </div>
                                 <div>
                                     <h3 class="text-xl font-bold">Ladestationen</h3>
-                                    <p class="text-sm text-gray-500">AC-Wartung (3,7-22 kW) & DC (50-350 kW)</p>
+                                    <p class="text-sm text-gray-500">AC-Wartung (3,7-22 kW) &amp; DC (50-350 kW)</p>
                                 </div>
                             </div>
+                            <svg class="w-5 h-5 text-gray-400 flex-shrink-0 ml-4 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
                         </summary>
                         <div class="px-6 pb-6">
                             <div class="grid md:grid-cols-2 gap-4">
-                                <details class="bg-white rounded-xl p-5 border border-gray-100">
-                                    <summary class="font-semibold cursor-pointer">Inbetriebnahme</summary>
+                                <details class="bg-white rounded-xl p-5 border border-gray-200 hover:border-blue-300 transition-colors">
+                                    <summary class="font-semibold cursor-pointer flex items-center justify-between gap-2"><span>Inbetriebnahme</span><svg class="w-4 h-4 text-gray-400 flex-shrink-0 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg></summary>
                                     <ul class="mt-4 space-y-2 text-sm text-gray-600">
                                         <li class="flex items-start space-x-2"><span class="text-blue-600 mt-0.5">&#8226;</span><span>Prüfung der Elektroinstallation (NFC 15-100 Konformität)</span></li>
                                         <li class="flex items-start space-x-2"><span class="text-blue-600 mt-0.5">&#8226;</span><span>Ladestations-Einrichtung und -Konfiguration</span></li>
@@ -610,8 +565,8 @@
                                         <li class="flex items-start space-x-2"><span class="text-blue-600 mt-0.5">&#8226;</span><span>Supervisionseinrichtung und Managementsystem-Integration</span></li>
                                     </ul>
                                 </details>
-                                <details class="bg-white rounded-xl p-5 border border-gray-100">
-                                    <summary class="font-semibold cursor-pointer">Präventive Wartung</summary>
+                                <details class="bg-white rounded-xl p-5 border border-gray-200 hover:border-blue-300 transition-colors">
+                                    <summary class="font-semibold cursor-pointer flex items-center justify-between gap-2"><span>Präventive Wartung</span><svg class="w-4 h-4 text-gray-400 flex-shrink-0 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg></summary>
                                     <ul class="mt-4 space-y-2 text-sm text-gray-600">
                                         <li class="flex items-start space-x-2"><span class="text-blue-600 mt-0.5">&#8226;</span><span>Allgemeine Sichtprüfung (Gehäuse, Bildschirm, Stecker)</span></li>
                                         <li class="flex items-start space-x-2"><span class="text-blue-600 mt-0.5">&#8226;</span><span>Reinigung von Ladesteckern und Anschlüssen</span></li>
@@ -621,8 +576,8 @@
                                         <li class="flex items-start space-x-2"><span class="text-blue-600 mt-0.5">&#8226;</span><span>Firmware- und eingebettete Software-Updates</span></li>
                                     </ul>
                                 </details>
-                                <details class="bg-white rounded-xl p-5 border border-gray-100">
-                                    <summary class="font-semibold cursor-pointer">Korrektive Wartung</summary>
+                                <details class="bg-white rounded-xl p-5 border border-gray-200 hover:border-blue-300 transition-colors">
+                                    <summary class="font-semibold cursor-pointer flex items-center justify-between gap-2"><span>Korrektive Wartung</span><svg class="w-4 h-4 text-gray-400 flex-shrink-0 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg></summary>
                                     <ul class="mt-4 space-y-2 text-sm text-gray-600">
                                         <li class="flex items-start space-x-2"><span class="text-blue-600 mt-0.5">&#8226;</span><span>Fehlerdiagnose (Fehlercodes, OCPP-Protokolle)</span></li>
                                         <li class="flex items-start space-x-2"><span class="text-blue-600 mt-0.5">&#8226;</span><span>Komponentenaustausch (Mainboard, Bildschirm, Stecker, Kabel)</span></li>
@@ -631,8 +586,8 @@
                                         <li class="flex items-start space-x-2"><span class="text-blue-600 mt-0.5">&#8226;</span><span>Wiederinbetriebnahme und vollständiger Funktionstest</span></li>
                                     </ul>
                                 </details>
-                                <details class="bg-white rounded-xl p-5 border border-gray-100">
-                                    <summary class="font-semibold cursor-pointer">Stecker & Verkabelung</summary>
+                                <details class="bg-white rounded-xl p-5 border border-gray-200 hover:border-blue-300 transition-colors">
+                                    <summary class="font-semibold cursor-pointer flex items-center justify-between gap-2"><span>Stecker &amp; Verkabelung</span><svg class="w-4 h-4 text-gray-400 flex-shrink-0 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg></summary>
                                     <ul class="mt-4 space-y-2 text-sm text-gray-600">
                                         <li class="flex items-start space-x-2"><span class="text-blue-600 mt-0.5">&#8226;</span><span>Ladekabel-Zustandsprüfung (Typ 2, CCS, CHAdeMO)</span></li>
                                         <li class="flex items-start space-x-2"><span class="text-blue-600 mt-0.5">&#8226;</span><span>Steckerverriegelungs- und Rückzugsmechanismus-Prüfung</span></li>
@@ -640,8 +595,8 @@
                                         <li class="flex items-start space-x-2"><span class="text-blue-600 mt-0.5">&#8226;</span><span>Interne Verkabelungs- und Klemmenblockinspektion</span></li>
                                     </ul>
                                 </details>
-                                <details class="bg-white rounded-xl p-5 border border-gray-100">
-                                    <summary class="font-semibold cursor-pointer">Überwachung & Fernverwaltung</summary>
+                                <details class="bg-white rounded-xl p-5 border border-gray-200 hover:border-blue-300 transition-colors">
+                                    <summary class="font-semibold cursor-pointer flex items-center justify-between gap-2"><span>Überwachung &amp; Fernverwaltung</span><svg class="w-4 h-4 text-gray-400 flex-shrink-0 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg></summary>
                                     <ul class="mt-4 space-y-2 text-sm text-gray-600">
                                         <li class="flex items-start space-x-2"><span class="text-blue-600 mt-0.5">&#8226;</span><span>Ferndiagnose über Überwachungsplattform</span></li>
                                         <li class="flex items-start space-x-2"><span class="text-blue-600 mt-0.5">&#8226;</span><span>Fernstart und Fehlerzurücksetzung</span></li>
@@ -649,11 +604,11 @@
                                         <li class="flex items-start space-x-2"><span class="text-blue-600 mt-0.5">&#8226;</span><span>Ladesitzungsüberwachung und Echtzeit-Warnungen</span></li>
                                     </ul>
                                 </details>
-                                <details class="bg-white rounded-xl p-5 border border-gray-100">
-                                    <summary class="font-semibold cursor-pointer">Elektrischer Schutz</summary>
+                                <details class="bg-white rounded-xl p-5 border border-gray-200 hover:border-blue-300 transition-colors">
+                                    <summary class="font-semibold cursor-pointer flex items-center justify-between gap-2"><span>Elektrischer Schutz</span><svg class="w-4 h-4 text-gray-400 flex-shrink-0 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg></summary>
                                     <ul class="mt-4 space-y-2 text-sm text-gray-600">
                                         <li class="flex items-start space-x-2"><span class="text-blue-600 mt-0.5">&#8226;</span><span>FI-Schutzschalterprüfung (Typ A, Typ B)</span></li>
-                                        <li class="flex items-start space-x-2"><span class="text-blue-600 mt-0.5">&#8226;</span><span>Überspannungsschutz- und Überspannungsableiterpüfung</span></li>
+                                        <li class="flex items-start space-x-2"><span class="text-blue-600 mt-0.5">&#8226;</span><span>Überspannungsschutz- und Überspannungsableiterprüfung</span></li>
                                         <li class="flex items-start space-x-2"><span class="text-blue-600 mt-0.5">&#8226;</span><span>Erdungsprüfung und Widerstandsmessung</span></li>
                                         <li class="flex items-start space-x-2"><span class="text-blue-600 mt-0.5">&#8226;</span><span>Phasenbalancierungsprüfung (Drehstrom)</span></li>
                                     </ul>
@@ -662,23 +617,24 @@
                         </div>
                     </details>
 
-                    <!-- HV/LV Transformers -->
-                    <details class="bg-gray-50 rounded-2xl border border-gray-200 overflow-hidden" open>
-                        <summary class="flex items-center justify-between p-6 cursor-pointer">
-                            <div class="flex items-center space-x-4">
-                                <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                    <!-- HV/LV-Transformatoren -->
+                    <details class="card-feature overflow-hidden">
+                        <summary class="flex items-center justify-between p-6 cursor-pointer hover:bg-gray-50 transition-colors rounded-xl">
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0" style="background:rgba(37,99,235,0.08)">
                                     <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" /></svg>
                                 </div>
                                 <div>
                                     <h3 class="text-xl font-bold">HV/LV-Transformatoren</h3>
-                                    <p class="text-sm text-gray-500">Schaltanlagen, Hauptverteilungen, Öl- & Trockentransformatoren, Leistungsschalter</p>
+                                    <p class="text-sm text-gray-500">Schaltanlagen, Hauptverteilungen, Öl- &amp; Trockentransformatoren, Leistungsschalter</p>
                                 </div>
                             </div>
+                            <svg class="w-5 h-5 text-gray-400 flex-shrink-0 ml-4 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
                         </summary>
                         <div class="px-6 pb-6">
                             <div class="grid md:grid-cols-2 gap-4">
-                                <details class="bg-white rounded-xl p-5 border border-gray-100">
-                                    <summary class="font-semibold cursor-pointer">HV-Schaltanlagenzellen</summary>
+                                <details class="bg-white rounded-xl p-5 border border-gray-200 hover:border-blue-300 transition-colors">
+                                    <summary class="font-semibold cursor-pointer flex items-center justify-between gap-2"><span>HV-Schaltanlagenzellen</span><svg class="w-4 h-4 text-gray-400 flex-shrink-0 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg></summary>
                                     <ul class="mt-4 space-y-2 text-sm text-gray-600">
                                         <li class="flex items-start space-x-2"><span class="text-blue-600 mt-0.5">&#8226;</span><span>Sichtprüfung (Kreidung, Risse, Wärmespuren)</span></li>
                                         <li class="flex items-start space-x-2"><span class="text-blue-600 mt-0.5">&#8226;</span><span>Entstaubung und allgemeine Reinigung</span></li>
@@ -689,8 +645,8 @@
                                         <li class="flex items-start space-x-2"><span class="text-blue-600 mt-0.5">&#8226;</span><span>Prüfung der elektrischen Hilfsgeräte</span></li>
                                     </ul>
                                 </details>
-                                <details class="bg-white rounded-xl p-5 border border-gray-100">
-                                    <summary class="font-semibold cursor-pointer">Kabelfeld</summary>
+                                <details class="bg-white rounded-xl p-5 border border-gray-200 hover:border-blue-300 transition-colors">
+                                    <summary class="font-semibold cursor-pointer flex items-center justify-between gap-2"><span>Kabelfeld</span><svg class="w-4 h-4 text-gray-400 flex-shrink-0 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg></summary>
                                     <ul class="mt-4 space-y-2 text-sm text-gray-600">
                                         <li class="flex items-start space-x-2"><span class="text-blue-600 mt-0.5">&#8226;</span><span>Gehäuse-Sichtprüfung (Kreidung, Risse, Wärmespuren)</span></li>
                                         <li class="flex items-start space-x-2"><span class="text-blue-600 mt-0.5">&#8226;</span><span>Anschlussprüfung (Drehmoment, Kreidung, Wärmespuren)</span></li>
@@ -698,24 +654,24 @@
                                         <li class="flex items-start space-x-2"><span class="text-blue-600 mt-0.5">&#8226;</span><span>Kabelendverschlussprüfung (Drehmoment, Befestigung)</span></li>
                                     </ul>
                                 </details>
-                                <details class="bg-white rounded-xl p-5 border border-gray-100">
-                                    <summary class="font-semibold cursor-pointer">PASA-Schrank</summary>
+                                <details class="bg-white rounded-xl p-5 border border-gray-200 hover:border-blue-300 transition-colors">
+                                    <summary class="font-semibold cursor-pointer flex items-center justify-between gap-2"><span>PASA-Schrank</span><svg class="w-4 h-4 text-gray-400 flex-shrink-0 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg></summary>
                                     <ul class="mt-4 space-y-2 text-sm text-gray-600">
                                         <li class="flex items-start space-x-2"><span class="text-blue-600 mt-0.5">&#8226;</span><span>Mechanische Zellenverriegelungsprüfung und -test</span></li>
                                         <li class="flex items-start space-x-2"><span class="text-blue-600 mt-0.5">&#8226;</span><span>Elektrische Prüfung und Umschalter (NSM)-Kontrolle</span></li>
                                         <li class="flex items-start space-x-2"><span class="text-blue-600 mt-0.5">&#8226;</span><span>Batterieladezustandsprüfung</span></li>
                                     </ul>
                                 </details>
-                                <details class="bg-white rounded-xl p-5 border border-gray-100">
-                                    <summary class="font-semibold cursor-pointer">Sammelschienen (spannungsfrei)</summary>
+                                <details class="bg-white rounded-xl p-5 border border-gray-200 hover:border-blue-300 transition-colors">
+                                    <summary class="font-semibold cursor-pointer flex items-center justify-between gap-2"><span>Sammelschienen (spannungsfrei)</span><svg class="w-4 h-4 text-gray-400 flex-shrink-0 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg></summary>
                                     <ul class="mt-4 space-y-2 text-sm text-gray-600">
                                         <li class="flex items-start space-x-2"><span class="text-blue-600 mt-0.5">&#8226;</span><span>Sammelschieneninspektion</span></li>
                                         <li class="flex items-start space-x-2"><span class="text-blue-600 mt-0.5">&#8226;</span><span>Drehmomentprüfung (Wärmespuren)</span></li>
                                         <li class="flex items-start space-x-2"><span class="text-blue-600 mt-0.5">&#8226;</span><span>Isolatorprüfung (Kreidung, Wärmespuren)</span></li>
                                     </ul>
                                 </details>
-                                <details class="bg-white rounded-xl p-5 border border-gray-100">
-                                    <summary class="font-semibold cursor-pointer">HV-Umspannwerk-Hauptverteilung</summary>
+                                <details class="bg-white rounded-xl p-5 border border-gray-200 hover:border-blue-300 transition-colors">
+                                    <summary class="font-semibold cursor-pointer flex items-center justify-between gap-2"><span>HV-Umspannwerk-Hauptverteilung</span><svg class="w-4 h-4 text-gray-400 flex-shrink-0 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg></summary>
                                     <ul class="mt-4 space-y-2 text-sm text-gray-600">
                                         <li class="flex items-start space-x-2"><span class="text-blue-600 mt-0.5">&#8226;</span><span>Anschlussprüfung (Drehmoment, Kreidemarkierungen, Wärmespuren)</span></li>
                                         <li class="flex items-start space-x-2"><span class="text-blue-600 mt-0.5">&#8226;</span><span>Kabel- und Anschlussprüfung (Drehmoment, Befestigung)</span></li>
@@ -726,8 +682,8 @@
                                         <li class="flex items-start space-x-2"><span class="text-blue-600 mt-0.5">&#8226;</span><span>Isolationsmessung und Übersetzungsverhältnistest</span></li>
                                     </ul>
                                 </details>
-                                <details class="bg-white rounded-xl p-5 border border-gray-100">
-                                    <summary class="font-semibold cursor-pointer">Öltransformator</summary>
+                                <details class="bg-white rounded-xl p-5 border border-gray-200 hover:border-blue-300 transition-colors">
+                                    <summary class="font-semibold cursor-pointer flex items-center justify-between gap-2"><span>Öltransformator</span><svg class="w-4 h-4 text-gray-400 flex-shrink-0 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg></summary>
                                     <ul class="mt-4 space-y-2 text-sm text-gray-600">
                                         <li class="flex items-start space-x-2"><span class="text-blue-600 mt-0.5">&#8226;</span><span>Dielektrische Ölprobenahme und -analyse</span></li>
                                         <li class="flex items-start space-x-2"><span class="text-blue-600 mt-0.5">&#8226;</span><span>Vollständige Sichtprüfung</span></li>
@@ -736,29 +692,29 @@
                                         <li class="flex items-start space-x-2"><span class="text-blue-600 mt-0.5">&#8226;</span><span>Anschluss-Drehmomentprüfung</span></li>
                                     </ul>
                                 </details>
-                                <details class="bg-white rounded-xl p-5 border border-gray-100">
-                                    <summary class="font-semibold cursor-pointer">Trockentransformator</summary>
+                                <details class="bg-white rounded-xl p-5 border border-gray-200 hover:border-blue-300 transition-colors">
+                                    <summary class="font-semibold cursor-pointer flex items-center justify-between gap-2"><span>Trockentransformator</span><svg class="w-4 h-4 text-gray-400 flex-shrink-0 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg></summary>
                                     <ul class="mt-4 space-y-2 text-sm text-gray-600">
                                         <li class="flex items-start space-x-2"><span class="text-blue-600 mt-0.5">&#8226;</span><span>Druckluft-Reinigung (Staubpartikelentfernung)</span></li>
                                         <li class="flex items-start space-x-2"><span class="text-blue-600 mt-0.5">&#8226;</span><span>Sichtprüfung von Isolatoren und leitfähigen Teilen</span></li>
                                         <li class="flex items-start space-x-2"><span class="text-blue-600 mt-0.5">&#8226;</span><span>Elektrische Anschluss-Drehmomentprüfung</span></li>
                                         <li class="flex items-start space-x-2"><span class="text-blue-600 mt-0.5">&#8226;</span><span>Erdungsdurchgangsprüfung (TIT-Neutral, Metallrahmen)</span></li>
-                                        <li class="flex items-start space-x-2"><span class="text-blue-600 mt-0.5">&#8226;</span><span>Earth resistance measurement (value &le; 1 &Omega;)</span></li>
+                                        <li class="flex items-start space-x-2"><span class="text-blue-600 mt-0.5">&#8226;</span><span>Erdungswiderstandsmessung (Wert &le; 1 &Omega;)</span></li>
                                     </ul>
                                 </details>
-                                <details class="bg-white rounded-xl p-5 border border-gray-100">
-                                    <summary class="font-semibold cursor-pointer">Leistungsschalter-Trenner (Master Pack)</summary>
+                                <details class="bg-white rounded-xl p-5 border border-gray-200 hover:border-blue-300 transition-colors">
+                                    <summary class="font-semibold cursor-pointer flex items-center justify-between gap-2"><span>Leistungsschalter-Trenner (Master Pack)</span><svg class="w-4 h-4 text-gray-400 flex-shrink-0 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg></summary>
                                     <ul class="mt-4 space-y-2 text-sm text-gray-600">
                                         <li class="flex items-start space-x-2"><span class="text-blue-600 mt-0.5">&#8226;</span><span>Reinigung und Entstaubung</span></li>
                                         <li class="flex items-start space-x-2"><span class="text-blue-600 mt-0.5">&#8226;</span><span>Verschleißinspektion beweglicher Teile</span></li>
                                         <li class="flex items-start space-x-2"><span class="text-blue-600 mt-0.5">&#8226;</span><span>Leitungstrenner-Reinigung und -Schmierung</span></li>
-                                        <li class="flex items-start space-x-2"><span class="text-blue-600 mt-0.5">&#8226;</span><span>Insulator check (chalking, heat marks)</span></li>
+                                        <li class="flex items-start space-x-2"><span class="text-blue-600 mt-0.5">&#8226;</span><span>Isolatorprüfung (Kreidung, Wärmespuren)</span></li>
                                         <li class="flex items-start space-x-2"><span class="text-blue-600 mt-0.5">&#8226;</span><span>Leistungsschalter-Verriegelungs- und Kontaktwiderstandsprüfung</span></li>
                                         <li class="flex items-start space-x-2"><span class="text-blue-600 mt-0.5">&#8226;</span><span>Steckkontaktinspektion (bei ausfahrbarer Ausführung)</span></li>
                                     </ul>
                                 </details>
-                                <details class="bg-white rounded-xl p-5 border border-gray-100">
-                                    <summary class="font-semibold cursor-pointer">HV-Sicherungen</summary>
+                                <details class="bg-white rounded-xl p-5 border border-gray-200 hover:border-blue-300 transition-colors">
+                                    <summary class="font-semibold cursor-pointer flex items-center justify-between gap-2"><span>HV-Sicherungen</span><svg class="w-4 h-4 text-gray-400 flex-shrink-0 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg></summary>
                                     <ul class="mt-4 space-y-2 text-sm text-gray-600">
                                         <li class="flex items-start space-x-2"><span class="text-blue-600 mt-0.5">&#8226;</span><span>Sicherungs-Sichtprüfung (Kreidung, Farbe, Risse, Korrosion)</span></li>
                                         <li class="flex items-start space-x-2"><span class="text-blue-600 mt-0.5">&#8226;</span><span>Befestigungs- und Signalprüfung</span></li>
@@ -767,20 +723,20 @@
                                         <li class="flex items-start space-x-2"><span class="text-blue-600 mt-0.5">&#8226;</span><span>Austausch bei &gt; 10 Jahren (separates Angebot)</span></li>
                                     </ul>
                                 </details>
-                                <details class="bg-white rounded-xl p-5 border border-gray-100">
-                                    <summary class="font-semibold cursor-pointer">Kondensatorbatterie (Option)</summary>
+                                <details class="bg-white rounded-xl p-5 border border-gray-200 hover:border-blue-300 transition-colors">
+                                    <summary class="font-semibold cursor-pointer flex items-center justify-between gap-2"><span>Kondensatorbatterie (Option)</span><svg class="w-4 h-4 text-gray-400 flex-shrink-0 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg></summary>
                                     <ul class="mt-4 space-y-2 text-sm text-gray-600">
                                         <li class="flex items-start space-x-2"><span class="text-blue-600 mt-0.5">&#8226;</span><span>Schrank-Umgebungstemperaturprüfung (&lt; 50 &deg;C)</span></li>
-                                        <li class="flex items-start space-x-2"><span class="text-blue-600 mt-0.5">&#8226;</span><span>Unsymmetriestrompüfung und Schutzrelaiseinstellung</span></li>
-                                        <li class="flex items-start space-x-2"><span class="text-blue-600 mt-0.5">&#8226;</span><span>Varmetric regulator check (cos &phi;, timing, C/K, steps)</span></li>
+                                        <li class="flex items-start space-x-2"><span class="text-blue-600 mt-0.5">&#8226;</span><span>Unsymmetriestromprüfung und Schutzrelaiseinstellung</span></li>
+                                        <li class="flex items-start space-x-2"><span class="text-blue-600 mt-0.5">&#8226;</span><span>Prüfung des Blindleistungsreglers (cos &phi;, Zeitstufe, C/K, Stufen)</span></li>
                                         <li class="flex items-start space-x-2"><span class="text-blue-600 mt-0.5">&#8226;</span><span>Kondensatorentladungsprüfung nach Sperrung</span></li>
                                         <li class="flex items-start space-x-2"><span class="text-blue-600 mt-0.5">&#8226;</span><span>Vollständige Reinigung, Belüftungsentstaubung und Batteriereinigung</span></li>
                                         <li class="flex items-start space-x-2"><span class="text-blue-600 mt-0.5">&#8226;</span><span>Kondensator-Sichtprüfung (Lecks, Aufblähung)</span></li>
                                         <li class="flex items-start space-x-2"><span class="text-blue-600 mt-0.5">&#8226;</span><span>Kapazitätsmessung und Sicherungsimpedanztest</span></li>
                                     </ul>
                                 </details>
-                                <details class="bg-white rounded-xl p-5 border border-gray-100">
-                                    <summary class="font-semibold cursor-pointer">Transformator-Dielektrikanalyse</summary>
+                                <details class="bg-white rounded-xl p-5 border border-gray-200 hover:border-blue-300 transition-colors">
+                                    <summary class="font-semibold cursor-pointer flex items-center justify-between gap-2"><span>Transformator-Dielektrikanalyse</span><svg class="w-4 h-4 text-gray-400 flex-shrink-0 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg></summary>
                                     <ul class="mt-4 space-y-2 text-sm text-gray-600">
                                         <li class="flex items-start space-x-2"><span class="text-blue-600 mt-0.5">&#8226;</span><span>Transformator-Kontaminationsgrad-Messung</span></li>
                                         <li class="flex items-start space-x-2"><span class="text-blue-600 mt-0.5">&#8226;</span><span>Flüssigdielektrikum-Qualitätscharakterisierung</span></li>
@@ -788,8 +744,8 @@
                                         <li class="flex items-start space-x-2"><span class="text-blue-600 mt-0.5">&#8226;</span><span>Vollständiger Transformator-Gesundheitscheck für maximale Sicherheit</span></li>
                                     </ul>
                                 </details>
-                                <details class="bg-white rounded-xl p-5 border border-gray-100">
-                                    <summary class="font-semibold cursor-pointer">Revision der Hauptverteilung Stufe 2</summary>
+                                <details class="bg-white rounded-xl p-5 border border-gray-200 hover:border-blue-300 transition-colors">
+                                    <summary class="font-semibold cursor-pointer flex items-center justify-between gap-2"><span>Revision der Hauptverteilung Stufe 2</span><svg class="w-4 h-4 text-gray-400 flex-shrink-0 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg></summary>
                                     <ul class="mt-4 space-y-2 text-sm text-gray-600">
                                         <li class="flex items-start space-x-2"><span class="text-blue-600 mt-0.5">&#8226;</span><span>Technikerbesuch und Risikoidentifikation</span></li>
                                         <li class="flex items-start space-x-2"><span class="text-blue-600 mt-0.5">&#8226;</span><span>HV-/Transformator-/LV-Leistungsschalter-Geräteidentifikation</span></li>
@@ -808,100 +764,171 @@
             </div>
         </section>
 
-        <!-- Stats -->
-        <section class="py-20 px-6 bg-white">
-            <div class="max-w-7xl mx-auto">
+        <!-- Überwachung von Ladestationen -->
+        <section class="py-20 px-6" aria-label="Überwachung von Ladestationen">
+            <div class="max-w-6xl mx-auto">
                 <div class="text-center mb-16 section-appear">
+                    <div class="sec-label mb-4">OCPP-Überwachung</div>
+                    <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-6">
+                        Übernahme in die Überwachung, <em>ohne Reibung</em>.
+                    </h2>
+                    <p class="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                        Sie haben nicht überwachte oder schlecht angebundene Ladestationen? Wir integrieren sie in unsere OCPP-Plattform und geben Ihnen die Sichtbarkeit in Echtzeit zurück.
+                    </p>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-6 grid-stagger">
+                    <!-- AC Privat -->
+                    <div class="card-feature card-lift section-appear">
+                        <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-6" style="background:rgba(37,99,235,0.08)">
+                            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-4 0a1 1 0 01-1-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 01-1 1h-2z" />
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">AC Privat</h3>
+                        <p class="text-gray-600 leading-relaxed text-sm">Wohnungseigentümergemeinschaften, Unternehmen, Hotels. AC-Ladestationen 3,7 bis 22 kW im privaten Netz. OCPP-Überwachung, Zugangsverwaltung, Verbrauchserfassung.</p>
+                    </div>
+
+                    <!-- AC Öffentlich -->
+                    <div class="card-feature card-lift section-appear">
+                        <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-6" style="background:rgba(37,99,235,0.08)">
+                            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" />
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">AC Öffentlich</h3>
+                        <p class="text-gray-600 leading-relaxed text-sm">Öffentliche Parkplätze, Einkaufszentren, Gebietskörperschaften. OCPP-Überwachung mit GIREVE-Anbindung, integrierter Bezahlung, 24/7-Monitoring.</p>
+                    </div>
+
+                    <!-- DC Privat -->
+                    <div class="card-feature card-lift section-appear">
+                        <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-6" style="background:rgba(37,99,235,0.08)">
+                            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">DC Privat</h3>
+                        <p class="text-gray-600 leading-relaxed text-sm">Unternehmensflotten, Logistikdepots. DC-Ladestationen 50 bis 400 kW. Erweiterte Überwachung, Energiesteuerung, Smart Charging.</p>
+                    </div>
+
+                    <!-- DC Öffentlich -->
+                    <div class="card-feature card-lift section-appear">
+                        <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-6" style="background:rgba(37,99,235,0.08)">
+                            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">DC Öffentlich</h3>
+                        <p class="text-gray-600 leading-relaxed text-sm">Autobahnstationen, Ladehubs. Hochleistungs-DC. Echtzeit-Überwachung, vertragliche SLA, Betreiber-Reporting.</p>
+                    </div>
+                </div>
+
+                <div class="text-center mt-12 section-appear">
+                    <a href="/de/kontakt" class="btn-primary px-8 py-3 font-medium text-sm text-white inline-flex items-center gap-2">
+                        Meine Überwachung prüfen lassen
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats -->
+        <section class="section-dark py-20 px-6">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-16 section-appear">
+                    <div class="sec-label mb-4">Unsere Ergebnisse</div>
                     <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-4">
-                        Ergebnisse, die für sich sprechen
+                        Zahlen, keine Folien
                     </h2>
                 </div>
-                <div class="grid md:grid-cols-4 gap-12 text-center">
-                    <div class="section-appear">
-                        <div class="text-6xl font-bold mb-3 num-highlight stat-glow">98<span class="text-4xl text-gray-500">%</span></div>
-                        <p class="text-sm text-gray-600 font-semibold uppercase tracking-wide">Verfügbarkeitsrate</p>
+                <div class="grid grid-cols-2 md:grid-cols-5 gap-8 md:gap-12 text-center">
+                    <div class="section-appear step pt-6">
+                        <div class="text-5xl md:text-6xl font-bold mb-3 num-highlight counter-animate" style="color:#fff">98<span class="text-3xl md:text-4xl" style="color:#7FA6E8">%</span></div>
+                        <p class="text-sm font-semibold uppercase tracking-wide" style="color:#9ca3af">Angestrebte vertragliche Verfügbarkeit</p>
                     </div>
-                    <div class="section-appear">
-                        <div class="text-6xl font-bold mb-3 num-highlight stat-glow">24<span class="text-4xl text-gray-500">h</span></div>
-                        <p class="text-sm text-gray-600 font-semibold uppercase tracking-wide">Reaktionszeit (Werktage)</p>
+                    <div class="section-appear step pt-6">
+                        <div class="text-5xl md:text-6xl font-bold mb-3 num-highlight counter-animate" style="color:#fff">&lt;24<span class="text-3xl md:text-4xl" style="color:#7FA6E8">h</span></div>
+                        <p class="text-sm font-semibold uppercase tracking-wide" style="color:#9ca3af">Reaktion innerhalb von 24 Arbeitsstunden</p>
                     </div>
-                    <div class="section-appear">
-                        <div class="text-6xl font-bold mb-3 num-highlight stat-glow">24<span class="text-4xl text-gray-500">/7</span></div>
-                        <p class="text-sm text-gray-600 font-semibold uppercase tracking-wide">Kontinuierliche Überwachung</p>
+                    <div class="section-appear step pt-6">
+                        <div class="text-5xl md:text-6xl font-bold mb-3 num-highlight counter-animate" style="color:#fff">94<span class="text-3xl md:text-4xl" style="color:#7FA6E8">%</span></div>
+                        <p class="text-sm font-semibold uppercase tracking-wide" style="color:#9ca3af">Erfolg beim ersten Einsatz</p>
                     </div>
-                    <div class="section-appear">
-                        <div class="text-6xl font-bold mb-3 num-highlight stat-glow">1<span
-                                class="text-4xl text-gray-500 font-bold">500</span><span
-                                class="text-4xl text-gray-500">+</span></div>
-                        <p class="text-sm text-gray-600 font-semibold uppercase tracking-wide">Feldeinsätze</p>
+                    <div class="section-appear step pt-6">
+                        <div class="text-5xl md:text-6xl font-bold mb-3 num-highlight counter-animate" style="color:#fff">24<span class="text-3xl md:text-4xl" style="color:#7FA6E8">/7</span></div>
+                        <p class="text-sm font-semibold uppercase tracking-wide" style="color:#9ca3af">Kontinuierliche Überwachung</p>
+                    </div>
+                    <div class="section-appear step pt-6 col-span-2 md:col-span-1">
+                        <div class="text-5xl md:text-6xl font-bold mb-3 num-highlight counter-animate" style="color:#fff">2 000<span class="text-3xl md:text-4xl" style="color:#7FA6E8">+</span></div>
+                        <p class="text-sm font-semibold uppercase tracking-wide" style="color:#9ca3af">Feldeinsätze</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Managed brands - EV Chargers -->
-        <section class="py-20 px-6 bg-white">
+        <!-- Betreute Marken - Ladestationen -->
+        <section class="py-20 px-6">
             <div class="max-w-5xl mx-auto">
                 <div class="text-center mb-12 section-appear">
-                    <span class="inline-block px-4 py-1 bg-blue-100 text-blue-700 rounded-full text-sm font-semibold mb-4">Multi-Marke</span>
-                    <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-4">Betreute Marken - Ladestationen</h2>
-                    <p class="text-gray-600 text-lg max-w-2xl mx-auto">Zertifizierte Expertise über alle großen Ladestationsmarken auf dem Markt</p>
+                    <div class="sec-label mb-4">Multi-Marke</div>
+                    <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-4">Alle Marken. <em>Null Improvisation.</em></h2>
+                    <p class="text-gray-600 text-lg max-w-2xl mx-auto">Herstellerzertifizierte und geschulte Techniker. Zugang zu Originalersatzteilen.</p>
                 </div>
                 <div class="section-appear">
                     <div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-4">
                         <div class="flex items-center justify-center p-4">
-                            <picture><source srcset="../images/schneider.webp?v=83" type="image/webp"><img src="../images/schneider.png?v=83" alt="Schneider Electric" class="h-8 w-auto brand-logo" width="120" height="48" loading="lazy"></picture>
+                            <picture><source srcset="../images/schneider.webp?v=84" type="image/webp"><img src="../images/schneider.png?v=84" alt="Schneider Electric" class="h-8 w-auto brand-logo" width="120" height="48" loading="lazy"></picture>
                         </div>
                         <div class="flex items-center justify-center p-4">
-                            <picture><source srcset="../images/abb.webp?v=83" type="image/webp"><img src="../images/abb.png?v=83" alt="ABB" class="h-8 w-auto brand-logo" width="120" height="48" loading="lazy"></picture>
+                            <picture><source srcset="../images/abb.webp?v=84" type="image/webp"><img src="../images/abb.png?v=84" alt="ABB" class="h-8 w-auto brand-logo" width="120" height="48" loading="lazy"></picture>
                         </div>
                         <div class="flex items-center justify-center p-4">
-                            <picture><source srcset="../images/alfen.webp?v=83" type="image/webp"><img src="../images/alfen.png?v=83" alt="Alfen" class="h-8 w-auto brand-logo" width="120" height="48" loading="lazy"></picture>
+                            <picture><source srcset="../images/alfen.webp?v=84" type="image/webp"><img src="../images/alfen.png?v=84" alt="Alfen" class="h-8 w-auto brand-logo" width="120" height="48" loading="lazy"></picture>
                         </div>
                         <div class="flex items-center justify-center p-4">
-                            <picture><source srcset="../images/autel.webp?v=83" type="image/webp"><img src="../images/autel.png?v=83" alt="Autel" class="h-8 w-auto brand-logo" width="120" height="48" loading="lazy"></picture>
+                            <picture><source srcset="../images/autel.webp?v=84" type="image/webp"><img src="../images/autel.png?v=84" alt="Autel" class="h-8 w-auto brand-logo" width="120" height="48" loading="lazy"></picture>
                         </div>
                         <div class="flex items-center justify-center p-4">
-                            <picture><source srcset="../images/kempower.webp?v=83" type="image/webp"><img src="../images/kempower.png?v=83" alt="Kempower" class="h-8 w-auto brand-logo" width="120" height="48" loading="lazy"></picture>
+                            <picture><source srcset="../images/kempower.webp?v=84" type="image/webp"><img src="../images/kempower.png?v=84" alt="Kempower" class="h-8 w-auto brand-logo" width="120" height="48" loading="lazy"></picture>
                         </div>
                         <div class="flex items-center justify-center p-4">
-                            <picture><source srcset="../images/delta.webp?v=83" type="image/webp"><img src="../images/delta.png?v=83" alt="Delta" class="h-8 w-auto brand-logo" width="120" height="48" loading="lazy"></picture>
+                            <picture><source srcset="../images/delta.webp?v=84" type="image/webp"><img src="../images/delta.png?v=84" alt="Delta" class="h-8 w-auto brand-logo" width="120" height="48" loading="lazy"></picture>
                         </div>
                         <div class="flex items-center justify-center p-4">
-                            <picture><source srcset="../images/evbox.webp?v=83" type="image/webp"><img src="../images/evbox.png?v=83" alt="EVBox" class="h-8 w-auto brand-logo" width="120" height="48" loading="lazy"></picture>
+                            <picture><source srcset="../images/evbox.webp?v=84" type="image/webp"><img src="../images/evbox.png?v=84" alt="EVBox" class="h-8 w-auto brand-logo" width="120" height="48" loading="lazy"></picture>
                         </div>
                         <div class="flex items-center justify-center p-4">
-                            <picture><source srcset="../images/wallbox.webp?v=83" type="image/webp"><img src="../images/wallbox.png?v=83" alt="Wallbox" class="h-8 w-auto brand-logo" width="120" height="48" loading="lazy"></picture>
+                            <picture><source srcset="../images/wallbox.webp?v=84" type="image/webp"><img src="../images/wallbox.png?v=84" alt="Wallbox" class="h-8 w-auto brand-logo" width="120" height="48" loading="lazy"></picture>
                         </div>
                         <div class="flex items-center justify-center p-4">
-                            <picture><source srcset="../images/legrand.webp?v=83" type="image/webp"><img src="../images/legrand.png?v=83" alt="Legrand" class="h-8 w-auto brand-logo" width="120" height="48" loading="lazy"></picture>
+                            <picture><source srcset="../images/legrand.webp?v=84" type="image/webp"><img src="../images/legrand.png?v=84" alt="Legrand" class="h-8 w-auto brand-logo" width="120" height="48" loading="lazy"></picture>
                         </div>
                         <div class="flex items-center justify-center p-4">
-                            <picture><source srcset="../images/hager.webp?v=83" type="image/webp"><img src="../images/hager.png?v=83" alt="Hager" class="h-8 w-auto brand-logo" width="120" height="48" loading="lazy"></picture>
+                            <picture><source srcset="../images/hager.webp?v=84" type="image/webp"><img src="../images/hager.png?v=84" alt="Hager" class="h-8 w-auto brand-logo" width="120" height="48" loading="lazy"></picture>
                         </div>
                         <div class="flex items-center justify-center p-4">
-                            <picture><source srcset="../images/siemens.webp?v=83" type="image/webp"><img src="../images/siemens.png?v=83" alt="Siemens" class="h-8 w-auto brand-logo" width="120" height="48" loading="lazy"></picture>
+                            <picture><source srcset="../images/siemens.webp?v=84" type="image/webp"><img src="../images/siemens.png?v=84" alt="Siemens" class="h-8 w-auto brand-logo" width="120" height="48" loading="lazy"></picture>
                         </div>
                         <div class="flex items-center justify-center p-4">
-                            <picture><source srcset="../images/alpi.webp?v=83" type="image/webp"><img src="../images/alpi.png?v=83" alt="Alpitronic" class="h-8 w-auto brand-logo" width="120" height="48" loading="lazy"></picture>
+                            <picture><source srcset="../images/alpi.webp?v=84" type="image/webp"><img src="../images/alpi.png?v=84" alt="Alpitronic" class="h-8 w-auto brand-logo" width="120" height="48" loading="lazy"></picture>
                         </div>
                         <div class="flex items-center justify-center p-4">
-                            <picture><source srcset="../images/ingeteam.webp?v=83" type="image/webp"><img src="../images/ingeteam.png?v=83" alt="Ingeteam" class="h-8 w-auto brand-logo" width="120" height="48" loading="lazy"></picture>
+                            <picture><source srcset="../images/ingeteam.webp?v=84" type="image/webp"><img src="../images/ingeteam.png?v=84" alt="Ingeteam" class="h-8 w-auto brand-logo" width="120" height="48" loading="lazy"></picture>
                         </div>
                         <div class="flex items-center justify-center p-4">
-                            <picture><source srcset="../images/circontrol.webp?v=83" type="image/webp"><img src="../images/circontrol.png?v=83" alt="Circontrol" class="h-8 w-auto brand-logo" width="120" height="48" loading="lazy"></picture>
+                            <picture><source srcset="../images/circontrol.webp?v=84" type="image/webp"><img src="../images/circontrol.png?v=84" alt="Circontrol" class="h-8 w-auto brand-logo" width="120" height="48" loading="lazy"></picture>
                         </div>
                         <div class="flex items-center justify-center p-4">
-                            <picture><source srcset="../images/dbt.webp?v=83" type="image/webp"><img src="../images/dbt.png?v=83" alt="DBT" class="h-8 w-auto brand-logo" width="120" height="48" loading="lazy"></picture>
+                            <picture><source srcset="../images/dbt.webp?v=84" type="image/webp"><img src="../images/dbt.png?v=84" alt="DBT" class="h-8 w-auto brand-logo" width="120" height="48" loading="lazy"></picture>
                         </div>
                         <div class="flex items-center justify-center p-4">
-                            <picture><source srcset="../images/icharging.webp?v=83" type="image/webp"><img src="../images/icharging.png?v=83" alt="i-Charging" class="h-8 w-auto brand-logo" width="120" height="48" loading="lazy"></picture>
+                            <picture><source srcset="../images/icharging.webp?v=84" type="image/webp"><img src="../images/icharging.png?v=84" alt="i-Charging" class="h-8 w-auto brand-logo" width="120" height="48" loading="lazy"></picture>
                         </div>
                         <div class="flex items-center justify-center p-4">
-                            <picture><source srcset="../images/eko-logo.webp?v=83" type="image/webp"><img src="../images/eko-logo.png?v=83" alt="EKO" class="h-8 w-auto brand-logo" width="120" height="48" loading="lazy"></picture>
+                            <picture><source srcset="../images/eko-logo.webp?v=84" type="image/webp"><img src="../images/eko-logo.png?v=84" alt="EKO" class="h-8 w-auto brand-logo" width="120" height="48" loading="lazy"></picture>
                         </div>
                         <div class="flex items-center justify-center p-4">
-                            <picture><source srcset="../images/anyos-logo.webp?v=83" type="image/webp"><img src="../images/anyos-logo.png?v=83" alt="Anyos" class="h-8 w-auto brand-logo" width="120" height="48" loading="lazy"></picture>
+                            <picture><source srcset="../images/anyos-logo.webp?v=84" type="image/webp"><img src="../images/anyos-logo.png?v=84" alt="Anyos" class="h-8 w-auto brand-logo" width="120" height="48" loading="lazy"></picture>
                         </div>
                     </div>
                 </div>
@@ -910,217 +937,57 @@
         </section>
 
         <!-- Coverage Map -->
-        <section class="py-20 px-6 bg-white">
-            <div class="max-w-7xl mx-auto">
+        <section class="py-20 px-6 section-alt">
+            <div class="max-w-6xl mx-auto">
                 <div class="text-center mb-16 section-appear">
+                    <div class="sec-label mb-4">Abdeckung</div>
                     <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-6">
-                        Deutschlandweite Abdeckung
+                        Wo wir <em>im Einsatz</em> sind
                     </h2>
-                    <p class="text-xl text-gray-600">
-                        Unsere zertifizierten Techniker sind in mehr als 25 strategischen Städten im Einsatz, um schnelle Reaktionszeiten in ganz Frankreich und Belgien zu gewährleisten.
+                    <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                        Techniker, verteilt auf 25+ Städte frankreich-weit und in Belgien. Reaktion innerhalb von 24 Arbeitsstunden.
                     </p>
                 </div>
                 <div class="section-appear">
-                    <div id="map" class="shadow-lg"></div>
+                    <div id="map" class="shadow-lg" role="img" aria-label="Karte der JCSM-Einsatzgebiete für Wartung in Frankreich"></div>
                 </div>
             </div>
         </section>
 
-        <!-- OCPP, Multi-Brand & Monitoring -->
-        <section class="py-20 px-6 bg-white">
-            <div class="max-w-7xl mx-auto">
-                <div class="text-center mb-16 section-appear">
-                    <div class="inline-flex items-center space-x-2 glass-badge rounded-full px-4 py-2 mb-6">
-                        <span class="text-xs font-semibold text-gray-600 uppercase tracking-wide">Technischer Einblick</span>
-                    </div>
-                    <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-6">
-                        OCPP-native Betriebsfuehrung fuer moderne Ladenetzwerke
-                    </h2>
-                    <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                        Wir reparieren nicht nur Ladestationen -- wir sprechen ihre Sprache. Unsere Betriebsplattform basiert auf fundierter OCPP-Expertise und eroeglicht Ferndiagnose, proaktive Warnungen und datengetriebene Wartung.
-                    </p>
-                </div>
-
-                <div class="grid md:grid-cols-2 gap-8 mb-16">
-                    <div class="card-hover bg-white border border-gray-200 rounded-2xl overflow-hidden section-appear">
-                        <div class="p-10">
-                            <div class="w-14 h-14 bg-blue-600 rounded-xl flex items-center justify-center text-white mb-8 icon-pulse-hover">
-                                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
-                            </div>
-                            <h3 class="text-2xl font-bold mb-4">OCPP 2.0.1-Konformitaet</h3>
-                            <p class="text-gray-600 leading-relaxed mb-6">Unser Team ist vollstaendig auf OCPP 1.6 und das neueste OCPP 2.0.1-Protokoll geschult. Wir konfigurieren, diagnostizieren und optimieren die Kommunikation zwischen Ladestation und Backend fuer jede CSMS-Plattform -- fuer reibungslose Transaktionen, intelligente Ladeprofile und ISO 15118 Plug &amp; Charge-Bereitschaft.</p>
-                            <ul class="space-y-3 text-gray-600 text-sm">
-                                <li class="flex items-start">
-                                    <svg class="w-4 h-4 mr-2 text-blue-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                                    <span>Geraetemodell- und Sicherheitsereignis-Reporting (OCPP 2.0.1)</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <svg class="w-4 h-4 mr-2 text-blue-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                                    <span>Konfiguration von Smart Charging-Profilen und Lastverteilung</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <svg class="w-4 h-4 mr-2 text-blue-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                                    <span>Firmware-Updates und Konfigurationsmanagement per Fernzugriff</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <svg class="w-4 h-4 mr-2 text-blue-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                                    <span>Backend-Integrations-Fehlerbehebung (jedes CSMS)</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="card-hover bg-white border border-gray-200 rounded-2xl overflow-hidden section-appear">
-                        <div class="p-10">
-                            <div class="w-14 h-14 bg-blue-600 rounded-xl flex items-center justify-center text-white mb-8 icon-pulse-hover">
-                                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
-                            </div>
-                            <h3 class="text-2xl font-bold mb-4">24/7 OCPP-Echtzeitmonitoring</h3>
-                            <p class="text-gray-600 leading-relaxed mb-6">Unsere Supervisionsplattform ueberwacht OCPP-Heartbeats, Konnektorstatus-Aenderungen und Fehlercodes rund um die Uhr. Wenn eine Ladestation offline geht oder einen Fehler meldet, wissen wir es vor Ihren Nutzern -- und handeln sofort mit Fern-Resets, Konfigurationsanpassungen oder vorab entsandten Teams.</p>
-                            <ul class="space-y-3 text-gray-600 text-sm">
-                                <li class="flex items-start">
-                                    <svg class="w-4 h-4 mr-2 text-blue-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                                    <span>Automatische Alarme bei StatusNotification-Fehlern</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <svg class="w-4 h-4 mr-2 text-blue-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                                    <span>Fern-Reset und Entsperrbefehle vor Technikerentsendung</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <svg class="w-4 h-4 mr-2 text-blue-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                                    <span>40% der Stoerungen werden ohne Vor-Ort-Einsatz behoben</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <svg class="w-4 h-4 mr-2 text-blue-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                                    <span>Monatliche Verfuegbarkeits- und Leistungsberichte</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Multi-Brand Expertise -->
-                <div class="section-appear mb-16">
-                    <h3 class="text-2xl font-bold text-center mb-8">Multi-Marken-Expertise fuer ueber 15 Hersteller</h3>
-                    <p class="text-center text-gray-600 max-w-3xl mx-auto mb-10">Unsere Techniker verfuegen ueber Herstellerzertifizierungen und werden kontinuierlich weitergebildet. Wir warten das gesamte Spektrum an AC- und DC-Hardware -- von 7-kW-Wallboxen bis zu 350-kW-Ultraschnellladern.</p>
-                    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
-                        <div class="bg-gray-50 rounded-xl p-4 border border-gray-100 text-center">
-                            <span class="text-sm font-semibold text-gray-700">ABB</span>
-                            <p class="text-xs text-gray-500 mt-1">Terra AC/DC</p>
-                        </div>
-                        <div class="bg-gray-50 rounded-xl p-4 border border-gray-100 text-center">
-                            <span class="text-sm font-semibold text-gray-700">Alfen</span>
-                            <p class="text-xs text-gray-500 mt-1">Eve Single/Double</p>
-                        </div>
-                        <div class="bg-gray-50 rounded-xl p-4 border border-gray-100 text-center">
-                            <span class="text-sm font-semibold text-gray-700">EVBox</span>
-                            <p class="text-xs text-gray-500 mt-1">Elvi, Troniq</p>
-                        </div>
-                        <div class="bg-gray-50 rounded-xl p-4 border border-gray-100 text-center">
-                            <span class="text-sm font-semibold text-gray-700">Kempower</span>
-                            <p class="text-xs text-gray-500 mt-1">S/C-Series</p>
-                        </div>
-                        <div class="bg-gray-50 rounded-xl p-4 border border-gray-100 text-center">
-                            <span class="text-sm font-semibold text-gray-700">Wallbox</span>
-                            <p class="text-xs text-gray-500 mt-1">Pulsar, Supernova</p>
-                        </div>
-                        <div class="bg-gray-50 rounded-xl p-4 border border-gray-100 text-center">
-                            <span class="text-sm font-semibold text-gray-700">Schneider</span>
-                            <p class="text-xs text-gray-500 mt-1">EVlink Pro</p>
-                        </div>
-                        <div class="bg-gray-50 rounded-xl p-4 border border-gray-100 text-center">
-                            <span class="text-sm font-semibold text-gray-700">Circontrol</span>
-                            <p class="text-xs text-gray-500 mt-1">eNext, Raption</p>
-                        </div>
-                        <div class="bg-gray-50 rounded-xl p-4 border border-gray-100 text-center">
-                            <span class="text-sm font-semibold text-gray-700">DBT-CEV</span>
-                            <p class="text-xs text-gray-500 mt-1">DC-Ladestationen</p>
-                        </div>
-                        <div class="bg-gray-50 rounded-xl p-4 border border-gray-100 text-center">
-                            <span class="text-sm font-semibold text-gray-700">Delta</span>
-                            <p class="text-xs text-gray-500 mt-1">AC Max, DC City</p>
-                        </div>
-                        <div class="bg-gray-50 rounded-xl p-4 border border-gray-100 text-center">
-                            <span class="text-sm font-semibold text-gray-700">Legrand</span>
-                            <p class="text-xs text-gray-500 mt-1">Green'Up</p>
-                        </div>
-                        <div class="bg-gray-50 rounded-xl p-4 border border-gray-100 text-center">
-                            <span class="text-sm font-semibold text-gray-700">Tritium</span>
-                            <p class="text-xs text-gray-500 mt-1">RTM, PKM</p>
-                        </div>
-                        <div class="bg-gray-50 rounded-xl p-4 border border-gray-100 text-center">
-                            <span class="text-sm font-semibold text-gray-700">Autel</span>
-                            <p class="text-xs text-gray-500 mt-1">MaxiCharger</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Europaeische SLA-Standards -->
-                <div class="bg-gray-900 rounded-2xl p-10 section-appear">
-                    <div class="grid md:grid-cols-2 gap-10 items-center">
-                        <div>
-                            <h3 class="text-2xl font-bold mb-4 text-white">SLA-Verpflichtungen auf europaeischem Niveau</h3>
-                            <p class="text-gray-300 leading-relaxed mb-6">Unsere Service Level Agreements sind darauf ausgelegt, die Verfuegbarkeitsanforderungen von AFIR-regulierten Netzwerken und kommerziellen Ladebetreibern zu erfuellen. Jeder KPI ist vertraglich festgelegt, messbar und wird monatlich berichtet.</p>
-                            <ul class="space-y-3">
-                                <li class="flex items-start">
-                                    <svg class="w-5 h-5 mr-3 text-blue-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                                    <span class="text-gray-300">Vor-Ort-Reaktionszeit innerhalb von 24 Arbeitsstunden</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <svg class="w-5 h-5 mr-3 text-blue-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                                    <span class="text-gray-300">Zielverfuegbarkeit ueber 95% pro Ladepunkt</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <svg class="w-5 h-5 mr-3 text-blue-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                                    <span class="text-gray-300">Vorpositionierte Ersatzteile fuer kritische Komponenten</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <svg class="w-5 h-5 mr-3 text-blue-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                                    <span class="text-gray-300">Monatliches Reporting mit Verfuegbarkeit, MTTR und First-Fix-Raten</span>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="grid grid-cols-2 gap-4">
-                            <div class="bg-white/10 rounded-xl p-6 text-center">
-                                <div class="text-3xl font-bold text-white mb-1">24h</div>
-                                <p class="text-xs text-gray-400 uppercase tracking-wide">Reaktionszeit (Werktage)</p>
-                            </div>
-                            <div class="bg-white/10 rounded-xl p-6 text-center">
-                                <div class="text-3xl font-bold text-white mb-1">95%+</div>
-                                <p class="text-xs text-gray-400 uppercase tracking-wide">Verfuegbarkeitsziel</p>
-                            </div>
-                            <div class="bg-white/10 rounded-xl p-6 text-center">
-                                <div class="text-3xl font-bold text-white mb-1">40%</div>
-                                <p class="text-xs text-gray-400 uppercase tracking-wide">Fernloesung</p>
-                            </div>
-                            <div class="bg-white/10 rounded-xl p-6 text-center">
-                                <div class="text-3xl font-bold text-white mb-1">24/7</div>
-                                <p class="text-xs text-gray-400 uppercase tracking-wide">Monitoring</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- Other services -->
-        <section class="py-16 px-6 bg-gray-50">
+        <!-- Weitere Leistungen -->
+        <section class="py-20 px-6">
             <div class="max-w-6xl mx-auto">
-                <h2 class="text-2xl font-bold text-center mb-8">Entdecken Sie unsere weiteren Leistungen</h2>
-                <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                    <a href="/de/projektmanagement" class="card-hover why-card-industrial bg-white rounded-xl p-5 hover:shadow-lg transition-shadow text-center">
-                        <h3 class="font-bold text-sm mb-1">Projektmanagement</h3>
-                        <p class="text-gray-500 text-xs">Koordination und Begleitung Ihrer Ladestationsprojekte</p>
+                <div class="text-center mb-10 section-appear">
+                    <div class="sec-label mb-4">Siehe auch</div>
+                    <h2 class="text-2xl md:text-3xl font-bold">Unsere weiteren Fachgebiete</h2>
+                </div>
+                <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 section-appear grid-stagger">
+                    <a href="/de/projektmanagement" class="card-feature card-lift text-center group">
+                        <div class="w-10 h-10 rounded-lg flex items-center justify-center mx-auto mb-4 transition-colors" style="background:rgba(37,99,235,0.08)">
+                            <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"/></svg>
+                        </div>
+                        <h3 class="font-bold text-sm mb-1 group-hover:text-blue-600 transition-colors">Projektmanagement</h3>
+                        <p class="text-gray-500 text-xs">Koordination und Begleitung Ihrer IRVE-Projekte</p>
                     </a>
-                    <a href="/de/installation-konformitaet" class="card-hover why-card-industrial bg-white rounded-xl p-5 hover:shadow-lg transition-shadow text-center">
-                        <h3 class="font-bold text-sm mb-1">Installation</h3>
+                    <a href="/de/installation-konformitaet" class="card-feature card-lift text-center group">
+                        <div class="w-10 h-10 rounded-lg flex items-center justify-center mx-auto mb-4 transition-colors" style="background:rgba(37,99,235,0.08)">
+                            <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z"/></svg>
+                        </div>
+                        <h3 class="font-bold text-sm mb-1 group-hover:text-blue-600 transition-colors">Installation</h3>
                         <p class="text-gray-500 text-xs">Qualifelec-zertifizierte Installation</p>
                     </a>
-                    <a href="/de/anlagensicherung" class="card-hover why-card-industrial bg-white rounded-xl p-5 hover:shadow-lg transition-shadow text-center">
-                        <h3 class="font-bold text-sm mb-1">Sicherheit</h3>
+                    <a href="/de/anlagensicherung" class="card-feature card-lift text-center group">
+                        <div class="w-10 h-10 rounded-lg flex items-center justify-center mx-auto mb-4 transition-colors" style="background:rgba(37,99,235,0.08)">
+                            <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+                        </div>
+                        <h3 class="font-bold text-sm mb-1 group-hover:text-blue-600 transition-colors">Sicherung</h3>
                         <p class="text-gray-500 text-xs">Anti-Vandalismus-Schutz</p>
                     </a>
-                    <a href="/de/callcenter" class="card-hover why-card-industrial bg-white rounded-xl p-5 hover:shadow-lg transition-shadow text-center">
-                        <h3 class="font-bold text-sm mb-1">Support rund um die Uhr</h3>
+                    <a href="/de/callcenter" class="card-feature card-lift text-center group">
+                        <div class="w-10 h-10 rounded-lg flex items-center justify-center mx-auto mb-4 transition-colors" style="background:rgba(37,99,235,0.08)">
+                            <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+                        </div>
+                        <h3 class="font-bold text-sm mb-1 group-hover:text-blue-600 transition-colors">Support rund um die Uhr</h3>
                         <p class="text-gray-500 text-xs">Hotline und Fernverwaltung</p>
                     </a>
                 </div>
@@ -1128,62 +995,119 @@
         </section>
 
         <!-- FAQ -->
-        <section class="py-20 px-6 bg-white">
+        <section class="py-20 px-6 section-alt" id="faq">
             <div class="max-w-4xl mx-auto">
-                <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-12 text-center">Häufig gestellte Fragen</h2>
-                <div class="space-y-6">
-                    <details class="bg-white rounded-xl p-6 shadow-sm border border-gray-100" open>
-                        <summary class="font-semibold text-lg cursor-pointer">Welche Arten von Ladestationen warten Sie?</summary>
-                        <p class="mt-4 text-gray-600 leading-relaxed">Wir warten alle AC-Ladestationen (3,7 bis 22 kW) und DC-Ladestationen (50 bis 350 kW) führender Marken: ABB, Schneider, EVBox, Alfen, Kempower, Tritium und mehr. Wir warten auch die zugehörigen HV/LV-Transformatoren.</p>
+                <div class="text-center mb-12 section-appear">
+                    <div class="sec-label mb-4">FAQ</div>
+                    <h2 class="text-3xl md:text-4xl font-bold tracking-tight">Häufig gestellte Fragen</h2>
+                </div>
+                <div class="space-y-4 section-appear">
+                    <details class="bg-white card-lift rounded-xl shadow-sm border border-gray-100 overflow-hidden" open>
+                        <summary class="flex items-center justify-between p-6 cursor-pointer font-semibold text-lg hover:bg-gray-50 transition-colors">
+                            <span>Wie schnell sind Sie bei einer Störung vor Ort?</span>
+                            <svg class="w-5 h-5 text-gray-400 flex-shrink-0 ml-4 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                        </summary>
+                        <div class="px-6 pb-6">
+                            <p class="text-gray-600 leading-relaxed">Die Reaktionszeiten sind in Ihrem Vertrag festgelegt (getrennte SLA für städtische und ländliche Gebiete). Dank der OCPP-Überwachung wird ein Teil der Störungen ohne Vor-Ort-Einsatz aus der Ferne behoben. Für Einsätze vor Ort verfügen unsere regionalen Techniker über ausgestattete Werkstattfahrzeuge und Ersatzteile auf Lager.</p>
+                        </div>
                     </details>
-                    <details class="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
-                        <summary class="font-semibold text-lg cursor-pointer">Wie schnell reagieren Sie?</summary>
-                        <p class="mt-4 text-gray-600 leading-relaxed">Unsere Reaktionszeit beträgt innerhalb von 24 Arbeitsstunden. Unser 24/7-Support ermöglicht sofortige Ferndiagnose.</p>
+                    <details class="bg-white card-lift rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+                        <summary class="flex items-center justify-between p-6 cursor-pointer font-semibold text-lg hover:bg-gray-50 transition-colors">
+                            <span>Welche Ladestationsmarken warten Sie?</span>
+                            <svg class="w-5 h-5 text-gray-400 flex-shrink-0 ml-4 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                        </summary>
+                        <div class="px-6 pb-6">
+                            <p class="text-gray-600 leading-relaxed">Wir warten alle Marken des Marktes: ABB, Schneider, EVBox, Alfen, Kempower, Autel, Tritium, Wallbox, Hager, Legrand, DBT-CEV, Circontrol, Delta und viele weitere. Unsere Techniker sind herstellerzertifiziert und haben direkten Zugang zu Originalersatzteilen und herstellereigenen Diagnosewerkzeugen.</p>
+                        </div>
                     </details>
-                    <details class="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
-                        <summary class="font-semibold text-lg cursor-pointer">Bieten Sie präventive Wartung an?</summary>
-                        <p class="mt-4 text-gray-600 leading-relaxed">Ja, unsere Verträge beinhalten geplante präventive Besuche (vierteljährlich oder halbjährlich je nach Vertrag). Wir prüfen Steckverbinder, Stromversorgung, Firmware-Updates und Gerätereinigung.</p>
+                    <details class="bg-white card-lift rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+                        <summary class="flex items-center justify-between p-6 cursor-pointer font-semibold text-lg hover:bg-gray-50 transition-colors">
+                            <span>Wie funktioniert die Fernüberwachung?</span>
+                            <svg class="w-5 h-5 text-gray-400 flex-shrink-0 ml-4 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                        </summary>
+                        <div class="px-6 pb-6">
+                            <p class="text-gray-600 leading-relaxed">Unsere Überwachungsplattform nutzt das OCPP-Protokoll, um in Echtzeit die Daten jeder Ladestation zu erfassen: Ladezustand, Fehlercodes, Energieverbrauch und Verfügbarkeit. Automatische Warnungen lösen eine sofortige Diagnose aus. Techniker können eine Ladestation neu starten, die Firmware aktualisieren oder die Konfiguration anpassen, ohne anreisen zu müssen.</p>
+                        </div>
                     </details>
-                    <details class="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
-                        <summary class="font-semibold text-lg cursor-pointer">Sind Sie auch in Belgien tätig?</summary>
-                        <p class="mt-4 text-gray-600 leading-relaxed">Ja, wir decken das französische Festland und Belgien (Brüssel, Wallonien, Flandern) ab. Unsere Teams sind flächendeckend im Einsatz, um schnelle Reaktionszeiten zu gewährleisten.</p>
+                    <details class="bg-white card-lift rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+                        <summary class="flex items-center justify-between p-6 cursor-pointer font-semibold text-lg hover:bg-gray-50 transition-colors">
+                            <span>Worin besteht der Unterschied zwischen präventiver und korrektiver Wartung?</span>
+                            <svg class="w-5 h-5 text-gray-400 flex-shrink-0 ml-4 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                        </summary>
+                        <div class="px-6 pb-6">
+                            <p class="text-gray-600 leading-relaxed">Die präventive Wartung beugt Störungen durch geplante Besuche (vierteljährlich oder halbjährlich) vor: Steckverbinderinspektion, Isolationsmessung, Drehmomentprüfung, Test der FI-Schutzschalter, Firmware-Update und Infrarot-Thermografie. Die korrektive Wartung greift nach einem Ausfall ein, um den Betrieb wiederherzustellen. Kunden mit regelmäßiger präventiver Wartung verzeichnen 60 % weniger Störungen und eine verlängerte Lebensdauer ihrer Geräte.</p>
+                        </div>
+                    </details>
+                    <details class="bg-white card-lift rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+                        <summary class="flex items-center justify-between p-6 cursor-pointer font-semibold text-lg hover:bg-gray-50 transition-colors">
+                            <span>Bieten Sie an Ihren Bestand angepasste Wartungsverträge an?</span>
+                            <svg class="w-5 h-5 text-gray-400 flex-shrink-0 ml-4 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                        </summary>
+                        <div class="px-6 pb-6">
+                            <p class="text-gray-600 leading-relaxed">Jeder Vertrag wird an die Konfiguration des Bestands angepasst: Anzahl der Ladestationen, Leistungen (AC und/oder DC), geografische Verteilung der Standorte und Kritikalitätsgrad. Wir definieren gemeinsam die SLA, die Häufigkeit der präventiven Besuche, den Einsatzumfang (Ladestationen, Kabel, Hauptverteilung, HV/LV-Transformatoren) und die Reporting-Modalitäten. Ein dedizierter Ansprechpartner koordiniert sämtliche Abläufe.</p>
+                        </div>
                     </details>
                 </div>
             </div>
         </section>
 
         <!-- CTA -->
-        <section class="py-20 px-6 bg-gray-50">
-            <div class="max-w-4xl mx-auto text-center section-appear">
-                <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-6">
-                    Setzen Sie noch heute auf operative Exzellenz
-                </h2>
-                <p class="text-xl text-gray-600 mb-10 leading-relaxed max-w-3xl mx-auto">
-                    Unsere maßgeschneiderten Verträge garantieren die Verfügbarkeit, Leistung und Rentabilität Ihrer Ladeinfrastruktur. Lassen Sie uns Ihre Ziele besprechen.
-                </p>
-                <a href="/de/kontakt"
-                    class="btn-primary px-10 py-5 rounded-xl font-medium text-lg inline-block transition-transform">
-                    Individuelles Audit anfordern
-                </a>
+        <section class="py-20 px-6">
+            <div class="max-w-4xl mx-auto section-appear">
+                <div class="card-cta px-8 py-14 sm:px-12 sm:py-16">
+                    <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-6" style="color:#fff">
+                        Bereit, Ihre Ladestationen einem zertifizierten IRVE-Dienstleister anzuvertrauen?
+                    </h2>
+                    <p class="text-lg mb-10 leading-relaxed max-w-2xl mx-auto" style="color:rgba(255,255,255,0.85)">
+                        Senden Sie uns die Anzahl der Ladestationen, die Marken, die Standorte. Reaktion innerhalb von 24 Arbeitsstunden mit einem beziffertem Angebot.
+                    </p>
+                    <div class="flex flex-wrap gap-4 justify-center">
+                        <a href="/de/kontakt"
+                            class="inline-flex items-center gap-2 bg-white text-blue-600 px-8 py-4 rounded-full font-semibold text-base hover:bg-gray-100 transition-colors">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg>
+                            Audit anfordern
+                        </a>
+                        <a href="tel:+33183755706"
+                            class="inline-flex items-center gap-2 border-2 border-white/40 text-white px-8 py-4 rounded-full font-semibold text-base hover:bg-white/10 transition-colors">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+                            +33 1 83 75 57 06
+                        </a>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <!-- Blog articles -->
-        <section class="py-16 bg-white">
+        <!-- Blog-Artikel -->
+        <section class="py-20 section-alt">
             <div class="max-w-5xl mx-auto px-6">
-                <h2 class="text-2xl font-bold text-center mb-8">Verwandte Artikel</h2>
-                <div class="grid md:grid-cols-3 gap-6">
-                    <a href="/blog/maintenance-bornes-recharge-guide" class="bg-white rounded-xl p-6 border border-gray-100 hover:shadow-lg transition-all hover:-translate-y-1 group">
-                        <span class="text-xs font-semibold text-blue-600 uppercase tracking-wider">Wartung</span>
-                        <h3 class="font-semibold text-gray-900 mt-2 group-hover:text-blue-600 transition-colors">Wartung von Ladestationen: warum, wann und wie?</h3>
+                <div class="text-center mb-10 section-appear">
+                    <div class="sec-label mb-4">Ressourcen</div>
+                    <h2 class="text-2xl md:text-3xl font-bold">Ebenfalls lesenswert</h2>
+                </div>
+                <div class="grid sm:grid-cols-3 gap-6 grid-stagger">
+                    <a href="/blog/maintenance-bornes-recharge-guide" class="card-feature card-lift group section-appear">
+                        <div class="w-10 h-10 rounded-lg flex items-center justify-center mb-4 transition-colors" style="background:rgba(37,99,235,0.08)">
+                            <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+                        </div>
+                        <h3 class="font-bold text-gray-900 group-hover:text-blue-600 transition-colors mb-2">Wartung von Ladestationen: vollständiger Leitfaden</h3>
+                        <p class="text-sm text-gray-600 mb-3">Warum, wann und wie Sie Ihre IRVE-Ladestationen warten, um ihre Verfügbarkeit zu sichern und ihre Lebensdauer zu verlängern.</p>
+                        <span class="text-sm font-semibold text-blue-600 inline-flex items-center gap-1">Lesen <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg></span>
                     </a>
-                    <a href="/blog/record-recharge-ete-2025" class="bg-white rounded-xl p-6 border border-gray-100 hover:shadow-lg transition-all hover:-translate-y-1 group">
-                        <span class="text-xs font-semibold text-blue-600 uppercase tracking-wider">Markt</span>
-                        <h3 class="font-semibold text-gray-900 mt-2 group-hover:text-blue-600 transition-colors">Sommer 2025: Rekordnutzung von Ladestationen in Frankreich</h3>
+                    <a href="/blog/maintenance-preventive-vs-curative-irve" class="card-feature card-lift group section-appear">
+                        <div class="w-10 h-10 rounded-lg flex items-center justify-center mb-4 transition-colors" style="background:rgba(37,99,235,0.08)">
+                            <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3"/></svg>
+                        </div>
+                        <h3 class="font-bold text-gray-900 group-hover:text-blue-600 transition-colors mb-2">Präventive vs. korrektive IRVE-Wartung</h3>
+                        <p class="text-sm text-gray-600 mb-3">Vergleich der beiden Wartungsansätze für Ihre Ladestationen: Vorteile, Kosten und optimale Strategie.</p>
+                        <span class="text-sm font-semibold text-blue-600 inline-flex items-center gap-1">Lesen <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg></span>
                     </a>
-                    <a href="/blog/recharge-poids-lourds-france-afir" class="bg-white rounded-xl p-6 border border-gray-100 hover:shadow-lg transition-all hover:-translate-y-1 group">
-                        <span class="text-xs font-semibold text-blue-600 uppercase tracking-wider">Infrastruktur</span>
-                        <h3 class="font-semibold text-gray-900 mt-2 group-hover:text-blue-600 transition-colors">Laden von Elektro-Schwerlastfahrzeugen: Wo steht Frankreich?</h3>
+                    <a href="/blog/taux-disponibilite-bornes-irve" class="card-feature card-lift group section-appear">
+                        <div class="w-10 h-10 rounded-lg flex items-center justify-center mb-4 transition-colors" style="background:rgba(37,99,235,0.08)">
+                            <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+                        </div>
+                        <h3 class="font-bold text-gray-900 group-hover:text-blue-600 transition-colors mb-2">Verfügbarkeitsrate von IRVE-Ladestationen</h3>
+                        <p class="text-sm text-gray-600 mb-3">Wie Sie über Ihren gesamten Ladestationsbestand eine Verfügbarkeitsrate von über 95 % erreichen und halten.</p>
+                        <span class="text-sm font-semibold text-blue-600 inline-flex items-center gap-1">Lesen <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg></span>
                     </a>
                 </div>
             </div>
@@ -1195,23 +1119,23 @@
             <div class="grid md:grid-cols-4 gap-10 mb-12">
                 <div>
                     <div class="flex items-center space-x-3 mb-4">
-                        <picture><source srcset="../images/logo.webp" type="image/webp"><img src="../images/logo.png" alt="JCSM Logo" class="w-8 h-8" width="32" height="32" loading="lazy"></picture>
+                        <picture><source srcset="../images/logo.webp" type="image/webp"><img src="../images/logo.png" alt="JCSM Logo" class="w-8 h-8" width="32" height="32" loading="lazy" decoding="async"></picture>
                         <span class="text-xl font-semibold text-gray-900">JCSM</span>
                     </div>
-                    <p class="text-sm text-gray-600 mb-4">Ihr Ladeinfrastruktur-Partner seit 2019 - Installation, Betrieb und Wartung in Frankreich und Belgien.</p>
-                    <p class="text-sm text-gray-500">60 rue Francois 1er<br>75008 Paris</p>
-                    <p class="text-sm text-gray-500 mt-3"><a href="tel:+33183755706" class="hover:text-gray-900 transition-colors">+33 1 83 75 57 06</a></p>
-                    <p class="text-sm text-gray-500"><a href="mailto:contact@jcsm.fr" class="hover:text-gray-900 transition-colors">contact@jcsm.fr</a></p>
+                    <p class="text-sm text-gray-600 mb-4">IRVE-Erfahrung seit 2019. Installation, Wartung und Steuerung in Frankreich und Belgien. Inklusives Unternehmen.</p>
+                    <p class="text-sm text-gray-500">60 rue François 1er<br>75008 Paris</p>
+                    <p class="text-sm text-gray-500 mt-3"><a href="tel:+33183755706" title="JCSM anrufen" class="hover:text-gray-900 transition-colors">+33 1 83 75 57 06</a></p>
+                    <p class="text-sm text-gray-500"><a href="mailto:contact@jcsm.fr" title="E-Mail an JCSM senden" class="hover:text-gray-900 transition-colors">contact@jcsm.fr</a></p>
                 </div>
                 <div>
                     <h3 class="text-sm font-semibold text-gray-900 mb-4 uppercase tracking-wide">Dienstleistungen</h3>
                     <nav aria-label="Dienstleistungen">
                         <ul class="space-y-3">
-                            <li><a href="/de/projektmanagement" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Projektmanagement</a></li>
-                            <li><a href="/de/installation-konformitaet" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Installation & Konformität</a></li>
-                            <li><a href="/de/betrieb-wartung" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Betrieb & Wartung</a></li>
-                            <li><a href="/de/anlagensicherung" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Sicherung</a></li>
-                            <li><a href="/de/callcenter" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Support rund um die Uhr</a></li>
+                            <li><a href="/de/projektmanagement" title="Unseren Projektmanagement-Service ansehen" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Projektmanagement</a></li>
+                            <li><a href="/de/installation-konformitaet" title="Unseren Installations- und Konformitätsservice ansehen" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Installation & Konformität</a></li>
+                            <li><a href="/de/betrieb-wartung" title="Unseren Betriebs- und Wartungsservice ansehen" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Betrieb & Wartung</a></li>
+                            <li><a href="/de/anlagensicherung" title="Unseren Sicherungsservice ansehen" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Sicherung</a></li>
+                            <li><a href="/de/callcenter" title="Unseren technischen Support rund um die Uhr ansehen" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Support rund um die Uhr</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -1231,36 +1155,46 @@
                     <h3 class="text-sm font-semibold text-gray-900 mb-4 uppercase tracking-wide">Rechtliches</h3>
                     <nav aria-label="Rechtliches">
                         <ul class="space-y-3">
-                            <li><a href="/mentions-legales" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Impressum</a></li>
-                            <li><a href="/confidentialite" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Datenschutz</a></li>
-                            <li><a href="/cgv" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">AGB</a></li>
+                            <li><a href="/mentions-legales" title="Unser Impressum ansehen" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Impressum</a></li>
+                            <li><a href="/confidentialite" title="Unsere Datenschutzerklärung ansehen" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Datenschutz</a></li>
+                            <li><a href="/cgv" title="Unsere allgemeinen Geschäftsbedingungen ansehen" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">AGB</a></li>
                         </ul>
                     </nav>
                     <h3 class="text-sm font-semibold text-gray-900 mb-4 uppercase tracking-wide mt-6">Regionen</h3>
                     <nav aria-label="Regionen">
                         <ul class="space-y-3">
-                            <li><a href="/zones/france" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Frankreich</a></li>
-                            <li><a href="/zones/belgique" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Belgien</a></li>
+                            <li><a href="/zones/france" title="Unsere Einsatzgebiete in Frankreich ansehen" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Frankreich</a></li>
+                            <li><a href="/zones/belgique" title="Unsere Einsatzgebiete in Belgien ansehen" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Belgien</a></li>
                         </ul>
                     </nav>
                     <div class="flex items-center gap-3 mt-4">
-                        <a href="https://www.linkedin.com/company/jcsm-elec/" target="_blank" rel="noopener noreferrer me" class="text-gray-500 hover:text-gray-900 transition-colors" aria-label="LinkedIn"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
-                        <a href="https://www.facebook.com/profile.php?id=61587992161634" target="_blank" rel="noopener noreferrer me" class="text-gray-500 hover:text-gray-900 transition-colors" aria-label="Facebook"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
-                        <a href="https://x.com/JCSM_ELEC" target="_blank" rel="noopener noreferrer me" class="text-gray-500 hover:text-gray-900 transition-colors" aria-label="X (Twitter)"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
-                        <a href="https://www.instagram.com/jcsm.elec/" target="_blank" rel="noopener noreferrer me" class="text-gray-500 hover:text-gray-900 transition-colors" aria-label="Instagram"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
-                        <a href="https://www.youtube.com/@JCSM_ELEC" target="_blank" rel="noopener noreferrer me" class="text-gray-500 hover:text-gray-900 transition-colors" aria-label="YouTube"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+                        <a href="https://www.linkedin.com/company/jcsm-elec/" target="_blank" rel="noopener noreferrer me" title="JCSM auf LinkedIn folgen (neuer Tab)" aria-label="LinkedIn" class="text-gray-500 hover:text-gray-900 transition-colors">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                        </a>
+                        <a href="https://www.facebook.com/profile.php?id=61587992161634" target="_blank" rel="noopener noreferrer me" title="JCSM auf Facebook folgen (neuer Tab)" aria-label="Facebook" class="text-gray-500 hover:text-gray-900 transition-colors">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                        </a>
+                        <a href="https://x.com/JCSM_ELEC" target="_blank" rel="noopener noreferrer me" title="JCSM auf X folgen (neuer Tab)" aria-label="X (Twitter)" class="text-gray-500 hover:text-gray-900 transition-colors">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                        </a>
+                        <a href="https://www.instagram.com/jcsm.elec/" target="_blank" rel="noopener noreferrer me" title="JCSM auf Instagram folgen (neuer Tab)" aria-label="Instagram" class="text-gray-500 hover:text-gray-900 transition-colors">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+                        </a>
+                        <a href="https://www.youtube.com/@JCSM_ELEC" target="_blank" rel="noopener noreferrer me" title="JCSM auf YouTube folgen (neuer Tab)" aria-label="YouTube" class="text-gray-500 hover:text-gray-900 transition-colors">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                        </a>
                     </div>
                 </div>
             </div>
             <div class="pt-8 border-t border-gray-100 flex flex-col md:flex-row md:items-center md:justify-between gap-4 text-xs text-gray-500">
-                <span>&copy; 2026 JCSM SAS &mdash; SIRET 99387429600011</span>
-                <a href="mailto:contact@jcsm.fr" class="hover:text-gray-900 transition-colors">contact@jcsm.fr</a> &middot; <a href="tel:+33183755706" class="hover:text-gray-900 transition-colors">+33 1 83 75 57 06</a>
+                <span>&copy; 2026 JCSM SAS - SIRET 99387429600011</span>
+                <span><a href="mailto:contact@jcsm.fr" title="E-Mail an JCSM senden" class="hover:text-gray-900 transition-colors">contact@jcsm.fr</a> · <a href="tel:+33183755706" title="JCSM anrufen" class="hover:text-gray-900 transition-colors">+33 1 83 75 57 06</a></span>
             </div>
         </div>
     </footer>
 
     <button class="scroll-top" id="scrollTop" aria-label="Zurück nach oben">
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
         </svg>
     </button>
@@ -1272,7 +1206,6 @@
         #map .leaflet-control-attribution a { color: #0078A8; text-decoration: underline; }
         #map .leaflet-control-zoom a { color: #333; background: #fff; text-decoration: none; }
         #map .leaflet-div-icon { background: transparent; border: none; }
-        #map { height: 550px; width: 100%; border-radius: 1rem; z-index: 1; }
         #map .leaflet-interactive { cursor: pointer; }
         #map .leaflet-popup-content-wrapper { border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); padding: 0; }
         #map .leaflet-popup-content { margin: 0; min-width: 180px; }
@@ -1282,15 +1215,15 @@
         .popup-content .popup-badge { display: inline-block; margin-top: 6px; padding: 2px 8px; background: #EFF6FF; color: #2563EB; border-radius: 8px; font-size: 10px; font-weight: 600; }
     </style>
 
-    <script src="../js/config.js?v=83" defer></script>
-    <script src="../js/utils.js?v=83" defer></script>
-    <script src="../js/i18n.js?v=83" defer></script>
-    <script src="../js/public.js?v=83" defer></script>
-    <script src="../js/analytics.js?v=83" defer></script>
-    <script src="../js/wow-effects.js?v=83" defer></script>
+    <script src="../js/config.js?v=84" defer></script>
+    <script src="../js/utils.js?v=84" defer></script>
+    <script src="../js/i18n.js?v=84" defer></script>
+    <script src="../js/public.js?v=84" defer></script>
+    <script src="../js/analytics.js?v=84" defer></script>
+    <script src="../js/wow-effects.js?v=84" defer></script>
 
     <script>
-        // JCSM nationwide coverage map
+        // JCSM landesweite Abdeckungskarte
         document.addEventListener('DOMContentLoaded', function () {
             const mapContainer = document.getElementById('map');
             if (!mapContainer || typeof L === 'undefined') return;
@@ -1302,14 +1235,14 @@
                 }).setView([47.5, 2.5], 6);
 
                 L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
-                    attribution: '&copy; OpenStreetMap &copy; CARTO',
+                    attribution: '© OpenStreetMap © CARTO',
                     subdomains: 'abcd',
                     maxZoom: 19
                 }).addTo(map);
 
                 L.control.zoom({ position: 'bottomright' }).addTo(map);
 
-                // Strategic coverage cities
+                // Strategische Städte der Abdeckung
                 const cities = [
                     { name: 'Paris', lat: 48.8566, lng: 2.3522 },
                     { name: 'Lyon', lat: 45.7640, lng: 4.8357 },
@@ -1327,20 +1260,20 @@
                     { name: 'Grenoble', lat: 45.1885, lng: 5.7245 },
                     { name: 'Dijon', lat: 47.3220, lng: 5.0415 },
                     { name: 'Angers', lat: 47.4784, lng: -0.5632 },
-                    { name: 'Nimes', lat: 43.8367, lng: 4.3601 },
+                    { name: 'Nîmes', lat: 43.8367, lng: 4.3601 },
                     { name: 'Clermont-Ferrand', lat: 45.7772, lng: 3.0870 },
                     { name: 'Tours', lat: 47.3941, lng: 0.6848 },
                     { name: 'Metz', lat: 49.1193, lng: 6.1757 },
                     { name: 'Perpignan', lat: 42.6986, lng: 2.8956 },
-                    { name: 'Orleans', lat: 47.9029, lng: 1.9039 },
+                    { name: 'Orléans', lat: 47.9029, lng: 1.9039 },
                     { name: 'Rouen', lat: 49.4432, lng: 1.0999 },
                     { name: 'Caen', lat: 49.1829, lng: -0.3707 },
                     { name: 'Nancy', lat: 48.6921, lng: 6.1844 },
                     { name: 'Avignon', lat: 43.9493, lng: 4.8055 },
                     { name: 'Brest', lat: 48.3904, lng: -4.4861 },
                     { name: 'Quimper', lat: 47.9960, lng: -4.1024 },
-                    { name: 'Liege', lat: 50.6326, lng: 5.5797 },
-                    { name: 'Brussels', lat: 50.8503, lng: 4.3517 }
+                    { name: 'Lüttich', lat: 50.6326, lng: 5.5797 },
+                    { name: 'Brüssel', lat: 50.8503, lng: 4.3517 }
                 ];
 
                 cities.forEach(city => {
@@ -1378,6 +1311,31 @@
         });
     </script>
 
+    <script>
+        (function(){
+            if ('IntersectionObserver' in window) {
+                var io = new IntersectionObserver(function(entries){
+                    entries.forEach(function(e){
+                        if(e.isIntersecting){
+                            e.target.classList.add('visible','revealed');
+                            io.unobserve(e.target);
+                        }
+                    });
+                }, {threshold: 0.12, rootMargin: '0px 0px -40px 0px'});
+                document.querySelectorAll('.section-appear').forEach(function(el){ io.observe(el); });
+                document.querySelectorAll('.grid-stagger').forEach(function(el){ io.observe(el); });
+            } else {
+                document.documentElement.classList.add('animations-disabled');
+            }
+            setTimeout(function(){
+                document.querySelectorAll('.section-appear:not(.visible)').forEach(function(el){
+                    el.style.opacity='1';
+                    el.style.transform='none';
+                    el.classList.add('visible','revealed');
+                });
+            }, 3500);
+        })();
+    </script>
     <!-- Service Worker Registration -->
     <script>
         if ('serviceWorker' in navigator) {

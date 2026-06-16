@@ -3,6 +3,8 @@
 
 <head>
 <link rel="preload" as="font" type="font/woff2" href="/fonts/fraunces-600-latin.woff2" crossorigin>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <!-- Cookie Consent + GTM (geladen na acceptatie) -->
@@ -87,6 +89,22 @@
         ]
     }
     </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "HowTo",
+        "name": "Hoe IRVE-laadpalen installeren",
+        "description": "De belangrijkste stappen voor een geslaagde IRVE-uitrol, van de eerste audit tot de inbedrijfstelling.",
+        "totalTime": "P30D",
+        "step": [
+            {"@type": "HowToStep", "position": 1, "name": "Technische audit", "text": "Analyse van de locatie, elektrische haalbaarheidsstudie en dimensionering van het beschikbare vermogen."},
+            {"@type": "HowToStep", "position": 2, "name": "Ontwerp", "text": "Dimensionering van de installatie, keuze van AC/DC-apparatuur en planning van de civieltechnische werken."},
+            {"@type": "HowToStep", "position": 3, "name": "Installatie", "text": "Plaatsing van de laadpalen, elektrische aansluiting, kabeltrek en aanbrengen van beveiligingen."},
+            {"@type": "HowToStep", "position": 4, "name": "Conformiteitscontrole", "text": "Consuel-controle, NF C 15-100-verificatie en afgifte van het conformiteitsattest."},
+            {"@type": "HowToStep", "position": 5, "name": "Inbedrijfstelling", "text": "OCPP-configuratie, instellen van het supervisiesysteem, laadtests en gebruikersopleiding."}
+        ]
+    }
+    </script>
     <link rel="canonical" href="https://jcsm.fr/nl/installatie-conformiteit">
     <link rel="alternate" hreflang="fr" href="https://jcsm.fr/installation-conformite">
     <link rel="alternate" hreflang="en" href="https://jcsm.fr/en/installation-compliance">
@@ -118,17 +136,15 @@
         content="Installatie van laadpalen voor particulieren en bedrijven. IRVE Qualifelec gecertificeerd. Gratis offerte.">
     <meta name="twitter:image" content="https://jcsm.fr/images/installation.jpeg">
     <meta name="twitter:image:alt" content="Professionele installatie van IRVE-laadpalen door JCSM">
-    <link rel="stylesheet" href="../css/critical.css?v=83">
-    <link rel="stylesheet" href="../css/tailwind.css?v=83" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="../css/tailwind.css?v=83"></noscript>
-    <link rel="stylesheet" href="../styles.css?v=83" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="../styles.css?v=83"></noscript>
+    <link rel="stylesheet" href="../css/critical.css?v=84">
+    <link rel="stylesheet" href="../css/tailwind.css?v=84" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="../css/tailwind.css?v=84"></noscript>
+    <link rel="stylesheet" href="../styles.css?v=84" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="../styles.css?v=84"></noscript>
     <link rel="manifest" href="../manifest.json">
-    <link rel="icon" type="image/x-icon" href="/favicon.ico">
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
     <meta name="apple-mobile-web-app-capable" content="yes">
-
-
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="theme-color" content="#2563EB">
 
 </head>
 
@@ -154,44 +170,42 @@
                 </button>
             </div>
                         <div class="flex flex-col space-y-6">
-                <a href="/nl/" class="text-base text-gray-600 hover:text-gray-900 transition-colors">Home</a>
-                <a href="/nl/projectbeheer" class="text-base text-gray-600 hover:text-gray-900 transition-colors">Projectbeheer</a>
-                <a href="/nl/installatie-conformiteit" class="text-base text-gray-600 hover:text-gray-900 transition-colors">Installatie</a>
-                <a href="/nl/exploitatie-onderhoud" class="text-base text-gray-600 hover:text-gray-900 transition-colors">Exploitatie</a>
-                <a href="/nl/beveiliging-installaties" class="text-base text-gray-600 hover:text-gray-900 transition-colors">Beveiliging</a>
-                <a href="/nl/callcenter" class="text-base text-gray-600 hover:text-gray-900 transition-colors">Support</a>
-                <a href="/nl/over-ons" class="text-base text-gray-600 hover:text-gray-900 transition-colors">Over ons</a>
+                <a href="/nl/" class="text-base text-gray-600 hover:text-gray-900 transition-colors py-2">Home</a>
+                <a href="/nl/projectbeheer" class="text-base text-gray-600 hover:text-gray-900 transition-colors py-2">Projectbeheer</a>
+                <a href="/nl/installatie-conformiteit" class="text-base text-gray-600 hover:text-gray-900 transition-colors py-2" aria-current="page">Installatie</a>
+                <a href="/nl/exploitatie-onderhoud" class="text-base text-gray-600 hover:text-gray-900 transition-colors py-2">Exploitatie</a>
+                <a href="/nl/beveiliging-installaties" class="text-base text-gray-600 hover:text-gray-900 transition-colors py-2">Beveiliging</a>
+                <a href="/nl/callcenter" class="text-base text-gray-600 hover:text-gray-900 transition-colors py-2">Support</a>
+                <a href="/nl/over-ons" class="text-base text-gray-600 hover:text-gray-900 transition-colors py-2">Over ons</a>
                 <div class="lang-selector relative"></div>
-                <a href="/nl/contact" class="btn-primary px-6 py-3 rounded-lg text-base font-medium inline-block text-center mt-4">Gratis offerte</a>
+                <a href="/nl/contact" class="btn-primary px-6 py-3 rounded-lg text-base font-medium inline-block text-center mt-4 text-white">Gratis offerte</a>
             </div>
         </div>
     </nav>
 
     <!-- Scroll voortgangsbalk -->
-    <div id="scroll-progress"
-        class="fixed top-0 left-0 h-1 bg-blue-600 z-[60] transition-all duration-150"
-        style="width: 0%;"></div>
+    <div id="scroll-progress" class="fixed top-0 left-0 h-1 bg-blue-600 z-[60] transition-all duration-150" style="width: 0%;" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Leesvoortgang"></div>
 
-    <nav class="fixed top-0 w-full z-50 glass-nav" role="navigation" aria-label="Hoofdnavigatie">
+    <nav class="fixed top-0 w-full z-50 glass-nav border-b border-gray-200" role="navigation" aria-label="Hoofdnavigatie">
         <div class="max-w-7xl mx-auto px-6 py-4">
             <div class="flex justify-between items-center">
-                <a href="/nl/" class="flex items-center space-x-3 group">
-                    <picture><source srcset="../images/logo.webp" type="image/webp"><img src="../images/logo.png" alt="JCSM" class="w-9 h-9 transition-transform group-hover:scale-105 duration-300" width="36" height="36"></picture>
-                    <span class="text-xl font-bold tracking-tight">JCSM</span>
+                <a href="/nl/" class="flex items-center space-x-3 group mr-10">
+                    <picture><source srcset="../images/logo.webp" type="image/webp"><img src="../images/logo.png" alt="JCSM - Home" class="w-10 h-10 transition-transform group-hover:scale-105 duration-300" width="40" height="40"></picture>
+                    <span class="text-2xl font-extrabold tracking-tight text-gray-900">JCSM</span>
                 </a>
-                <div class="hidden lg:flex items-center space-x-10">
-                    <a href="/nl/" class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300">Home</a>
-                    <a href="/nl/projectbeheer" class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300">Projectbeheer</a>
-                    <a href="/nl/installatie-conformiteit" class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300">Installatie</a>
-                    <a href="/nl/exploitatie-onderhoud" class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300">Exploitatie</a>
-                    <a href="/nl/beveiliging-installaties" class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300">Beveiliging</a>
-                    <a href="/nl/callcenter" class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300">Support</a>
-                    <a href="/nl/over-ons" class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300">Over ons</a>
+                <div class="hidden lg:flex items-center space-x-2">
+                    <a href="/nl/" class="nav-link text-[15px] font-semibold text-gray-700 whitespace-nowrap">Home</a>
+                    <a href="/nl/projectbeheer" class="nav-link text-[15px] font-semibold text-gray-700 whitespace-nowrap">Projectbeheer</a>
+                    <a href="/nl/installatie-conformiteit" class="nav-link nav-link-active text-[15px] font-semibold text-gray-700 whitespace-nowrap">Installatie</a>
+                    <a href="/nl/exploitatie-onderhoud" class="nav-link text-[15px] font-semibold text-gray-700 whitespace-nowrap">Exploitatie</a>
+                    <a href="/nl/beveiliging-installaties" class="nav-link text-[15px] font-semibold text-gray-700 whitespace-nowrap">Beveiliging</a>
+                    <a href="/nl/callcenter" class="nav-link text-[15px] font-semibold text-gray-700 whitespace-nowrap">Support</a>
+                    <a href="/nl/over-ons" class="nav-link text-[15px] font-semibold text-gray-700 whitespace-nowrap">Over ons</a>
                     <div class="lang-selector relative"></div>
-                    <a href="/nl/contact" class="btn-primary px-7 py-2.5 rounded-xl text-base font-medium shadow-lg hover:shadow-xl">Contact</a>
+                    <a href="/nl/contact" class="btn-primary ml-5 px-8 py-3 rounded-xl text-[15px] font-semibold text-white shadow-lg hover:shadow-xl whitespace-nowrap">Gratis offerte</a>
                 </div>
-                <button class="mobile-menu-btn text-gray-600 hover:text-gray-900" id="mobile-menu-btn" aria-label="Navigatiemenu openen" aria-expanded="false" aria-controls="mobile-menu">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <button class="mobile-menu-btn text-gray-700 hover:text-gray-900" id="mobile-menu-btn" aria-label="Navigatiemenu openen" aria-expanded="false" aria-controls="mobile-menu">
+                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                     </svg>
                 </button>
@@ -199,30 +213,31 @@
         </div>
     </nav>
 
-    <!-- Subtiele achtergronddeeltjes -->
-
     <main id="main-content" tabindex="-1" role="main">
+        <nav aria-label="Kruimelpad" class="max-w-6xl mx-auto px-4 sm:px-6 pt-24 pb-0">
+            <ol class="flex items-center gap-2 text-sm text-gray-500">
+                <li><a href="/nl/" class="hover:text-blue-600 transition-colors">Home</a></li>
+                <li><span class="text-gray-300">/</span></li>
+                <li class="text-gray-600 font-medium">Installatie &amp; Conformiteit</li>
+            </ol>
+        </nav>
         <!-- Hero -->
-        <section class="pt-8 pb-6 px-4 sm:px-6 min-h-[calc(100vh-5rem)] flex items-center">
-            <div class="max-w-7xl mx-auto w-full">
+        <section class="pt-[calc(5rem+0.75rem)] pb-6 px-4 sm:px-6 min-h-[60vh] flex items-center">
+            <div class="max-w-6xl mx-auto w-full">
                 <div class="grid lg:grid-cols-2 gap-5 sm:gap-7 lg:gap-10 items-center">
                     <div class="space-y-4 sm:space-y-5 md:space-y-6 order-1 lg:order-1">
-                        <div
-                            class="inline-flex items-center space-x-2 glass-badge badge-section rounded-full px-3 py-1.5 sm:px-4 sm:py-2 section-appear">
-                            <span
-                                class="text-[10px] sm:text-xs font-semibold text-gray-600 uppercase tracking-wide">Installatie & Conformiteit</span>
-                        </div>
+                        <div class="sec-label section-appear">Installatie & Conformiteit</div>
                         <h1
                             class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight tracking-tight section-appear">
-                            De <span class="gradient-text">gecertificeerde</span> expertise die uw laadpalen beveiligt
+                            IRVE-installatie: <em>vanaf dag één conform. Zonder uitzondering.</em>
                         </h1>
                         <p class="text-sm sm:text-base md:text-lg text-gray-600 leading-snug section-appear">
-                            Hoogwaardige installatie en conformiteitscontrole van uw laadinfrastructuur.
-                            Betrouwbaarheid gegarandeerd volgens de normen NF C 15-100 en UTE C15-722.
+                            Conforme en duurzame installatie en conformiteitscontrole van uw laadinfrastructuur.
+                            Conform de normen NF C 15-100 en UTE C15-722.
                         </p>
                         <div class="flex flex-wrap gap-2 sm:gap-3 section-appear">
                             <a href="#services"
-                                class="btn-primary px-4 py-2 sm:px-6 sm:py-3 rounded-xl font-medium text-xs sm:text-sm">
+                                class="btn-primary px-4 py-2 sm:px-6 sm:py-3 rounded-xl font-medium text-xs sm:text-sm text-white">
                                 Zakelijk
                             </a>
                             <a href="#particuliers"
@@ -248,62 +263,77 @@
 
         <!-- Zakelijk -->
         <section id="services" class="py-20 px-6 bg-white">
-            <div class="max-w-7xl mx-auto">
+            <div class="max-w-6xl mx-auto">
                 <div class="text-center mb-16 section-appear">
+                    <span class="sec-label mb-4 inline-block">Zakelijk & Bedrijven</span>
                     <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-6">
-                        Zakelijk & Bedrijven
+                        Vermogen <em>afgestemd</em> op uw behoeften
                     </h2>
                     <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                        Parkeergarages, laadstations, bedrijfswagenparken, VvE's: wij implementeren turnkey IRVE-infrastructuren, van technische studie tot inbedrijfstelling.
+                        Gecoördineerde multi-site uitrol voor CPO's en retailers, Enedis-aansluiting en elektrische dimensionering, NF C 15-100-conformiteitscontrole van bestaande parken, installatie van HS/LS-transformatorstations voor DC-laadhubs. Van technische studie tot inbedrijfstelling: één aanspreekpunt.
                     </p>
                 </div>
 
-                <div class="grid md:grid-cols-3 gap-6 mb-12">
-                    <div class="card-hover why-card-industrial bg-white border border-gray-200 rounded-2xl overflow-hidden section-appear">
-                        <picture>
-                            <source srcset="../images/installation.webp" type="image/webp">
-                            <img loading="lazy" src="../images/installation.jpeg" alt="IRVE-laadpalen park"
-                                class="w-full h-64 object-cover object-center" width="800" height="533">
-                        </picture>
-                        <div class="p-4 text-center">
+                <div class="grid md:grid-cols-3 gap-6 mb-12 grid-stagger">
+                    <div class="card-feature card-lift overflow-hidden section-appear">
+                        <div class="img-zoom">
+                            <picture>
+                                <source srcset="../images/installation.webp" type="image/webp">
+                                <img loading="lazy" src="../images/installation.jpeg" alt="Park met IRVE-laadpalen geïnstalleerd door JCSM"
+                                    class="w-full h-64 object-cover object-center" width="800" height="533">
+                            </picture>
+                        </div>
+                        <div class="p-4 text-center flex items-center justify-center gap-2">
+                            <svg class="w-4 h-4 text-blue-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
                             <span class="text-sm font-medium text-gray-700">Multi-laadpunten park</span>
                         </div>
                     </div>
-                    <div class="card-hover why-card-industrial bg-white border border-gray-200 rounded-2xl overflow-hidden section-appear">
-                        <picture>
-                            <source srcset="../images/2x22kW.webp" type="image/webp">
-                            <img loading="lazy" src="../images/2x22kW.jpeg" alt="Installatie dubbele laadpaal 22kW"
-                                class="w-full h-64 object-cover" style="object-position: center 35%" width="950" height="1349">
-                        </picture>
-                        <div class="p-4 text-center">
+                    <div class="card-feature card-lift overflow-hidden section-appear">
+                        <div class="img-zoom">
+                            <picture>
+                                <source srcset="../images/2x22kW.webp" type="image/webp">
+                                <img loading="lazy" src="../images/2x22kW.jpeg" alt="Installatie van dubbele laadpaal 22 kW AC door JCSM"
+                                    class="w-full h-64 object-cover" style="object-position: center 35%" width="950" height="1349">
+                            </picture>
+                        </div>
+                        <div class="p-4 text-center flex items-center justify-center gap-2">
+                            <svg class="w-4 h-4 text-blue-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
                             <span class="text-sm font-medium text-gray-700">Dubbele laadpaal 22kW</span>
                         </div>
                     </div>
-                    <div class="card-hover why-card-industrial bg-white border border-gray-200 rounded-2xl overflow-hidden section-appear">
-                        <picture>
-                            <source srcset="../images/1x60.webp" type="image/webp">
-                            <img loading="lazy" src="../images/1x60.jpeg" alt="Snellader 60kW DC"
-                                class="w-full h-64 object-cover" style="object-position: center 30%" width="1280" height="1706">
-                        </picture>
-                        <div class="p-4 text-center">
+                    <div class="card-feature card-lift overflow-hidden section-appear">
+                        <div class="img-zoom">
+                            <picture>
+                                <source srcset="../images/1x60.webp" type="image/webp">
+                                <img loading="lazy" src="../images/1x60.jpeg" alt="Snellader 60 kW DC geïnstalleerd door JCSM"
+                                    class="w-full h-64 object-cover" style="object-position: center 30%" width="1280" height="1706">
+                            </picture>
+                        </div>
+                        <div class="p-4 text-center flex items-center justify-center gap-2">
+                            <svg class="w-4 h-4 text-blue-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
                             <span class="text-sm font-medium text-gray-700">Snellader 60kW</span>
                         </div>
                     </div>
                 </div>
 
-                <div class="grid md:grid-cols-2 gap-8 mb-16">
-                    <div class="card-hover why-card-industrial bg-white border border-gray-200 rounded-2xl overflow-hidden section-appear">
-                        <div class="h-64 sm:h-72 md:h-80 overflow-hidden">
+                <div class="grid md:grid-cols-2 gap-6 mb-16">
+                    <div class="card-feature card-lift overflow-hidden section-appear">
+                        <div class="h-64 sm:h-72 md:h-80 img-zoom">
                             <picture>
                                 <source media="(max-width: 768px)" srcset="../images/jcsmtesla-mobile.webp" type="image/webp"><source srcset="../images/jcsmtesla.webp" type="image/webp">
-                                <img loading="lazy" src="../images/jcsmtesla.jpg" alt="Nieuwe installatie van laadpaal"
+                                <img loading="lazy" src="../images/jcsmtesla.jpg" alt="Nieuwe installatie van Tesla-laadpaal door JCSM"
                                     class="w-full h-full object-cover object-center" width="600"
                                     height="400">
                             </picture>
                         </div>
                         <div class="p-10">
-                            <h3 class="text-2xl font-bold mb-4">Nieuwe Installatie</h3>
-                            <p class="text-gray-600 leading-relaxed mb-4">Plaatsing van normconforme laadpalen, bekabeling en IRVE-gecertificeerde elektrische aansluitingen.</p>
+                            <div class="flex items-center gap-3 mb-4">
+                                <div class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center flex-shrink-0">
+                                    <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/></svg>
+                                </div>
+                                <h3 class="text-2xl font-bold">Nieuwe Installatie</h3>
+                            </div>
+                            <p class="text-gray-600 leading-relaxed mb-4">Turnkey uitrol van AC- en DC-laadpalen, alle merken: Enedis-aansluiting, elektrische dimensionering, civieltechnische werken, plaatsing en OCPP-inbedrijfstelling. Installatie van HS/LS-transformatorstations voor DC-laadhubs met hoog vermogen.</p>
                             <ul class="space-y-2 text-gray-600">
                                 <li class="flex items-start">
                                     <svg class="w-5 h-5 mr-2 text-blue-600 flex-shrink-0 mt-0.5" fill="none"
@@ -311,7 +341,7 @@
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                             d="M5 13l4 4L19 7" />
                                     </svg>
-                                    <span>AC-laders (7,4 kW, 22 kW)</span>
+                                    <span>AC-laders (7,4 kW, 22 kW) en DC-laders (50 kW tot 350 kW)</span>
                                 </li>
                                 <li class="flex items-start">
                                     <svg class="w-5 h-5 mr-2 text-blue-600 flex-shrink-0 mt-0.5" fill="none"
@@ -319,7 +349,7 @@
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                             d="M5 13l4 4L19 7" />
                                     </svg>
-                                    <span>DC-laders (50 kW tot 350 kW)</span>
+                                    <span>Enedis-aansluiting en HS/LS-transformatorstations</span>
                                 </li>
                                 <li class="flex items-start">
                                     <svg class="w-5 h-5 mr-2 text-blue-600 flex-shrink-0 mt-0.5" fill="none"
@@ -327,21 +357,26 @@
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                             d="M5 13l4 4L19 7" />
                                     </svg>
-                                    <span>Gecertificeerde bekabeling en aangepaste beveiligingen</span>
+                                    <span>Gecoördineerde multi-site uitrol voor CPO's</span>
                                 </li>
                             </ul>
                         </div>
                     </div>
 
-                    <div class="card-hover why-card-industrial bg-white border border-gray-200 rounded-2xl overflow-hidden section-appear">
-                        <div class="h-64 sm:h-72 overflow-hidden">
-                            <picture><source media="(max-width: 768px)" srcset="../images/remiseconfo-mobile.webp" type="image/webp"><source srcset="../images/remiseconfo.webp" type="image/webp"><img src="../images/remiseconfo.jpg" alt="Conformiteitscontrole van een IRVE-installatie"
+                    <div class="card-feature card-lift overflow-hidden section-appear">
+                        <div class="h-64 sm:h-72 md:h-80 img-zoom">
+                            <picture><source media="(max-width: 768px)" srcset="../images/remiseconfo-mobile.webp" type="image/webp"><source srcset="../images/remiseconfo.webp" type="image/webp"><img src="../images/remiseconfo.jpg" alt="Conformiteitscontrole van een IRVE-installatie volgens norm NF C 15-100"
                                     class="w-full h-full object-cover object-center" loading="lazy" width="600"
                                     height="400"></picture>
                         </div>
                         <div class="p-10">
-                            <h3 class="text-2xl font-bold mb-4">Conformiteitscontrole</h3>
-                            <p class="text-gray-600 leading-relaxed mb-4">Normalisering van bestaande installaties, volledige diagnose en noodzakelijke correctieve werkzaamheden.</p>
+                            <div class="flex items-center gap-3 mb-4">
+                                <div class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center flex-shrink-0">
+                                    <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                                </div>
+                                <h3 class="text-2xl font-bold">Conformiteitscontrole</h3>
+                            </div>
+                            <p class="text-gray-600 leading-relaxed mb-4">NF C 15-100-conformiteitscontrole van bestaande parken: volledige diagnose van de elektrische dimensionering, vervanging van verouderde beveiligingen, normalisering van de bedrading en Consuel-validatie. Onmisbaar bij een CPO-wissel of een wettelijke audit.</p>
                             <ul class="space-y-2 text-gray-600">
                                 <li class="flex items-start">
                                     <svg class="w-5 h-5 mr-2 text-blue-600 flex-shrink-0 mt-0.5" fill="none"
@@ -349,7 +384,7 @@
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                             d="M5 13l4 4L19 7" />
                                     </svg>
-                                    <span>Diepgaande elektrische diagnose</span>
+                                    <span>Elektrische diagnose en NF C 15-100-dimensionering</span>
                                 </li>
                                 <li class="flex items-start">
                                     <svg class="w-5 h-5 mr-2 text-blue-600 flex-shrink-0 mt-0.5" fill="none"
@@ -357,7 +392,7 @@
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                             d="M5 13l4 4L19 7" />
                                     </svg>
-                                    <span>Upgrade schakelkast</span>
+                                    <span>Upgrade van schakelkast, beveiligingen en bedrading</span>
                                 </li>
                                 <li class="flex items-start">
                                     <svg class="w-5 h-5 mr-2 text-blue-600 flex-shrink-0 mt-0.5" fill="none"
@@ -365,7 +400,7 @@
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                             d="M5 13l4 4L19 7" />
                                     </svg>
-                                    <span>Consuel-attest</span>
+                                    <span>Consuel-attest en conformiteitsrapport</span>
                                 </li>
                             </ul>
                         </div>
@@ -373,91 +408,104 @@
                 </div>
 
                 <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16 section-appear">
-                    <div class="bg-gray-50 rounded-xl p-6 border border-gray-100 text-center">
-                        <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mx-auto mb-4 icon-pulse-hover">
-                            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+                    <div class="card-feature p-6 text-center">
+                        <div class="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center mx-auto mb-4 icon-pulse-hover">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
                         </div>
                         <h4 class="font-semibold text-gray-900 text-sm mb-1">Parkeergarages & Winkelcentra</h4>
-                        <p class="text-xs text-gray-500">Multi-punt AC/DC uitrol</p>
+                        <p class="text-xs text-gray-500">Gecoördineerde multi-site uitrol voor retailers</p>
                     </div>
-                    <div class="bg-gray-50 rounded-xl p-6 border border-gray-100 text-center">
-                        <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mx-auto mb-4 icon-pulse-hover">
-                            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                    <div class="card-feature p-6 text-center">
+                        <div class="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center mx-auto mb-4 icon-pulse-hover">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
                         </div>
                         <h4 class="font-semibold text-gray-900 text-sm mb-1">Snellaadstations</h4>
-                        <p class="text-xs text-gray-500">DC-laders 50 tot 350 kW</p>
+                        <p class="text-xs text-gray-500">DC-laders 50-350 kW met HS/LS-station</p>
                     </div>
-                    <div class="bg-gray-50 rounded-xl p-6 border border-gray-100 text-center">
-                        <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mx-auto mb-4 icon-pulse-hover">
-                            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/></svg>
+                    <div class="card-feature p-6 text-center">
+                        <div class="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center mx-auto mb-4 icon-pulse-hover">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/></svg>
                         </div>
                         <h4 class="font-semibold text-gray-900 text-sm mb-1">Bedrijfswagenparken</h4>
-                        <p class="text-xs text-gray-500">Opladen van bedrijfsvoertuigen</p>
+                        <p class="text-xs text-gray-500">Enedis-dimensionering en load balancing</p>
                     </div>
-                    <div class="bg-gray-50 rounded-xl p-6 border border-gray-100 text-center">
-                        <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mx-auto mb-4 icon-pulse-hover">
-                            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+                    <div class="card-feature p-6 text-center">
+                        <div class="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center mx-auto mb-4 icon-pulse-hover">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
                         </div>
                         <h4 class="font-semibold text-gray-900 text-sm mb-1">VvE's & Hotels</h4>
                         <p class="text-xs text-gray-500">Collectieve gedeelde infrastructuur</p>
                     </div>
                 </div>
 
-                <div class="bg-gray-900 rounded-2xl p-10 text-center section-appear">
+                <div class="card-lead text-center section-appear">
                     <div class="flex items-center justify-center gap-6 mb-6">
                         <picture><source srcset="../images/qualifelec.webp" type="image/webp"><img src="../images/qualifelec.png" alt="Qualifelec IRVE" class="h-16 w-auto" width="64" height="64" loading="lazy"></picture>
                         <div class="text-left">
-                            <div class="text-3xl font-bold text-white num-highlight stat-glow">150<span class="text-2xl text-gray-300">+</span></div>
-                            <p class="text-xs text-gray-300 font-semibold uppercase tracking-wide">Uitgevoerde installaties</p>
+                            <div class="text-3xl font-bold num-highlight stat-glow counter-animate"><span class="num">150</span><span class="text-2xl" style="color:#9DB8E8">+</span></div>
+                            <p class="text-xs font-semibold uppercase tracking-wide" style="color:#9DB8E8">Uitgevoerde installaties (sinds 2019)</p>
                         </div>
                     </div>
-                    <h3 class="text-2xl font-bold mb-3 text-white">Bent u een bedrijf?</h3>
-                    <p class="text-gray-300 mb-6 max-w-2xl mx-auto">Technische studie, dimensionering, installatie en inbedrijfstelling: JCSM beheert uw IRVE-project van A tot Z. Eén aanspreekpunt, beheerste doorlooptijden.</p>
-                    <a href="/nl/contact" class="btn-primary px-8 py-3 rounded-xl font-medium inline-block">Zakelijke offerte aanvragen</a>
-                    <p class="text-xs text-gray-300 mt-4">Antwoord binnen 24 uur · Qualifelec IRVE gecertificeerd · ADVENIR-begeleiding</p>
+                    <h3 class="text-2xl font-bold mb-3">Bent u een bedrijf?</h3>
+                    <p class="mb-6 max-w-2xl mx-auto" style="color:#c8cdd4">Technische studie, Enedis-aansluiting, elektrische dimensionering, installatie en OCPP-inbedrijfstelling: JCSM beheert uw IRVE-project van A tot Z. Gecoördineerde multi-site uitrol, één aanspreekpunt, beheerste doorlooptijden.</p>
+                    <a href="/nl/contact" class="btn-primary px-8 py-3 rounded-xl font-medium inline-block text-white">Zakelijke offerte aanvragen</a>
+                    <p class="text-xs mt-4" style="color:#9DB8E8">Antwoord binnen 24 werkuren · Qualifelec IRVE gecertificeerd · ADVENIR-begeleiding</p>
                 </div>
             </div>
         </section>
 
         <!-- Particulier -->
-        <section class="py-20 px-6 bg-gray-50" id="particuliers">
-            <div class="max-w-7xl mx-auto">
+        <section class="py-20 px-6 section-alt" id="particuliers">
+            <div class="max-w-6xl mx-auto">
                 <div class="text-center mb-16 section-appear">
-                    <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-6">Particulier & Thuis</h2>
-                    <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">90% van de oplaadsessies vindt thuis plaats. Laat uw laadpaal installeren door een IRVE-gecertificeerde professional om veilig, elke nacht, tegen lagere kosten op te laden.</p>
+                    <span class="sec-label mb-4 inline-block">Particulier & Thuis</span>
+                    <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-6">Laad thuis op, <em>zorgeloos</em></h2>
+                    <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">90% van de oplaadsessies vindt thuis plaats. Wallbox AC 7 tot 22 kW, alle merken (Wallbox, Hager, Legrand, Schneider, EVBox). Installatie in een vrijstaande woning of een appartementencomplex door een IRVE-gecertificeerde professional. ADVENIR-subsidie voor VvE's en verlaagd BTW-tarief van 5,5%.</p>
                 </div>
 
                 <div class="grid lg:grid-cols-2 gap-10 mb-16">
                     <div class="section-appear">
                         <h3 class="text-2xl font-bold mb-6">Welke laadpaal voor uw woning?</h3>
                         <div class="space-y-4">
-                            <div class="bg-white rounded-xl p-5 border border-gray-100">
+                            <div class="card-feature p-5">
                                 <div class="flex justify-between items-start mb-2">
-                                    <h4 class="font-semibold text-gray-900">Versterkt stopcontact 3,7 kW</h4>
-                                    <span class="text-xs font-medium text-gray-500 bg-gray-200 rounded-full px-2 py-0.5">~16u voor 60 kWh</span>
+                                    <div class="flex items-center gap-2">
+                                        <svg class="w-5 h-5 text-gray-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                                        <h4 class="font-semibold text-gray-900">Versterkt stopcontact 3,7 kW</h4>
+                                    </div>
+                                    <span class="text-xs font-medium text-gray-500 bg-gray-100 rounded-full px-2 py-0.5 flex-shrink-0 ml-2">~16u voor 60 kWh</span>
                                 </div>
-                                <p class="text-sm text-gray-600">Instapoplossing voor occasioneel gebruik. Langzaam laden maar voldoende als het voertuig de hele nacht geparkeerd staat.</p>
+                                <p class="text-sm text-gray-600 pl-7">Instapoplossing voor occasioneel gebruik. Langzaam laden, maar voldoende als het voertuig de hele nacht geparkeerd staat.</p>
                             </div>
-                            <div class="bg-white rounded-xl p-5 border border-gray-100">
+                            <div class="card-feature p-5">
                                 <div class="flex justify-between items-start mb-2">
-                                    <h4 class="font-semibold text-gray-900">Wallbox 7,4 kW eenfasig</h4>
-                                    <span class="text-xs font-medium text-gray-500 bg-gray-200 rounded-full px-2 py-0.5">~8u voor 60 kWh</span>
+                                    <div class="flex items-center gap-2">
+                                        <svg class="w-5 h-5 text-gray-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                                        <h4 class="font-semibold text-gray-900">Wallbox 7,4 kW eenfasig</h4>
+                                    </div>
+                                    <span class="text-xs font-medium text-gray-500 bg-gray-100 rounded-full px-2 py-0.5 flex-shrink-0 ml-2">~8u voor 60 kWh</span>
                                 </div>
-                                <p class="text-sm text-gray-600">De meest voorkomende keuze voor vrijstaande woningen. Compatibel met een standaard elektriciteitsabonnement. Volledig opgeladen gedurende de nacht.</p>
+                                <p class="text-sm text-gray-600 pl-7">De meest voorkomende keuze voor een vrijstaande woning. Compatibel met een standaard elektriciteitsabonnement. Volledig opgeladen gedurende de nacht.</p>
                             </div>
-                            <div class="rounded-xl p-5 border border-blue-200" style="background:rgba(37,99,235,0.08)">
+                            <div class="card-feature p-5" style="border-color: var(--color-primary); background: rgba(37, 99, 235, 0.03);">
                                 <div class="flex justify-between items-start mb-2">
-                                    <h4 class="font-semibold text-blue-900">Wallbox 11 kW driefasig</h4>
-                                    <span class="text-xs font-medium text-blue-600 bg-blue-100 rounded-full px-2 py-0.5">~5u30 voor 60 kWh</span>
+                                    <div class="flex items-center gap-2">
+                                        <svg class="w-5 h-5 text-blue-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                                        <h4 class="font-semibold text-gray-900">Wallbox 11 kW driefasig</h4>
+                                    </div>
+                                    <span class="text-xs font-medium text-blue-600 rounded-full px-2 py-0.5 flex-shrink-0 ml-2" style="background: rgba(37, 99, 235, 0.08);">~5u30 voor 60 kWh</span>
                                 </div>
-                                <p class="text-sm text-blue-800">De beste prijs-prestatieverhouding voor huishoudens met driefasige aansluiting. Snel laden in de avond, zelfs na een lange rit.</p>
+                                <p class="text-sm text-gray-600 pl-7">De beste prijs-prestatieverhouding voor huishoudens met een driefasige aansluiting. Snel laden in de avond, zelfs na een lange rit.</p>
                             </div>
-                            <div class="bg-white rounded-xl p-5 border border-gray-100">
+                            <div class="card-feature p-5">
                                 <div class="flex justify-between items-start mb-2">
-                                    <h4 class="font-semibold text-gray-900">Wallbox 22 kW driefasig</h4>
-                                    <span class="text-xs font-medium text-gray-500 bg-gray-200 rounded-full px-2 py-0.5">~3u voor 60 kWh</span>
+                                    <div class="flex items-center gap-2">
+                                        <svg class="w-5 h-5 text-gray-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                                        <h4 class="font-semibold text-gray-900">Wallbox 22 kW driefasig</h4>
+                                    </div>
+                                    <span class="text-xs font-medium text-gray-500 bg-gray-100 rounded-full px-2 py-0.5 flex-shrink-0 ml-2">~3u voor 60 kWh</span>
                                 </div>
-                                <p class="text-sm text-gray-600">Maximaal vermogen in wisselstroom. Ideaal als u dagelijks frequent en snel moet opladen.</p>
+                                <p class="text-sm text-gray-600 pl-7">Maximaal vermogen in wisselstroom. Ideaal als u dagelijks frequent en snel moet opladen.</p>
                             </div>
                         </div>
                     </div>
@@ -466,98 +514,132 @@
                         <h3 class="text-2xl font-bold mb-6">Waarom een gecertificeerd installateur?</h3>
                         <div class="space-y-5 mb-8">
                             <div class="flex items-start space-x-4">
-                                <div class="w-10 h-10 bg-blue-100 rounded-xl flex items-center justify-center flex-shrink-0 icon-pulse-hover">
-                                    <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                                <div class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center flex-shrink-0 icon-pulse-hover">
+                                    <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
                                 </div>
                                 <div>
                                     <h4 class="font-semibold text-gray-900 mb-1">Verplicht boven 3,7 kW</h4>
-                                    <p class="text-sm text-gray-600">De wet vereist een IRVE-gecertificeerd installateur (Qualifelec) voor elke laadpaal boven 3,7 kW. Dit is noodzakelijk om in aanmerking te komen voor financiele subsidies.</p>
+                                    <p class="text-sm text-gray-600">De wet vereist een IRVE-gecertificeerd installateur (Qualifelec) voor elke laadpaal boven 3,7 kW. Dit is een noodzakelijke voorwaarde om in aanmerking te komen voor financiële subsidies.</p>
                                 </div>
                             </div>
                             <div class="flex items-start space-x-4">
-                                <div class="w-10 h-10 bg-blue-100 rounded-xl flex items-center justify-center flex-shrink-0 icon-pulse-hover">
-                                    <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                                <div class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center flex-shrink-0 icon-pulse-hover">
+                                    <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
                                 </div>
                                 <div>
                                     <h4 class="font-semibold text-gray-900 mb-1">Elektrische diagnose inbegrepen</h4>
-                                    <p class="text-sm text-gray-600">Controle van de schakelkast, aansluiting en dimensionering voor elke installatie. Speciale aardlekschakelaar en aangepaste kabeldiameter.</p>
+                                    <p class="text-sm text-gray-600">Controle van de schakelkast, de aansluiting en de dimensionering voor elke installatie. Aangepaste aardlekschakelaar en passende kabeldiameter.</p>
                                 </div>
                             </div>
                             <div class="flex items-start space-x-4">
-                                <div class="w-10 h-10 bg-blue-100 rounded-xl flex items-center justify-center flex-shrink-0 icon-pulse-hover">
-                                    <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                                <div class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center flex-shrink-0 icon-pulse-hover">
+                                    <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
                                 </div>
                                 <div>
-                                    <h4 class="font-semibold text-gray-900 mb-1">Financiele subsidies in 2026</h4>
-                                    <p class="text-sm text-gray-600">Verlaagd BTW-tarief van 5,5% voor woningen ouder dan 2 jaar. Het ADVENIR-programma financiert publiek toegankelijke laadpalen (VvE's). Tot 600 EUR excl. BTW per laadpunt.</p>
+                                    <h4 class="font-semibold text-gray-900 mb-1">Financiële subsidies in 2026</h4>
+                                    <p class="text-sm text-gray-600">Verlaagd BTW-tarief van 5,5% voor woningen ouder dan 2 jaar. Het ADVENIR-programma financiert publiek toegankelijke laadpalen in VvE's (tot 600 € excl. BTW per laadpunt). JCSM begeleidt u bij de samenstelling van het ADVENIR-dossier en controleert uw geschiktheid voor de start van de werken.</p>
                                 </div>
                             </div>
                             <div class="flex items-start space-x-4">
-                                <div class="w-10 h-10 bg-blue-100 rounded-xl flex items-center justify-center flex-shrink-0 icon-pulse-hover">
-                                    <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg>
+                                <div class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center flex-shrink-0 icon-pulse-hover">
+                                    <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg>
                                 </div>
                                 <div>
                                     <h4 class="font-semibold text-gray-900 mb-1">Normen NF C 15-100 en UTE C 15-722</h4>
-                                    <p class="text-sm text-gray-600">Installatie conform de geldende elektrische normen. Consuel-attest afgegeven na voltooiing van de werkzaamheden voor uw gemoedsrust.</p>
+                                    <p class="text-sm text-gray-600">Installatie conform de geldende elektrische normen. Consuel-attest afgegeven na voltooiing van de werken, voor uw gemoedsrust.</p>
                                 </div>
                             </div>
                         </div>
-                        <div class="bg-blue-50 border-l-4 border-blue-400 rounded-r-xl p-5">
-                            <p class="text-sm text-gray-700"><span class="font-semibold">Let op:</span> het belastingkrediet CIBRE (500 EUR per laadpaal) is verlopen op 31 december 2025 en is niet verlengd. De BTW van 5,5% blijft het voornaamste fiscale voordeel in 2026.</p>
+                        <div class="card-quote rounded-r-xl p-5 bg-white" style="border-radius: 0 var(--radius-xl) var(--radius-xl) 0;">
+                            <p class="text-sm text-gray-700" style="font-family: var(--font-sans); font-style: normal;"><span class="font-semibold">Let op:</span> het belastingkrediet CIBRE (500 € per laadpaal) is op 31 december 2025 verlopen en is niet verlengd. De BTW van 5,5% blijft het voornaamste fiscale voordeel in 2026.</p>
                         </div>
                     </div>
                 </div>
 
-                <div class="rounded-2xl p-10 text-center section-appear" style="background:rgba(37,99,235,0.08)">
+                <div class="card-cta p-10 section-appear">
                     <h3 class="text-2xl font-bold mb-3">Bent u particulier?</h3>
-                    <p class="text-gray-600 mb-6 max-w-2xl mx-auto">JCSM installeert uw laadpaal bij u thuis, van de wallbox 7 kW tot de driefasige 22 kW laadpaal. Gratis diagnose, gecertificeerde installatie, inbedrijfstelling op dezelfde dag.</p>
-                    <a href="/nl/contact" class="btn-primary px-8 py-3 rounded-xl font-medium inline-block">Gratis offerte aanvragen</a>
-                    <p class="text-xs text-gray-500 mt-4">Persoonlijke offerte binnen 24 uur · Installatie binnen 2 weken</p>
+                    <p class="mb-6 max-w-2xl mx-auto" style="color: rgba(255,255,255,0.85)">JCSM installeert uw wallbox AC 7 tot 22 kW bij u thuis, alle merken (Wallbox, Hager, Legrand, Schneider). Vrijstaande woning of appartementencomplex, gratis diagnose, IRVE-gecertificeerde installatie en inbedrijfstelling op dezelfde dag.</p>
+                    <a href="/nl/contact" class="inline-block px-8 py-3 rounded-full font-medium text-blue-600 bg-white hover:bg-gray-100 transition-colors">Gratis offerte aanvragen</a>
+                    <p class="text-xs mt-4" style="color: rgba(255,255,255,0.7)">Offerte binnen 24 werkuren - Installatie binnen 2 weken</p>
                 </div>
             </div>
         </section>
 
+        <!-- Process -->
+        <section class="section-dark py-20 px-6" aria-label="Onze methode in 3 stappen">
+            <div class="max-w-6xl mx-auto">
+                <div class="sec-label section-appear">Onze methode</div>
+                <h2 class="text-3xl sm:text-4xl mt-3 text-white section-appear">
+                    Van audit tot <em>inbedrijfstelling</em>.
+                </h2>
+                <p class="text-base sm:text-lg mt-4 max-w-xl leading-relaxed section-appear" style="opacity:.65">
+                    Drie stappen voor een IRVE-installatie die vanaf dag één conform is.
+                </p>
 
-        <!-- Regelgevende Standaarden -->
-        <section class="py-20 px-6 bg-white">
-            <div class="max-w-7xl mx-auto">
-                <div class="text-center mb-16 section-appear">
-                    <div class="inline-flex items-center space-x-2 glass-badge rounded-full px-4 py-2 mb-6">
-                        <span class="text-xs font-semibold text-gray-600 uppercase tracking-wide">Regelgevende Expertise</span>
+                <div class="grid sm:grid-cols-3 gap-8 mt-12">
+                    <div class="step section-appear">
+                        <div class="flex items-center gap-3 mb-3">
+                            <span class="text-sm font-bold" style="color: var(--color-primary)">01</span>
+                            <strong>Technische audit</strong>
+                        </div>
+                        <p class="text-sm mt-2" style="opacity:.65">Diagnose van de locatie, dimensionering van het beschikbare vermogen en elektrische haalbaarheidsstudie.</p>
                     </div>
+                    <div class="step section-appear">
+                        <div class="flex items-center gap-3 mb-3">
+                            <span class="text-sm font-bold" style="color: var(--color-primary)">02</span>
+                            <strong>Conforme installatie</strong>
+                        </div>
+                        <p class="text-sm mt-2" style="opacity:.65">Plaatsing van de laadpalen, bekabeling, elektrische aansluiting en NF C 15-100-conformiteit.</p>
+                    </div>
+                    <div class="step section-appear">
+                        <div class="flex items-center gap-3 mb-3">
+                            <span class="text-sm font-bold" style="color: var(--color-primary)">03</span>
+                            <strong>Inbedrijfstelling</strong>
+                        </div>
+                        <p class="text-sm mt-2" style="opacity:.65">OCPP-configuratie, laadtests en proces-verbaal van oplevering.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Regelgevende normen -->
+        <section class="py-20 px-6 bg-white">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-16 section-appear">
+                    <span class="sec-label mb-4 inline-block">Regelgevende expertise</span>
                     <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-6">
-                        Beheersing van Franse en Europese elektrische normen
+                        Beheersing van de Franse en Europese <em>elektrische normen</em>
                     </h2>
                     <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                        Laadinfrastructuur-installaties moeten voldoen aan een complex geheel van nationale en EU-regelgeving. Ons team beheerst elke norm die van toepassing is op uw project, zowel in Frankrijk als in Belgie.
+                        Installaties van laadinfrastructuur moeten voldoen aan een complex geheel van nationale en Europese regelgeving. Ons team beheerst elke norm die op uw project van toepassing is, zowel in Frankrijk als in België.
                     </p>
                 </div>
 
-                <div class="grid md:grid-cols-2 gap-8 mb-16">
-                    <div class="card-hover bg-white border border-gray-200 rounded-2xl overflow-hidden section-appear">
-                        <div class="px-10 py-6 border-b border-blue-100" style="background:rgba(37,99,235,0.08)">
+                <div class="grid md:grid-cols-2 gap-6 mb-16">
+                    <div class="card-feature card-lift overflow-hidden section-appear">
+                        <div class="px-10 py-6 border-b border-blue-100" style="background:rgba(37,99,235,0.05)">
                             <h3 class="text-xl font-bold text-blue-900">Franse elektrische normen</h3>
                             <p class="text-sm text-blue-700 mt-1">Verplicht voor alle installaties in Frankrijk</p>
                         </div>
                         <div class="p-10">
                             <div class="space-y-5">
-                                <div><h4 class="font-semibold text-gray-900 mb-2">NF C 15-100</h4><p class="text-sm text-gray-600 leading-relaxed">De fundamentele Franse norm voor laagspannings-installaties. Regelt kabeldimensionering, beveiligingsapparaten, aardingssystemen en circuitscheiding. Elke laadpaalinstallatie moet voldoen aan Sectie 722, specifiek voor EV-laadcircuits.</p></div>
-                                <div><h4 class="font-semibold text-gray-900 mb-2">UTE C 15-722</h4><p class="text-sm text-gray-600 leading-relaxed">De praktische gids die NF C 15-100 aanvult voor laadinstallaties. Beschrijft de vereisten voor toegewijde circuits, type A of B aardlekschakelaars, overstroombescherming en load management-systemen voor meerpunts-installaties.</p></div>
-                                <div><h4 class="font-semibold text-gray-900 mb-2">NF C 14-100</h4><p class="text-sm text-gray-600 leading-relaxed">Regelt de aansluiting tussen het openbare distributienet en de installatie van de klant. Relevant bij het opwaarderen van netaansluitingen voor hoogvermogen DC-laadstations of commerciele meerpunts-installaties.</p></div>
+                                <div><h4 class="font-semibold text-gray-900 mb-2">NF C 15-100</h4><p class="text-sm text-gray-600 leading-relaxed">De fundamentele Franse norm voor laagspanningsinstallaties. Regelt kabeldimensionering, beveiligingstoestellen, aardingssystemen en circuitscheiding. Elke laadpaalinstallatie moet voldoen aan Sectie 722, specifiek voor EV-laadcircuits.</p></div>
+                                <div><h4 class="font-semibold text-gray-900 mb-2">UTE C 15-722</h4><p class="text-sm text-gray-600 leading-relaxed">De praktische gids die NF C 15-100 aanvult voor laadinstallaties. Beschrijft de vereisten voor toegewijde circuits, type A of B aardlekschakelaars, overstroombeveiliging en load management-systemen voor multi-punt installaties.</p></div>
+                                <div><h4 class="font-semibold text-gray-900 mb-2">NF C 14-100</h4><p class="text-sm text-gray-600 leading-relaxed">Regelt de aansluiting tussen het openbare distributienet en de installatie van de klant. Relevant bij het opwaarderen van netaansluitingen voor DC-laadstations met hoog vermogen of commerciële multi-punt installaties.</p></div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="card-hover bg-white border border-gray-200 rounded-2xl overflow-hidden section-appear">
+                    <div class="card-feature card-lift overflow-hidden section-appear">
                         <div class="bg-gray-50 px-10 py-6 border-b border-gray-200">
                             <h3 class="text-xl font-bold text-gray-900">Belgische elektrische normen (AREI)</h3>
-                            <p class="text-sm text-gray-600 mt-1">Verplicht voor alle installaties in Belgie</p>
+                            <p class="text-sm text-gray-600 mt-1">Verplicht voor alle installaties in België</p>
                         </div>
                         <div class="p-10">
                             <div class="space-y-5">
                                 <div><h4 class="font-semibold text-gray-900 mb-2">AREI (Algemeen Reglement op de Elektrische Installaties)</h4><p class="text-sm text-gray-600 leading-relaxed">Het Belgische equivalent van NF C 15-100. De herziening van 2020 introduceerde specifieke bepalingen voor EV-laden: toegewijde circuits, passende differentiaalbeveiliging en load management-vereisten voor gedeelde parkeerinstallaties.</p></div>
-                                <div><h4 class="font-semibold text-gray-900 mb-2">Keuringsorganisme-certificering</h4><p class="text-sm text-gray-600 leading-relaxed">In tegenstelling tot het Franse Consuel-systeem moeten Belgische installaties worden gekeurd door een erkend keuringsorganisme voor inbedrijfstelling. JCSM bereidt het volledige dossier voor en coordineert de keuring voor een goedkeuring bij eerste bezoek.</p></div>
-                                <div><h4 class="font-semibold text-gray-900 mb-2">Regionale subsidie-conformiteit</h4><p class="text-sm text-gray-600 leading-relaxed">Wallonie, Vlaanderen en Brussel hebben elk verschillende subsidieregelingen voor EV-laadinfrastructuur. Ons team verzorgt de administratieve vereisten zodat uw installatie in aanmerking komt voor beschikbare stimuleringsmaatregelen.</p></div>
+                                <div><h4 class="font-semibold text-gray-900 mb-2">Keuringsorganisme-certificering</h4><p class="text-sm text-gray-600 leading-relaxed">In tegenstelling tot het Franse Consuel-systeem moeten Belgische installaties voor inbedrijfstelling worden gekeurd door een erkend keuringsorganisme. JCSM bereidt het volledige dossier voor en coördineert de keuring voor een goedkeuring bij het eerste bezoek.</p></div>
+                                <div><h4 class="font-semibold text-gray-900 mb-2">Regionale subsidieconformiteit</h4><p class="text-sm text-gray-600 leading-relaxed">Wallonië, Vlaanderen en Brussel hebben elk verschillende subsidieregelingen voor EV-laadinfrastructuur. Ons team verzorgt de administratieve vereisten zodat uw installatie in aanmerking komt voor de beschikbare stimuleringsmaatregelen.</p></div>
                             </div>
                         </div>
                     </div>
@@ -566,58 +648,115 @@
                 <!-- EU-geharmoniseerde normen -->
                 <div class="section-appear mb-16">
                     <h3 class="text-2xl font-bold text-center mb-8">EU-geharmoniseerde normen voor EV-laadapparatuur</h3>
-                    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                        <div class="bg-gray-50 rounded-xl p-6 border border-gray-100 section-appear"><div class="text-sm font-bold text-blue-600 mb-2">EN 61851</div><h4 class="font-semibold text-gray-900 text-sm mb-2">EV-laadsystemen</h4><p class="text-xs text-gray-600 leading-relaxed">De centrale Europese norm die laadmodi (Modus 1 tot 4), communicatieprotocollen tussen voertuig en lader, en veiligheidseisen definieert. Alle JCSM-installaties voldoen aan EN 61851-1 en EN 61851-21 (EMC).</p></div>
-                        <div class="bg-gray-50 rounded-xl p-6 border border-gray-100 section-appear"><div class="text-sm font-bold text-blue-600 mb-2">IEC 62196</div><h4 class="font-semibold text-gray-900 text-sm mb-2">Stekkers &amp; connectoren</h4><p class="text-xs text-gray-600 leading-relaxed">Definieert Type 2 (AC) en CCS Combo 2 (DC) connectoren die verplicht zijn in heel Europa. Wij controleren connectorcompatibiliteit, vergrendelingsmechanismen en contactweerstand bij elke inbedrijfstelling.</p></div>
-                        <div class="bg-gray-50 rounded-xl p-6 border border-gray-100 section-appear"><div class="text-sm font-bold text-blue-600 mb-2">EU AFIR-verordening</div><h4 class="font-semibold text-gray-900 text-sm mb-2">Infrastructuurvereisten</h4><p class="text-xs text-gray-600 leading-relaxed">De verordening voor alternatieve brandstoffen schrijft een minimale laaddekking voor langs TEN-T-corridors. JCSM helpt operators AFIR-doelstellingen te halen met conforme, hoog-beschikbare installaties.</p></div>
-                        <div class="bg-gray-50 rounded-xl p-6 border border-gray-100 section-appear"><div class="text-sm font-bold text-blue-600 mb-2">ISO 15118</div><h4 class="font-semibold text-gray-900 text-sm mb-2">Plug &amp; Charge</h4><p class="text-xs text-gray-600 leading-relaxed">De standaard voor automatische authenticatie tussen voertuig en lader via TLS-certificaten. Onze OCPP 2.0.1-expertise zorgt ervoor dat uw infrastructuur klaar is voor Plug &amp; Charge.</p></div>
+                    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 grid-stagger">
+                        <div class="card-feature p-6 section-appear"><div class="text-sm font-bold text-blue-600 mb-2">EN 61851</div><h4 class="font-semibold text-gray-900 text-sm mb-2">EV-laadsystemen</h4><p class="text-xs text-gray-600 leading-relaxed">De centrale Europese norm die laadmodi (Modus 1 tot 4), communicatieprotocollen tussen voertuig en lader en veiligheidseisen definieert. Alle JCSM-installaties voldoen aan EN 61851-1 en EN 61851-21 (EMC).</p></div>
+                        <div class="card-feature p-6 section-appear"><div class="text-sm font-bold text-blue-600 mb-2">IEC 62196</div><h4 class="font-semibold text-gray-900 text-sm mb-2">Stekkers &amp; connectoren</h4><p class="text-xs text-gray-600 leading-relaxed">Definieert de Type 2 (AC)- en CCS Combo 2 (DC)-connectoren die in heel Europa verplicht zijn. Wij controleren connectorcompatibiliteit, vergrendelingsmechanismen en contactweerstand bij elke inbedrijfstelling.</p></div>
+                        <div class="card-feature p-6 section-appear"><div class="text-sm font-bold text-blue-600 mb-2">EU AFIR-verordening</div><h4 class="font-semibold text-gray-900 text-sm mb-2">Infrastructuurvereisten</h4><p class="text-xs text-gray-600 leading-relaxed">De verordening voor alternatieve brandstoffen schrijft een minimale laaddekking voor langs de TEN-T-corridors. JCSM helpt operatoren AFIR-doelstellingen te halen met conforme, hoog-beschikbare installaties.</p></div>
+                        <div class="card-feature p-6 section-appear"><div class="text-sm font-bold text-blue-600 mb-2">ISO 15118</div><h4 class="font-semibold text-gray-900 text-sm mb-2">Plug &amp; Charge</h4><p class="text-xs text-gray-600 leading-relaxed">De standaard voor automatische authenticatie tussen voertuig en lader via TLS-certificaten. Onze OCPP 2.0.1-expertise zorgt ervoor dat uw infrastructuur klaar is voor Plug &amp; Charge.</p></div>
                     </div>
                 </div>
 
-                <!-- Consuel-proces & HTA/BT -->
-                <div class="grid lg:grid-cols-2 gap-10 items-center section-appear mb-16">
+                <!-- Consuel-proces & HS/LS -->
+                <div class="grid lg:grid-cols-2 gap-10 items-start section-appear">
                     <div>
                         <h3 class="text-2xl font-bold mb-6">Het Consuel-certificeringsproces, helder uitgelegd</h3>
-                        <p class="text-gray-600 leading-relaxed mb-6">In Frankrijk vereist elke nieuwe of significant gewijzigde elektrische installatie een Consuel-attestatie voordat de netbeheerder deze mag activeren. Bij EV-laadprojecten kan dit een knelpunt zijn als het dossier onvolledig is of de installatie non-conformiteiten vertoont.</p>
+                        <p class="text-gray-600 leading-relaxed mb-6">In Frankrijk vereist elke nieuwe of significant gewijzigde elektrische installatie een Consuel-attest voordat de netbeheerder deze mag activeren. Bij EV-laadprojecten kan dit een knelpunt vormen als het dossier onvolledig is of de installatie non-conformiteiten vertoont.</p>
                         <p class="text-gray-600 leading-relaxed mb-6">JCSM verzorgt het volledige Consuel-proces:</p>
                         <div class="space-y-3">
-                            <div class="flex items-start"><div class="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0 mr-3 mt-0.5"><span class="text-sm font-bold text-blue-600">1</span></div><div><h4 class="font-semibold text-gray-900 text-sm">Pre-installatie audit</h4><p class="text-xs text-gray-600">Wij controleren de capaciteit van het verdeelbord, aarding en kabelroutes voordat werkzaamheden beginnen.</p></div></div>
-                            <div class="flex items-start"><div class="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0 mr-3 mt-0.5"><span class="text-sm font-bold text-blue-600">2</span></div><div><h4 class="font-semibold text-gray-900 text-sm">Normconforme installatie</h4><p class="text-xs text-gray-600">Installatie uitgevoerd door IRVE-gecertificeerde technici met volledige documentatie.</p></div></div>
-                            <div class="flex items-start"><div class="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0 mr-3 mt-0.5"><span class="text-sm font-bold text-blue-600">3</span></div><div><h4 class="font-semibold text-gray-900 text-sm">Voorbereiding Consuel-dossier</h4><p class="text-xs text-gray-600">Wij bereiden het conformiteitsattest voor en dienen het in met alle vereiste documentatie.</p></div></div>
-                            <div class="flex items-start"><div class="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0 mr-3 mt-0.5"><span class="text-sm font-bold text-blue-600">4</span></div><div><h4 class="font-semibold text-gray-900 text-sm">Inspectie en validatie</h4><p class="text-xs text-gray-600">Wij coordineren het Consuel-inspectiebezoek en behandelen eventuele vervolgpunten.</p></div></div>
+                            <div class="flex items-start"><div class="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center flex-shrink-0 mr-3 mt-0.5"><span class="text-sm font-bold text-white">1</span></div><div><h4 class="font-semibold text-gray-900 text-sm">Pre-installatie-audit</h4><p class="text-xs text-gray-600">Wij controleren de capaciteit van het verdeelbord, de aarding en de kabelroutes voordat de werken beginnen.</p></div></div>
+                            <div class="flex items-start"><div class="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center flex-shrink-0 mr-3 mt-0.5"><span class="text-sm font-bold text-white">2</span></div><div><h4 class="font-semibold text-gray-900 text-sm">Conforme installatie</h4><p class="text-xs text-gray-600">Installatie uitgevoerd door IRVE-gecertificeerde technici met volledige documentatie.</p></div></div>
+                            <div class="flex items-start"><div class="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center flex-shrink-0 mr-3 mt-0.5"><span class="text-sm font-bold text-white">3</span></div><div><h4 class="font-semibold text-gray-900 text-sm">Voorbereiding Consuel-dossier</h4><p class="text-xs text-gray-600">Wij bereiden het conformiteitsattest voor en dienen het in met alle vereiste documentatie.</p></div></div>
+                            <div class="flex items-start"><div class="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center flex-shrink-0 mr-3 mt-0.5"><span class="text-sm font-bold text-white">4</span></div><div><h4 class="font-semibold text-gray-900 text-sm">Inspectie en validatie</h4><p class="text-xs text-gray-600">Wij coördineren het Consuel-inspectiebezoek en behandelen eventuele vervolgpunten.</p></div></div>
                         </div>
                     </div>
                     <div>
-                        <h3 class="text-2xl font-bold mb-6">HTA/BT elektrische infrastructuur</h3>
-                        <p class="text-gray-600 leading-relaxed mb-6">Hoogvermogen DC-laadstations (150 kW en hoger) vereisen vaak dedicated hoogspanning (HTA) naar laagspanning (BT) transformatorstations. Dit voegt aanzienlijke complexiteit toe aan het elektrisch ontwerp en het regelgevingsproces.</p>
+                        <h3 class="text-2xl font-bold mb-6">HS/LS elektrische infrastructuur</h3>
+                        <p class="text-gray-600 leading-relaxed mb-6">DC-laadstations met hoog vermogen (150 kW en hoger) vereisen vaak toegewijde transformatorstations van hoogspanning (HS) naar laagspanning (LS). Dit voegt aanzienlijke complexiteit toe aan het elektrische ontwerp en aan het regelgevingsproces.</p>
                         <div class="space-y-4">
-                            <div class="bg-gray-50 rounded-xl p-5 border border-gray-100"><h4 class="font-semibold text-gray-900 text-sm mb-2">Dimensionering en specificatie van de transformator</h4><p class="text-xs text-gray-600">Wij berekenen de benodigde transformatorcapaciteit op basis van gelijktijdige laadvraag, uitbreidingsplannen en netbeperkingen. Typische installaties variëren van 250 kVA tot 2 MVA.</p></div>
-                            <div class="bg-gray-50 rounded-xl p-5 border border-gray-100"><h4 class="font-semibold text-gray-900 text-sm mb-2">Coordinatie netaansluiting</h4><p class="text-xs text-gray-600">Wij beheren de aansluitingsaanvraag bij Enedis (Frankrijk) of de lokale netbeheerder (Belgie), inclusief technische studie, PTF-validatie en aansluitingsplanning.</p></div>
-                            <div class="bg-gray-50 rounded-xl p-5 border border-gray-100"><h4 class="font-semibold text-gray-900 text-sm mb-2">HTA-cel installatie en inbedrijfstelling</h4><p class="text-xs text-gray-600">Installatie en test van HTA-schakelapparatuur, transformator en BT-distributie panelen. Volledige elektrische metingen en configuratie van beveiligingsrelais.</p></div>
-                            <div class="bg-gray-50 rounded-xl p-5 border border-gray-100"><h4 class="font-semibold text-gray-900 text-sm mb-2">Doorlopend transformator-onderhoud</h4><p class="text-xs text-gray-600">Preventieve onderhoudscontracten voor HTA/BT-transformatoren: olieanalyse, thermografische inspecties, beveiligingstests en regelgevende conformiteitscontroles.</p></div>
+                            <div class="card-feature p-5"><h4 class="font-semibold text-gray-900 text-sm mb-2">Dimensionering en specificatie van de transformator</h4><p class="text-xs text-gray-600">Wij berekenen de benodigde transformatorcapaciteit op basis van de gelijktijdige laadvraag, uitbreidingsplannen en netbeperkingen. Typische installaties variëren van 250 kVA tot 2 MVA.</p></div>
+                            <div class="card-feature p-5"><h4 class="font-semibold text-gray-900 text-sm mb-2">Coördinatie netaansluiting</h4><p class="text-xs text-gray-600">Wij beheren de aansluitaanvraag bij Enedis (Frankrijk) of de lokale netbeheerder (België), inclusief technische studie, PTF-validatie en aansluitplanning.</p></div>
+                            <div class="card-feature p-5"><h4 class="font-semibold text-gray-900 text-sm mb-2">HS-cel installatie en inbedrijfstelling</h4><p class="text-xs text-gray-600">Installatie en test van HS-schakelapparatuur, transformator en LS-distributiepanelen. Volledige elektrische metingen en configuratie van beveiligingsrelais.</p></div>
+                            <div class="card-feature p-5"><h4 class="font-semibold text-gray-900 text-sm mb-2">Doorlopend transformatoronderhoud</h4><p class="text-xs text-gray-600">Preventieve onderhoudscontracten voor HS/LS-transformatoren: olieanalyse, thermografische inspecties, beveiligingstests en wettelijke conformiteitscontroles.</p></div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
+
+        <!-- Gedekte merken -->
+        <section class="py-20 px-6 bg-white">
+            <div class="max-w-6xl mx-auto text-center section-appear">
+                <span class="sec-label mb-4 inline-block">Compatibiliteit</span>
+                <h2 class="text-2xl font-bold tracking-tight mb-4">Alle merken, <em>alle vermogens</em></h2>
+                <p class="text-gray-600 mb-10 max-w-3xl mx-auto">Wij installeren en brengen de laadpalen van de belangrijkste fabrikanten op de markt in conformiteit, zowel in AC als in DC.</p>
+                <div class="flex flex-wrap justify-center gap-3 text-sm font-medium text-gray-700">
+                    <span class="card-feature px-5 py-2.5 inline-flex items-center gap-2">
+                        <svg class="w-4 h-4 text-blue-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                        ABB</span>
+                    <span class="card-feature px-5 py-2.5 inline-flex items-center gap-2">
+                        <svg class="w-4 h-4 text-blue-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                        Alfen</span>
+                    <span class="card-feature px-5 py-2.5 inline-flex items-center gap-2">
+                        <svg class="w-4 h-4 text-blue-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                        EVBox</span>
+                    <span class="card-feature px-5 py-2.5 inline-flex items-center gap-2">
+                        <svg class="w-4 h-4 text-blue-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                        Schneider</span>
+                    <span class="card-feature px-5 py-2.5 inline-flex items-center gap-2">
+                        <svg class="w-4 h-4 text-blue-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                        Kempower</span>
+                    <span class="card-feature px-5 py-2.5 inline-flex items-center gap-2">
+                        <svg class="w-4 h-4 text-blue-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                        Autel</span>
+                    <span class="card-feature px-5 py-2.5 inline-flex items-center gap-2">
+                        <svg class="w-4 h-4 text-blue-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                        Wallbox</span>
+                    <span class="card-feature px-5 py-2.5 inline-flex items-center gap-2">
+                        <svg class="w-4 h-4 text-blue-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                        Hager</span>
+                    <span class="card-feature px-5 py-2.5 inline-flex items-center gap-2">
+                        <svg class="w-4 h-4 text-blue-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                        Legrand</span>
+                    <span class="card-feature px-5 py-2.5 inline-flex items-center gap-2">
+                        <svg class="w-4 h-4 text-blue-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                        SMA</span>
+                </div>
+            </div>
+        </section>
+
         <!-- Andere diensten -->
-        <section class="py-16 px-6 bg-white">
+        <section class="py-20 px-6 section-alt" aria-label="Onze andere expertises">
             <div class="max-w-6xl mx-auto">
-                <h2 class="text-2xl font-bold text-center mb-8">Ontdek onze andere diensten</h2>
-                <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                    <a href="/nl/projectbeheer" class="card-hover why-card-industrial bg-gray-50 rounded-xl p-5 hover:shadow-lg transition-shadow text-center">
+                <div class="text-center mb-10 section-appear">
+                    <div class="sec-label mb-5">Onze andere expertises</div>
+                    <h2 class="text-2xl sm:text-3xl tracking-tight">Zie ook</h2>
+                </div>
+                <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 grid-stagger">
+                    <a href="/nl/projectbeheer" class="card-feature card-lift p-6 text-center section-appear block">
+                        <div class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center mx-auto mb-3">
+                            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+                        </div>
                         <h3 class="font-bold text-sm mb-1">Projectbeheer</h3>
-                        <p class="text-gray-500 text-xs">Coordinatie en opvolging van uw IRVE-projecten</p>
+                        <p class="text-gray-500 text-xs">Coördinatie en opvolging van uw IRVE-projecten</p>
                     </a>
-                    <a href="/nl/exploitatie-onderhoud" class="card-hover why-card-industrial bg-gray-50 rounded-xl p-5 hover:shadow-lg transition-shadow text-center">
+                    <a href="/nl/exploitatie-onderhoud" class="card-feature card-lift p-6 text-center section-appear block">
+                        <div class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center mx-auto mb-3">
+                            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.066 2.573c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.573 1.066c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.066-2.573c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                        </div>
                         <h3 class="font-bold text-sm mb-1">Exploitatie</h3>
                         <p class="text-gray-500 text-xs">Preventief en correctief onderhoud</p>
                     </a>
-                    <a href="/nl/beveiliging-installaties" class="card-hover why-card-industrial bg-gray-50 rounded-xl p-5 hover:shadow-lg transition-shadow text-center">
+                    <a href="/nl/beveiliging-installaties" class="card-feature card-lift p-6 text-center section-appear block">
+                        <div class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center mx-auto mb-3">
+                            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+                        </div>
                         <h3 class="font-bold text-sm mb-1">Beveiliging</h3>
                         <p class="text-gray-500 text-xs">Anti-vandalisme bescherming</p>
                     </a>
-                    <a href="/nl/callcenter" class="card-hover why-card-industrial bg-gray-50 rounded-xl p-5 hover:shadow-lg transition-shadow text-center">
+                    <a href="/nl/callcenter" class="card-feature card-lift p-6 text-center section-appear block">
+                        <div class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center mx-auto mb-3">
+                            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+                        </div>
                         <h3 class="font-bold text-sm mb-1">Support 24/7</h3>
                         <p class="text-gray-500 text-xs">Hotline en telebeheer</p>
                     </a>
@@ -626,94 +765,150 @@
         </section>
 
         <!-- FAQ -->
-        <section class="py-20 px-6 bg-gray-50">
+        <section class="py-20 px-6 bg-white" id="faq">
             <div class="max-w-4xl mx-auto">
-                <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-12 text-center">Veelgestelde vragen</h2>
-                <div class="space-y-6">
-                    <details class="bg-white rounded-xl p-6 shadow-sm border border-gray-100" open>
-                        <summary class="font-semibold text-lg cursor-pointer">Welke certificeringen heeft u voor IRVE-installatie?</summary>
-                        <p class="mt-4 text-gray-600 leading-relaxed">JCSM is Qualifelec IRVE gecertificeerd (IRVE P1-P2-P3) en onze technici zijn B2V/BR/BC bevoegd. Wij voldoen aan de normen NF C 15-100, NF C 14-100 en de specifieke richtlijn UTE C 15-722 voor laadpalen.</p>
+                <div class="text-center mb-12 section-appear">
+                    <span class="sec-label mb-4 inline-block">FAQ</span>
+                    <h2 class="text-3xl md:text-4xl font-bold tracking-tight">Veelgestelde <em>vragen</em></h2>
+                </div>
+                <div class="space-y-4">
+                    <details class="faq-item card-lift bg-white rounded-xl border border-gray-200 section-appear" open>
+                        <summary class="flex items-center justify-between p-6 font-semibold text-lg cursor-pointer">
+                            <span>Welke certificeringen heeft u voor IRVE-installatie?</span>
+                            <svg class="w-5 h-5 text-blue-600 flex-shrink-0 ml-4 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/></svg>
+                        </summary>
+                        <div class="faq-content px-6 pb-6">
+                            <p class="text-gray-600 leading-relaxed">JCSM is Qualifelec IRVE gecertificeerd (IRVE P1-P2-P3) en onze technici zijn B2V/BR/BC bevoegd. Wij voldoen aan de normen NF C 15-100, NF C 14-100 en de specifieke richtlijn UTE C 15-722 voor laadpalen.</p>
+                        </div>
                     </details>
-                    <details class="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
-                        <summary class="font-semibold text-lg cursor-pointer">Wat is het verschil tussen AC en DC?</summary>
-                        <p class="mt-4 text-gray-600 leading-relaxed">AC-laders (wisselstroom, 3,7 tot 22 kW) zijn geschikt voor langzaam of versneld laden op langdurige parkeerplaatsen. DC-laders (gelijkstroom, 50 tot 350 kW) bieden snelladen in 20 tot 40 minuten, ideaal voor snelwegstations of professionele wagenparken.</p>
+                    <details class="faq-item card-lift bg-white rounded-xl border border-gray-200 section-appear">
+                        <summary class="flex items-center justify-between p-6 font-semibold text-lg cursor-pointer">
+                            <span>Wat is het verschil tussen AC en DC?</span>
+                            <svg class="w-5 h-5 text-blue-600 flex-shrink-0 ml-4 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/></svg>
+                        </summary>
+                        <div class="faq-content px-6 pb-6">
+                            <p class="text-gray-600 leading-relaxed">AC-laders (wisselstroom, 3,7 tot 22 kW) zijn geschikt voor langzaam of versneld laden op langdurige parkeerplaatsen. DC-laders (gelijkstroom, 50 tot 350 kW) bieden snelladen in 20 tot 40 minuten, ideaal voor snelwegstations of professionele wagenparken.</p>
+                        </div>
                     </details>
-                    <details class="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
-                        <summary class="font-semibold text-lg cursor-pointer">Hoe lang duurt een installatie van laadpalen?</summary>
-                        <p class="mt-4 text-gray-600 leading-relaxed">De installatie van een individuele AC-lader duurt 1 tot 2 dagen. Voor een multi-punt uitrol (parkeergarage, VvE, station) rekent u op 1 tot 4 weken, afhankelijk van de complexiteit van de elektrische aansluiting en eventuele civieltechnische werkzaamheden.</p>
+                    <details class="faq-item card-lift bg-white rounded-xl border border-gray-200 section-appear">
+                        <summary class="flex items-center justify-between p-6 font-semibold text-lg cursor-pointer">
+                            <span>Hoe lang duurt een installatie van laadpalen?</span>
+                            <svg class="w-5 h-5 text-blue-600 flex-shrink-0 ml-4 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/></svg>
+                        </summary>
+                        <div class="faq-content px-6 pb-6">
+                            <p class="text-gray-600 leading-relaxed">De installatie van een individuele AC-lader (wallbox 7 tot 22 kW) duurt 1 tot 2 dagen, plaatsing en inbedrijfstelling inbegrepen. Voor een multi-punt uitrol (parkeergarage, VvE, station) rekent u op 1 tot 4 weken, afhankelijk van de complexiteit van de aansluiting en de civieltechnische werken. DC-projecten met aanleg van een HS/LS-station lopen over 3 tot 6 maanden, voornamelijk door de vergunnings- en Enedis-aansluitingstermijnen.</p>
+                        </div>
                     </details>
-                    <details class="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
-                        <summary class="font-semibold text-lg cursor-pointer">Wat is een IRVE-conformiteitscontrole?</summary>
-                        <p class="mt-4 text-gray-600 leading-relaxed">Een conformiteitscontrole houdt in dat een bestaande installatie wordt geüpgraded volgens de geldende normen: controle van de elektrische dimensionering, vervanging van verouderde beveiligingen, normalisering van de bedrading en validatie door een erkend controleorganisme (Consuel).</p>
+                    <details class="faq-item card-lift bg-white rounded-xl border border-gray-200 section-appear">
+                        <summary class="flex items-center justify-between p-6 font-semibold text-lg cursor-pointer">
+                            <span>Wat is een IRVE-conformiteitscontrole?</span>
+                            <svg class="w-5 h-5 text-blue-600 flex-shrink-0 ml-4 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/></svg>
+                        </summary>
+                        <div class="faq-content px-6 pb-6">
+                            <p class="text-gray-600 leading-relaxed">Een conformiteitscontrole houdt in dat een bestaande installatie wordt geüpgraded volgens de geldende normen: controle van de elektrische dimensionering, vervanging van verouderde beveiligingen, normalisering van de bedrading en validatie door een erkend controleorganisme (Consuel).</p>
+                        </div>
                     </details>
-                    <details class="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
-                        <summary class="font-semibold text-lg cursor-pointer">Kan een laadpaal bij een particulier worden geïnstalleerd?</summary>
-                        <p class="mt-4 text-gray-600 leading-relaxed">Ja. JCSM installeert laadpalen (wallbox 7 tot 22 kW) bij particulieren, in een vrijstaande woning of in een appartementencomplex. Installatie door een IRVE-gecertificeerde professional is verplicht boven 3,7 kW en geeft recht op verlaagd BTW-tarief van 5,5%. <a href="#particuliers" class="text-blue-600 hover:underline">Meer informatie over installatie voor particulieren</a>.</p>
+                    <details class="faq-item card-lift bg-white rounded-xl border border-gray-200 section-appear">
+                        <summary class="flex items-center justify-between p-6 font-semibold text-lg cursor-pointer">
+                            <span>Kan een laadpaal bij een particulier worden geïnstalleerd?</span>
+                            <svg class="w-5 h-5 text-blue-600 flex-shrink-0 ml-4 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/></svg>
+                        </summary>
+                        <div class="faq-content px-6 pb-6">
+                            <p class="text-gray-600 leading-relaxed">Ja. JCSM installeert laadpalen (wallbox 7 tot 22 kW) bij particulieren, in een vrijstaande woning of in een appartementencomplex. Installatie door een IRVE-gecertificeerde professional is verplicht boven 3,7 kW en geeft recht op het verlaagde BTW-tarief van 5,5%. <a href="#particuliers" class="text-blue-600 hover:underline">Meer informatie over installatie voor particulieren</a>.</p>
+                        </div>
                     </details>
                 </div>
             </div>
         </section>
 
         <!-- CTA -->
-        <section class="py-20 px-6 bg-white">
-            <div class="max-w-4xl mx-auto text-center section-appear">
-                <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-6">
-                    Een Gecertificeerde Installatie Nodig?
+        <section class="py-20 px-6" aria-label="Een offerte aanvragen">
+            <div class="max-w-6xl mx-auto card-cta py-12 px-8 section-appear">
+                <h2 class="text-2xl sm:text-3xl tracking-tight text-white mb-4 text-center">
+                    Wij sluiten aan. <em>U slaapt rustig.</em>
                 </h2>
-                <p class="text-xl text-gray-600 mb-10 leading-relaxed max-w-3xl mx-auto">
-                    Ontvang een gedetailleerde en persoonlijke offerte voor uw IRVE-installatie- of conformiteitsproject.
+                <p class="text-base text-center mb-8 max-w-2xl mx-auto" style="color: rgba(255,255,255,.75)">
+                    Ontvang een gedetailleerde offerte voor uw IRVE-installatie- of conformiteitsproject.
                 </p>
-                <a href="/nl/contact"
-                    class="btn-primary px-10 py-5 rounded-xl font-medium text-lg inline-block transition-transform">
-                    Offerte Aanvragen
-                </a>
+                <div class="flex flex-wrap gap-4 justify-center">
+                    <a href="/nl/contact"
+                        class="bg-white font-medium px-8 py-3 rounded-full text-sm inline-block transition-colors hover:bg-gray-100" style="color: var(--color-primary)">
+                        Gratis offerte aanvragen
+                    </a>
+                    <a href="tel:+33183755706"
+                        class="border text-white px-8 py-3 rounded-full font-medium text-sm inline-block transition-colors" style="border-color: rgba(255,255,255,0.4);"
+                        onmouseover="this.style.background='rgba(255,255,255,0.1)'" onmouseout="this.style.background='transparent'">
+                        +33 1 83 75 57 06
+                    </a>
+                </div>
             </div>
         </section>
 
         <!-- Blogartikelen -->
-        <section class="py-16 bg-gray-50">
+        <section class="py-20 bg-white">
             <div class="max-w-5xl mx-auto px-6">
-                <h2 class="text-2xl font-bold text-center mb-8">Gerelateerde artikelen</h2>
-                <div class="grid md:grid-cols-3 gap-6">
-                    <a href="/blog/installer-borne-recharge-maison-particulier" class="bg-white rounded-xl p-6 border border-gray-100 hover:shadow-lg transition-all hover:-translate-y-1 group">
-                        <span class="text-xs font-semibold text-blue-600 uppercase tracking-wider">Gids</span>
-                        <h3 class="font-semibold text-gray-900 mt-2 group-hover:text-blue-600 transition-colors">Een laadpaal thuis installeren: de complete gids voor particulieren</h3>
+                <div class="text-center mb-10 section-appear">
+                    <span class="sec-label mb-4 inline-block">Bronnen</span>
+                    <h2 class="text-2xl font-bold tracking-tight">Lees ook</h2>
+                </div>
+                <div class="grid sm:grid-cols-3 gap-6 grid-stagger">
+                    <a href="/blog/installer-borne-recharge-maison-particulier" class="card-feature card-lift p-6 group block section-appear">
+                        <div class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center mb-4">
+                            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+                        </div>
+                        <h3 class="font-bold text-gray-900 group-hover:text-blue-600 transition-colors mb-2">Een laadpaal thuis installeren: de complete gids voor particulieren</h3>
+                        <p class="text-sm text-gray-600 mb-3">Alles wat u moet weten over de installatie van een laadpaal thuis: keuze van het vermogen, subsidies en de stappen.</p>
+                        <span class="text-sm font-semibold text-blue-600 inline-flex items-center gap-1">Lezen
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                        </span>
                     </a>
-                    <a href="/blog/installer-borne-copropriete" class="bg-white rounded-xl p-6 border border-gray-100 hover:shadow-lg transition-all hover:-translate-y-1 group">
-                        <span class="text-xs font-semibold text-blue-600 uppercase tracking-wider">Gids</span>
-                        <h3 class="font-semibold text-gray-900 mt-2 group-hover:text-blue-600 transition-colors">Een laadpaal in een VvE installeren: de complete gids</h3>
+                    <a href="/blog/installer-borne-copropriete" class="card-feature card-lift p-6 group block section-appear">
+                        <div class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center mb-4">
+                            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+                        </div>
+                        <h3 class="font-bold text-gray-900 group-hover:text-blue-600 transition-colors mb-2">Een laadpaal in een VvE installeren: de complete gids</h3>
+                        <p class="text-sm text-gray-600 mb-3">De stappen, het recht op een laadpaal en het ADVENIR-programma voor het installeren van laadpalen in een appartementencomplex.</p>
+                        <span class="text-sm font-semibold text-blue-600 inline-flex items-center gap-1">Lezen
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                        </span>
                     </a>
-                    <a href="/blog/borne-ac-dc-difference" class="bg-white rounded-xl p-6 border border-gray-100 hover:shadow-lg transition-all hover:-translate-y-1 group">
-                        <span class="text-xs font-semibold text-blue-600 uppercase tracking-wider">Techniek</span>
-                        <h3 class="font-semibold text-gray-900 mt-2 group-hover:text-blue-600 transition-colors">AC vs DC lader: wat is het verschil en hoe kiest u?</h3>
+                    <a href="/blog/borne-ac-dc-difference" class="card-feature card-lift p-6 group block section-appear">
+                        <div class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center mb-4">
+                            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                        </div>
+                        <h3 class="font-bold text-gray-900 group-hover:text-blue-600 transition-colors mb-2">AC vs DC lader: wat is het verschil en hoe kiest u?</h3>
+                        <p class="text-sm text-gray-600 mb-3">Begrijp het verschil tussen AC- en DC-laden om de juiste oplossing voor uw project te kiezen.</p>
+                        <span class="text-sm font-semibold text-blue-600 inline-flex items-center gap-1">Lezen
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                        </span>
                     </a>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer class="border-t border-gray-100 py-16 px-6 bg-white" role="contentinfo" aria-label="Voettekst">
+        <footer class="border-t border-gray-100 py-16 px-6 bg-white" role="contentinfo" aria-label="Voettekst">
         <div class="max-w-6xl mx-auto">
             <div class="grid md:grid-cols-4 gap-10 mb-12">
                 <div>
                     <div class="flex items-center space-x-3 mb-4">
-                        <picture><source srcset="../images/logo.webp" type="image/webp"><img src="../images/logo.png" alt="Logo JCSM" class="w-8 h-8" width="32" height="32" loading="lazy"></picture>
+                        <picture><source srcset="../images/logo.webp" type="image/webp"><img src="../images/logo.png" alt="Logo JCSM" class="w-8 h-8" width="32" height="32" loading="lazy" decoding="async"></picture>
                         <span class="text-xl font-semibold text-gray-900">JCSM</span>
                     </div>
-                    <p class="text-sm text-gray-600 mb-4">Uw vertrouwde partner sinds 2019 voor het beheer, de installatie en het onderhoud van uw laadinfrastructuur.</p>
+                    <p class="text-sm text-gray-600 mb-4">IRVE-ervaring sinds 2019. Installatie, onderhoud en beheer in Frankrijk en België. Een inclusieve onderneming.</p>
                     <p class="text-sm text-gray-500">60 rue François 1er<br>75008 Paris</p>
-                    <p class="text-sm text-gray-500 mt-3"><a href="tel:+33183755706" class="hover:text-gray-900 transition-colors">+33 1 83 75 57 06</a></p>
-                    <p class="text-sm text-gray-500"><a href="mailto:contact@jcsm.fr" class="hover:text-gray-900 transition-colors">contact@jcsm.fr</a></p>
+                    <p class="text-sm text-gray-500 mt-3"><a href="tel:+33183755706" title="JCSM bellen" class="hover:text-gray-900 transition-colors">+33 1 83 75 57 06</a></p>
+                    <p class="text-sm text-gray-500"><a href="mailto:contact@jcsm.fr" title="Een e-mail sturen naar JCSM" class="hover:text-gray-900 transition-colors">contact@jcsm.fr</a></p>
                 </div>
                 <div>
                     <h3 class="text-sm font-semibold text-gray-900 mb-4 uppercase tracking-wide">Diensten</h3>
                     <nav aria-label="Diensten">
                         <ul class="space-y-3">
-                            <li><a href="/nl/projectbeheer" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Projectbeheer</a></li>
-                            <li><a href="/nl/installatie-conformiteit" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Installatie & conformiteit</a></li>
-                            <li><a href="/nl/exploitatie-onderhoud" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Exploitatie & onderhoud</a></li>
-                            <li><a href="/nl/beveiliging-installaties" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Beveiliging</a></li>
-                            <li><a href="/nl/callcenter" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Support 24/7</a></li>
+                            <li><a href="/nl/projectbeheer" title="Bekijk onze dienst projectbeheer" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Projectbeheer</a></li>
+                            <li><a href="/nl/installatie-conformiteit" title="Bekijk onze dienst installatie en conformiteit" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Installatie & conformiteit</a></li>
+                            <li><a href="/nl/exploitatie-onderhoud" title="Bekijk onze dienst exploitatie en onderhoud" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Exploitatie & onderhoud</a></li>
+                            <li><a href="/nl/beveiliging-installaties" title="Bekijk onze dienst beveiliging" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Beveiliging</a></li>
+                            <li><a href="/nl/callcenter" title="Bekijk onze technische support 24/7" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Support 24/7</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -742,23 +937,23 @@
                     <nav aria-label="Zones">
                         <ul class="space-y-3">
                             <li><a href="/zones/france" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Frankrijk</a></li>
-                            <li><a href="/zones/belgique" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Belgie</a></li>
+                            <li><a href="/zones/belgique" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">België</a></li>
                         </ul>
                     </nav>
                     <div class="flex items-center gap-3 mt-4">
-                        <a href="https://www.linkedin.com/company/jcsm-elec/" target="_blank" rel="noopener noreferrer me" class="text-gray-500 hover:text-gray-900 transition-colors" aria-label="LinkedIn">
+                        <a href="https://www.linkedin.com/company/jcsm-elec/" target="_blank" rel="noopener noreferrer me" title="JCSM volgen op LinkedIn (nieuw tabblad)" aria-label="LinkedIn" class="text-gray-500 hover:text-gray-900 transition-colors">
                             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
                         </a>
-                        <a href="https://www.facebook.com/profile.php?id=61587992161634" target="_blank" rel="noopener noreferrer me" class="text-gray-500 hover:text-gray-900 transition-colors" aria-label="Facebook">
+                        <a href="https://www.facebook.com/profile.php?id=61587992161634" target="_blank" rel="noopener noreferrer me" title="JCSM volgen op Facebook (nieuw tabblad)" aria-label="Facebook" class="text-gray-500 hover:text-gray-900 transition-colors">
                             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
                         </a>
-                        <a href="https://x.com/JCSM_ELEC" target="_blank" rel="noopener noreferrer me" class="text-gray-500 hover:text-gray-900 transition-colors" aria-label="X (Twitter)">
+                        <a href="https://x.com/JCSM_ELEC" target="_blank" rel="noopener noreferrer me" title="JCSM volgen op X (nieuw tabblad)" aria-label="X (Twitter)" class="text-gray-500 hover:text-gray-900 transition-colors">
                             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
                         </a>
-                        <a href="https://www.instagram.com/jcsm.elec/" target="_blank" rel="noopener noreferrer me" class="text-gray-500 hover:text-gray-900 transition-colors" aria-label="Instagram">
+                        <a href="https://www.instagram.com/jcsm.elec/" target="_blank" rel="noopener noreferrer me" title="JCSM volgen op Instagram (nieuw tabblad)" aria-label="Instagram" class="text-gray-500 hover:text-gray-900 transition-colors">
                             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
                         </a>
-                        <a href="https://www.youtube.com/@JCSM_ELEC" target="_blank" rel="noopener noreferrer me" class="text-gray-500 hover:text-gray-900 transition-colors" aria-label="YouTube">
+                        <a href="https://www.youtube.com/@JCSM_ELEC" target="_blank" rel="noopener noreferrer me" title="JCSM volgen op YouTube (nieuw tabblad)" aria-label="YouTube" class="text-gray-500 hover:text-gray-900 transition-colors">
                             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
                         </a>
                     </div>
@@ -766,7 +961,7 @@
             </div>
             <div class="pt-8 border-t border-gray-100 flex flex-col md:flex-row md:items-center md:justify-between gap-4 text-xs text-gray-500">
                 <span>&copy; 2026 JCSM SAS - SIRET 99387429600011</span>
-                <a href="mailto:contact@jcsm.fr" class="hover:text-gray-900 transition-colors">contact@jcsm.fr</a> · <a href="tel:+33183755706" class="hover:text-gray-900 transition-colors">+33 1 83 75 57 06</a>
+                <span><a href="mailto:contact@jcsm.fr" title="Een e-mail sturen naar JCSM" class="hover:text-gray-900 transition-colors">contact@jcsm.fr</a> · <a href="tel:+33183755706" title="JCSM bellen" class="hover:text-gray-900 transition-colors">+33 1 83 75 57 06</a></span>
             </div>
         </div>
     </footer>
@@ -777,13 +972,38 @@
         </svg>
     </button>
 
-    <script src="../js/config.js?v=83" defer></script>
-    <script src="../js/utils.js?v=83" defer></script>
-    <script src="../js/i18n.js?v=83" defer></script>
-    <script src="../js/public.js?v=83" defer></script>
-    <script src="../js/analytics.js?v=83" defer></script>
-    <script src="../js/wow-effects.js?v=83" defer></script>
+    <script src="../js/config.js?v=84" defer></script>
+    <script src="../js/utils.js?v=84" defer></script>
+    <script src="../js/i18n.js?v=84" defer></script>
+    <script src="../js/public.js?v=84" defer></script>
+    <script src="../js/analytics.js?v=84" defer></script>
+    <script src="../js/wow-effects.js?v=84" defer></script>
 
+    <script>
+        (function(){
+            if ('IntersectionObserver' in window) {
+                var io = new IntersectionObserver(function(entries){
+                    entries.forEach(function(e){
+                        if(e.isIntersecting){
+                            e.target.classList.add('visible','revealed');
+                            io.unobserve(e.target);
+                        }
+                    });
+                }, {threshold: 0.12, rootMargin: '0px 0px -40px 0px'});
+                document.querySelectorAll('.section-appear').forEach(function(el){ io.observe(el); });
+                document.querySelectorAll('.grid-stagger').forEach(function(el){ io.observe(el); });
+            } else {
+                document.documentElement.classList.add('animations-disabled');
+            }
+            setTimeout(function(){
+                document.querySelectorAll('.section-appear:not(.visible)').forEach(function(el){
+                    el.style.opacity='1';
+                    el.style.transform='none';
+                    el.classList.add('visible','revealed');
+                });
+            }, 3500);
+        })();
+    </script>
     <!-- Service Worker Registration -->
     <script>
         if ('serviceWorker' in navigator) {

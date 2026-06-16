@@ -34,13 +34,17 @@
     <meta name="twitter:image" content="https://jcsm.fr/images/jcsmtesla.jpg">
     <meta name="twitter:image:alt" content="Become a JCSM technical partner - IRVE Network">
 
-    <link rel="stylesheet" href="../css/critical.css?v=83">
-    <link rel="stylesheet" href="../css/tailwind.css?v=83" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="../css/tailwind.css?v=83"></noscript>
-    <link rel="stylesheet" href="../styles.css?v=83" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="../styles.css?v=83"></noscript>
+    <link rel="stylesheet" href="../css/critical.css?v=84">
+    <link rel="stylesheet" href="../css/tailwind.css?v=84" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="../css/tailwind.css?v=84"></noscript>
+    <link rel="stylesheet" href="../styles.css?v=84" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="../styles.css?v=84"></noscript>
     <link rel="manifest" href="../manifest.json">
     <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="theme-color" content="#2563EB">
+    <noscript><style>
+.preloader{display:none!important}</style></noscript>
 
     <script type="application/ld+json">
     {
@@ -63,7 +67,145 @@
         ]
     }
     </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "Independent IRVE Technician - Join the JCSM Network",
+        "url": "https://jcsm.fr/en/become-partner",
+        "description": "Join the JCSM network of partner technicians to service AC and DC charging stations across France and Belgium.",
+        "specialty": "Recruitment of independent IRVE technicians",
+        "about": {
+            "@type": "Organization",
+            "name": "JCSM SAS",
+            "url": "https://jcsm.fr"
+        }
+    }
+    </script>
 
+    <style>
+        /* Step indicator styles */
+        .step-indicator {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0;
+            margin-bottom: 2.5rem;
+        }
+        .step-dot {
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.875rem;
+            border: 2px solid var(--color-line);
+            color: var(--color-text-secondary);
+            background: #fff;
+            flex-shrink: 0;
+        }
+        .step-dot.active {
+            background: var(--color-primary);
+            border-color: var(--color-primary);
+            color: #fff;
+        }
+        .step-connector {
+            width: 3rem;
+            height: 2px;
+            background: var(--color-line);
+        }
+        .step-connector.active {
+            background: var(--color-primary);
+        }
+        /* Intervention type cards */
+        .interv-card {
+            background: #fff;
+            border: 1px solid var(--color-line);
+            border-radius: var(--radius-xl);
+            padding: 1.75rem;
+            transition: border-color var(--duration-normal), transform var(--duration-normal);
+        }
+        .interv-card:hover {
+            border-color: var(--color-primary);
+            transform: translateY(-2px);
+        }
+        .interv-icon {
+            width: 3rem;
+            height: 3rem;
+            border-radius: 0.75rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+        }
+        /* Advantage list item */
+        .adv-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            padding: 1.25rem 0;
+            border-bottom: 1px solid var(--color-line);
+        }
+        .adv-item:last-child {
+            border-bottom: none;
+        }
+        .adv-icon {
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: 0.75rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        /* Info card for steps 2 and 3 */
+        .info-step-card {
+            background: #fff;
+            border: 1px solid var(--color-line);
+            border-radius: var(--radius-xl);
+            padding: 2rem;
+            transition: border-color var(--duration-normal);
+        }
+        .info-step-card:hover {
+            border-color: var(--color-primary);
+        }
+        .info-step-number {
+            width: 2rem;
+            height: 2rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.8rem;
+            flex-shrink: 0;
+        }
+        /* Qualification info section */
+        .qual-info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            gap: 0.5rem;
+        }
+        .qual-info-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.375rem;
+            padding: 0.5rem 0.75rem;
+            border: 1px solid var(--color-line);
+            border-radius: var(--radius-lg);
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--color-ink);
+            background: #fff;
+        }
+        @media (max-width: 768px) {
+            .qual-info-grid {
+                grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+            }
+        }
+    </style>
 </head>
 
 <body class="text-gray-900">
@@ -71,7 +213,7 @@
 
     <div class="preloader" id="preloader" role="status" aria-label="Loading">
         <div class="flex flex-col items-center justify-center">
-            <picture><source srcset="../images/logo.webp" type="image/webp"><img src="../images/logo.png" alt="JCSM" width="80" height="80" class="animate-pulse"></picture>
+            <picture><source srcset="../images/logo.webp" type="image/webp"><img src="../images/logo.png" alt="JCSM - IRVE Expert" width="80" height="80" class="animate-pulse"></picture>
         </div>
     </div>
 
@@ -95,32 +237,32 @@
                 <a href="/en/about" class="text-base text-gray-600 hover:text-gray-900 transition-colors py-2">About</a>
                 <a href="/en/careers" class="text-base text-gray-600 hover:text-gray-900 transition-colors py-2">Careers</a>
                 <div class="lang-selector relative"></div>
-                <a href="/en/contact" class="btn-primary px-6 py-3 rounded-lg text-base font-medium inline-block text-center mt-4">Free quote</a>
+                <a href="/en/contact" class="btn-primary px-6 py-3 rounded-lg text-base font-medium text-white inline-block text-center mt-4">Contact us</a>
             </div>
         </div>
     </nav>
 
-    <div id="scroll-progress" class="fixed top-0 left-0 h-1 bg-blue-600 z-[60] transition-all duration-150" style="width: 0%;"></div>
+    <div id="scroll-progress" class="fixed top-0 left-0 h-1 bg-blue-600 z-[60] transition-all duration-150" style="width: 0%;" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Reading progress"></div>
 
-    <nav class="fixed top-0 w-full z-50 glass-nav" role="navigation" aria-label="Main navigation">
+    <nav class="fixed top-0 w-full z-50 glass-nav border-b border-gray-200" role="navigation" aria-label="Main navigation">
         <div class="max-w-7xl mx-auto px-6 py-4">
             <div class="flex justify-between items-center">
-                <a href="/en/" class="flex items-center space-x-3 group">
-                    <picture><source srcset="../images/logo.webp" type="image/webp"><img src="../images/logo.png" alt="JCSM" class="w-9 h-9 transition-transform group-hover:scale-105 duration-300" width="36" height="36"></picture>
-                    <span class="text-xl font-bold tracking-tight">JCSM</span>
+                <a href="/en/" class="flex items-center space-x-3 group mr-10">
+                    <picture><source srcset="../images/logo.webp" type="image/webp"><img src="../images/logo.png" alt="JCSM - Home" class="w-10 h-10 transition-transform group-hover:scale-105 duration-300" width="40" height="40"></picture>
+                    <span class="text-2xl font-extrabold tracking-tight text-gray-900">JCSM</span>
                 </a>
-                <div class="hidden lg:flex items-center space-x-10">
-                    <a href="/en/project-management" class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300">Project Management</a>
-                    <a href="/en/installation-compliance" class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300">Installation</a>
-                    <a href="/en/operations-maintenance" class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300">Operations</a>
-                    <a href="/en/installation-security" class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300">Security</a>
-                    <a href="/en/call-center" class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300">Support</a>
-                    <a href="/en/about" class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300">About</a>
+                <div class="hidden lg:flex items-center space-x-2">
+                    <a href="/en/project-management" class="nav-link text-[15px] font-semibold text-gray-700 whitespace-nowrap">Project Management</a>
+                    <a href="/en/installation-compliance" class="nav-link text-[15px] font-semibold text-gray-700 whitespace-nowrap">Installation</a>
+                    <a href="/en/operations-maintenance" class="nav-link text-[15px] font-semibold text-gray-700 whitespace-nowrap">Operations</a>
+                    <a href="/en/installation-security" class="nav-link text-[15px] font-semibold text-gray-700 whitespace-nowrap">Security</a>
+                    <a href="/en/call-center" class="nav-link text-[15px] font-semibold text-gray-700 whitespace-nowrap">Support</a>
+                    <a href="/en/about" class="nav-link text-[15px] font-semibold text-gray-700 whitespace-nowrap">About</a>
                     <div class="lang-selector relative"></div>
-                    <a href="/en/contact" class="btn-primary px-7 py-2.5 rounded-xl text-base font-medium shadow-lg hover:shadow-xl">Contact</a>
+                    <a href="/en/contact" class="btn-primary ml-5 px-8 py-3 rounded-xl text-[15px] font-semibold text-white shadow-lg hover:shadow-xl whitespace-nowrap">Contact us</a>
                 </div>
-                <button class="mobile-menu-btn text-gray-600 hover:text-gray-900" id="mobile-menu-btn" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-menu">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <button class="mobile-menu-btn text-gray-700 hover:text-gray-900" id="mobile-menu-btn" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-menu">
+                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                     </svg>
                 </button>
@@ -129,165 +271,616 @@
     </nav>
 
 
-    <main id="main-content" tabindex="-1">
-        <!-- Hero -->
-        <section class="pt-32 pb-16 px-6 min-h-[60vh] flex items-center relative overflow-hidden">
-            <div class="absolute inset-0" style="background:rgba(37,99,235,0.08)"></div>
-            <div class="absolute top-20 right-10 w-72 h-72 bg-blue-200 rounded-full filter blur-3xl opacity-30 animate-pulse"></div>
-            <div class="absolute bottom-20 left-10 w-96 h-96 bg-blue-200 rounded-full filter blur-3xl opacity-30 animate-pulse" style="animation-delay: 1s;"></div>
+    <main id="main-content" tabindex="-1" role="main">
+        <nav aria-label="Breadcrumb" class="max-w-6xl mx-auto px-4 sm:px-6 pt-24 pb-0">
+            <ol class="flex items-center gap-2 text-sm text-gray-500">
+                <li><a href="/en/" class="hover:text-blue-600 transition-colors">Home</a></li>
+                <li><span class="text-gray-300">/</span></li>
+                <li class="text-gray-600 font-medium">Become a Partner</li>
+            </ol>
+        </nav>
 
-            <div class="max-w-5xl mx-auto text-center relative z-10">
-                <div class="inline-flex items-center space-x-2 bg-gray-100 text-gray-700 rounded-full px-4 py-2 mb-6 section-appear">
-                    <span class="relative flex h-2 w-2">
-                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-600 opacity-75"></span>
-                        <span class="relative inline-flex rounded-full h-2 w-2 bg-blue-600"></span>
-                    </span>
-                    <span class="text-xs font-semibold uppercase tracking-wide">Seeking partners across France & Belgium</span>
-                </div>
-                <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-7xl font-bold leading-tight tracking-tight mb-6 section-appear">
-                    IRVE technicians,<br>join our <span class="gradient-text">network</span>
+        <!-- Hero -->
+        <section class="pt-12 pb-16 px-6">
+            <div class="max-w-5xl mx-auto text-center">
+                <div class="sec-label mb-5 section-appear">IRVE technician recruitment</div>
+                <h1 class="text-3xl sm:text-4xl md:text-5xl tracking-tight mb-6 section-appear">
+                    Independent IRVE technician?<br><em>Join the network.</em>
                 </h1>
-                <p class="text-xl text-gray-600 max-w-2xl mx-auto mb-8 section-appear">
-                    We are looking for technicians and maintenance companies across France and Belgium to service AC and DC charging stations from all manufacturers.
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto mb-8 section-appear" style="font-family: var(--font-sans);">
+                    We are looking for technicians and maintenance companies across France and Belgium to service AC and DC charging stations from all manufacturers. Steady volume, technical support and a response within 24 business hours.
                 </p>
                 <div class="flex flex-wrap gap-4 justify-center section-appear">
-                    <a href="/en/contact" class="btn-primary btn-liquid px-8 py-4 rounded-xl font-medium text-lg">
-                        Get in touch
+                    <a href="#registration" class="btn-primary px-8 py-4 font-medium text-lg text-white">
+                        Join the network
                     </a>
-                    <a href="#profile" class="btn-secondary px-8 py-4 rounded-xl font-medium text-lg">
-                        View the required profile
+                    <a href="#ideal-profile" class="btn-secondary px-8 py-4 font-medium text-lg">
+                        See the profile we seek
                     </a>
                 </div>
             </div>
         </section>
 
         <!-- Key figures -->
-        <section class="py-16 px-6 bg-white">
+        <section class="section-alt py-16 px-6" aria-label="Key figures">
             <div class="max-w-5xl mx-auto">
-                <div class="grid md:grid-cols-4 gap-8 text-center stagger-reveal">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center grid-stagger">
                     <div class="section-appear">
-                        <div class="text-5xl font-bold mb-2 text-blue-600">France</div>
-                        <p class="text-gray-600">Nationwide coverage</p>
+                        <div class="text-3xl font-bold mb-1" style="color: var(--color-ink);">All of France</div>
+                        <p class="text-sm text-gray-600">Nationwide coverage</p>
                     </div>
                     <div class="section-appear">
-                        <div class="text-5xl font-bold mb-2 text-blue-600">Belgium</div>
-                        <p class="text-gray-600">Wallonia & Flanders</p>
+                        <div class="text-3xl font-bold mb-1" style="color: var(--color-ink);">+ Belgium</div>
+                        <p class="text-sm text-gray-600">Wallonia and Flanders</p>
                     </div>
                     <div class="section-appear">
-                        <div class="text-5xl font-bold mb-2 text-blue-600">AC & DC</div>
-                        <p class="text-gray-600">All power levels</p>
+                        <div class="text-3xl font-bold mb-1" style="color: var(--color-ink);">AC &amp; DC</div>
+                        <p class="text-sm text-gray-600">All power levels</p>
                     </div>
                     <div class="section-appear">
-                        <div class="text-5xl font-bold mb-2 text-blue-600">Multi</div>
-                        <p class="text-gray-600">All brands</p>
+                        <div class="text-3xl font-bold mb-1" style="color: var(--color-ink);">Multi-brand</div>
+                        <p class="text-sm text-gray-600">ABB, Kempower, EVBox...</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Required profile -->
-        <section id="profile" class="py-24 px-6 bg-gray-50">
-            <div class="max-w-7xl mx-auto">
-                <div class="text-center mb-16 section-appear">
-                    <h2 class="text-4xl md:text-5xl font-bold tracking-tight mb-4">Required profile</h2>
-                    <p class="text-xl text-gray-600 max-w-2xl mx-auto">What we expect from our technical partners.</p>
+        <!-- 3-step journey -->
+        <section id="registration" class="py-20 px-6" aria-label="3-step registration journey">
+            <div class="max-w-5xl mx-auto">
+                <div class="text-center mb-12 section-appear">
+                    <div class="sec-label mb-4">How to join the network</div>
+                    <h2 class="text-3xl sm:text-4xl tracking-tight mb-4">A simple journey in <em>3 steps</em></h2>
+                    <p class="text-lg text-gray-600 max-w-2xl mx-auto" style="font-family: var(--font-sans);">Quick registration, a phone conversation, then access to assignments. Response within 24 business hours.</p>
                 </div>
 
-                <div class="grid md:grid-cols-3 gap-8 stagger-reveal">
-                    <div class="card-hover bg-white border border-gray-200 rounded-2xl p-8 section-appear">
-                        <div class="w-14 h-14 bg-blue-100 rounded-2xl flex items-center justify-center mb-6">
-                            <svg class="w-7 h-7 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                <!-- Step indicators -->
+                <div class="step-indicator section-appear">
+                    <div class="step-dot active">1</div>
+                    <div class="step-connector active"></div>
+                    <div class="step-dot">2</div>
+                    <div class="step-connector"></div>
+                    <div class="step-dot">3</div>
+                </div>
+
+                <div class="grid lg:grid-cols-3 gap-8 grid-stagger">
+
+                    <!-- Step 1: Registration form -->
+                    <div class="lg:col-span-1 section-appear">
+                        <div class="info-step-card" style="border-color: var(--color-primary); border-width: 2px;">
+                            <div class="flex items-center gap-3 mb-5">
+                                <div class="info-step-number" style="background: var(--color-primary); color: #fff;">1</div>
+                                <div>
+                                    <h3 class="font-bold" style="color: var(--color-ink);">Basic registration</h3>
+                                    <p class="text-xs text-gray-500">2 minutes</p>
+                                </div>
+                            </div>
+                            <form id="partnerForm" action="https://formspree.io/f/xyzpgqga" method="POST" class="space-y-4">
+                                <input type="text" name="_gotcha" style="display:none">
+                                <input type="hidden" name="_subject" value="New potential partner technician">
+                                <div>
+                                    <label for="partner-nom" class="sr-only">Last name</label>
+                                    <input type="text" name="nom" id="partner-nom" required aria-required="true" autocomplete="family-name" placeholder="Last name *" class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 outline-none transition-colors text-gray-900 text-sm">
+                                </div>
+                                <div>
+                                    <label for="partner-prenom" class="sr-only">First name</label>
+                                    <input type="text" name="prenom" id="partner-prenom" required aria-required="true" autocomplete="given-name" placeholder="First name *" class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 outline-none transition-colors text-gray-900 text-sm">
+                                </div>
+                                <div>
+                                    <label for="partner-email" class="sr-only">Email</label>
+                                    <input type="email" name="email" id="partner-email" required aria-required="true" autocomplete="email" placeholder="Email *" class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 outline-none transition-colors text-gray-900 text-sm">
+                                </div>
+                                <div>
+                                    <label for="partner-telephone" class="sr-only">Phone</label>
+                                    <input type="tel" name="telephone" id="partner-telephone" required aria-required="true" autocomplete="tel" placeholder="Phone *" class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 outline-none transition-colors text-gray-900 text-sm">
+                                </div>
+                                <div>
+                                    <label for="partner-ville" class="sr-only">City / Region</label>
+                                    <input type="text" name="ville" id="partner-ville" required aria-required="true" placeholder="City / Region *" class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 outline-none transition-colors text-gray-900 text-sm">
+                                </div>
+                                <div>
+                                    <p class="text-sm font-medium mb-2" style="color: var(--color-ink);">Type of structure</p>
+                                    <div class="flex gap-4">
+                                        <label class="flex items-center gap-2 cursor-pointer text-sm">
+                                            <input type="radio" name="type_structure" value="independant" required class="w-4 h-4 text-blue-600 focus:ring-blue-500">
+                                            <span>Independent</span>
+                                        </label>
+                                        <label class="flex items-center gap-2 cursor-pointer text-sm">
+                                            <input type="radio" name="type_structure" value="entreprise" class="w-4 h-4 text-blue-600 focus:ring-blue-500">
+                                            <span>Company</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="flex items-start gap-3">
+                                    <input type="checkbox" name="rgpd" id="partner-rgpd" required class="mt-1 w-5 h-5 min-w-[20px] rounded border-gray-300 text-blue-600 focus:ring-blue-500">
+                                    <label for="partner-rgpd" class="text-xs" style="color: #525252;">I agree to have my data processed to respond to my request. <a href="/confidentialite" class="text-blue-600 hover:underline">Privacy policy</a></label>
+                                </div>
+                                <button type="submit" class="w-full btn-primary px-6 py-3 font-bold text-white text-sm">
+                                    <span class="submit-text">Join the network</span>
+                                    <span class="submit-loading hidden">Sending...</span>
+                                </button>
+                            </form>
                         </div>
-                        <h3 class="text-xl font-bold mb-3">Electrical qualifications</h3>
-                        <p class="text-gray-600">B2V, BR, BC minimum. High-voltage certification (H1/H2) preferred for DC installations and HV/LV transformers.</p>
                     </div>
 
-                    <div class="card-hover bg-white border border-gray-200 rounded-2xl p-8 section-appear">
-                        <div class="w-14 h-14 bg-blue-100 rounded-2xl flex items-center justify-center mb-6">
-                            <svg class="w-7 h-7 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                    <!-- Step 2: Phone conversation -->
+                    <div class="lg:col-span-1 section-appear">
+                        <div class="info-step-card">
+                            <div class="flex items-center gap-3 mb-5">
+                                <div class="info-step-number" style="background: rgba(37, 99, 235, 0.08); color: var(--color-primary);">2</div>
+                                <div>
+                                    <h3 class="font-bold" style="color: var(--color-ink);">Phone conversation</h3>
+                                    <p class="text-xs text-gray-500">Within 24 business hours</p>
+                                </div>
+                            </div>
+                            <div class="space-y-4">
+                                <p class="text-sm text-gray-600">Our team calls you back to discuss your background and validate your profile.</p>
+                                <ul class="space-y-3">
+                                    <li class="flex items-start gap-3">
+                                        <div class="flex-shrink-0 mt-0.5">
+                                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+                                        </div>
+                                        <div>
+                                            <p class="text-sm font-medium" style="color: var(--color-ink);">Discussion of your qualifications</p>
+                                            <p class="text-xs text-gray-500">Certifications, IRVE experience, brands mastered</p>
+                                        </div>
+                                    </li>
+                                    <li class="flex items-start gap-3">
+                                        <div class="flex-shrink-0 mt-0.5">
+                                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
+                                        </div>
+                                        <div>
+                                            <p class="text-sm font-medium" style="color: var(--color-ink);">Equipment check</p>
+                                            <p class="text-xs text-gray-500">Vehicle, tooling, switchboard keys</p>
+                                        </div>
+                                    </li>
+                                    <li class="flex items-start gap-3">
+                                        <div class="flex-shrink-0 mt-0.5">
+                                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                                        </div>
+                                        <div>
+                                            <p class="text-sm font-medium" style="color: var(--color-ink);">Profile validation</p>
+                                            <p class="text-xs text-gray-500">Confirmation of your service area</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
-                        <h3 class="text-xl font-bold mb-3">IRVE experience preferred</h3>
-                        <p class="text-gray-600">Familiarity with AC chargers (EVBox, Schneider, Hager) and/or DC chargers (Kempower, Alpitronic, ABB). Training available for certain brands.</p>
                     </div>
 
-                    <div class="card-hover bg-white border border-gray-200 rounded-2xl p-8 section-appear">
-                        <div class="w-14 h-14 bg-blue-100 rounded-2xl flex items-center justify-center mb-6">
-                            <svg class="w-7 h-7 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                    <!-- Step 3: Access to assignments -->
+                    <div class="lg:col-span-1 section-appear">
+                        <div class="info-step-card">
+                            <div class="flex items-center gap-3 mb-5">
+                                <div class="info-step-number" style="background: rgba(16, 185, 129, 0.08); color: #10B981;">3</div>
+                                <div>
+                                    <h3 class="font-bold" style="color: var(--color-ink);">Access to assignments</h3>
+                                    <p class="text-xs text-gray-500">As soon as validated</p>
+                                </div>
+                            </div>
+                            <div class="space-y-4">
+                                <p class="text-sm text-gray-600">Once validated, you gain access to assignments in your area:</p>
+                                <ul class="space-y-2.5">
+                                    <li class="flex items-center gap-2.5">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg>
+                                        <span class="text-sm" style="color: var(--color-ink);">Preventive maintenance</span>
+                                    </li>
+                                    <li class="flex items-center gap-2.5">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg>
+                                        <span class="text-sm" style="color: var(--color-ink);">Corrective maintenance</span>
+                                    </li>
+                                    <li class="flex items-center gap-2.5">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg>
+                                        <span class="text-sm" style="color: var(--color-ink);">Cable replacement</span>
+                                    </li>
+                                    <li class="flex items-center gap-2.5">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg>
+                                        <span class="text-sm" style="color: var(--color-ink);">Commissioning</span>
+                                    </li>
+                                    <li class="flex items-center gap-2.5">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg>
+                                        <span class="text-sm" style="color: var(--color-ink);">Installation (AC/DC, private/public)</span>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
-                        <h3 class="text-xl font-bold mb-3">Regional or nationwide mobility</h3>
-                        <p class="text-gray-600">Ability to cover your geographic area. Own utility vehicle and tools preferred.</p>
                     </div>
 
-                    <div class="card-hover bg-white border border-gray-200 rounded-2xl p-8 section-appear">
-                        <div class="w-14 h-14 bg-blue-100 rounded-2xl flex items-center justify-center mb-6">
-                            <svg class="w-7 h-7 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
+                </div>
+            </div>
+        </section>
+
+        <!-- What we seek (ideal profile) -->
+        <section id="ideal-profile" class="section-alt py-20 px-6" aria-label="Ideal profile sought">
+            <div class="max-w-5xl mx-auto">
+                <div class="text-center mb-12 section-appear">
+                    <div class="sec-label mb-4">Ideal profile</div>
+                    <h2 class="text-3xl sm:text-4xl tracking-tight mb-4">What we <em>seek</em></h2>
+                    <p class="text-lg text-gray-600 max-w-2xl mx-auto" style="font-family: var(--font-sans);">The qualifications and equipment we value in our partners. You don't need to tick every box; we discuss it together.</p>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-8 section-appear grid-stagger">
+
+                    <!-- Certifications and qualifications -->
+                    <div class="card-feature card-lift p-6">
+                        <div class="flex items-center gap-3 mb-5">
+                            <div class="w-10 h-10 rounded-lg flex items-center justify-center" style="background: rgba(37, 99, 235, 0.08);">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                            </div>
+                            <div>
+                                <h3 class="font-bold" style="color: var(--color-ink);">Electrical certifications</h3>
+                                <p class="text-xs text-gray-500">NF C 18-510</p>
+                            </div>
                         </div>
-                        <h3 class="text-xl font-bold mb-3">Independent or company status</h3>
-                        <p class="text-gray-600">Sole trader, LLC, or corporation -- any legal structure accepted. Professional liability insurance required.</p>
+                        <div class="qual-info-grid">
+                            <span class="qual-info-tag">B0</span>
+                            <span class="qual-info-tag">B1V</span>
+                            <span class="qual-info-tag">B2V</span>
+                            <span class="qual-info-tag">BR</span>
+                            <span class="qual-info-tag">BC</span>
+                            <span class="qual-info-tag">H0V</span>
+                            <span class="qual-info-tag">H1V</span>
+                            <span class="qual-info-tag">H2V</span>
+                        </div>
                     </div>
 
-                    <div class="card-hover bg-white border border-gray-200 rounded-2xl p-8 section-appear">
-                        <div class="w-14 h-14 bg-blue-100 rounded-2xl flex items-center justify-center mb-6">
-                            <svg class="w-7 h-7 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path></svg>
+                    <div class="card-feature card-lift p-6">
+                        <div class="flex items-center gap-3 mb-5">
+                            <div class="w-10 h-10 rounded-lg flex items-center justify-center" style="background: rgba(16, 185, 129, 0.08);">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                            </div>
+                            <div>
+                                <h3 class="font-bold" style="color: var(--color-ink);">IRVE qualifications</h3>
+                                <p class="text-xs text-gray-500">Installation and maintenance</p>
+                            </div>
                         </div>
-                        <h3 class="text-xl font-bold mb-3">Rigour and reporting</h3>
-                        <p class="text-gray-600">Intervention reports, before/after photos, strict adherence to safety protocols. Use of digital tools for tracking and follow-up.</p>
+                        <div class="space-y-3">
+                            <div>
+                                <p class="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">Installation</p>
+                                <div class="qual-info-grid">
+                                    <span class="qual-info-tag">P1</span>
+                                    <span class="qual-info-tag">P2</span>
+                                    <span class="qual-info-tag">P3</span>
+                                </div>
+                            </div>
+                            <div>
+                                <p class="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">Maintenance</p>
+                                <div class="qual-info-grid">
+                                    <span class="qual-info-tag">MA1</span>
+                                    <span class="qual-info-tag">MA2</span>
+                                    <span class="qual-info-tag">MA3</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
-                    <div class="card-hover bg-white border border-gray-200 rounded-2xl p-8 section-appear">
-                        <div class="w-14 h-14 bg-blue-100 rounded-2xl flex items-center justify-center mb-6">
-                            <svg class="w-7 h-7 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    <!-- Equipment -->
+                    <div class="card-feature card-lift p-6">
+                        <div class="flex items-center gap-3 mb-5">
+                            <div class="w-10 h-10 rounded-lg flex items-center justify-center" style="background: rgba(37, 99, 235, 0.08);">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14L21 3"/><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/></svg>
+                            </div>
+                            <div>
+                                <h3 class="font-bold" style="color: var(--color-ink);">Keys and tooling</h3>
+                                <p class="text-xs text-gray-500">Switchboard and electrical cabinet keys</p>
+                            </div>
                         </div>
-                        <h3 class="text-xl font-bold mb-3">Responsiveness</h3>
-                        <p class="text-gray-600">Ability to respond within 24 to 48 hours for corrective maintenance. Availability for occasional on-call duties is a plus.</p>
+                        <div class="qual-info-grid mb-4">
+                            <span class="qual-info-tag">TGBT 405</span>
+                            <span class="qual-info-tag">TGBT 455</span>
+                            <span class="qual-info-tag">TGBT 1224</span>
+                            <span class="qual-info-tag">TGBT 2433</span>
+                            <span class="qual-info-tag">Triangle keys</span>
+                        </div>
+                    </div>
+
+                    <!-- Vehicle -->
+                    <div class="card-feature card-lift p-6">
+                        <div class="flex items-center gap-3 mb-5">
+                            <div class="w-10 h-10 rounded-lg flex items-center justify-center" style="background: rgba(37, 99, 235, 0.08);">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13" rx="2"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+                            </div>
+                            <div>
+                                <h3 class="font-bold" style="color: var(--color-ink);">Electric vehicle</h3>
+                                <p class="text-xs text-gray-500">Consistent with our business</p>
+                            </div>
+                        </div>
+                        <p class="text-sm text-gray-600">An electric vehicle is an asset for field work. It is consistent with our IRVE business and makes access to low-emission zones easier.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- What we offer -->
-        <section class="py-24 px-6 bg-white">
+        <!-- Types of assignments -->
+        <section class="py-20 px-6" aria-label="Types of assignments">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-12 section-appear">
+                    <div class="sec-label mb-4">Assignments</div>
+                    <h2 class="text-3xl sm:text-4xl tracking-tight mb-4">Types of <em>assignments</em> available</h2>
+                    <p class="text-lg text-gray-600 max-w-2xl mx-auto" style="font-family: var(--font-sans);">A wide range of work, from residential AC chargers to high-power DC chargers.</p>
+                </div>
+
+                <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 stagger-reveal grid-stagger">
+                    <!-- Preventive -->
+                    <div class="card-feature card-lift section-appear">
+                        <div class="interv-icon" style="background: rgba(16, 185, 129, 0.08);">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"/><path d="M12 3a9 9 0 11-9 9"/><path d="M3 12h3"/><path d="M12 3v3"/></svg>
+                        </div>
+                        <h3 class="text-lg font-bold mb-2" style="color: var(--color-ink);">Preventive maintenance</h3>
+                        <p class="text-sm text-gray-600">Scheduled inspections, cleaning, connector checks, charge tests, firmware updates. Quarterly or biannual visits.</p>
+                        <div class="mt-4 flex flex-wrap gap-1.5">
+                            <span class="text-xs font-medium px-2 py-0.5 rounded-full" style="background: rgba(16, 185, 129, 0.08); color: #059669;">AC</span>
+                            <span class="text-xs font-medium px-2 py-0.5 rounded-full" style="background: rgba(16, 185, 129, 0.08); color: #059669;">DC</span>
+                            <span class="text-xs font-medium px-2 py-0.5 rounded-full" style="background: rgba(16, 185, 129, 0.08); color: #059669;">Scheduled</span>
+                        </div>
+                    </div>
+
+                    <!-- Corrective -->
+                    <div class="card-feature card-lift section-appear">
+                        <div class="interv-icon" style="background: rgba(239, 68, 68, 0.08);">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#EF4444" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
+                        </div>
+                        <h3 class="text-lg font-bold mb-2" style="color: var(--color-ink);">Corrective maintenance</h3>
+                        <p class="text-sm text-gray-600">Fault diagnosis and repair: communication errors, electrical faults, component replacement, return to service.</p>
+                        <div class="mt-4 flex flex-wrap gap-1.5">
+                            <span class="text-xs font-medium px-2 py-0.5 rounded-full" style="background: rgba(239, 68, 68, 0.08); color: #DC2626;">Urgent</span>
+                            <span class="text-xs font-medium px-2 py-0.5 rounded-full" style="background: rgba(239, 68, 68, 0.08); color: #DC2626;">24-48h</span>
+                            <span class="text-xs font-medium px-2 py-0.5 rounded-full" style="background: rgba(239, 68, 68, 0.08); color: #DC2626;">AC/DC</span>
+                        </div>
+                    </div>
+
+                    <!-- Cable replacement -->
+                    <div class="card-feature card-lift section-appear">
+                        <div class="interv-icon" style="background: rgba(37, 99, 235, 0.08);">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v4"/><path d="M16 2v4"/><path d="M12 14v4"/><path d="M8 6h8"/><path d="M12 18a2 2 0 100 4 2 2 0 000-4z"/><path d="M8 6a4 4 0 004 4"/><path d="M16 6a4 4 0 01-4 4"/></svg>
+                        </div>
+                        <h3 class="text-lg font-bold mb-2" style="color: var(--color-ink);">Cable replacement</h3>
+                        <p class="text-sm text-gray-600">Replacement of damaged or vandalised charging cables, Type 2, CCS and CHAdeMO connectors. On-site intervention.</p>
+                        <div class="mt-4 flex flex-wrap gap-1.5">
+                            <span class="text-xs font-medium px-2 py-0.5 rounded-full" style="background: rgba(37, 99, 235, 0.08); color: #2563EB;">Type 2</span>
+                            <span class="text-xs font-medium px-2 py-0.5 rounded-full" style="background: rgba(37, 99, 235, 0.08); color: #2563EB;">CCS</span>
+                            <span class="text-xs font-medium px-2 py-0.5 rounded-full" style="background: rgba(37, 99, 235, 0.08); color: #2563EB;">CHAdeMO</span>
+                        </div>
+                    </div>
+
+                    <!-- Commissioning -->
+                    <div class="card-feature card-lift section-appear">
+                        <div class="interv-icon" style="background: rgba(37, 99, 235, 0.08);">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                        </div>
+                        <h3 class="text-lg font-bold mb-2" style="color: var(--color-ink);">Commissioning</h3>
+                        <p class="text-sm text-gray-600">Commissioning of new chargers: connection, configuration, charge tests, OCPP setup, commissioning report.</p>
+                        <div class="mt-4 flex flex-wrap gap-1.5">
+                            <span class="text-xs font-medium px-2 py-0.5 rounded-full" style="background: rgba(37, 99, 235, 0.08); color: #2563EB;">OCPP</span>
+                            <span class="text-xs font-medium px-2 py-0.5 rounded-full" style="background: rgba(37, 99, 235, 0.08); color: #2563EB;">AC/DC</span>
+                            <span class="text-xs font-medium px-2 py-0.5 rounded-full" style="background: rgba(37, 99, 235, 0.08); color: #2563EB;">Report</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Installation -->
+        <section class="section-alt py-20 px-6" aria-label="Installation assignments">
+            <div class="max-w-5xl mx-auto">
+                <div class="text-center mb-12 section-appear">
+                    <div class="sec-label mb-4">Installation</div>
+                    <h2 class="text-3xl sm:text-4xl tracking-tight mb-4">Installation assignments <em>too</em></h2>
+                    <p class="text-lg text-gray-600 max-w-2xl mx-auto" style="font-family: var(--font-sans);">Beyond maintenance, JCSM also entrusts charging station installation work to its qualified partners.</p>
+                </div>
+
+                <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 stagger-reveal grid-stagger">
+                    <!-- AC private -->
+                    <div class="card-feature card-lift section-appear">
+                        <div class="interv-icon" style="background: rgba(37, 99, 235, 0.08);">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                        </div>
+                        <h3 class="text-lg font-bold mb-2" style="color: var(--color-ink);">Private AC</h3>
+                        <p class="text-sm text-gray-600">Apartment buildings, single-family homes, businesses. Wall-mounted and pedestal chargers, single and three-phase.</p>
+                    </div>
+
+                    <!-- AC public -->
+                    <div class="card-feature card-lift section-appear">
+                        <div class="interv-icon" style="background: rgba(16, 185, 129, 0.08);">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg>
+                        </div>
+                        <h3 class="text-lg font-bold mb-2" style="color: var(--color-ink);">Public AC</h3>
+                        <p class="text-sm text-gray-600">Public car parks, shopping centres, hotels. Chargers with OCPP supervision and integrated payment.</p>
+                    </div>
+
+                    <!-- DC private -->
+                    <div class="card-feature card-lift section-appear">
+                        <div class="interv-icon" style="background: rgba(37, 99, 235, 0.08);">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                        </div>
+                        <h3 class="text-lg font-bold mb-2" style="color: var(--color-ink);">Private DC</h3>
+                        <p class="text-sm text-gray-600">Corporate fleets, bus depots, logistics centres. Fast chargers from 50 to 150 kW.</p>
+                    </div>
+
+                    <!-- DC public -->
+                    <div class="card-feature card-lift section-appear">
+                        <div class="interv-icon" style="background: rgba(239, 68, 68, 0.08);">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#EF4444" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                        </div>
+                        <h3 class="text-lg font-bold mb-2" style="color: var(--color-ink);">Public DC</h3>
+                        <p class="text-sm text-gray-600">Rapid charging stations, motorway service areas. High-power chargers from 150 to 400 kW, CCS and CHAdeMO.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- What you earn (remuneration) -->
+        <section class="py-20 px-6" aria-label="What you earn">
+            <div class="max-w-5xl mx-auto">
+                <div class="text-center mb-12 section-appear">
+                    <div class="sec-label mb-4">Remuneration</div>
+                    <h2 class="text-3xl sm:text-4xl tracking-tight mb-4">What you <em>earn</em></h2>
+                    <p class="text-lg text-gray-600 max-w-2xl mx-auto" style="font-family: var(--font-sans);">Clear and attractive remuneration, by type of intervention. You know exactly what you earn before accepting each assignment.</p>
+                </div>
+
+                <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 stagger-reveal grid-stagger">
+                    <div class="card-feature card-lift p-6 text-center section-appear">
+                        <div class="interv-icon mx-auto" style="background: rgba(16, 185, 129, 0.08);">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"/><path d="M12 3a9 9 0 11-9 9"/><path d="M3 12h3"/><path d="M12 3v3"/></svg>
+                        </div>
+                        <h3 class="text-lg font-bold mb-2" style="color: var(--color-ink);">Preventive AC</h3>
+                        <p class="text-sm text-gray-500">Inspection, cleaning, safety tests and reporting</p>
+                    </div>
+                    <div class="card-feature card-lift p-6 text-center section-appear">
+                        <div class="interv-icon mx-auto" style="background: rgba(239, 68, 68, 0.08);">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#EF4444" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
+                        </div>
+                        <h3 class="text-lg font-bold mb-2" style="color: var(--color-ink);">Corrective AC</h3>
+                        <p class="text-sm text-gray-500">Diagnosis, troubleshooting and on-site repair</p>
+                    </div>
+                    <div class="card-feature card-lift p-6 text-center section-appear">
+                        <div class="interv-icon mx-auto" style="background: rgba(37, 99, 235, 0.08);">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                        </div>
+                        <h3 class="text-lg font-bold mb-2" style="color: var(--color-ink);">DC maintenance</h3>
+                        <p class="text-sm text-gray-500">High-power rapid chargers, multi-brand</p>
+                    </div>
+                    <div class="card-feature card-lift p-6 text-center section-appear">
+                        <div class="interv-icon mx-auto" style="background: rgba(37, 99, 235, 0.08);">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                        </div>
+                        <h3 class="text-lg font-bold mb-2" style="color: var(--color-ink);">Commissioning</h3>
+                        <p class="text-sm text-gray-500">Connection, OCPP setup, commissioning report</p>
+                    </div>
+                </div>
+
+                <p class="text-center text-sm text-gray-500 mt-8 section-appear" style="font-family: var(--font-sans);">Detailed remuneration shared during our phone conversation</p>
+            </div>
+        </section>
+
+        <!-- Career progression -->
+        <section class="section-alt py-20 px-6" aria-label="Career progression">
             <div class="max-w-4xl mx-auto">
-                <div class="text-center mb-16 section-appear">
-                    <h2 class="text-4xl md:text-5xl font-bold tracking-tight mb-4">What we offer</h2>
-                    <p class="text-xl text-gray-600 max-w-2xl mx-auto">A structured partnership, not just one-off assignments.</p>
+                <div class="text-center mb-12 section-appear">
+                    <div class="sec-label mb-4">Progression</div>
+                    <h2 class="text-3xl sm:text-4xl tracking-tight mb-4">A journey that <em>grows</em></h2>
+                    <p class="text-lg text-gray-600 max-w-2xl mx-auto" style="font-family: var(--font-sans);">More than a one-off partnership: a path with growing responsibilities.</p>
                 </div>
 
-                <div class="space-y-6 stagger-reveal">
-                    <div class="flex items-start gap-4 section-appear">
-                        <div class="w-10 h-10 bg-blue-100 rounded-xl flex items-center justify-center flex-shrink-0 mt-1">
-                            <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-0 section-appear">
+                    <!-- Step 1 -->
+                    <div class="flex flex-col items-center text-center px-4 py-6 max-w-[180px]">
+                        <div class="w-14 h-14 rounded-full flex items-center justify-center mb-3" style="background: rgba(37, 99, 235, 0.08); border: 2px solid var(--color-primary);">
+                            <span class="text-lg font-bold" style="color: var(--color-primary);">1</span>
+                        </div>
+                        <h3 class="font-bold text-sm mb-1" style="color: var(--color-ink);">Technician</h3>
+                        <p class="text-xs text-gray-500">Field assignments in your area</p>
+                    </div>
+                    <!-- Connector -->
+                    <div class="hidden sm:block w-10 h-0.5 flex-shrink-0" style="background: var(--color-line);"></div>
+                    <div class="block sm:hidden h-8 w-0.5" style="background: var(--color-line);"></div>
+                    <!-- Step 2 -->
+                    <div class="flex flex-col items-center text-center px-4 py-6 max-w-[180px]">
+                        <div class="w-14 h-14 rounded-full flex items-center justify-center mb-3" style="background: rgba(37, 99, 235, 0.08); border: 2px solid var(--color-primary);">
+                            <span class="text-lg font-bold" style="color: var(--color-primary);">2</span>
+                        </div>
+                        <h3 class="font-bold text-sm mb-1" style="color: var(--color-ink);">Senior Tech</h3>
+                        <p class="text-xs text-gray-500">Complex assignments, high-power DC</p>
+                    </div>
+                    <!-- Connector -->
+                    <div class="hidden sm:block w-10 h-0.5 flex-shrink-0" style="background: var(--color-line);"></div>
+                    <div class="block sm:hidden h-8 w-0.5" style="background: var(--color-line);"></div>
+                    <!-- Step 3 -->
+                    <div class="flex flex-col items-center text-center px-4 py-6 max-w-[180px]">
+                        <div class="w-14 h-14 rounded-full flex items-center justify-center mb-3" style="background: rgba(37, 99, 235, 0.08); border: 2px solid var(--color-primary);">
+                            <span class="text-lg font-bold" style="color: var(--color-primary);">3</span>
+                        </div>
+                        <h3 class="font-bold text-sm mb-1" style="color: var(--color-ink);">Regional Lead</h3>
+                        <p class="text-xs text-gray-500">Coordinating technicians in your region</p>
+                    </div>
+                    <!-- Connector -->
+                    <div class="hidden sm:block w-10 h-0.5 flex-shrink-0" style="background: var(--color-line);"></div>
+                    <div class="block sm:hidden h-8 w-0.5" style="background: var(--color-line);"></div>
+                    <!-- Step 4 -->
+                    <div class="flex flex-col items-center text-center px-4 py-6 max-w-[180px]">
+                        <div class="w-14 h-14 rounded-full flex items-center justify-center mb-3" style="background: rgba(37, 99, 235, 0.08); border: 2px solid var(--color-primary);">
+                            <span class="text-lg font-bold" style="color: var(--color-primary);">4</span>
+                        </div>
+                        <h3 class="font-bold text-sm mb-1" style="color: var(--color-ink);">Zone Manager</h3>
+                        <p class="text-xs text-gray-500">Multi-region management and client relations</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Partner testimonial -->
+        <!-- TODO: Replace with a genuine testimonial collected from a partner technician -->
+        <section class="py-20 px-6" aria-label="Partner testimonial">
+            <div class="max-w-3xl mx-auto section-appear">
+                <div class="card-quote">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="mb-4" style="color: var(--color-primary); opacity: 0.3;"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"/></svg>
+                    <blockquote>
+                        <p class="text-lg mb-6" style="color: var(--color-ink); font-family: var(--font-sans);">What convinced me about JCSM is the steady flow of assignments and the technical support. When I'm stuck on a diagnosis, there's always someone on the line. And payment comes in every month without any chasing.</p>
+                    </blockquote>
+                    <footer class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold text-white" style="background: var(--color-primary);">J</div>
+                        <div>
+                            <p class="font-bold text-sm" style="color: var(--color-ink);">Julien, partner technician</p>
+                            <p class="text-xs text-gray-500">Rhône-Alpes, partner since 2024</p>
+                        </div>
+                    </footer>
+                </div>
+            </div>
+        </section>
+
+        <!-- Benefits -->
+        <section class="section-dark py-20 px-6" aria-label="Benefits of the JCSM network">
+            <div class="max-w-4xl mx-auto">
+                <div class="text-center mb-12 section-appear">
+                    <div class="sec-label mb-4">Why join us</div>
+                    <h2 class="text-3xl sm:text-4xl tracking-tight mb-4 text-white">The benefits of the <em>network</em></h2>
+                    <p class="text-lg" style="color: #B0AFAA; font-family: var(--font-sans);">A structured partnership, not just one-off assignments.</p>
+                </div>
+
+                <div class="section-appear">
+                    <div class="adv-item" style="border-color: rgba(255,255,255,0.1);">
+                        <div class="adv-icon" style="background: rgba(37, 99, 235, 0.15);">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7FA6E8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>
                         </div>
                         <div>
-                            <h3 class="text-lg font-bold mb-1">Steady volume of interventions</h3>
-                            <p class="text-gray-600">Scheduled preventive and corrective maintenance in your area. No downtime -- a consistent flow of assignments.</p>
+                            <h3 class="font-bold mb-1 text-white">Steady volume of assignments</h3>
+                            <p style="color: #B0AFAA; font-size: 0.9rem;">Scheduled preventive and corrective maintenance in your area. No downtime: a consistent flow of assignments all year round.</p>
                         </div>
                     </div>
-                    <div class="flex items-start gap-4 section-appear">
-                        <div class="w-10 h-10 bg-blue-100 rounded-xl flex items-center justify-center flex-shrink-0 mt-1">
-                            <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                    <div class="adv-item" style="border-color: rgba(255,255,255,0.1);">
+                        <div class="adv-icon" style="background: rgba(37, 99, 235, 0.15);">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7FA6E8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
                         </div>
                         <div>
-                            <h3 class="text-lg font-bold mb-1">JCSM technical support</h3>
-                            <p class="text-gray-600">Access to our technical team for remote diagnostics, manufacturer documentation, and escalation when needed.</p>
+                            <h3 class="font-bold mb-1 text-white">Fast and transparent payment</h3>
+                            <p style="color: #B0AFAA; font-size: 0.9rem;">Clear remuneration by type of intervention. Monthly invoicing, payment within 30 days. No nasty surprises.</p>
                         </div>
                     </div>
-                    <div class="flex items-start gap-4 section-appear">
-                        <div class="w-10 h-10 bg-blue-100 rounded-xl flex items-center justify-center flex-shrink-0 mt-1">
-                            <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                    <div class="adv-item" style="border-color: rgba(255,255,255,0.1);">
+                        <div class="adv-icon" style="background: rgba(37, 99, 235, 0.15);">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7FA6E8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
                         </div>
                         <div>
-                            <h3 class="text-lg font-bold mb-1">Fast and transparent payment</h3>
-                            <p class="text-gray-600">Clear rate card by intervention type. Monthly invoicing, payment within 30 days.</p>
+                            <h3 class="font-bold mb-1 text-white">JCSM technical support</h3>
+                            <p style="color: #B0AFAA; font-size: 0.9rem;">Access to our technical team for remote diagnostics, manufacturer documentation and escalation when needed. You are never alone on site.</p>
                         </div>
                     </div>
-                    <div class="flex items-start gap-4 section-appear">
-                        <div class="w-10 h-10 bg-blue-100 rounded-xl flex items-center justify-center flex-shrink-0 mt-1">
-                            <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                    <div class="adv-item" style="border-color: rgba(255,255,255,0.1);">
+                        <div class="adv-icon" style="background: rgba(37, 99, 235, 0.15);">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7FA6E8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg>
                         </div>
                         <div>
-                            <h3 class="text-lg font-bold mb-1">Training on specific brands</h3>
-                            <p class="text-gray-600">On-site training available for the charger brands we deploy most (Kempower, ABB, EVBox).</p>
+                            <h3 class="font-bold mb-1 text-white">Training on specific brands</h3>
+                            <p style="color: #B0AFAA; font-size: 0.9rem;">On-site training available for the chargers we deploy most (Kempower, ABB, EVBox, Schneider).</p>
+                        </div>
+                    </div>
+                    <div class="adv-item" style="border-color: rgba(255,255,255,0.1);">
+                        <div class="adv-icon" style="background: rgba(37, 99, 235, 0.15);">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7FA6E8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+                        </div>
+                        <div>
+                            <h3 class="font-bold mb-1 text-white">A network you can trust</h3>
+                            <p style="color: #B0AFAA; font-size: 0.9rem;">Join a network of technicians across France and Belgium. Peer-to-peer exchanges, shared feedback and mutual support.</p>
                         </div>
                     </div>
                 </div>
@@ -295,15 +888,17 @@
         </section>
 
         <!-- Final CTA -->
-        <section class="py-24 px-6 bg-gray-900 text-white">
+        <section class="py-20 px-6" aria-label="Call to action">
             <div class="max-w-4xl mx-auto text-center">
-                <h2 class="text-4xl md:text-5xl font-bold mb-6 section-appear text-white">Interested?</h2>
-                <p class="text-xl text-gray-300 mb-8 section-appear">
-                    Send us a message with your coverage area, qualifications, and IRVE experience. We will get back to you within 48 hours.
-                </p>
-                <div class="flex flex-wrap gap-4 justify-center section-appear">
-                    <a href="/en/contact" class="btn-primary bg-white text-gray-900 hover:bg-gray-100 px-8 py-4 rounded-xl font-medium text-lg inline-flex items-center gap-2">Get in touch</a>
-                    <a href="mailto:contact@jcsm.fr" class="border border-white/30 hover:bg-white/10 px-8 py-4 rounded-xl font-medium text-lg transition-colors flex items-center gap-2">contact@jcsm.fr</a>
+                <div class="card-cta py-12 px-8">
+                    <h2 class="text-3xl sm:text-4xl tracking-tight mb-4 text-white">Ready to join the network?</h2>
+                    <p class="text-lg mb-8 text-white" style="opacity: 0.85; font-family: var(--font-sans);">
+                        Send us your application with your service area and your certifications. Response within 24 business hours.
+                    </p>
+                    <div class="flex flex-wrap gap-4 justify-center">
+                        <a href="#registration" class="bg-white hover:bg-gray-100 px-8 py-4 font-medium text-lg inline-flex items-center gap-2 transition-all duration-300 hover:-translate-y-0.5" style="color: var(--color-ink); border-radius: var(--radius-full) !important;">Apply now</a>
+                        <a href="mailto:contact@jcsm.fr" class="border border-white/40 hover:bg-white/10 px-8 py-4 font-medium text-lg transition-colors flex items-center gap-2 text-white" style="border-radius: var(--radius-full) !important;">contact@jcsm.fr</a>
+                    </div>
                 </div>
             </div>
         </section>
@@ -314,7 +909,7 @@
             <div class="grid md:grid-cols-4 gap-10 mb-12">
                 <div>
                     <div class="flex items-center space-x-3 mb-4">
-                        <picture><source srcset="../images/logo.webp" type="image/webp"><img src="../images/logo.png" alt="JCSM Logo" class="w-8 h-8" width="32" height="32" loading="lazy"></picture>
+                        <picture><source srcset="../images/logo.webp" type="image/webp"><img src="../images/logo.png" alt="JCSM Logo" class="w-8 h-8" width="32" height="32" loading="lazy" decoding="async"></picture>
                         <span class="text-xl font-semibold text-gray-900">JCSM</span>
                     </div>
                     <p class="text-sm text-gray-600 mb-4">Your trusted EV charging partner since 2019 - installation, operations, and maintenance across France and Belgium.</p>
@@ -327,8 +922,8 @@
                     <nav aria-label="Services">
                         <ul class="space-y-3">
                             <li><a href="/en/project-management" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Project Management</a></li>
-                            <li><a href="/en/installation-compliance" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Installation & Compliance</a></li>
-                            <li><a href="/en/operations-maintenance" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Operations & Maintenance</a></li>
+                            <li><a href="/en/installation-compliance" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Installation &amp; Compliance</a></li>
+                            <li><a href="/en/operations-maintenance" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Operations &amp; Maintenance</a></li>
                             <li><a href="/en/installation-security" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Security</a></li>
                             <li><a href="/en/call-center" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Support 24/7</a></li>
                         </ul>
@@ -374,7 +969,7 @@
             </div>
             <div class="pt-8 border-t border-gray-100 flex flex-col md:flex-row md:items-center md:justify-between gap-4 text-xs text-gray-500">
                 <span>&copy; 2026 JCSM SAS &mdash; SIRET 99387429600011</span>
-                <a href="mailto:contact@jcsm.fr" class="hover:text-gray-900 transition-colors">contact@jcsm.fr</a> &middot; <a href="tel:+33183755706" class="hover:text-gray-900 transition-colors">+33 1 83 75 57 06</a>
+                <span><a href="mailto:contact@jcsm.fr" title="Email JCSM" class="hover:text-gray-900 transition-colors">contact@jcsm.fr</a> &middot; <a href="tel:+33183755706" title="Call JCSM" class="hover:text-gray-900 transition-colors">+33 1 83 75 57 06</a></span>
             </div>
         </div>
     </footer>
@@ -385,12 +980,12 @@
         </svg>
     </button>
 
-    <script src="../js/config.js?v=83" defer></script>
-    <script src="../js/utils.js?v=83" defer></script>
-    <script src="../js/i18n.js?v=83" defer></script>
-    <script src="../js/public.js?v=83" defer></script>
-    <script src="../js/analytics.js?v=83" defer></script>
-    <script src="../js/wow-effects.js?v=83" defer></script>
+    <script src="../js/config.js?v=84" defer></script>
+    <script src="../js/utils.js?v=84" defer></script>
+    <script src="../js/i18n.js?v=84" defer></script>
+    <script src="../js/public.js?v=84" defer></script>
+    <script src="../js/analytics.js?v=84" defer></script>
+    <script src="../js/wow-effects.js?v=84" defer></script>
     <script>
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
@@ -398,6 +993,31 @@
                     .catch(() => {});
             });
         }
+    </script>
+    <script>
+        (function(){
+            if ('IntersectionObserver' in window) {
+                var io = new IntersectionObserver(function(entries){
+                    entries.forEach(function(e){
+                        if(e.isIntersecting){
+                            e.target.classList.add('visible','revealed');
+                            io.unobserve(e.target);
+                        }
+                    });
+                }, {threshold: 0.12, rootMargin: '0px 0px -40px 0px'});
+                document.querySelectorAll('.section-appear').forEach(function(el){ io.observe(el); });
+                document.querySelectorAll('.grid-stagger').forEach(function(el){ io.observe(el); });
+            } else {
+                document.documentElement.classList.add('animations-disabled');
+            }
+            setTimeout(function(){
+                document.querySelectorAll('.section-appear:not(.visible)').forEach(function(el){
+                    el.style.opacity='1';
+                    el.style.transform='none';
+                    el.classList.add('visible','revealed');
+                });
+            }, 3500);
+        })();
     </script>
 </body>
 </html>

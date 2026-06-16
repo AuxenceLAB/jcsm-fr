@@ -32,13 +32,14 @@
     <link rel="alternate" hreflang="en" href="https://jcsm.fr/en/privacy">
     <link rel="alternate" hreflang="x-default" href="https://jcsm.fr/confidentialite">
     <link rel="manifest" href="../manifest.json">
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <link rel="stylesheet" href="../css/critical.css?v=83">
-    <link rel="stylesheet" href="../css/tailwind.css?v=83" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="../css/tailwind.css?v=83"></noscript>
-    <link rel="stylesheet" href="../styles.css?v=83" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="../styles.css?v=83"></noscript>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="theme-color" content="#2563EB">
+    <link rel="stylesheet" href="../css/critical.css?v=84">
+    <link rel="stylesheet" href="../css/tailwind.css?v=84" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="../css/tailwind.css?v=84"></noscript>
+    <link rel="stylesheet" href="../styles.css?v=84" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="../styles.css?v=84"></noscript>
 
     <script type="application/ld+json">
     {
@@ -63,7 +64,7 @@
 
 </head>
 
-<body>
+<body class="text-gray-900">
     <a href="#main-content" class="skip-link">Skip to main content</a>
 
         <div class="preloader" id="preloader" role="status" aria-label="Loading">
@@ -84,7 +85,7 @@
                 </button>
             </div>
                         <div class="flex flex-col space-y-6">
-                <a href="/en/" class="text-base text-gray-600 hover:text-gray-900 transition-colors">Home</a>
+                <a href="/en/" class="text-base text-gray-600 hover:text-gray-900 transition-colors py-2">Home</a>
                 <a href="/en/project-management" class="text-base text-gray-600 hover:text-gray-900 transition-colors py-2">Project Management</a>
                 <a href="/en/installation-compliance" class="text-base text-gray-600 hover:text-gray-900 transition-colors py-2">Installation</a>
                 <a href="/en/operations-maintenance" class="text-base text-gray-600 hover:text-gray-900 transition-colors py-2">Operations</a>
@@ -92,30 +93,30 @@
                 <a href="/en/call-center" class="text-base text-gray-600 hover:text-gray-900 transition-colors py-2">Support</a>
                 <a href="/en/about" class="text-base text-gray-600 hover:text-gray-900 transition-colors py-2">About</a>
                 <div class="lang-selector relative"></div>
-                <a href="/en/contact" class="btn-primary px-6 py-3 rounded-lg text-base font-medium inline-block text-center mt-4">Free quote</a>
+                <a href="/en/contact" class="btn-primary px-6 py-3 rounded-lg text-base font-medium text-white inline-block text-center mt-4">Free quote</a>
             </div>
         </div>
     </nav>
 
-    <nav class="fixed top-0 w-full z-50 glass-nav" role="navigation" aria-label="Main navigation">
+    <nav class="fixed top-0 w-full z-50 glass-nav border-b border-gray-200" role="navigation" aria-label="Main navigation">
         <div class="max-w-7xl mx-auto px-6 py-4">
             <div class="flex justify-between items-center">
-                <a href="/en/" class="flex items-center space-x-3 group">
-                    <picture><source srcset="../images/logo.webp" type="image/webp"><img src="../images/logo.png" alt="JCSM" class="w-9 h-9 transition-transform group-hover:scale-105 duration-300" width="36" height="36"></picture>
-                    <span class="text-xl font-bold tracking-tight">JCSM</span>
+                <a href="/en/" class="flex items-center space-x-3 group mr-10">
+                    <picture><source srcset="../images/logo.webp" type="image/webp"><img src="../images/logo.png" alt="JCSM - Home" class="w-10 h-10 transition-transform group-hover:scale-105 duration-300" width="40" height="40"></picture>
+                    <span class="text-2xl font-extrabold tracking-tight text-gray-900">JCSM</span>
                 </a>
-                <div class="hidden lg:flex items-center space-x-10">
-                    <a href="/en/project-management" class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300">Project Management</a>
-                    <a href="/en/installation-compliance" class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300">Installation</a>
-                    <a href="/en/operations-maintenance" class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300">Operations</a>
-                    <a href="/en/installation-security" class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300">Security</a>
-                    <a href="/en/call-center" class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300">Support</a>
-                    <a href="/en/about" class="text-base font-semibold text-gray-900 hover:text-blue-600 transition-all duration-300">About</a>
+                <div class="hidden lg:flex items-center space-x-2">
+                    <a href="/en/project-management" class="nav-link text-[15px] font-semibold text-gray-700 whitespace-nowrap">Project Management</a>
+                    <a href="/en/installation-compliance" class="nav-link text-[15px] font-semibold text-gray-700 whitespace-nowrap">Installation</a>
+                    <a href="/en/operations-maintenance" class="nav-link text-[15px] font-semibold text-gray-700 whitespace-nowrap">Operations</a>
+                    <a href="/en/installation-security" class="nav-link text-[15px] font-semibold text-gray-700 whitespace-nowrap">Security</a>
+                    <a href="/en/call-center" class="nav-link text-[15px] font-semibold text-gray-700 whitespace-nowrap">Support</a>
+                    <a href="/en/about" class="nav-link text-[15px] font-semibold text-gray-700 whitespace-nowrap">About</a>
                     <div class="lang-selector relative"></div>
-                    <a href="/en/contact" class="btn-primary px-7 py-2.5 rounded-xl text-base font-medium shadow-lg hover:shadow-xl">Contact</a>
+                    <a href="/en/contact" class="btn-primary ml-5 px-8 py-3 rounded-xl text-[15px] font-semibold text-white shadow-lg hover:shadow-xl whitespace-nowrap">Free quote</a>
                 </div>
-                <button class="mobile-menu-btn text-gray-600 hover:text-gray-900" id="mobile-menu-btn" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-menu">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <button class="mobile-menu-btn text-gray-700 hover:text-gray-900" id="mobile-menu-btn" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-menu">
+                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                     </svg>
                 </button>
@@ -123,29 +124,50 @@
         </div>
     </nav>
 
+    <!-- Scroll progress bar -->
+    <div id="scroll-progress"
+        class="fixed top-0 left-0 h-1 bg-blue-600 z-[60] transition-all duration-150"
+        style="width: 0%" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"
+        aria-label="Reading progress"></div>
+
     <main id="main-content" tabindex="-1" role="main" class="pt-32 pb-16">
         <div class="container mx-auto px-6 max-w-4xl">
-            <h1 class="text-5xl font-semibold tracking-tight text-gray-900 mb-12">Privacy Policy</h1>
+            <nav aria-label="Breadcrumb" class="mb-8">
+                <ol class="flex items-center gap-2 text-sm text-gray-500">
+                    <li><a href="/en/" class="hover:text-blue-600 transition-colors">Home</a></li>
+                    <li><span class="text-gray-300">/</span></li>
+                    <li class="text-gray-600 font-medium">Privacy</li>
+                </ol>
+            </nav>
+            <span class="sec-label mb-4 inline-block">Data protection</span>
+            <h1 class="text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight text-gray-900 mb-12 section-appear" data-animate>Privacy Policy</h1>
 
-            <div class="legal-section">
+            <div class="legal-section section-appear" data-animate>
                 <p class="text-lg">
                     At JCSM, we take the protection of your personal data very seriously. This privacy policy
                     explains how we collect, use and safeguard your data.
                 </p>
             </div>
 
-            <div class="legal-section">
-                <h2>1. Data Controller</h2>
+            <div class="legal-section section-appear" data-animate>
+                <h2>
+                    <svg class="w-5 h-5 inline-block mr-2 text-blue-600 align-text-bottom" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+                    1. Data Controller
+                </h2>
                 <p>
                     The data controller for personal data is:<br>
                     <strong>JCSM SAS</strong><br>
                     60 rue Fran&ccedil;ois 1er, 75008 Paris, FRANCE<br>
-                    Email: <a href="mailto:contact@jcsm.fr" class="text-blue-600 hover:underline">contact@jcsm.fr</a>
+                    Email: <a href="mailto:contact@jcsm.fr" class="text-blue-600 hover:underline">contact@jcsm.fr</a><br>
+                    Phone: <a href="tel:+33183755706" class="text-blue-600 hover:underline">+33 1 83 75 57 06</a>
                 </p>
             </div>
 
-            <div class="legal-section">
-                <h2>2. Data Collected</h2>
+            <div class="legal-section section-appear" data-animate>
+                <h2>
+                    <svg class="w-5 h-5 inline-block mr-2 text-blue-600 align-text-bottom" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"/></svg>
+                    2. Data Collected
+                </h2>
                 <p>
                     We collect the following personal data when you use our contact form:
                 </p>
@@ -158,8 +180,11 @@
                 </ul>
             </div>
 
-            <div class="legal-section">
-                <h2>3. Purpose of Processing</h2>
+            <div class="legal-section section-appear" data-animate>
+                <h2>
+                    <svg class="w-5 h-5 inline-block mr-2 text-blue-600 align-text-bottom" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"/></svg>
+                    3. Purpose of Processing
+                </h2>
                 <p>
                     Your personal data is collected for the following purposes:
                 </p>
@@ -171,8 +196,11 @@
                 </ul>
             </div>
 
-            <div class="legal-section">
-                <h2>4. Legal Basis for Processing</h2>
+            <div class="legal-section section-appear" data-animate>
+                <h2>
+                    <svg class="w-5 h-5 inline-block mr-2 text-blue-600 align-text-bottom" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3"/></svg>
+                    4. Legal Basis for Processing
+                </h2>
                 <p>
                     The processing of your personal data is based on:
                 </p>
@@ -183,8 +211,11 @@
                 </ul>
             </div>
 
-            <div class="legal-section">
-                <h2>5. Data Recipients</h2>
+            <div class="legal-section section-appear" data-animate>
+                <h2>
+                    <svg class="w-5 h-5 inline-block mr-2 text-blue-600 align-text-bottom" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+                    5. Data Recipients
+                </h2>
                 <p>
                     Your personal data may be shared with:
                 </p>
@@ -197,8 +228,11 @@
                 </p>
             </div>
 
-            <div class="legal-section">
-                <h2>6. Data Retention</h2>
+            <div class="legal-section section-appear" data-animate>
+                <h2>
+                    <svg class="w-5 h-5 inline-block mr-2 text-blue-600 align-text-bottom" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                    6. Data Retention
+                </h2>
                 <p>
                     Your personal data is retained:
                 </p>
@@ -208,8 +242,11 @@
                 </ul>
             </div>
 
-            <div class="legal-section">
-                <h2>7. Your Rights</h2>
+            <div class="legal-section section-appear" data-animate>
+                <h2>
+                    <svg class="w-5 h-5 inline-block mr-2 text-blue-600 align-text-bottom" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                    7. Your Rights
+                </h2>
                 <p>
                     In accordance with the General Data Protection Regulation (GDPR), you have the following
                     rights:
@@ -235,40 +272,79 @@
                 </p>
             </div>
 
-            <div class="legal-section">
-                <h2>8. Data Security</h2>
+            <div class="legal-section section-appear" data-animate>
+                <h2>
+                    <svg class="w-5 h-5 inline-block mr-2 text-blue-600 align-text-bottom" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+                    8. Data Security
+                </h2>
                 <p>
                     We implement all appropriate technical and organisational measures to ensure the security of
                     your personal data and to prevent its alteration, loss or unauthorised access.
                 </p>
             </div>
 
-            <div class="legal-section">
-                <h2>9. Cookies</h2>
+            <div class="legal-section section-appear" data-animate>
+                <h2>
+                    <svg class="w-5 h-5 inline-block mr-2 text-blue-600 align-text-bottom" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.066 2.573c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.573 1.066c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.066-2.573c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                    9. Cookies
+                </h2>
                 <p>
                     Our website does not use tracking or advertising cookies. Only technical cookies strictly
                     necessary for the operation of the site may be used.
                 </p>
             </div>
 
-            <div class="legal-section">
-                <h2>10. Changes to This Policy</h2>
+            <div class="legal-section section-appear" data-animate>
+                <h2>
+                    <svg class="w-5 h-5 inline-block mr-2 text-blue-600 align-text-bottom" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+                    10. Changes to This Policy
+                </h2>
                 <p>
                     We reserve the right to amend this privacy policy at any time. Any changes will be published
                     on this page with an updated date.
                 </p>
-                <p>
-                    <strong>Last updated:</strong> January 2026
-                </p>
             </div>
 
-            <div class="legal-section">
-                <h2>11. Contact</h2>
+            <div class="legal-section section-appear" data-animate>
+                <h2>
+                    <svg class="w-5 h-5 inline-block mr-2 text-blue-600 align-text-bottom" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                    11. Contact
+                </h2>
                 <p>
                     For any questions regarding this privacy policy or the processing of your personal data,
                     please contact us at:<br>
-                    <a href="mailto:contact@jcsm.fr" class="text-blue-600 hover:underline">contact@jcsm.fr</a>
+                    <strong>JCSM SAS</strong> - 60 rue Fran&ccedil;ois 1er, 75008 Paris<br>
+                    Email: <a href="mailto:contact@jcsm.fr" class="text-blue-600 hover:underline">contact@jcsm.fr</a><br>
+                    Phone: <a href="tel:+33183755706" class="text-blue-600 hover:underline">+33 1 83 75 57 06</a>
                 </p>
+            </div>
+
+            <div class="mt-8 card-feature p-5 section-appear" data-animate>
+                <div class="flex items-center gap-2 text-sm text-gray-600">
+                    <svg class="w-4 h-4 text-blue-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                    <strong>Last updated:</strong> January 2026
+                </div>
+            </div>
+
+            <!-- Cross-links to other legal pages -->
+            <div class="mt-10 pt-8 border-t section-appear" data-animate style="border-color: var(--color-line)">
+                <h2 class="text-lg font-bold mb-4">See also</h2>
+                <div class="grid sm:grid-cols-2 gap-4">
+                    <a href="/en/legal-notice" class="card-feature p-4 flex items-center gap-3 group">
+                        <svg class="w-5 h-5 text-blue-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+                        <div>
+                            <span class="font-semibold text-sm">Legal Notice</span>
+                            <p class="text-xs text-gray-500 mt-0.5">Publisher, hosting, credits</p>
+                        </div>
+                    </a>
+                    <a href="/en/terms" class="card-feature p-4 flex items-center gap-3 group">
+                        <svg class="w-5 h-5 text-blue-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+                        <div>
+                            <span class="font-semibold text-sm">Terms and Conditions</span>
+                            <p class="text-xs text-gray-500 mt-0.5">Pricing, warranties, liability</p>
+                        </div>
+                    </a>
+                </div>
             </div>
         </div>
     </main>
@@ -278,7 +354,7 @@
             <div class="grid md:grid-cols-4 gap-10 mb-12">
                 <div>
                     <div class="flex items-center space-x-3 mb-4">
-                        <picture><source srcset="../images/logo.webp" type="image/webp"><img src="../images/logo.png" alt="JCSM Logo" class="w-8 h-8" width="32" height="32" loading="lazy"></picture>
+                        <picture><source srcset="../images/logo.webp" type="image/webp"><img src="../images/logo.png" alt="JCSM Logo" class="w-8 h-8" width="32" height="32" loading="lazy" decoding="async"></picture>
                         <span class="text-xl font-semibold text-gray-900">JCSM</span>
                     </div>
                     <p class="text-sm text-gray-600 mb-4">Your trusted EV charging partner since 2019 - installation, operations, and maintenance across France and Belgium.</p>
@@ -347,7 +423,7 @@
             </div>
             <div class="pt-8 border-t border-gray-100 flex flex-col md:flex-row md:items-center md:justify-between gap-4 text-xs text-gray-500">
                 <span>&copy; 2026 JCSM SAS - SIRET 99387429600011</span>
-                <a href="mailto:contact@jcsm.fr" class="hover:text-gray-900 transition-colors">contact@jcsm.fr</a> &middot; <a href="tel:+33183755706" class="hover:text-gray-900 transition-colors">+33 1 83 75 57 06</a>
+                <span><a href="mailto:contact@jcsm.fr" title="Email JCSM" class="hover:text-gray-900 transition-colors">contact@jcsm.fr</a> &middot; <a href="tel:+33183755706" title="Call JCSM" class="hover:text-gray-900 transition-colors">+33 1 83 75 57 06</a></span>
             </div>
         </div>
     </footer>
@@ -358,12 +434,12 @@
         </svg>
     </button>
 
-    <script src="../js/config.js?v=83" defer></script>
-    <script src="../js/utils.js?v=83" defer></script>
-    <script src="../js/i18n.js?v=83" defer></script>
-    <script src="../js/public.js?v=83" defer></script>
-    <script src="../js/analytics.js?v=83" defer></script>
-    <script src="../js/wow-effects.js?v=83" defer></script>
+    <script src="../js/i18n.js?v=84" defer></script>
+    <script src="../js/config.js?v=84" defer></script>
+    <script src="../js/utils.js?v=84" defer></script>
+    <script src="../js/public.js?v=84" defer></script>
+    <script src="../js/analytics.js?v=84" defer></script>
+    <script src="../js/wow-effects.js?v=84" defer></script>
     <!-- Service Worker Registration -->
     <script>
         if ('serviceWorker' in navigator) {
