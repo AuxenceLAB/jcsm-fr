@@ -569,6 +569,8 @@
             font-size: 0.6875rem; color: var(--gray-500); margin-top: 2px;
         }
     </style>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"></noscript>
 </head>
 
 <body class="text-gray-900">
@@ -660,10 +662,10 @@
                             </a>
                         </div>
                         <div class="flex flex-wrap gap-x-8 gap-y-3 pt-5 mt-2" style="border-top: 1px solid var(--color-line)">
-                            <div><div class="text-xl font-extrabold" style="color: var(--color-primary-dark); font-family: var(--font-sans)">98%</div><div class="text-xs" style="color: var(--color-text-secondary)">disponibilité réseau</div></div>
-                            <div><div class="text-xl font-extrabold" style="color: var(--color-primary-dark); font-family: var(--font-sans)">24h</div><div class="text-xs" style="color: var(--color-text-secondary)">réponse ouvrée</div></div>
-                            <div><div class="text-xl font-extrabold" style="color: var(--color-primary-dark); font-family: var(--font-sans)">2&nbsp;000+</div><div class="text-xs" style="color: var(--color-text-secondary)">interventions</div></div>
-                            <div><div class="text-xl font-extrabold" style="color: var(--color-primary-dark); font-family: var(--font-sans)">400 kW</div><div class="text-xs" style="color: var(--color-text-secondary)">AC &amp; DC, multi-marques</div></div>
+                            <div><div class="text-xl font-extrabold counter-animate" style="color: var(--color-primary-dark); font-family: var(--font-sans)">98%</div><div class="text-xs" style="color: var(--color-text-secondary)">disponibilité réseau</div></div>
+                            <div><div class="text-xl font-extrabold counter-animate" style="color: var(--color-primary-dark); font-family: var(--font-sans)">24h</div><div class="text-xs" style="color: var(--color-text-secondary)">réponse ouvrée</div></div>
+                            <div><div class="text-xl font-extrabold counter-animate" style="color: var(--color-primary-dark); font-family: var(--font-sans)">2&nbsp;000+</div><div class="text-xs" style="color: var(--color-text-secondary)">interventions</div></div>
+                            <div><div class="text-xl font-extrabold counter-animate" style="color: var(--color-primary-dark); font-family: var(--font-sans)">400 kW</div><div class="text-xs" style="color: var(--color-text-secondary)">AC &amp; DC, multi-marques</div></div>
                         </div>
                         <div class="inline-flex items-center gap-2 border border-blue-100 rounded-full px-4 py-2 text-sm" style="background:rgba(37,99,235,0.08)">
                             <svg class="w-4 h-4 text-blue-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
@@ -701,8 +703,8 @@
                     </p>
                 </div>
 
-                <div class="grid md:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1fr] gap-4 section-appear">
-                    <a href="/exploitation" title="En savoir plus sur notre service d'exploitation et maintenance IRVE" class="card-lead block">
+                <div class="grid md:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1fr] gap-4 section-appear grid-stagger">
+                    <a href="/exploitation" title="En savoir plus sur notre service d'exploitation et maintenance IRVE" class="card-lead card-lift block">
                         <div class="svc-card-inner">
                             <div class="flex items-center gap-3 mb-5">
                                 <div class="svc-icon">
@@ -718,7 +720,7 @@
                             </div>
                         </div>
                     </a>
-                    <a href="/installation-conformite" title="En savoir plus sur notre service d'installation et conformité IRVE" class="card-feature block">
+                    <a href="/installation-conformite" title="En savoir plus sur notre service d'installation et conformité IRVE" class="card-feature card-shine card-lift block">
                         <div class="svc-card-inner">
                             <div class="flex items-center gap-3 mb-5">
                                 <div class="svc-icon">
@@ -734,7 +736,7 @@
                             </div>
                         </div>
                     </a>
-                    <a href="/centre-appel" title="En savoir plus sur notre support technique IRVE 24/7" class="card-feature block">
+                    <a href="/centre-appel" title="En savoir plus sur notre support technique IRVE 24/7" class="card-feature card-shine card-lift block">
                         <div class="svc-card-inner">
                             <div class="flex items-center gap-3 mb-5">
                                 <div class="svc-icon">
@@ -750,7 +752,7 @@
                             </div>
                         </div>
                     </a>
-                    <a href="/securisation-installations" title="En savoir plus sur notre service de sécurisation des installations IRVE" class="card-feature block">
+                    <a href="/securisation-installations" title="En savoir plus sur notre service de sécurisation des installations IRVE" class="card-feature card-shine card-lift block">
                         <div class="svc-card-inner">
                             <div class="flex items-center gap-3 mb-5">
                                 <div class="svc-icon">
@@ -774,6 +776,8 @@
             </div>
         </section>
 
+        <hr class="divider-premium">
+
         <!-- ============ POURQUOI JCSM ============ -->
         <section class="section-alt py-20 px-6" aria-label="Pourquoi choisir JCSM">
             <div class="max-w-6xl mx-auto">
@@ -783,8 +787,8 @@
                         Ce qui change quand vous travaillez <em>avec nous</em>.
                     </h2>
                 </div>
-                <div class="grid md:grid-cols-3 gap-6 section-appear">
-                    <div class="card-feature">
+                <div class="grid md:grid-cols-3 gap-6 section-appear grid-stagger">
+                    <div class="card-feature card-gradient-border card-lift">
                         <div class="flex items-center gap-3 mb-4">
                             <div class="svc-icon">
                                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
@@ -793,7 +797,7 @@
                         <h3 class="text-base font-bold mb-2" style="font-family: var(--font-sans)">Un seul contrat, zéro friction</h3>
                         <p class="text-sm" style="color: var(--color-text-secondary)">HTA/BT + bornes AC/DC + hotline sous un seul interlocuteur. Vous n'avez plus à jongler entre prestataires.</p>
                     </div>
-                    <div class="card-feature">
+                    <div class="card-feature card-gradient-border card-lift">
                         <div class="flex items-center gap-3 mb-4">
                             <div class="svc-icon">
                                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
@@ -802,7 +806,7 @@
                         <h3 class="text-base font-bold mb-2" style="font-family: var(--font-sans)">Multi-marques sans sous-traitance</h3>
                         <p class="text-sm" style="color: var(--color-text-secondary)">ABB, Schneider, EVBox, Alfen, Kempower... Nos techniciens sont salariés, pas des freelances envoyés par défaut.</p>
                     </div>
-                    <div class="card-feature">
+                    <div class="card-feature card-gradient-border card-lift">
                         <div class="flex items-center gap-3 mb-4">
                             <div class="svc-icon">
                                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/><path d="M10 9H8"/></svg>
@@ -814,6 +818,8 @@
                 </div>
             </div>
         </section>
+
+        <hr class="divider-premium">
 
         <!-- ============ METHODE ============ -->
         <section class="section-dark py-20 px-6" aria-label="Notre méthode">
@@ -1001,6 +1007,8 @@
             </div>
         </section>
 
+        <hr class="divider-premium">
+
         <!-- ============ TEMOIGNAGES (exemples a remplacer par de vrais avis clients) ============ -->
         <section class="py-20 px-6" aria-label="Témoignages clients">
             <div class="max-w-5xl mx-auto">
@@ -1012,7 +1020,7 @@
                 </div>
                 <div class="grid md:grid-cols-3 gap-6 section-appear">
                     <!-- EXEMPLE 1 - A remplacer par un vrai temoignage client -->
-                    <div class="card-quote">
+                    <div class="card-quote card-shine card-lift">
                         <p class="text-sm leading-relaxed mb-4" style="color: var(--color-text-secondary)">&laquo; Depuis qu'on travaille avec JCSM, le taux de disponibilité de nos bornes est passé de 82% à 97%. Un seul interlocuteur, des rapports clairs, zéro mauvaise surprise. &raquo;</p>
                         <div class="mt-auto">
                             <p class="text-sm font-bold" style="color: var(--color-ink)">Exemple - Directeur exploitation</p>
@@ -1020,7 +1028,7 @@
                         </div>
                     </div>
                     <!-- EXEMPLE 2 - A remplacer par un vrai temoignage client -->
-                    <div class="card-quote">
+                    <div class="card-quote card-shine card-lift">
                         <p class="text-sm leading-relaxed mb-4" style="color: var(--color-text-secondary)">&laquo; On avait un parc multi-marques installé par trois prestataires différents. JCSM a tout repris, audité et stabilisé en moins de deux mois. &raquo;</p>
                         <div class="mt-auto">
                             <p class="text-sm font-bold" style="color: var(--color-ink)">Exemple - Responsable services généraux</p>
@@ -1028,7 +1036,7 @@
                         </div>
                     </div>
                     <!-- EXEMPLE 3 - A remplacer par un vrai temoignage client -->
-                    <div class="card-quote">
+                    <div class="card-quote card-shine card-lift">
                         <p class="text-sm leading-relaxed mb-4" style="color: var(--color-text-secondary)">&laquo; La hotline en marque blanche a changé la donne. Nos utilisateurs sont pris en charge immédiatement, et nous on recoit un recap chaque semaine. &raquo;</p>
                         <div class="mt-auto">
                             <p class="text-sm font-bold" style="color: var(--color-ink)">Exemple - CPO régional</p>
@@ -1053,123 +1061,8 @@
                     </p>
                     <a href="/couverture" class="btn-secondary inline-block px-6 py-3 text-sm font-semibold mt-6">Voir notre couverture</a>
                 </div>
-                <div style="background:#fff; border:1px solid var(--color-line); border-radius: var(--radius-xl); padding: 1.5rem;">
-                    <svg viewBox="0 0 440 480" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="width:100%;height:auto;max-width:420px;margin:0 auto;display:block;">
-                        <!-- France realistic outline -->
-                        <path d="M185 52 L205 48 L228 55 L255 50 L275 58 L298 72 L320 85 L338 78 L355 90 L370 108 L378 130 L385 155 L380 178 L370 200 L365 225 L355 248 L340 268 L325 290 L310 308 L295 325 L275 340 L258 355 L240 368 L220 378 L200 385 L182 380 L165 372 L148 358 L132 345 L118 330 L105 310 L92 290 L80 268 L72 245 L65 222 L60 198 L58 175 L62 152 L70 130 L82 112 L95 98 L110 85 L128 72 L148 62 L168 55 Z" stroke="var(--color-line)" stroke-width="1.5" fill="var(--color-cream-alt)"/>
-                        <!-- Bretagne peninsula -->
-                        <path d="M62 152 L52 148 L38 155 L28 162 L22 172 L28 180 L40 185 L52 188 L60 192 L65 198" stroke="var(--color-line)" stroke-width="1.5" fill="var(--color-cream-alt)"/>
-                        <!-- Corse -->
-                        <path d="M395 310 L400 318 L402 332 L398 348 L392 358 L388 348 L390 332 L392 318 Z" stroke="var(--color-line)" stroke-width="1.5" fill="var(--color-cream-alt)"/>
-                        <!-- Belgique -->
-                        <path d="M185 52 L205 48 L228 55 L255 50 L275 58 L282 48 L275 38 L260 30 L240 25 L218 22 L198 25 L180 32 L172 42 L178 50 Z" stroke="var(--color-line)" stroke-width="1.5" fill="var(--color-cream-alt)"/>
-
-                        <!-- Region labels -->
-                        <text x="202" y="118" fill="var(--color-ink)" font-size="9" font-weight="600" font-family="var(--font-sans)" text-anchor="middle" opacity="0.5">IDF</text>
-                        <text x="195" y="78" fill="var(--color-ink)" font-size="9" font-weight="600" font-family="var(--font-sans)" text-anchor="middle" opacity="0.5">HDF</text>
-                        <text x="288" y="198" fill="var(--color-ink)" font-size="9" font-weight="600" font-family="var(--font-sans)" text-anchor="middle" opacity="0.5">AURA</text>
-                        <text x="330" y="298" fill="var(--color-ink)" font-size="9" font-weight="600" font-family="var(--font-sans)" text-anchor="middle" opacity="0.5">PACA</text>
-                        <text x="210" y="325" fill="var(--color-ink)" font-size="9" font-weight="600" font-family="var(--font-sans)" text-anchor="middle" opacity="0.5">OCC</text>
-                        <text x="108" y="268" fill="var(--color-ink)" font-size="9" font-weight="600" font-family="var(--font-sans)" text-anchor="middle" opacity="0.5">NAQ</text>
-                        <text x="230" y="36" fill="var(--color-ink)" font-size="9" font-weight="600" font-family="var(--font-sans)" text-anchor="middle" opacity="0.5">BE</text>
-
-                        <!-- === INTERVENTION POINTS === -->
-                        <!-- IDF : Paris + couronne -->
-                        <circle cx="202" cy="108" r="7" fill="var(--color-primary)" opacity="0.9"><title>Paris</title></circle>
-                        <circle cx="190" cy="102" r="3.5" fill="var(--color-primary)" opacity="0.5"><title>Versailles</title></circle>
-                        <circle cx="215" cy="104" r="3" fill="var(--color-primary)" opacity="0.5"><title>Meaux</title></circle>
-                        <circle cx="195" cy="115" r="3" fill="var(--color-primary)" opacity="0.5"><title>Evry</title></circle>
-                        <circle cx="212" cy="112" r="3" fill="var(--color-primary)" opacity="0.5"><title>Marne-la-Vallée</title></circle>
-                        <circle cx="185" cy="110" r="3" fill="var(--color-primary)" opacity="0.4"><title>Cergy</title></circle>
-
-                        <!-- Hauts-de-France -->
-                        <circle cx="195" cy="68" r="5.5" fill="var(--color-primary)" opacity="0.8"><title>Lille</title></circle>
-                        <circle cx="175" cy="75" r="3" fill="var(--color-primary)" opacity="0.45"><title>Arras</title></circle>
-                        <circle cx="165" cy="82" r="3" fill="var(--color-primary)" opacity="0.45"><title>Amiens</title></circle>
-                        <circle cx="210" cy="72" r="3" fill="var(--color-primary)" opacity="0.4"><title>Valenciennes</title></circle>
-                        <circle cx="185" cy="88" r="2.5" fill="var(--color-primary)" opacity="0.35"><title>Beauvais</title></circle>
-                        <circle cx="225" cy="82" r="2.5" fill="var(--color-primary)" opacity="0.35"><title>Laon</title></circle>
-
-                        <!-- Grand Est -->
-                        <circle cx="268" cy="92" r="4" fill="var(--color-primary)" opacity="0.55"><title>Reims</title></circle>
-                        <circle cx="312" cy="100" r="3.5" fill="var(--color-primary)" opacity="0.5"><title>Strasbourg</title></circle>
-                        <circle cx="295" cy="108" r="3" fill="var(--color-primary)" opacity="0.4"><title>Nancy</title></circle>
-                        <circle cx="305" cy="118" r="2.5" fill="var(--color-primary)" opacity="0.35"><title>Mulhouse</title></circle>
-                        <circle cx="280" cy="105" r="2.5" fill="var(--color-primary)" opacity="0.35"><title>Metz</title></circle>
-
-                        <!-- Normandie / Bretagne -->
-                        <circle cx="128" cy="98" r="3.5" fill="var(--color-primary)" opacity="0.5"><title>Rouen</title></circle>
-                        <circle cx="108" cy="105" r="3" fill="var(--color-primary)" opacity="0.45"><title>Caen</title></circle>
-                        <circle cx="52" cy="155" r="3" fill="var(--color-primary)" opacity="0.4"><title>Brest</title></circle>
-                        <circle cx="62" cy="162" r="3.5" fill="var(--color-primary)" opacity="0.45"><title>Rennes</title></circle>
-                        <circle cx="48" cy="172" r="2.5" fill="var(--color-primary)" opacity="0.35"><title>Lorient</title></circle>
-
-                        <!-- Pays de la Loire / Centre -->
-                        <circle cx="82" cy="185" r="4" fill="var(--color-primary)" opacity="0.55"><title>Nantes</title></circle>
-                        <circle cx="105" cy="175" r="3" fill="var(--color-primary)" opacity="0.4"><title>Le Mans</title></circle>
-                        <circle cx="155" cy="145" r="3" fill="var(--color-primary)" opacity="0.45"><title>Orléans</title></circle>
-                        <circle cx="138" cy="158" r="3" fill="var(--color-primary)" opacity="0.4"><title>Tours</title></circle>
-                        <circle cx="90" cy="200" r="2.5" fill="var(--color-primary)" opacity="0.35"><title>La Roche-sur-Yon</title></circle>
-
-                        <!-- AURA -->
-                        <circle cx="275" cy="188" r="5.5" fill="var(--color-primary)" opacity="0.8"><title>Lyon</title></circle>
-                        <circle cx="295" cy="200" r="3.5" fill="var(--color-primary)" opacity="0.5"><title>Grenoble</title></circle>
-                        <circle cx="260" cy="198" r="3" fill="var(--color-primary)" opacity="0.45"><title>Saint-Étienne</title></circle>
-                        <circle cx="240" cy="178" r="3" fill="var(--color-primary)" opacity="0.4"><title>Clermont-Ferrand</title></circle>
-                        <circle cx="288" cy="175" r="2.5" fill="var(--color-primary)" opacity="0.35"><title>Bourg-en-Bresse</title></circle>
-                        <circle cx="310" cy="210" r="2.5" fill="var(--color-primary)" opacity="0.35"><title>Valence</title></circle>
-                        <circle cx="260" cy="210" r="2.5" fill="var(--color-primary)" opacity="0.3"><title>Le Puy</title></circle>
-
-                        <!-- PACA -->
-                        <circle cx="320" cy="288" r="5.5" fill="var(--color-primary)" opacity="0.8"><title>Marseille</title></circle>
-                        <circle cx="352" cy="278" r="4" fill="var(--color-primary)" opacity="0.6"><title>Nice</title></circle>
-                        <circle cx="335" cy="295" r="3" fill="var(--color-primary)" opacity="0.45"><title>Toulon</title></circle>
-                        <circle cx="305" cy="268" r="3" fill="var(--color-primary)" opacity="0.45"><title>Avignon</title></circle>
-                        <circle cx="340" cy="265" r="2.5" fill="var(--color-primary)" opacity="0.35"><title>Cannes</title></circle>
-                        <circle cx="295" cy="255" r="2.5" fill="var(--color-primary)" opacity="0.3"><title>Gap</title></circle>
-
-                        <!-- Occitanie -->
-                        <circle cx="185" cy="318" r="5" fill="var(--color-primary)" opacity="0.75"><title>Toulouse</title></circle>
-                        <circle cx="240" cy="312" r="4" fill="var(--color-primary)" opacity="0.6"><title>Montpellier</title></circle>
-                        <circle cx="265" cy="310" r="3" fill="var(--color-primary)" opacity="0.45"><title>Nîmes</title></circle>
-                        <circle cx="215" cy="345" r="3.5" fill="var(--color-primary)" opacity="0.5"><title>Perpignan</title></circle>
-                        <circle cx="158" cy="332" r="2.5" fill="var(--color-primary)" opacity="0.35"><title>Tarbes</title></circle>
-                        <circle cx="200" cy="305" r="2.5" fill="var(--color-primary)" opacity="0.35"><title>Albi</title></circle>
-                        <circle cx="230" cy="330" r="2.5" fill="var(--color-primary)" opacity="0.3"><title>Béziers</title></circle>
-
-                        <!-- Nouvelle-Aquitaine -->
-                        <circle cx="115" cy="255" r="5" fill="var(--color-primary)" opacity="0.75"><title>Bordeaux</title></circle>
-                        <circle cx="145" cy="225" r="3" fill="var(--color-primary)" opacity="0.45"><title>Limoges</title></circle>
-                        <circle cx="85" cy="228" r="3" fill="var(--color-primary)" opacity="0.4"><title>La Rochelle</title></circle>
-                        <circle cx="125" cy="295" r="3" fill="var(--color-primary)" opacity="0.45"><title>Pau</title></circle>
-                        <circle cx="135" cy="275" r="2.5" fill="var(--color-primary)" opacity="0.35"><title>Agen</title></circle>
-                        <circle cx="100" cy="240" r="2.5" fill="var(--color-primary)" opacity="0.3"><title>Angoulême</title></circle>
-                        <circle cx="140" cy="305" r="2.5" fill="var(--color-primary)" opacity="0.3"><title>Bayonne</title></circle>
-
-                        <!-- Bourgogne / Centre -->
-                        <circle cx="228" cy="145" r="3.5" fill="var(--color-primary)" opacity="0.45"><title>Dijon</title></circle>
-                        <circle cx="210" cy="155" r="2.5" fill="var(--color-primary)" opacity="0.35"><title>Nevers</title></circle>
-                        <circle cx="248" cy="158" r="2.5" fill="var(--color-primary)" opacity="0.35"><title>Besançon</title></circle>
-
-                        <!-- Belgique -->
-                        <circle cx="228" cy="32" r="5" fill="var(--color-primary)" opacity="0.75"><title>Bruxelles</title></circle>
-                        <circle cx="248" cy="28" r="3.5" fill="var(--color-primary)" opacity="0.5"><title>Anvers</title></circle>
-                        <circle cx="212" cy="28" r="3" fill="var(--color-primary)" opacity="0.45"><title>Gand</title></circle>
-                        <circle cx="265" cy="38" r="3" fill="var(--color-primary)" opacity="0.45"><title>Liège</title></circle>
-                        <circle cx="238" cy="40" r="2.5" fill="var(--color-primary)" opacity="0.35"><title>Namur</title></circle>
-                        <circle cx="200" cy="35" r="2.5" fill="var(--color-primary)" opacity="0.35"><title>Bruges</title></circle>
-
-                        <!-- Corse -->
-                        <circle cx="396" cy="328" r="3" fill="var(--color-primary)" opacity="0.4"><title>Ajaccio</title></circle>
-                        <circle cx="398" cy="318" r="2.5" fill="var(--color-primary)" opacity="0.35"><title>Bastia</title></circle>
-
-                        <!-- Legend -->
-                        <circle cx="30" cy="430" r="6" fill="var(--color-primary)" opacity="0.8"/>
-                        <text x="42" y="434" fill="var(--color-ink)" font-size="9" font-family="var(--font-sans)" opacity="0.6">Siege / Agence</text>
-                        <circle cx="130" cy="430" r="3.5" fill="var(--color-primary)" opacity="0.5"/>
-                        <text x="140" y="434" fill="var(--color-ink)" font-size="9" font-family="var(--font-sans)" opacity="0.6">Zone d'intervention</text>
-                        <text x="30" y="455" fill="var(--color-ink)" font-size="10" font-weight="600" font-family="var(--font-sans)" opacity="0.7">60+ villes couvertes</text>
-                    </svg>
+                <div style="background:#fff; border:1px solid var(--color-line); border-radius: var(--radius-xl); overflow: hidden;">
+                    <div id="coverage-map" style="height: 400px; width: 100%; border-radius: var(--radius-xl);"></div>
                 </div>
             </div>
         </section>
@@ -1184,7 +1077,7 @@
                     </h2>
                 </div>
                 <div class="space-y-3" role="region" aria-label="Questions fréquentes">
-                    <details class="group bg-white border border-gray-200 rounded-xl p-5 hover:border-gray-300 transition-colors">
+                    <details class="group bg-white border border-gray-200 rounded-xl p-5 hover:border-gray-300 transition-colors card-lift">
                         <summary class="font-medium text-gray-900 cursor-pointer flex items-center justify-between list-none [&::-webkit-details-marker]:hidden">
                             <div class="flex items-center gap-3">
                                 <span class="faq-num" aria-hidden="true">1</span>
@@ -1197,7 +1090,7 @@
                             <p><strong>Et si c'est sur 15 sites différents ?</strong><br>C'est même là qu'on est le plus utile. Un seul tableau de bord, une seule personne à appeler, des standards homogènes sur tous vos sites.</p>
                         </div>
                     </details>
-                    <details class="group bg-white border border-gray-200 rounded-xl p-5 hover:border-gray-300 transition-colors">
+                    <details class="group bg-white border border-gray-200 rounded-xl p-5 hover:border-gray-300 transition-colors card-lift">
                         <summary class="font-medium text-gray-900 cursor-pointer flex items-center justify-between list-none [&::-webkit-details-marker]:hidden">
                             <div class="flex items-center gap-3">
                                 <span class="faq-num" aria-hidden="true">2</span>
@@ -1210,7 +1103,7 @@
                             <p><strong>Vous gérez aussi les échanges avec le bureau de contrôle ?</strong><br>Oui. Documentation technique, réponses aux observations, coordination Enedis : on s'en charge pour que vous n'ayez pas à jongler entre les interlocuteurs.</p>
                         </div>
                     </details>
-                    <details class="group bg-white border border-gray-200 rounded-xl p-5 hover:border-gray-300 transition-colors">
+                    <details class="group bg-white border border-gray-200 rounded-xl p-5 hover:border-gray-300 transition-colors card-lift">
                         <summary class="font-medium text-gray-900 cursor-pointer flex items-center justify-between list-none [&::-webkit-details-marker]:hidden">
                             <div class="flex items-center gap-3">
                                 <span class="faq-num" aria-hidden="true">3</span>
@@ -1223,7 +1116,7 @@
                             <p><strong>On a un parc multi-marques, multi-installateurs. C'est un problème ?</strong><br>Non, c'est notre spécialité. On audite, on identifie les points faibles, on stabilise. Beaucoup de nos clients sont venus exactement pour ça.</p>
                         </div>
                     </details>
-                    <details class="group bg-white border border-gray-200 rounded-xl p-5 hover:border-gray-300 transition-colors">
+                    <details class="group bg-white border border-gray-200 rounded-xl p-5 hover:border-gray-300 transition-colors card-lift">
                         <summary class="font-medium text-gray-900 cursor-pointer flex items-center justify-between list-none [&::-webkit-details-marker]:hidden">
                             <div class="flex items-center gap-3">
                                 <span class="faq-num" aria-hidden="true">4</span>
@@ -1236,7 +1129,7 @@
                             <p><strong>On a déjà un prestataire sécurité, c'est compatible ?</strong><br>Oui. On s'intègre dans votre dispositif existant (vidéo, alarmes, gardiennage) pour que les bornes soient traitées comme vos autres actifs critiques.</p>
                         </div>
                     </details>
-                    <details class="group bg-white border border-gray-200 rounded-xl p-5 hover:border-gray-300 transition-colors">
+                    <details class="group bg-white border border-gray-200 rounded-xl p-5 hover:border-gray-300 transition-colors card-lift">
                         <summary class="font-medium text-gray-900 cursor-pointer flex items-center justify-between list-none [&::-webkit-details-marker]:hidden">
                             <div class="flex items-center gap-3">
                                 <span class="faq-num" aria-hidden="true">5</span>
@@ -1523,6 +1416,7 @@
                     });
                 }, {threshold: 0.12, rootMargin: '0px 0px -40px 0px'});
                 document.querySelectorAll('.section-appear').forEach(function(el){ io.observe(el); });
+                document.querySelectorAll('.grid-stagger').forEach(function(el){ io.observe(el); });
             } else {
                 document.documentElement.classList.add('animations-disabled');
             }
@@ -1574,6 +1468,87 @@
         else{mcta.style.display='none'}
     });
 })();
+</script>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    if (typeof L === 'undefined') return;
+    var map = L.map('coverage-map', {
+        center: [46.8, 2.5],
+        zoom: 6,
+        scrollWheelZoom: false,
+        zoomControl: true,
+        attributionControl: false
+    });
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+        maxZoom: 19
+    }).addTo(map);
+
+    // JCSM blue marker
+    var icon = L.divIcon({
+        className: 'jcsm-marker',
+        html: '<div style="width:12px;height:12px;background:#2563EB;border-radius:50%;border:2px solid #fff;box-shadow:0 2px 8px rgba(37,99,235,0.4)"></div>',
+        iconSize: [12, 12],
+        iconAnchor: [6, 6]
+    });
+    var iconLg = L.divIcon({
+        className: 'jcsm-marker-lg',
+        html: '<div style="width:16px;height:16px;background:#2563EB;border-radius:50%;border:3px solid #fff;box-shadow:0 2px 12px rgba(37,99,235,0.5)"></div>',
+        iconSize: [16, 16],
+        iconAnchor: [8, 8]
+    });
+
+    // Major cities (large markers)
+    var majors = [
+        [48.8566, 2.3522, 'Paris (siege)'],
+        [43.2965, 5.3698, 'Marseille'],
+        [45.7640, 4.8357, 'Lyon'],
+        [43.6047, 1.4442, 'Toulouse'],
+        [44.8378, -0.5792, 'Bordeaux'],
+        [50.6292, 3.0573, 'Lille'],
+        [50.8503, 4.3517, 'Bruxelles']
+    ];
+    majors.forEach(function(c) {
+        L.marker([c[0], c[1]], {icon: iconLg}).addTo(map).bindPopup('<strong>' + c[2] + '</strong>');
+    });
+
+    // Secondary cities (small markers)
+    var cities = [
+        [48.5734, 7.7521, 'Strasbourg'], [48.6921, 6.1844, 'Nancy'],
+        [47.3220, 5.0415, 'Dijon'], [45.1885, 5.7245, 'Grenoble'],
+        [43.7102, 7.2620, 'Nice'], [43.1242, 5.9280, 'Toulon'],
+        [43.6108, 3.8767, 'Montpellier'], [42.6887, 2.8948, 'Perpignan'],
+        [43.8927, 2.1461, 'Albi'], [43.6119, -0.3665, 'Pau'],
+        [45.7797, 3.0863, 'Clermont-Ferrand'], [46.5802, 0.3404, 'Poitiers'],
+        [47.2184, -1.5536, 'Nantes'], [48.1173, -1.6778, 'Rennes'],
+        [49.4432, 1.0999, 'Rouen'], [49.1829, -0.3707, 'Caen'],
+        [49.8941, 2.2958, 'Amiens'], [50.2910, 2.7775, 'Arras'],
+        [47.0902, 2.3981, 'Bourges'], [46.3231, -0.4647, 'Niort'],
+        [45.8336, 1.2611, 'Limoges'], [44.1000, -0.7669, 'Dax'],
+        [43.9493, 4.8059, 'Avignon'], [42.6986, 2.8956, 'Perpignan'],
+        [48.3904, -4.4861, 'Brest'], [47.7508, -3.3700, 'Lorient'],
+        [51.2194, 4.4025, 'Anvers'], [51.0543, 3.7174, 'Gand'],
+        [50.6326, 5.5697, 'Liege'], [50.4674, 4.8720, 'Namur'],
+        [47.3518, 0.6612, 'Tours'], [47.3942, 0.6848, 'Orleans'],
+        [48.0159, 0.1996, 'Le Mans'], [46.5802, -0.8301, 'La Rochelle'],
+        [44.3378, 1.2085, 'Cahors'], [43.2107, 2.3491, 'Carcassonne'],
+        [41.9191, 8.7386, 'Ajaccio'], [42.6977, 9.4497, 'Bastia']
+    ];
+    cities.forEach(function(c) {
+        L.marker([c[0], c[1]], {icon: icon}).addTo(map).bindPopup(c[2]);
+    });
+
+    // Add coverage overlay text
+    var info = L.control({position: 'bottomleft'});
+    info.onAdd = function() {
+        var div = L.DomUtil.create('div', 'coverage-info');
+        div.style.cssText = 'background:rgba(255,255,255,0.95);padding:8px 12px;border-radius:8px;font-size:12px;font-weight:600;color:#0F1B2D;box-shadow:0 2px 8px rgba(0,0,0,0.1)';
+        div.innerHTML = '60+ villes couvertes \u00b7 France & Belgique';
+        return div;
+    };
+    info.addTo(map);
+});
 </script>
 
 </body>

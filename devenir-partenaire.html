@@ -302,7 +302,7 @@
         <!-- Chiffres clés -->
         <section class="section-alt py-16 px-6" aria-label="Chiffres clés">
             <div class="max-w-5xl mx-auto">
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center grid-stagger">
                     <div class="section-appear">
                         <div class="text-3xl font-bold mb-1" style="color: var(--color-ink);">France entière</div>
                         <p class="text-sm text-gray-600">Couverture nationale</p>
@@ -341,11 +341,11 @@
                     <div class="step-dot">3</div>
                 </div>
 
-                <div class="grid lg:grid-cols-3 gap-8">
+                <div class="grid lg:grid-cols-3 gap-8 grid-stagger">
 
                     <!-- Étape 1 : Formulaire d'inscription -->
                     <div class="lg:col-span-1 section-appear">
-                        <div class="info-step-card" style="border-color: var(--color-primary); border-width: 2px;">
+                        <div class="info-step-card card-shine" style="border-color: var(--color-primary); border-width: 2px;">
                             <div class="flex items-center gap-3 mb-5">
                                 <div class="info-step-number" style="background: var(--color-primary); color: #fff;">1</div>
                                 <div>
@@ -403,7 +403,7 @@
 
                     <!-- Étape 2 : Échange téléphonique -->
                     <div class="lg:col-span-1 section-appear">
-                        <div class="info-step-card">
+                        <div class="info-step-card card-shine">
                             <div class="flex items-center gap-3 mb-5">
                                 <div class="info-step-number" style="background: rgba(37, 99, 235, 0.08); color: var(--color-primary);">2</div>
                                 <div>
@@ -448,7 +448,7 @@
 
                     <!-- Étape 3 : Accès aux interventions -->
                     <div class="lg:col-span-1 section-appear">
-                        <div class="info-step-card">
+                        <div class="info-step-card card-shine">
                             <div class="flex items-center gap-3 mb-5">
                                 <div class="info-step-number" style="background: rgba(16, 185, 129, 0.08); color: #10B981;">3</div>
                                 <div>
@@ -497,10 +497,10 @@
                     <p class="text-lg text-gray-600 max-w-2xl mx-auto" style="font-family: var(--font-sans);">Les qualifications et équipements que nous valorisons chez nos partenaires. Pas besoin de tout cocher, on en discute ensemble.</p>
                 </div>
 
-                <div class="grid md:grid-cols-2 gap-8 section-appear">
+                <div class="grid md:grid-cols-2 gap-8 section-appear grid-stagger">
 
                     <!-- Habilitations et qualifications -->
-                    <div class="card-feature p-6">
+                    <div class="card-feature card-lift p-6">
                         <div class="flex items-center gap-3 mb-5">
                             <div class="w-10 h-10 rounded-lg flex items-center justify-center" style="background: rgba(37, 99, 235, 0.08);">
                                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
@@ -522,7 +522,7 @@
                         </div>
                     </div>
 
-                    <div class="card-feature p-6">
+                    <div class="card-feature card-lift p-6">
                         <div class="flex items-center gap-3 mb-5">
                             <div class="w-10 h-10 rounded-lg flex items-center justify-center" style="background: rgba(16, 185, 129, 0.08);">
                                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
@@ -553,7 +553,7 @@
                     </div>
 
                     <!-- Équipement -->
-                    <div class="card-feature p-6">
+                    <div class="card-feature card-lift p-6">
                         <div class="flex items-center gap-3 mb-5">
                             <div class="w-10 h-10 rounded-lg flex items-center justify-center" style="background: rgba(245, 158, 11, 0.08);">
                                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F59E0B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14L21 3"/><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/></svg>
@@ -573,7 +573,7 @@
                     </div>
 
                     <!-- Véhicule -->
-                    <div class="card-feature p-6">
+                    <div class="card-feature card-lift p-6">
                         <div class="flex items-center gap-3 mb-5">
                             <div class="w-10 h-10 rounded-lg flex items-center justify-center" style="background: rgba(37, 99, 235, 0.08);">
                                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13" rx="2"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
@@ -598,9 +598,9 @@
                     <p class="text-lg text-gray-600 max-w-2xl mx-auto" style="font-family: var(--font-sans);">Des missions variées, des bornes AC résidentiel aux chargeurs DC haute puissance.</p>
                 </div>
 
-                <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 stagger-reveal">
+                <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 stagger-reveal grid-stagger">
                     <!-- Préventive -->
-                    <div class="card-feature section-appear">
+                    <div class="card-feature card-lift section-appear">
                         <div class="interv-icon" style="background: rgba(16, 185, 129, 0.08);">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"/><path d="M12 3a9 9 0 11-9 9"/><path d="M3 12h3"/><path d="M12 3v3"/></svg>
                         </div>
@@ -614,7 +614,7 @@
                     </div>
 
                     <!-- Curative -->
-                    <div class="card-feature section-appear">
+                    <div class="card-feature card-lift section-appear">
                         <div class="interv-icon" style="background: rgba(239, 68, 68, 0.08);">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#EF4444" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
                         </div>
@@ -628,7 +628,7 @@
                     </div>
 
                     <!-- Remplacement câble -->
-                    <div class="card-feature section-appear">
+                    <div class="card-feature card-lift section-appear">
                         <div class="interv-icon" style="background: rgba(245, 158, 11, 0.08);">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#F59E0B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v4"/><path d="M16 2v4"/><path d="M12 14v4"/><path d="M8 6h8"/><path d="M12 18a2 2 0 100 4 2 2 0 000-4z"/><path d="M8 6a4 4 0 004 4"/><path d="M16 6a4 4 0 01-4 4"/></svg>
                         </div>
@@ -642,7 +642,7 @@
                     </div>
 
                     <!-- Mise en service -->
-                    <div class="card-feature section-appear">
+                    <div class="card-feature card-lift section-appear">
                         <div class="interv-icon" style="background: rgba(37, 99, 235, 0.08);">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
                         </div>
@@ -667,9 +667,9 @@
                     <p class="text-lg text-gray-600 max-w-2xl mx-auto" style="font-family: var(--font-sans);">En plus de la maintenance, JCSM confie également des missions d'installation de bornes de recharge à ses partenaires qualifiés.</p>
                 </div>
 
-                <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 stagger-reveal">
+                <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 stagger-reveal grid-stagger">
                     <!-- AC privé -->
-                    <div class="card-feature section-appear">
+                    <div class="card-feature card-lift section-appear">
                         <div class="interv-icon" style="background: rgba(37, 99, 235, 0.08);">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
                         </div>
@@ -678,7 +678,7 @@
                     </div>
 
                     <!-- AC public -->
-                    <div class="card-feature section-appear">
+                    <div class="card-feature card-lift section-appear">
                         <div class="interv-icon" style="background: rgba(16, 185, 129, 0.08);">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg>
                         </div>
@@ -687,7 +687,7 @@
                     </div>
 
                     <!-- DC privé -->
-                    <div class="card-feature section-appear">
+                    <div class="card-feature card-lift section-appear">
                         <div class="interv-icon" style="background: rgba(245, 158, 11, 0.08);">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#F59E0B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
                         </div>
@@ -696,7 +696,7 @@
                     </div>
 
                     <!-- DC public -->
-                    <div class="card-feature section-appear">
+                    <div class="card-feature card-lift section-appear">
                         <div class="interv-icon" style="background: rgba(239, 68, 68, 0.08);">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#EF4444" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
                         </div>
@@ -716,8 +716,8 @@
                     <p class="text-lg text-gray-600 max-w-2xl mx-auto" style="font-family: var(--font-sans);">Une grille tarifaire transparente, par type d'intervention. Vous savez ce que vous gagnez avant d'accepter une mission.</p>
                 </div>
 
-                <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 stagger-reveal">
-                    <div class="card-feature p-6 text-center section-appear">
+                <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 stagger-reveal grid-stagger">
+                    <div class="card-feature card-lift p-6 text-center section-appear">
                         <div class="interv-icon mx-auto" style="background: rgba(16, 185, 129, 0.08);">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"/><path d="M12 3a9 9 0 11-9 9"/><path d="M3 12h3"/><path d="M12 3v3"/></svg>
                         </div>
@@ -725,7 +725,7 @@
                         <p class="text-2xl font-bold mb-1" style="color: var(--color-primary);">80 &euro;</p>
                         <p class="text-sm text-gray-500">à partir de / intervention</p>
                     </div>
-                    <div class="card-feature p-6 text-center section-appear">
+                    <div class="card-feature card-lift p-6 text-center section-appear">
                         <div class="interv-icon mx-auto" style="background: rgba(239, 68, 68, 0.08);">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#EF4444" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
                         </div>
@@ -733,7 +733,7 @@
                         <p class="text-2xl font-bold mb-1" style="color: var(--color-primary);">120 &euro;</p>
                         <p class="text-sm text-gray-500">à partir de / intervention</p>
                     </div>
-                    <div class="card-feature p-6 text-center section-appear">
+                    <div class="card-feature card-lift p-6 text-center section-appear">
                         <div class="interv-icon mx-auto" style="background: rgba(245, 158, 11, 0.08);">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#F59E0B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
                         </div>
@@ -741,7 +741,7 @@
                         <p class="text-2xl font-bold mb-1" style="color: var(--color-primary);">200 &euro;</p>
                         <p class="text-sm text-gray-500">à partir de / intervention</p>
                     </div>
-                    <div class="card-feature p-6 text-center section-appear">
+                    <div class="card-feature card-lift p-6 text-center section-appear">
                         <div class="interv-icon mx-auto" style="background: rgba(37, 99, 235, 0.08);">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
                         </div>
@@ -998,6 +998,31 @@
                     .catch(() => {});
             });
         }
+    </script>
+    <script>
+        (function(){
+            if ('IntersectionObserver' in window) {
+                var io = new IntersectionObserver(function(entries){
+                    entries.forEach(function(e){
+                        if(e.isIntersecting){
+                            e.target.classList.add('visible','revealed');
+                            io.unobserve(e.target);
+                        }
+                    });
+                }, {threshold: 0.12, rootMargin: '0px 0px -40px 0px'});
+                document.querySelectorAll('.section-appear').forEach(function(el){ io.observe(el); });
+                document.querySelectorAll('.grid-stagger').forEach(function(el){ io.observe(el); });
+            } else {
+                document.documentElement.classList.add('animations-disabled');
+            }
+            setTimeout(function(){
+                document.querySelectorAll('.section-appear:not(.visible)').forEach(function(el){
+                    el.style.opacity='1';
+                    el.style.transform='none';
+                    el.classList.add('visible','revealed');
+                });
+            }, 3500);
+        })();
     </script>
 </body>
 </html>
