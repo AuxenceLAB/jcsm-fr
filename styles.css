@@ -36,7 +36,7 @@
   --font-sans:
     system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     "Helvetica Neue", Arial, sans-serif;
-  --font-serif: Georgia, "Times New Roman", serif;
+  --font-serif: "Fraunces", Georgia, "Times New Roman", serif;
   --font-size-base: clamp(0.9rem, 0.85rem + 0.25vw, 1rem);
   --spacing-md: 1rem;
   --spacing-lg: 1.5rem;
@@ -79,8 +79,8 @@ h1,
 h2,
 .font-display {
   font-family: var(--font-serif);
-  font-weight: 600;
-  letter-spacing: -0.01em;
+  font-weight: 400;
+  letter-spacing: -0.018em;
 }
 h3,
 h4,
@@ -97,12 +97,12 @@ h2 em {
 /* Tailles par defaut (le preflight Tailwind met font-size:inherit) ;
    les utilitaires text-* (classes) gardent la priorite sur ces selecteurs element. */
 h1 {
-  font-size: 2.75rem;
-  line-height: 1.15;
+  font-size: 2.85rem;
+  line-height: 1.03;
 }
 h2 {
-  font-size: 2rem;
-  line-height: 1.2;
+  font-size: 2.1rem;
+  line-height: 1.08;
 }
 h3 {
   font-size: 1.35rem;
@@ -2222,17 +2222,27 @@ section.bg-gray-50 {
   color: var(--color-primary);
 }
 .sec-label {
-  font-size: 0.7rem;
-  letter-spacing: 0.16em;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--color-primary);
+  color: #9A7B3F;
   font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+.sec-label::before {
+  content: "";
+  width: 26px;
+  height: 1px;
+  background: #9A7B3F;
 }
 .section-dark {
   background: var(--color-ink);
   color: #F5F4EF;
 }
-.section-dark .sec-label { color: #7FA6E8; }
+.section-dark .sec-label { color: #C9A86A; }
+.section-dark .sec-label::before { background: #C9A86A; }
 .section-dark .step { border-top: 2px solid var(--color-primary); padding-top: 0.875rem; }
 .section-alt { background: var(--color-cream-alt); }
 .logo-strip img,
