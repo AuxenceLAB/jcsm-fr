@@ -1,4 +1,5 @@
 # JCSM - Robots.txt
+Disallow: /_design-preview.html
 # https://jcsm.fr
 
 User-agent: *

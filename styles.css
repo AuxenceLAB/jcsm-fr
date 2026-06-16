@@ -80,7 +80,12 @@ h2,
 .font-display {
   font-family: var(--font-serif);
   font-weight: 600;
+  font-synthesis: none;
   letter-spacing: -0.022em;
+}
+/* Filet anti-débordement (mots composés longs, ex. allemand, sur petits écrans) */
+h1, h2, h3, h4, h5, h6, p, li, .stat-serif {
+  overflow-wrap: break-word;
 }
 h3,
 h4,
@@ -151,6 +156,11 @@ h3 {
   .py-20 {
     padding-top: 3rem;
     padding-bottom: 3rem;
+  }
+  .py-24,
+  .py-28 {
+    padding-top: 3.25rem;
+    padding-bottom: 3.25rem;
   }
   .py-16 {
     padding-top: 2.5rem;
