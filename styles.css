@@ -328,9 +328,9 @@ section {
   pointer-events: none;
 }
 .glass-nav {
-  background: rgba(250, 250, 247, 0.92);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  background: rgba(250, 250, 247, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--color-line);
   box-shadow: none;
 }
@@ -397,6 +397,24 @@ footer a:not(.btn-primary) {
 footer a:not(.btn-primary):hover {
   color: #2563eb;
   transform: translateX(4px);
+}
+/* Footer premium clair : filet doré + titres de colonnes éditoriaux */
+footer {
+  position: relative;
+}
+footer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #9A7B3F 0%, rgba(154, 123, 63, 0) 38%);
+}
+footer h3 {
+  color: #9A7B3F !important;
+  letter-spacing: 0.14em !important;
+  font-weight: 700;
 }
 .scroll-top {
   position: fixed;
