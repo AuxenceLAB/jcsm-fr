@@ -136,21 +136,21 @@
 </head>
 
 <body class="text-gray-900">
-    <a href="#main-content" class="skip-link">Przejdz do tresci</a>
+    <a href="#main-content" class="skip-link">Przejdź do treści</a>
 
-        <div class="preloader" id="preloader" role="status" aria-label="Ladowanie">
+        <div class="preloader" id="preloader" role="status" aria-label="Ładowanie">
         <div class="flex flex-col items-center justify-center">
             <picture><source srcset="../images/logo.webp" type="image/webp"><img src="../images/logo.png" alt="JCSM" width="80" height="80" class="animate-pulse"></picture>
         </div>
     </div>
 
     <div class="mobile-menu-overlay" id="mobile-menu-overlay"></div>
-    <nav class="mobile-menu" id="mobile-menu" role="dialog" aria-modal="true" aria-label="Menu nawigacji" aria-hidden="true">
+    <nav class="mobile-menu" id="mobile-menu" role="dialog" aria-modal="true" aria-label="Menu nawigacyjne" aria-hidden="true">
         <div class="p-8">
             <div class="flex justify-between items-center mb-12">
                 <span class="text-xl font-semibold">Menu</span>
                 <button class="text-gray-600 hover:text-gray-900" id="mobile-menu-close"
-                    aria-label="Zamknij menu nawigacji">
+                    aria-label="Zamknij menu nawigacyjne">
                     <svg class="w-6 h-6" fill="none" aria-hidden="true" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M6 18L18 6M6 6l12 12" />
@@ -158,7 +158,7 @@
                 </button>
             </div>
                         <div class="flex flex-col space-y-6">
-                <a href="/pl/zarzadzanie-projektami" class="text-base text-gray-600 hover:text-gray-900 transition-colors py-2" aria-current="page">Zarzadzanie projektami</a>
+                <a href="/pl/zarzadzanie-projektami" class="text-base text-gray-600 hover:text-gray-900 transition-colors py-2" aria-current="page">Zarządzanie projektami</a>
                 <a href="/pl/instalacja-zgodnosc" class="text-base text-gray-600 hover:text-gray-900 transition-colors py-2">Instalacja</a>
                 <a href="/pl/eksploatacja-konserwacja" class="text-base text-gray-600 hover:text-gray-900 transition-colors py-2">Eksploatacja</a>
                 <a href="/pl/zabezpieczenie-instalacji" class="text-base text-gray-600 hover:text-gray-900 transition-colors py-2">Zabezpieczenie</a>
@@ -171,17 +171,17 @@
     </nav>
 
     <!-- Pasek postepu przewijania -->
-    <div id="scroll-progress" class="fixed top-0 left-0 h-1 bg-blue-600 z-[60] transition-all duration-150" style="width: 0%;" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Postep czytania"></div>
+    <div id="scroll-progress" class="fixed top-0 left-0 h-1 bg-blue-600 z-[60] transition-all duration-150" style="width: 0%;" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Postęp czytania"></div>
 
-    <nav class="fixed top-0 w-full z-50 glass-nav border-b border-gray-200" role="navigation" aria-label="Nawigacja glowna">
+    <nav class="fixed top-0 w-full z-50 glass-nav border-b border-gray-200" role="navigation" aria-label="Nawigacja główna">
         <div class="max-w-7xl mx-auto px-6 py-4">
             <div class="flex justify-between items-center">
                 <a href="/pl/" class="flex items-center space-x-3 group mr-10">
-                    <picture><source srcset="../images/logo.webp" type="image/webp"><img src="../images/logo.png" alt="JCSM - Strona glowna" class="w-10 h-10 transition-transform group-hover:scale-105 duration-300" width="40" height="40"></picture>
+                    <picture><source srcset="../images/logo.webp" type="image/webp"><img src="../images/logo.png" alt="JCSM - Strona główna" class="w-10 h-10 transition-transform group-hover:scale-105 duration-300" width="40" height="40"></picture>
                     <span class="text-2xl font-extrabold tracking-tight text-gray-900">JCSM</span>
                 </a>
                 <div class="hidden lg:flex items-center space-x-2">
-                    <a href="/pl/zarzadzanie-projektami" class="nav-link nav-link-active text-[15px] font-semibold text-gray-700 whitespace-nowrap">Zarzadzanie</a>
+                    <a href="/pl/zarzadzanie-projektami" class="nav-link nav-link-active text-[15px] font-semibold text-gray-700 whitespace-nowrap">Zarządzanie</a>
                     <a href="/pl/instalacja-zgodnosc" class="nav-link text-[15px] font-semibold text-gray-700 whitespace-nowrap">Instalacja</a>
                     <a href="/pl/eksploatacja-konserwacja" class="nav-link text-[15px] font-semibold text-gray-700 whitespace-nowrap">Eksploatacja</a>
                     <a href="/pl/zabezpieczenie-instalacji" class="nav-link text-[15px] font-semibold text-gray-700 whitespace-nowrap">Zabezpieczenie</a>
@@ -190,7 +190,7 @@
                     <div class="lang-selector relative"></div>
                     <a href="/pl/kontakt" class="btn-primary ml-5 px-8 py-3 text-[15px] font-semibold text-white shadow-lg hover:shadow-xl whitespace-nowrap">Kontakt</a>
                 </div>
-                <button class="mobile-menu-btn text-gray-700 hover:text-gray-900" id="mobile-menu-btn" aria-label="Otworz menu nawigacji" aria-expanded="false" aria-controls="mobile-menu">
+                <button class="mobile-menu-btn text-gray-700 hover:text-gray-900" id="mobile-menu-btn" aria-label="Otwórz menu nawigacyjne" aria-expanded="false" aria-controls="mobile-menu">
                     <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                     </svg>
@@ -200,11 +200,11 @@
     </nav>
 
     <main id="main-content" tabindex="-1" role="main">
-        <nav aria-label="Sciezka nawigacyjna" class="max-w-6xl mx-auto px-4 sm:px-6 pt-24 pb-0">
+        <nav aria-label="Ścieżka nawigacyjna" class="max-w-6xl mx-auto px-4 sm:px-6 pt-24 pb-0">
             <ol class="flex items-center gap-2 text-sm text-gray-500">
-                <li><a href="/pl/" class="hover:text-blue-600 transition-colors">Strona glowna</a></li>
+                <li><a href="/pl/" class="hover:text-blue-600 transition-colors">Strona główna</a></li>
                 <li><span class="text-gray-300">/</span></li>
-                <li class="text-gray-600 font-medium">Zarzadzanie projektami</li>
+                <li class="text-gray-600 font-medium">Zarządzanie projektami</li>
             </ol>
         </nav>
         <!-- Hero -->
@@ -217,12 +217,12 @@
                             50 stacji czy 500, <em>dostarczone. Kropka.</em>
                         </h1>
                         <p class="text-base sm:text-lg leading-relaxed max-w-xl section-appear" style="color: var(--color-text-secondary)">
-                            Od specyfikacji po odbior: zarzadzanie harmonogramem, koordynacja wykonawcow i kontrola budzetowa. Gwarantowana zgodnosc z norma NF C 15-100.
+                            Od specyfikacji po odbiór: zarządzanie harmonogramem, koordynacja wykonawców i kontrola budżetu. Gwarantowana zgodność z normą NF C 15-100.
                         </p>
                         <div class="flex flex-wrap gap-3 section-appear">
                             <a href="/pl/kontakt"
                                 class="btn-primary px-7 py-3.5 font-bold text-[15px] text-white inline-flex items-center gap-2.5">
-                                Zaplanuj moj projekt
+                                Zaplanuj mój projekt
                                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
                             </a>
                             <a href="#services"
@@ -231,9 +231,9 @@
                             </a>
                         </div>
                         <div class="flex flex-wrap gap-x-8 gap-y-3 pt-5 mt-2 section-appear" style="border-top: 1px solid var(--color-line)">
-                            <div><div class="text-xl font-extrabold" style="color: var(--color-primary-dark); font-family: var(--font-sans)">100+</div><div class="text-xs" style="color: var(--color-text-secondary)">dostarczonych projektow</div></div>
-                            <div><div class="text-xl font-extrabold" style="color: var(--color-primary-dark); font-family: var(--font-sans)">98%</div><div class="text-xs" style="color: var(--color-text-secondary)">dotrzymanych terminow</div></div>
-                            <div><div class="text-xl font-extrabold" style="color: var(--color-primary-dark); font-family: var(--font-sans)">NF C 15-100</div><div class="text-xs" style="color: var(--color-text-secondary)">gwarantowana zgodnosc</div></div>
+                            <div><div class="text-xl font-extrabold" style="color: var(--color-primary-dark); font-family: var(--font-sans)">100+</div><div class="text-xs" style="color: var(--color-text-secondary)">zrealizowanych projektów</div></div>
+                            <div><div class="text-xl font-extrabold" style="color: var(--color-primary-dark); font-family: var(--font-sans)">98%</div><div class="text-xs" style="color: var(--color-text-secondary)">dotrzymanych terminów</div></div>
+                            <div><div class="text-xl font-extrabold" style="color: var(--color-primary-dark); font-family: var(--font-sans)">NF C 15-100</div><div class="text-xs" style="color: var(--color-text-secondary)">gwarantowana zgodność</div></div>
                         </div>
                     </div>
                     <div class="section-appear">
@@ -241,7 +241,7 @@
                             <picture>
                                 <source media="(max-width: 768px)" srcset="../images/amo-mobile.webp" type="image/webp"><source srcset="../images/amo.webp" type="image/webp">
                                 <img id="hero-image" src="../images/amo.jpg" fetchpriority="high"
-                                    alt="Asystent inwestora IRVE - Zarzadzanie projektami ladowania pojazdow elektrycznych przez JCSM"
+                                    alt="Doradztwo inwestorskie IRVE - Zarządzanie projektami infrastruktury ładowania pojazdów elektrycznych przez JCSM"
                                     class="w-full h-auto rounded-2xl object-contain"
                                     style="box-shadow: 0 32px 64px -16px rgba(0,0,0,.12), 0 0 0 1px rgba(0,0,0,.04)"
                                     width="1844" height="1284">
@@ -253,15 +253,15 @@
         </section>
 
         <!-- Services -->
-        <section id="services" class="py-24 sm:py-28 px-6" aria-label="Nasze obszary ekspertyzy">
+        <section id="services" class="py-24 sm:py-28 px-6" aria-label="Nasze obszary kompetencji">
             <div class="max-w-6xl mx-auto">
                 <div class="text-center mb-16 section-appear">
-                    <div class="sec-label mb-5">Nasze ekspertyzy</div>
+                    <div class="sec-label mb-5">Nasze kompetencje</div>
                     <h2 class="text-3xl sm:text-4xl tracking-tight mb-5 leading-tight">
                         Metodologia. <em>Nic nie pozostawiamy przypadkowi.</em>
                     </h2>
                     <p class="text-base sm:text-lg max-w-xl mx-auto leading-relaxed" style="color: var(--color-text-secondary)">
-                        Rygorystyczny nadzor nad projektem, ktory zabezpiecza kazdy etap Twojej infrastruktury ladowania.
+                        Rygorystyczny nadzór nad projektem, który zabezpiecza każdy etap Twojej infrastruktury ładowania.
                     </p>
                 </div>
 
@@ -273,8 +273,8 @@
                                     d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
                             </svg>
                         </div>
-                        <h3 class="text-lg font-bold mb-3" style="font-family: var(--font-sans)">Faza wstepna</h3>
-                        <p class="text-sm leading-relaxed" style="color: var(--color-text-secondary)">Badania wstepne, analiza wykonalnosci i wymiarowanie dostosowane do Twoich potrzeb i ograniczen.</p>
+                        <h3 class="text-lg font-bold mb-3" style="font-family: var(--font-sans)">Faza wstępna</h3>
+                        <p class="text-sm leading-relaxed" style="color: var(--color-text-secondary)">Badania wstępne, analiza wykonalności i dobór mocy dostosowane do Twoich potrzeb i ograniczeń.</p>
                     </div>
 
                     <div class="card-feature card-lift section-appear">
@@ -285,7 +285,7 @@
                             </svg>
                         </div>
                         <h3 class="text-lg font-bold mb-3" style="font-family: var(--font-sans)">Koordynacja</h3>
-                        <p class="text-sm leading-relaxed" style="color: var(--color-text-secondary)">Zarzadzanie wykonawcami, planowanie operacji i koordynacja miedzy branzami technicznymi.</p>
+                        <p class="text-sm leading-relaxed" style="color: var(--color-text-secondary)">Zarządzanie wykonawcami, planowanie prac i koordynacja między branżami technicznymi.</p>
                     </div>
 
                     <div class="card-feature card-lift section-appear">
@@ -295,8 +295,8 @@
                                     d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
                             </svg>
                         </div>
-                        <h3 class="text-lg font-bold mb-3" style="font-family: var(--font-sans)">Kontrola budzetowa</h3>
-                        <p class="text-sm leading-relaxed" style="color: var(--color-text-secondary)">Zarzadzanie kosztami, kontrola wydatkow i przejrzyste raportowanie w czasie rzeczywistym.</p>
+                        <h3 class="text-lg font-bold mb-3" style="font-family: var(--font-sans)">Kontrola budżetu</h3>
+                        <p class="text-sm leading-relaxed" style="color: var(--color-text-secondary)">Zarządzanie kosztami, kontrola wydatków i przejrzyste raportowanie w czasie rzeczywistym.</p>
                     </div>
 
                     <div class="card-feature card-lift section-appear">
@@ -306,8 +306,8 @@
                                     d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                             </svg>
                         </div>
-                        <h3 class="text-lg font-bold mb-3" style="font-family: var(--font-sans)">Zgodnosc</h3>
-                        <p class="text-sm leading-relaxed" style="color: var(--color-text-secondary)">Scisle przestrzeganie norm IRVE (NF C 15-100, UTE C 15-722) i obowiazujacych wymagan regulacyjnych.</p>
+                        <h3 class="text-lg font-bold mb-3" style="font-family: var(--font-sans)">Zgodność</h3>
+                        <p class="text-sm leading-relaxed" style="color: var(--color-text-secondary)">Ścisłe przestrzeganie norm dla infrastruktury ładowania (NF C 15-100, UTE C 15-722) i obowiązujących wymogów prawnych.</p>
                     </div>
 
                     <div class="card-feature card-lift section-appear">
@@ -317,8 +317,8 @@
                                     d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                             </svg>
                         </div>
-                        <h3 class="text-lg font-bold mb-3" style="font-family: var(--font-sans)">Planowanie</h3>
-                        <p class="text-sm leading-relaxed" style="color: var(--color-text-secondary)">Ustalanie kluczowych etapow, dotrzymywanie terminow i proaktywne przewidywanie ryzyk.</p>
+                        <h3 class="text-lg font-bold mb-3" style="font-family: var(--font-sans)">Harmonogram</h3>
+                        <p class="text-sm leading-relaxed" style="color: var(--color-text-secondary)">Wyznaczanie kamieni milowych, dotrzymywanie terminów i proaktywne przewidywanie ryzyk.</p>
                     </div>
 
                     <div class="card-feature card-lift section-appear">
@@ -329,7 +329,7 @@
                             </svg>
                         </div>
                         <h3 class="text-lg font-bold mb-3" style="font-family: var(--font-sans)">Uruchomienie</h3>
-                        <p class="text-sm leading-relaxed" style="color: var(--color-text-secondary)">Testy, koncowy odbior i przejscie do eksploatacji operacyjnej.</p>
+                        <p class="text-sm leading-relaxed" style="color: var(--color-text-secondary)">Testy, odbiór końcowy i przejście do eksploatacji.</p>
                     </div>
                 </div>
             </div>
@@ -343,7 +343,7 @@
                     Od specyfikacji do <em>uruchomienia</em>.
                 </h2>
                 <p class="text-base sm:text-lg mt-4 max-w-xl leading-relaxed section-appear" style="opacity:.65">
-                    Podejscie w czterech etapach, by doprowadzic Twoje projekty IRVE do konca.
+                    Podejście w czterech etapach, które doprowadza Twoje projekty infrastruktury ładowania do końca.
                 </p>
 
                 <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 mt-12">
@@ -352,36 +352,36 @@
                             <svg class="w-5 h-5 flex-shrink-0" style="color: var(--color-primary)" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
                             </svg>
-                            <strong>Analiza i planowanie</strong>
+                            <strong>Analiza i koncepcja</strong>
                         </div>
-                        <p class="text-sm mt-2" style="opacity:.65">Zrozumienie potrzeb, analiza terenu, badania wykonalnosci i precyzyjne okreslenie zakresu projektu.</p>
+                        <p class="text-sm mt-2" style="opacity:.65">Zrozumienie potrzeb, analiza terenu, badanie wykonalności i precyzyjne określenie zakresu projektu.</p>
                     </div>
                     <div class="step section-appear">
                         <div class="flex items-center gap-3 mb-3">
                             <svg class="w-5 h-5 flex-shrink-0" style="color: var(--color-primary)" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
                             </svg>
-                            <strong>Szczegolowe planowanie</strong>
+                            <strong>Szczegółowe planowanie</strong>
                         </div>
-                        <p class="text-sm mt-2" style="opacity:.65">Opracowanie harmonogramu, krytyczne etapy, przydzial zasobow i organizacja projektu.</p>
+                        <p class="text-sm mt-2" style="opacity:.65">Opracowanie harmonogramu, ścieżka krytyczna, przydział zasobów i organizacja projektu.</p>
                     </div>
                     <div class="step section-appear">
                         <div class="flex items-center gap-3 mb-3">
                             <svg class="w-5 h-5 flex-shrink-0" style="color: var(--color-primary)" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
                             </svg>
-                            <strong>Nadzor i zarzadzanie</strong>
+                            <strong>Nadzór i prowadzenie</strong>
                         </div>
-                        <p class="text-sm mt-2" style="opacity:.65">Koordynacja operacyjna, zarzadzanie ryzykiem, regularne raportowanie i ciagle dostosowania.</p>
+                        <p class="text-sm mt-2" style="opacity:.65">Koordynacja operacyjna, zarządzanie ryzykiem, regularne raportowanie i bieżące korekty.</p>
                     </div>
                     <div class="step section-appear">
                         <div class="flex items-center gap-3 mb-3">
                             <svg class="w-5 h-5 flex-shrink-0" style="color: var(--color-primary)" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
                             </svg>
-                            <strong>Odbior i przekazanie</strong>
+                            <strong>Odbiór i przekazanie</strong>
                         </div>
-                        <p class="text-sm mt-2" style="opacity:.65">Koncowa kontrola jakosci, walidacja zgodnosci, kompletna dokumentacja i transfer wiedzy.</p>
+                        <p class="text-sm mt-2" style="opacity:.65">Końcowa kontrola jakości, potwierdzenie zgodności, kompletna dokumentacja i przekazanie wiedzy.</p>
                     </div>
                 </div>
             </div>
@@ -402,21 +402,21 @@
                             <svg class="w-8 h-8" style="color: var(--color-primary)" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
                         </div>
                         <div class="text-4xl font-bold mb-2 num-highlight stat-glow counter-animate">100<span class="text-2xl" style="color: var(--color-text-secondary)">+</span></div>
-                        <p class="text-sm font-semibold uppercase tracking-wide" style="color: var(--color-text-secondary)">Dostarczonych projektow</p>
+                        <p class="text-sm font-semibold uppercase tracking-wide" style="color: var(--color-text-secondary)">Zrealizowanych projektów</p>
                     </div>
                     <div class="card-feature text-center section-appear">
                         <div class="flex justify-center mb-4">
                             <svg class="w-8 h-8" style="color: var(--color-primary)" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
                         </div>
                         <div class="text-4xl font-bold mb-2 num-highlight stat-glow counter-animate">98<span class="text-2xl" style="color: var(--color-text-secondary)">%</span></div>
-                        <p class="text-sm font-semibold uppercase tracking-wide" style="color: var(--color-text-secondary)">Dotrzymanych terminow</p>
+                        <p class="text-sm font-semibold uppercase tracking-wide" style="color: var(--color-text-secondary)">Dotrzymanych terminów</p>
                     </div>
                     <div class="card-feature text-center section-appear">
                         <div class="flex justify-center mb-4">
                             <svg class="w-8 h-8" style="color: var(--color-primary)" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
                         </div>
                         <div class="text-4xl font-bold mb-2 num-highlight stat-glow counter-animate">100<span class="text-2xl" style="color: var(--color-text-secondary)">%</span></div>
-                        <p class="text-sm font-semibold uppercase tracking-wide" style="color: var(--color-text-secondary)">Zgodnosc NF C 15-100</p>
+                        <p class="text-sm font-semibold uppercase tracking-wide" style="color: var(--color-text-secondary)">Zgodność NF C 15-100</p>
                     </div>
                     <div class="card-feature text-center section-appear">
                         <div class="flex justify-center mb-4">
@@ -425,21 +425,21 @@
                         <div class="flex justify-center mb-2">
                             <svg class="w-6 h-6" style="color: var(--color-primary)" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
                         </div>
-                        <p class="text-sm font-semibold uppercase tracking-wide" style="color: var(--color-text-secondary)">Kontrolowany budzet</p>
+                        <p class="text-sm font-semibold uppercase tracking-wide" style="color: var(--color-text-secondary)">Kontrolowany budżet</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Inne uslugi -->
-        <section class="py-20 px-6" aria-label="Nasze inne ekspertyzy">
+        <section class="py-20 px-6" aria-label="Nasze pozostałe kompetencje">
             <div class="max-w-6xl mx-auto">
                 <div class="text-center mb-10 section-appear">
-                    <div class="sec-label mb-5">Zobacz takze</div>
-                    <h2 class="text-2xl sm:text-3xl tracking-tight">Nasze inne ekspertyzy</h2>
+                    <div class="sec-label mb-5">Zobacz także</div>
+                    <h2 class="text-2xl sm:text-3xl tracking-tight">Nasze pozostałe kompetencje</h2>
                 </div>
                 <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 grid-stagger">
-                    <a href="/pl/instalacja-zgodnosc" title="Zobacz nasza usluge instalacji i zgodnosci" class="card-feature card-lift block text-center section-appear">
+                    <a href="/pl/instalacja-zgodnosc" title="Zobacz naszą usługę instalacji i zgodności" class="card-feature card-lift block text-center section-appear">
                         <div class="flex justify-center mb-4">
                             <svg class="w-8 h-8" style="color: var(--color-primary)" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.066 2.573c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.573 1.066c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.066-2.573c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/>
@@ -447,25 +447,25 @@
                             </svg>
                         </div>
                         <h3 class="font-bold text-sm mb-1" style="font-family: var(--font-sans)">Instalacja</h3>
-                        <p class="text-xs" style="color: var(--color-text-secondary)">Certyfikowana instalacja Qualifelec</p>
+                        <p class="text-xs" style="color: var(--color-text-secondary)">Instalacja z certyfikatem Qualifelec</p>
                     </a>
-                    <a href="/pl/eksploatacja-konserwacja" title="Zobacz nasza usluge eksploatacji i konserwacji" class="card-feature card-lift block text-center section-appear">
+                    <a href="/pl/eksploatacja-konserwacja" title="Zobacz naszą usługę eksploatacji i konserwacji" class="card-feature card-lift block text-center section-appear">
                         <div class="flex justify-center mb-4">
                             <svg class="w-8 h-8" style="color: var(--color-primary)" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
                             </svg>
                         </div>
                         <h3 class="font-bold text-sm mb-1" style="font-family: var(--font-sans)">Eksploatacja</h3>
-                        <p class="text-xs" style="color: var(--color-text-secondary)">Konserwacja prewencyjna i naprawcza</p>
+                        <p class="text-xs" style="color: var(--color-text-secondary)">Konserwacja zapobiegawcza i naprawcza</p>
                     </a>
-                    <a href="/pl/zabezpieczenie-instalacji" title="Zobacz nasza usluge zabezpieczenia" class="card-feature card-lift block text-center section-appear">
+                    <a href="/pl/zabezpieczenie-instalacji" title="Zobacz naszą usługę zabezpieczenia" class="card-feature card-lift block text-center section-appear">
                         <div class="flex justify-center mb-4">
                             <svg class="w-8 h-8" style="color: var(--color-primary)" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
                             </svg>
                         </div>
                         <h3 class="font-bold text-sm mb-1" style="font-family: var(--font-sans)">Zabezpieczenie</h3>
-                        <p class="text-xs" style="color: var(--color-text-secondary)">Ochrona antywandalizm</p>
+                        <p class="text-xs" style="color: var(--color-text-secondary)">Ochrona antywandalowa</p>
                     </a>
                     <a href="/pl/centrum-telefoniczne" title="Zobacz nasze wsparcie techniczne 24/7" class="card-feature card-lift block text-center section-appear">
                         <div class="flex justify-center mb-4">
@@ -474,18 +474,18 @@
                             </svg>
                         </div>
                         <h3 class="font-bold text-sm mb-1" style="font-family: var(--font-sans)">Wsparcie 24/7</h3>
-                        <p class="text-xs" style="color: var(--color-text-secondary)">Hotline i telezarzadzanie</p>
+                        <p class="text-xs" style="color: var(--color-text-secondary)">Infolinia i zdalne zarządzanie</p>
                     </a>
                 </div>
             </div>
         </section>
 
         <!-- FAQ -->
-        <section class="section-alt py-24 px-6" aria-label="Czesto zadawane pytania">
+        <section class="section-alt py-24 px-6" aria-label="Często zadawane pytania">
             <div class="max-w-4xl mx-auto">
                 <div class="text-center mb-12 section-appear">
                     <div class="sec-label mb-5">FAQ</div>
-                    <h2 class="text-3xl sm:text-4xl tracking-tight leading-tight">Czesto zadawane <em>pytania</em></h2>
+                    <h2 class="text-3xl sm:text-4xl tracking-tight leading-tight">Często zadawane <em>pytania</em></h2>
                 </div>
                 <div class="space-y-4">
                     <details class="card-feature card-lift section-appear" open>
@@ -493,47 +493,47 @@
                             <svg class="w-5 h-5 flex-shrink-0" style="color: var(--color-primary)" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
                             Czym jest AMO IRVE?
                         </summary>
-                        <p class="mt-4 text-sm leading-relaxed" style="color: var(--color-text-secondary)">Asystent Inwestora (AMO) IRVE polega na towarzyszeniu inwestorowi na wszystkich etapach projektu wdrazania stacji ladowania: analiza wykonalnosci, opracowanie specyfikacji, wybor wykonawcow, nadzor nad pracami i odbior instalacji.</p>
+                        <p class="mt-4 text-sm leading-relaxed" style="color: var(--color-text-secondary)">Doradztwo inwestorskie (AMO) dla infrastruktury ładowania polega na wspieraniu inwestora na wszystkich etapach projektu wdrożenia stacji ładowania: analiza wykonalności, opracowanie specyfikacji, wybór wykonawców, nadzór nad pracami i odbiór instalacji.</p>
                     </details>
                     <details class="card-feature card-lift section-appear">
                         <summary class="font-bold text-base cursor-pointer flex items-center gap-3" style="font-family: var(--font-sans)">
                             <svg class="w-5 h-5 flex-shrink-0" style="color: var(--color-primary)" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                            Ile kosztuje projekt wdrozenia IRVE?
+                            Ile kosztuje projekt wdrożenia IRVE?
                         </summary>
-                        <p class="mt-4 text-sm leading-relaxed" style="color: var(--color-text-secondary)">Koszt zalezy od liczby punktow ladowania, mocy (AC lub DC), robot inzynieryjnych i przylaczenia do sieci. Przeprowadzamy szczegolowa analize budzetowa juz na etapie planowania, z uwzglednieniem dotacji publicznych (ADVENIR, CEE), aby zoptymalizowac Twoja inwestycje.</p>
+                        <p class="mt-4 text-sm leading-relaxed" style="color: var(--color-text-secondary)">Koszt zależy od liczby punktów ładowania, mocy (AC lub DC), robót inżynieryjnych i przyłączenia do sieci. Już na etapie planowania przeprowadzamy szczegółową analizę budżetową, uwzględniając dotacje publiczne (ADVENIR, CEE), aby zoptymalizować Twoją inwestycję.</p>
                     </details>
                     <details class="card-feature card-lift section-appear">
                         <summary class="font-bold text-base cursor-pointer flex items-center gap-3" style="font-family: var(--font-sans)">
                             <svg class="w-5 h-5 flex-shrink-0" style="color: var(--color-primary)" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
                             Jaki jest typowy czas realizacji projektu IRVE?
                         </summary>
-                        <p class="mt-4 text-sm leading-relaxed" style="color: var(--color-text-secondary)">Kompletny projekt (analiza + instalacja + uruchomienie) trwa srednio od 3 do 6 miesiecy. Proste projekty (kilka stacji AC) moga byc zrealizowane w 4 do 8 tygodni. Wdrozenia wielopunktowe na duza skale wymagaja od 6 do 12 miesiecy zarzadzania.</p>
+                        <p class="mt-4 text-sm leading-relaxed" style="color: var(--color-text-secondary)">Kompletny projekt (analiza + instalacja + uruchomienie) trwa średnio od 3 do 6 miesięcy. Proste projekty (kilka stacji AC) można zrealizować w 4 do 8 tygodni. Wdrożenia wielopunktowe na dużą skalę wymagają od 6 do 12 miesięcy zarządzania.</p>
                     </details>
                     <details class="card-feature card-lift section-appear">
                         <summary class="font-bold text-base cursor-pointer flex items-center gap-3" style="font-family: var(--font-sans)">
                             <svg class="w-5 h-5 flex-shrink-0" style="color: var(--color-primary)" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                            Czy wspolpracujecie z CPO i EMSP?
+                            Czy współpracujecie z CPO i EMSP?
                         </summary>
-                        <p class="mt-4 text-sm leading-relaxed" style="color: var(--color-text-secondary)">Tak, wspolpracujemy z Charge Point Operators (CPO) i e-Mobility Service Providers (EMSP) w zakresie wdrazania, konserwacji i nadzoru ich sieci. Nasze kompleksowe podejscie obejmuje Francje i Belgie (Walonia, Flandria, Bruksela). Dzialamy jako terenowe ramie operacyjne CPO przy instalacji, uruchamianiu i konserwacji ich wielomarkowych parkow stacji, ze skonsolidowanym raportowaniem i umownymi SLA dostosowanymi do kazdego operatora.</p>
+                        <p class="mt-4 text-sm leading-relaxed" style="color: var(--color-text-secondary)">Tak, współpracujemy z operatorami punktów ładowania (CPO) i dostawcami usług e-mobilności (EMSP) w zakresie wdrażania, konserwacji i nadzoru ich sieci. Nasze kompleksowe podejście obejmuje Francję i Belgię (Walonia, Flandria, Bruksela). Działamy jako terenowe ramię operacyjne CPO przy instalacji, uruchamianiu i konserwacji ich wielomarkowych parków stacji, ze skonsolidowanym raportowaniem i umownymi SLA dostosowanymi do każdego operatora.</p>
                     </details>
                 </div>
             </div>
         </section>
 
         <!-- CTA -->
-        <section class="py-24 px-6" aria-label="Rozpocznij swoj projekt">
+        <section class="py-24 px-6" aria-label="Rozpocznij swój projekt">
             <div class="max-w-4xl mx-auto">
                 <div class="card-cta px-8 py-14 sm:px-12 sm:py-16 section-appear">
                     <h2 class="text-3xl sm:text-4xl tracking-tight mb-5 leading-tight text-white">
-                        Twoje wdrozenie <em>zaczyna sie tutaj</em>.
+                        Twoje wdrożenie <em>zaczyna się tutaj</em>.
                     </h2>
                     <p class="text-base sm:text-lg mb-10 leading-relaxed max-w-2xl mx-auto" style="opacity:.85">
-                        Dedykowany kierownik projektu, jasna metodologia i zobowiazanie do rezultatow we Francji i Belgii. Porozmawiajmy o Twoich celach IRVE.
+                        Dedykowany kierownik projektu, przejrzysta metodologia i zobowiązanie do rezultatów we Francji i Belgii. Porozmawiajmy o Twoich celach w obszarze infrastruktury ładowania.
                     </p>
                     <div class="flex flex-wrap gap-4 justify-center">
                         <a href="/pl/kontakt"
                             class="bg-white px-8 py-4 rounded-full font-bold text-[15px] inline-flex items-center gap-2.5 transition-transform hover:scale-105" style="color: var(--color-primary)">
-                            Rozpocznij moj projekt
+                            Rozpocznij mój projekt
                             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
                         </a>
                         <a href="tel:+33183755706"
@@ -547,30 +547,30 @@
         </section>
 
         <!-- Artykuly z bloga -->
-        <section class="section-alt py-20 px-6" aria-label="Artykuly z bloga">
+        <section class="section-alt py-20 px-6" aria-label="Artykuły z bloga">
             <div class="max-w-5xl mx-auto">
                 <div class="text-center mb-10 section-appear">
                     <div class="sec-label mb-5">Zasoby</div>
-                    <h2 class="text-2xl sm:text-3xl tracking-tight leading-tight">Warto <em>przeczytac</em></h2>
+                    <h2 class="text-2xl sm:text-3xl tracking-tight leading-tight">Warto <em>przeczytać</em></h2>
                 </div>
                 <div class="grid sm:grid-cols-3 gap-4 grid-stagger">
                     <a href="/blog/deploiement-multi-sites-irve" class="card-feature card-lift group block section-appear">
                         <div class="flex items-center gap-2 mb-3">
                             <svg class="w-5 h-5 flex-shrink-0" style="color: var(--color-primary)" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"/></svg>
-                            <span class="text-xs font-semibold uppercase tracking-wide" style="color: var(--color-text-secondary)">Doswiadczenie terenowe</span>
+                            <span class="text-xs font-semibold uppercase tracking-wide" style="color: var(--color-text-secondary)">Doświadczenie terenowe</span>
                         </div>
-                        <h3 class="font-bold text-sm mb-2 group-hover:text-blue-600 transition-colors" style="font-family: var(--font-sans); color: var(--color-ink)">Wdrozenie wielopunktowe IRVE: doswiadczenia z terenu</h3>
-                        <p class="text-xs leading-relaxed" style="color: var(--color-text-secondary)">Metodologia i wnioski z ponad 2000 interwencji w wielopunktowych projektach IRVE we Francji i Belgii.</p>
-                        <span class="text-sm font-semibold mt-3 inline-block" style="color: var(--color-primary)">Przeczytaj artykul</span>
+                        <h3 class="font-bold text-sm mb-2 group-hover:text-blue-600 transition-colors" style="font-family: var(--font-sans); color: var(--color-ink)">Wdrożenie wielopunktowe IRVE: doświadczenia z terenu</h3>
+                        <p class="text-xs leading-relaxed" style="color: var(--color-text-secondary)">Metodologia i wnioski z ponad 2000 interwencji w wielopunktowych projektach infrastruktury ładowania we Francji i Belgii.</p>
+                        <span class="text-sm font-semibold mt-3 inline-block" style="color: var(--color-primary)">Przeczytaj artykuł</span>
                     </a>
                     <a href="/blog/prix-installation-borne-recharge-2026" class="card-feature card-lift group block section-appear">
                         <div class="flex items-center gap-2 mb-3">
                             <svg class="w-5 h-5 flex-shrink-0" style="color: var(--color-primary)" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
                             <span class="text-xs font-semibold uppercase tracking-wide" style="color: var(--color-text-secondary)">Przewodnik po cenach</span>
                         </div>
-                        <h3 class="font-bold text-sm mb-2 group-hover:text-blue-600 transition-colors" style="font-family: var(--font-sans); color: var(--color-ink)">Cena instalacji stacji ladowania w 2026 roku</h3>
-                        <p class="text-xs leading-relaxed" style="color: var(--color-text-secondary)">Szczegolowe ceny wedlug mocy i zastosowania, wraz z dostepnymi dotacjami optymalizujacymi budzet instalacji.</p>
-                        <span class="text-sm font-semibold mt-3 inline-block" style="color: var(--color-primary)">Przeczytaj artykul</span>
+                        <h3 class="font-bold text-sm mb-2 group-hover:text-blue-600 transition-colors" style="font-family: var(--font-sans); color: var(--color-ink)">Cena instalacji stacji ładowania w 2026 roku</h3>
+                        <p class="text-xs leading-relaxed" style="color: var(--color-text-secondary)">Szczegółowe ceny według mocy i zastosowania, wraz z dostępnymi dotacjami optymalizującymi budżet instalacji.</p>
+                        <span class="text-sm font-semibold mt-3 inline-block" style="color: var(--color-primary)">Przeczytaj artykuł</span>
                     </a>
                     <a href="/blog/plan-gouvernement-400000-bornes-2030" class="card-feature card-lift group block section-appear">
                         <div class="flex items-center gap-2 mb-3">
@@ -578,8 +578,8 @@
                             <span class="text-xs font-semibold uppercase tracking-wide" style="color: var(--color-text-secondary)">Regulacje</span>
                         </div>
                         <h3 class="font-bold text-sm mb-2 group-hover:text-blue-600 transition-colors" style="font-family: var(--font-sans); color: var(--color-ink)">Plan 400 000 stacji do 2030: cele Francji</h3>
-                        <p class="text-xs leading-relaxed" style="color: var(--color-text-secondary)">Analiza rzadowego planu zakladajacego 400 000 publicznych punktow ladowania do 2030 roku i jego znaczenie dla branzy IRVE.</p>
-                        <span class="text-sm font-semibold mt-3 inline-block" style="color: var(--color-primary)">Przeczytaj artykul</span>
+                        <p class="text-xs leading-relaxed" style="color: var(--color-text-secondary)">Analiza rządowego planu zakładającego 400 000 publicznych punktów ładowania do 2030 roku i jego znaczenie dla branży infrastruktury ładowania.</p>
+                        <span class="text-sm font-semibold mt-3 inline-block" style="color: var(--color-primary)">Przeczytaj artykuł</span>
                     </a>
                 </div>
             </div>
@@ -594,17 +594,17 @@
                         <picture><source srcset="../images/logo.webp" type="image/webp"><img src="../images/logo.png" alt="Logo JCSM" class="w-8 h-8" width="32" height="32" loading="lazy" decoding="async"></picture>
                         <span class="text-xl font-semibold text-gray-900">JCSM</span>
                     </div>
-                    <p class="text-sm text-gray-600 mb-4">Twoj zaufany partner od 2019 roku w zakresie zarzadzania, instalacji i konserwacji infrastruktury ladowania we Francji i Belgii.</p>
+                    <p class="text-sm text-gray-600 mb-4">Twój zaufany partner od 2019 roku w zakresie zarządzania, instalacji i konserwacji infrastruktury ładowania we Francji i Belgii.</p>
                     <p class="text-sm text-gray-500">60 rue François 1er<br>75008 Paris</p>
                     <p class="text-sm text-gray-500 mt-3"><a href="tel:+33183755706" class="hover:text-gray-900 transition-colors">+33 1 83 75 57 06</a></p>
                     <p class="text-sm text-gray-500"><a href="mailto:contact@jcsm.fr" class="hover:text-gray-900 transition-colors">contact@jcsm.fr</a></p>
                 </div>
                 <div>
-                    <h3 class="text-sm font-semibold text-gray-900 mb-4 uppercase tracking-wide">Uslugi</h3>
-                    <nav aria-label="Uslugi">
+                    <h3 class="text-sm font-semibold text-gray-900 mb-4 uppercase tracking-wide">Usługi</h3>
+                    <nav aria-label="Usługi">
                         <ul class="space-y-3">
-                            <li><a href="/pl/zarzadzanie-projektami" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Zarzadzanie projektami</a></li>
-                            <li><a href="/pl/instalacja-zgodnosc" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Instalacja i zgodnosc</a></li>
+                            <li><a href="/pl/zarzadzanie-projektami" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Zarządzanie projektami</a></li>
+                            <li><a href="/pl/instalacja-zgodnosc" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Instalacja i zgodność</a></li>
                             <li><a href="/pl/eksploatacja-konserwacja" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Eksploatacja i konserwacja</a></li>
                             <li><a href="/pl/zabezpieczenie-instalacji" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Zabezpieczenie</a></li>
                             <li><a href="/pl/centrum-telefoniczne" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Wsparcie 24/7</a></li>
@@ -665,7 +665,7 @@
         </div>
     </footer>
 
-    <button class="scroll-top" id="scrollTop" aria-label="Powrot na gore strony">
+    <button class="scroll-top" id="scrollTop" aria-label="Powrót na górę strony">
         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
         </svg>

@@ -73,7 +73,7 @@
                 "name": "Como solicitar uma intervenção na minha zona?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Contacte-nos através do formulário no nosso site, por telefone através do +33 1 83 75 57 06 ou por email para contact@jcsm.fr. Descreva a sua necessidade e a sua localização: um técnico de terreno liga-lhe em 24h com uma proposta adaptada."
+                    "text": "Contacte-nos através do formulário no nosso site, por telefone através do +33 1 83 75 57 06 ou por email para contact@jcsm.fr. Descreva a sua necessidade e a sua localização: um técnico no terreno liga-lhe em 24h com uma proposta adaptada."
                 }
             }
         ]
@@ -607,7 +607,7 @@
                     Onde estiverem os seus postos. <em>Nós já lá estamos.</em>
                 </h1>
                 <p class="text-lg sm:text-xl text-gray-500 max-w-2xl mx-auto mb-12 section-appear leading-relaxed" style="text-wrap:balance;">
-                    Verifique se o seu local está coberto pelas nossas equipas de terreno. Procure um endereço para conhecer os serviços disponíveis.
+                    Verifique se o seu local está coberto pelas nossas equipas no terreno. Procure um endereço para conhecer os serviços disponíveis.
                 </p>
 
                 <!-- Address Search -->
@@ -840,7 +840,7 @@
                             <svg class="faq-chevron w-5 h-5 text-gray-400 transition-transform flex-shrink-0 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
                         </button>
                         <div id="faq-couv-4" class="faq-content px-6 pb-6 hidden" role="region">
-                            <p class="text-gray-600 leading-relaxed">Contacte-nos através do formulário no nosso site, por telefone através do <a href="tel:+33183755706" class="text-blue-600 font-medium hover:text-blue-800">+33 1 83 75 57 06</a> ou por email para <a href="mailto:contact@jcsm.fr" class="text-blue-600 font-medium hover:text-blue-800">contact@jcsm.fr</a>. Descreva a sua necessidade e a sua localização: um técnico de terreno liga-lhe em 24h.</p>
+                            <p class="text-gray-600 leading-relaxed">Contacte-nos através do formulário no nosso site, por telefone através do <a href="tel:+33183755706" class="text-blue-600 font-medium hover:text-blue-800">+33 1 83 75 57 06</a> ou por email para <a href="mailto:contact@jcsm.fr" class="text-blue-600 font-medium hover:text-blue-800">contact@jcsm.fr</a>. Descreva a sua necessidade e a sua localização: um técnico no terreno liga-lhe em 24h.</p>
                         </div>
                     </div>
                 </div>
@@ -1445,7 +1445,7 @@ const MAPDATA={"depts":{"01":{"n":"Ain","p":[[4.78,46.18],[4.83,46.3],[4.92,46.4
                         } else {
                             searchResult.style.borderColor = '#93c5fd';
                             searchResult.style.background = '#f8fafc';
-                            searchResult.innerHTML = '<div class="flex items-start gap-3"><div class="flex-shrink-0 w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center mt-0.5"><svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.732-.833-2.5 0L4.268 16.5c-.77.833.192 2.5 1.732 2.5z"/></svg></div><div><p class="font-semibold text-gray-800 text-sm">Zona não coberta, contacte-nos para um estudo</p><p class="text-xs text-gray-600 mt-1">' + escHtml(dept.name) + ' (' + escHtml(dept.code) + '), Manutenção preventiva disponível</p><a href="/pt/contato" class="inline-block mt-2 text-xs font-semibold text-blue-600 hover:text-blue-800">Solicitar um estudo &rarr;</a></div></div>';
+                            searchResult.innerHTML = '<div class="flex items-start gap-3"><div class="flex-shrink-0 w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center mt-0.5"><svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.732-.833-2.5 0L4.268 16.5c-.77.833.192 2.5 1.732 2.5z"/></svg></div><div><p class="font-semibold text-gray-800 text-sm">Zona não coberta. Contacte-nos para um estudo</p><p class="text-xs text-gray-600 mt-1">' + escHtml(dept.name) + ' (' + escHtml(dept.code) + ') · manutenção preventiva disponível</p><a href="/pt/contato" class="inline-block mt-2 text-xs font-semibold text-blue-600 hover:text-blue-800">Solicitar um estudo &rarr;</a></div></div>';
                         }
 
                         if (deptLayers[dept.code]) {
