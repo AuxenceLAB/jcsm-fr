@@ -309,6 +309,30 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://jcsm.fr/zones/bretagne</loc>
+    <lastmod>2026-07-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://jcsm.fr/zones/pays-de-la-loire</loc>
+    <lastmod>2026-07-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://jcsm.fr/zones/normandie</loc>
+    <lastmod>2026-07-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://jcsm.fr/zones/bourgogne-franche-comte</loc>
+    <lastmod>2026-07-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://jcsm.fr/zones/belgique</loc>
     <lastmod>2026-06-16</lastmod>
     <changefreq>monthly</changefreq>
