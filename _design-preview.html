@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>JCSM — Accueil cohérent</title>
+<style>
+  @font-face{font-family:'Fraunces';font-style:normal;font-weight:600;font-display:swap;src:url('/fonts/fraunces-600-latin.woff2') format('woff2');}
+  @font-face{font-family:'Fraunces';font-style:italic;font-weight:500;font-display:swap;src:url('/fonts/fraunces-500i-latin.woff2') format('woff2');}
+  :root{--bg:#FAFAF7;--alt:#F3F2EC;--ink:#0F1B2D;--line:#E3E2DB;--blue:#2563EB;--blue-d:#1D4ED8;--muted:#5B6472;}
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{font-family:system-ui,-apple-system,'Segoe UI',sans-serif;background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased;line-height:1.5;}
+  h1,h2,h3{font-family:'Fraunces';font-weight:600;letter-spacing:-.022em;}
+  em{font-style:italic;color:var(--blue);}
+  .wrap{max-width:1140px;margin:0 auto;padding:0 40px;}
+  .lab{background:var(--ink);color:#cfe0ff;text-align:center;font-size:12.5px;padding:9px;}
+  .sl{font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);}
+
+  /* NAV */
+  nav{position:sticky;top:0;z-index:30;display:flex;align-items:center;padding:16px 40px;background:rgba(250,250,247,.85);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);}
+  .lg{display:flex;align-items:center;gap:10px;font-weight:800;font-size:21px;letter-spacing:-.02em;}
+  .lg .m{width:34px;height:34px;border-radius:9px;background:var(--ink);color:#fff;display:grid;place-items:center;font-family:'Fraunces';font-size:18px;}
+  .nl{display:flex;gap:2px;margin-left:38px;}
+  .nl a{font-size:14.5px;font-weight:600;color:#37414f;padding:8px 12px;border-radius:8px;}
+  .nl a.on{color:var(--blue);}
+  .ncta{margin-left:auto;display:flex;align-items:center;gap:18px;}
+  .ncta .p{font-size:13.5px;font-weight:600;}
+  .ncta .b{background:var(--blue);color:#fff;padding:11px 22px;border-radius:999px;font-size:14px;font-weight:600;box-shadow:0 10px 22px rgba(37,99,235,.25);}
+
+  /* HERO */
+  .hero{padding:84px 0 60px;display:grid;grid-template-columns:1.05fr .95fr;gap:60px;align-items:center;}
+  .hero h1{font-size:60px;line-height:1.02;margin:22px 0 0;}
+  .lede{font-size:17.5px;color:var(--muted);margin-top:24px;max-width:430px;line-height:1.62;}
+  .btns{display:flex;gap:16px;margin-top:34px;align-items:center;}
+  .b1{background:var(--blue);color:#fff;padding:15px 28px;border-radius:999px;font-weight:600;font-size:15px;box-shadow:0 10px 24px rgba(37,99,235,.25);}
+  .b2{color:var(--ink);font-weight:600;font-size:15px;border-bottom:2px solid var(--ink);padding-bottom:2px;}
+  .stats{display:flex;gap:34px;margin-top:42px;padding-top:26px;border-top:1px solid var(--line);}
+  .stats .n{font-family:'Fraunces';font-size:30px;font-weight:600;}
+  .stats .l{font-size:12.5px;color:var(--muted);margin-top:3px;max-width:108px;}
+  .shot{position:relative;border-radius:20px;overflow:hidden;box-shadow:0 30px 70px rgba(15,27,45,.18);height:470px;}
+  .shot img{width:100%;height:100%;object-fit:cover;}
+  .shot .bdg{position:absolute;top:18px;left:18px;background:rgba(250,250,247,.95);border-radius:999px;padding:7px 14px;font-size:12.5px;font-weight:600;display:flex;align-items:center;gap:7px;}
+  .shot .bdg i{width:8px;height:8px;border-radius:50%;background:#10b981;box-shadow:0 0 0 4px rgba(16,185,129,.22);}
+
+  /* SECTIONS */
+  .sec{padding:78px 0;}
+  .sec.alt{background:var(--alt);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+  .shead{max-width:620px;margin-bottom:46px;}
+  .shead h2{font-size:40px;line-height:1.08;margin-top:14px;}
+  .shead p{color:var(--muted);font-size:16px;margin-top:14px;line-height:1.6;}
+
+  /* SERVICES — un seul système de cartes cohérent */
+  .cards{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;}
+  .card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:30px;transition:.25s;}
+  .card:hover{transform:translateY(-4px);box-shadow:0 20px 40px rgba(15,27,45,.08);}
+  .card .ic{width:48px;height:48px;border-radius:12px;background:#EEF3FF;display:grid;place-items:center;color:var(--blue);margin-bottom:18px;}
+  .card .no{font-family:'Fraunces';font-size:14px;color:#9DB8E8;float:right;}
+  .card h3{font-family:system-ui,sans-serif;font-weight:700;font-size:18.5px;letter-spacing:-.01em;margin-bottom:9px;}
+  .card p{color:var(--muted);font-size:14.5px;line-height:1.6;}
+  .card .more{margin-top:16px;font-size:13.5px;font-weight:600;color:var(--blue);}
+
+  /* COVERAGE */
+  .cov{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;}
+  .covmap{height:360px;border:1px solid var(--line);border-radius:18px;background:linear-gradient(135deg,#eef2f9,#f7f5ef);position:relative;overflow:hidden;}
+  .dot{position:absolute;width:14px;height:14px;border-radius:50%;background:var(--blue);border:2px solid #fff;box-shadow:0 0 0 1px rgba(15,27,45,.28),0 2px 6px rgba(37,99,235,.5);}
+  .dot.lg{width:20px;height:20px;background:var(--blue-d);}
+
+  /* FAQ */
+  .faq{max-width:760px;margin:0 auto;}
+  .qa{background:#fff;border:1px solid var(--line);border-radius:14px;padding:20px 22px;margin-bottom:12px;}
+  .qa .q{display:flex;align-items:center;gap:12px;font-weight:600;font-size:15.5px;}
+  .qa .q .n{width:26px;height:26px;border-radius:7px;background:var(--alt);color:var(--blue);display:grid;place-items:center;font-size:13px;font-weight:700;flex:none;}
+
+  /* CTA */
+  .cta{background:var(--ink);color:#fff;border-radius:24px;padding:56px;text-align:center;margin:0 auto;}
+  .cta h2{font-size:38px;color:#fff;}
+  .cta h2 em{color:#7eb0ff;}
+  .cta p{color:#9fb0c6;margin:14px auto 28px;max-width:440px;}
+  .cta .b{background:#fff;color:var(--blue-d);padding:15px 30px;border-radius:999px;font-weight:700;font-size:15px;}
+
+  .note{padding:30px 40px 70px;color:#8a8478;font-size:13.5px;max-width:1140px;margin:0 auto;}
+  .note b{color:var(--ink);}
+</style>
+</head>
+<body>
+  <div class="lab">Maquette accueil — système cohérent : 1 seul style de cartes, rythme refait, zéro doré, Fraunces 600</div>
+
+  <nav>
+    <div class="lg"><span class="m">J</span>JCSM</div>
+    <div class="nl"><a class="on">Pilotage</a><a>Installation</a><a>Exploitation</a><a>Sécurisation</a><a>Support</a><a>Solutions</a></div>
+    <div class="ncta"><span class="p">+33 1 83 75 57 06</span><span class="b">Devis gratuit</span></div>
+  </nav>
+
+  <div class="wrap">
+    <section class="hero">
+      <div>
+        <div class="sl">Maintenance IRVE · France &amp; Belgique · depuis 2019</div>
+        <h1>Vos bornes entretenues <em>comme elles le méritent</em>.</h1>
+        <p class="lede">Maintenance préventive et curative, installation et supervision de bornes AC/DC jusqu'à 400&nbsp;kW. Toutes marques. France entière et Belgique.</p>
+        <div class="btns"><a class="b1">Demander un diagnostic gratuit</a><a class="b2">Nos services</a></div>
+        <div class="stats">
+          <div><div class="n">98%</div><div class="l">disponibilité réseau</div></div>
+          <div><div class="n">24h</div><div class="l">réponse ouvrée</div></div>
+          <div><div class="n">2 000+</div><div class="l">interventions</div></div>
+          <div><div class="n">400 kW</div><div class="l">AC &amp; DC multi-marques</div></div>
+        </div>
+      </div>
+      <div class="shot">
+        <img src="/images/index.webp" alt="" onerror="this.src='/images/index.jpg'">
+        <span class="bdg"><i></i>Équipe terrain en intervention</span>
+      </div>
+    </section>
+  </div>
+
+  <section class="sec alt">
+    <div class="wrap">
+      <div class="shead">
+        <div class="sl">Notre métier</div>
+        <h2>Quatre métiers, un seul objectif : <em>vos bornes disponibles</em>.</h2>
+        <p>Vous gérez un parc de bornes. Vous avez besoin que ça fonctionne. On installe, on maintient, on dépanne — un seul interlocuteur.</p>
+      </div>
+      <div class="cards">
+        <div class="card"><span class="no">01</span><div class="ic"><svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94z"/></svg></div><h3>Maintenance préventive &amp; curative</h3><p>Préventif, curatif, HTA/BT. Diagnostic à distance puis intervention sur site, pièces à bord.</p><div class="more">En savoir plus →</div></div>
+        <div class="card"><span class="no">02</span><div class="ic"><svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg></div><h3>Installation &amp; conformité</h3><p>Pose certifiée Qualifelec, raccordement, mise en conformité NF C 15-100 jusqu'à 400 kW.</p><div class="more">En savoir plus →</div></div>
+        <div class="card"><span class="no">03</span><div class="ic"><svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M5 12.55a11 11 0 0114 0M8.5 16.5a6 6 0 017 0M2 8.82a15 15 0 0120 0M12 20h.01"/></svg></div><h3>Supervision &amp; exploitation</h3><p>Supervision OCPP 1.6 / 2.0, pilotage énergétique, hotline marque blanche.</p><div class="more">En savoir plus →</div></div>
+        <div class="card"><span class="no">04</span><div class="ic"><svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><h3>Sécurisation des installations</h3><p>Protection anti-vandalisme, vidéo, contrôle d'accès, remise en service après dégradation.</p><div class="more">En savoir plus →</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="wrap cov">
+      <div>
+        <div class="sl">Où nous intervenons</div>
+        <h2 style="font-size:40px;margin-top:14px;">France entière, <em>et la Belgique</em>.</h2>
+        <p style="color:var(--muted);font-size:16px;margin-top:14px;line-height:1.6;max-width:420px;">Des équipes réparties sur tout le territoire : Île-de-France, Hauts-de-France, Auvergne-Rhône-Alpes, PACA, Occitanie, Nouvelle-Aquitaine et au-delà.</p>
+        <a class="b2" style="display:inline-block;margin-top:24px;">Voir notre couverture →</a>
+      </div>
+      <div class="covmap">
+        <span class="dot lg" style="top:30%;left:40%"></span><span class="dot" style="top:50%;left:62%"></span><span class="dot" style="top:60%;left:30%"></span><span class="dot lg" style="top:70%;left:55%"></span><span class="dot" style="top:42%;left:75%"></span><span class="dot" style="top:25%;left:60%"></span><span class="dot" style="top:78%;left:40%"></span>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec alt">
+    <div class="wrap">
+      <div class="shead" style="text-align:center;margin-left:auto;margin-right:auto;">
+        <div class="sl">FAQ</div>
+        <h2>Vos questions. <em>Nos réponses directes.</em></h2>
+      </div>
+      <div class="faq">
+        <div class="qa"><div class="q"><span class="n">1</span>On a un gros déploiement à lancer, vous gérez ?</div></div>
+        <div class="qa"><div class="q"><span class="n">2</span>Notre parc existant a des problèmes de conformité</div></div>
+        <div class="qa"><div class="q"><span class="n">3</span>Nos bornes sont souvent indisponibles</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="wrap">
+      <div class="cta">
+        <h2>Un parc de bornes <em>à fiabiliser</em> ?</h2>
+        <p>Diagnostic gratuit de votre parc, réponse sous 24h ouvrées. France entière et Belgique.</p>
+        <a class="b">Demander un diagnostic gratuit</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="note"><b>Ce que vous regardez :</b> page d'accueil entière, cohérente. Un seul système de cartes (4 cartes blanches identiques, numéro serif discret, icône bleue), rythme vertical régulier (alternance crème/beige), titres Fraunces 600, CTA final en encre, zéro doré. Si ça vous va, j'aligne le live exactement dessus puis je propage le système aux autres pages.</div>
+</body>
+</html>

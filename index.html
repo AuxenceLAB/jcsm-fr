@@ -285,7 +285,7 @@
 
     <link rel="dns-prefetch" href="https://formspree.io">
     <link rel="preconnect" href="https://formspree.io" crossorigin>
-    <link rel="preload" as="image" href="/images/index.webp" type="image/webp">
+    <link rel="preload" as="image" href="/images/index-800.webp" imagesrcset="/images/index-800.webp 800w, /images/index.webp 2048w" imagesizes="512px" type="image/webp" media="(min-width: 769px)">
     <link rel="stylesheet" href="/css/critical.css?v=84">
     <link rel="stylesheet" href="/css/tailwind.css?v=84" media="print" onload="this.media='all'">
     <noscript><link rel="stylesheet" href="/css/tailwind.css?v=84"></noscript>
@@ -570,8 +570,7 @@
             font-size: 0.6875rem; color: var(--gray-500); margin-top: 2px;
         }
     </style>
-    <link rel="stylesheet" href="/css/leaflet.css" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="/css/leaflet.css"></noscript>
+    <!-- Leaflet CSS chargé en lazy avec la carte (voir script en bas de page) -->
 </head>
 
 <body class="text-gray-900">
@@ -678,7 +677,7 @@
                             <picture>
                                 <source media="(max-width: 768px)" srcset="images/index-mobile.webp" type="image/webp">
                                 <source media="(max-width: 768px)" srcset="images/index-mobile.jpg">
-                                <source srcset="images/index.webp" type="image/webp">
+                                <source srcset="images/index-800.webp 800w, images/index.webp 2048w" sizes="512px" type="image/webp">
                                 <img id="hero-image" src="images/index.jpg" fetchpriority="high"
                                     alt="Infrastructure de recharge pour véhicules électriques déployée et maintenue par JCSM, expert IRVE certifié"
                                     width="2048" height="1366">
@@ -1435,9 +1434,34 @@
 })();
 </script>
 
-<script src="/js/vendor/leaflet.js" defer></script>
 <script>
-document.addEventListener('DOMContentLoaded', function() {
+// Lazy-load de Leaflet (JS + CSS) quand la section carte approche du viewport
+(function() {
+    var lfLoaded = false;
+    function loadLeaflet() {
+        if (lfLoaded) return;
+        lfLoaded = true;
+        var css = document.createElement('link');
+        css.rel = 'stylesheet';
+        css.href = '/css/leaflet.css';
+        document.head.appendChild(css);
+        var s = document.createElement('script');
+        s.src = '/js/vendor/leaflet.js';
+        s.onload = initCoverageMap;
+        document.head.appendChild(s);
+    }
+    function setupLazyMap() {
+        var el = document.getElementById('coverage-map');
+        if (!el) return;
+        if (!('IntersectionObserver' in window)) { loadLeaflet(); return; }
+        var io = new IntersectionObserver(function(entries) {
+            for (var i = 0; i < entries.length; i++) {
+                if (entries[i].isIntersecting) { io.disconnect(); loadLeaflet(); return; }
+            }
+        }, { rootMargin: '600px 0px' });
+        io.observe(el);
+    }
+    function initCoverageMap() {
     if (typeof L === 'undefined') return;
     var map = L.map('coverage-map', {
         center: [46.8, 2.5],
@@ -1513,7 +1537,14 @@ document.addEventListener('DOMContentLoaded', function() {
         return div;
     };
     info.addTo(map);
-});
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', setupLazyMap);
+    } else {
+        setupLazyMap();
+    }
+})();
 </script>
 
 </body>

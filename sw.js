@@ -1,7 +1,7 @@
-// JCSM Service Worker - Enhanced PWA Support v84
-const STATIC_CACHE = 'jcsm-static-v84';
-const DYNAMIC_CACHE = 'jcsm-dynamic-v84';
-const API_CACHE = 'jcsm-api-v84';
+// JCSM Service Worker - Enhanced PWA Support v85
+const STATIC_CACHE = 'jcsm-static-v85';
+const DYNAMIC_CACHE = 'jcsm-dynamic-v85';
+const API_CACHE = 'jcsm-api-v85';
 
 // Critical assets pre-cached on install (small set for fast startup)
 const CRITICAL_URLS = [
@@ -41,12 +41,12 @@ const LAZY_CACHE_URLS = new Set([
     '/js/dashboard.js',
     '/js/fiches.js',
     '/js/map.js',
-    '/interne.html',
     '/zones/ile-de-france',
     '/zones/paca',
     '/zones/occitanie',
     '/zones/auvergne-rhone-alpes',
     '/zones/hauts-de-france',
+    '/zones/grand-est',
     '/zones/nouvelle-aquitaine',
     '/zones/belgique',
     '/zones/france',
