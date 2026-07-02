@@ -162,6 +162,7 @@ La maintenance preventive consiste a inspecter et entretenir les bornes de manie
 - [Solutions pour entreprises et flottes](https://jcsm.fr/solutions/entreprises-flottes)
 - [Solutions pour retail et grande distribution](https://jcsm.fr/solutions/retail-grande-distribution)
 - [Blog IRVE](https://jcsm.fr/blog)
+- [FAQ](https://jcsm.fr/faq)
 - [Carrieres](https://jcsm.fr/carrieres)
 - [Contact](https://jcsm.fr/contact)
 

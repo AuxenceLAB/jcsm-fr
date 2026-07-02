@@ -170,6 +170,14 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://jcsm.fr/faq</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://jcsm.fr/faq"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jcsm.fr/faq"/>
+    <lastmod>2026-07-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://jcsm.fr/devenir-partenaire</loc>
     <xhtml:link rel="alternate" hreflang="fr" href="https://jcsm.fr/devenir-partenaire"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://jcsm.fr/en/become-partner"/>
