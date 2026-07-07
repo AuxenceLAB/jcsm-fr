@@ -249,7 +249,12 @@ section {
     justify-content: center;
     z-index: 10000;
     transition: opacity .3s ease;
+    /* Filet de securite pur CSS : si le JS ne retire jamais le preloader (echec JS,
+       crawler, JS lent), il s'efface tout seul apres 5s au lieu de masquer le contenu
+       a jamais. En fonctionnement normal, .hide (via JS) l'efface bien plus tot. */
+    animation: preloader-failsafe .4s ease 5s forwards;
 }
+@keyframes preloader-failsafe { to { opacity: 0; visibility: hidden; pointer-events: none; } }
 .preloader.hide { opacity: 0; pointer-events: none; }
 .preloader img[src*=logo] { mix-blend-mode: multiply; background: 0 0; }
 

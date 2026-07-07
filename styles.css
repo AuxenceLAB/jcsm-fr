@@ -2601,8 +2601,11 @@ a:focus-visible, button:focus-visible {
   box-shadow: 0 24px 48px -12px rgba(37, 99, 235, 0.15), 0 0 0 1px rgba(37, 99, 235, 0.05);
 }
 
-/* 8. Staggered grid reveal */
-.grid-stagger > * {
+/* 8. Staggered grid reveal.
+   Le masquage (opacity:0) est GATE sur .js-loaded, comme .section-appear : sans JS,
+   JS lent, ou crawler, le contenu reste visible (amelioration progressive). Sinon des
+   grilles entieres restaient invisibles a jamais (rattrapees seulement par reduced-motion). */
+.js-loaded .grid-stagger > * {
   opacity: 0;
   transform: translateY(24px);
   transition: opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1), transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
