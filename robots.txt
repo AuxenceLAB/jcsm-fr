@@ -44,7 +44,6 @@ Allow: /js/public.js
 Allow: /js/wow-effects.js
 Allow: /js/utils.js
 Allow: /js/landing.js
-Allow: /js/analytics.js
 Allow: /js/i18n.js
 Allow: /js/config.js
 
@@ -54,39 +53,43 @@ Allow: /images/
 # Crawl-delay
 Crawl-delay: 1
 
-# AI/LLM crawlers — explicitly allowed for AI search visibility
+# AI/LLM crawlers — explicitly allowed for AI search visibility, MAIS soumis aux
+# memes Disallow que * (le matching robots est exclusif : un groupe nomme n'herite
+# pas de *). On empile les User-agent pour partager un seul bloc de regles.
 User-agent: GPTBot
-Allow: /
-
 User-agent: ChatGPT-User
-Allow: /
-
 User-agent: Claude-Web
-Allow: /
-
 User-agent: ClaudeBot
-Allow: /
-
 User-agent: PerplexityBot
-Allow: /
-
 User-agent: Applebot-Extended
-Allow: /
-
 User-agent: GoogleOther
-Allow: /
-
 User-agent: Google-Extended
-Allow: /
-
 User-agent: cohere-ai
-Allow: /
-
 User-agent: Bytespider
-Allow: /
-
 User-agent: Meta-ExternalAgent
 Allow: /
+Disallow: /_design-preview.html
+Disallow: /interne
+Disallow: /internedemo
+Disallow: /rapport-intervention
+Disallow: /admin
+Disallow: /api/
+Disallow: /offline
+Disallow: /404
+Disallow: /demo/
+Disallow: /*.json$
+Disallow: /*.env
+Disallow: /*.sql
+Disallow: /*.sh
+Disallow: /*.log
+Disallow: /rapports/
+Disallow: /evergreen
+Disallow: /powerdot
+Disallow: /virta
+Disallow: /sw.js
+Disallow: /js/map.js
+Disallow: /js/dashboard.js
+Disallow: /js/fiches.js
 
 # Sitemaps
 Sitemap: https://jcsm.fr/sitemap.xml
