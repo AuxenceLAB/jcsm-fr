@@ -286,15 +286,16 @@
     <link rel="dns-prefetch" href="https://formspree.io">
     <link rel="preconnect" href="https://formspree.io" crossorigin>
     <link rel="preload" as="image" href="/images/index-800.webp" imagesrcset="/images/index-800.webp 800w, /images/index.webp 2048w" imagesizes="512px" type="image/webp" media="(min-width: 769px)">
-    <link rel="stylesheet" href="/css/critical.css?v=86">
-    <link rel="stylesheet" href="/css/tailwind.css?v=86" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="/css/tailwind.css?v=86"></noscript>
-    <link rel="stylesheet" href="/styles.css?v=86" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="/styles.css?v=86"></noscript>
+    <link rel="stylesheet" href="/css/critical.css?v=87">
+    <link rel="stylesheet" href="/css/tailwind.css?v=87" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="/css/tailwind.css?v=87"></noscript>
+    <link rel="stylesheet" href="/styles.css?v=87" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="/styles.css?v=87"></noscript>
+    <link rel="stylesheet" href="/css/theme-2026.css?v=4">
     <link rel="manifest" href="/manifest.json">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="theme-color" content="#2563EB">
+    <meta name="theme-color" content="#C2703B">
 
     <style>
         /* Page-specific styles for index.html */
@@ -644,11 +645,12 @@
                     <div class="space-y-6">
                         <div class="sec-label">Maintenance IRVE &middot; France &amp; Belgique &middot; depuis 2019</div>
                         <h1 class="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl leading-tight tracking-tight section-appear">
-                            Maintenance IRVE : vos bornes entretenues <em>comme elles le méritent</em>.
+                            Une borne installée n'est pas <em>une borne qui fonctionne</em>.
                         </h1>
                         <p class="text-base sm:text-lg leading-relaxed max-w-xl" style="color: var(--color-text-secondary)">
-                            Maintenance préventive et curative, installation et supervision de bornes AC/DC
-                            jusqu'à 400 kW. Toutes marques. France entière et Belgique.
+                            Nous entretenons les bornes des opérateurs et des exploitants de sites, en AC comme
+                            en DC jusqu'à 400 kW, toutes marques. Techniciens salariés, jamais de sous-traitance,
+                            rapport horodaté à chaque passage.
                         </p>
                         <div class="flex flex-wrap gap-3">
                             <a href="/contact" title="Demander un diagnostic gratuit pour votre parc IRVE"
@@ -661,16 +663,19 @@
                                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
                                 01 83 75 57 06
                             </a>
-                            <a href="#services" title="Voir nos domaines d'expertise IRVE"
-                                class="btn-secondary px-7 py-3.5 font-bold text-[15px]">
-                                Nos services
-                            </a>
                         </div>
-                        <div class="flex flex-wrap gap-x-8 gap-y-3 pt-5 mt-2" style="border-top: 1px solid var(--color-line)">
-                            <div><div class="text-2xl counter-animate stat-serif" style="color: var(--color-primary-dark)">98%</div><div class="text-xs" style="color: var(--color-text-secondary)">disponibilité réseau</div></div>
-                            <div><div class="text-2xl counter-animate stat-serif" style="color: var(--color-primary-dark)">24h</div><div class="text-xs" style="color: var(--color-text-secondary)">réponse ouvrée</div></div>
-                            <div><div class="text-2xl counter-animate stat-serif" style="color: var(--color-primary-dark)">2&nbsp;000+</div><div class="text-xs" style="color: var(--color-text-secondary)">interventions</div></div>
-                            <div><div class="text-2xl counter-animate stat-serif" style="color: var(--color-primary-dark)">400 kW</div><div class="text-xs" style="color: var(--color-text-secondary)">AC &amp; DC, multi-marques</div></div>
+                        <div class="pt-5 mt-2" style="border-top: 1px solid var(--color-line)">
+                            <div class="jcsm-dispo-tete">
+                                <span class="jcsm-dispo-titre">Exemple de suivi mensuel remis à nos clients</span>
+                                <span class="jcsm-dispo-taux">98,2&nbsp;%<small>disponibilité</small></span>
+                            </div>
+                            <div class="jcsm-dispo-jours" id="jcsm-dispo-jours" role="img"
+                                 aria-label="Exemple de suivi sur 30 jours : 28 jours en service, une journée dégradée résolue sur place, une panne rétablie en 3 heures 12."></div>
+                            <p class="jcsm-dispo-legende">
+                                <span><span class="jcsm-puce" style="background:var(--color-success)"></span>En service</span>
+                                <span><span class="jcsm-puce" style="background:var(--color-primary)"></span>Dégradé, résolu sur place</span>
+                                <span><span class="jcsm-puce" style="background:var(--color-error)"></span>Hors service, rétabli en 3&nbsp;h&nbsp;12</span>
+                            </p>
                         </div>
                         <div class="inline-flex items-center gap-2 border border-blue-100 rounded-full px-4 py-2 text-sm" style="background:rgba(37,99,235,0.08)">
                             <svg class="w-4 h-4 text-blue-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
@@ -716,7 +721,7 @@
                         <div class="svc-card-inner">
                             <div class="flex items-center gap-3 mb-5">
                                 <div class="svc-icon">
-                                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
+                                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C2703B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
                                 </div>
                                 <div class="num">01</div>
                             </div>
@@ -732,7 +737,7 @@
                         <div class="svc-card-inner">
                             <div class="flex items-center gap-3 mb-5">
                                 <div class="svc-icon">
-                                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+                                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C2703B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
                                 </div>
                                 <div class="num">02</div>
                             </div>
@@ -748,7 +753,7 @@
                         <div class="svc-card-inner">
                             <div class="flex items-center gap-3 mb-5">
                                 <div class="svc-icon">
-                                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 18v-6a9 9 0 0118 0v6"/><path d="M21 19a2 2 0 01-2 2h-1a2 2 0 01-2-2v-3a2 2 0 012-2h3zM3 19a2 2 0 002 2h1a2 2 0 002-2v-3a2 2 0 00-2-2H3z"/></svg>
+                                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C2703B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 18v-6a9 9 0 0118 0v6"/><path d="M21 19a2 2 0 01-2 2h-1a2 2 0 01-2-2v-3a2 2 0 012-2h3zM3 19a2 2 0 002 2h1a2 2 0 002-2v-3a2 2 0 00-2-2H3z"/></svg>
                                 </div>
                                 <div class="num">03</div>
                             </div>
@@ -764,7 +769,7 @@
                         <div class="svc-card-inner">
                             <div class="flex items-center gap-3 mb-5">
                                 <div class="svc-icon">
-                                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+                                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C2703B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
                                 </div>
                                 <div class="num">04</div>
                             </div>
@@ -799,7 +804,7 @@
                     <div class="card-feature card-gradient-border card-lift">
                         <div class="flex items-center gap-3 mb-4">
                             <div class="svc-icon">
-                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C2703B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
                             </div>
                         </div>
                         <h3 class="text-base font-bold mb-2" style="font-family: var(--font-sans)">Un seul contrat, zéro friction</h3>
@@ -808,7 +813,7 @@
                     <div class="card-feature card-gradient-border card-lift">
                         <div class="flex items-center gap-3 mb-4">
                             <div class="svc-icon">
-                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C2703B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
                             </div>
                         </div>
                         <h3 class="text-base font-bold mb-2" style="font-family: var(--font-sans)">Multi-marques sans sous-traitance</h3>
@@ -817,7 +822,7 @@
                     <div class="card-feature card-gradient-border card-lift">
                         <div class="flex items-center gap-3 mb-4">
                             <div class="svc-icon">
-                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/><path d="M10 9H8"/></svg>
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C2703B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/><path d="M10 9H8"/></svg>
                             </div>
                         </div>
                         <h3 class="text-base font-bold mb-2" style="font-family: var(--font-sans)">Rapport horodaté à chaque passage</h3>
@@ -1121,7 +1126,7 @@
                 <a href="/blog" title="Voir nos guides et articles IRVE" class="card-feature flex items-center justify-between gap-4 group">
                     <div class="flex items-center gap-4">
                         <div class="svc-icon flex-shrink-0">
-                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C2703B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
                         </div>
                         <div>
                             <h3 class="text-lg font-bold" style="font-family: var(--font-sans)">Découvrez nos guides IRVE</h3>
@@ -1492,7 +1497,7 @@
     // JCSM blue marker
     var icon = L.divIcon({
         className: 'jcsm-marker',
-        html: '<div style="width:14px;height:14px;background:#2563EB;border-radius:50%;border:2px solid #fff;box-shadow:0 0 0 1px rgba(15,27,45,0.28),0 2px 6px rgba(37,99,235,0.55)"></div>',
+        html: '<div style="width:14px;height:14px;background:#C2703B;border-radius:50%;border:2px solid #fff;box-shadow:0 0 0 1px rgba(15,27,45,0.28),0 2px 6px rgba(37,99,235,0.55)"></div>',
         iconSize: [18, 18],
         iconAnchor: [9, 9]
     });
@@ -1562,6 +1567,26 @@
 })();
 </script>
 
+
+<script>
+// Bande de disponibilite : generee depuis des donnees, pour pouvoir etre
+// branchee un jour sur la supervision reelle sans toucher au balisage.
+(function(){
+  var hote = document.getElementById('jcsm-dispo-jours');
+  if (!hote) return;
+  var etat = []; for (var i = 0; i < 30; i++) etat.push('ok');
+  etat[8] = 'degrade'; etat[13] = 'panne';
+  var libelle = { ok:'En service', degrade:'D\u00e9grad\u00e9, r\u00e9solu sur place', panne:'Hors service 3 h 12' };
+  var reduit = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  etat.forEach(function(e, i){
+    var d = document.createElement('span');
+    d.className = 'jcsm-j' + (e === 'panne' ? ' est-panne' : e === 'degrade' ? ' est-degrade' : '');
+    d.setAttribute('data-info', 'J' + (i + 1) + ' \u00b7 ' + libelle[e]);
+    if (!reduit) d.style.animationDelay = (i * 18) + 'ms';
+    hote.appendChild(d);
+  });
+})();
+</script>
 </body>
 
 </html>

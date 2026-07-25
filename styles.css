@@ -1,10 +1,10 @@
 :root {
-  --color-primary: #2563eb;
-  --color-primary-dark: #1d4ed8;
-  --color-primary-darker: #1e40af;
+  --color-primary: #C2703B;
+  --color-primary-dark: #A85E30;
+  --color-primary-darker: #8F4E27;
   --color-primary-glow: rgba(37, 99, 235, 0.15);
-  --color-secondary: #1d4ed8;
-  --color-accent: #2563eb;
+  --color-secondary: #A85E30;
+  --color-accent: #C2703B;
   --color-ink: #0f1b2d;
   --color-cream: #fafaf7;
   --color-cream-alt: #f3f2ec;
@@ -21,7 +21,7 @@
   --color-white: #ffffff;
   --color-bg: #fafaf7;
   --color-text-secondary: #5b6472;
-  --gradient-primary: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+  --gradient-primary: linear-gradient(135deg, #C2703B 0%, #A85E30 100%);
   --gradient-dark: linear-gradient(135deg, #0f1b2d 0%, #16263f 100%);
   --gradient-glow: linear-gradient(
     135deg,
@@ -405,7 +405,7 @@ footer a:not(.btn-primary) {
     transform 0.3s ease;
 }
 footer a:not(.btn-primary):hover {
-  color: #2563eb;
+  color: #C2703B;
   transform: translateX(4px);
 }
 /* Footer clair : titres de colonnes affinés (sans doré) */
@@ -454,8 +454,8 @@ footer h3 {
 .scroll-top:hover {
   transform: translateY(-2px);
   box-shadow: 0 6px 12px -2px rgba(0, 0, 0, 0.15);
-  border-color: #2563eb;
-  color: #2563eb;
+  border-color: #C2703B;
+  color: #C2703B;
 }
 @media (max-width: 768px) {
   .scroll-top {
@@ -509,7 +509,7 @@ footer h3 {
 }
 body .nav-link-active {
   position: relative;
-  color: #2563eb;
+  color: #C2703B;
   font-weight: 700;
 }
 .nav-link-active::after {
@@ -855,12 +855,12 @@ button:focus-visible,
 input:focus-visible,
 select:focus-visible,
 textarea:focus-visible {
-  outline: 2px solid #2563eb;
+  outline: 2px solid #C2703B;
   outline-offset: 2px;
   border-radius: 4px;
 }
 summary:focus-visible {
-  outline: 2px solid #2563eb;
+  outline: 2px solid #C2703B;
   outline-offset: 2px;
 }
 input:not([type="checkbox"]):not([type="radio"]),
@@ -1048,7 +1048,7 @@ body .input-success {
   height: 2px;
   bottom: -2px;
   left: 0;
-  background: #2563eb;
+  background: #C2703B;
   transition: width 0.3s ease;
 }
 .link-underline:hover::after {
@@ -2005,7 +2005,7 @@ h2 {
   --jcsm-bg-alt: var(--color-cream-alt);
 }
 .accent-pro {
-  color: #2563eb;
+  color: #C2703B;
   font-weight: 800;
 }
 .mono,
@@ -2043,7 +2043,7 @@ h2 {
   color: var(--jcsm-graphite) !important;
 }
 .badge-section > div {
-  background: #2563eb !important;
+  background: #C2703B !important;
 }
 #services {
   background: var(--jcsm-bg-alt) !important;
@@ -2091,7 +2091,7 @@ h2 {
 .gradient-text {
   background: none !important;
   -webkit-text-fill-color: currentColor !important;
-  color: #2563eb !important;
+  color: #C2703B !important;
   animation: none !important;
 }
 
@@ -2117,7 +2117,7 @@ h2 {
 /* The leading pulse dot in glass-badge: keep blue for accent */
 .glass-badge > div[class*="rounded-full"]:first-child,
 .glass-badge > span[class*="rounded-full"]:first-child {
-  background: #2563eb !important;
+  background: #C2703B !important;
 }
 /* Hero-badge-specific tokens (homepage uses this class) */
 .hero-badge {

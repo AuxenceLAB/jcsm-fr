@@ -77,12 +77,12 @@
 
 /* === CSS Custom Properties === */
 :root {
-    --color-primary: #2563eb;
-    --color-primary-dark: #1d4ed8;
-    --color-primary-darker: #1e40af;
+    --color-primary: #C2703B;
+    --color-primary-dark: #A85E30;
+    --color-primary-darker: #8F4E27;
     --color-primary-glow: rgba(37, 99, 235, 0.15);
-    --color-secondary: #1d4ed8;
-    --color-accent: #2563eb;
+    --color-secondary: #A85E30;
+    --color-accent: #C2703B;
     --color-ink: #0f1b2d;
     --color-cream: #fafaf7;
     --color-cream-alt: #f3f2ec;
@@ -99,7 +99,7 @@
     --color-white: #ffffff;
     --color-bg: #fafaf7;
     --color-text-secondary: #5b6472;
-    --gradient-primary: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+    --gradient-primary: linear-gradient(135deg, #C2703B 0%, #A85E30 100%);
     --gradient-dark: linear-gradient(135deg, #0f1b2d 0%, #16263f 100%);
     --gradient-glow: linear-gradient(135deg, rgba(37, 99, 235, 0.10), rgba(37, 99, 235, 0.04));
     --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
@@ -124,8 +124,8 @@
     color-scheme: light;
 
     /* Aliases (used by inline styles in many pages) */
-    --blue: #2563eb;
-    --blue-dark: #1d4ed8;
+    --blue: #C2703B;
+    --blue-dark: #A85E30;
     --blue-light: #eff6ff;
     --gray-50: #f8fafc;
     --gray-100: #f1f5f9;
@@ -284,7 +284,7 @@ nav img[src*=logo] { mix-blend-mode: multiply; background: 0 0; }
     left: 0.875rem;
     right: 0.875rem;
     height: 2px;
-    background: var(--blue, #2563eb);
+    background: var(--blue, #C2703B);
     border-radius: 1px;
     transform: scaleX(0);
     transform-origin: center;
@@ -293,7 +293,7 @@ nav img[src*=logo] { mix-blend-mode: multiply; background: 0 0; }
 .nav-link:hover::after { transform: scaleX(1); }
 .nav-link:hover { background: rgba(37, 99, 235, 0.04); }
 
-.nav-link-active { position: relative; color: #2563eb; font-weight: 700; }
+.nav-link-active { position: relative; color: #C2703B; font-weight: 700; }
 .nav-link-active::after {
     content: '';
     position: absolute;
@@ -729,7 +729,7 @@ img {
 
 /* === Blog Table of Contents === */
 .toc-nav .toc-link.active {
-    color: #2563eb;
+    color: #C2703B;
     font-weight: 600;
 }
 .toc-nav ol {
