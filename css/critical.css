@@ -317,7 +317,7 @@ nav a:not(.btn-primary):not(.nav-link-active):hover::after { width: 80%; }
 
 /* === Mobile Menu === */
 .mobile-menu-btn { display: none; }
-@media (max-width: 1024px) { .mobile-menu-btn { display: block; } }
+@media (max-width: 1279px) { .mobile-menu-btn { display: block; } }
 
 .mobile-menu {
     position: fixed;

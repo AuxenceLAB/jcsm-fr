@@ -472,7 +472,7 @@ footer h3 {
 .mobile-menu-btn {
   display: none;
 }
-@media (max-width: 1024px) {
+@media (max-width: 1279px) {
   .mobile-menu-btn {
     display: block;
   }
@@ -2632,3 +2632,8 @@ a:focus-visible, button:focus-visible {
     opacity: 1 !important;
   }
 }
+
+/* Tailwind pre-compile a purge .xl:flex (jamais utilisee avant le passage de la
+   nav de lg a xl, fix du CTA coupe 1024-1279px). On la redefinit : styles.css est
+   charge APRES tailwind.css, donc .xl:flex l'emporte sur .hidden au-dela de 1280px. */
+@media (min-width: 1280px) { .xl\:flex { display: flex; } }
