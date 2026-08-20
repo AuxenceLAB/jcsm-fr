@@ -2289,21 +2289,23 @@ a:focus-visible, button:focus-visible {
   font-family: var(--font-serif);
   font-weight: 600;
   font-size: 1.2rem;
-  color: #B7C9EC;
+  color: var(--color-primary);
   line-height: 1;
 }
 .sec-label {
   font-size: 0.72rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--color-primary);
+  /* --color-primary (#C2703B) = 3.42:1 sur creme : echec AA sur ce petit texte.
+     --color-primary-darker (#8F4E27) = 5.91:1 : conforme. */
+  color: var(--color-primary-darker);
   font-weight: 700;
 }
 .section-dark {
   background: var(--color-ink);
   color: #F5F4EF;
 }
-.section-dark .sec-label { color: #7FA6E8; }
+.section-dark .sec-label { color: #E0A878; } /* cuivre clair (8.78:1 sur ink) — ex-bleu residuel */
 .section-dark .step { border-top: 2px solid var(--color-primary); padding-top: 0.875rem; }
 .section-alt { background: var(--color-cream-alt); }
 .logo-strip img,
@@ -2449,7 +2451,7 @@ a:focus-visible, button:focus-visible {
   font-size: 0.75rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: #7FA6E8;
+  color: var(--color-primary-darker);
   margin-bottom: 0.5rem;
 }
 .blog-key-takeaway p,
