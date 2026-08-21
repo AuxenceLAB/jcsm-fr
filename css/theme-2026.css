@@ -32,27 +32,30 @@
   --color-secondary:#A85E30;
   --color-accent:#C2703B;
 
-  /* Le creme part au profit d'un beton plus industriel, moins "artisanal". */
-  --color-ink:#101418;
-  --color-cream:#F7F6F3;
-  --color-cream-alt:#ECEAE6;
-  --color-line:#DAD7D1;
+  /* Papier ZINC : fond FROID (remplace le creme chaud). Graphite = bandes sombres.
+     Acier = filets et texte secondaire. Le blanc des cartes ressort sur le zinc. */
+  --color-ink:#14181C;
+  --color-cream:#E8EAE6;
+  --color-cream-alt:#DFE2DD;
+  --color-line:#CDD3CF;
   --color-blue-pale:#F2E4D8;
-  --color-bg:#F7F6F3;
+  --color-bg:#E8EAE6;
 
   /* Vert et rouge deviennent des ETATS, jamais de la decoration. */
   --color-success:#3E9A63;
   --color-error:#E0553C;
 
-  --color-gray-900:#101418;
+  --color-gray-900:#14181C;
+  /* Acier assombri (#5A6470) pour le TEXTE secondaire : AA sur zinc (4.97:1) et blanc.
+     L'acier vif #6E7A82 echoue AA en corps de texte, il reste reserve aux filets. */
   --color-gray-500:#5A6470;
   --color-gray-400:#5A6470;
-  --color-gray-200:#DAD7D1;
-  --color-gray-100:#ECEAE6;
+  --color-gray-200:#CDD3CF;
+  --color-gray-100:#DFE2DD;
   --color-text-secondary:#5A6470;
 
   --gradient-primary:linear-gradient(135deg,#C2703B 0%,#A85E30 100%);
-  --gradient-dark:linear-gradient(135deg,#101418 0%,#1A2129 100%);
+  --gradient-dark:linear-gradient(135deg,#14181C 0%,#1F262E 100%);
   --gradient-glow:linear-gradient(135deg,rgba(194,112,59,.10),rgba(194,112,59,.04));
 
   /* Archivo, grotesque industriel, remplace Fraunces en display ET
@@ -85,6 +88,12 @@ a:focus-visible,button:focus-visible,summary:focus-visible{
    les classes existantes du site ni avec Tailwind.
    Remplace la rangee de statistiques, qui affirmait sans montrer.
    ============================================================ */
+/* Cadre "relevé" : promeut la bande 30 jours en piece maitresse du hero.
+   Panneau blanc sur le zinc, onglet cuivre a gauche, comme un instrument. */
+.jcsm-dispo-cadre{
+  background:#fff;border:1px solid var(--color-line);border-left:3px solid var(--color-primary);
+  border-radius:3px;padding:18px 20px;box-shadow:0 1px 2px rgba(20,24,28,.05);
+}
 .jcsm-dispo-tete{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 20px;margin-bottom:14px;}
 .jcsm-dispo-titre{
   font-family:var(--font-mono);font-size:11px;font-weight:500;letter-spacing:.12em;
