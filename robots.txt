@@ -8,7 +8,6 @@ Allow: /
 Disallow: /_design-preview.html
 Disallow: /interne
 Disallow: /internedemo
-Disallow: /rapport-intervention
 Disallow: /admin
 Disallow: /api/
 Disallow: /offline
@@ -71,7 +70,6 @@ Allow: /
 Disallow: /_design-preview.html
 Disallow: /interne
 Disallow: /internedemo
-Disallow: /rapport-intervention
 Disallow: /admin
 Disallow: /api/
 Disallow: /offline
