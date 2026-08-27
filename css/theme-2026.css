@@ -59,8 +59,7 @@
   --gradient-glow:linear-gradient(135deg,rgba(194,112,59,.10),rgba(194,112,59,.04));
 
   /* Archivo, grotesque industriel, remplace Fraunces en display ET
-     la pile systeme en texte. Fraunces reste chargee par critical.css
-     mais n'est plus referencee : aucun fichier a supprimer. */
+     la pile systeme en texte. Fichiers Fraunces supprimes du depot. */
   --font-sans:'Archivo',system-ui,-apple-system,'Helvetica Neue',Arial,sans-serif;
   --font-serif:'Archivo',system-ui,-apple-system,'Helvetica Neue',Arial,sans-serif;
   --font-mono:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
