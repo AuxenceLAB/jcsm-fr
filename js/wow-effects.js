@@ -116,10 +116,22 @@
             });
         }
 
+        // Largeur mesurée hors boucle rAF (lire scrollWidth à chaque frame force un reflow)
+        this._third = 0;
+        this._measure = function () {
+            self._third = self.track.scrollWidth / 3;
+        };
+        this._measure();
+        window.addEventListener("load", this._measure, { once: true });
+        this.track.querySelectorAll("img").forEach(function (img) {
+            if (!img.complete) img.addEventListener("load", self._measure, { once: true });
+        });
+
         this._onResize = function () {
             clearTimeout(self._resizeTimer);
             self._resizeTimer = setTimeout(function () {
                 self.position = 0;
+                self._measure();
             }, 150);
         };
         window.addEventListener("resize", this._onResize, { passive: true });
@@ -148,8 +160,8 @@
 
         if (!this.isPaused) {
             this.position -= this.speed * (delta || 1);
-            var third = this.track.scrollWidth / 3;
-            if (Math.abs(this.position) >= third) {
+            var third = this._third || (this._measure(), this._third);
+            if (third && Math.abs(this.position) >= third) {
                 this.position = 0;
             }
             this.track.style.transform = "translate3d(" + this.position + "px, 0, 0)";
