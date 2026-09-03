@@ -56,10 +56,26 @@ if ($contentLength > 10 * 1024 * 1024) {
 $input = file_get_contents('php://input');
 $data = json_decode($input, true);
 
-if (!$data) {
+if (!$data || !is_array($data)) {
     http_response_code(400);
     echo json_encode(['success' => false, 'error' => 'Données JSON invalides']);
     exit;
+}
+
+// Les champs texte doivent être des chaînes : un tableau/objet provoquerait un
+// TypeError fatal (500) dans preg_match()/htmlspecialchars(). Les scalaires
+// sont convertis, le reste est ignoré. (photos et signature traités à part.)
+$textFields = ['ticket', 'nomSite', 'adresse', 'dateIntervention', 'heureArrivee', 'heureDepart',
+    'probleme', 'actionRealisee', 'statut', 'piecesChangees', 'remarques', 'interventionId',
+    'client', 'marque', 'serialNumber', 'commentaires', 'prochaines_etapes', 'a_faire', 'risques', 'duree'];
+foreach ($textFields as $field) {
+    if (!array_key_exists($field, $data)) continue;
+    if (is_string($data[$field])) continue;
+    if (is_scalar($data[$field])) {
+        $data[$field] = is_bool($data[$field]) ? ($data[$field] ? '1' : '') : (string) $data[$field];
+    } else {
+        unset($data[$field]);
+    }
 }
 
 // Valider le format de date d'intervention

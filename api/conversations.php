@@ -39,7 +39,7 @@ if (!is_dir($dataDir)) {
 
 // GET: Liste ou thread specifique
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-    $phone = $_GET['phone'] ?? '';
+    $phone = inputString($_GET, 'phone', 32);
 
     if ($phone) {
         $phoneKey = preg_replace('/[^0-9+]/', '', $phone);
@@ -95,8 +95,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit;
     }
 
-    $action = $input['action'] ?? '';
-    $phone  = $input['phone'] ?? '';
+    $action = inputString($input, 'action', 32);
+    $phone  = inputString($input, 'phone', 32);
 
     if (!$phone) {
         http_response_code(400);
@@ -132,9 +132,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     if ($action === 'send') {
-        $message  = trim($input['message'] ?? '');
-        $channel  = $input['channel'] ?? 'sms';
-        $techName = $input['techName'] ?? 'Admin';
+        $message  = inputString($input, 'message', 8000);
+        $channel  = inputString($input, 'channel', 16, 'sms');
+        if (!in_array($channel, ['sms', 'whatsapp'], true)) $channel = 'sms';
+        $techName = inputString($input, 'techName', 100, 'Admin');
 
         if (!$message) {
             http_response_code(400);
@@ -230,7 +231,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     http_response_code(400);
-    echo json_encode(['error' => 'Action inconnue: ' . htmlspecialchars($action)]);
+    echo json_encode(['error' => 'Action inconnue']);
     exit;
 }
 

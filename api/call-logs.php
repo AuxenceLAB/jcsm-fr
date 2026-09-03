@@ -73,7 +73,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit;
     }
 
-    $action = $input['action'] ?? '';
+    $action = inputString($input, 'action', 32);
 
     $lockFp = fopen($lockFile, 'c');
     if (!$lockFp || !flock($lockFp, LOCK_EX)) {
@@ -92,14 +92,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $callId = 'call-' . bin2hex(random_bytes(8));
             $entry = [
                 'id'        => $callId,
-                'to'        => trim($input['to'] ?? ''),
-                'toName'    => trim($input['toName'] ?? ''),
-                'from'      => trim($input['from'] ?? 'admin'),
-                'startTime' => $input['startTime'] ?? date('c'),
+                'to'        => inputString($input, 'to', 32),
+                'toName'    => inputString($input, 'toName', 200),
+                'from'      => inputString($input, 'from', 100, 'admin'),
+                'startTime' => inputString($input, 'startTime', 64, date('c')),
                 'endTime'   => null,
                 'duration'  => 0,
                 'status'    => 'connecting',
-                'direction' => $input['direction'] ?? 'outgoing'
+                'direction' => inputString($input, 'direction', 16, 'outgoing')
             ];
 
             $logs[] = $entry;
@@ -118,7 +118,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
 
         if ($action === 'update') {
-            $callId = $input['callId'] ?? '';
+            $callId = inputString($input, 'callId', 64);
             if (!$callId) {
                 http_response_code(400);
                 echo json_encode(['error' => 'callId requis']);
@@ -127,10 +127,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             $found = false;
             foreach ($logs as &$log) {
-                if ($log['id'] === $callId) {
-                    if (isset($input['duration'])) $log['duration'] = intval($input['duration']);
-                    if (isset($input['status']))   $log['status'] = $input['status'];
-                    if (isset($input['endTime']))   $log['endTime'] = $input['endTime'];
+                if (is_array($log) && ($log['id'] ?? null) === $callId) {
+                    if (isset($input['duration']) && is_numeric($input['duration'])) $log['duration'] = intval($input['duration']);
+                    if (isset($input['status']))   $log['status'] = inputString($input, 'status', 32);
+                    if (isset($input['endTime']))   $log['endTime'] = inputString($input, 'endTime', 64);
                     $found = true;
                     break;
                 }
