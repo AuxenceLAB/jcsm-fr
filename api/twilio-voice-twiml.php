@@ -28,7 +28,7 @@ if (!validateTwilioSignature($authToken, $url, $_POST)) {
 }
 
 // Numero destination depuis la requete
-$to = $_POST['To'] ?? '';
+$to = inputString($_POST, 'To', 32);
 $callerId = loadEnvVar('TWILIO_PHONE_NUMBER');
 
 if (empty($to)) {

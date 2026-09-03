@@ -89,7 +89,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 
     if (!empty($payload['isAdmin'])) {
         // Admin : filtrage optionnel explicite (?region=PACA)
-        if (isset($_GET['region']) && !empty($_GET['region']) && $_GET['region'] !== 'Admin') {
+        if (isset($_GET['region']) && is_string($_GET['region']) && $_GET['region'] !== '' && $_GET['region'] !== 'Admin') {
             $region = $_GET['region'];
             $data = array_values(array_filter($data, function ($item) use ($region) {
                 return isset($item['region']) && $item['region'] === $region;
@@ -142,9 +142,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $action = $input['action'] ?? 'save';
 
     // Validate action
-    if (!in_array($action, ['save', 'delete'], true)) {
+    if (!is_string($action) || !in_array($action, ['save', 'delete'], true)) {
         http_response_code(400);
-        echo json_encode(['error' => 'Action non reconnue: ' . htmlspecialchars($action)]);
+        echo json_encode(['error' => 'Action non reconnue']);
+        exit;
+    }
+
+    // Validate payload shape (évite les TypeError => 500 sur des entrées non conformes)
+    if ($action === 'save' && (!isset($input['data']) || !is_array($input['data']))) {
+        http_response_code(400);
+        echo json_encode(['error' => 'Champ "data" requis']);
+        exit;
+    }
+    $targetIdRaw = $action === 'delete' ? ($input['id'] ?? null) : ($input['data']['id'] ?? null);
+    if ($targetIdRaw !== null && (!is_scalar($targetIdRaw) || strlen((string) $targetIdRaw) > 128)) {
+        http_response_code(400);
+        echo json_encode(['error' => 'Identifiant invalide']);
         exit;
     }
 

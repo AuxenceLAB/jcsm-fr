@@ -30,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     exit;
 }
 
-$action = $_GET['action'] ?? ($_SERVER['REQUEST_METHOD'] === 'POST' ? 'submit' : '');
+$action = inputString($_GET, 'action', 32, $_SERVER['REQUEST_METHOD'] === 'POST' ? 'submit' : '');
 
 // ============================
 // ACTION: generate (auth requise)
@@ -39,8 +39,8 @@ if ($action === 'generate' && $_SERVER['REQUEST_METHOD'] === 'GET') {
     require_once __DIR__ . '/auth.php';
     requireAuth();
 
-    $interventionId = trim($_GET['id'] ?? '');
-    $phone          = trim($_GET['phone'] ?? '');
+    $interventionId = inputString($_GET, 'id', 128);
+    $phone          = inputString($_GET, 'phone', 32);
 
     if (!$interventionId || !$phone) {
         http_response_code(400);
@@ -80,17 +80,17 @@ if ($action === 'generate' && $_SERVER['REQUEST_METHOD'] === 'GET') {
 // ACTION: validate (pas d'auth JCSM)
 // ============================
 if ($action === 'validate' && $_SERVER['REQUEST_METHOD'] === 'GET') {
-    // Rate limiting: 10 validations per minute per IP
-    if (!checkRateLimit('intv_validate_' . ($_SERVER['REMOTE_ADDR'] ?? 'unknown'), 10, 60)) {
+    // Rate limiting: 10 validations per minute per IP (checkRateLimit isole déjà par IP)
+    if (!checkRateLimit('intv_validate', 10, 60)) {
         http_response_code(429);
         echo json_encode(['error' => 'Trop de requêtes']);
         exit;
     }
 
-    $token   = $_GET['token'] ?? '';
-    $id      = $_GET['id'] ?? '';
-    $phone   = $_GET['phone'] ?? '';
-    $expires = intval($_GET['expires'] ?? 0);
+    $token   = inputString($_GET, 'token', 128);
+    $id      = inputString($_GET, 'id', 128);
+    $phone   = inputString($_GET, 'phone', 32);
+    $expires = intval(inputString($_GET, 'expires', 20, '0'));
 
     if (!$token || !$id || !$phone || !$expires) {
         http_response_code(400);
@@ -166,10 +166,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     // Valider le token
-    $token   = $input['token'] ?? '';
-    $id      = $input['interventionId'] ?? '';
-    $phone   = $input['phone'] ?? '';
-    $expires = intval($input['expires'] ?? 0);
+    $token   = inputString($input, 'token', 128);
+    $id      = inputString($input, 'interventionId', 128);
+    $phone   = inputString($input, 'phone', 32);
+    $expires = intval(inputString($input, 'expires', 20, '0'));
 
     if (!$token || !$id || !$phone || !$expires) {
         http_response_code(400);
@@ -191,37 +191,39 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     // Valider les champs du rapport
-    $dateIntv = $input['dateIntervention'] ?? '';
+    $dateIntv = inputString($input, 'dateIntervention', 10);
     if (!preg_match('/^\d{4}-\d{2}-\d{2}$/', $dateIntv)) {
         http_response_code(400);
         echo json_encode(['error' => 'Format de date invalide (YYYY-MM-DD)']);
         exit;
     }
 
-    // Limit number of photos (anti-DoS)
+    // Limit number of photos (anti-DoS) : uniquement des data-URI image (chaînes)
     $photos = $input['photos'] ?? [];
-    if (is_array($photos) && count($photos) > 20) {
+    if (!is_array($photos)) $photos = [];
+    $photos = array_values(array_filter($photos, fn($p) => is_string($p) && str_starts_with($p, 'data:image/')));
+    if (count($photos) > 20) {
         $photos = array_slice($photos, 0, 20);
     }
 
-    // Construire le payload pour save-rapport.php
+    // Construire le payload pour save-rapport.php (champs texte uniquement, bornés)
     $rapportPayload = [
-        'ticket'            => $input['ticket'] ?? '',
+        'ticket'            => inputString($input, 'ticket', 200),
         'interventionId'    => $id,
-        'nomSite'           => $input['nomSite'] ?? '',
-        'adresse'           => $input['adresse'] ?? '',
+        'nomSite'           => inputString($input, 'nomSite', 500),
+        'adresse'           => inputString($input, 'adresse', 500),
         'dateIntervention'  => $dateIntv,
-        'heureArrivee'      => $input['heureArrivee'] ?? '',
-        'heureDepart'       => $input['heureDepart'] ?? '',
-        'probleme'          => $input['probleme'] ?? '',
-        'actionRealisee'    => $input['actionRealisee'] ?? '',
-        'statut'            => $input['statut'] ?? 'resolu',
-        'piecesChangees'    => $input['piecesChangees'] ?? '',
-        'remarques'         => $input['remarques'] ?? '',
-        'client'            => $input['client'] ?? '',
-        'marque'            => $input['marque'] ?? '',
-        'duree'             => $input['duree'] ?? '',
-        'photos'            => $input['photos'] ?? [],
+        'heureArrivee'      => inputString($input, 'heureArrivee', 20),
+        'heureDepart'       => inputString($input, 'heureDepart', 20),
+        'probleme'          => inputString($input, 'probleme', 20000),
+        'actionRealisee'    => inputString($input, 'actionRealisee', 20000),
+        'statut'            => inputString($input, 'statut', 50, 'resolu'),
+        'piecesChangees'    => inputString($input, 'piecesChangees', 20000),
+        'remarques'         => inputString($input, 'remarques', 20000),
+        'client'            => inputString($input, 'client', 500),
+        'marque'            => inputString($input, 'marque', 200),
+        'duree'             => inputString($input, 'duree', 50),
+        'photos'            => $photos,
         'signature'         => null,
         'source'            => 'lien_technicien'
     ];

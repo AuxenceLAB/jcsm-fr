@@ -42,11 +42,30 @@ function loadEnvVar(string $key): ?string
 }
 
 /**
+ * Lit une valeur d'un tableau d'entrée (JSON décodé, $_GET, $_POST) et la
+ * renvoie sous forme de chaîne nettoyée et bornée. Tout ce qui n'est pas un
+ * scalaire (tableau, objet, null) est remplacé par la valeur par défaut :
+ * évite les TypeError fatals (trim()/preg_replace() sur un tableau => 500)
+ * et limite la taille stockée.
+ */
+function inputString(array $input, string $key, int $maxLen = 10000, string $default = ''): string
+{
+    $v = $input[$key] ?? null;
+    if ($v === null || !is_scalar($v)) return $default;
+    if (is_bool($v)) $v = $v ? '1' : '';
+    $v = trim((string) $v);
+    if ($v === '') return $default;
+    return mb_substr($v, 0, $maxLen);
+}
+
+/**
  * Rate limiter fichier avec flock.
  * @return bool true si autorisé, false si rate-limité
  */
 function checkRateLimit(string $namespace, int $maxRequests = 100, int $periodSeconds = 60): bool
 {
+    // Le namespace ne sert qu'à nommer un dossier : on le restreint à [A-Za-z0-9_]
+    $namespace = preg_replace('/[^a-zA-Z0-9_]/', '_', $namespace);
     $rateLimitDir = sys_get_temp_dir() . "/jcsm_{$namespace}_rate/";
     if (!is_dir($rateLimitDir)) {
         @mkdir($rateLimitDir, 0755, true);

@@ -11,3 +11,17 @@ api/vendor/
 *~
 rapports/
 .superpowers/
+
+# --- Données d'exploitation (jamais versionnées : données personnelles) ---
+api/interventions.json
+api/fiches_methodes.json
+api/data/
+api/rapports/
+api/images_fiches/
+api/*.lock
+api/*.tmp
+api/*.json.tmp
+*.jsonl
+
+# --- Configuration locale de l'assistant (autorisations propres au poste) ---
+.claude/settings.local.json

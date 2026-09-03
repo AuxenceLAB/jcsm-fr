@@ -45,9 +45,15 @@ if (!checkRateLimit('ai_reformulate', 30, 60)) {
 
 // Parse input
 $input = json_decode(file_get_contents('php://input'), true);
-if (!$input || !is_array($input) || empty(trim($input['texte_brut'] ?? ''))) {
+if (!$input || !is_array($input) || !is_string($input['texte_brut'] ?? null) || trim($input['texte_brut']) === '') {
     http_response_code(400);
     echo json_encode(['error' => 'Champ "texte_brut" requis']);
+    exit;
+}
+// Borne de taille (maîtrise du coût API et de la fenêtre de contexte)
+if (mb_strlen($input['texte_brut']) > 20000) {
+    http_response_code(400);
+    echo json_encode(['error' => 'Champ "texte_brut" trop long (max 20000 caractères)']);
     exit;
 }
 
@@ -66,11 +72,11 @@ if (!$apiKey) {
 }
 
 // Contexte intervention (optionnel)
-$client    = htmlspecialchars($input['client'] ?? 'Non spécifié', ENT_QUOTES, 'UTF-8');
-$site      = htmlspecialchars($input['site'] ?? 'Non spécifié', ENT_QUOTES, 'UTF-8');
-$marque    = htmlspecialchars($input['marque'] ?? '', ENT_QUOTES, 'UTF-8');
-$chargerId = htmlspecialchars($input['charger_id'] ?? '', ENT_QUOTES, 'UTF-8');
-$probleme  = htmlspecialchars($input['probleme'] ?? '', ENT_QUOTES, 'UTF-8');
+$client    = htmlspecialchars(inputString($input, 'client', 500, 'Non spécifié'), ENT_QUOTES, 'UTF-8');
+$site      = htmlspecialchars(inputString($input, 'site', 500, 'Non spécifié'), ENT_QUOTES, 'UTF-8');
+$marque    = htmlspecialchars(inputString($input, 'marque', 200), ENT_QUOTES, 'UTF-8');
+$chargerId = htmlspecialchars(inputString($input, 'charger_id', 200), ENT_QUOTES, 'UTF-8');
+$probleme  = htmlspecialchars(inputString($input, 'probleme', 5000), ENT_QUOTES, 'UTF-8');
 $texteBrut = trim($input['texte_brut']);
 
 // System prompt

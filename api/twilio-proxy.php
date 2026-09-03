@@ -64,9 +64,9 @@ if (!$input || !is_array($input)) {
     exit;
 }
 
-$to      = trim($input['to'] ?? '');
-$message = trim($input['message'] ?? '');
-$channel = $input['channel'] ?? 'sms'; // 'sms' ou 'whatsapp'
+$to      = inputString($input, 'to', 32);
+$message = inputString($input, 'message', 8000);
+$channel = inputString($input, 'channel', 16, 'sms'); // 'sms' ou 'whatsapp'
 
 // Validation
 if (empty($to)) {
@@ -79,7 +79,7 @@ if (empty($message)) {
     echo json_encode(['error' => 'Message requis']);
     exit;
 }
-if (!in_array($channel, ['sms', 'whatsapp'])) {
+if (!in_array($channel, ['sms', 'whatsapp'], true)) {
     http_response_code(400);
     echo json_encode(['error' => 'Canal invalide (sms ou whatsapp)']);
     exit;
@@ -148,7 +148,7 @@ try {
             'body'      => $message,
             'timestamp' => date('c'),
             'sid'       => $data['sid'] ?? '',
-            'techName'  => $input['technicien'] ?? 'Admin',
+            'techName'  => inputString($input, 'technicien', 100, 'Admin'),
             'channel'   => $channel
         ]);
 

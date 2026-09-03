@@ -43,11 +43,18 @@ if (!checkRateLimit('login', 5, 300)) {
 
 // Parse input
 $input = json_decode(file_get_contents('php://input'), true);
-$password = $input['password'] ?? '';
+$password = (is_array($input) && isset($input['password']) && is_string($input['password']))
+    ? $input['password'] : '';
 
-if (empty($password)) {
+if ($password === '') {
     http_response_code(400);
     echo json_encode(['error' => 'Mot de passe requis']);
+    exit;
+}
+// Borne de taille : bcrypt ignore au-delà de 72 octets, inutile de hacher des Mo
+if (strlen($password) > 1024) {
+    http_response_code(400);
+    echo json_encode(['error' => 'Mot de passe invalide']);
     exit;
 }
 
