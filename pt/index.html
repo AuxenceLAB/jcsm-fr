@@ -271,11 +271,11 @@
     <link rel="dns-prefetch" href="https://formspree.io">
     <link rel="preconnect" href="https://formspree.io" crossorigin>
     <link rel="preload" as="image" href="../images/index.webp" type="image/webp">
-    <link rel="stylesheet" href="../css/critical.css?v=86">
-    <link rel="stylesheet" href="../css/tailwind.css?v=86" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="../css/tailwind.css?v=86"></noscript>
-    <link rel="stylesheet" href="../styles.css?v=86" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="../styles.css?v=86"></noscript>
+    <link rel="stylesheet" href="../css/critical.css?v=87">
+    <link rel="stylesheet" href="../css/tailwind.css?v=87" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="../css/tailwind.css?v=87"></noscript>
+    <link rel="stylesheet" href="../styles.css?v=87" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="../styles.css?v=87"></noscript>
     <link rel="manifest" href="../manifest.json">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -385,7 +385,7 @@
         }
         .card-lead .svc-arrow { color: rgba(255,255,255,0.5); }
         .card-lead:hover .svc-arrow { color: #fff; gap: 10px; }
-        .card-feature .svc-arrow { color: var(--color-primary); opacity: 0.6; }
+        .card-feature .svc-arrow { color: var(--color-primary); }
         .card-feature:hover .svc-arrow { opacity: 1; gap: 10px; }
         .svc-arrow svg {
             transition: transform 0.3s var(--ease);
@@ -539,7 +539,7 @@
     </nav>
 
     <!-- Barra de progresso de scroll -->
-    <div id="scroll-progress" class="fixed top-0 left-0 h-1 bg-blue-600 z-[60] transition-all duration-150" style="width: 0%;" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Progresso de leitura"></div>
+    <div id="scroll-progress" class="fixed top-0 left-0 h-1 bg-blue-600 z-[60] transition-all duration-150" style="width:0%" aria-hidden="true"></div>
 
     <nav class="fixed top-0 w-full z-50 glass-nav border-b border-gray-200" role="navigation" aria-label="Navegação principal">
         <div class="max-w-7xl mx-auto px-6 py-4">
@@ -792,143 +792,143 @@
             <div class="logo-marquee w-full" role="region" aria-label="Logos dos nossos parceiros e clientes">
                 <div class="logo-marquee-track">
                     <div class="logo-item flex items-center justify-center px-5 py-3 min-w-[140px]">
-                        <picture><source srcset="../images/powerdot.webp" type="image/webp"><img loading="lazy" src="../images/powerdot.png" alt="Powerdot, operador de postos de carregamento parceiro JCSM" width="128" height="64" class="h-12 w-auto"></picture>
+                        <picture><source srcset="../images/powerdot.webp" type="image/webp"><img loading="lazy" src="../images/powerdot.png" alt="Powerdot, operador de postos de carregamento parceiro JCSM" width="128" height="64" class="h-12 w-auto" decoding="async"></picture>
                     </div>
                     <div class="logo-item flex items-center justify-center px-5 py-3 min-w-[140px]">
-                        <picture><source srcset="../images/schneider.webp" type="image/webp"><img loading="lazy" src="../images/schneider.png" alt="Schneider Electric, fabricante de postos de carregamento parceiro JCSM" width="128" height="64" class="h-12 w-auto"></picture>
+                        <picture><source srcset="../images/schneider.webp" type="image/webp"><img loading="lazy" src="../images/schneider.png" alt="Schneider Electric, fabricante de postos de carregamento parceiro JCSM" width="128" height="64" class="h-12 w-auto" decoding="async"></picture>
                     </div>
                     <div class="logo-item flex items-center justify-center px-5 py-3 min-w-[140px]">
-                        <picture><source srcset="../images/legrand.webp" type="image/webp"><img loading="lazy" src="../images/legrand.png" alt="Logo Legrand" width="128" height="64" class="h-12 w-auto"></picture>
+                        <picture><source srcset="../images/legrand.webp" type="image/webp"><img loading="lazy" src="../images/legrand.png" alt="Logo Legrand" width="128" height="64" class="h-12 w-auto" decoding="async"></picture>
                     </div>
                     <div class="logo-item flex items-center justify-center px-5 py-3 min-w-[140px]">
-                        <picture><source srcset="../images/alfen.webp" type="image/webp"><img loading="lazy" src="../images/alfen.png" alt="Logo Alfen" width="128" height="64" class="h-12 w-auto"></picture>
+                        <picture><source srcset="../images/alfen.webp" type="image/webp"><img loading="lazy" src="../images/alfen.png" alt="Logo Alfen" width="128" height="64" class="h-12 w-auto" decoding="async"></picture>
                     </div>
                     <div class="logo-item flex items-center justify-center px-5 py-3 min-w-[140px]">
-                        <picture><source srcset="../images/autel.webp" type="image/webp"><img loading="lazy" src="../images/autel.png" alt="Logo Autel" width="128" height="64" class="h-12 w-auto"></picture>
+                        <picture><source srcset="../images/autel.webp" type="image/webp"><img loading="lazy" src="../images/autel.png" alt="Logo Autel" width="128" height="64" class="h-12 w-auto" decoding="async"></picture>
                     </div>
                     <div class="logo-item flex items-center justify-center px-5 py-3 min-w-[140px]">
-                        <picture><source srcset="../images/freshmile.webp" type="image/webp"><img loading="lazy" src="../images/freshmile.png" alt="Logo Freshmile" width="128" height="64" class="h-12 w-auto"></picture>
+                        <picture><source srcset="../images/freshmile.webp" type="image/webp"><img loading="lazy" src="../images/freshmile.png" alt="Logo Freshmile" width="128" height="64" class="h-12 w-auto" decoding="async"></picture>
                     </div>
                     <div class="logo-item flex items-center justify-center px-5 py-3 min-w-[140px]">
-                        <picture><source srcset="../images/abb.webp" type="image/webp"><img loading="lazy" src="../images/abb.png" alt="ABB, fabricante de postos de carregamento rapido parceiro JCSM" width="128" height="64" class="h-12 w-auto"></picture>
+                        <picture><source srcset="../images/abb.webp" type="image/webp"><img loading="lazy" src="../images/abb.png" alt="ABB, fabricante de postos de carregamento rapido parceiro JCSM" width="128" height="64" class="h-12 w-auto" decoding="async"></picture>
                     </div>
                     <div class="logo-item flex items-center justify-center px-5 py-3 min-w-[140px]">
-                        <picture><source srcset="../images/evbox.webp" type="image/webp"><img loading="lazy" src="../images/evbox.png" alt="Logo EVBox" width="128" height="64" class="h-12 w-auto"></picture>
+                        <picture><source srcset="../images/evbox.webp" type="image/webp"><img loading="lazy" src="../images/evbox.png" alt="Logo EVBox" width="128" height="64" class="h-12 w-auto" decoding="async"></picture>
                     </div>
                     <div class="logo-item flex items-center justify-center px-5 py-3 min-w-[140px]">
-                        <picture><source srcset="../images/wallbox.webp" type="image/webp"><img loading="lazy" src="../images/wallbox.png" alt="Logo Wallbox" width="128" height="64" class="h-12 w-auto"></picture>
+                        <picture><source srcset="../images/wallbox.webp" type="image/webp"><img loading="lazy" src="../images/wallbox.png" alt="Logo Wallbox" width="128" height="64" class="h-12 w-auto" decoding="async"></picture>
                     </div>
                     <div class="logo-item flex items-center justify-center px-5 py-3 min-w-[140px]">
-                        <picture><source srcset="../images/hager.webp" type="image/webp"><img loading="lazy" src="../images/hager.png" alt="Logo Hager" width="128" height="64" class="h-12 w-auto"></picture>
+                        <picture><source srcset="../images/hager.webp" type="image/webp"><img loading="lazy" src="../images/hager.png" alt="Logo Hager" width="128" height="64" class="h-12 w-auto" decoding="async"></picture>
                     </div>
                     <div class="logo-item flex items-center justify-center px-5 py-3 min-w-[140px]">
-                        <picture><source srcset="../images/siemens.webp" type="image/webp"><img loading="lazy" src="../images/siemens.png" alt="Logo Siemens" width="128" height="64" class="h-12 w-auto"></picture>
+                        <picture><source srcset="../images/siemens.webp" type="image/webp"><img loading="lazy" src="../images/siemens.png" alt="Logo Siemens" width="128" height="64" class="h-12 w-auto" decoding="async"></picture>
                     </div>
                     <div class="logo-item flex items-center justify-center px-5 py-3 min-w-[140px]">
-                        <picture><source srcset="../images/dbt.webp" type="image/webp"><img loading="lazy" src="../images/dbt.png" alt="Logo DBT" width="128" height="64" class="h-12 w-auto"></picture>
+                        <picture><source srcset="../images/dbt.webp" type="image/webp"><img loading="lazy" src="../images/dbt.png" alt="Logo DBT" width="128" height="64" class="h-12 w-auto" decoding="async"></picture>
                     </div>
                     <div class="logo-item flex items-center justify-center px-5 py-3 min-w-[140px]">
-                        <picture><source srcset="../images/ingeteam.webp" type="image/webp"><img loading="lazy" src="../images/ingeteam.png" alt="Logo Ingeteam" width="128" height="64" class="h-12 w-auto"></picture>
+                        <picture><source srcset="../images/ingeteam.webp" type="image/webp"><img loading="lazy" src="../images/ingeteam.png" alt="Logo Ingeteam" width="128" height="64" class="h-12 w-auto" decoding="async"></picture>
                     </div>
                     <div class="logo-item flex items-center justify-center px-5 py-3 min-w-[140px]">
-                        <img loading="lazy" src="../images/carplug.svg" alt="Logo Carplug" width="128" height="64" class="h-12 w-auto">
+                        <img loading="lazy" src="../images/carplug.svg" alt="Logo Carplug" width="128" height="64" class="h-12 w-auto" decoding="async">
                     </div>
                     <div class="logo-item flex items-center justify-center px-5 py-3 min-w-[140px]">
-                        <picture><source srcset="../images/becable.webp" type="image/webp"><img loading="lazy" src="../images/becable.png" alt="Logo Becable" width="128" height="64" class="h-12 w-auto"></picture>
+                        <picture><source srcset="../images/becable.webp" type="image/webp"><img loading="lazy" src="../images/becable.png" alt="Logo Becable" width="128" height="64" class="h-12 w-auto" decoding="async"></picture>
                     </div>
                     <div class="logo-item flex items-center justify-center px-5 py-3 min-w-[140px]">
-                        <picture><source srcset="../images/bouygues.webp" type="image/webp"><img loading="lazy" src="../images/bouygues.png" alt="Logo Bouygues" width="128" height="64" class="h-12 w-auto"></picture>
+                        <picture><source srcset="../images/bouygues.webp" type="image/webp"><img loading="lazy" src="../images/bouygues.png" alt="Logo Bouygues" width="128" height="64" class="h-12 w-auto" decoding="async"></picture>
                     </div>
                     <div class="logo-item flex items-center justify-center px-5 py-3 min-w-[140px]">
-                        <picture><source srcset="../images/eko.webp" type="image/webp"><img loading="lazy" src="../images/eko.png" alt="Logo EKO" width="128" height="64" class="h-12 w-auto"></picture>
+                        <picture><source srcset="../images/eko.webp" type="image/webp"><img loading="lazy" src="../images/eko.png" alt="Logo EKO" width="128" height="64" class="h-12 w-auto" decoding="async"></picture>
                     </div>
                     <div class="logo-item flex items-center justify-center px-5 py-3 min-w-[140px]">
-                        <picture><source srcset="../images/efacec.webp" type="image/webp"><img loading="lazy" src="../images/efacec.png" alt="Logo Efacec" width="128" height="64" class="h-12 w-auto"></picture>
+                        <picture><source srcset="../images/efacec.webp" type="image/webp"><img loading="lazy" src="../images/efacec.png" alt="Logo Efacec" width="128" height="64" class="h-12 w-auto" decoding="async"></picture>
                     </div>
                     <div class="logo-item flex items-center justify-center px-5 py-3 min-w-[140px]">
-                        <picture><source srcset="../images/ies.webp" type="image/webp"><img loading="lazy" src="../images/ies.png" alt="Logo IES" width="128" height="64" class="h-12 w-auto"></picture>
+                        <picture><source srcset="../images/ies.webp" type="image/webp"><img loading="lazy" src="../images/ies.png" alt="Logo IES" width="128" height="64" class="h-12 w-auto" decoding="async"></picture>
                     </div>
                     <div class="logo-item flex items-center justify-center px-5 py-3 min-w-[140px]">
-                        <picture><source srcset="../images/alpi.webp" type="image/webp"><img loading="lazy" src="../images/alpi.png" alt="Logo Alpi" width="128" height="64" class="h-12 w-auto"></picture>
+                        <picture><source srcset="../images/alpi.webp" type="image/webp"><img loading="lazy" src="../images/alpi.png" alt="Logo Alpi" width="128" height="64" class="h-12 w-auto" decoding="async"></picture>
                     </div>
                     <div class="logo-item flex items-center justify-center px-5 py-3 min-w-[140px]">
-                        <picture><source srcset="../images/perpignan.webp" type="image/webp"><img loading="lazy" src="../images/perpignan.png" alt="Logo Cidade de Perpignan" width="128" height="64" class="h-12 w-auto"></picture>
+                        <picture><source srcset="../images/perpignan.webp" type="image/webp"><img loading="lazy" src="../images/perpignan.png" alt="Logo Cidade de Perpignan" width="128" height="64" class="h-12 w-auto" decoding="async"></picture>
                     </div>
                     <div class="logo-item flex items-center justify-center px-5 py-3 min-w-[140px]">
-                        <picture><source srcset="../images/basicfit.webp" type="image/webp"><img loading="lazy" src="../images/basicfit.png" alt="Logo Basic Fit" width="128" height="64" class="h-12 w-auto"></picture>
+                        <picture><source srcset="../images/basicfit.webp" type="image/webp"><img loading="lazy" src="../images/basicfit.png" alt="Logo Basic Fit" width="128" height="64" class="h-12 w-auto" decoding="async"></picture>
                     </div>
                     <div class="logo-item flex items-center justify-center px-5 py-3 min-w-[140px]">
-                        <picture><source srcset="../images/anyos.webp" type="image/webp"><img loading="lazy" src="../images/anyos.png" alt="Logo Anyos" width="128" height="64" class="h-12 w-auto"></picture>
+                        <picture><source srcset="../images/anyos.webp" type="image/webp"><img loading="lazy" src="../images/anyos.png" alt="Logo Anyos" width="128" height="64" class="h-12 w-auto" decoding="async"></picture>
                     </div>
                     <!-- Duplicate for seamless marquee loop -->
                     <div class="logo-item flex items-center justify-center px-5 py-3 min-w-[140px]" aria-hidden="true">
-                        <picture><source srcset="../images/powerdot.webp" type="image/webp"><img loading="lazy" src="../images/powerdot.png" alt="Logo Powerdot" width="128" height="64" class="h-12 w-auto"></picture>
+                        <picture><source srcset="../images/powerdot.webp" type="image/webp"><img loading="lazy" src="../images/powerdot.png" alt="Logo Powerdot" width="128" height="64" class="h-12 w-auto" decoding="async"></picture>
                     </div>
                     <div class="logo-item flex items-center justify-center px-5 py-3 min-w-[140px]" aria-hidden="true">
-                        <picture><source srcset="../images/schneider.webp" type="image/webp"><img loading="lazy" src="../images/schneider.png" alt="Logo Schneider Electric" width="128" height="64" class="h-12 w-auto"></picture>
+                        <picture><source srcset="../images/schneider.webp" type="image/webp"><img loading="lazy" src="../images/schneider.png" alt="Logo Schneider Electric" width="128" height="64" class="h-12 w-auto" decoding="async"></picture>
                     </div>
                     <div class="logo-item flex items-center justify-center px-5 py-3 min-w-[140px]" aria-hidden="true">
-                        <picture><source srcset="../images/legrand.webp" type="image/webp"><img loading="lazy" src="../images/legrand.png" alt="Logo Legrand" width="128" height="64" class="h-12 w-auto"></picture>
+                        <picture><source srcset="../images/legrand.webp" type="image/webp"><img loading="lazy" src="../images/legrand.png" alt="Logo Legrand" width="128" height="64" class="h-12 w-auto" decoding="async"></picture>
                     </div>
                     <div class="logo-item flex items-center justify-center px-5 py-3 min-w-[140px]" aria-hidden="true">
-                        <picture><source srcset="../images/alfen.webp" type="image/webp"><img loading="lazy" src="../images/alfen.png" alt="Logo Alfen" width="128" height="64" class="h-12 w-auto"></picture>
+                        <picture><source srcset="../images/alfen.webp" type="image/webp"><img loading="lazy" src="../images/alfen.png" alt="Logo Alfen" width="128" height="64" class="h-12 w-auto" decoding="async"></picture>
                     </div>
                     <div class="logo-item flex items-center justify-center px-5 py-3 min-w-[140px]" aria-hidden="true">
-                        <picture><source srcset="../images/autel.webp" type="image/webp"><img loading="lazy" src="../images/autel.png" alt="Logo Autel" width="128" height="64" class="h-12 w-auto"></picture>
+                        <picture><source srcset="../images/autel.webp" type="image/webp"><img loading="lazy" src="../images/autel.png" alt="Logo Autel" width="128" height="64" class="h-12 w-auto" decoding="async"></picture>
                     </div>
                     <div class="logo-item flex items-center justify-center px-5 py-3 min-w-[140px]" aria-hidden="true">
-                        <picture><source srcset="../images/freshmile.webp" type="image/webp"><img loading="lazy" src="../images/freshmile.png" alt="Logo Freshmile" width="128" height="64" class="h-12 w-auto"></picture>
+                        <picture><source srcset="../images/freshmile.webp" type="image/webp"><img loading="lazy" src="../images/freshmile.png" alt="Logo Freshmile" width="128" height="64" class="h-12 w-auto" decoding="async"></picture>
                     </div>
                     <div class="logo-item flex items-center justify-center px-5 py-3 min-w-[140px]" aria-hidden="true">
-                        <picture><source srcset="../images/abb.webp" type="image/webp"><img loading="lazy" src="../images/abb.png" alt="Logo ABB" width="128" height="64" class="h-12 w-auto"></picture>
+                        <picture><source srcset="../images/abb.webp" type="image/webp"><img loading="lazy" src="../images/abb.png" alt="Logo ABB" width="128" height="64" class="h-12 w-auto" decoding="async"></picture>
                     </div>
                     <div class="logo-item flex items-center justify-center px-5 py-3 min-w-[140px]" aria-hidden="true">
-                        <picture><source srcset="../images/evbox.webp" type="image/webp"><img loading="lazy" src="../images/evbox.png" alt="Logo EVBox" width="128" height="64" class="h-12 w-auto"></picture>
+                        <picture><source srcset="../images/evbox.webp" type="image/webp"><img loading="lazy" src="../images/evbox.png" alt="Logo EVBox" width="128" height="64" class="h-12 w-auto" decoding="async"></picture>
                     </div>
                     <div class="logo-item flex items-center justify-center px-5 py-3 min-w-[140px]" aria-hidden="true">
-                        <picture><source srcset="../images/wallbox.webp" type="image/webp"><img loading="lazy" src="../images/wallbox.png" alt="Logo Wallbox" width="128" height="64" class="h-12 w-auto"></picture>
+                        <picture><source srcset="../images/wallbox.webp" type="image/webp"><img loading="lazy" src="../images/wallbox.png" alt="Logo Wallbox" width="128" height="64" class="h-12 w-auto" decoding="async"></picture>
                     </div>
                     <div class="logo-item flex items-center justify-center px-5 py-3 min-w-[140px]" aria-hidden="true">
-                        <picture><source srcset="../images/hager.webp" type="image/webp"><img loading="lazy" src="../images/hager.png" alt="Logo Hager" width="128" height="64" class="h-12 w-auto"></picture>
+                        <picture><source srcset="../images/hager.webp" type="image/webp"><img loading="lazy" src="../images/hager.png" alt="Logo Hager" width="128" height="64" class="h-12 w-auto" decoding="async"></picture>
                     </div>
                     <div class="logo-item flex items-center justify-center px-5 py-3 min-w-[140px]" aria-hidden="true">
-                        <picture><source srcset="../images/siemens.webp" type="image/webp"><img loading="lazy" src="../images/siemens.png" alt="Logo Siemens" width="128" height="64" class="h-12 w-auto"></picture>
+                        <picture><source srcset="../images/siemens.webp" type="image/webp"><img loading="lazy" src="../images/siemens.png" alt="Logo Siemens" width="128" height="64" class="h-12 w-auto" decoding="async"></picture>
                     </div>
                     <div class="logo-item flex items-center justify-center px-5 py-3 min-w-[140px]" aria-hidden="true">
-                        <picture><source srcset="../images/dbt.webp" type="image/webp"><img loading="lazy" src="../images/dbt.png" alt="Logo DBT-CEV" width="128" height="64" class="h-12 w-auto"></picture>
+                        <picture><source srcset="../images/dbt.webp" type="image/webp"><img loading="lazy" src="../images/dbt.png" alt="Logo DBT-CEV" width="128" height="64" class="h-12 w-auto" decoding="async"></picture>
                     </div>
                     <div class="logo-item flex items-center justify-center px-5 py-3 min-w-[140px]" aria-hidden="true">
-                        <picture><source srcset="../images/ingeteam.webp" type="image/webp"><img loading="lazy" src="../images/ingeteam.png" alt="Logo Ingeteam" width="128" height="64" class="h-12 w-auto"></picture>
+                        <picture><source srcset="../images/ingeteam.webp" type="image/webp"><img loading="lazy" src="../images/ingeteam.png" alt="Logo Ingeteam" width="128" height="64" class="h-12 w-auto" decoding="async"></picture>
                     </div>
                     <div class="logo-item flex items-center justify-center px-5 py-3 min-w-[140px]" aria-hidden="true">
-                        <img loading="lazy" src="../images/carplug.svg" alt="Logo Carplug" width="128" height="64" class="h-12 w-auto">
+                        <img loading="lazy" src="../images/carplug.svg" alt="Logo Carplug" width="128" height="64" class="h-12 w-auto" decoding="async">
                     </div>
                     <div class="logo-item flex items-center justify-center px-5 py-3 min-w-[140px]" aria-hidden="true">
-                        <picture><source srcset="../images/becable.webp" type="image/webp"><img loading="lazy" src="../images/becable.png" alt="Logo BE Cable" width="128" height="64" class="h-12 w-auto"></picture>
+                        <picture><source srcset="../images/becable.webp" type="image/webp"><img loading="lazy" src="../images/becable.png" alt="Logo BE Cable" width="128" height="64" class="h-12 w-auto" decoding="async"></picture>
                     </div>
                     <div class="logo-item flex items-center justify-center px-5 py-3 min-w-[140px]" aria-hidden="true">
-                        <picture><source srcset="../images/bouygues.webp" type="image/webp"><img loading="lazy" src="../images/bouygues.png" alt="Logo Bouygues" width="128" height="64" class="h-12 w-auto"></picture>
+                        <picture><source srcset="../images/bouygues.webp" type="image/webp"><img loading="lazy" src="../images/bouygues.png" alt="Logo Bouygues" width="128" height="64" class="h-12 w-auto" decoding="async"></picture>
                     </div>
                     <div class="logo-item flex items-center justify-center px-5 py-3 min-w-[140px]" aria-hidden="true">
-                        <picture><source srcset="../images/eko.webp" type="image/webp"><img loading="lazy" src="../images/eko.png" alt="Logo EKO" width="128" height="64" class="h-12 w-auto"></picture>
+                        <picture><source srcset="../images/eko.webp" type="image/webp"><img loading="lazy" src="../images/eko.png" alt="Logo EKO" width="128" height="64" class="h-12 w-auto" decoding="async"></picture>
                     </div>
                     <div class="logo-item flex items-center justify-center px-5 py-3 min-w-[140px]" aria-hidden="true">
-                        <picture><source srcset="../images/efacec.webp" type="image/webp"><img loading="lazy" src="../images/efacec.png" alt="Logo Efacec" width="128" height="64" class="h-12 w-auto"></picture>
+                        <picture><source srcset="../images/efacec.webp" type="image/webp"><img loading="lazy" src="../images/efacec.png" alt="Logo Efacec" width="128" height="64" class="h-12 w-auto" decoding="async"></picture>
                     </div>
                     <div class="logo-item flex items-center justify-center px-5 py-3 min-w-[140px]" aria-hidden="true">
-                        <picture><source srcset="../images/ies.webp" type="image/webp"><img loading="lazy" src="../images/ies.png" alt="Logo IES" width="128" height="64" class="h-12 w-auto"></picture>
+                        <picture><source srcset="../images/ies.webp" type="image/webp"><img loading="lazy" src="../images/ies.png" alt="Logo IES" width="128" height="64" class="h-12 w-auto" decoding="async"></picture>
                     </div>
                     <div class="logo-item flex items-center justify-center px-5 py-3 min-w-[140px]" aria-hidden="true">
-                        <picture><source srcset="../images/alpi.webp" type="image/webp"><img loading="lazy" src="../images/alpi.png" alt="Logo Alpi" width="128" height="64" class="h-12 w-auto"></picture>
+                        <picture><source srcset="../images/alpi.webp" type="image/webp"><img loading="lazy" src="../images/alpi.png" alt="Logo Alpi" width="128" height="64" class="h-12 w-auto" decoding="async"></picture>
                     </div>
                     <div class="logo-item flex items-center justify-center px-5 py-3 min-w-[140px]" aria-hidden="true">
-                        <picture><source srcset="../images/perpignan.webp" type="image/webp"><img loading="lazy" src="../images/perpignan.png" alt="Logo Perpignan Mediterranee" width="128" height="64" class="h-12 w-auto"></picture>
+                        <picture><source srcset="../images/perpignan.webp" type="image/webp"><img loading="lazy" src="../images/perpignan.png" alt="Logo Perpignan Mediterranee" width="128" height="64" class="h-12 w-auto" decoding="async"></picture>
                     </div>
                     <div class="logo-item flex items-center justify-center px-5 py-3 min-w-[140px]" aria-hidden="true">
-                        <picture><source srcset="../images/basicfit.webp" type="image/webp"><img loading="lazy" src="../images/basicfit.png" alt="Logo Basic-Fit" width="128" height="64" class="h-12 w-auto"></picture>
+                        <picture><source srcset="../images/basicfit.webp" type="image/webp"><img loading="lazy" src="../images/basicfit.png" alt="Logo Basic-Fit" width="128" height="64" class="h-12 w-auto" decoding="async"></picture>
                     </div>
                     <div class="logo-item flex items-center justify-center px-5 py-3 min-w-[140px]" aria-hidden="true">
-                        <picture><source srcset="../images/anyos.webp" type="image/webp"><img loading="lazy" src="../images/anyos.png" alt="Logo Anyos" width="128" height="64" class="h-12 w-auto"></picture>
+                        <picture><source srcset="../images/anyos.webp" type="image/webp"><img loading="lazy" src="../images/anyos.png" alt="Logo Anyos" width="128" height="64" class="h-12 w-auto" decoding="async"></picture>
                     </div>
                 </div>
             </div>
@@ -971,7 +971,7 @@
                         As suas perguntas. As nossas respostas diretas.
                     </h2>
                 </div>
-                <div class="space-y-3" role="region" aria-label="Perguntas frequentes">
+                <div class="space-y-3">
                     <details class="group bg-white border border-gray-200 rounded-xl p-5 hover:border-gray-300 transition-colors card-lift">
                         <summary class="font-medium text-gray-900 cursor-pointer flex items-center justify-between list-none [&::-webkit-details-marker]:hidden">
                             <div class="flex items-center gap-3">
@@ -1131,7 +1131,7 @@
                                     <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
                                     <div>
                                         <h3 class="font-bold text-white text-lg">Precisa de ajuda rápida?</h3>
-                                        <p class="text-blue-100 text-xs mt-0.5">Suporte técnico disponível 24/7</p>
+                                        <p class="text-white text-xs mt-0.5">Suporte técnico disponível 24/7</p>
                                     </div>
                                 </div>
                             </div>
@@ -1289,12 +1289,12 @@
         </svg>
     </button>
 
-    <script src="../js/config.js?v=86" defer></script>
-    <script src="../js/utils.js?v=86" defer></script>
-    <script src="../js/i18n.js?v=86" defer></script>
-    <script src="../js/public.js?v=86" defer></script>
-    <script src="../js/landing.js?v=86" defer></script>
-    <script src="../js/wow-effects.js?v=86" defer></script>
+    <script src="../js/config.js?v=87" defer></script>
+    <script src="../js/utils.js?v=87" defer></script>
+    <script src="../js/i18n.js?v=87" defer></script>
+    <script src="../js/public.js?v=87" defer></script>
+    <script src="../js/landing.js?v=87" defer></script>
+    <script src="../js/wow-effects.js?v=87" defer></script>
     <script>
         (function(){
             if ('IntersectionObserver' in window) {
@@ -1401,7 +1401,7 @@ document.addEventListener('DOMContentLoaded', function() {
         [50.8503, 4.3517, 'Bruxelas']
     ];
     majors.forEach(function(c) {
-        L.marker([c[0], c[1]], {icon: iconLg}).addTo(map).bindPopup('<strong>' + c[2] + '</strong>');
+        L.marker([c[0], c[1]], {icon: iconLg, title: c[2]}).addTo(map).bindPopup('<strong>' + c[2] + '</strong>');
     });
 
     // Secondary cities (small markers)
@@ -1427,7 +1427,7 @@ document.addEventListener('DOMContentLoaded', function() {
         [41.9191, 8.7386, 'Ajaccio'], [42.6977, 9.4497, 'Bastia']
     ];
     cities.forEach(function(c) {
-        L.marker([c[0], c[1]], {icon: icon}).addTo(map).bindPopup(c[2]);
+        L.marker([c[0], c[1]], {icon: icon, title: c[2]}).addTo(map).bindPopup(c[2]);
     });
 
     // Add coverage overlay text

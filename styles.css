@@ -2289,7 +2289,7 @@ a:focus-visible, button:focus-visible {
   font-family: var(--font-serif);
   font-weight: 600;
   font-size: 1.2rem;
-  color: #B7C9EC;
+  color: #3470DD; /* >= 4,5:1 sur blanc */
   line-height: 1;
 }
 .sec-label {
@@ -2304,6 +2304,11 @@ a:focus-visible, button:focus-visible {
   color: #F5F4EF;
 }
 .section-dark .sec-label { color: #7FA6E8; }
+.section-dark .num { color: #9DB8E8; }
+/* Gris utilitaires sur fond encre : >= 4,5:1 */
+.section-dark .text-gray-400,
+.section-dark .text-gray-500,
+.section-dark .text-gray-600 { color: #B3BAC6; }
 .section-dark .step { border-top: 2px solid var(--color-primary); padding-top: 0.875rem; }
 .section-alt { background: var(--color-cream-alt); }
 .logo-strip img,
@@ -2630,3 +2635,5 @@ a:focus-visible, button:focus-visible {
     opacity: 1 !important;
   }
 }
+/* Liens d'attribution Leaflet : distinguables du texte voisin (WCAG 1.4.1) */
+.leaflet-container .leaflet-control-attribution a { text-decoration: underline; }
