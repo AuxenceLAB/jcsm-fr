@@ -50,7 +50,12 @@
         "exploitation": { en: "operations-maintenance", es: "operacion-mantenimiento", de: "betrieb-wartung", pt: "operacao-manutencao", nl: "exploitatie-onderhoud", pl: "eksploatacja-konserwacja", it: "gestione-manutenzione" },
         "securisation-installations": { en: "installation-security", es: "seguridad-instalaciones", de: "anlagensicherung", pt: "seguranca-instalacoes", nl: "beveiliging-installaties", pl: "zabezpieczenie-instalacji", it: "sicurezza-installazioni" },
         "centre-appel": { en: "call-center", es: "centro-llamadas", de: "callcenter", pt: "central-atendimento", nl: "callcenter", pl: "centrum-telefoniczne", it: "centro-chiamate" },
-        "couverture": { en: "coverage", es: "cobertura", de: "abdeckung", pt: "cobertura", nl: "dekking", pl: "zasieg", it: "copertura" },
+        "couverture": { en: "coverage", pt: "cobertura" },
+        "devenir-partenaire": { en: "become-partner" },
+        "carrieres": { en: "careers" },
+        "mentions-legales": { en: "legal-notice" },
+        "cgv": { en: "terms" },
+        "confidentialite": { en: "privacy" },
         "a-propos": { en: "about", es: "nosotros", de: "ueber-uns", pt: "sobre-nos", nl: "over-ons", pl: "o-nas", it: "chi-siamo" },
         "contact": { en: "contact", es: "contacto", de: "kontakt", pt: "contato", nl: "contact", pl: "kontakt", it: "contatti" }
     };

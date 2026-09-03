@@ -226,33 +226,6 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  <url>
-    <loc>https://jcsm.fr/mentions-legales</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://jcsm.fr/mentions-legales"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://jcsm.fr/en/legal-notice"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://jcsm.fr/mentions-legales"/>
-    <lastmod>2026-06-16</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>https://jcsm.fr/cgv</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://jcsm.fr/cgv"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://jcsm.fr/en/terms"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://jcsm.fr/cgv"/>
-    <lastmod>2026-06-16</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>https://jcsm.fr/confidentialite</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://jcsm.fr/confidentialite"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://jcsm.fr/en/privacy"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://jcsm.fr/confidentialite"/>
-    <lastmod>2026-06-16</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-  </url>
   <!-- Tarification page -->
   <url>
     <loc>https://jcsm.fr/tarification</loc>
@@ -718,18 +691,6 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://jcsm.fr/en/coverage"/>
     <xhtml:link rel="alternate" hreflang="pt" href="https://jcsm.fr/pt/cobertura"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://jcsm.fr/couverture"/><lastmod>2026-06-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://jcsm.fr/en/legal-notice</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://jcsm.fr/mentions-legales"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://jcsm.fr/en/legal-notice"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://jcsm.fr/mentions-legales"/><lastmod>2026-06-16</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
-  <url><loc>https://jcsm.fr/en/terms</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://jcsm.fr/cgv"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://jcsm.fr/en/terms"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://jcsm.fr/cgv"/><lastmod>2026-06-16</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
-  <url><loc>https://jcsm.fr/en/privacy</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://jcsm.fr/confidentialite"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://jcsm.fr/en/privacy"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://jcsm.fr/confidentialite"/><lastmod>2026-06-16</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
   <!-- Spanish pages -->
   <url><loc>https://jcsm.fr/es/</loc>
     <xhtml:link rel="alternate" hreflang="fr" href="https://jcsm.fr/"/>
