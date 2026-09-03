@@ -1,0 +1,122 @@
+# Supervision publique de jcsm.fr depuis GitHub, toutes les 30 minutes.
+# Aucun secret ni accès au VPS : scripts/supervision.sh n'utilise que curl et
+# openssl en HTTPS public. Sur échec, UNE seule issue étiquetée « incident » est
+# ouverte (ou mise à jour), puis fermée avec un commentaire au retour au vert.
+# Seule action tierce : actions/checkout, épinglée par SHA complet.
+name: Supervision
+
+on:
+  schedule:
+    # Toutes les 30 minutes (UTC). GitHub peut décaler un tick de quelques minutes
+    # en période de charge : la fréquence réelle reste proche de 30 min.
+    - cron: '*/30 * * * *'
+  workflow_dispatch:
+
+# Le jeton GITHUB_TOKEN ne reçoit que le strict nécessaire : lire le dépôt pour
+# récupérer le script, écrire les issues pour signaler et clôturer l'incident.
+permissions:
+  contents: read
+  issues: write
+
+# Deux ticks ne se chevauchent jamais (sinon deux issues pourraient naître).
+concurrency:
+  group: supervision
+  cancel-in-progress: false
+
+jobs:
+  controle:
+    name: Contrôles HTTPS publics
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Récupération du script de supervision
+        uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # v5.0.1
+        with:
+          persist-credentials: false
+
+      - name: Contrôles (accueil, en-têtes, /api/health, TLS, sitemap, robots)
+        id: controles
+        run: |
+          set +e
+          bash scripts/supervision.sh --report "$RUNNER_TEMP/rapport.md"
+          statut=$?
+          set -e
+          echo "statut=$statut" >> "$GITHUB_OUTPUT"
+          cat "$RUNNER_TEMP/rapport.md" | tee -a "$GITHUB_STEP_SUMMARY"
+
+      - name: Issue « incident » (ouverture, mise à jour ou clôture)
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+          STATUT: ${{ steps.controles.outputs.statut }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          RAPPORT: ${{ runner.temp }}/rapport.md
+        run: |
+          set -euo pipefail
+          TITRE="[supervision] jcsm.fr : incident en cours"
+          # Une seule issue de supervision ouverte à la fois : on la retrouve par
+          # son étiquette et son préfixe de titre, jamais en créant une nouvelle.
+          NUMERO=$(gh issue list --label incident --state open --limit 20 --json number,title \
+                    --jq 'map(select(.title | startswith("[supervision]"))) | .[0].number // empty')
+
+          if [ "$STATUT" = "0" ]; then
+            if [ -n "$NUMERO" ]; then
+              {
+                echo "✅ Retour au vert le $(date -u '+%Y-%m-%d %H:%M UTC') : tous les contrôles passent."
+                echo
+                cat "$RAPPORT"
+                echo
+                echo "Exécution : $RUN_URL"
+              } > "$RUNNER_TEMP/cloture.md"
+              gh issue comment "$NUMERO" --body-file "$RUNNER_TEMP/cloture.md"
+              gh issue close "$NUMERO" --reason completed
+              echo "Issue #$NUMERO clôturée (retour au vert)."
+            else
+              echo "Tout est vert, aucune issue ouverte : rien à faire."
+            fi
+            exit 0
+          fi
+
+          # Échec : l'étiquette existe (création idempotente), puis une issue unique.
+          gh label create incident --color B60205 --force \
+            --description "Incident détecté par la supervision automatique" >/dev/null
+          # Signature des contrôles en échec : un commentaire n'est ajouté que si
+          # la liste des échecs change, pour ne pas commenter à chaque tick.
+          SIGNATURE=$( (grep -E '^\| ❌' "$RAPPORT" || true) | cut -d'|' -f3 | sha256sum | cut -c1-16)
+          {
+            echo "<!-- supervision-signature: $SIGNATURE -->"
+            echo "La supervision automatique (toutes les 30 min) détecte un problème sur https://jcsm.fr."
+            echo "Cette issue est mise à jour à chaque tick et fermée automatiquement au retour au vert."
+            echo
+            cat "$RAPPORT"
+            echo
+            echo "Dernière exécution : $RUN_URL"
+            echo
+            echo "Marche à suivre : docs/EXPLOITATION.md, section « Incidents fréquents »."
+          } > "$RUNNER_TEMP/corps.md"
+
+          if [ -z "$NUMERO" ]; then
+            gh issue create --title "$TITRE" --label incident --body-file "$RUNNER_TEMP/corps.md"
+            echo "Issue d'incident ouverte."
+          else
+            ANCIENNE=$(gh issue view "$NUMERO" --json body --jq .body \
+                        | grep -o 'supervision-signature: [0-9a-f]*' | cut -d' ' -f2 || true)
+            gh issue edit "$NUMERO" --body-file "$RUNNER_TEMP/corps.md" >/dev/null
+            if [ "$ANCIENNE" != "$SIGNATURE" ]; then
+              {
+                echo "⚠️ La liste des contrôles en échec a changé le $(date -u '+%Y-%m-%d %H:%M UTC') :"
+                echo
+                grep -E '^\| (❌|⚠️)' "$RAPPORT" || true
+                echo
+                echo "Exécution : $RUN_URL"
+              } > "$RUNNER_TEMP/commentaire.md"
+              gh issue comment "$NUMERO" --body-file "$RUNNER_TEMP/commentaire.md"
+            fi
+            echo "Issue #$NUMERO mise à jour."
+          fi
+
+      - name: Échec du workflow tant que l'incident dure
+        if: steps.controles.outputs.statut != '0'
+        run: |
+          echo "::error::Au moins un contrôle public de jcsm.fr est en échec (voir le résumé)."
+          exit 1
