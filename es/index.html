@@ -399,7 +399,7 @@
         }
         .card-lead .svc-arrow { color: rgba(255,255,255,0.5); }
         .card-lead:hover .svc-arrow { color: #fff; gap: 10px; }
-        .card-feature .svc-arrow { color: var(--color-primary); opacity: 0.6; }
+        .card-feature .svc-arrow { color: var(--color-primary); }
         .card-feature:hover .svc-arrow { opacity: 1; gap: 10px; }
         .svc-arrow svg {
             transition: transform 0.3s var(--ease);
@@ -608,7 +608,7 @@
     </nav>
 
     <!-- Barra de progreso de scroll -->
-    <div id="scroll-progress" class="fixed top-0 left-0 h-1 bg-blue-600 z-[60] transition-all duration-150" style="width: 0%;" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Progreso de lectura"></div>
+    <div id="scroll-progress" class="fixed top-0 left-0 h-1 bg-blue-600 z-[60] transition-all duration-150" style="width:0%" aria-hidden="true"></div>
 
     <nav class="fixed top-0 w-full z-50 glass-nav border-b border-gray-200" role="navigation" aria-label="Navegacion principal">
         <div class="max-w-7xl mx-auto px-6 py-4">
@@ -1041,7 +1041,7 @@
                         Sus preguntas. Nuestras respuestas directas.
                     </h2>
                 </div>
-                <div class="space-y-3" role="region" aria-label="Preguntas frecuentes">
+                <div class="space-y-3">
                     <details class="group bg-white border border-gray-200 rounded-xl p-5 hover:border-gray-300 transition-colors card-lift">
                         <summary class="font-medium text-gray-900 cursor-pointer flex items-center justify-between list-none [&::-webkit-details-marker]:hidden">
                             <div class="flex items-center gap-3">
@@ -1201,7 +1201,7 @@
                                     <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
                                     <div>
                                         <h3 class="font-bold text-white text-lg">¿Necesita ayuda rapida?</h3>
-                                        <p class="text-blue-100 text-xs mt-0.5">Soporte tecnico disponible 24/7</p>
+                                        <p class="text-white text-xs mt-0.5">Soporte tecnico disponible 24/7</p>
                                     </div>
                                 </div>
                             </div>
@@ -1471,7 +1471,7 @@ document.addEventListener('DOMContentLoaded', function() {
         [50.8503, 4.3517, 'Bruselas']
     ];
     majors.forEach(function(c) {
-        L.marker([c[0], c[1]], {icon: iconLg}).addTo(map).bindPopup('<strong>' + c[2] + '</strong>');
+        L.marker([c[0], c[1]], {icon: iconLg, title: c[2]}).addTo(map).bindPopup('<strong>' + c[2] + '</strong>');
     });
 
     // Secondary cities (small markers)
@@ -1497,7 +1497,7 @@ document.addEventListener('DOMContentLoaded', function() {
         [41.9191, 8.7386, 'Ajaccio'], [42.6977, 9.4497, 'Bastia']
     ];
     cities.forEach(function(c) {
-        L.marker([c[0], c[1]], {icon: icon}).addTo(map).bindPopup(c[2]);
+        L.marker([c[0], c[1]], {icon: icon, title: c[2]}).addTo(map).bindPopup(c[2]);
     });
 
     // Add coverage overlay text

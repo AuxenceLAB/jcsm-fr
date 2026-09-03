@@ -173,7 +173,7 @@
         }
         .hero-search-btn:active { transform: translateY(-50%) scale(0.97); }
         .hero-search-hint {
-            margin-top: 14px; font-size: 13px; color: #94a3b8;
+            margin-top: 14px; font-size: 13px; color: var(--color-text-secondary);
             display: flex; align-items: center; justify-content: center; gap: 6px;
         }
         .hero-search-hint::before {
@@ -312,7 +312,7 @@
             box-shadow: 0 2px 6px rgba(0,0,0,0.04), 0 12px 36px rgba(0,0,0,0.06);
         }
         .sidebar-panel-title {
-            font-size: 11px; font-weight: 700; color: #94a3b8;
+            font-size: 11px; font-weight: 700; color: var(--color-text-secondary);
             text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 18px;
             display: flex; align-items: center; gap: 8px;
         }
@@ -399,7 +399,7 @@
         }
         .region-item .region-name { flex: 1; font-size: 13px; font-weight: 600; color: #334155; }
         .region-item.active .region-name { color: #2563eb; }
-        .region-item .region-count { font-size: 11px; font-weight: 700; color: #94a3b8; }
+        .region-item .region-count { font-size: 11px; font-weight: 700; color: var(--color-text-secondary); }
         .region-item.active .region-count { color: #2563eb; }
         .region-progress { flex: 0 0 64px; height: 5px; background: rgba(226,232,240,0.6); border-radius: 3px; overflow: hidden; }
         .region-progress-bar { height: 100%; border-radius: 3px; transition: width 0.6s cubic-bezier(0.16, 1, 0.3, 1); position: relative; }
@@ -559,9 +559,7 @@
     </nav>
 
     <!-- Barre de progression de scroll -->
-    <div id="scroll-progress"
-        class="fixed top-0 left-0 h-1 bg-blue-600 z-[60] transition-all duration-150"
-        style="width: 0%;"></div>
+    <div id="scroll-progress" class="fixed top-0 left-0 h-1 bg-blue-600 z-[60] transition-all duration-150" style="width:0%" aria-hidden="true"></div>
 
     <nav class="fixed top-0 w-full z-50 glass-nav border-b border-gray-200" role="navigation" aria-label="Navigation principale">
         <div class="max-w-7xl mx-auto px-6 py-4">
@@ -967,7 +965,7 @@
             <div class="cta-pattern"></div>
             <div class="max-w-3xl mx-auto text-center relative section-appear">
                 <h2 class="text-3xl sm:text-4xl font-extrabold mb-5 text-white">Votre zone n'est pas couverte ?</h2>
-                <p class="text-blue-100 text-lg mb-10 leading-relaxed max-w-xl mx-auto">Notre réseau s'étend en continu. Contactez-nous pour une étude personnalisée de couverture sur votre territoire.</p>
+                <p class="text-white text-lg mb-10 leading-relaxed max-w-xl mx-auto">Notre réseau s'étend en continu. Contactez-nous pour une étude personnalisée de couverture sur votre territoire.</p>
                 <a href="/contact" class="cta-btn">
                     Nous contacter
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
