@@ -27,7 +27,7 @@ JCSM is a static website for an electric vehicle charging infrastructure (IRVE) 
 
 | File | Role |
 |------|------|
-| `config.js` | API endpoints (all server-side proxied), auth helpers (session CRUD, Bearer token headers), cache TTLs. Version 2.57.0. |
+| `config.js` | API endpoints (all server-side proxied), auth helpers (session CRUD, Bearer token headers), cache TTLs. Version 2.57.2. |
 | `public.js` | All public page effects: mobile menu, scroll animations, cookie consent, form validation, toast notifications (XSS-safe via `textContent`), rAF counters with `aria-label`. Skips hover transitions if `wow-effects.js` is loaded. |
 | `wow-effects.js` | Animation classes: Counter, ScrollProgress, LogoMarquee. Respects `prefers-reduced-motion`. Style injection with `id="jcsm-wow-styles"` dedup guard. |
 | `map.js` | Leaflet map integration with geocoded intervention markers. Uses centralized `window.escapeHtml()`. Filters Null Island (0,0) coordinates. |
@@ -109,7 +109,7 @@ Cache-bust by hard-refreshing (Ctrl+Shift+R). When adding a new language directo
 
 After CSS/JS changes, bump the cache version in `sw.js` (lines 1-4: comment + `STATIC_CACHE`, `DYNAMIC_CACHE`, `API_CACHE`) to invalidate old caches. Current version: **v84**.
 
-Also bump `version` in `js/config.js`. Current: **2.57.0**.
+Also bump `version` in `js/config.js`. Current: **2.57.2** (HTML `?v=87`).
 
 HTML pages also carry `?v=NN` cache-buster query strings on their CSS/JS links (~149 files). After significant CSS/JS changes, bump them too: `grep -rln '?v=NN' --include='*.html' . | grep -v '^./demo' | xargs sed -i 's/?v=NN/?v=MM/g'`. Keep this number in sync with the sw.js version.
 
