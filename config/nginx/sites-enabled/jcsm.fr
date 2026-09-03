@@ -73,8 +73,35 @@ server {
         try_files $uri $uri.html $uri/ =404;
     }
 
-    # PHP-FPM handler (no cache)
-    location ~ \.php$ {
+    # --- PHP -----------------------------------------------------------------
+    # Modules inclus par require_once et script CLI : jamais servis en direct
+    location ~ ^/api/(auth|helpers|indexnow)\.php$ {
+        deny all;
+    }
+
+    # Webhooks Twilio (publics, sans CORS, signature validée dans le PHP).
+    # Doit précéder le bloc générique : nginx retient le PREMIER regex qui matche.
+    location ~ ^/api/twilio-(incoming-sms|voice-twiml)\.php$ {
+        limit_req zone=req_limit_per_ip burst=20 nodelay;
+        limit_conn conn_limit_per_ip 20;
+        include snippets/fastcgi-php.conf;
+        fastcgi_pass unix:/run/php/php8.4-fpm.sock;
+        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+        add_header Cache-Control "no-cache, no-store, must-revalidate" always;
+    }
+
+    # Lien d'intervention (accès public technicien via token signé)
+    location = /api/intervention-link.php {
+        limit_req zone=req_limit_per_ip burst=20 nodelay;
+        limit_conn conn_limit_per_ip 20;
+        include snippets/fastcgi-php.conf;
+        fastcgi_pass unix:/run/php/php8.4-fpm.sock;
+        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+        add_header Cache-Control "no-cache, no-store, must-revalidate" always;
+    }
+
+    # PHP-FPM handler (no cache) : uniquement les scripts à la racine de /api/
+    location ~ ^/api/[^/]+\.php$ {
         limit_req zone=req_limit_per_ip burst=20 nodelay;
         limit_conn conn_limit_per_ip 20;
         include snippets/fastcgi-php.conf;
@@ -86,11 +113,16 @@ server {
         add_header Pragma "no-cache" always;
     }
 
+    # Tout autre .php (sous-dossiers de api/, vendor, uploads, racine) : refusé
+    location ~ \.php$ {
+        deny all;
+    }
+
     # Block access to sensitive files
     location ~ /\.(?!well-known) {
         deny all;
     }
-    location ~ \.(env|sql|sh|log)$ {
+    location ~ \.(env|sql|sh|log|lock|tmp|gpg|jsonl|py)$ {
         deny all;
     }
     # Block backup/source/temp files
@@ -113,6 +145,13 @@ server {
     location ^~ /scripts/ {
         deny all;
     }
+    location ^~ /docs/ {
+        deny all;
+    }
+    # Dépendances Composer (PHPWord) : jamais servies ni exécutées
+    location ^~ /api/vendor/ {
+        deny all;
+    }
     # Block node_modules directory
     location ^~ /node_modules/ {
         deny all;
@@ -131,28 +170,6 @@ server {
         deny all;
     }
 
-    # Twilio incoming webhooks (public, no CORS, signature-validated in PHP)
-    location ~ ^/api/twilio-(incoming-sms|voice-twiml)\.php$ {
-        limit_req zone=req_limit_per_ip burst=20 nodelay;
-        limit_conn conn_limit_per_ip 20;
-        include snippets/fastcgi-php.conf;
-        fastcgi_pass unix:/run/php/php8.4-fpm.sock;
-        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
-        add_header Cache-Control "no-cache, no-store, must-revalidate" always;
-    }
-
-    # Intervention link (public access for technicians via signed token)
-    location = /api/intervention-link.php {
-        limit_req zone=req_limit_per_ip burst=20 nodelay;
-        limit_conn conn_limit_per_ip 20;
-        include snippets/fastcgi-php.conf;
-        fastcgi_pass unix:/run/php/php8.4-fpm.sock;
-        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
-        add_header Cache-Control "no-cache, no-store, must-revalidate" always;
-    }
-
-
-
     # Service Worker - never cache immutably (must check for updates)
     location = /sw.js {
         include /etc/nginx/snippets/security.conf;
@@ -160,8 +177,13 @@ server {
         try_files $uri =404;
     }
 
-    # Rapports - allow access to generated reports
-    location /rapports/ {
+    # Rapports - fichiers générés (suffixe aléatoire 128 bits = secret d'accès).
+    # ^~ : le regex « .html -> 301 sans extension » ne doit pas s'appliquer ici,
+    # sinon /rapports/Rapport_X.html redirige vers une URL inexistante (404).
+    location ^~ /rapports/ {
+        limit_req zone=req_limit_per_ip burst=20 nodelay;
+        limit_conn conn_limit_per_ip 20;
+        autoindex off;
         include /etc/nginx/snippets/security.conf;
         add_header Cache-Control "no-cache, no-store, must-revalidate" always;
         add_header X-Robots-Tag "noindex, nofollow" always;
