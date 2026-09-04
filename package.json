@@ -1,0 +1,15 @@
+{
+  "name": "jcsm.fr",
+  "version": "1.0.0",
+  "description": "Site public JCSM (jcsm.fr) — seule étape de build : compilation Tailwind CSS vers css/tailwind.css",
+  "private": true,
+  "license": "ISC",
+  "scripts": {
+    "build:css": "tailwindcss -c tailwind.config.js -o css/tailwind.css --minify",
+    "watch:css": "tailwindcss -c tailwind.config.js -o css/tailwind.css --watch",
+    "check": "bash scripts/check.sh"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.19"
+  }
+}

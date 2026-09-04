@@ -44,7 +44,7 @@ if (!$GOOGLE_SHEETS_URLS['admin'] || !$GOOGLE_SHEETS_URLS['terrain']) {
 
 // Déterminer quelle URL utiliser (par défaut: terrain, whitelist stricte)
 $context = $_GET['context'] ?? 'terrain';
-if (!in_array($context, ['admin', 'terrain'], true)) {
+if (!is_string($context) || !in_array($context, ['admin', 'terrain'], true)) {
     $context = 'terrain';
 }
 

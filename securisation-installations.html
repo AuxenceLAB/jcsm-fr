@@ -2,13 +2,13 @@
 <html lang="fr">
 
 <head>
-<link rel="preload" as="font" type="font/woff2" href="/fonts/fraunces-600-latin.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="/fonts/archivo-latin.woff2" crossorigin>
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <!-- Cookie Consent + GTM (chargé après acceptation) -->
-    <script src="/js/cookie-consent.js" defer></script>
+    <script src="/js/cookie-consent.js?v=2" defer></script>
     <title>Sécurisation Bornes de Recharge | Anti-vandalisme | JCSM</title>
     <meta name="description"
         content="Sécurisation de bornes IRVE : vidéosurveillance IA, alarmes connectées, protection anti-vandalisme. Audit sécurité gratuit.">
@@ -125,15 +125,14 @@
         content="Protégez vos bornes IRVE contre le vandalisme et le vol de câbles. Vidéosurveillance IA, alarmes connectées, intervention 24/7. Audit gratuit.">
     <meta name="twitter:image" content="https://jcsm.fr/images/vandalisme.jpg">
     <meta name="twitter:image:alt" content="Sécurisation de bornes de recharge contre le vandalisme">
-    <link rel="stylesheet" href="/css/critical.css?v=86">
-    <link rel="stylesheet" href="/css/tailwind.css?v=86" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="/css/tailwind.css?v=86"></noscript>
-    <link rel="stylesheet" href="/styles.css?v=86" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="/styles.css?v=86"></noscript>
+    <link rel="stylesheet" href="/css/critical.css?v=90">
+    <link rel="stylesheet" href="/css/tailwind.css?v=88">
+    <link rel="stylesheet" href="/styles.css?v=90">
+    <link rel="stylesheet" href="/css/theme-2026.css?v=5">
     <link rel="manifest" href="/manifest.json">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="theme-color" content="#2563EB">
+    <meta name="theme-color" content="#C2703B">
 
     <link rel="stylesheet" href="/css/leaflet.css" media="print" onload="this.media='all'">
     <noscript><link rel="stylesheet" href="/css/leaflet.css"></noscript>
@@ -185,7 +184,7 @@
                     <picture><source srcset="images/logo.webp" type="image/webp"><img src="images/logo.png" alt="JCSM - Accueil" class="w-10 h-10 transition-transform group-hover:scale-105 duration-300" width="40" height="40"></picture>
                     <span class="text-2xl font-extrabold tracking-tight text-gray-900">JCSM</span>
                 </a>
-                <div class="hidden lg:flex items-center space-x-2">
+                <div class="hidden xl:flex items-center space-x-2">
                     <a href="/pilotage-projets" class="nav-link text-[15px] font-semibold text-gray-700 whitespace-nowrap">Pilotage</a>
                     <a href="/installation-conformite" class="nav-link text-[15px] font-semibold text-gray-700 whitespace-nowrap">Installation</a>
                     <a href="/exploitation" class="nav-link text-[15px] font-semibold text-gray-700 whitespace-nowrap">Exploitation</a>
@@ -814,13 +813,13 @@
         .popup-content { padding: 16px 20px; }
         .popup-content h3 { font-size: 15px; font-weight: 700; color: #1e293b; margin-bottom: 4px; }
         .popup-content p { font-size: 12px; color: #64748b; margin: 0; }
-        .popup-content .popup-badge { display: inline-block; margin-top: 8px; padding: 3px 10px; background: #EFF6FF; color: #2563EB; border-radius: 8px; font-size: 11px; font-weight: 600; }
+        .popup-content .popup-badge { display: inline-block; margin-top: 8px; padding: 3px 10px; background: #EFF6FF; color: #C2703B; border-radius: 8px; font-size: 11px; font-weight: 600; }
     </style>
 
     <script src="/js/config.js?v=86" defer></script>
     <script src="/js/utils.js?v=86" defer></script>
     <script src="/js/i18n.js?v=86" defer></script>
-    <script src="/js/public.js?v=86" defer></script>
+    <script src="/js/public.js?v=87" defer></script>
     <script src="/js/wow-effects.js?v=86" defer></script>
 
     <script>
@@ -871,7 +870,7 @@
                 cities.forEach(city => {
                     L.circleMarker([city.lat, city.lng], {
                         radius: 7,
-                        fillColor: '#2563EB',
+                        fillColor: '#C2703B',
                         fillOpacity: 1,
                         color: '#fff',
                         weight: 2.5,

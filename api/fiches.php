@@ -72,7 +72,7 @@ function saveFiches($file, $fiches)
 }
 
 // Sauvegarder une image depuis base64
-function saveImage($base64Data, $imageId, $imagesDir)
+function saveImage(string $base64Data, string $imageId, string $imagesDir)
 {
     // Limite de taille : 5 MB en base64
     if (strlen($base64Data) > 5 * 1024 * 1024 * 1.37) {
@@ -103,16 +103,18 @@ function saveImage($base64Data, $imageId, $imagesDir)
         $extension = $mimeToExt[$actualMime] ?? null;
         if ($extension === null) return null;
 
-        // Sanitize imageId to prevent path traversal
-        $safeId = preg_replace('/[^a-zA-Z0-9_-]/', '', $imageId);
+        // Sanitize imageId to prevent path traversal ; nom aléatoire si vide
+        $safeId = substr(preg_replace('/[^a-zA-Z0-9_-]/', '', $imageId), 0, 64);
+        if ($safeId === '') $safeId = 'img-' . bin2hex(random_bytes(8));
         $filename = $safeId . '.' . $extension;
         $filepath = $imagesDir . $filename;
 
-        // Verify the resolved path is within imagesDir
+        // Verify the resolved path is within imagesDir (realpath() retire le slash
+        // final : le dossier lui-même doit être accepté, sinon rien n'est jamais écrit)
         $realDir = realpath($imagesDir);
         if ($realDir === false) return null;
         $realPath = realpath(dirname($filepath));
-        if ($realPath === false || !str_starts_with($realPath, $realDir . DIRECTORY_SEPARATOR)) return null;
+        if ($realPath === false || ($realPath !== $realDir && !str_starts_with($realPath, $realDir . DIRECTORY_SEPARATOR))) return null;
 
         if (file_put_contents($filepath, $imageData)) {
             return 'api/images_fiches/' . $filename;
@@ -128,8 +130,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 
     // Convertir les chemins d'images en URLs complètes si nécessaire
     foreach ($fiches as &$fiche) {
-        if (isset($fiche['images']) && is_array($fiche['images'])) {
+        if (is_array($fiche) && isset($fiche['images']) && is_array($fiche['images'])) {
             foreach ($fiche['images'] as &$img) {
+                if (!is_array($img) || !isset($img['data']) || !is_string($img['data'])) continue;
                 // Si c'est déjà une URL complète, on garde
                 if (
                     !filter_var($img['data'], FILTER_VALIDATE_URL) &&
@@ -141,8 +144,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
                     }
                 }
             }
+            unset($img);
         }
     }
+    unset($fiche);
 
     echo json_encode($fiches, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
     exit;
@@ -158,9 +163,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         echo json_encode(['error' => 'Trop de requêtes. Réessayez dans quelques secondes.']);
         exit;
     }
+    // Borne globale du payload (20 images x ~7 Mo base64 max ; PHP post_max_size reste prioritaire)
+    $contentLength = (int) ($_SERVER['CONTENT_LENGTH'] ?? 0);
+    if ($contentLength > 32 * 1024 * 1024) {
+        http_response_code(413);
+        echo json_encode(['error' => 'Payload trop volumineux (max 32 Mo)']);
+        exit;
+    }
+
     $input = json_decode(file_get_contents('php://input'), true);
 
-    if (!$input) {
+    if (!$input || !is_array($input)) {
         http_response_code(400);
         echo json_encode(['error' => 'Données invalides']);
         exit;
@@ -188,8 +201,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Traiter les images
         if (isset($input['images']) && is_array($input['images'])) {
             foreach ($input['images'] as &$img) {
+                if (!is_array($img) || !isset($img['data']) || !is_string($img['data'])) continue;
                 if (str_starts_with($img['data'], 'data:image/')) {
-                    $imagePath = saveImage($img['data'], $img['id'], $imagesDir);
+                    $imageId = (isset($img['id']) && is_scalar($img['id'])) ? (string) $img['id'] : '';
+                    $imagePath = saveImage($img['data'], $imageId, $imagesDir);
                     if ($imagePath) {
                         $img['data'] = 'https://' . SITE_HOST . '/' . $imagePath;
                     }
@@ -198,7 +213,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
 
         if (isset($input['id'])) {
-            $index = array_search($input['id'], array_column($fiches, 'id'));
+            $index = is_scalar($input['id']) ? array_search($input['id'], array_column($fiches, 'id'), true) : false;
             if ($index !== false) {
                 $fiches[$index] = array_merge($fiches[$index], $input);
                 $fiches[$index]['dateModified'] = date('c');
@@ -237,7 +252,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 // DELETE : Supprimer une fiche (authentification requise)
 if ($_SERVER['REQUEST_METHOD'] === 'DELETE') {
     requireAuth();
-    $ficheId = $_GET['id'] ?? null;
+    $ficheId = (isset($_GET['id']) && is_string($_GET['id'])) ? $_GET['id'] : null;
     // Sanitize ficheId to prevent injection
     if ($ficheId) $ficheId = preg_replace('/[^a-zA-Z0-9_\-]/', '', substr($ficheId, 0, 64));
 
@@ -261,7 +276,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'DELETE') {
         $initialCount = count($fiches);
 
         // Supprimer les images associées (avec vérification de chemin)
-        $fiche = array_filter($fiches, fn($f) => $f['id'] === $ficheId);
+        $fiche = array_filter($fiches, fn($f) => is_array($f) && ($f['id'] ?? null) === $ficheId);
         if (!empty($fiche)) {
             $fiche = reset($fiche);
             if (isset($fiche['images'])) {
@@ -278,7 +293,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'DELETE') {
             }
         }
 
-        $fiches = array_filter($fiches, fn($f) => $f['id'] !== $ficheId);
+        $fiches = array_filter($fiches, fn($f) => !is_array($f) || ($f['id'] ?? null) !== $ficheId);
         $fiches = array_values($fiches);
 
         if (count($fiches) < $initialCount) {

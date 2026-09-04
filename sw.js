@@ -1,7 +1,23 @@
-// JCSM Service Worker - Enhanced PWA Support v86
-const STATIC_CACHE = 'jcsm-static-v86';
-const DYNAMIC_CACHE = 'jcsm-dynamic-v86';
-const API_CACHE = 'jcsm-api-v86';
+// JCSM Service Worker - Enhanced PWA Support v87
+const STATIC_CACHE = 'jcsm-static-v87';
+const DYNAMIC_CACHE = 'jcsm-dynamic-v87';
+
+// Chemins privés : jamais mis en cache, jamais servis depuis le cache
+// (API authentifiée, portail interne, rapports d'intervention). L'API reste
+// en réseau seul : le portail gère lui-même son cache localStorage (chaîne de
+// repli documentée dans CLAUDE.md).
+const PRIVATE_DIR_PREFIXES = ['/api/', '/rapports/'];
+const PRIVATE_PAGES = new Set(['/interne', '/internedemo', '/rapport-intervention', '/ca', '/ca1', '/ca2']);
+function isPrivatePath(pathname) {
+    if (PRIVATE_DIR_PREFIXES.some(prefix => pathname.startsWith(prefix))) return true;
+    return PRIVATE_PAGES.has(pathname.replace(/\.html$/, ''));
+}
+// Ne jamais mettre en cache une réponse que le serveur déclare non stockable
+function isCacheable(response) {
+    if (!response || !response.ok) return false;
+    const cc = response.headers.get('Cache-Control') || '';
+    return !/no-store|private/i.test(cc);
+}
 
 // Critical assets pre-cached on install (small set for fast startup)
 const CRITICAL_URLS = [
@@ -141,7 +157,7 @@ self.addEventListener('activate', (event) => {
     event.waitUntil(
         caches.keys().then(keys => {
             return Promise.all(
-                keys.filter(key => key !== STATIC_CACHE && key !== DYNAMIC_CACHE && key !== API_CACHE)
+                keys.filter(key => key !== STATIC_CACHE && key !== DYNAMIC_CACHE)
                     .map(key => caches.delete(key))
             );
         }).then(() => self.clients.claim())
@@ -159,27 +175,26 @@ self.addEventListener('fetch', (event) => {
     // Skip external requests
     if (url.origin !== location.origin) return;
 
-    // API requests - network first, cache fallback for offline
+    // API requests - network only (réponses authentifiées : jamais en cache)
     if (url.pathname.startsWith('/api/')) {
         event.respondWith(
             fetch(request)
-                .then(response => {
-                    // Cache successful API GET responses
-                    if (response.ok) {
-                        const clone = response.clone();
-                        caches.open(API_CACHE).then(cache => cache.put(request, clone));
-                    }
-                    return response;
-                })
-                .catch(() => {
-                    // Fallback to cached API response when offline
-                    return caches.match(request).then(cached => {
-                        if (cached) return cached;
-                        return new Response(JSON.stringify({ error: 'offline', message: 'Mode hors ligne' }), {
-                            headers: { 'Content-Type': 'application/json' }
-                        });
-                    });
-                })
+                .catch(() => new Response(JSON.stringify({ error: 'offline', message: 'Mode hors ligne' }), {
+                    headers: { 'Content-Type': 'application/json' }
+                }))
+        );
+        return;
+    }
+
+    // Pages / fichiers privés - network only, page hors ligne en repli
+    if (isPrivatePath(url.pathname)) {
+        event.respondWith(
+            fetch(request).catch(() => {
+                if (request.headers.get('accept')?.includes('text/html')) {
+                    return caches.match('/offline.html');
+                }
+                return Response.error();
+            })
         );
         return;
     }
@@ -189,7 +204,7 @@ self.addEventListener('fetch', (event) => {
         event.respondWith(
             fetch(request)
                 .then(response => {
-                    if (response.ok) {
+                    if (isCacheable(response)) {
                         const clone = response.clone();
                         // Cache into STATIC_CACHE if it's a known site URL, otherwise DYNAMIC_CACHE
                         const cacheName = LAZY_CACHE_URLS.has(url.pathname) ? STATIC_CACHE : DYNAMIC_CACHE;
@@ -208,7 +223,7 @@ self.addEventListener('fetch', (event) => {
             caches.match(request).then(cached => {
                 if (cached) return cached;
                 return fetch(request).then(response => {
-                    if (response.ok) {
+                    if (isCacheable(response)) {
                         const clone = response.clone();
                         caches.open(STATIC_CACHE).then(cache => cache.put(request, clone));
                     }
@@ -223,7 +238,7 @@ self.addEventListener('fetch', (event) => {
     event.respondWith(
         fetch(request)
             .then(response => {
-                if (response.ok && LAZY_CACHE_URLS.has(url.pathname)) {
+                if (isCacheable(response) && LAZY_CACHE_URLS.has(url.pathname)) {
                     const clone = response.clone();
                     caches.open(STATIC_CACHE).then(cache => cache.put(request, clone));
                 }

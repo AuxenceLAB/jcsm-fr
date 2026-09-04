@@ -12,7 +12,6 @@ const JCSM_CONFIG = {
         twilioVoiceToken: "/api/twilio-voice-token.php",
         conversations: "/api/conversations.php",
         callLogs: "/api/call-logs.php",
-        interventionLink: "/api/intervention-link.php"
     },
     auth: {
         loginEndpoint: "/api/login.php",
@@ -28,7 +27,7 @@ const JCSM_CONFIG = {
         interval: 60 * 60 * 1000,               /* 1 hour */
         backgroundSync: true
     },
-    version: "2.57.1",
+    version: "2.57.2",
     buildDate: "2026-04-22"
 };
 
