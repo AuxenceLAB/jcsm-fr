@@ -8,8 +8,8 @@
 # précédente si une vérification échoue après la bascule.
 #
 # Usage : ./deploy.sh
-#   DEPLOY_NGINX=1 ./deploy.sh   installe dans /etc/nginx les fichiers de config/nginx/
-#                                qui diffèrent (sauvegarde .bak-<date>), nginx -t, puis
+#   DEPLOY_NGINX=1 ./deploy.sh   installe dans /etc/nginx les fichiers geres
+#                                (sauvegarde hors sites-enabled), nginx -t, puis
 #                                reload UNIQUEMENT si un fichier a changé
 #   DEPLOY_PUSH=1 ./deploy.sh    pousse master vers GitHub à la fin (non bloquant)
 #
@@ -174,8 +174,12 @@ if [ "${#CHANGED_CONF[@]}" -eq 0 ]; then
   sudo -n nginx -t 2>&1 | sed 's/^/   /'
 elif [ "${DEPLOY_NGINX:-0}" = "1" ]; then
   STAMP=$(date +%Y%m%d-%H%M%S)
+  NGINX_BACKUP_DIR="/var/backups/nginx/jcsm-fr/$STAMP"
+  sudo -n install -d -m 700 "$NGINX_BACKUP_DIR"
   for rel in "${CHANGED_CONF[@]}"; do
-    [ -f "/etc/nginx/$rel" ] && sudo -n cp -p "/etc/nginx/$rel" "/etc/nginx/$rel.bak-$STAMP"
+    if [ -f "/etc/nginx/$rel" ]; then
+      sudo -n install -D -m 600 "/etc/nginx/$rel" "$NGINX_BACKUP_DIR/$rel"
+    fi
     sudo -n install -D -m 644 "config/nginx/$rel" "/etc/nginx/$rel"
     echo "   installé : /etc/nginx/$rel"
   done
@@ -184,8 +188,8 @@ elif [ "${DEPLOY_NGINX:-0}" = "1" ]; then
     echo "   nginx rechargé (${#CHANGED_CONF[@]} fichier(s) modifié(s))"
   else
     for rel in "${CHANGED_CONF[@]}"; do
-      if [ -f "/etc/nginx/$rel.bak-$STAMP" ]; then
-        sudo -n mv "/etc/nginx/$rel.bak-$STAMP" "/etc/nginx/$rel"
+      if [ -f "$NGINX_BACKUP_DIR/$rel" ]; then
+        sudo -n install -D -m 644 "$NGINX_BACKUP_DIR/$rel" "/etc/nginx/$rel"
       else
         sudo -n rm -f "/etc/nginx/$rel"
       fi
