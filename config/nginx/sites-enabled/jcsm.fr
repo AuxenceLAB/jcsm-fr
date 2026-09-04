@@ -19,6 +19,24 @@ server {
     return 301 https://jcsm.fr$request_uri;
 }
 
+# Redirections legacy en UN SEUL saut (avant : /interventions.html → 301
+# /interventions → 301 /exploitation, soit 2 sauts, car le `if` generique .html
+# ci-dessous court-circuitait les `location =` dediees).
+# Teste sur $request_uri (URI externe brute uniquement) comme les regles .html,
+# donc les redirections internes (error_page 404, index) ne sont pas interceptees.
+# Couvre /xxx, /xxx/, /xxx.html, avec ou sans query string (query supprimee,
+# comme avant).
+map $request_uri $jcsm_legacy_redirect {
+    default "";
+    "~^/(?:interventions|services)(?:\.html)?/?(?:\?.*)?$"      /exploitation;
+    "~^/support-client(?:\.html)?/?(?:\?.*)?$"                  /centre-appel;
+    "~^/securisation(?:\.html)?/?(?:\?.*)?$"                    /securisation-installations;
+    "~^/(?:mise-en-service|expertise)(?:\.html)?/?(?:\?.*)?$"   /installation-conformite;
+    "~^/de/installation-security(?:\.html)?/?(?:\?.*)?$"        /de/anlagensicherung;
+    "~^/de/operations-maintenance(?:\.html)?/?(?:\?.*)?$"       /de/betrieb-wartung;
+    "~^/de/call-center(?:\.html)?/?(?:\?.*)?$"                  /de/callcenter;
+}
+
 # Main HTTPS server
 server {
     server_name jcsm.fr;
@@ -32,26 +50,39 @@ server {
     # HTTP/2
     http2 on;
 
-    # 301 redirects for old/renamed pages
-    location = /interventions.html { return 301 /exploitation; }
-    location = /interventions { return 301 /exploitation; }
-    location = /support-client.html { return 301 /centre-appel; }
-    location = /support-client { return 301 /centre-appel; }
-    location = /securisation.html { return 301 /securisation-installations; }
-    location = /securisation { return 301 /securisation-installations; }
-    location = /mise-en-service.html { return 301 /installation-conformite; }
-    location = /mise-en-service { return 301 /installation-conformite; }
-    location = /services { return 301 /exploitation; }
-    location = /expertise { return 301 /installation-conformite; }
-    location = /index.html { return 301 /; }
-    # German pages with English slugs (soft 404 fix)
-    location = /de/installation-security { return 301 /de/anlagensicherung; }
-    location = /de/operations-maintenance { return 301 /de/betrieb-wartung; }
-    location = /de/call-center { return 301 /de/callcenter; }
+    # En-tetes de securite par defaut au niveau server : couvre les reponses qui
+    # n'en avaient AUCUN (404 via /404.html interne, redirections 301 ci-dessous,
+    # 403 des locations deny). Les locations qui declarent leur propre add_header
+    # incluent deja ce snippet et gardent leur jeu complet (heritage non cumulatif).
+    include /etc/nginx/snippets/security.conf;
 
-    # Redirect .html extension URLs to pretty URLs (SEO canonical)
-    location ~ ^/(.+)\.html$ {
+    # Legacy 301 en un seul saut (voir map $jcsm_legacy_redirect en tete de fichier).
+    # DOIT rester avant les regles .html generiques.
+    if ($jcsm_legacy_redirect) {
+        return 301 $jcsm_legacy_redirect;
+    }
+
+    # Redirect .html URLs to pretty URLs (SEO canonical) — tested on $request_uri
+    # (the EXTERNAL request only) so that internal rewrites (error_page 404,
+    # index module /xx/ → /xx/index.html) are NOT intercepted (fix soft-404
+    # sitewide + 301 parasites sur /en/ /de/ ... contredisant les canonicals).
+    if ($request_uri ~ "^/((?:[^?]+/)?)index\.html(\?|$)") {
         return 301 /$1;
+    }
+    if ($request_uri ~ "^/([^?]+)\.html(\?|$)") {
+        return 301 /$1;
+    }
+
+    # (Les anciennes `location =` de redirection legacy — /interventions,
+    # /support-client, /securisation, /mise-en-service, /services, /expertise,
+    # /de/* — sont remplacees par le map ci-dessus : un seul saut pour les
+    # formes .html ET sans extension.)
+    location = /index.html { return 301 /; }
+
+    # 404 page: only reachable via error_page internal redirect (never 301'd,
+    # never served 200 directly)
+    location = /404.html {
+        internal;
     }
 
     # Root: serve index.html directly (avoids index directive → /index.html redirect loop)
@@ -73,34 +104,23 @@ server {
         try_files $uri $uri.html $uri/ =404;
     }
 
-    # --- PHP -----------------------------------------------------------------
-    # Modules inclus par require_once et script CLI : jamais servis en direct
+    # Modules internes inclus par require_once : jamais servis directement.
     location ~ ^/api/(auth|helpers|indexnow)\.php$ {
         deny all;
     }
 
-    # Webhooks Twilio (publics, sans CORS, signature validée dans le PHP).
-    # Doit précéder le bloc générique : nginx retient le PREMIER regex qui matche.
+    # Webhooks Twilio publics. La signature est validee dans le PHP.
     location ~ ^/api/twilio-(incoming-sms|voice-twiml)\.php$ {
         limit_req zone=req_limit_per_ip burst=20 nodelay;
         limit_conn conn_limit_per_ip 20;
         include snippets/fastcgi-php.conf;
         fastcgi_pass unix:/run/php/php8.4-fpm.sock;
         fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+        include /etc/nginx/snippets/security.conf;
         add_header Cache-Control "no-cache, no-store, must-revalidate" always;
     }
 
-    # Lien d'intervention (accès public technicien via token signé)
-    location = /api/intervention-link.php {
-        limit_req zone=req_limit_per_ip burst=20 nodelay;
-        limit_conn conn_limit_per_ip 20;
-        include snippets/fastcgi-php.conf;
-        fastcgi_pass unix:/run/php/php8.4-fpm.sock;
-        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
-        add_header Cache-Control "no-cache, no-store, must-revalidate" always;
-    }
-
-    # PHP-FPM handler (no cache) : uniquement les scripts à la racine de /api/
+    # PHP-FPM : uniquement les scripts situes directement dans /api/.
     location ~ ^/api/[^/]+\.php$ {
         limit_req zone=req_limit_per_ip burst=20 nodelay;
         limit_conn conn_limit_per_ip 20;
@@ -113,7 +133,7 @@ server {
         add_header Pragma "no-cache" always;
     }
 
-    # Tout autre .php (sous-dossiers de api/, vendor, uploads, racine) : refusé
+    # Refuse tout autre PHP, notamment les dependances et les uploads.
     location ~ \.php$ {
         deny all;
     }
@@ -123,10 +143,6 @@ server {
         deny all;
     }
     location ~ \.(env|sql|sh|log|lock|tmp|gpg|jsonl|py)$ {
-        deny all;
-    }
-    # Block backup/source/temp files
-    location ~* \.(bak|old|orig|swp|tmp)$ {
         deny all;
     }
     # Block .md files, package.json, and scripts directory
@@ -148,7 +164,6 @@ server {
     location ^~ /docs/ {
         deny all;
     }
-    # Dépendances Composer (PHPWord) : jamais servies ni exécutées
     location ^~ /api/vendor/ {
         deny all;
     }
@@ -156,8 +171,25 @@ server {
     location ^~ /node_modules/ {
         deny all;
     }
-    # Block internal/demo pages
-    location ~ ^/(interne|internedemo|ca|ca1|ca2)(\.html)?$ {
+    # Block the entire /demo/ mirror (stale full-site copy, PII + duplicate content)
+    location ^~ /demo/ {
+        deny all;
+    }
+    # Block work-in-progress design previews
+    # TOUT FICHIER PREFIXE D'UN SOULIGNE EST INTERNE, pas seulement celui-la.
+    # Mesure du 2026-08-30 : `_design-preview` etait bloque ici ET dans
+    # robots.txt, mais `_design-2026`, ajoute plus tard, repondait 200 au public
+    # (« proposition de direction visuelle 2026 »). Nommer les fichiers un par un
+    # garantit qu'on oubliera le suivant.
+    location ~ ^/_[^/]*(\.html)?$ {
+        deny all;
+    }
+    # Block internal/demo pages (any depth: also /demo/interne, /demo/demo/interne, ...)
+    location ~ (^|/)(interne|internedemo|ca|ca1|ca2)(\.html)?$ {
+        deny all;
+    }
+    # Block backup/editor leftovers anywhere (.bak, .bak-YYYYMMDD, .old, .orig, .save, .swp)
+    location ~* \.(bak|old|orig|save|swp)(-|\.|$) {
         deny all;
     }
 
@@ -177,9 +209,7 @@ server {
         try_files $uri =404;
     }
 
-    # Rapports - fichiers générés (suffixe aléatoire 128 bits = secret d'accès).
-    # ^~ : le regex « .html -> 301 sans extension » ne doit pas s'appliquer ici,
-    # sinon /rapports/Rapport_X.html redirige vers une URL inexistante (404).
+    # Rapports - allow access to generated reports
     location ^~ /rapports/ {
         limit_req zone=req_limit_per_ip burst=20 nodelay;
         limit_conn conn_limit_per_ip 20;
@@ -214,7 +244,7 @@ server {
     # Configuration SSL (Gérée par Certbot)
     listen 443 ssl;
     ssl_certificate     /etc/ssl/certs/jcsm.fr.crt;
-    ssl_certificate_key /etc/ssl/private/jcsm.fr.key;  
-    include     /etc/letsencrypt/options-ssl-nginx.conf;            
-    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem;                  
+    ssl_certificate_key /etc/ssl/private/jcsm.fr.key;
+    include     /etc/letsencrypt/options-ssl-nginx.conf;
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem;
 }

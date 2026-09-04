@@ -155,14 +155,20 @@ fi
 
 echo "== [5/7] nginx"
 CHANGED_CONF=()
-if [ -d config/nginx ]; then
-  while IFS= read -r f; do
-    rel=${f#config/nginx/}
-    if [ ! -f "/etc/nginx/$rel" ] || ! sudo -n cmp -s "$f" "/etc/nginx/$rel"; then
-      CHANGED_CONF+=("$rel")
-    fi
-  done < <(find config/nginx -type f | sort)
-fi
+# Ce depot ne gere que le vhost jcsm.fr et son snippet de securite partage.
+# Les configurations Aixo, JCSM Cloud, n8n et la configuration nginx globale
+# ont leur propre cycle de deploiement et ne doivent jamais etre remplacees ici.
+MANAGED_CONF=(
+  "sites-enabled/jcsm.fr"
+  "snippets/security.conf"
+)
+for rel in "${MANAGED_CONF[@]}"; do
+  f="config/nginx/$rel"
+  [ -f "$f" ] || die "configuration geree absente : $f"
+  if [ ! -f "/etc/nginx/$rel" ] || ! sudo -n cmp -s "$f" "/etc/nginx/$rel"; then
+    CHANGED_CONF+=("$rel")
+  fi
+done
 if [ "${#CHANGED_CONF[@]}" -eq 0 ]; then
   echo "   config/nginx/ identique à /etc/nginx/ : aucun changement"
   sudo -n nginx -t 2>&1 | sed 's/^/   /'
