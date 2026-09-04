@@ -82,6 +82,21 @@ function initBlogTOC(){
         }
     });
 })();
+
+/* Afficher le contenu dès que le DOM est prêt. Le préchargeur reste un effet bref,
+   jamais un écran bloquant dépendant du chargement complet des images tierces. */
+function initPreloader(){
+    var preloader=document.getElementById("preloader");
+    if(!preloader)return;
+    var hide=function(){
+        if(preloader.classList.contains("hide"))return;
+        preloader.classList.add("hide");
+        preloader.setAttribute("aria-hidden","true");
+    };
+    requestAnimationFrame(function(){setTimeout(hide,120);});
+    window.addEventListener("load",hide,{once:true});
+    setTimeout(hide,600);
+}
 // Reading progress bar for blog articles
 (function() {
     var bar = document.getElementById("reading-progress");

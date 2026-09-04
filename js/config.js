@@ -12,7 +12,6 @@ const JCSM_CONFIG = {
         twilioVoiceToken: "/api/twilio-voice-token.php",
         conversations: "/api/conversations.php",
         callLogs: "/api/call-logs.php",
-        interventionLink: "/api/intervention-link.php"
     },
     auth: {
         loginEndpoint: "/api/login.php",

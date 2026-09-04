@@ -1,0 +1,135 @@
+/* ============================================================
+   THEME JCSM 2026 — couche de JETONS uniquement
+   A charger APRES critical.css. Ne contient volontairement
+   AUCUNE classe de mise en page : on retarge les variables
+   deja utilisees par le site, donc le balisage, le formulaire,
+   le consentement et la navigation restent intacts.
+   Systeme de reference : css/design-2026.css
+   ============================================================ */
+
+/* --- Polices auto-hebergees (CSP font-src 'self', choix RGPD) --- */
+@font-face{font-family:'Archivo';font-style:normal;font-weight:400 700;font-display:swap;
+  src:url('/fonts/archivo-latin.woff2') format('woff2');
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:'Archivo';font-style:normal;font-weight:400 700;font-display:swap;
+  src:url('/fonts/archivo-latin-ext.woff2') format('woff2');
+  unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}
+@font-face{font-family:'JetBrains Mono';font-style:normal;font-weight:400 500;font-display:swap;
+  src:url('/fonts/jbmono-latin.woff2') format('woff2');
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:'JetBrains Mono';font-style:normal;font-weight:400 500;font-display:swap;
+  src:url('/fonts/jbmono-latin-ext.woff2') format('woff2');
+  unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}
+
+/* --- Retargetage des jetons deja consommes par le site --- */
+:root{
+  /* Le cuivre remplace le bleu par defaut de Tailwind : c'est le
+     conducteur, la matiere du metier. Il porte toutes les actions. */
+  --color-primary:#C2703B;
+  --color-primary-dark:#A85E30;
+  --color-primary-darker:#8F4E27;
+  --color-primary-glow:rgba(194,112,59,.15);
+  --color-secondary:#A85E30;
+  --color-accent:#C2703B;
+
+  /* Papier ZINC : fond FROID (remplace le creme chaud). Graphite = bandes sombres.
+     Acier = filets et texte secondaire. Le blanc des cartes ressort sur le zinc. */
+  --color-ink:#14181C;
+  --color-cream:#E8EAE6;
+  --color-cream-alt:#DFE2DD;
+  --color-line:#CDD3CF;
+  --color-blue-pale:#F2E4D8;
+  --color-bg:#E8EAE6;
+
+  /* Vert et rouge deviennent des ETATS, jamais de la decoration. */
+  --color-success:#3E9A63;
+  --color-error:#E0553C;
+
+  --color-gray-900:#14181C;
+  /* Acier assombri (#5A6470) pour le TEXTE secondaire : AA sur zinc (4.97:1) et blanc.
+     L'acier vif #6E7A82 echoue AA en corps de texte, il reste reserve aux filets. */
+  --color-gray-500:#5A6470;
+  --color-gray-400:#5A6470;
+  --color-gray-200:#CDD3CF;
+  --color-gray-100:#DFE2DD;
+  --color-text-secondary:#5A6470;
+
+  --gradient-primary:linear-gradient(135deg,#C2703B 0%,#A85E30 100%);
+  --gradient-dark:linear-gradient(135deg,#14181C 0%,#1F262E 100%);
+  --gradient-glow:linear-gradient(135deg,rgba(194,112,59,.10),rgba(194,112,59,.04));
+
+  /* Archivo, grotesque industriel, remplace Fraunces en display ET
+     la pile systeme en texte. Fichiers Fraunces supprimes du depot. */
+  --font-sans:'Archivo',system-ui,-apple-system,'Helvetica Neue',Arial,sans-serif;
+  --font-serif:'Archivo',system-ui,-apple-system,'Helvetica Neue',Arial,sans-serif;
+  --font-mono:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
+}
+
+/* --- Ajustements de graisse : Archivo est plus dense que Fraunces,
+       les grands titres ont besoin d'un resserrement optique. --- */
+h1,h2,h3,.h1,.h2,.h3{letter-spacing:-.03em;}
+h1{letter-spacing:-.035em;}
+
+/* --- La mono ne sert qu'aux donnees mesurees : chiffres cles,
+       telephone, references normatives. --- */
+.stat-value,.stat-number,[class*="stat"] strong,.tech-label{
+  font-family:var(--font-mono);font-variant-numeric:tabular-nums;letter-spacing:-.01em;
+}
+
+/* --- Accessibilite : le focus doit rester visible sur le nouveau fond. --- */
+a:focus-visible,button:focus-visible,summary:focus-visible{
+  outline:2px solid #E08A4D;outline-offset:3px;
+}
+
+/* ============================================================
+   BANDE DE DISPONIBILITE — signature de la refonte 2026.
+   Classes prefixees "jcsm-" : aucun risque de collision avec
+   les classes existantes du site ni avec Tailwind.
+   Remplace la rangee de statistiques, qui affirmait sans montrer.
+   ============================================================ */
+/* Cadre "relevé" : promeut la bande 30 jours en piece maitresse du hero.
+   Panneau blanc sur le zinc, onglet cuivre a gauche, comme un instrument. */
+.jcsm-dispo-cadre{
+  background:#fff;border:1px solid var(--color-line);border-left:3px solid var(--color-primary);
+  border-radius:3px;padding:18px 20px;box-shadow:0 1px 2px rgba(20,24,28,.05);
+}
+.jcsm-dispo-tete{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 20px;margin-bottom:14px;}
+.jcsm-dispo-titre{
+  font-family:var(--font-mono);font-size:11px;font-weight:500;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--color-text-secondary);
+}
+.jcsm-dispo-taux{
+  margin-left:auto;font-family:var(--font-mono);font-weight:500;font-size:26px;
+  letter-spacing:-.02em;color:var(--color-ink);line-height:1.1;text-align:right;
+}
+.jcsm-dispo-taux small{
+  display:block;font-family:var(--font-sans);font-size:10.5px;font-weight:500;
+  letter-spacing:.16em;text-transform:uppercase;color:var(--color-text-secondary);margin-top:2px;
+}
+.jcsm-dispo-jours{display:flex;gap:3px;height:38px;align-items:stretch;}
+.jcsm-j{flex:1;border-radius:1px;background:var(--color-success);position:relative;
+  transform-origin:bottom;transition:filter .16s,transform .16s;}
+.jcsm-j.est-panne{background:var(--color-error);}
+.jcsm-j.est-degrade{background:var(--color-primary);}
+.jcsm-dispo-jours:hover .jcsm-j{filter:saturate(.3) brightness(1.05);}
+.jcsm-dispo-jours .jcsm-j:hover{filter:none;transform:scaleY(1.16);}
+.jcsm-j::after{
+  content:attr(data-info);position:absolute;bottom:calc(100% + 9px);left:50%;
+  transform:translateX(-50%) translateY(4px);background:var(--color-ink);color:#fff;
+  font-family:var(--font-mono);font-size:11px;white-space:nowrap;padding:5px 8px;
+  border-radius:2px;opacity:0;pointer-events:none;transition:opacity .16s,transform .16s;z-index:5;
+}
+.jcsm-j:hover::after{opacity:1;transform:translateX(-50%) translateY(0);}
+.jcsm-dispo-legende{
+  display:flex;flex-wrap:wrap;gap:8px 22px;margin:12px 0 0;
+  font-size:13px;color:var(--color-text-secondary);
+}
+.jcsm-puce{display:inline-block;width:8px;height:8px;border-radius:1px;margin-right:7px;}
+@media (prefers-reduced-motion:no-preference){
+  .jcsm-j{animation:jcsmPousse .45s cubic-bezier(.2,.7,.3,1) both;}
+  @keyframes jcsmPousse{from{transform:scaleY(.1);opacity:0}to{transform:scaleY(1);opacity:1}}
+}
+@media (max-width:640px){
+  .jcsm-dispo-jours{height:30px;gap:2px;}
+  .jcsm-dispo-taux{margin-left:0;text-align:left;}
+}

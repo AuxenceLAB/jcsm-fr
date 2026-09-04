@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>JCSM — proposition de direction visuelle 2026</title>
+
+<style>
+/* ============================================================
+   POLICES — auto-hebergees (CSP font-src 'self', choix RGPD)
+   Archivo : grotesque industriel, display + texte
+   JetBrains Mono : toute donnee mesuree (kW, heures, references)
+   ============================================================ */
+@font-face{font-family:'Archivo';font-style:normal;font-weight:400 700;font-display:swap;
+  src:url('/fonts/archivo-latin.woff2') format('woff2');
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:'Archivo';font-style:normal;font-weight:400 700;font-display:swap;
+  src:url('/fonts/archivo-latin-ext.woff2') format('woff2');
+  unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}
+@font-face{font-family:'JetBrains Mono';font-style:normal;font-weight:400 500;font-display:swap;
+  src:url('/fonts/jbmono-latin.woff2') format('woff2');
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:'JetBrains Mono';font-style:normal;font-weight:400 500;font-display:swap;
+  src:url('/fonts/jbmono-latin-ext.woff2') format('woff2');
+  unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;}
+
+/* ============================================================
+   JETONS
+   Palette tiree du terrain : la nuit d'un parking, le beton,
+   le cuivre du conducteur, et le vert/rouge des voyants de borne.
+   Le cuivre est l'accent de marque. Le vert n'est JAMAIS decoratif :
+   il ne sert qu'a dire "en service".
+   ============================================================ */
+:root{
+  --nuit:#101418;
+  --acier:#1A2129;
+  --acier-clair:#2A343E;
+  --beton:#ECEAE6;
+  --craie:#F7F6F3;
+  --cuivre:#C2703B;
+  --cuivre-clair:#E08A4D;
+  --signal:#3E9A63;
+  --alerte:#E0553C;
+  --texte-nuit:#AFB8C2;
+  --texte-jour:#4A535E;
+
+  --mono:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
+  --sans:'Archivo',system-ui,-apple-system,'Helvetica Neue',Arial,sans-serif;
+
+  --page:1240px;
+  --gouttiere:clamp(20px,5vw,56px);
+}
+
+*,*::before,*::after{box-sizing:border-box;}
+html{-webkit-text-size-adjust:100%;}
+body{
+  margin:0;background:var(--nuit);color:#fff;
+  font-family:var(--sans);font-weight:400;
+  font-size:17px;line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+.enveloppe{max-width:var(--page);margin:0 auto;padding-inline:var(--gouttiere);}
+
+/* etiquette technique : tout ce qui est mesure ou reference */
+.tech{
+  font-family:var(--mono);font-size:12px;font-weight:500;
+  letter-spacing:.14em;text-transform:uppercase;
+}
+
+/* ---------- EN-TETE ---------- */
+.tete{
+  position:sticky;top:0;z-index:40;
+  background:rgba(16,20,24,.86);backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+.tete-in{display:flex;align-items:center;gap:36px;height:74px;}
+.logo{font-weight:700;font-size:21px;letter-spacing:-.02em;color:#fff;text-decoration:none;}
+.logo span{color:var(--cuivre);}
+.nav{display:flex;gap:26px;margin-left:auto;}
+.nav a{
+  color:var(--texte-nuit);text-decoration:none;font-size:14.5px;font-weight:500;
+  padding-block:6px;border-bottom:1px solid transparent;transition:color .18s,border-color .18s;
+}
+.nav a:hover,.nav a:focus-visible{color:#fff;border-bottom-color:var(--cuivre);}
+
+/* ---------- BOUTONS ---------- */
+.bouton{
+  display:inline-flex;align-items:center;gap:10px;
+  font-family:var(--sans);font-size:15px;font-weight:600;
+  padding:14px 24px;border-radius:2px;text-decoration:none;
+  border:1px solid transparent;cursor:pointer;
+  transition:background .18s,border-color .18s,transform .18s;
+}
+.bouton-plein{background:var(--cuivre);color:#fff;}
+.bouton-plein:hover{background:var(--cuivre-clair);transform:translateY(-1px);}
+.bouton-ligne{border-color:rgba(255,255,255,.24);color:#fff;}
+.bouton-ligne:hover{border-color:#fff;}
+a:focus-visible,button:focus-visible{outline:2px solid var(--cuivre-clair);outline-offset:3px;}
+
+/* ---------- HERO ---------- */
+.hero{padding-block:clamp(30px,3.6vw,44px) clamp(28px,4vw,48px);}
+.hero .surtitre{color:var(--cuivre);margin:0 0 20px;}
+.hero h1{
+  font-size:clamp(36px,5.6vw,66px);line-height:1.04;letter-spacing:-.035em;
+  font-weight:700;margin:0;max-width:19ch;
+}
+.hero h1 em{font-style:normal;color:var(--texte-nuit);}
+.hero .chapo{
+  margin:20px 0 0;max-width:56ch;font-size:clamp(16px,1.5vw,18.5px);
+  color:var(--texte-nuit);line-height:1.62;
+}
+.hero .actions{display:flex;flex-wrap:wrap;align-items:center;gap:16px 26px;margin-top:24px;}
+.tel{color:#fff;text-decoration:none;font-family:var(--mono);font-size:15px;font-weight:500;
+  border-bottom:1px solid rgba(255,255,255,.28);padding-bottom:2px;}
+.tel:hover{border-bottom-color:var(--cuivre);}
+
+/* ---------- SIGNATURE : LA BANDE DE DISPONIBILITE ----------
+   Ce que le client achete vraiment. On ne l'affirme pas
+   avec un gros chiffre : on le montre, jour par jour. */
+.bande{margin-top:clamp(28px,3.2vw,40px);border-top:1px solid rgba(255,255,255,.12);padding-top:22px;}
+.bande-tete{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 20px;margin-bottom:18px;}
+.bande-tete .titre{color:var(--texte-nuit);}
+.bande-tete .taux{
+  margin-left:auto;font-family:var(--mono);font-weight:500;
+  font-size:clamp(26px,3.4vw,38px);letter-spacing:-.02em;color:#fff;
+}
+.bande-tete .taux small{display:block;font-family:var(--sans);font-size:11.5px;font-weight:500;
+    color:var(--texte-nuit);letter-spacing:.16em;margin-top:4px;text-align:right;}
+
+.jours{display:flex;gap:3px;height:44px;align-items:stretch;}
+.jour{
+  flex:1;border-radius:1px;background:var(--signal);
+  transform-origin:bottom;
+  position:relative;
+}
+.jour.panne{background:var(--alerte);}
+.jour.degrade{background:var(--cuivre);}
+/* ---------- MOUVEMENT ----------
+   Une seule sequence orchestree a l'ouverture : le regard descend
+   du surtitre vers la bande, dans l'ordre de lecture. Rien d'autre
+   ne bouge sans raison. Tout est desactive si l'utilisateur a
+   demande a reduire les animations. */
+@media (prefers-reduced-motion:no-preference){
+  .anim{opacity:0;transform:translateY(14px);
+    animation:monte .62s cubic-bezier(.16,.84,.28,1) both;}
+  @keyframes monte{to{opacity:1;transform:none}}
+
+  .jour{animation:pousse .5s cubic-bezier(.2,.7,.3,1) both;}
+  @keyframes pousse{from{transform:scaleY(.08);opacity:0}to{transform:scaleY(1);opacity:1}}
+
+  /* revelation au defilement, meme grammaire que l'ouverture */
+  .reveler{opacity:0;transform:translateY(18px);
+    transition:opacity .6s cubic-bezier(.16,.84,.28,1),transform .6s cubic-bezier(.16,.84,.28,1);}
+  .reveler.vu{opacity:1;transform:none;}
+}
+
+/* micro-interaction : la bande se lit comme un instrument */
+.jour{cursor:default;transition:filter .16s,transform .16s;}
+.jours:hover .jour{filter:saturate(.35) brightness(.8);}
+.jours .jour:hover{filter:none;transform:scaleY(1.14);}
+.jour::after{
+  content:attr(data-info);position:absolute;bottom:calc(100% + 10px);left:50%;
+  transform:translateX(-50%) translateY(4px);
+  background:var(--acier-clair);color:#fff;font-family:var(--mono);font-size:11px;
+  letter-spacing:.04em;white-space:nowrap;padding:6px 9px;border-radius:2px;
+  opacity:0;pointer-events:none;transition:opacity .16s,transform .16s;z-index:5;
+}
+.jour:hover::after{opacity:1;transform:translateX(-50%) translateY(0);}
+.legende{
+  display:flex;flex-wrap:wrap;gap:10px 28px;margin-top:16px;
+  color:var(--texte-nuit);
+}
+.legende b{color:#fff;font-weight:500;}
+.puce{display:inline-block;width:9px;height:9px;border-radius:1px;margin-right:8px;vertical-align:baseline;}
+
+/* ---------- SECTION CLAIRE ---------- */
+.jour-section{background:var(--beton);color:var(--nuit);padding-block:clamp(64px,8vw,104px);}
+.jour-section h2{
+  font-size:clamp(28px,3.8vw,44px);line-height:1.08;letter-spacing:-.03em;
+  font-weight:700;margin:14px 0 0;max-width:20ch;
+}
+.jour-section .surtitre{color:var(--cuivre);margin:0;}
+.grille{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:2px;margin-top:52px;
+  background:rgba(16,20,24,.12);border:1px solid rgba(16,20,24,.12);}
+.etape{background:var(--craie);padding:30px 26px 34px;}
+.etape .delai{font-family:var(--mono);font-size:12px;font-weight:500;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--cuivre);}
+.etape h3{font-size:19px;font-weight:700;letter-spacing:-.015em;margin:12px 0 10px;}
+.etape p{margin:0;font-size:15.5px;line-height:1.6;color:var(--texte-jour);}
+
+/* ---------- ARGUMENTS (sur nuit) ---------- */
+.args{border-top:1px solid rgba(255,255,255,.1);padding-block:clamp(56px,7vw,88px);}
+.args-grille{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:clamp(28px,4vw,56px);}
+.arg{border-top:2px solid var(--cuivre);padding-top:20px;}
+.arg h3{font-size:20px;font-weight:700;letter-spacing:-.02em;margin:0 0 10px;}
+.arg p{margin:0;color:var(--texte-nuit);font-size:15.5px;line-height:1.62;}
+
+/* ---------- REFERENCES ---------- */
+.refs{background:var(--craie);color:var(--nuit);padding-block:clamp(48px,6vw,72px);}
+.refs .tech{color:var(--texte-jour);text-align:center;margin:0 0 30px;}
+.rail{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:clamp(28px,5vw,64px);}
+.rail span{font-weight:700;font-size:clamp(17px,2vw,22px);letter-spacing:-.02em;color:#39424D;}
+
+/* ---------- COUVERTURE ---------- */
+.couv{padding-block:clamp(64px,8vw,100px);}
+.couv-grille{display:grid;grid-template-columns:minmax(280px,1fr) minmax(320px,1.15fr);
+  gap:clamp(32px,5vw,64px);align-items:center;}
+.couv h2{font-size:clamp(28px,3.8vw,44px);line-height:1.08;letter-spacing:-.03em;font-weight:700;margin:14px 0 18px;}
+.couv p{color:var(--texte-nuit);margin:0 0 26px;max-width:46ch;line-height:1.62;}
+.carte{height:clamp(300px,38vw,420px);border:1px solid rgba(255,255,255,.14);background:var(--acier);}
+.regions{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:26px;}
+.regions li{list-style:none;font-family:var(--mono);font-size:12px;letter-spacing:.06em;
+  border:1px solid rgba(255,255,255,.18);padding:6px 11px;color:var(--texte-nuit);}
+
+/* ---------- QUESTIONS ---------- */
+.faq{background:var(--beton);color:var(--nuit);padding-block:clamp(64px,8vw,100px);}
+.faq h2{font-size:clamp(28px,3.8vw,44px);line-height:1.08;letter-spacing:-.03em;font-weight:700;margin:14px 0 40px;max-width:18ch;}
+.faq .surtitre{color:var(--cuivre);margin:0;}
+.q{border-top:1px solid rgba(16,20,24,.16);}
+.q:last-of-type{border-bottom:1px solid rgba(16,20,24,.16);}
+.q summary{
+  cursor:pointer;list-style:none;padding:22px 40px 22px 0;position:relative;
+  font-size:17.5px;font-weight:600;letter-spacing:-.01em;
+}
+.q summary::-webkit-details-marker{display:none;}
+.q summary::after{
+  content:'+';position:absolute;right:6px;top:50%;transform:translateY(-50%);
+  font-family:var(--mono);font-size:20px;color:var(--cuivre);transition:transform .2s;
+}
+.q[open] summary::after{content:'\2212';}
+.q summary:hover{color:var(--cuivre);}
+.q p{margin:0 0 24px;max-width:70ch;color:var(--texte-jour);line-height:1.65;}
+
+/* ---------- APPEL FINAL ---------- */
+.final{padding-block:clamp(72px,9vw,116px);text-align:center;}
+.final h2{font-size:clamp(30px,4.4vw,52px);line-height:1.06;letter-spacing:-.035em;
+  font-weight:700;margin:16px auto 20px;max-width:18ch;}
+.final p{color:var(--texte-nuit);max-width:52ch;margin:0 auto 32px;}
+.final .actions{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:16px 26px;}
+
+/* ---------- PIED ---------- */
+.pied{border-top:1px solid rgba(255,255,255,.1);padding-block:36px;}
+.pied-in{display:flex;flex-wrap:wrap;gap:16px 40px;align-items:center;
+  font-family:var(--mono);font-size:12px;letter-spacing:.08em;color:var(--texte-nuit);}
+.pied-in a{color:var(--texte-nuit);text-decoration:none;}
+.pied-in a:hover{color:#fff;}
+.pied-in .droite{margin-left:auto;}
+
+@media (max-width:820px){
+  .nav{display:none;}
+  .jours{height:46px;gap:2px;}
+  .bande-tete .taux{margin-left:0;width:100%;}
+  .bande-tete .taux small{text-align:left;}
+  .couv-grille{grid-template-columns:1fr;}
+  .pied-in .droite{margin-left:0;}
+}
+</style>
+</head>
+<body>
+
+<header class="tete">
+  <div class="enveloppe tete-in">
+    <a href="#" class="logo">JCSM<span>.</span></a>
+    <nav class="nav">
+      <a href="#">Maintenance</a>
+      <a href="#">Installation</a>
+      <a href="#">Supervision</a>
+      <a href="#">Couverture</a>
+      <a href="#">À propos</a>
+    </nav>
+    <a href="#devis" class="bouton bouton-plein">Demander un diagnostic</a>
+  </div>
+</header>
+
+<main>
+  <section class="hero enveloppe">
+    <p class="tech surtitre anim" style="animation-delay:.05s">Qualifelec IRVE · France &amp; Belgique · depuis 2019</p>
+
+    <h1 class="anim" style="animation-delay:.14s">Une borne installée n'est pas <em>une borne qui fonctionne.</em></h1>
+
+    <p class="chapo anim" style="animation-delay:.26s">
+      Nous entretenons les bornes des opérateurs et des exploitants de sites, en AC comme
+      en DC jusqu'à 400 kW, toutes marques. Techniciens salariés, jamais de sous-traitance,
+      rapport horodaté à chaque passage.
+    </p>
+
+    <div class="actions anim" style="animation-delay:.36s">
+      <a href="#devis" class="bouton bouton-plein">Faire diagnostiquer mon parc</a>
+      <a href="tel:+33183755706" class="tel">01 83 75 57 06</a>
+    </div>
+
+    <!-- SIGNATURE : la disponibilite montree, pas affirmee -->
+    <section class="bande anim" style="animation-delay:.46s" aria-labelledby="titre-bande">
+      <div class="bande-tete">
+        <p class="tech titre" id="titre-bande">Parc sous contrat · 30 derniers jours</p>
+        <p class="taux">98,2&nbsp;%<small>DISPONIBILITÉ</small></p>
+      </div>
+
+      <div class="jours" role="img"
+           aria-label="Disponibilité jour par jour sur 30 jours : 28 jours en service, 1 journée dégradée le 9 mars, 1 panne le 14 mars rétablie en 3 heures 12.">
+      </div>
+
+      <p class="legende">
+        <span><span class="puce" style="background:var(--signal)"></span>En service</span>
+        <span><span class="puce" style="background:var(--cuivre)"></span>Dégradé, résolu sur place</span>
+        <span><span class="puce" style="background:var(--alerte)"></span><b>14 mars, 02 h 47</b> — hors service, rétabli en <b>3 h 12</b></span>
+      </p>
+    </section>
+  </section>
+
+  <section class="jour-section">
+    <div class="enveloppe">
+      <p class="tech surtitre anim" style="animation-delay:.05s">Comment ça se passe</p>
+      <h2 class="reveler">Trois étapes, un seul interlocuteur.</h2>
+
+      <div class="grille">
+        <article class="etape reveler">
+          <p class="delai">Sous 48 h</p>
+          <h3>Diagnostic</h3>
+          <p>Audit sur site ou à distance, devis transparent. AC 3,7 kW à DC 400 kW, postes HTA/BT inclus.</p>
+        </article>
+        <article class="etape reveler">
+          <p class="delai">Sous 24 h ouvrées</p>
+          <h3>Intervention</h3>
+          <p>Techniciens certifiés et habilités, pièces multi-marques à bord. Résolue au premier passage dans la grande majorité des cas.</p>
+        </article>
+        <article class="etape reveler">
+          <p class="delai">Le jour même</p>
+          <h3>Compte rendu</h3>
+          <p>Photos, mesures et recommandations, horodatées. Traçabilité complète, consultable en ligne.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="args enveloppe">
+    <div class="args-grille">
+      <article class="arg reveler">
+        <h3>Un seul contrat</h3>
+        <p>Postes HTA/BT, bornes AC et DC, hotline : un seul interlocuteur. Vous arrêtez de faire le lien entre trois prestataires qui se renvoient la responsabilité.</p>
+      </article>
+      <article class="arg reveler">
+        <h3>Aucune sous-traitance</h3>
+        <p>ABB, Schneider, EVBox, Alfen, Kempower. Nos techniciens sont salariés et habilités, ce ne sont pas des indépendants envoyés au coup par coup.</p>
+      </article>
+      <article class="arg reveler">
+        <h3>Tout est tracé</h3>
+        <p>Photos, mesures et recommandations horodatées à chaque passage, consultables en ligne. En cas de litige, vous avez la preuve.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="refs">
+    <div class="enveloppe">
+      <p class="tech">Ils nous confient leur parc</p>
+      <div class="rail">
+        <span>Powerdot</span><span>Schneider Electric</span><span>Legrand</span>
+        <span>Alfen</span><span>Autel</span><span>Freshmile</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="couv enveloppe">
+    <div class="couv-grille">
+      <div class="reveler">
+        <p class="tech" style="color:var(--cuivre)">Où nous intervenons</p>
+        <h2>France entière, et la Belgique.</h2>
+        <ul class="regions">
+          <li>Île-de-France</li><li>Hauts-de-France</li><li>Auvergne-Rhône-Alpes</li>
+          <li>PACA</li><li>Occitanie</li><li>Nouvelle-Aquitaine</li><li>Belgique</li>
+        </ul>
+        <p>Des équipes techniques réparties sur tout le territoire, pas une adresse unique d'où partent des déplacements facturés au kilomètre.</p>
+        <a href="#" class="bouton bouton-ligne">Voir notre couverture</a>
+      </div>
+      <div class="carte" id="carte-couverture" role="img" aria-label="Carte des zones d'intervention en France et en Belgique"></div>
+    </div>
+  </section>
+
+  <section class="faq">
+    <div class="enveloppe">
+      <p class="tech surtitre">Questions fréquentes</p>
+      <h2>Vos questions, nos réponses directes.</h2>
+
+      <details class="q">
+        <summary>On a un gros déploiement à lancer, vous gérez ?</summary>
+        <p>Oui. Étude de puissance, raccordement, pose et mise en service, jusqu'aux postes HTA/BT. Nous cadrons le planning site par site et vous n'avez qu'un interlocuteur pour l'ensemble.</p>
+      </details>
+      <details class="q">
+        <summary>Notre parc existant a des problèmes de conformité.</summary>
+        <p>Nous réalisons un audit NF C 15-100 sur site, avec relevé des non-conformités, chiffrage de la remise en conformité et priorisation par risque. Vous décidez ensuite de ce que vous engagez.</p>
+      </details>
+      <details class="q">
+        <summary>Nos bornes sont souvent indisponibles.</summary>
+        <p>C'est le cœur du sujet. Nous mettons le parc sous supervision, traitons les pannes récurrentes à la source plutôt qu'au symptôme, et vous suivez la disponibilité réelle mois par mois.</p>
+      </details>
+      <details class="q">
+        <summary>On subit du vandalisme sur certains sites.</summary>
+        <p>Sécurisation des points sensibles, remplacement de câbles et de trappes, protections mécaniques adaptées au site. Nous intervenons aussi en curatif rapide pour limiter l'immobilisation.</p>
+      </details>
+    </div>
+  </section>
+
+  <section class="final enveloppe">
+    <p class="tech" style="color:var(--cuivre)">Premier échange sans engagement</p>
+    <h2>Faites diagnostiquer votre parc.</h2>
+    <p>Audit sur site ou à distance sous 48 h, devis transparent. Si votre parc va bien, nous vous le dirons aussi.</p>
+    <div class="actions">
+      <a href="#devis" class="bouton bouton-plein">Demander un diagnostic</a>
+      <a href="tel:+33183755706" class="tel">01 83 75 57 06</a>
+    </div>
+  </section>
+</main>
+
+<footer class="pied">
+  <div class="enveloppe pied-in">
+    <span>JCSM &middot; Maintenance IRVE depuis 2019</span>
+    <a href="#">Mentions légales</a>
+    <a href="#">Confidentialité</a>
+    <span class="droite">Qualifelec IRVE &middot; NF C 15-100</span>
+  </div>
+</footer>
+
+<script>
+// La bande est generee depuis des donnees, pas ecrite a la main :
+// elle refletera un jour le parc reel via l'API de supervision.
+(function(){
+  var etat = [];
+  for (var i = 0; i < 30; i++) etat.push('ok');
+  etat[8]  = 'degrade';  // 9 mars
+  etat[13] = 'panne';    // 14 mars
+  var hote = document.querySelector('.jours');
+  var reduit = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var libelle = { ok:'En service', degrade:'Degrade, resolu sur place', panne:'Hors service 3 h 12' };
+  etat.forEach(function(e, i){
+    var d = document.createElement('span');
+    d.className = 'jour' + (e === 'panne' ? ' panne' : e === 'degrade' ? ' degrade' : '');
+    d.setAttribute('data-info', (i + 1) + ' mars \u00b7 ' + libelle[e]);
+    if (!reduit) d.style.animationDelay = (620 + i * 20) + 'ms';
+    hote.appendChild(d);
+  });
+
+  // revelation au defilement
+  if (!reduit && 'IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function(entrees){
+      entrees.forEach(function(en){
+        if (en.isIntersecting) { en.target.classList.add('vu'); io.unobserve(en.target); }
+      });
+    }, { threshold: .18 });
+    document.querySelectorAll('.reveler').forEach(function(el, i){
+      el.style.transitionDelay = (i * 90) + 'ms';
+      io.observe(el);
+    });
+  } else {
+    document.querySelectorAll('.reveler').forEach(function(el){ el.classList.add('vu'); });
+  }
+
+  // Carte de couverture : meme chargement differe que le site actuel, tuiles
+  // sombres pour rester dans la palette. Elle ne pese rien tant qu'on ne
+  // descend pas jusqu'a elle.
+  var cible = document.getElementById('carte-couverture');
+  var chargee = false;
+  function chargerCarte(){
+    if (chargee) return; chargee = true;
+    var css = document.createElement('link');
+    css.rel = 'stylesheet'; css.href = '/css/leaflet.css';
+    document.head.appendChild(css);
+    var s = document.createElement('script');
+    s.src = '/js/vendor/leaflet.js';
+    s.onload = function(){
+      if (typeof L === 'undefined') return;
+      var carte = L.map('carte-couverture', {
+        center: [47.6, 3.2], zoom: 5, scrollWheelZoom: false,
+        zoomControl: false, attributionControl: false
+      });
+      L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', { maxZoom: 19 }).addTo(carte);
+      var villes = [[48.86,2.35],[50.63,3.06],[45.76,4.84],[43.30,5.37],[43.60,1.44],[44.84,-0.58],[50.85,4.35],[47.22,-1.55],[48.58,7.75]];
+      villes.forEach(function(c){
+        L.circleMarker(c, { radius:6, color:'#C2703B', weight:2, fillColor:'#C2703B', fillOpacity:.55 }).addTo(carte);
+      });
+    };
+    document.head.appendChild(s);
+  }
+  if (cible) {
+    if ('IntersectionObserver' in window) {
+      var io2 = new IntersectionObserver(function(e){
+        if (e.some(function(x){ return x.isIntersecting; })) { io2.disconnect(); chargerCarte(); }
+      }, { rootMargin: '500px 0px' });
+      io2.observe(cible);
+    } else { chargerCarte(); }
+  }
+})();
+</script>
+</body>
+</html>

@@ -1,32 +1,32 @@
 :root {
-  --color-primary: #2563eb;
-  --color-primary-dark: #1d4ed8;
-  --color-primary-darker: #1e40af;
-  --color-primary-glow: rgba(37, 99, 235, 0.15);
-  --color-secondary: #1d4ed8;
-  --color-accent: #2563eb;
-  --color-ink: #0f1b2d;
-  --color-cream: #fafaf7;
-  --color-cream-alt: #f3f2ec;
-  --color-line: #e3e2db;
-  --color-blue-pale: #dbeafe;
-  --color-success: #10b981;
-  --color-error: #ef4444;
-  --color-gray-900: #0f1b2d;
-  --color-gray-500: #5b6472;
-  --color-gray-400: #5b6472;
-  --color-gray-300: #d1d5db;
-  --color-gray-200: #e3e2db;
-  --color-gray-100: #f3f2ec;
+  --color-primary: #C2703B;
+  --color-primary-dark: #A85E30;
+  --color-primary-darker: #8F4E27;
+  --color-primary-glow: rgba(194, 112, 59, 0.15);
+  --color-secondary: #A85E30;
+  --color-accent: #C2703B;
+  --color-ink: #14181C;
+  --color-cream: #E8EAE6;
+  --color-cream-alt: #DFE2DD;
+  --color-line: #CDD3CF;
+  --color-blue-pale: #F2E4D8;
+  --color-success: #3E9A63;
+  --color-error: #E0553C;
+  --color-gray-900: #14181C;
+  --color-gray-500: #5A6470;
+  --color-gray-400: #5A6470;
+  --color-gray-300: #B9BFBA;
+  --color-gray-200: #CDD3CF;
+  --color-gray-100: #DFE2DD;
   --color-white: #ffffff;
-  --color-bg: #fafaf7;
-  --color-text-secondary: #5b6472;
-  --gradient-primary: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
-  --gradient-dark: linear-gradient(135deg, #0f1b2d 0%, #16263f 100%);
+  --color-bg: #E8EAE6;
+  --color-text-secondary: #5A6470;
+  --gradient-primary: linear-gradient(135deg, #C2703B 0%, #A85E30 100%);
+  --gradient-dark: linear-gradient(135deg, #14181C 0%, #1F262E 100%);
   --gradient-glow: linear-gradient(
     135deg,
-    rgba(37, 99, 235, 0.10),
-    rgba(37, 99, 235, 0.04)
+    rgba(194, 112, 59, 0.10),
+    rgba(194, 112, 59, 0.04)
   );
   --shadow-lg:
     0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
@@ -34,9 +34,11 @@
     0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
   --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
   --font-sans:
-    system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Archivo", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     "Helvetica Neue", Arial, sans-serif;
-  --font-serif: "Fraunces", Georgia, "Times New Roman", serif;
+  /* --font-serif neutralisé : Fraunces retirée, tout repasse en Archivo. */
+  --font-serif: "Archivo", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
   --font-size-base: clamp(0.9rem, 0.85rem + 0.25vw, 1rem);
   --spacing-md: 1rem;
   --spacing-lg: 1.5rem;
@@ -405,7 +407,7 @@ footer a:not(.btn-primary) {
     transform 0.3s ease;
 }
 footer a:not(.btn-primary):hover {
-  color: #2563eb;
+  color: #C2703B;
   transform: translateX(4px);
 }
 /* Footer clair : titres de colonnes affinés (sans doré) */
@@ -454,8 +456,8 @@ footer h3 {
 .scroll-top:hover {
   transform: translateY(-2px);
   box-shadow: 0 6px 12px -2px rgba(0, 0, 0, 0.15);
-  border-color: #2563eb;
-  color: #2563eb;
+  border-color: #C2703B;
+  color: #C2703B;
 }
 @media (max-width: 768px) {
   .scroll-top {
@@ -472,7 +474,7 @@ footer h3 {
 .mobile-menu-btn {
   display: none;
 }
-@media (max-width: 1024px) {
+@media (max-width: 1279px) {
   .mobile-menu-btn {
     display: block;
   }
@@ -509,7 +511,7 @@ footer h3 {
 }
 body .nav-link-active {
   position: relative;
-  color: #2563eb;
+  color: #C2703B;
   font-weight: 700;
 }
 .nav-link-active::after {
@@ -855,12 +857,12 @@ button:focus-visible,
 input:focus-visible,
 select:focus-visible,
 textarea:focus-visible {
-  outline: 2px solid #2563eb;
+  outline: 2px solid #C2703B;
   outline-offset: 2px;
   border-radius: 4px;
 }
 summary:focus-visible {
-  outline: 2px solid #2563eb;
+  outline: 2px solid #C2703B;
   outline-offset: 2px;
 }
 input:not([type="checkbox"]):not([type="radio"]),
@@ -1048,7 +1050,7 @@ body .input-success {
   height: 2px;
   bottom: -2px;
   left: 0;
-  background: #2563eb;
+  background: #C2703B;
   transition: width 0.3s ease;
 }
 .link-underline:hover::after {
@@ -2005,7 +2007,7 @@ h2 {
   --jcsm-bg-alt: var(--color-cream-alt);
 }
 .accent-pro {
-  color: #2563eb;
+  color: #C2703B;
   font-weight: 800;
 }
 .mono,
@@ -2043,7 +2045,7 @@ h2 {
   color: var(--jcsm-graphite) !important;
 }
 .badge-section > div {
-  background: #2563eb !important;
+  background: #C2703B !important;
 }
 #services {
   background: var(--jcsm-bg-alt) !important;
@@ -2091,7 +2093,7 @@ h2 {
 .gradient-text {
   background: none !important;
   -webkit-text-fill-color: currentColor !important;
-  color: #2563eb !important;
+  color: #C2703B !important;
   animation: none !important;
 }
 
@@ -2117,7 +2119,7 @@ h2 {
 /* The leading pulse dot in glass-badge: keep blue for accent */
 .glass-badge > div[class*="rounded-full"]:first-child,
 .glass-badge > span[class*="rounded-full"]:first-child {
-  background: #2563eb !important;
+  background: #C2703B !important;
 }
 /* Hero-badge-specific tokens (homepage uses this class) */
 .hero-badge {
@@ -2289,26 +2291,23 @@ a:focus-visible, button:focus-visible {
   font-family: var(--font-serif);
   font-weight: 600;
   font-size: 1.2rem;
-  color: #3470DD; /* >= 4,5:1 sur blanc */
+  color: var(--color-primary);
   line-height: 1;
 }
 .sec-label {
   font-size: 0.72rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--color-primary);
+  /* --color-primary (#C2703B) = 3.42:1 sur creme : echec AA sur ce petit texte.
+     --color-primary-darker (#8F4E27) = 5.91:1 : conforme. */
+  color: var(--color-primary-darker);
   font-weight: 700;
 }
 .section-dark {
   background: var(--color-ink);
   color: #F5F4EF;
 }
-.section-dark .sec-label { color: #7FA6E8; }
-.section-dark .num { color: #9DB8E8; }
-/* Gris utilitaires sur fond encre : >= 4,5:1 */
-.section-dark .text-gray-400,
-.section-dark .text-gray-500,
-.section-dark .text-gray-600 { color: #B3BAC6; }
+.section-dark .sec-label { color: #E0A878; } /* cuivre clair (8.78:1 sur ink) — ex-bleu residuel */
 .section-dark .step { border-top: 2px solid var(--color-primary); padding-top: 0.875rem; }
 .section-alt { background: var(--color-cream-alt); }
 .logo-strip img,
@@ -2454,7 +2453,7 @@ a:focus-visible, button:focus-visible {
   font-size: 0.75rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: #7FA6E8;
+  color: var(--color-primary-darker);
   margin-bottom: 0.5rem;
 }
 .blog-key-takeaway p,
@@ -2635,5 +2634,8 @@ a:focus-visible, button:focus-visible {
     opacity: 1 !important;
   }
 }
-/* Liens d'attribution Leaflet : distinguables du texte voisin (WCAG 1.4.1) */
-.leaflet-container .leaflet-control-attribution a { text-decoration: underline; }
+
+/* Tailwind pre-compile a purge .xl:flex (jamais utilisee avant le passage de la
+   nav de lg a xl, fix du CTA coupe 1024-1279px). On la redefinit : styles.css est
+   charge APRES tailwind.css, donc .xl:flex l'emporte sur .hidden au-dela de 1280px. */
+@media (min-width: 1280px) { .xl\:flex { display: flex; } }
