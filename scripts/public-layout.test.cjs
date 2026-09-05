@@ -48,3 +48,13 @@ test('toutes les feuilles communes sont syntaxiquement valides',()=>{
     postcss.parse(fs.readFileSync(path.join(root,file),'utf8'),{from:file});
   }
 });
+test('les liens de service gardent leur contraste sans survol dans les huit langues',()=>{
+  for(const file of ['index.html','en/index.html','de/index.html','es/index.html','it/index.html','nl/index.html','pl/index.html','pt/index.html']){
+    const html=fs.readFileSync(path.join(root,file),'utf8');
+    assert.match(html,/\.card-feature \.svc-arrow \{ color: var\(--color-primary\); opacity: 1; \}/,file);
+  }
+});
+test('la carte nommee de l accueil possede un role accessible meme avant son chargement',()=>{
+  const html=fs.readFileSync(path.join(root,'index.html'),'utf8');
+  assert.match(html,/<div\b[^>]*id="coverage-map"[^>]*role="region"[^>]*aria-label="[^"]+"/);
+});
