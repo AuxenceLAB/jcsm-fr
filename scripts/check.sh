@@ -21,6 +21,8 @@ for f in js/*.js sw.js tailwind.config.js scripts/*.js; do
 done
 
 echo "== JSON versionnés =="
+echo "== Régression des repères publics =="
+if ! node --test scripts/coverage-points.test.cjs; then fail=1; fi
 while IFS= read -r f; do
     if ! node -e 'JSON.parse(require("fs").readFileSync(process.argv[1], "utf8"))' "$f" 2>/dev/null; then
         echo "ERREUR JSON invalide : $f"; fail=1

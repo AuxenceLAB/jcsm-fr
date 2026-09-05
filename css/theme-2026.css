@@ -69,6 +69,15 @@
        les grands titres ont besoin d'un resserrement optique. --- */
 h1,h2,h3,.h1,.h2,.h3{letter-spacing:-.03em;}
 h1{letter-spacing:-.035em;}
+/* Leaflet panes have no intrinsic width: the site's generic max-width:100%
+   otherwise collapses markers and tiles to zero pixels. */
+#coverage-map .leaflet-pane, #coverage-map .leaflet-pane div { max-width:none; }
+#coverage-map .jcsm-coverage-marker { display:grid; place-items:center; background:transparent; border:0; }
+.jcsm-coverage-marker > span { width:28px;height:28px;display:grid;place-items:center;border-radius:50%;background:#9b4928;border:3px solid #fff;color:#fff;font:bold 12px system-ui;box-shadow:0 0 0 1px #483c34,0 2px 5px #0005; }
+.jcsm-coverage-marker i { display:block;width:7px;height:7px;border-radius:50%;background:#fff; }
+.jcsm-coverage-marker:focus-visible { outline:3px solid #202a27;outline-offset:1px;border-radius:50%; }
+.jcsm-map-reset { background:#fff;color:#202a27;border:1px solid #9baca0;border-radius:5px;min-height:44px;padding:0 12px;font:600 12px system-ui;cursor:pointer; }
+.jcsm-map-reset:focus-visible { outline:3px solid #9b4928; }
 
 /* Accueil editorial : photographie reelle, cuivre et composition ouverte. */
 body .jcsm-editorial-hero {

@@ -155,12 +155,12 @@ fi
 
 echo "== [5/7] nginx"
 CHANGED_CONF=()
-# Ce depot ne gere que le vhost jcsm.fr et son snippet de securite partage.
+# Ce depot ne gere que le vhost jcsm.fr et son snippet de securite dedie.
 # Les configurations Aixo, JCSM Cloud, n8n et la configuration nginx globale
 # ont leur propre cycle de deploiement et ne doivent jamais etre remplacees ici.
 MANAGED_CONF=(
   "sites-enabled/jcsm.fr"
-  "snippets/security.conf"
+  "snippets/jcsm-security.conf"
 )
 for rel in "${MANAGED_CONF[@]}"; do
   f="config/nginx/$rel"

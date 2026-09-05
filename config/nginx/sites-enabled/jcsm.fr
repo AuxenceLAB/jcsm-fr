@@ -54,7 +54,7 @@ server {
     # n'en avaient AUCUN (404 via /404.html interne, redirections 301 ci-dessous,
     # 403 des locations deny). Les locations qui declarent leur propre add_header
     # incluent deja ce snippet et gardent leur jeu complet (heritage non cumulatif).
-    include /etc/nginx/snippets/security.conf;
+    include /etc/nginx/snippets/jcsm-security.conf;
 
     # Legacy 301 en un seul saut (voir map $jcsm_legacy_redirect en tete de fichier).
     # DOIT rester avant les regles .html generiques.
@@ -89,7 +89,7 @@ server {
     location = / {
         limit_req zone=req_limit_per_ip burst=20 nodelay;
         limit_conn conn_limit_per_ip 20;
-        include /etc/nginx/snippets/security.conf;
+        include /etc/nginx/snippets/jcsm-security.conf;
         add_header Cache-Control "public, max-age=3600" always;
         try_files /index.html =404;
     }
@@ -99,7 +99,7 @@ server {
     location / {
         limit_req zone=req_limit_per_ip burst=20 nodelay;
         limit_conn conn_limit_per_ip 20;
-        include /etc/nginx/snippets/security.conf;
+        include /etc/nginx/snippets/jcsm-security.conf;
         add_header Cache-Control "public, max-age=3600" always;
         try_files $uri $uri.html $uri/ =404;
     }
@@ -116,7 +116,7 @@ server {
         include snippets/fastcgi-php.conf;
         fastcgi_pass unix:/run/php/php8.4-fpm.sock;
         fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
-        include /etc/nginx/snippets/security.conf;
+        include /etc/nginx/snippets/jcsm-security.conf;
         add_header Cache-Control "no-cache, no-store, must-revalidate" always;
     }
 
@@ -128,7 +128,7 @@ server {
         fastcgi_pass unix:/run/php/php8.4-fpm.sock;
         fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
 
-        include /etc/nginx/snippets/security.conf;
+        include /etc/nginx/snippets/jcsm-security.conf;
         add_header Cache-Control "no-cache, no-store, must-revalidate" always;
         add_header Pragma "no-cache" always;
     }
@@ -204,7 +204,7 @@ server {
 
     # Service Worker - never cache immutably (must check for updates)
     location = /sw.js {
-        include /etc/nginx/snippets/security.conf;
+        include /etc/nginx/snippets/jcsm-security.conf;
         add_header Cache-Control "no-cache, must-revalidate" always;
         try_files $uri =404;
     }
@@ -214,7 +214,7 @@ server {
         limit_req zone=req_limit_per_ip burst=20 nodelay;
         limit_conn conn_limit_per_ip 20;
         autoindex off;
-        include /etc/nginx/snippets/security.conf;
+        include /etc/nginx/snippets/jcsm-security.conf;
         add_header Cache-Control "no-cache, no-store, must-revalidate" always;
         add_header X-Robots-Tag "noindex, nofollow" always;
         try_files $uri =404;
@@ -222,21 +222,21 @@ server {
 
     # Cache images (1 month) - no rate limiting for static assets
     location ~* \.(png|jpg|jpeg|gif|svg|webp|ico)$ {
-        include /etc/nginx/snippets/security.conf;
+        include /etc/nginx/snippets/jcsm-security.conf;
         add_header Cache-Control "public, max-age=2592000, immutable" always;
         try_files $uri =404;
     }
 
     # Cache fonts (1 year)
     location ~* \.(woff2?|ttf|otf|eot)$ {
-        include /etc/nginx/snippets/security.conf;
+        include /etc/nginx/snippets/jcsm-security.conf;
         add_header Cache-Control "public, max-age=31536000, immutable" always;
         try_files $uri =404;
     }
 
     # Cache CSS/JS (1 week)
     location ~* \.(css|js)$ {
-        include /etc/nginx/snippets/security.conf;
+        include /etc/nginx/snippets/jcsm-security.conf;
         add_header Cache-Control "public, max-age=604800, immutable" always;
         try_files $uri =404;
     }
