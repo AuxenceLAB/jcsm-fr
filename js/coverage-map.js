@@ -6,7 +6,7 @@
         if (!host || host.dataset.ready || typeof L === 'undefined') return;
         host.dataset.ready = 'true';
         try {
-            var response = await fetch('/js/coverage-points.json?v=89');
+            var response = await fetch('/js/coverage-points.json?v=90');
             if (!response.ok) throw new Error('coverage unavailable');
             var data = await response.json();
             var points = data.points.filter(function (p) {
@@ -60,7 +60,7 @@
             };
             reset.addTo(map);
             var status = document.getElementById('coverage-map-status');
-            if (status) status.textContent = points.length + ' repères géographiques · France et Belgique. Zoomez pour les distinguer. Pas de positions de techniciens.';
+            if (status) status.textContent = points.length + ' repères géographiques · France et Belgique. Zoomez pour les distinguer.';
             host.dataset.pointCount = String(points.length);
             if (typeof ResizeObserver !== 'undefined') new ResizeObserver(function () { map.invalidateSize(); }).observe(host);
         } catch (_error) {

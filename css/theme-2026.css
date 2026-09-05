@@ -23,23 +23,22 @@
 
 /* --- Retargetage des jetons deja consommes par le site --- */
 :root{
-  /* Le cuivre remplace le bleu par defaut de Tailwind : c'est le
-     conducteur, la matiere du metier. Il porte toutes les actions. */
-  --color-primary:#C2703B;
-  --color-primary-dark:#A85E30;
-  --color-primary-darker:#8F4E27;
-  --color-primary-glow:rgba(194,112,59,.15);
-  --color-secondary:#A85E30;
-  --color-accent:#C2703B;
+  /* Bleu identitaire : actions, titres et reperes accordes au logo historique. */
+  --color-primary:#205BC4;
+  --color-primary-dark:#19499F;
+  --color-primary-darker:#153C80;
+  --color-primary-glow:rgba(32,91,196,.15);
+  --color-secondary:#19499F;
+  --color-accent:#205BC4;
 
   /* Papier ZINC : fond FROID (remplace le creme chaud). Graphite = bandes sombres.
      Acier = filets et texte secondaire. Le blanc des cartes ressort sur le zinc. */
   --color-ink:#14181C;
-  --color-cream:#E8EAE6;
-  --color-cream-alt:#DFE2DD;
-  --color-line:#CDD3CF;
-  --color-blue-pale:#F2E4D8;
-  --color-bg:#E8EAE6;
+  --color-cream:#F3F6FA;
+  --color-cream-alt:#E9EFF7;
+  --color-line:#CCD7E7;
+  --color-blue-pale:#EAF1FF;
+  --color-bg:#F3F6FA;
 
   /* Vert et rouge deviennent des ETATS, jamais de la decoration. */
   --color-success:#3E9A63;
@@ -50,13 +49,13 @@
      L'acier vif #6E7A82 echoue AA en corps de texte, il reste reserve aux filets. */
   --color-gray-500:#5A6470;
   --color-gray-400:#5A6470;
-  --color-gray-200:#CDD3CF;
-  --color-gray-100:#DFE2DD;
+  --color-gray-200:#CCD7E7;
+  --color-gray-100:#E9EFF7;
   --color-text-secondary:#5A6470;
 
-  --gradient-primary:linear-gradient(135deg,#C2703B 0%,#A85E30 100%);
+  --gradient-primary:linear-gradient(135deg,#205BC4 0%,#19499F 100%);
   --gradient-dark:linear-gradient(135deg,#14181C 0%,#1F262E 100%);
-  --gradient-glow:linear-gradient(135deg,rgba(194,112,59,.10),rgba(194,112,59,.04));
+  --gradient-glow:linear-gradient(135deg,rgba(32,91,196,.10),rgba(32,91,196,.04));
 
   /* Archivo, grotesque industriel, remplace Fraunces en display ET
      la pile systeme en texte. Fichiers Fraunces supprimes du depot. */
@@ -73,15 +72,15 @@ h1{letter-spacing:-.035em;}
    otherwise collapses markers and tiles to zero pixels. */
 #coverage-map .leaflet-pane, #coverage-map .leaflet-pane div { max-width:none; }
 #coverage-map .jcsm-coverage-marker { display:grid; place-items:center; background:transparent; border:0; }
-.jcsm-coverage-marker > span { width:28px;height:28px;display:grid;place-items:center;border-radius:50%;background:#9b4928;border:3px solid #fff;color:#fff;font:bold 12px system-ui;box-shadow:0 0 0 1px #483c34,0 2px 5px #0005; }
+.jcsm-coverage-marker > span { width:28px;height:28px;display:grid;place-items:center;border-radius:50%;background:var(--color-primary);border:3px solid #fff;color:#fff;font:bold 12px system-ui;box-shadow:0 0 0 1px #20365a,0 2px 5px #0005; }
 .jcsm-coverage-marker i { display:block;width:7px;height:7px;border-radius:50%;background:#fff; }
 .jcsm-coverage-marker:focus-visible { outline:3px solid #202a27;outline-offset:1px;border-radius:50%; }
 .jcsm-map-reset { background:#fff;color:#202a27;border:1px solid #9baca0;border-radius:5px;min-height:44px;padding:0 12px;font:600 12px system-ui;cursor:pointer; }
-.jcsm-map-reset:focus-visible { outline:3px solid #9b4928; }
+.jcsm-map-reset:focus-visible { outline:3px solid var(--color-primary); }
 
-/* Accueil editorial : photographie reelle, cuivre et composition ouverte. */
+/* Accueil editorial : photographie reelle, bleu et composition ouverte. */
 body .jcsm-editorial-hero {
-  background:#f4f3ee;
+  background:#F7F9FC;
   padding-top:150px;
   padding-bottom:70px;
   min-height:0;
@@ -95,14 +94,14 @@ body .jcsm-editorial-hero h1 {
   opacity:1 !important;
   transform:none !important;
 }
-body .jcsm-editorial-hero h1 em { color:#a5532b; font-style:normal; }
+body .jcsm-editorial-hero h1 em { color:var(--color-primary); font-style:normal; }
 body .jcsm-editorial-hero p { margin-left:0; padding:0; }
 body .jcsm-editorial-hero .sec-label { font-size:11px; line-height:1.7; letter-spacing:.13em; }
-body .jcsm-editorial-hero .btn-primary { background:#a5532b; box-shadow:none; }
-body .jcsm-editorial-hero .btn-primary:hover { background:#854021; }
+body .jcsm-editorial-hero .btn-primary { background:var(--color-primary); box-shadow:none; }
+body .jcsm-editorial-hero .btn-primary:hover { background:var(--color-primary-dark); }
 body .jcsm-editorial-hero .btn-secondary { border:0; padding-left:0; padding-right:0; background:transparent; }
 body .jcsm-editorial-hero .jcsm-editorial-note {
-  border-top:1px solid #d4d4cc;
+  border-top:1px solid var(--color-line);
   padding-top:18px;
   font-size:12px;
   line-height:1.8;
@@ -113,7 +112,7 @@ body .jcsm-editorial-photo picture { height:auto; }
 body .jcsm-editorial-photo img { aspect-ratio:4/3; object-fit:cover; }
 .jcsm-editorial-photo figcaption {
   display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;
-  padding:16px 0 0;border-top:3px solid #a5532b;
+  padding:16px 0 0;border-top:3px solid var(--color-primary);
   color:#343c38;font-size:12px;line-height:1.6;
 }
 .jcsm-editorial-photo figcaption span { color:#596159; }
@@ -137,7 +136,7 @@ body .jcsm-editorial-photo img { aspect-ratio:4/3; object-fit:cover; }
 
 /* --- Accessibilite : le focus doit rester visible sur le nouveau fond. --- */
 a:focus-visible,button:focus-visible,summary:focus-visible{
-  outline:2px solid #E08A4D;outline-offset:3px;
+  outline:2px solid var(--color-primary);outline-offset:3px;
 }
 
 /* ============================================================
@@ -147,7 +146,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible{
    Remplace la rangee de statistiques, qui affirmait sans montrer.
    ============================================================ */
 /* Cadre "relevé" : promeut la bande 30 jours en piece maitresse du hero.
-   Panneau blanc sur le zinc, onglet cuivre a gauche, comme un instrument. */
+   Panneau blanc sur le zinc, onglet bleu a gauche, comme un instrument. */
 .jcsm-dispo-cadre{
   background:#fff;border:1px solid var(--color-line);border-left:3px solid var(--color-primary);
   border-radius:3px;padding:18px 20px;box-shadow:0 1px 2px rgba(20,24,28,.05);
