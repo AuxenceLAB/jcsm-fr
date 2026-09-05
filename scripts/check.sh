@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
-# Contrôles reproductibles avant commit / déploiement (aucune dépendance npm) :
+# Contrôles reproductibles avant commit / déploiement (après npm ci) :
 #   - syntaxe PHP  : php -l sur api/*.php
-#   - syntaxe JS   : node --check sur js/*.js, sw.js, tailwind.config.js, scripts/*.js
+#   - syntaxe JS   : node --check sur js/*.js, sw.js, tailwind.config.js, scripts/*.{js,cjs}
 #   - JSON valides : tous les .json versionnés
 #   - security.txt : champ Expires encore dans le futur
 # Usage : bash scripts/check.sh   (ou : npm run check)
@@ -15,7 +15,7 @@ for f in api/*.php; do
 done
 
 echo "== JavaScript (node --check) =="
-for f in js/*.js sw.js tailwind.config.js scripts/*.js; do
+for f in js/*.js sw.js tailwind.config.js scripts/*.js scripts/*.cjs; do
     [ -f "$f" ] || continue
     if ! out=$(node --check "$f" 2>&1); then echo "ERREUR $f"; echo "$out"; fail=1; fi
 done
@@ -27,6 +27,7 @@ if ! node --test scripts/partner-logos.test.cjs; then fail=1; fi
 if ! node --test scripts/brand-palette.test.cjs; then fail=1; fi
 if ! node --test scripts/analytics-consent.test.cjs; then fail=1; fi
 if ! node --test scripts/mobile-menu.test.cjs; then fail=1; fi
+if ! node --test scripts/public-layout.test.cjs; then fail=1; fi
 while IFS= read -r f; do
     if ! node -e 'JSON.parse(require("fs").readFileSync(process.argv[1], "utf8"))' "$f" 2>/dev/null; then
         echo "ERREUR JSON invalide : $f"; fail=1

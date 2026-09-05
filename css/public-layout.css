@@ -1,0 +1,82 @@
+/* Public page layout contract. One gutter owner, one navigation height.
+   Loaded last on the shared marketing shell, never on private or demo pages. */
+body.jcsm-public {
+  --jcsm-shell:80rem;
+  --jcsm-gutter:16px;
+  --jcsm-header:80px;
+  --font-sans:'Archivo',system-ui,-apple-system,'Helvetica Neue',Arial,sans-serif;
+}
+@media(min-width:640px) { body.jcsm-public { --jcsm-gutter:24px; } }
+
+/* Align the navigation and footer to the same content rail. */
+.jcsm-public .glass-nav > div {
+  max-width:var(--jcsm-shell);
+  height:var(--jcsm-header);
+  padding:16px var(--jcsm-gutter);
+  display:flex;
+  align-items:center;
+}
+.jcsm-public .glass-nav > div > div { width:100%; }
+.jcsm-public .glass-nav > div > div > a:first-child { margin-right:40px;flex-shrink:0; }
+.jcsm-public .glass-nav > div > div > a:first-child img { width:40px;height:40px;object-fit:contain; }
+.jcsm-public .glass-nav > div > div > a:first-child > span { font-size:24px;line-height:1.25;font-weight:700; }
+.jcsm-public .glass-nav a:not(:first-child),
+.jcsm-public .glass-nav .hidden a { font-size:14px;font-weight:600; }
+.jcsm-public > footer { padding-inline:var(--jcsm-gutter); }
+.jcsm-public > footer > div { width:100%;max-width:calc(var(--jcsm-shell) - 2 * var(--jcsm-gutter));padding-inline:0; }
+
+/* Sections own their outside padding; their containers never add it again. */
+.jcsm-public main > section { padding-inline:var(--jcsm-gutter); }
+.jcsm-public main > section > :is(.max-w-7xl,.max-w-6xl,.max-w-5xl,.max-w-4xl) {
+  width:100%;max-width:calc(var(--jcsm-shell) - 2 * var(--jcsm-gutter));padding-inline:0;
+}
+.jcsm-public main > section:first-of-type > :is(.max-w-3xl,.max-w-2xl,.max-w-xl,.max-w-lg) {
+  width:100%;max-width:calc(var(--jcsm-shell) - 2 * var(--jcsm-gutter));padding-inline:0;
+}
+.jcsm-utility main > section > div > div:first-child .mx-auto { margin-left:0; }
+.jcsm-utility > footer > div { text-align:left; }
+.jcsm-utility > footer > div > .justify-center { justify-content:flex-start; }
+
+/* The fixed header offset is applied once, even when breadcrumbs precede a hero. */
+.jcsm-public main > nav:first-child {
+  max-width:var(--jcsm-shell);
+  padding:calc(var(--jcsm-header) + 20px) var(--jcsm-gutter) 0;
+  margin-inline:auto;
+}
+.jcsm-public main > nav:first-child ol { flex-wrap:wrap; }
+.jcsm-public main > section:first-of-type {
+  min-height:0 !important;
+  padding-top:calc(var(--jcsm-header) + 40px);
+  padding-bottom:56px;
+  align-items:flex-start;
+}
+.jcsm-public main > nav:first-child ~ section:first-of-type { padding-top:32px; }
+.jcsm-public main > section:first-of-type :is(.grid,.text-center):has(h1) { align-items:start;text-align:left; }
+.jcsm-public main > section:first-of-type h1 {
+  font-family:var(--font-sans);
+  font-size:clamp(2.125rem,4vw,3.6rem);
+  line-height:1.12;
+  letter-spacing:-.035em;
+  text-align:left;
+  max-width:26ch;
+  margin-left:0;
+}
+.jcsm-public main > section:first-of-type h1 em { font-style:normal; }
+.jcsm-public main > section:first-of-type p { margin-left:0;padding-inline:0; }
+.jcsm-public main > section:first-of-type .justify-center { justify-content:flex-start; }
+
+/* Long articles and legal text retain deliberate reading widths. */
+.jcsm-public.jcsm-article main > article { padding:calc(var(--jcsm-header) + 40px) var(--jcsm-gutter) 64px; }
+.jcsm-public.jcsm-article main > article > div { max-width:48rem;padding-inline:0; }
+.jcsm-public.jcsm-legal main { padding:calc(var(--jcsm-header) + 40px) var(--jcsm-gutter) 64px; }
+.jcsm-public.jcsm-legal main > div { max-width:56rem;padding-inline:0; }
+.jcsm-public:is(.jcsm-article,.jcsm-legal) main h1 { font-size:clamp(2rem,3.4vw,3rem);line-height:1.16;letter-spacing:-.03em; }
+@media(max-width:639px) {
+  .jcsm-public main > section:first-of-type { padding-top:calc(var(--jcsm-header) + 32px);padding-bottom:40px; }
+  .jcsm-public main > nav:first-child ~ section:first-of-type { padding-top:24px; }
+}
+@media print {
+  .jcsm-public main > section:first-of-type,
+  .jcsm-public.jcsm-article main > article,
+  .jcsm-public.jcsm-legal main { padding-top:0; }
+}

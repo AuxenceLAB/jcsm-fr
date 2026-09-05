@@ -270,10 +270,12 @@ section {
 .max-w-xl {
   margin-left: auto;
   margin-right: auto;
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
   box-sizing: border-box;
   width: 100%;
+}
+body:not(.jcsm-public) :is(.max-w-2xl,.max-w-3xl,.max-w-4xl,.max-w-5xl,.max-w-6xl,.max-w-7xl,.max-w-xl) {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
 }
 .max-w-7xl {
   max-width: 80rem;
@@ -297,13 +299,7 @@ section {
   max-width: 36rem;
 }
 @media (max-width: 640px) {
-  .max-w-2xl,
-  .max-w-3xl,
-  .max-w-4xl,
-  .max-w-5xl,
-  .max-w-6xl,
-  .max-w-7xl,
-  .max-w-xl {
+  body:not(.jcsm-public) :is(.max-w-2xl,.max-w-3xl,.max-w-4xl,.max-w-5xl,.max-w-6xl,.max-w-7xl,.max-w-xl) {
     padding-left: 1rem;
     padding-right: 1rem;
   }
@@ -2650,4 +2646,3 @@ body .logo-marquee .logo-item:hover img { filter:grayscale(0);opacity:1; }
   body .logo-marquee .logo-item { flex-basis:140px;width:140px;min-width:140px;height:76px;padding:10px; }
   body .logo-marquee .logo-item picture { width:119px;height:56px; }
 }
-/* Leaflet panes have no intrinsic width: the site's generic max-width:100%
