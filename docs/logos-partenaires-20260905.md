@@ -8,6 +8,6 @@
 - Perpignan : version publiée par la [mairie lors de la présentation de son identité](https://www.mairie-perpignan.fr/actualites/nouvelle-identite-visuelle), copiée sans redessin dans images/perpignan-identite-officielle.jpg. Le fond clair s'intègre au bandeau, contrairement à l'ancien rectangle bleu. Ce JPEG n'a pas de canal alpha : l'intégration sans bloc visible est effectuée en CSS.
 - Une tentative de retouche avec le skill imagegen a été écartée : l'image produite avait un faux damier, sans transparence réelle. Elle n'est ni intégrée au projet ni publiée. Seuls les originaux et la version officielle sont utilisés.
 - Prompt de la tentative : retirer le fond bleu, préserver exactement blason, texte et proportions, rendre le texte bleu lisible sur fond clair et demander un PNG transparent. Outil intégré, sans clé API ni envoi de document privé.
-- Cache v92 ; anciens fichiers conservés. Aucun compte, ticket, tarif ou rapport modifié.
+- Règles de cadrage dans styles.css, commun aux neuf pages. Cache v93 ; anciens fichiers conservés. Aucun compte, ticket, tarif ou rapport modifié.
 
 Vérifications : test de régression des références et cadrages intégré à npm run check ; contrôle navigateur des sources chargées, dimensions identiques et proportions, sur mobile et ordinateur ; build CSS et contrôles PHP/JS/JSON avant publication.
