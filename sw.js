@@ -1,6 +1,6 @@
-// JCSM Service Worker - Enhanced PWA Support v87
-const STATIC_CACHE = 'jcsm-static-v87';
-const DYNAMIC_CACHE = 'jcsm-dynamic-v87';
+// JCSM Service Worker - Enhanced PWA Support v88
+const STATIC_CACHE = 'jcsm-static-v88';
+const DYNAMIC_CACHE = 'jcsm-dynamic-v88';
 
 // Chemins privés : jamais mis en cache, jamais servis depuis le cache
 // (API authentifiée, portail interne, rapports d'intervention). L'API reste

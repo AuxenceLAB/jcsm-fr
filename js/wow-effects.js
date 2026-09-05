@@ -201,6 +201,8 @@
 
         // Hero entrance animation
         (function heroEntrance() {
+            // Le premier ecran doit etre lisible immediatement, photo comprise.
+            if (document.querySelector('.jcsm-editorial-hero')) return;
             document.querySelectorAll("section:first-of-type .section-appear, section:first-of-type h1, section:first-of-type p, section:first-of-type a, section:first-of-type .inline-flex").forEach(function (el, i) {
                 el.style.opacity = "0";
                 el.style.transform = "translateY(30px)";

@@ -12,6 +12,7 @@ function initContactForm() {
 
         form.addEventListener("submit", function (e) {
             e.preventDefault();
+            if (abortController) return;
 
             var valid = true;
             var submitBtn = form.querySelector('button[type="submit"]');
@@ -30,7 +31,7 @@ function initContactForm() {
             // Validate name
             var nom = document.getElementById("nom");
             if (!nom) return;
-            if (!nom.value.trim() || nom.value.length < 2) {
+            if (nom.value.trim().length < 2) {
                 showError(nom, t("nameMinLength"), formMessage);
                 valid = false;
             }
@@ -57,7 +58,7 @@ function initContactForm() {
             // Validate message
             var message = document.getElementById("message");
             if (!message) return;
-            if (!message.value.trim() || message.value.length < 10) {
+            if (message.value.trim().length < 10) {
                 showError(message, t("messageMinLength"), formMessage);
                 valid = false;
             }
@@ -69,7 +70,11 @@ function initContactForm() {
                 valid = false;
             }
 
-            if (!valid) return;
+            if (!valid) {
+                var firstInvalid = form.querySelector('[aria-invalid="true"]');
+                if (firstInvalid) firstInvalid.focus();
+                return;
+            }
 
             // Check offline before attempting submission
             if (!navigator.onLine) {
