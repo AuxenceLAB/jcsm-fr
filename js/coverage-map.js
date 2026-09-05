@@ -6,7 +6,7 @@
         if (!host || host.dataset.ready || typeof L === 'undefined') return;
         host.dataset.ready = 'true';
         try {
-            var response = await fetch('/js/coverage-points.json?v=90');
+            var response = await fetch('/js/coverage-points.json?v=91');
             if (!response.ok) throw new Error('coverage unavailable');
             var data = await response.json();
             var points = data.points.filter(function (p) {
@@ -19,7 +19,7 @@
             }).addTo(map);
             var bounds = L.latLngBounds(points.map(function (p) { return [p.lat, p.lng]; }));
             var layer = L.layerGroup().addTo(map);
-            function overview() { map.fitBounds(bounds, { padding: [26, 26], maxZoom: 6 }); }
+            function overview() { map.closePopup(); map.fitBounds(bounds, { padding: [26, 26], maxZoom: 6 }); }
             function draw() {
                 layer.clearLayers();
                 var groups = new Map();
@@ -62,6 +62,40 @@
             var status = document.getElementById('coverage-map-status');
             if (status) status.textContent = points.length + ' repères géographiques · France et Belgique. Zoomez pour les distinguer.';
             host.dataset.pointCount = String(points.length);
+            var search = document.getElementById('coverage-city');
+            var results = document.getElementById('coverage-search-results');
+            var searchStatus = document.getElementById('coverage-search-status');
+            function normalize(value) {
+                return value.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
+            }
+            if (search && results && searchStatus) {
+                search.disabled = false;
+                search.addEventListener('input', function () {
+                    results.replaceChildren();
+                    var query = normalize(search.value);
+                    if (query.length < 2) { searchStatus.textContent = ''; return; }
+                    var matches = points.filter(function (p) { return normalize(p.name).includes(query); }).slice(0, 5);
+                    searchStatus.textContent = matches.length ? matches.length + ' résultat(s). Choisissez une ville pour la voir sur la carte.' : 'Aucun repère trouvé. Consultez notre couverture ou contactez-nous pour votre commune.';
+                    matches.forEach(function (point) {
+                        var item = document.createElement('li');
+                        var button = document.createElement('button');
+                        button.type = 'button'; button.textContent = point.name;
+                        button.addEventListener('click', function () {
+                            map.setView([point.lat, point.lng], 10, { animate: false });
+                            var label = document.createElement('span'); label.textContent = point.name + ' · Repère géographique';
+                            L.popup().setLatLng([point.lat, point.lng]).setContent(label).openOn(map);
+                            searchStatus.textContent = point.name + ' affiché sur la carte. Disponibilité à confirmer avec JCSM.';
+                            host.scrollIntoView({ block: 'center', behavior: 'instant' });
+                        });
+                        item.appendChild(button); results.appendChild(item);
+                    });
+                });
+                search.addEventListener('keydown', function (event) {
+                    if (event.key === 'ArrowDown') { var first = results.querySelector('button'); if (first) { event.preventDefault(); first.focus(); } }
+                    if (event.key === 'Enter') { var match = results.querySelector('button'); if (match) { event.preventDefault(); match.click(); } }
+                    if (event.key === 'Escape') { search.value = ''; results.replaceChildren(); searchStatus.textContent = ''; }
+                });
+            }
             if (typeof ResizeObserver !== 'undefined') new ResizeObserver(function () { map.invalidateSize(); }).observe(host);
         } catch (_error) {
             host.dataset.ready = '';
@@ -83,6 +117,8 @@
             if (entries.some(function (entry) { return entry.isIntersecting; })) { observer.disconnect(); load(); }
         }, { rootMargin: '200px' });
         observer.observe(host);
+        var search = document.getElementById('coverage-city');
+        if (search) observer.observe(search);
     }
     if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', setup); else setup();
 })();
