@@ -1,32 +1,32 @@
 :root {
-  --color-primary: #C2703B;
-  --color-primary-dark: #A85E30;
-  --color-primary-darker: #8F4E27;
-  --color-primary-glow: rgba(194, 112, 59, 0.15);
-  --color-secondary: #A85E30;
-  --color-accent: #C2703B;
+  --color-primary: #205BC4;
+  --color-primary-dark: #19499F;
+  --color-primary-darker: #153C80;
+  --color-primary-glow: rgba(32,91,196, 0.15);
+  --color-secondary: #19499F;
+  --color-accent: #205BC4;
   --color-ink: #14181C;
-  --color-cream: #E8EAE6;
-  --color-cream-alt: #DFE2DD;
-  --color-line: #CDD3CF;
-  --color-blue-pale: #F2E4D8;
+  --color-cream: #F3F6FA;
+  --color-cream-alt: #E9EFF7;
+  --color-line: #CCD7E7;
+  --color-blue-pale: #EAF1FF;
   --color-success: #3E9A63;
   --color-error: #E0553C;
   --color-gray-900: #14181C;
   --color-gray-500: #5A6470;
   --color-gray-400: #5A6470;
   --color-gray-300: #B9BFBA;
-  --color-gray-200: #CDD3CF;
-  --color-gray-100: #DFE2DD;
+  --color-gray-200: #CCD7E7;
+  --color-gray-100: #E9EFF7;
   --color-white: #ffffff;
-  --color-bg: #E8EAE6;
+  --color-bg: #F3F6FA;
   --color-text-secondary: #5A6470;
-  --gradient-primary: linear-gradient(135deg, #C2703B 0%, #A85E30 100%);
+  --gradient-primary: linear-gradient(135deg, #205BC4 0%, #19499F 100%);
   --gradient-dark: linear-gradient(135deg, #14181C 0%, #1F262E 100%);
   --gradient-glow: linear-gradient(
     135deg,
-    rgba(194, 112, 59, 0.10),
-    rgba(194, 112, 59, 0.04)
+    rgba(32,91,196, 0.10),
+    rgba(32,91,196, 0.04)
   );
   --shadow-lg:
     0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
@@ -407,7 +407,7 @@ footer a:not(.btn-primary) {
     transform 0.3s ease;
 }
 footer a:not(.btn-primary):hover {
-  color: #C2703B;
+  color: #205BC4;
   transform: translateX(4px);
 }
 /* Footer clair : titres de colonnes affinés (sans doré) */
@@ -456,8 +456,8 @@ footer h3 {
 .scroll-top:hover {
   transform: translateY(-2px);
   box-shadow: 0 6px 12px -2px rgba(0, 0, 0, 0.15);
-  border-color: #C2703B;
-  color: #C2703B;
+  border-color: #205BC4;
+  color: #205BC4;
 }
 @media (max-width: 768px) {
   .scroll-top {
@@ -511,7 +511,7 @@ footer h3 {
 }
 body .nav-link-active {
   position: relative;
-  color: #C2703B;
+  color: #205BC4;
   font-weight: 700;
 }
 .nav-link-active::after {
@@ -857,12 +857,12 @@ button:focus-visible,
 input:focus-visible,
 select:focus-visible,
 textarea:focus-visible {
-  outline: 2px solid #C2703B;
+  outline: 2px solid #205BC4;
   outline-offset: 2px;
   border-radius: 4px;
 }
 summary:focus-visible {
-  outline: 2px solid #C2703B;
+  outline: 2px solid #205BC4;
   outline-offset: 2px;
 }
 input:not([type="checkbox"]):not([type="radio"]),
@@ -1050,7 +1050,7 @@ body .input-success {
   height: 2px;
   bottom: -2px;
   left: 0;
-  background: #C2703B;
+  background: #205BC4;
   transition: width 0.3s ease;
 }
 .link-underline:hover::after {
@@ -2007,7 +2007,7 @@ h2 {
   --jcsm-bg-alt: var(--color-cream-alt);
 }
 .accent-pro {
-  color: #C2703B;
+  color: #205BC4;
   font-weight: 800;
 }
 .mono,
@@ -2045,7 +2045,7 @@ h2 {
   color: var(--jcsm-graphite) !important;
 }
 .badge-section > div {
-  background: #C2703B !important;
+  background: #205BC4 !important;
 }
 #services {
   background: var(--jcsm-bg-alt) !important;
@@ -2093,7 +2093,7 @@ h2 {
 .gradient-text {
   background: none !important;
   -webkit-text-fill-color: currentColor !important;
-  color: #C2703B !important;
+  color: #205BC4 !important;
   animation: none !important;
 }
 
@@ -2119,7 +2119,7 @@ h2 {
 /* The leading pulse dot in glass-badge: keep blue for accent */
 .glass-badge > div[class*="rounded-full"]:first-child,
 .glass-badge > span[class*="rounded-full"]:first-child {
-  background: #C2703B !important;
+  background: #205BC4 !important;
 }
 /* Hero-badge-specific tokens (homepage uses this class) */
 .hero-badge {
@@ -2298,8 +2298,7 @@ a:focus-visible, button:focus-visible {
   font-size: 0.72rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  /* --color-primary (#C2703B) = 3.42:1 sur creme : echec AA sur ce petit texte.
-     --color-primary-darker (#8F4E27) = 5.91:1 : conforme. */
+  /* Le bleu profond conserve le contraste du petit texte sur les fonds clairs. */
   color: var(--color-primary-darker);
   font-weight: 700;
 }
@@ -2307,7 +2306,7 @@ a:focus-visible, button:focus-visible {
   background: var(--color-ink);
   color: #F5F4EF;
 }
-.section-dark .sec-label { color: #E0A878; } /* cuivre clair (8.78:1 sur ink) — ex-bleu residuel */
+.section-dark .sec-label { color: #AAC9FF; } /* Bleu clair sur les sections graphite. */
 .section-dark .step { border-top: 2px solid var(--color-primary); padding-top: 0.875rem; }
 .section-alt { background: var(--color-cream-alt); }
 .logo-strip img,

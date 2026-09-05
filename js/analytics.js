@@ -4,6 +4,17 @@
  *        guard against multiple initializations, safer UA string truncation
  */
 !function () {
+    var started = false;
+    function hasConsent() {
+        try {
+            var date = Number(localStorage.getItem('jcsm_cookie_consent_ts'));
+            return localStorage.getItem('jcsm_cookie_consent') === 'accepted'
+                && date > 0 && Date.now() - date < 365 * 24 * 60 * 60 * 1000;
+        } catch (e) { return false; }
+    }
+    function start() {
+    if (started || !hasConsent()) return;
+    started = true;
     var ENDPOINT = "https://jcsm.cloud/api/analytics/collect";
     var queue = [];
     var sessionId = null;
@@ -24,11 +35,12 @@
     }
 
     function track(type, data) {
+        if (!hasConsent()) return;
         queue.push({
             type: type,
             sessionId: getSessionId(),
-            url: location.pathname + location.search,
-            referrer: document.referrer,
+            url: location.pathname,
+            referrer: document.referrer ? safePageUrl(document.referrer) : '',
             data: data || {},
             screen: screen.width + "x" + screen.height,
             userAgent: (navigator.userAgent || "").substring(0, 255),
@@ -37,6 +49,7 @@
     }
 
     function flush() {
+        if (!hasConsent()) { queue = []; return; }
         if (!queue.length) return;
         var payload = JSON.stringify(queue);
         queue = [];
@@ -77,7 +90,7 @@
         if (el) {
             track("click_cta", {
                 text: (el.innerText || "").substring(0, 30),
-                href: el.getAttribute("href"),
+                href: safePageUrl(el.getAttribute("href")),
                 tag: el.tagName
             });
         }
@@ -141,4 +154,12 @@
 
     // Periodic flush
     flushInterval = setInterval(flush, 10000);
+    }
+    function safePageUrl(value) {
+        if (!value) return '';
+        try { var url = new URL(value, location.origin); return /^https?:$/.test(url.protocol) ? url.origin + url.pathname : ''; }
+        catch (e) { return ''; }
+    }
+    window.addEventListener('jcsm:consent-change', start);
+    start();
 }();

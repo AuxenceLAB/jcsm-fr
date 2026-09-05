@@ -47,31 +47,31 @@
 
 /* === CSS Custom Properties === */
 :root {
-    --color-primary: #C2703B;
-    --color-primary-dark: #A85E30;
-    --color-primary-darker: #8F4E27;
-    --color-primary-glow: rgba(194, 112, 59, 0.15);
-    --color-secondary: #A85E30;
-    --color-accent: #C2703B;
+    --color-primary: #205BC4;
+    --color-primary-dark: #19499F;
+    --color-primary-darker: #153C80;
+    --color-primary-glow: rgba(32,91,196, 0.15);
+    --color-secondary: #19499F;
+    --color-accent: #205BC4;
     --color-ink: #14181C;
-    --color-cream: #E8EAE6;
-    --color-cream-alt: #DFE2DD;
-    --color-line: #CDD3CF;
-    --color-blue-pale: #F2E4D8;
+    --color-cream: #F3F6FA;
+    --color-cream-alt: #E9EFF7;
+    --color-line: #CCD7E7;
+    --color-blue-pale: #EAF1FF;
     --color-success: #3E9A63;
     --color-error: #E0553C;
     --color-gray-900: #14181C;
     --color-gray-500: #5A6470;
     --color-gray-400: #5A6470;
     --color-gray-300: #B9BFBA;
-    --color-gray-200: #CDD3CF;
-    --color-gray-100: #DFE2DD;
+    --color-gray-200: #CCD7E7;
+    --color-gray-100: #E9EFF7;
     --color-white: #ffffff;
-    --color-bg: #E8EAE6;
+    --color-bg: #F3F6FA;
     --color-text-secondary: #5A6470;
-    --gradient-primary: linear-gradient(135deg, #C2703B 0%, #A85E30 100%);
+    --gradient-primary: linear-gradient(135deg, #205BC4 0%, #19499F 100%);
     --gradient-dark: linear-gradient(135deg, #14181C 0%, #1F262E 100%);
-    --gradient-glow: linear-gradient(135deg, rgba(194, 112, 59, 0.10), rgba(194, 112, 59, 0.04));
+    --gradient-glow: linear-gradient(135deg, rgba(32,91,196, 0.10), rgba(32,91,196, 0.04));
     --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
     --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
     --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
@@ -96,9 +96,9 @@
     color-scheme: light;
 
     /* Aliases (used by inline styles in many pages) */
-    --blue: #C2703B;
-    --blue-dark: #A85E30;
-    --blue-light: #F5EBE2;
+    --blue: #205BC4;
+    --blue-dark: #19499F;
+    --blue-light: #EAF1FF;
     --gray-50: #f8fafc;
     --gray-100: #f1f5f9;
     --gray-200: #e2e8f0;
@@ -256,16 +256,16 @@ nav img[src*=logo] { mix-blend-mode: multiply; background: 0 0; }
     left: 0.875rem;
     right: 0.875rem;
     height: 2px;
-    background: var(--blue, #C2703B);
+    background: var(--blue, #205BC4);
     border-radius: 1px;
     transform: scaleX(0);
     transform-origin: center;
     transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .nav-link:hover::after { transform: scaleX(1); }
-.nav-link:hover { background: rgba(194, 112, 59, 0.06); }
+.nav-link:hover { background: rgba(32,91,196, 0.06); }
 
-.nav-link-active { position: relative; color: #C2703B; font-weight: 700; }
+.nav-link-active { position: relative; color: #205BC4; font-weight: 700; }
 .nav-link-active::after {
     content: '';
     position: absolute;
@@ -701,7 +701,7 @@ img {
 
 /* === Blog Table of Contents === */
 .toc-nav .toc-link.active {
-    color: #C2703B;
+    color: #205BC4;
     font-weight: 600;
 }
 .toc-nav ol {
