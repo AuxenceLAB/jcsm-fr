@@ -68,6 +68,16 @@
        les grands titres ont besoin d'un resserrement optique. --- */
 h1,h2,h3,.h1,.h2,.h3{letter-spacing:-.03em;}
 h1{letter-spacing:-.035em;}
+/* Logos partenaires : originaux propres, meme cadre et cadrage optique.
+   Les dimensions internes compensent les marges natives sans modifier les fichiers. */
+body .logo-marquee .logo-item { flex:0 0 160px;width:160px;min-width:160px;height:88px;padding:12px;display:flex;align-items:center;justify-content:center;background:transparent;border:0;box-shadow:none; }
+body .logo-marquee .logo-item picture { position:relative;display:block;flex:none;width:136px;height:64px;overflow:hidden;background:transparent;mix-blend-mode:multiply; }
+body .logo-marquee .logo-item picture img { position:absolute;display:block;width:var(--logo-width,100%);height:var(--logo-height,100%);max-width:none;max-height:none;left:var(--logo-left,0%);top:var(--logo-top,0%);object-fit:fill;background:transparent;border:0;border-radius:0;box-shadow:none;filter:grayscale(1);opacity:.82;mix-blend-mode:multiply; }
+body .logo-marquee .logo-item:hover img { filter:grayscale(0);opacity:1; }
+@media(max-width:640px) {
+  body .logo-marquee .logo-item { flex-basis:140px;width:140px;min-width:140px;height:76px;padding:10px; }
+  body .logo-marquee .logo-item picture { width:119px;height:56px; }
+}
 /* Leaflet panes have no intrinsic width: the site's generic max-width:100%
    otherwise collapses markers and tiles to zero pixels. */
 #coverage-map .leaflet-pane, #coverage-map .leaflet-pane div { max-width:none; }
