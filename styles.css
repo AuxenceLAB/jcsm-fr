@@ -480,6 +480,7 @@ footer h3 {
   }
 }
 .mobile-menu {
+  visibility: hidden;
   position: fixed;
   top: 0;
   right: -100%;
@@ -494,6 +495,7 @@ footer h3 {
   box-shadow: -4px 0 24px rgba(0, 0, 0, 0.1);
 }
 .mobile-menu.open {
+  visibility: visible;
   right: 0;
 }
 .mobile-menu-overlay {

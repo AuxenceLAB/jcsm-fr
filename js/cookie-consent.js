@@ -9,9 +9,12 @@
         var STORAGE_TS_KEY = "jcsm_cookie_consent_ts";
         var MAX_AGE_MS = 365 * 24 * 60 * 60 * 1000; // 12 months
         var consent = localStorage.getItem(STORAGE_KEY);
-        var consentTs = parseInt(localStorage.getItem(STORAGE_TS_KEY) || "0", 10);
-        // Expire consent after 12 months (GDPR compliance)
-        if (consent && consentTs && (Date.now() - consentTs > MAX_AGE_MS)) {
+        var consentTs = Number(localStorage.getItem(STORAGE_TS_KEY));
+        var consentAge = Date.now() - consentTs;
+        // Missing, invalid, future or expired choices require a fresh decision.
+        if (consent && ((consent !== "accepted" && consent !== "rejected")
+            || !Number.isFinite(consentTs) || consentTs <= 0
+            || consentAge < 0 || consentAge >= MAX_AGE_MS)) {
             localStorage.removeItem(STORAGE_KEY);
             localStorage.removeItem(STORAGE_TS_KEY);
             consent = null;

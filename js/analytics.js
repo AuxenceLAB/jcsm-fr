@@ -8,8 +8,9 @@
     function hasConsent() {
         try {
             var date = Number(localStorage.getItem('jcsm_cookie_consent_ts'));
+            var age = Date.now() - date;
             return localStorage.getItem('jcsm_cookie_consent') === 'accepted'
-                && date > 0 && Date.now() - date < 365 * 24 * 60 * 60 * 1000;
+                && Number.isFinite(date) && date > 0 && age >= 0 && age < 365 * 24 * 60 * 60 * 1000;
         } catch (e) { return false; }
     }
     function start() {
@@ -23,7 +24,8 @@
 
     function getSessionId() {
         if (sessionId) return sessionId;
-        var stored = sessionStorage.getItem("_asid");
+        var stored = null;
+        try { stored = sessionStorage.getItem("_asid"); } catch (e) { /* blocked storage */ }
         if (!stored) {
             var arr = new Uint32Array(2);
             crypto.getRandomValues(arr);

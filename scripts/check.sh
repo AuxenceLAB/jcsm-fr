@@ -26,6 +26,7 @@ if ! node --test scripts/coverage-points.test.cjs; then fail=1; fi
 if ! node --test scripts/partner-logos.test.cjs; then fail=1; fi
 if ! node --test scripts/brand-palette.test.cjs; then fail=1; fi
 if ! node --test scripts/analytics-consent.test.cjs; then fail=1; fi
+if ! node --test scripts/mobile-menu.test.cjs; then fail=1; fi
 while IFS= read -r f; do
     if ! node -e 'JSON.parse(require("fs").readFileSync(process.argv[1], "utf8"))' "$f" 2>/dev/null; then
         echo "ERREUR JSON invalide : $f"; fail=1
