@@ -1,0 +1,14 @@
+@font-face{font-family:'Source Sans';font-style:normal;font-weight:200 900;font-display:swap;src:url('/fonts/source-sans-latin.woff2') format('woff2')}
+
+:root,body.jcsm-public{--font-sans:'Source Sans',Arial,sans-serif;--font-serif:var(--font-sans);--font-mono:var(--font-sans);--jcsm-mono:var(--font-sans)}
+body{font-family:var(--font-sans);letter-spacing:0}
+h1,h2,h3,h4{font-family:var(--font-sans);letter-spacing:-.018em;line-height:1.2;text-wrap:balance}
+h1{font-weight:600}h2,h3{font-weight:600}h1 em,h2 em,h3 em{font-family:inherit;font-style:normal;font-weight:inherit}
+button,input,select,textarea{font-family:var(--font-sans)}
+.eyebrow,.kicker,.section-label{font-family:var(--font-sans);letter-spacing:.02em;text-transform:none;font-size:13px}
+main p{line-height:1.7}.btn,.button-primary,.button-secondary{border-radius:5px}
+.section-appear{transition-duration:.35s!important;transition-delay:0s!important}
+.font-mono,code,pre,kbd{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-variant-numeric:tabular-nums}
+
+.jcsm-public :is(h1,h2,h3,h4){font-family:var(--font-sans);letter-spacing:-.015em;line-height:1.2;font-weight:600}
+.jcsm-public .section-kicker{letter-spacing:.025em;font-size:13px}
