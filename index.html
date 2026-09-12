@@ -607,7 +607,6 @@
     </nav>
 
     <!-- Barre de progression de scroll -->
-    <div id="scroll-progress" class="fixed top-0 left-0 h-1 bg-blue-600 z-[60] transition-all duration-150" style="width: 0%;" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Progression de lecture"></div>
 
     <nav class="fixed top-0 w-full z-50 glass-nav border-b border-gray-200" role="navigation" aria-label="Navigation principale">
         <div class="max-w-7xl mx-auto px-6 py-4">
@@ -636,6 +635,7 @@
     </nav>
 
     <main id="main-content" tabindex="-1" role="main">
+    <div id="scroll-progress" class="fixed top-0 left-0 h-1 bg-blue-600 z-[60] transition-all duration-150" style="width: 0%;" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Progression de lecture"></div>
 
         <!-- ============ HERO ============ -->
         <section class="hero-section jcsm-editorial-hero pt-28 sm:pt-32 lg:pt-36 pb-16 sm:pb-20 px-4 sm:px-6" aria-label="Maintenance IRVE depuis 2019">
@@ -944,7 +944,7 @@
                         Questions fréquentes
                     </h2>
                 </div>
-                <div class="space-y-3" role="region" aria-label="Questions fréquentes">
+                <div class="space-y-3">
                     <details class="group bg-white border border-gray-200 rounded-xl p-5 hover:border-gray-300 transition-colors card-lift">
                         <summary class="font-medium text-gray-900 cursor-pointer flex items-center justify-between list-none [&::-webkit-details-marker]:hidden">
                             <div class="flex items-center gap-3">
