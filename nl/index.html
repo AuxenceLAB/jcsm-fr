@@ -812,7 +812,7 @@
                         Uw vragen. Onze directe antwoorden.
                     </h2>
                 </div>
-                <div class="space-y-3" role="region" aria-label="Veelgestelde vragen">
+                <div class="space-y-3">
                     <details class="group bg-white border border-gray-200 rounded-xl p-5 hover:border-gray-300 transition-colors card-lift">
                         <summary class="font-medium text-gray-900 cursor-pointer flex items-center justify-between list-none [&::-webkit-details-marker]:hidden">
                             <div class="flex items-center gap-3">
@@ -1242,7 +1242,7 @@ document.addEventListener('DOMContentLoaded', function() {
         [50.8503, 4.3517, 'Brussel']
     ];
     majors.forEach(function(c) {
-        L.marker([c[0], c[1]], {icon: iconLg}).addTo(map).bindPopup('<strong>' + c[2] + '</strong>');
+        L.marker([c[0], c[1]], {icon: iconLg, title: c[2], alt: c[2]}).addTo(map).bindPopup('<strong>' + c[2] + '</strong>');
     });
 
     // Secondary cities (small markers)
@@ -1268,7 +1268,7 @@ document.addEventListener('DOMContentLoaded', function() {
         [41.9191, 8.7386, 'Ajaccio'], [42.6977, 9.4497, 'Bastia']
     ];
     cities.forEach(function(c) {
-        L.marker([c[0], c[1]], {icon: icon}).addTo(map).bindPopup(c[2]);
+        L.marker([c[0], c[1]], {icon: icon, title: c[2], alt: c[2]}).addTo(map).bindPopup(c[2]);
     });
 
     // Add coverage overlay text

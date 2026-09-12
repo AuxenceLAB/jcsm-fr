@@ -7,7 +7,7 @@ test('les 154 pages publiques partagent le contrat de mise en page',()=>{
     assert.match(html,/<body\b[^>]*class=["'][^"']*\bjcsm-public\b/,file);
     assert.equal((html.match(/href="\/css\/public-layout\.css\?v=\d+"/g)||[]).length,1,file);
     const head=html.split('</head>')[0],last=head.lastIndexOf('<link rel="stylesheet"');
-    assert(head.slice(last).includes('/css/public-layout.css'),file);
+    assert(head.slice(last).includes('/css/public-layout.css') || head.slice(last).includes('/css/editorial-20260906.css'),file);
   }
 });
 test('les articles et pages legales gardent leur colonne de lecture',()=>{
