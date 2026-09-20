@@ -85,6 +85,7 @@ restore_previous() {
   echo "ERREUR : restauration de la révision $OLD_REV" >&2
   git reset --keep "$OLD_REV"
   build_css || true
+  sudo -n /usr/local/sbin/refresh-static-csp.py && sudo -n systemctl reload nginx
   PULLED=0
 }
 
@@ -152,6 +153,10 @@ if [ "$PULLED" -eq 1 ] && [ -n "$(git diff --name-only "$OLD_REV" HEAD -- api/ |
     warn "impossible de recharger $PHP_FPM_SERVICE (le code PHP reste servi via l'opcache jusqu'à revalidation)"
   fi
 fi
+
+# The inline-script hashes must match the HTML that is now served.
+sudo -n /usr/local/sbin/refresh-static-csp.py
+sudo -n systemctl reload nginx
 
 echo "== [5/7] nginx"
 CHANGED_CONF=()

@@ -1,3 +1,4 @@
+include /etc/nginx/snippets/jcsm-quality-csp-map.conf;
 # HTTP → HTTPS + www → non-www redirect
 server {
     listen 80;
@@ -90,7 +91,7 @@ server {
         limit_req zone=req_limit_per_ip burst=20 nodelay;
         limit_conn conn_limit_per_ip 20;
         include /etc/nginx/snippets/jcsm-security.conf;
-        add_header Cache-Control "public, max-age=3600" always;
+        add_header Cache-Control $other_public_static_cache always;
         try_files /index.html =404;
     }
 
@@ -100,7 +101,7 @@ server {
         limit_req zone=req_limit_per_ip burst=20 nodelay;
         limit_conn conn_limit_per_ip 20;
         include /etc/nginx/snippets/jcsm-security.conf;
-        add_header Cache-Control "public, max-age=3600" always;
+        add_header Cache-Control $other_public_static_cache always;
         try_files $uri $uri.html $uri/ =404;
     }
 

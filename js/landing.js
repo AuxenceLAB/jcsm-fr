@@ -9,6 +9,29 @@ function initContactForm() {
         if (!form) return;
 
         var abortController = null;
+        var sourceRef = form.querySelector('input[name="source_ref"]');
+        var page = form.querySelector('input[name="page"]');
+        var langue = form.querySelector('input[name="langue"]');
+        var storageKey = 'jcsm-site-contact:' + window.location.pathname;
+
+        function newSourceRef() {
+            if (!window.crypto || !window.crypto.randomUUID) return '';
+            return 'jcsm-fr:' + window.crypto.randomUUID();
+        }
+
+        function ensureSourceRef() {
+            if (!sourceRef) return false;
+            if (sourceRef.value) return true;
+            try { sourceRef.value = sessionStorage.getItem(storageKey) || ''; } catch (_) { /* stockage facultatif */ }
+            if (!sourceRef.value) sourceRef.value = newSourceRef();
+            if (!sourceRef.value) return false;
+            try { sessionStorage.setItem(storageKey, sourceRef.value); } catch (_) { /* stockage facultatif */ }
+            return true;
+        }
+
+        if (page) page.value = window.location.pathname;
+        if (langue) langue.value = (document.documentElement.lang || 'fr').slice(0, 8);
+        ensureSourceRef();
 
         form.addEventListener("submit", function (e) {
             e.preventDefault();
@@ -81,6 +104,12 @@ function initContactForm() {
                 showError(null, t("offlineFormError"), formMessage);
                 return;
             }
+            if (!ensureSourceRef()) {
+                showError(null, t("formError"), formMessage);
+                return;
+            }
+            if (page) page.value = window.location.pathname;
+            if (langue) langue.value = (document.documentElement.lang || 'fr').slice(0, 8);
 
             // Show loading state
             var submitText = submitBtn.querySelector(".submit-text");
@@ -103,11 +132,18 @@ function initContactForm() {
                 body: formData,
                 headers: { Accept: "application/json" },
                 signal: abortController.signal
-            }).then(function (res) {
-                if (res.ok) {
+            }).then(async function (res) {
+                var result = await res.json().catch(function () { return null; });
+                if (res.ok && result && result.ok === true) {
                     showSuccess(t("formSuccess"), formMessage);
                     form.reset();
+                    sourceRef.value = '';
+                    try { sessionStorage.removeItem(storageKey); } catch (_) { /* stockage facultatif */ }
                 } else {
+                    if (res.status === 409) {
+                        sourceRef.value = '';
+                        try { sessionStorage.removeItem(storageKey); } catch (_) { /* stockage facultatif */ }
+                    }
                     showError(null, t("formError"), formMessage);
                 }
             }).catch(function (err) {
