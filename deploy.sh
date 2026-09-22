@@ -8,8 +8,8 @@
 # précédente si une vérification échoue après la bascule.
 #
 # Usage : ./deploy.sh
-#   DEPLOY_NGINX=1 ./deploy.sh   installe dans /etc/nginx les fichiers geres
-#                                (sauvegarde hors sites-enabled), nginx -t, puis
+#   DEPLOY_NGINX=1 ./deploy.sh   installe dans /etc/nginx les fichiers geres (dans la
+#                                cible des liens de sites-enabled), nginx -t, puis
 #                                reload UNIQUEMENT si un fichier a changé
 #   DEPLOY_PUSH=1 ./deploy.sh    pousse master vers GitHub à la fin (non bloquant)
 #
@@ -178,25 +178,30 @@ if [ "${#CHANGED_CONF[@]}" -eq 0 ]; then
   echo "   config/nginx/ identique à /etc/nginx/ : aucun changement"
   sudo -n nginx -t 2>&1 | sed 's/^/   /'
 elif [ "${DEPLOY_NGINX:-0}" = "1" ]; then
-  STAMP=$(date +%Y%m%d-%H%M%S)
-  NGINX_BACKUP_DIR="/var/backups/nginx/jcsm-fr/$STAMP"
-  sudo -n install -d -m 700 "$NGINX_BACKUP_DIR"
+  # sites-enabled/* sont des liens vers sites-available : on écrit dans la CIBLE du lien
+  # (install remplacerait le lien par une copie, piège du 30/08). Copie de retour arrière
+  # dans $WORK uniquement (supprimé en sortie) : aucune sauvegarde laissée sur disque.
+  NGINX_BACKUP_DIR="$WORK/nginx-avant"
+  mkdir -p "$NGINX_BACKUP_DIR"
   for rel in "${CHANGED_CONF[@]}"; do
-    if [ -f "/etc/nginx/$rel" ]; then
-      sudo -n install -D -m 600 "/etc/nginx/$rel" "$NGINX_BACKUP_DIR/$rel"
+    dest=$(readlink -f "/etc/nginx/$rel")
+    if [ -f "$dest" ]; then
+      mkdir -p "$NGINX_BACKUP_DIR/$(dirname "$rel")"
+      sudo -n cat "$dest" > "$NGINX_BACKUP_DIR/$rel"
     fi
-    sudo -n install -D -m 644 "config/nginx/$rel" "/etc/nginx/$rel"
-    echo "   installé : /etc/nginx/$rel"
+    sudo -n install -D -m 644 "config/nginx/$rel" "$dest"
+    echo "   installé : $dest"
   done
   if sudo -n nginx -t; then
     sudo -n systemctl reload nginx
     echo "   nginx rechargé (${#CHANGED_CONF[@]} fichier(s) modifié(s))"
   else
     for rel in "${CHANGED_CONF[@]}"; do
+      dest=$(readlink -f "/etc/nginx/$rel")
       if [ -f "$NGINX_BACKUP_DIR/$rel" ]; then
-        sudo -n install -D -m 644 "$NGINX_BACKUP_DIR/$rel" "/etc/nginx/$rel"
+        sudo -n install -D -m 644 "$NGINX_BACKUP_DIR/$rel" "$dest"
       else
-        sudo -n rm -f "/etc/nginx/$rel"
+        sudo -n rm -f "$dest"
       fi
     done
     sudo -n nginx -t || warn "la configuration restaurée ne passe pas nginx -t non plus : intervention manuelle"
