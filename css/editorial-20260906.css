@@ -16,3 +16,8 @@ main p{line-height:1.7}.btn,.button-primary,.button-secondary{border-radius:5px}
 /* Preserve the photo dimensions before decoding and keep text legible throughout reveals. */
 body .jcsm-editorial-photo img{height:auto;aspect-ratio:4/3}
 .js-loaded .grid-stagger>*{opacity:1;transition-property:transform}
+
+/* L'exergue coloré est réservé au H1 du hero ; ailleurs, et sur fond bleu ou graphite, il reprend la couleur du titre. */
+.jcsm-public :is(h2,h3,h4) em{color:inherit}
+.jcsm-public :is(.card-cta,.section-dark) :is(h1,h2,h3) em{color:inherit}
+.jcsm-public .card-cta p{color:#fff!important}
