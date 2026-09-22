@@ -89,3 +89,9 @@ body.jcsm-public {
 
 /* Fond de carte OpenStreetMap apaisé : les zones bleues restent le seul signal coloré. */
 .jcsm-public .leaflet-tile-pane{filter:grayscale(.9) contrast(.92) brightness(1.06)}
+
+/* Formulaires : 16 px (pas de zoom iOS), une seule bordure au contraste 3:1, 48 px de haut. */
+.jcsm-public form :is(input:not([type=checkbox]):not([type=radio]):not([type=hidden]),select,textarea){font-size:16px;border:1px solid #8793A5;border-radius:10px;min-height:48px;background:#fff}
+.jcsm-public form :is(input,select,textarea):focus-visible{outline:2px solid var(--color-primary);outline-offset:2px}
+/* Case de consentement alignée sur la première ligne du libellé (le libellé reste cliquable). */
+.jcsm-public #contactForm input[type=checkbox],.jcsm-public form input[type=checkbox]{min-height:20px;height:20px;width:20px;margin-top:0}
