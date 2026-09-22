@@ -80,6 +80,10 @@ server {
     # formes .html ET sans extension.)
     location = /index.html { return 301 /; }
 
+    # Répertoires sans index : redirection vers la page qui les présente.
+    location = /blog/ { return 301 /blog; }
+    location = /zones/ { return 301 /couverture; }
+
     # 404 page: only reachable via error_page internal redirect (never 301'd,
     # never served 200 directly)
     location = /404.html {
@@ -102,6 +106,10 @@ server {
         limit_conn conn_limit_per_ip 20;
         include /etc/nginx/snippets/jcsm-security.conf;
         add_header Cache-Control $other_public_static_cache always;
+        # Barre finale retirée sur les pages qui ne sont pas des répertoires (/contact/ -> /contact).
+        if (!-d $request_filename) {
+            rewrite ^/(.+)/$ /$1 permanent;
+        }
         try_files $uri $uri.html $uri/ =404;
     }
 
@@ -222,7 +230,7 @@ server {
     }
 
     # Cache images (1 month) - no rate limiting for static assets
-    location ~* \.(png|jpg|jpeg|gif|svg|webp|ico)$ {
+    location ~* \.(png|jpg|jpeg|gif|svg|webp|avif|ico)$ {
         include /etc/nginx/snippets/jcsm-security.conf;
         add_header Cache-Control "public, max-age=2592000, immutable" always;
         try_files $uri =404;
@@ -236,9 +244,10 @@ server {
     }
 
     # Cache CSS/JS (1 week)
+    # CSS/JS versionnés par ?v=N (cache-bust unique, cf. deploy.sh) : un an.
     location ~* \.(css|js)$ {
         include /etc/nginx/snippets/jcsm-security.conf;
-        add_header Cache-Control "public, max-age=604800, immutable" always;
+        add_header Cache-Control "public, max-age=31536000, immutable" always;
         try_files $uri =404;
     }
 
