@@ -93,14 +93,14 @@
     }
 
     var LANGUAGES = [
-        { code: "fr", flag: "\uD83C\uDDEB\uD83C\uDDF7", label: "Fran\u00e7ais" },
-        { code: "en", flag: "\uD83C\uDDEC\uD83C\uDDE7", label: "English" },
-        { code: "es", flag: "\uD83C\uDDEA\uD83C\uDDF8", label: "Espa\u00f1ol" },
-        { code: "de", flag: "\uD83C\uDDE9\uD83C\uDDEA", label: "Deutsch" },
-        { code: "pt", flag: "\uD83C\uDDF5\uD83C\uDDF9", label: "Portugu\u00eas" },
-        { code: "nl", flag: "\uD83C\uDDF3\uD83C\uDDF1", label: "Nederlands" },
-        { code: "pl", flag: "\uD83C\uDDF5\uD83C\uDDF1", label: "Polski" },
-        { code: "it", flag: "\uD83C\uDDEE\uD83C\uDDF9", label: "Italiano" }
+        { code: "fr", label: "Fran\u00e7ais" },
+        { code: "en", label: "English" },
+        { code: "es", label: "Espa\u00f1ol" },
+        { code: "de", label: "Deutsch" },
+        { code: "pt", label: "Portugu\u00eas" },
+        { code: "nl", label: "Nederlands" },
+        { code: "pl", label: "Polski" },
+        { code: "it", label: "Italiano" }
     ];
 
     function initSelector() {
@@ -145,11 +145,6 @@
             btn.setAttribute("aria-expanded", "false");
             btn.setAttribute("aria-haspopup", "listbox");
             btn.setAttribute("aria-label", t("languageLabel"));
-
-            var flagSpan = document.createElement("span");
-            flagSpan.setAttribute("aria-hidden", "true");
-            flagSpan.textContent = currentLang.flag;
-            btn.appendChild(flagSpan);
 
             var codeSpan = document.createElement("span");
             codeSpan.textContent = currentLang.code.toUpperCase();
@@ -209,10 +204,11 @@
             a.style.backgroundColor = l.code === lang ? "#eff6ff" : "#ffffff";
             a.style.fontWeight = l.code === lang ? "600" : "400";
 
-            var flagSpan = document.createElement("span");
-            flagSpan.setAttribute("aria-hidden", "true");
-            flagSpan.textContent = l.flag;
-            a.appendChild(flagSpan);
+            var codeSpan = document.createElement("span");
+            codeSpan.setAttribute("aria-hidden", "true");
+            codeSpan.style.cssText = "min-width:1.5rem;font-size:0.75rem;font-weight:600;color:#5A6470;";
+            codeSpan.textContent = l.code.toUpperCase();
+            a.appendChild(codeSpan);
 
             var labelSpan = document.createElement("span");
             labelSpan.textContent = l.label;

@@ -64,3 +64,12 @@ test('le fil d Ariane precede de la barre de progression garde le decalage d en-
   assert(pages.length>0);
   for(const selector of ['#scroll-progress:first-child + nav {','#scroll-progress:first-child + nav ol','#scroll-progress:first-child + nav ~ section:first-of-type'])assert(css.includes(selector),selector);
 });
+test('chaque pied de page public relie les huit langues sans drapeau emoji',()=>{
+  for(const file of getPublicPages()){
+    const html=fs.readFileSync(path.join(root,file),'utf8');
+    assert(!/[\u{1F1E6}-\u{1F1FF}]/u.test(html),file);
+    if(file==='offline.html')continue;
+    const nav=html.match(/<nav class="jcsm-lang-nav"[^>]*>([\s\S]*?)<\/nav>/);
+    assert(nav,file);assert.equal((nav[1].match(/<a [^>]*hreflang="/g)||[]).length,8,file);
+  }
+});

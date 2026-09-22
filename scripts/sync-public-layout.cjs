@@ -3,6 +3,17 @@ const fs=require('node:fs'),path=require('node:path');
 const {root,getPublicPages,getPageFamily}=require('./public-pages.cjs');
 const write=process.argv.includes('--write');
 const version=fs.readFileSync(path.join(root,'sw.js'),'utf8').match(/jcsm-static-v(\d+)/)[1];
+// Footer language links, generated from each page's hreflang alternates (fallback: that language's home page).
+const LANGS=['fr','en','de','es','it','nl','pl','pt'];
+const LANG_LABEL={fr:'Langues',en:'Languages',de:'Sprachen',es:'Idiomas',it:'Lingue',nl:'Talen',pl:'Języki',pt:'Idiomas'};
+function langNav(html){
+  const own=(html.match(/<html\b[^>]*\blang="([a-z]{2})/i)||[,'fr'])[1];
+  const alt={};for(const [,l,href] of html.matchAll(/<link rel="alternate" hreflang="([a-z]{2})" href="([^"]+)"/g))alt[l]=href;
+  const canonical=(html.match(/<link rel="canonical" href="([^"]+)"/)||[])[1];
+  if(canonical)alt[own]=canonical;
+  const links=LANGS.map(l=>'<a href="'+(alt[l]||'https://jcsm.fr/'+(l==='fr'?'':l+'/')).replace('https://jcsm.fr','')+'" hreflang="'+l+'" lang="'+l+'"'+(l===own?' aria-current="page"':'')+'>'+l.toUpperCase()+'</a>');
+  return '<nav class="jcsm-lang-nav" aria-label="'+(LANG_LABEL[own]||LANG_LABEL.fr)+'">'+links.join(' ')+'</nav>';
+}
 let changed=0;
 for(const file of getPublicPages()){
   const absolute=path.join(root,file),before=fs.readFileSync(absolute,'utf8');
@@ -15,6 +26,8 @@ for(const file of getPublicPages()){
   // The body font is preloaded on every public page, before the first stylesheet.
   const fontPreload='<link rel="preload" href="/fonts/source-sans-latin.woff2" as="font" type="font/woff2" crossorigin>';
   if(!next.includes('href="/fonts/source-sans-latin.woff2"'))next=next.replace(/([ \t]*)<link rel="stylesheet"/i,(all,indent)=>indent+fontPreload+'\n'+all);
+  if(/<nav class="jcsm-lang-nav"[^>]*>[\s\S]*?<\/nav>/.test(next))next=next.replace(/<nav class="jcsm-lang-nav"[^>]*>[\s\S]*?<\/nav>/,langNav(next));
+  else next=next.replace(/(<footer\b[\s\S]*?<span>(?:&copy;|©) 2026 JCSM SAS[^<]*<\/span>)/,(all)=>all+'\n                '+langNav(next));
   if(!next.includes('/css/public-layout.css?'))next=next.replace(/<\/head>/i,'    <link rel="stylesheet" href="/css/public-layout.css?v='+version+'">\n</head>');
   if(next!==before){changed++;if(write)fs.writeFileSync(absolute,next);}
 }

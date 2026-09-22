@@ -95,3 +95,9 @@ body.jcsm-public {
 .jcsm-public form :is(input,select,textarea):focus-visible{outline:2px solid var(--color-primary);outline-offset:2px}
 /* Case de consentement alignée sur la première ligne du libellé (le libellé reste cliquable). */
 .jcsm-public #contactForm input[type=checkbox],.jcsm-public form input[type=checkbox]{min-height:20px;height:20px;width:20px;margin-top:0}
+
+/* Liens de langue du pied de page (générés depuis les hreflang). */
+.jcsm-public .jcsm-lang-nav{display:flex;flex-wrap:wrap;gap:0 12px}
+.jcsm-public .jcsm-lang-nav a{display:inline-flex;align-items:center;min-height:24px;color:inherit}
+.jcsm-public .jcsm-lang-nav a:hover{color:var(--color-primary-darker);text-decoration:underline}
+.jcsm-public .jcsm-lang-nav a[aria-current]{font-weight:600;color:var(--color-primary-darker)}
