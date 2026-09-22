@@ -8,7 +8,7 @@ test('les logos partenaires utilisent des originaux cadres sans deformation',()=
   for(const file of cp.execFileSync('git',['ls-files','*.html'],{encoding:'utf8'}).trim().split('\n')){
     const html=fs.readFileSync(file,'utf8');
     const items=[...html.matchAll(/<div\b(?=[^>]*class="(?:[^"]* )?logo-item(?: |"))[^>]*>([\s\S]*?)<\/div>/g)];
-    if(items.length) assert(html.includes('styles.css?v='),file);
+    if(items.length) assert(/(?:styles|site-a(?:-theme)?)\.css\?v=/.test(html),file);
     for(const [,body] of items){
       assert(body.includes('--logo-width:'),file);
       assert(body.includes('--logo-height:'),file);

@@ -24,9 +24,8 @@ const CRITICAL_URLS = [
     '/',
     '/a-propos',
     '/contact',
-    '/css/critical.css',
-    '/styles.css',
-    '/css/public-layout.css',
+    '/css/site-a.css',
+    '/css/site-b.css',
     '/js/public.js',
     '/js/config.js',
     '/js/utils.js',
@@ -42,7 +41,7 @@ const CRITICAL_URLS = [
 // Known site URLs that should be lazily cached into STATIC_CACHE on first fetch
 const LAZY_CACHE_URLS = new Set([
     '/index.html',
-    '/css/tailwind.css',
+    '/css/site-a-theme.css',
     '/js/wow-effects.js',
     '/404.html',
     '/exploitation',

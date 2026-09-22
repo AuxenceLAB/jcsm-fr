@@ -5,9 +5,12 @@ test('les 154 pages publiques partagent le contrat de mise en page',()=>{
   for(const file of pages){
     const html=fs.readFileSync(path.join(root,file),'utf8');
     assert.match(html,/<body\b[^>]*class=["'][^"']*\bjcsm-public\b/,file);
-    assert.equal((html.match(/href="\/css\/public-layout\.css\?v=\d+"/g)||[]).length,1,file);
+    // Deux feuilles bloquantes : site-a (critical + tailwind + styles [+ theme]) puis site-b (public-layout + editorial), en dernier.
+    assert.equal((html.match(/href="\/css\/site-b\.css\?v=\d+"/g)||[]).length,1,file);
+    assert.equal((html.match(/href="\/css\/site-a(?:-theme)?\.css\?v=\d+"/g)||[]).length,1,file);
     const head=html.split('</head>')[0],last=head.lastIndexOf('<link rel="stylesheet"');
-    assert(head.slice(last).includes('/css/public-layout.css') || head.slice(last).includes('/css/editorial-20260906.css'),file);
+    assert(head.slice(last).includes('/css/site-b.css'),file);
+    assert(!/href="[^"]*(?:critical|public-layout|editorial-20260906|theme-2026)\.css/.test(head),file);
   }
 });
 test('les articles et pages legales gardent leur colonne de lecture',()=>{
@@ -20,7 +23,7 @@ test('les articles et pages legales gardent leur colonne de lecture',()=>{
 });
 test('les prototypes et pages privees ne recoivent pas le nouveau gabarit',()=>{
   for(const file of ['powerdot.html','virta.html','evergreen.html','interne.html','internedemo.html','rapport-intervention.html']){
-    if(fs.existsSync(path.join(root,file)))assert(!fs.readFileSync(path.join(root,file),'utf8').includes('/css/public-layout.css'),file);
+    if(fs.existsSync(path.join(root,file)))assert(!/\/css\/(?:public-layout|site-b)\.css/.test(fs.readFileSync(path.join(root,file),'utf8')),file);
   }
 });
 test('chaque feuille de style publique existe, quel que soit le sous-repertoire',()=>{
@@ -44,7 +47,7 @@ test('le module de configuration ne se charge jamais deux fois',()=>{
 });
 test('toutes les feuilles communes sont syntaxiquement valides',()=>{
   const postcss=require('postcss');
-  for(const file of ['styles.css','css/critical.css','css/theme-2026.css','css/public-layout.css']){
+  for(const file of ['styles.css','css/critical.css','css/theme-2026.css','css/public-layout.css','css/site-a.css','css/site-a-theme.css','css/site-b.css']){
     postcss.parse(fs.readFileSync(path.join(root,file),'utf8'),{from:file});
   }
 });
@@ -57,6 +60,13 @@ test('les liens de service gardent leur contraste sans survol dans les huit lang
 test('la carte nommee de l accueil possede un role accessible meme avant son chargement',()=>{
   const html=fs.readFileSync(path.join(root,'index.html'),'utf8');
   assert.match(html,/<div\b[^>]*id="coverage-map"[^>]*role="region"[^>]*aria-label="[^"]+"/);
+});
+test('les feuilles groupees sont a jour avec leurs sources',()=>{
+  const read=f=>fs.readFileSync(path.join(root,f),'utf8');
+  const expect=parts=>parts.map(f=>'/* '+f+' */\n'+read(f).trim()).join('\n');
+  assert(read('css/site-a.css').includes(expect(['css/critical.css','css/tailwind.css','styles.css'])));
+  assert(read('css/site-a-theme.css').includes(expect(['css/critical.css','css/tailwind.css','styles.css','css/theme-2026.css'])));
+  assert(read('css/site-b.css').includes(expect(['css/public-layout.css','css/editorial-20260906.css'])));
 });
 test('le fil d Ariane precede de la barre de progression garde le decalage d en-tete unique',()=>{
   const css=fs.readFileSync(path.join(root,'css/public-layout.css'),'utf8');

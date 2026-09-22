@@ -5,9 +5,10 @@
   "private": true,
   "license": "ISC",
   "scripts": {
-    "build:css": "tailwindcss -c tailwind.config.js -o css/tailwind.css --minify",
+    "build:css": "tailwindcss -c tailwind.config.js -o css/tailwind.css --minify && node scripts/build-css-bundle.cjs",
     "watch:css": "tailwindcss -c tailwind.config.js -o css/tailwind.css --watch",
-    "check": "bash scripts/check.sh"
+    "check": "bash scripts/check.sh",
+    "build:bundle": "node scripts/build-css-bundle.cjs"
   },
   "devDependencies": {
     "tailwindcss": "^3.4.19"

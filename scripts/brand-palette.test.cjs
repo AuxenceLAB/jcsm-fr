@@ -23,7 +23,7 @@ test('chaque page publique partage les styles et la version du cache', () => {
     if (/^(demo\/|_|powerdot\.html|virta\.html|evergreen\.html|interne|ca\d?\.html|rapport-intervention)/.test(file)) continue;
     const text=fs.readFileSync(file,'utf8');
     for (const [,found] of text.matchAll(/\?v=(\d+)/g)) assert.equal(found,version,file);
-    if (text.includes('css/critical.css')) count++;
+    if (/css\/(?:critical|site-a(?:-theme)?)\.css/.test(text)) count++;
   }
   assert(count>=130);
 });

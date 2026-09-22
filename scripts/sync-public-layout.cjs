@@ -28,7 +28,7 @@ for(const file of getPublicPages()){
   if(!next.includes('href="/fonts/source-sans-latin.woff2"'))next=next.replace(/([ \t]*)<link rel="stylesheet"/i,(all,indent)=>indent+fontPreload+'\n'+all);
   if(/<nav class="jcsm-lang-nav"[^>]*>[\s\S]*?<\/nav>/.test(next))next=next.replace(/<nav class="jcsm-lang-nav"[^>]*>[\s\S]*?<\/nav>/,langNav(next));
   else next=next.replace(/(<footer\b[\s\S]*?<span>(?:&copy;|©) 2026 JCSM SAS[^<]*<\/span>)/,(all)=>all+'\n                '+langNav(next));
-  if(!next.includes('/css/public-layout.css?'))next=next.replace(/<\/head>/i,'    <link rel="stylesheet" href="/css/public-layout.css?v='+version+'">\n</head>');
+  if(!next.includes('/css/site-b.css?'))next=next.replace(/<\/head>/i,'    <link rel="stylesheet" href="/css/site-b.css?v='+version+'">\n</head>');
   if(next!==before){changed++;if(write)fs.writeFileSync(absolute,next);}
 }
 console.log(JSON.stringify({publicPages:getPublicPages().length,changed,write}));
