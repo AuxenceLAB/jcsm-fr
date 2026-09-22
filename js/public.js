@@ -70,6 +70,8 @@ function initBlogTOC(){
     if(path==="/blog"||path==="/blog/"||path==="/blog.html")return;
     var prose=document.querySelector(".prose");
     if(!prose)return;
+    // Un sommaire statique (visible sans JS, déjà numéroté) prime sur le sommaire généré.
+    if([].some.call(document.querySelectorAll("main h2, main p"),function(h){return /^sommaire$/i.test(h.textContent.trim());}))return;
     var headings=prose.querySelectorAll("h2");
     if(headings.length<3)return;
     var existing=prose.querySelector('nav[aria-label="Sommaire"]');
