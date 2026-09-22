@@ -83,3 +83,14 @@ test('chaque pied de page public relie les huit langues sans drapeau emoji',()=>
     assert(nav,file);assert.equal((nav[1].match(/<a [^>]*hreflang="/g)||[]).length,8,file);
   }
 });
+test('les cartes sociales sont en 1200x630, identiques pour Open Graph et Twitter',()=>{
+  for(const file of getPublicPages()){
+    if(file==='offline.html')continue;
+    const html=fs.readFileSync(path.join(root,file),'utf8');
+    const og=(html.match(/<meta property="og:image" content="https:\/\/jcsm\.fr(\/images\/og\/[a-z0-9-]+\.jpg)">/)||[])[1];
+    assert(og,file);assert(fs.statSync(path.join(root,og)).size<=150*1024,og);
+    assert(html.includes('<meta name="twitter:image" content="https://jcsm.fr'+og+'">'),file);
+    assert(/<meta property="og:image:width" content="1200">/.test(html)&&/<meta property="og:image:height" content="630">/.test(html),file);
+    assert(/<meta property="og:image:alt" content="[^"]+">/.test(html),file);
+  }
+});
