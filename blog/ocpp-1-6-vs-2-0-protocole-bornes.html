@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <!-- Cookie Consent + GTM (chargé après acceptation) -->
     <script src="/js/cookie-consent.js?v=101" defer></script>
-    <title>OCPP 1.6 vs 2.0.1 : protocoles bornes IRVE | JCSM</title>
+    <title>OCPP 1.6 vs 2.0.1 : protocoles bornes IRVE | JCSM</title>
     <meta name="description" content="OCPP 1.6 vs 2.0.1 : device model, sécurité TLS, ISO 15118, smart charging et Plug & Charge. Comparatif technique complet pour opérateurs de bornes IRVE.">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://jcsm.fr/blog/ocpp-1-6-vs-2-0-protocole-bornes">
@@ -82,7 +82,7 @@
 
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://jcsm.fr/blog/ocpp-1-6-vs-2-0-protocole-bornes">
-    <meta property="og:title" content="OCPP 1.6 vs 2.0.1 : comparaison des protocoles pour bornes IRVE">
+    <meta property="og:title" content="OCPP 1.6 vs 2.0.1 : comparaison des protocoles pour bornes IRVE">
     <meta property="og:description" content="Device model, sécurité TLS, ISO 15118, smart charging. Comparaison technique complète.">
     <meta property="og:image" content="https://jcsm.fr/images/cable.webp">
     <meta property="og:image:alt" content="Câble et connecteur de recharge pour véhicule électrique">
@@ -93,7 +93,7 @@
     <meta property="article:published_time" content="2026-02-12">
     <meta property="article:modified_time" content="2026-02-12T00:00:00+01:00">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="OCPP 1.6 vs 2.0.1 : comparaison des protocoles pour bornes IRVE">
+    <meta name="twitter:title" content="OCPP 1.6 vs 2.0.1 : comparaison des protocoles pour bornes IRVE">
     <meta name="twitter:description" content="Device model, sécurité TLS, ISO 15118, smart charging. Comparaison technique.">
     <meta name="twitter:image" content="https://jcsm.fr/images/index.webp">
     <meta name="twitter:image:alt" content="Infrastructure de recharge pour véhicules électriques">
@@ -168,7 +168,7 @@
                 </div>
                 <div class="mb-10">
                     <span class="inline-block text-xs font-semibold text-blue-700 bg-blue-100 rounded-full px-3 py-1 mb-4">Technique</span>
-                    <h1 class="text-3xl md:text-4xl font-bold mb-4 leading-tight">OCPP 1.6 vs 2.0.1 : ce qui change pour vos bornes de recharge</h1>
+                    <h1 class="text-3xl md:text-4xl font-bold mb-4 leading-tight">OCPP 1.6 vs 2.0.1 : ce qui change pour vos bornes de recharge</h1>
                     <div class="flex items-center text-sm text-gray-500">
                         <time datetime="2026-02-12">12 février 2026</time>
                         <span class="mx-2">·</span>
@@ -192,7 +192,7 @@
                 <div class="prose prose-lg max-w-none">
                     <p class="text-lg text-gray-600 leading-relaxed mb-8">OCPP est le protocole qui permet à une borne de recharge de communiquer avec son système de gestion central. La version 1.6, publiée en 2015, est encore largement déployée. La version 2.0.1, publiée en 2020, apporte des changements structurels en matière de sécurité, de modélisation des équipements et de gestion de la charge intelligente. Cet article détaille les différences techniques entre les deux versions et ce qu'elles impliquent pour les opérateurs.</p>
 
-                    <h2 id="ocpp-presentation" class="text-2xl font-bold mt-12 mb-4">OCPP : le protocole standard des bornes de recharge</h2>
+                    <h2 id="ocpp-presentation" class="text-2xl font-bold mt-12 mb-4">OCPP : le protocole standard des bornes de recharge</h2>
                     <p class="text-gray-600 leading-relaxed mb-4">OCPP (Open Charge Point Protocol) est un protocole de communication ouvert, développé et maintenu par l'<strong>Open Charge Alliance (OCA)</strong>, un consortium international regroupant des fabricants de bornes, des opérateurs de réseaux et des éditeurs de logiciels de supervision.</p>
                     <p class="text-gray-600 leading-relaxed mb-4">Le principe est simple : standardiser les échanges entre la borne (Charge Point) et le serveur de gestion (CSMS - Charging Station Management System). Sans protocole commun, chaque fabricant imposerait son propre format de communication, rendant impossible la gestion d'un parc multi-marques depuis un seul système central.</p>
                     <p class="text-gray-600 leading-relaxed mb-4">OCPP utilise des messages JSON sur WebSocket (OCPP-J) ou SOAP sur HTTP (OCPP-S, en déclin). La connexion est initiée par la borne vers le CSMS, puis maintenue en bidirectionnel : la borne envoie des notifications (statut, erreurs, mesures), le serveur envoie des commandes (redémarrage, changement de configuration, mise à jour firmware).</p>
@@ -201,7 +201,7 @@
                         <p class="text-gray-700 text-sm leading-relaxed"><span class="font-semibold">Historique des versions :</span> OCPP 1.2 (2010), 1.5 (2012), 1.6 (2015), 2.0 (2018), 2.0.1 (2020). La version 2.0 a été rapidement remplacée par la 2.0.1 qui corrige des incohérences et clarifie les spécifications. La version 2.1 est en cours de finalisation et ajoutera notamment le support natif de la tarification dynamique (ISO 15118-20).</p>
                     </div>
 
-                    <h2 id="ocpp-16" class="text-2xl font-bold mt-12 mb-4">OCPP 1.6 : fonctionnalités et limites</h2>
+                    <h2 id="ocpp-16" class="text-2xl font-bold mt-12 mb-4">OCPP 1.6 : fonctionnalités et limites</h2>
                     <p class="text-gray-600 leading-relaxed mb-4">OCPP 1.6 reste la version la plus déployée dans le monde. Elle couvre les fonctions essentielles de la supervision : authentification par badge RFID, démarrage et arrêt de session, remontée de statut, redémarrage à distance, mise à jour firmware, et un premier niveau de smart charging (profils de charge).</p>
 
                     <h3 class="text-xl font-semibold mt-8 mb-3">Ce que fait bien OCPP 1.6</h3>
@@ -222,7 +222,7 @@
                         <li><strong>Messages d'affichage absents</strong> : impossible d'envoyer un message texte à afficher sur l'écran de la borne (utile pour informer les utilisateurs d'une maintenance programmée, par exemple)</li>
                     </ul>
 
-                    <h2 id="ocpp-201" class="text-2xl font-bold mt-12 mb-4">OCPP 2.0.1 : les améliorations majeures</h2>
+                    <h2 id="ocpp-201" class="text-2xl font-bold mt-12 mb-4">OCPP 2.0.1 : les améliorations majeures</h2>
                     <p class="text-gray-600 leading-relaxed mb-4">OCPP 2.0.1 n'est pas une simple mise à jour de 1.6. C'est une refonte du protocole avec une architecture de messages entièrement redessinée. Les noms d'opérations changent, la structure de données évolue, et de nouveaux concepts apparaissent.</p>
 
                     <h3 class="text-xl font-semibold mt-8 mb-3">Device model</h3>
@@ -314,7 +314,7 @@
                         </table>
                     </div>
 
-                    <h2 id="migration" class="text-2xl font-bold mt-12 mb-4">Migration : quand et comment passer en 2.0.1</h2>
+                    <h2 id="migration" class="text-2xl font-bold mt-12 mb-4">Migration : quand et comment passer en 2.0.1</h2>
                     <p class="text-gray-600 leading-relaxed mb-4">OCPP 2.0.1 n'est pas rétrocompatible avec 1.6. La structure des messages, les noms des opérations et le modèle de données sont différents. Passer en 2.0.1 nécessite des mises à jour à trois niveaux : le firmware de la borne, le CSMS, et les processus opérationnels.</p>
 
                     <h3 class="text-xl font-semibold mt-8 mb-3">Prérequis matériels</h3>
@@ -368,26 +368,26 @@
                     <h2 id="faq" class="text-2xl font-bold mt-12 mb-6">Questions fréquentes</h2>
                     <div class="space-y-6 mb-8">
                         <div class="border border-gray-200 rounded-xl p-5">
-                            <h3 class="font-semibold text-gray-900 mb-2">Quelle est la différence principale entre OCPP 1.6 et OCPP 2.0.1 ?</h3>
+                            <h3 class="font-semibold text-gray-900 mb-2">Quelle est la différence principale entre OCPP 1.6 et OCPP 2.0.1 ?</h3>
                             <p class="text-gray-600 text-sm leading-relaxed">Le device model. En OCPP 1.6, la borne est une boîte noire. En 2.0.1, chaque composant (connecteur, compteur, contrôleur) est décrit individuellement. Le diagnostic à distance devient beaucoup plus précis.</p>
                         </div>
                         <div class="border border-gray-200 rounded-xl p-5">
-                            <h3 class="font-semibold text-gray-900 mb-2">Peut-on faire cohabiter OCPP 1.6 et 2.0.1 sur un même réseau ?</h3>
+                            <h3 class="font-semibold text-gray-900 mb-2">Peut-on faire cohabiter OCPP 1.6 et 2.0.1 sur un même réseau ?</h3>
                             <p class="text-gray-600 text-sm leading-relaxed">Oui. Les CSMS modernes supportent les deux versions simultanément. Chaque borne négocie sa version à la connexion.</p>
                         </div>
                         <div class="border border-gray-200 rounded-xl p-5">
-                            <h3 class="font-semibold text-gray-900 mb-2">OCPP 2.0.1 est-il obligatoire pour le Plug & Charge (ISO 15118) ?</h3>
+                            <h3 class="font-semibold text-gray-900 mb-2">OCPP 2.0.1 est-il obligatoire pour le Plug & Charge (ISO 15118) ?</h3>
                             <p class="text-gray-600 text-sm leading-relaxed">OCPP 2.0.1 intègre nativement le Plug & Charge via ISO 15118 : gestion des certificats, échange de clés, authentification automatique. En 1.6, tout ça nécessitait des extensions propriétaires.</p>
                         </div>
                         <div class="border border-gray-200 rounded-xl p-5">
-                            <h3 class="font-semibold text-gray-900 mb-2">Faut-il mettre à jour le firmware des bornes pour passer en OCPP 2.0.1 ?</h3>
+                            <h3 class="font-semibold text-gray-900 mb-2">Faut-il mettre à jour le firmware des bornes pour passer en OCPP 2.0.1 ?</h3>
                             <p class="text-gray-600 text-sm leading-relaxed">Oui, mise à jour firmware obligatoire. OCPP 2.0.1 n'est pas rétrocompatible : la structure des messages a complètement changé. Vérifiez auprès du fabricant si votre modèle supporte la migration.</p>
                         </div>
                     </div>
                 </div>
 
                 <div class="mt-12 bg-blue-50 rounded-2xl p-8 text-center">
-                    <h3 class="text-xl font-bold mb-3">Besoin d'accompagnement OCPP ?</h3>
+                    <h3 class="text-xl font-bold mb-3">Besoin d'accompagnement OCPP ?</h3>
                     <p class="text-gray-600 mb-6">JCSM audite votre parc, planifie la migration et gère la cohabitation 1.6 / 2.0.1.</p>
                     <a href="/contact" class="btn-primary px-8 py-3 rounded-xl font-medium inline-block">Nous contacter</a>
                 </div>
@@ -500,7 +500,7 @@
             </div>
             <div class="pt-8 border-t border-gray-100 flex flex-col md:flex-row md:items-center md:justify-between gap-4 text-xs text-gray-500">
                 <span>© 2026 JCSM SAS - SIRET 99387429600011</span>
-                <a href="mailto:contact@jcsm.fr" class="hover:text-gray-900 transition-colors">contact@jcsm.fr</a> · <a href="tel:+33183755706" class="hover:text-gray-900 transition-colors">+33 1 83 75 57 06</a>
+                <span><a href="mailto:contact@jcsm.fr" class="hover:text-gray-900 transition-colors">contact@jcsm.fr</a> · <a href="tel:+33183755706" class="hover:text-gray-900 transition-colors">+33 1 83 75 57 06</a></span>
             </div>
         </div>
     </footer>

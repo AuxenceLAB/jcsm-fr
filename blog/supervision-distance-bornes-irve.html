@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <!-- Cookie Consent + GTM (chargé après acceptation) -->
     <script src="/js/cookie-consent.js?v=101" defer></script>
-    <title>Supervision à distance des bornes IRVE : enjeux | JCSM</title>
+    <title>Supervision à distance des bornes IRVE : enjeux | JCSM</title>
     <meta name="description" content="Supervision à distance des bornes IRVE : protocole OCPP, alertes temps réel, diagnostic remote, KPI de disponibilité et redémarrage à distance.">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://jcsm.fr/blog/supervision-distance-bornes-irve">
@@ -82,7 +82,7 @@
 
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://jcsm.fr/blog/supervision-distance-bornes-irve">
-    <meta property="og:title" content="Supervision à distance des bornes IRVE : fonctionnement et enjeux">
+    <meta property="og:title" content="Supervision à distance des bornes IRVE : fonctionnement et enjeux">
     <meta property="og:description" content="Protocole OCPP, alertes temps réel, diagnostic remote, KPI de disponibilité. Guide complet.">
     <meta property="og:image" content="https://jcsm.fr/images/hotline.webp">
     <meta property="og:image:alt" content="Centre d'appel et supervision à distance des bornes IRVE">
@@ -93,7 +93,7 @@
     <meta property="article:published_time" content="2026-02-12">
     <meta property="article:modified_time" content="2026-02-12T00:00:00+01:00">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Supervision à distance des bornes IRVE : fonctionnement et enjeux">
+    <meta name="twitter:title" content="Supervision à distance des bornes IRVE : fonctionnement et enjeux">
     <meta name="twitter:description" content="Protocole OCPP, alertes temps réel, diagnostic remote, KPI de disponibilité.">
     <meta name="twitter:image" content="https://jcsm.fr/images/index.webp">
     <meta name="twitter:image:alt" content="Infrastructure de recharge pour véhicules électriques">
@@ -168,7 +168,7 @@
                 </div>
                 <div class="mb-10">
                     <span class="badge-section inline-block text-xs font-semibold text-blue-700 bg-blue-100 rounded-full px-3 py-1 mb-4">Technique</span>
-                    <h1 class="text-3xl md:text-4xl font-bold mb-4 leading-tight">Supervision à distance des <span class="gradient-text">bornes IRVE</span> : comment ça marche</h1>
+                    <h1 class="text-3xl md:text-4xl font-bold mb-4 leading-tight">Supervision à distance des <span class="gradient-text">bornes IRVE</span> : comment ça marche</h1>
                     <div class="flex items-center text-sm text-gray-500">
                         <time datetime="2026-02-12">12 février 2026</time>
                         <span class="mx-2">·</span>
@@ -198,7 +198,7 @@
                     <p class="text-gray-600 leading-relaxed mb-4">La supervision consiste à collecter ces données en temps réel dans un système central, les analyser, et agir en conséquence : déclencher une alerte si une borne tombe en erreur, envoyer une commande de redémarrage, ou planifier une intervention terrain si le problème nécessite un déplacement.</p>
                     <p class="text-gray-600 leading-relaxed mb-4">Concrètement, un opérateur devant son écran voit l'état de chaque borne de son réseau : disponible, en charge, en erreur, hors ligne. Il peut zoomer sur une borne spécifique pour consulter son historique d'erreurs, ses sessions récentes, sa version firmware, ou sa consommation.</p>
 
-                    <h2 id="architecture" class="text-2xl font-bold mt-12 mb-4">Architecture technique : borne, CSMS, opérateur</h2>
+                    <h2 id="architecture" class="text-2xl font-bold mt-12 mb-4">Architecture technique : borne, CSMS, opérateur</h2>
                     <p class="text-gray-600 leading-relaxed mb-4">Le système de supervision repose sur trois couches :</p>
                     <ul class="list-disc pl-6 text-gray-600 space-y-2 mb-6">
                         <li><strong>La borne (Charge Point)</strong> : équipée d'un contrôleur embarqué, d'une connexion réseau (4G, Ethernet ou Wi-Fi) et du firmware OCPP. Elle initie la connexion vers le serveur central et envoie des messages à chaque événement (début/fin de charge, erreur, changement de statut)</li>
@@ -210,7 +210,7 @@
                         <p class="text-gray-700 text-sm leading-relaxed"><span class="font-semibold">Point technique :</span> La connexion entre la borne et le CSMS utilise WebSocket (OCPP-J) ou SOAP (OCPP-S). WebSocket est préféré car il maintient une connexion persistante et bidirectionnelle, permettant au serveur d'envoyer des commandes à la borne sans attendre qu'elle interroge le serveur.</p>
                     </div>
 
-                    <h2 id="ocpp-supervision" class="text-2xl font-bold mt-12 mb-4">OCPP : le protocole de communication</h2>
+                    <h2 id="ocpp-supervision" class="text-2xl font-bold mt-12 mb-4">OCPP : le protocole de communication</h2>
                     <p class="text-gray-600 leading-relaxed mb-4">OCPP (Open Charge Point Protocol) est le standard ouvert qui définit les messages échangés entre la borne et le CSMS. La version 1.6 est encore la plus déployée, mais la 2.0.1 s'impose progressivement (voir notre article sur <a href="/blog/ocpp-1-6-vs-2-0-protocole-bornes" class="text-blue-600 hover:text-blue-800 underline">OCPP 1.6 vs 2.0.1</a>).</p>
                     <p class="text-gray-600 leading-relaxed mb-4">Les messages OCPP les plus utilisés en supervision :</p>
 
@@ -346,26 +346,26 @@
                     <h2 id="faq" class="text-2xl font-bold mt-12 mb-6">Questions fréquentes</h2>
                     <div class="section-appear space-y-6 mb-8">
                         <div class="border border-gray-200 rounded-xl p-5">
-                            <h3 class="font-semibold text-gray-900 mb-2">Qu'est-ce que la supervision à distance d'une borne de recharge ?</h3>
+                            <h3 class="font-semibold text-gray-900 mb-2">Qu'est-ce que la supervision à distance d'une borne de recharge ?</h3>
                             <p class="text-gray-600 text-sm leading-relaxed">Surveiller l'état de chaque borne en temps réel via OCPP, sans se déplacer. Détection de panne, redémarrage à distance, mise à jour firmware, gestion des accès.</p>
                         </div>
                         <div class="border border-gray-200 rounded-xl p-5">
-                            <h3 class="font-semibold text-gray-900 mb-2">Peut-on redémarrer une borne à distance ?</h3>
+                            <h3 class="font-semibold text-gray-900 mb-2">Peut-on redémarrer une borne à distance ?</h3>
                             <p class="text-gray-600 text-sm leading-relaxed">OCPP, maintenu par l'Open Charge Alliance. Version 1.6 encore majoritaire, 2.0.1 en déploiement. Choisissez un CSMS qui supporte les deux.</p>
                         </div>
                         <div class="border border-gray-200 rounded-xl p-5">
-                            <h3 class="font-semibold text-gray-900 mb-2">Quels KPI suivre pour un réseau de bornes ?</h3>
+                            <h3 class="font-semibold text-gray-900 mb-2">Quels KPI suivre pour un réseau de bornes ?</h3>
                             <p class="text-gray-600 text-sm leading-relaxed">Oui. La commande Reset via OCPP permet de redémarrer une borne à distance. Ça résout environ 30 % des pannes sans intervention physique.</p>
                         </div>
                         <div class="border border-gray-200 rounded-xl p-5">
-                            <h3 class="font-semibold text-gray-900 mb-2">Quel protocole est utilisé pour la supervision des bornes ?</h3>
+                            <h3 class="font-semibold text-gray-900 mb-2">Quel protocole est utilisé pour la supervision des bornes ?</h3>
                             <p class="text-gray-600 text-sm leading-relaxed">Taux de disponibilité (objectif >95 %), MTTR (temps moyen de réparation), nombre de sessions échouées, énergie délivrée par point de charge, et alertes en temps réel sur les erreurs critiques.</p>
                         </div>
                     </div>
                 </div>
 
                 <div class="section-appear mt-12 bg-blue-50 rounded-2xl p-8 text-center">
-                    <h3 class="text-xl font-bold mb-3">Besoin de superviser vos bornes ?</h3>
+                    <h3 class="text-xl font-bold mb-3">Besoin de superviser vos bornes ?</h3>
                     <p class="text-gray-600 mb-6">JCSM surveille votre réseau 24/7, du diagnostic remote à l'intervention terrain.</p>
                     <a href="/contact" class="btn-primary px-8 py-3 rounded-xl font-medium inline-block">Nous contacter</a>
                 </div>
@@ -478,7 +478,7 @@
             </div>
             <div class="pt-8 border-t border-gray-100 flex flex-col md:flex-row md:items-center md:justify-between gap-4 text-xs text-gray-500">
                 <span>© 2026 JCSM SAS - SIRET 99387429600011</span>
-                <a href="mailto:contact@jcsm.fr" class="hover:text-gray-900 transition-colors">contact@jcsm.fr</a> · <a href="tel:+33183755706" class="hover:text-gray-900 transition-colors">+33 1 83 75 57 06</a>
+                <span><a href="mailto:contact@jcsm.fr" class="hover:text-gray-900 transition-colors">contact@jcsm.fr</a> · <a href="tel:+33183755706" class="hover:text-gray-900 transition-colors">+33 1 83 75 57 06</a></span>
             </div>
         </div>
     </footer>

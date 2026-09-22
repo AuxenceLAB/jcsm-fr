@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <!-- Cookie Consent + GTM (chargé après acceptation) -->
     <script src="/js/cookie-consent.js?v=101" defer></script>
-    <title>Cybersécurité IRVE : protéger vos bornes | JCSM</title>
+    <title>Cybersécurité IRVE : protéger vos bornes | JCSM</title>
     <meta name="description" content="Cybersécurité des bornes de recharge IRVE : vecteurs d'attaque, incidents réels, normes ISO 15118 et OCPP 2.0.1, bonnes pratiques de sécurisation réseau.">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://jcsm.fr/blog/cybersecurite-bornes-recharge-irve">
@@ -42,7 +42,7 @@
 
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://jcsm.fr/blog/cybersecurite-bornes-recharge-irve">
-    <meta property="og:title" content="Cybersécurité IRVE : les bornes de recharge sont-elles vulnérables ?">
+    <meta property="og:title" content="Cybersécurité IRVE : les bornes de recharge sont-elles vulnérables ?">
     <meta property="og:description" content="Vecteurs d'attaque, incidents réels, normes et bonnes pratiques pour sécuriser vos bornes IRVE.">
     <meta property="og:image" content="https://jcsm.fr/images/vandalisme.jpg">
     <meta property="og:image:alt" content="Borne de recharge pour véhicule électrique - sécurisation">
@@ -53,7 +53,7 @@
     <meta property="article:published_time" content="2026-03-22">
     <meta property="article:modified_time" content="2026-03-22T00:00:00+01:00">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Cybersécurité IRVE : les bornes de recharge sont-elles vulnérables ?">
+    <meta name="twitter:title" content="Cybersécurité IRVE : les bornes de recharge sont-elles vulnérables ?">
     <meta name="twitter:description" content="Vecteurs d'attaque, incidents réels, normes et bonnes pratiques pour sécuriser vos bornes IRVE.">
     <meta name="twitter:image" content="https://jcsm.fr/images/vandalisme.jpg">
     <meta name="twitter:image:alt" content="Borne de recharge pour véhicule électrique - sécurisation">
@@ -128,7 +128,7 @@
                 </div>
                 <div class="mb-10">
                     <span class="inline-block text-xs font-semibold text-blue-700 bg-blue-100 rounded-full px-3 py-1 mb-4">Cybersécurité</span>
-                    <h1 class="text-3xl md:text-4xl font-bold mb-4 leading-tight">Cybersécurité IRVE : les bornes de recharge sont-elles vulnérables ?</h1>
+                    <h1 class="text-3xl md:text-4xl font-bold mb-4 leading-tight">Cybersécurité IRVE : les bornes de recharge sont-elles vulnérables ?</h1>
                     <div class="flex items-center text-sm text-gray-500">
                         <time datetime="2026-03-22">22 mars 2026</time>
                         <span class="mx-2">·</span>
@@ -208,12 +208,12 @@
                     <h2 id="normes" class="text-2xl font-bold mt-12 mb-4">Les normes et référentiels applicables</h2>
                     <p class="text-gray-600 leading-relaxed mb-4">Plusieurs normes et standards encadrent la cybersécurité des infrastructures de recharge. Leur adoption est inégale, mais la pression réglementaire s'intensifie.</p>
 
-                    <h3 class="text-xl font-semibold mt-8 mb-3">ISO 15118 : sécurité de la communication véhicule-borne</h3>
+                    <h3 class="text-xl font-semibold mt-8 mb-3">ISO 15118 : sécurité de la communication véhicule-borne</h3>
                     <p class="text-gray-600 leading-relaxed mb-4">La norme ISO 15118 définit le protocole de communication entre le véhicule électrique et la borne de recharge. Sa partie sécurité (ISO 15118-2 et ISO 15118-20) impose l'utilisation de TLS 1.2 minimum pour le canal de communication, l'authentification mutuelle par certificats X.509, et le chiffrement de bout en bout des données échangées.</p>
                     <p class="text-gray-600 leading-relaxed mb-4">Le « Plug & Charge » (PnC), prévu par ISO 15118, remplace le badge RFID par un certificat numérique stocké dans le véhicule. L'utilisateur branche son câble, le véhicule s'identifie automatiquement via un échange de certificats, et la session démarre sans intervention manuelle. Ce mécanisme élimine le risque de clonage RFID, mais nécessite une infrastructure PKI (Public Key Infrastructure) robuste pour la gestion des certificats.</p>
                     <p class="text-gray-600 leading-relaxed mb-4">ISO 15118-20 (publiée en 2022) étend le protocole à la recharge bidirectionnelle (V2G) et impose des exigences de sécurité renforcées : rotation automatique des certificats, révocation en temps réel, et isolation cryptographique des sessions.</p>
 
-                    <h3 class="text-xl font-semibold mt-8 mb-3">OCPP 2.0.1 : les profils de sécurité</h3>
+                    <h3 class="text-xl font-semibold mt-8 mb-3">OCPP 2.0.1 : les profils de sécurité</h3>
                     <p class="text-gray-600 leading-relaxed mb-4"><a href="/blog/ocpp-1-6-vs-2-0-protocole-bornes" class="text-blue-600 hover:text-blue-800 underline">OCPP 2.0.1</a> définit trois profils de sécurité hiérarchiques pour la communication borne-CSMS :</p>
                     <ul class="list-disc pl-6 text-gray-600 space-y-2 mb-6">
                         <li><strong>Profil 1 (Security Profile 1)</strong> : authentification par mot de passe HTTP Basic. Le mot de passe est transmis dans l'en-tête de la connexion WebSocket. Niveau de sécurité minimal, comparable à OCPP 1.6</li>
@@ -222,7 +222,7 @@
                     </ul>
                     <p class="text-gray-600 leading-relaxed mb-4">OCPP 2.0.1 intègre aussi la gestion du cycle de vie des certificats (installation, renouvellement, révocation), la vérification de signature des firmwares avant installation, et le chiffrement des données sensibles stockées localement (clés, mots de passe).</p>
 
-                    <h3 class="text-xl font-semibold mt-8 mb-3">IEC 62351 : sécurité des communications pour les systèmes électriques</h3>
+                    <h3 class="text-xl font-semibold mt-8 mb-3">IEC 62351 : sécurité des communications pour les systèmes électriques</h3>
                     <p class="text-gray-600 leading-relaxed mb-4">La norme IEC 62351, initialement conçue pour les réseaux électriques intelligents (smart grids), s'applique de plus en plus aux bornes IRVE dans le contexte du V2G. Elle définit des exigences de sécurité pour les protocoles de communication utilisés dans les systèmes de gestion de l'énergie : authentification, chiffrement, intégrité des messages, gestion des accès, journalisation des événements de sécurité.</p>
                     <p class="text-gray-600 leading-relaxed mb-4">Pour les bornes intégrées dans des micro-grids ou participant à des programmes d'effacement (demand response), IEC 62351 devient un référentiel incontournable. Elle impose notamment l'utilisation de TLS 1.3, la rotation périodique des clés, et la détection d'anomalies dans les flux de données énergétiques.</p>
 
@@ -312,20 +312,20 @@
                     <h2 id="role-cpo" class="text-2xl font-bold mt-12 mb-4">Le rôle du CPO et du mainteneur dans la cybersécurité</h2>
                     <p class="text-gray-600 leading-relaxed mb-4">La cybersécurité d'un réseau IRVE n'est pas la responsabilité exclusive du fabricant de bornes. Elle se répartit entre trois acteurs : le fabricant, le <a href="/blog/cpo-emsp-acteurs-recharge-electrique" class="text-blue-600 hover:text-blue-800 underline">CPO (Charge Point Operator)</a> et le mainteneur.</p>
 
-                    <h3 class="text-xl font-semibold mt-8 mb-3">Le fabricant : sécurité du produit</h3>
+                    <h3 class="text-xl font-semibold mt-8 mb-3">Le fabricant : sécurité du produit</h3>
                     <p class="text-gray-600 leading-relaxed mb-4">Le fabricant est responsable de la sécurité du firmware, du matériel et des mises à jour. Il doit intégrer la sécurité dès la conception (security by design) : secure boot, chiffrement du stockage local, ports de maintenance protégés, support des profils de sécurité OCPP 2.0.1. Il doit aussi maintenir un processus de réponse aux vulnérabilités : publication de correctifs dans des délais raisonnables, notification proactive des CPO, documentation des CVE.</p>
                     <p class="text-gray-600 leading-relaxed mb-4">Le choix du fabricant est un acte de cybersécurité. Les critères à évaluer : fréquence des mises à jour de sécurité, durée de support du firmware (minimum 5 ans), existence d'un programme de « bug bounty » ou d'audits de sécurité indépendants, certifications obtenues (IEC 62443, EN 303 645).</p>
 
-                    <h3 class="text-xl font-semibold mt-8 mb-3">Le CPO : sécurité opérationnelle</h3>
+                    <h3 class="text-xl font-semibold mt-8 mb-3">Le CPO : sécurité opérationnelle</h3>
                     <p class="text-gray-600 leading-relaxed mb-4">Le CPO est responsable de l'environnement dans lequel les bornes opèrent. La segmentation réseau, le déploiement des mises à jour, la configuration des profils de sécurité OCPP, la surveillance des événements, la gestion des accès au CSMS : tout cela relève du CPO. Il doit disposer d'une politique de sécurité documentée et la faire appliquer par ses prestataires.</p>
                     <p class="text-gray-600 leading-relaxed mb-4">Le CPO doit aussi anticiper les incidents : plan de réponse aux incidents documenté, contacts d'urgence identifiés, procédure de communication vers les utilisateurs en cas de compromission de données personnelles (obligation RGPD et NIS2), capacité à isoler une borne ou un groupe de bornes compromises sans affecter le reste du réseau.</p>
 
-                    <h3 class="text-xl font-semibold mt-8 mb-3">Le mainteneur : sécurité en intervention</h3>
+                    <h3 class="text-xl font-semibold mt-8 mb-3">Le mainteneur : sécurité en intervention</h3>
                     <p class="text-gray-600 leading-relaxed mb-4">Le mainteneur intervient physiquement sur les bornes. Il doit être formé aux risques de cybersécurité : ne pas brancher de clé USB non vérifiée sur le port de maintenance, vérifier l'intégrité physique du terminal de paiement à chaque intervention, signaler toute anomalie (capot déjà ouvert, câble inconnu branché, autocollant suspect sur le lecteur RFID).</p>
                     <p class="text-gray-600 leading-relaxed mb-4">Chez JCSM, nos équipes de <a href="/exploitation" class="text-blue-600 hover:text-blue-800 underline">maintenance</a> intègrent un protocole de vérification de sécurité à chaque intervention terrain. Chaque technicien dispose d'identifiants individuels, tracés et révocables. Les interventions sont documentées dans un rapport d'intervention horodaté et géolocalisé, accessible au CPO via le <a href="/centre-appel" class="text-blue-600 hover:text-blue-800 underline">centre d'appel</a>.</p>
 
                     <div class="bg-gray-50 rounded-xl p-5 mb-8">
-                        <h3 class="text-lg font-semibold text-gray-900 mb-3">Responsabilité partagée : la matrice RACI</h3>
+                        <h3 class="text-lg font-semibold text-gray-900 mb-3">Responsabilité partagée : la matrice RACI</h3>
                         <p class="text-gray-600 text-sm leading-relaxed mb-3">La répartition des responsabilités de cybersécurité entre fabricant, CPO et mainteneur doit être formalisée dans un contrat. Les zones grises sont les plus dangereuses : qui déploie les patchs firmware ? Qui surveille les logs OCPP ? Qui gère la rotation des certificats TLS ? Si ces questions n'ont pas de réponse claire, le réseau est vulnérable.</p>
                         <p class="text-gray-600 text-sm leading-relaxed">Le <a href="/pilotage-projets" class="text-blue-600 hover:text-blue-800 underline">pilotage de projets</a> IRVE doit intégrer la dimension cybersécurité dès la phase de conception, pas en fin de déploiement.</p>
                     </div>
@@ -333,7 +333,7 @@
                     <h2 id="checklist" class="text-2xl font-bold mt-12 mb-4">Checklist sécurité pour un réseau de bornes</h2>
                     <p class="text-gray-600 leading-relaxed mb-4">Cette checklist couvre les mesures essentielles à vérifier lors du déploiement et de l'exploitation d'un réseau IRVE. Elle est organisée par priorité d'implémentation.</p>
 
-                    <h3 class="text-xl font-semibold mt-8 mb-3">Priorité 1 : mesures immédiates</h3>
+                    <h3 class="text-xl font-semibold mt-8 mb-3">Priorité 1 : mesures immédiates</h3>
                     <ul class="list-disc pl-6 text-gray-600 space-y-2 mb-6">
                         <li>Tous les mots de passe par défaut des bornes sont changés (interface web, SSH, OCPP)</li>
                         <li>Les connexions OCPP utilisent TLS 1.2+ (profil de sécurité 2 minimum)</li>
@@ -344,7 +344,7 @@
                         <li>Un inventaire à jour de toutes les bornes existe (modèle, firmware, version OCPP)</li>
                     </ul>
 
-                    <h3 class="text-xl font-semibold mt-8 mb-3">Priorité 2 : mesures à planifier (3 mois)</h3>
+                    <h3 class="text-xl font-semibold mt-8 mb-3">Priorité 2 : mesures à planifier (3 mois)</h3>
                     <ul class="list-disc pl-6 text-gray-600 space-y-2 mb-6">
                         <li>Un processus de déploiement des mises à jour firmware est formalisé (test, validation, déploiement, rollback)</li>
                         <li>Les bornes vérifient la signature des firmwares avant installation</li>
@@ -355,7 +355,7 @@
                         <li>La matrice de responsabilités cybersécurité (fabricant / CPO / mainteneur) est contractualisée</li>
                     </ul>
 
-                    <h3 class="text-xl font-semibold mt-8 mb-3">Priorité 3 : mesures d'excellence (6-12 mois)</h3>
+                    <h3 class="text-xl font-semibold mt-8 mb-3">Priorité 3 : mesures d'excellence (6-12 mois)</h3>
                     <ul class="list-disc pl-6 text-gray-600 space-y-2 mb-6">
                         <li>Migration vers OCPP 2.0.1 profil de sécurité 3 (TLS mutuel) pour les bornes compatibles</li>
                         <li>Déploiement du Plug & Charge (ISO 15118) avec infrastructure PKI</li>
@@ -371,7 +371,7 @@
                         <p class="text-gray-700 text-sm leading-relaxed"><span class="font-semibold">Approche pragmatique :</span> aucun réseau n'atteindra un score de 100 % sur cette checklist du jour au lendemain. L'essentiel est d'adresser les mesures de priorité 1 sans délai, de planifier les mesures de priorité 2 dans le trimestre, et d'intégrer les mesures de priorité 3 dans la feuille de route annuelle. Chaque mesure implémentée réduit la surface d'attaque de manière significative.</p>
                     </div>
 
-                    <h2 class="text-2xl font-bold mt-12 mb-4">Conclusion : la cybersécurité, un prérequis pour la mobilité électrique</h2>
+                    <h2 class="text-2xl font-bold mt-12 mb-4">Conclusion : la cybersécurité, un prérequis pour la mobilité électrique</h2>
                     <p class="text-gray-600 leading-relaxed mb-4">La transition vers la mobilité électrique repose sur la confiance des utilisateurs dans l'infrastructure de recharge. Cette confiance est fragile. Un incident de cybersécurité majeur, avec fuite de données bancaires ou interruption prolongée de service, peut porter un coup durable à l'adoption des véhicules électriques.</p>
                     <p class="text-gray-600 leading-relaxed mb-4">Les outils existent : OCPP 2.0.1, ISO 15118, TLS mutuel, signature firmware, segmentation réseau. Le cadre réglementaire se renforce avec NIS2 et AFIR. Ce qui manque le plus, c'est l'exécution sur le terrain : des bornes correctement configurées, des réseaux correctement segmentés, des mises à jour correctement déployées, des incidents correctement détectés.</p>
                     <p class="text-gray-600 leading-relaxed mb-4">La cybersécurité IRVE n'est pas un projet ponctuel. C'est un processus continu, qui doit être intégré dans l'exploitation quotidienne du réseau au même titre que la maintenance préventive ou la gestion des pannes. Les opérateurs qui l'intégreront en amont de leurs déploiements disposeront d'un avantage compétitif décisif face à ceux qui devront réagir après un incident.</p>
@@ -519,7 +519,7 @@
             </div>
             <div class="pt-8 border-t border-gray-100 flex flex-col md:flex-row md:items-center md:justify-between gap-4 text-xs text-gray-500">
                 <span>&copy; 2026 JCSM SAS - SIRET 99387429600011</span>
-                <a href="mailto:contact@jcsm.fr" class="hover:text-gray-900 transition-colors">contact@jcsm.fr</a> · <a href="tel:+33183755706" class="hover:text-gray-900 transition-colors">+33 1 83 75 57 06</a>
+                <span><a href="mailto:contact@jcsm.fr" class="hover:text-gray-900 transition-colors">contact@jcsm.fr</a> · <a href="tel:+33183755706" class="hover:text-gray-900 transition-colors">+33 1 83 75 57 06</a></span>
             </div>
         </div>
     </footer>
