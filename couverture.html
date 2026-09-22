@@ -1181,9 +1181,8 @@ const MAPDATA={"depts":{"01":{"n":"Ain","p":[[4.78,46.18],[4.83,46.3],[4.92,46.4
             scrollWheelZoom: true
         }).setView([46.8, 2.8], 6);
 
-        L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
-            attribution: '&copy; OpenStreetMap &copy; CARTO',
-            subdomains: 'abcd',
+        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
             maxZoom: 19
         }).addTo(map);
 
@@ -1286,7 +1285,7 @@ const MAPDATA={"depts":{"01":{"n":"Ain","p":[[4.78,46.18],[4.83,46.3],[4.92,46.4
 
         // Close tooltips on page scroll to prevent stale labels
         window.addEventListener('scroll', function() {
-            map.closeTooltip();
+            map.eachLayer(function (l) { if (l.closeTooltip) l.closeTooltip(); });
             map.closePopup();
         }, { passive: true });
 

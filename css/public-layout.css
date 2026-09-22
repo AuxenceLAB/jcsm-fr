@@ -80,3 +80,6 @@ body.jcsm-public {
   .jcsm-public.jcsm-article main > article,
   .jcsm-public.jcsm-legal main { padding-top:0; }
 }
+
+/* Fond de carte OpenStreetMap apaisé : les zones bleues restent le seul signal coloré. */
+.jcsm-public .leaflet-tile-pane{filter:grayscale(.9) contrast(.92) brightness(1.06)}
