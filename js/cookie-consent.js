@@ -41,6 +41,7 @@
                 style.textContent = [
                     "#cookie-banner{position:fixed;bottom:0;left:0;right:0;z-index:9999;padding:1rem 1.5rem;background:rgba(255,255,255,0.95);backdrop-filter:blur(16px) saturate(1.8);-webkit-backdrop-filter:blur(16px) saturate(1.8);border-top:1px solid rgba(32,91,196,0.08);box-shadow:0 -8px 32px rgba(0,0,0,0.06);transform:translateY(100%);animation:cookieSlideUp .4s cubic-bezier(.22,1,.36,1) forwards;animation-delay:.5s;opacity:0}",
                     "@keyframes cookieSlideUp{to{transform:translateY(0);opacity:1}}",
+                    "#mobile-menu.open~#cookie-banner{display:none}",
                     "#cookie-banner .cookie-inner{max-width:72rem;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1rem}",
                     "#cookie-banner .cookie-text{font-size:0.875rem;color:#374151;flex:1;min-width:240px;margin:0;line-height:1.6}",
                     "#cookie-banner .cookie-link{color:#205BC4;text-decoration:underline;text-underline-offset:2px;transition:color .2s ease}",
@@ -57,10 +58,26 @@
                 document.head.appendChild(style);
             }
 
+            // Textes dans la langue de la page (repli : français). Seules fr et en ont une page de confidentialité.
+            var TEXTS = {
+                fr: ["On utilise des cookies pour analyser notre trafic. Rien de plus. ", "En savoir plus", "Refuser", "Accepter", "Gestion des cookies", "/confidentialite"],
+                en: ["We use cookies to analyse our traffic. Nothing more. ", "Learn more", "Decline", "Accept", "Cookie settings", "/en/privacy"],
+                de: ["Wir verwenden Cookies, um unseren Traffic zu analysieren. Mehr nicht. ", "Mehr erfahren", "Ablehnen", "Akzeptieren", "Cookie-Einstellungen", "/en/privacy"],
+                es: ["Usamos cookies para analizar nuestro tráfico. Nada más. ", "Más información", "Rechazar", "Aceptar", "Gestión de cookies", "/en/privacy"],
+                it: ["Utilizziamo i cookie per analizzare il nostro traffico. Niente di più. ", "Scopri di più", "Rifiuta", "Accetta", "Gestione dei cookie", "/en/privacy"],
+                nl: ["We gebruiken cookies om ons verkeer te analyseren. Meer niet. ", "Meer informatie", "Weigeren", "Accepteren", "Cookiebeheer", "/en/privacy"],
+                pl: ["Używamy plików cookie do analizy ruchu na stronie. Nic więcej. ", "Dowiedz się więcej", "Odrzuć", "Akceptuj", "Zarządzanie plikami cookie", "/en/privacy"],
+                pt: ["Usamos cookies para analisar o nosso tráfego. Nada mais. ", "Saiba mais", "Recusar", "Aceitar", "Gestão de cookies", "/en/privacy"]
+            };
+            var lang = (document.documentElement.lang || "fr").slice(0, 2).toLowerCase();
+            if (!TEXTS[lang]) lang = "fr";
+            var t = TEXTS[lang];
+
             var banner = document.createElement("div");
             banner.id = "cookie-banner";
+            banner.lang = lang;
             banner.setAttribute("role", "dialog");
-            banner.setAttribute("aria-label", "Gestion des cookies");
+            banner.setAttribute("aria-label", t[4]);
             banner.setAttribute("aria-describedby", "cookie-desc");
 
             var wrapper = document.createElement("div");
@@ -69,11 +86,12 @@
             var text = document.createElement("p");
             text.className = "cookie-text";
             text.id = "cookie-desc";
-            text.textContent = "On utilise des cookies pour analyser notre trafic. Rien de plus. ";
+            text.textContent = t[0];
             var link = document.createElement("a");
-            link.href = "/confidentialite";
+            link.href = t[5];
+            if (lang !== "fr" && lang !== "en") link.hreflang = "en";
             link.className = "cookie-link";
-            link.textContent = "En savoir plus";
+            link.textContent = t[1];
             text.appendChild(link);
             wrapper.appendChild(text);
 
@@ -82,12 +100,12 @@
 
             var rejectBtn = document.createElement("button");
             rejectBtn.className = "cookie-btn cookie-reject";
-            rejectBtn.textContent = "Refuser";
+            rejectBtn.textContent = t[2];
             btnGroup.appendChild(rejectBtn);
 
             var acceptBtn = document.createElement("button");
             acceptBtn.className = "cookie-btn cookie-accept";
-            acceptBtn.textContent = "Accepter";
+            acceptBtn.textContent = t[3];
             btnGroup.appendChild(acceptBtn);
 
             wrapper.appendChild(btnGroup);
