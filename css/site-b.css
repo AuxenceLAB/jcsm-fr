@@ -103,6 +103,9 @@ body.jcsm-public {
 .jcsm-public .jcsm-lang-nav a{display:inline-flex;align-items:center;min-height:24px;color:inherit}
 .jcsm-public .jcsm-lang-nav a:hover{color:var(--color-primary-darker);text-decoration:underline}
 .jcsm-public .jcsm-lang-nav a[aria-current]{font-weight:600;color:var(--color-primary-darker)}
+/* Cibles d'au moins 24 px : liens de langue, pied de page, retour au blog. */
+.jcsm-public .jcsm-lang-nav a{min-width:24px;justify-content:center}
+.jcsm-public > footer a,.jcsm-public.jcsm-article main a[href="/blog"]{min-height:24px;display:inline-flex;align-items:center}
 /* css/editorial-20260906.css */
 @font-face{font-family:'Source Sans';font-style:normal;font-weight:200 900;font-display:swap;src:url('/fonts/source-sans-latin.woff2') format('woff2')}
 /* Repli aux métriques de Source Sans (largeur et hauteurs calculées sur le fichier woff2) : le changement de police ne décale plus la mise en page. */

@@ -26,6 +26,8 @@ for(const file of getPublicPages()){
   // The body font is preloaded on every public page, before the first stylesheet.
   const fontPreload='<link rel="preload" href="/fonts/source-sans-latin.woff2" as="font" type="font/woff2" crossorigin>';
   if(!next.includes('href="/fonts/source-sans-latin.woff2"'))next=next.replace(/([ \t]*)<link rel="stylesheet"/i,(all,indent)=>indent+fontPreload+'\n'+all);
+  // The main navigation sits in a <header> landmark.
+  if(!/<header>\s*<nav\b[^>]*glass-nav/.test(next))next=next.replace(/([ \t]*)(<nav\b[^>]*\bglass-nav\b[^>]*>[\s\S]*?<\/nav>)/,(all,indent,nav)=>indent+'<header>\n'+indent+nav+'\n'+indent+'</header>');
   if(/<nav class="jcsm-lang-nav"[^>]*>[\s\S]*?<\/nav>/.test(next))next=next.replace(/<nav class="jcsm-lang-nav"[^>]*>[\s\S]*?<\/nav>/,langNav(next));
   else next=next.replace(/(<footer\b[\s\S]*?<span>(?:&copy;|©) 2026 JCSM SAS[^<]*<\/span>)/,(all)=>all+'\n                '+langNav(next));
   if(!next.includes('/css/site-b.css?'))next=next.replace(/<\/head>/i,'    <link rel="stylesheet" href="/css/site-b.css?v='+version+'">\n</head>');

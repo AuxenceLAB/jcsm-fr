@@ -101,3 +101,6 @@ body.jcsm-public {
 .jcsm-public .jcsm-lang-nav a{display:inline-flex;align-items:center;min-height:24px;color:inherit}
 .jcsm-public .jcsm-lang-nav a:hover{color:var(--color-primary-darker);text-decoration:underline}
 .jcsm-public .jcsm-lang-nav a[aria-current]{font-weight:600;color:var(--color-primary-darker)}
+/* Cibles d'au moins 24 px : liens de langue, pied de page, retour au blog. */
+.jcsm-public .jcsm-lang-nav a{min-width:24px;justify-content:center}
+.jcsm-public > footer a,.jcsm-public.jcsm-article main a[href="/blog"]{min-height:24px;display:inline-flex;align-items:center}

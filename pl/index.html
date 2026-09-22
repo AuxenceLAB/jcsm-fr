@@ -592,6 +592,7 @@
 
     <!-- Pasek postepu przewijania -->
 
+    <header>
     <nav class="fixed top-0 w-full z-50 glass-nav border-b border-gray-200" role="navigation" aria-label="Nawigacja glowna">
         <div class="max-w-7xl mx-auto px-6 py-4">
             <div class="flex justify-between items-center">
@@ -617,6 +618,7 @@
             </div>
         </div>
     </nav>
+    </header>
 
     <main id="main-content" tabindex="-1" role="main">
     <div id="scroll-progress" class="fixed top-0 left-0 h-1 bg-blue-600 z-[60] transition-all duration-150" style="width: 0%;" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Postep czytania"></div>
@@ -1224,9 +1226,11 @@
         </div>
     </footer>
 
+    <aside aria-label="Szybkie działania">
     <a href="/pl/kontakt" class="fixed bottom-4 left-4 right-4 z-40 btn-primary py-4 text-center font-semibold text-white text-sm lg:hidden" style="display:none" id="mobile-cta">
         Zamów bezpłatną diagnostykę
     </a>
+    </aside>
 
     <button class="scroll-top" id="scrollTop" aria-label="Powrot na gore strony">
         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
