@@ -42,11 +42,34 @@
     <script type="application/ld+json">
 {
     "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Accueil",
+            "item": "https://jcsm.fr/"
+        },
+        {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Zones",
+            "item": "https://jcsm.fr/zones/france"
+        },
+        {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Bourgogne-Franche-Comté",
+            "item": "https://jcsm.fr/zones/bourgogne-franche-comte"
+        }
+    ]
+}
+    </script>
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
     "@type": "Service",
-    "name": "Installation et maintenance de bornes de recharge · Bourgogne-Franche-Comté",
-    "serviceType": "Installation et maintenance de bornes de recharge",
-    "description": "Installation et maintenance de bornes de recharge électrique en Bourgogne-Franche-Comté",
-    "url": "https://jcsm.fr/zones/bourgogne-franche-comte",
+    "name": "Installation & Maintenance IRVE Bourgogne-Franche-Comté",
     "provider": {
         "@type": "LocalBusiness",
         "@id": "https://jcsm.fr/#localbusiness",
@@ -90,49 +113,7 @@
             "@type": "AdministrativeArea",
             "name": "Territoire de Belfort"
         }
-    ]
-}
-    </script>
-    <script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-        {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "Accueil",
-            "item": "https://jcsm.fr/"
-        },
-        {
-            "@type": "ListItem",
-            "position": 2,
-            "name": "Zones",
-            "item": "https://jcsm.fr/zones/france"
-        },
-        {
-            "@type": "ListItem",
-            "position": 3,
-            "name": "Bourgogne-Franche-Comté",
-            "item": "https://jcsm.fr/zones/bourgogne-franche-comte"
-        }
-    ]
-}
-    </script>
-    <script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@type": "Service",
-    "name": "Installation & Maintenance IRVE Bourgogne-Franche-Comté",
-    "provider": {
-        "@type": "Organization",
-        "name": "JCSM",
-        "url": "https://jcsm.fr"
-    },
-    "areaServed": {
-        "@type": "AdministrativeArea",
-        "name": "Bourgogne-Franche-Comté"
-    },
+    ],
     "serviceType": [
         "Installation bornes de recharge IRVE",
         "Maintenance bornes de recharge",
@@ -140,7 +121,8 @@
         "Sécurisation installations IRVE",
         "Support client IRVE 24/7"
     ],
-    "url": "https://jcsm.fr/zones/bourgogne-franche-comte"
+    "url": "https://jcsm.fr/zones/bourgogne-franche-comte",
+    "description": "Installation et maintenance de bornes de recharge électrique en Bourgogne-Franche-Comté"
 }
     </script>
     <script type="application/ld+json">

@@ -42,11 +42,34 @@
     <script type="application/ld+json">
 {
     "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Accueil",
+            "item": "https://jcsm.fr/"
+        },
+        {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Zones",
+            "item": "https://jcsm.fr/zones/france"
+        },
+        {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Pays de la Loire",
+            "item": "https://jcsm.fr/zones/pays-de-la-loire"
+        }
+    ]
+}
+    </script>
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
     "@type": "Service",
-    "name": "Installation et maintenance de bornes de recharge · Pays de la Loire",
-    "serviceType": "Installation et maintenance de bornes de recharge",
-    "description": "Installation et maintenance de bornes de recharge électrique dans les Pays de la Loire",
-    "url": "https://jcsm.fr/zones/pays-de-la-loire",
+    "name": "Installation & Maintenance IRVE Pays de la Loire",
     "provider": {
         "@type": "LocalBusiness",
         "@id": "https://jcsm.fr/#localbusiness",
@@ -78,49 +101,7 @@
             "@type": "AdministrativeArea",
             "name": "Mayenne"
         }
-    ]
-}
-    </script>
-    <script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-        {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "Accueil",
-            "item": "https://jcsm.fr/"
-        },
-        {
-            "@type": "ListItem",
-            "position": 2,
-            "name": "Zones",
-            "item": "https://jcsm.fr/zones/france"
-        },
-        {
-            "@type": "ListItem",
-            "position": 3,
-            "name": "Pays de la Loire",
-            "item": "https://jcsm.fr/zones/pays-de-la-loire"
-        }
-    ]
-}
-    </script>
-    <script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@type": "Service",
-    "name": "Installation & Maintenance IRVE Pays de la Loire",
-    "provider": {
-        "@type": "Organization",
-        "name": "JCSM",
-        "url": "https://jcsm.fr"
-    },
-    "areaServed": {
-        "@type": "AdministrativeArea",
-        "name": "Pays de la Loire"
-    },
+    ],
     "serviceType": [
         "Installation bornes de recharge IRVE",
         "Maintenance bornes de recharge",
@@ -128,7 +109,8 @@
         "Sécurisation installations IRVE",
         "Support client IRVE 24/7"
     ],
-    "url": "https://jcsm.fr/zones/pays-de-la-loire"
+    "url": "https://jcsm.fr/zones/pays-de-la-loire",
+    "description": "Installation et maintenance de bornes de recharge électrique dans les Pays de la Loire"
 }
     </script>
     <script type="application/ld+json">

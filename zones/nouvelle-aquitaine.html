@@ -40,13 +40,21 @@
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
     <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://jcsm.fr/" },
+            { "@type": "ListItem", "position": 2, "name": "Zones", "item": "https://jcsm.fr/zones/france" },
+            { "@type": "ListItem", "position": 3, "name": "Nouvelle-Aquitaine", "item": "https://jcsm.fr/zones/nouvelle-aquitaine" }
+        ]
+    }
+    </script>
+    <script type="application/ld+json">
 {
     "@context": "https://schema.org",
     "@type": "Service",
-    "name": "Installation et maintenance de bornes de recharge · Nouvelle-Aquitaine",
-    "serviceType": "Installation et maintenance de bornes de recharge",
-    "description": "Installation et maintenance de bornes de recharge électrique en Nouvelle-Aquitaine",
-    "url": "https://jcsm.fr/zones/nouvelle-aquitaine",
+    "name": "Installation & Maintenance IRVE Nouvelle-Aquitaine",
     "provider": {
         "@type": "LocalBusiness",
         "@id": "https://jcsm.fr/#localbusiness",
@@ -106,30 +114,17 @@
             "@type": "AdministrativeArea",
             "name": "Creuse"
         }
-    ]
+    ],
+    "serviceType": [
+        "Installation bornes de recharge IRVE",
+        "Maintenance bornes de recharge",
+        "Maintenance transformateurs HTA/BT",
+        "Sécurisation installations IRVE",
+        "Support client IRVE 24/7"
+    ],
+    "url": "https://jcsm.fr/zones/nouvelle-aquitaine",
+    "description": "Installation et maintenance de bornes de recharge électrique en Nouvelle-Aquitaine"
 }
-    </script>
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-            { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://jcsm.fr/" },
-            { "@type": "ListItem", "position": 2, "name": "Zones", "item": "https://jcsm.fr/zones/france" },
-            { "@type": "ListItem", "position": 3, "name": "Nouvelle-Aquitaine", "item": "https://jcsm.fr/zones/nouvelle-aquitaine" }
-        ]
-    }
-    </script>
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Service",
-        "name": "Installation & Maintenance IRVE Nouvelle-Aquitaine",
-        "provider": {"@type": "Organization", "name": "JCSM", "url": "https://jcsm.fr"},
-        "areaServed": {"@type": "AdministrativeArea", "name": "Nouvelle-Aquitaine"},
-        "serviceType": ["Installation bornes de recharge IRVE", "Maintenance bornes de recharge", "Maintenance transformateurs HTA/BT", "Sécurisation installations IRVE", "Support client IRVE 24/7"],
-        "url": "https://jcsm.fr/zones/nouvelle-aquitaine"
-    }
     </script>
     <script type="application/ld+json">
     {

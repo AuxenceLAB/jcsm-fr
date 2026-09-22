@@ -40,13 +40,21 @@
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
     <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://jcsm.fr/" },
+            { "@type": "ListItem", "position": 2, "name": "Zones", "item": "https://jcsm.fr/zones/france" },
+            { "@type": "ListItem", "position": 3, "name": "Grand Est", "item": "https://jcsm.fr/zones/grand-est" }
+        ]
+    }
+    </script>
+    <script type="application/ld+json">
 {
     "@context": "https://schema.org",
     "@type": "Service",
-    "name": "Installation et maintenance de bornes de recharge · Grand Est",
-    "serviceType": "Installation et maintenance de bornes de recharge",
-    "description": "Installation et maintenance de bornes de recharge électrique dans le Grand Est",
-    "url": "https://jcsm.fr/zones/grand-est",
+    "name": "Installation & Maintenance IRVE Grand Est",
     "provider": {
         "@type": "LocalBusiness",
         "@id": "https://jcsm.fr/#localbusiness",
@@ -98,30 +106,17 @@
             "@type": "AdministrativeArea",
             "name": "Haute-Marne"
         }
-    ]
+    ],
+    "serviceType": [
+        "Installation bornes de recharge IRVE",
+        "Maintenance bornes de recharge",
+        "Maintenance transformateurs HTA/BT",
+        "Sécurisation installations IRVE",
+        "Support client IRVE 24/7"
+    ],
+    "url": "https://jcsm.fr/zones/grand-est",
+    "description": "Installation et maintenance de bornes de recharge électrique dans le Grand Est"
 }
-    </script>
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-            { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://jcsm.fr/" },
-            { "@type": "ListItem", "position": 2, "name": "Zones", "item": "https://jcsm.fr/zones/france" },
-            { "@type": "ListItem", "position": 3, "name": "Grand Est", "item": "https://jcsm.fr/zones/grand-est" }
-        ]
-    }
-    </script>
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Service",
-        "name": "Installation & Maintenance IRVE Grand Est",
-        "provider": {"@type": "Organization", "name": "JCSM", "url": "https://jcsm.fr"},
-        "areaServed": {"@type": "AdministrativeArea", "name": "Grand Est"},
-        "serviceType": ["Installation bornes de recharge IRVE", "Maintenance bornes de recharge", "Maintenance transformateurs HTA/BT", "Sécurisation installations IRVE", "Support client IRVE 24/7"],
-        "url": "https://jcsm.fr/zones/grand-est"
-    }
     </script>
     <script type="application/ld+json">
     {
