@@ -458,20 +458,6 @@
             .blog-card-header svg { transition: none !important; }
         }
 
-        /* --- FAQ numbered badges --- */
-        .faq-num {
-            width: 28px; height: 28px; border-radius: 8px;
-            background: rgba(37,99,235,0.07);
-            color: var(--blue);
-            font-size: 0.75rem; font-weight: 700;
-            display: flex; align-items: center; justify-content: center;
-            flex-shrink: 0;
-            transition: background 0.3s var(--ease), color 0.3s var(--ease);
-        }
-        details[open] .faq-num {
-            background: var(--blue); color: #fff;
-        }
-
         /* --- Blog card visual header --- */
         .blog-card-header {
             height: 140px; border-radius: 12px; margin-bottom: 1rem;
@@ -674,7 +660,6 @@
                                     alt="Infrastructure de recharge pour véhicules électriques déployée et maintenue par JCSM, expert IRVE certifié"
                                     width="2048" height="1366">
                             </picture>
-                            <figcaption>Sur le terrain <span>Infrastructure de recharge AC &amp; DC</span></figcaption>
                         </figure>
                     </div>
                 </div>
@@ -701,7 +686,6 @@
                                 <div class="svc-icon">
                                     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#205BC4" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
                                 </div>
-                                <div class="num">01</div>
                             </div>
                             <h3 class="text-lg font-bold" style="font-family: var(--font-sans)">Maintenance préventive &amp; curative</h3>
                             <p class="text-sm mt-2" style="color: var(--color-text-secondary)">Préventif, curatif, HTA/BT. Diagnostic à distance puis intervention sur site, avec les pièces nécessaires à bord.</p>
@@ -717,7 +701,6 @@
                                 <div class="svc-icon">
                                     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#205BC4" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
                                 </div>
-                                <div class="num">02</div>
                             </div>
                             <h3 class="text-lg font-bold" style="font-family: var(--font-sans)">Installation &amp; conformité</h3>
                             <p class="text-sm mt-2" style="color: var(--color-text-secondary)">Étude, installation et vérification des équipements. Sur un parc existant, audit des écarts et préparation des corrections nécessaires.</p>
@@ -733,7 +716,6 @@
                                 <div class="svc-icon">
                                     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#205BC4" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 18v-6a9 9 0 0118 0v6"/><path d="M21 19a2 2 0 01-2 2h-1a2 2 0 01-2-2v-3a2 2 0 012-2h3zM3 19a2 2 0 002 2h1a2 2 0 002-2v-3a2 2 0 00-2-2H3z"/></svg>
                                 </div>
-                                <div class="num">03</div>
                             </div>
                             <h3 class="text-lg font-bold" style="font-family: var(--font-sans)">Supervision &amp; hotline</h3>
                             <p class="text-sm mt-2" style="color: var(--color-text-secondary)">Vos utilisateurs appellent, on décroche. En votre nom si vous le voulez. Hotline IRVE 100% basée en France, 7j/7.</p>
@@ -749,7 +731,6 @@
                                 <div class="svc-icon">
                                     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#205BC4" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
                                 </div>
-                                <div class="num">04</div>
                             </div>
                             <h3 class="text-lg font-bold" style="font-family: var(--font-sans)">Sécurisation</h3>
                             <p class="text-sm mt-2" style="color: var(--color-text-secondary)">Câbles coupés, écrans cassés, bornes arrachées : on connaît le problème. Vidéo, anti-vandalisme, alertes temps réel.</p>
@@ -841,12 +822,12 @@
         </section>
 
         <!-- ============ PARTNERS ============ -->
-        <section class="py-20 px-6 bg-white overflow-hidden" aria-label="Partenaires et clients">
+        <section class="py-20 px-6 bg-white overflow-hidden" aria-label="Marques et réseaux">
             <div class="max-w-7xl mx-auto mb-10 text-center section-appear">
-                <div class="sec-label">Partenaires & clients</div>
-                <h2 class="text-2xl md:text-3xl font-bold tracking-tight mb-2 text-gray-900">Les entreprises qui nous font confiance.</h2>
+                <div class="sec-label">Multi-marques</div>
+                <h2 class="text-2xl md:text-3xl font-bold tracking-tight mb-2 text-gray-900">Marques et réseaux sur lesquels nous intervenons.</h2>
             </div>
-            <div class="logo-marquee w-full" role="region" aria-label="Logos de nos partenaires et clients">
+            <div class="logo-marquee w-full" role="region" aria-label="Logos des marques et réseaux sur lesquels JCSM intervient">
                 <div class="logo-marquee-track">
                     <div class="logo-item flex items-center justify-center px-5 py-3 min-w-[140px]"><picture style="--logo-width:102.873%;--logo-height:123.069%;--logo-left:-1.4365653719299365%;--logo-top:-11.534601252041371%"><img loading="lazy" src="images/powerdot.png" alt="Powerdot, opérateur de bornes de recharge partenaire JCSM" width="1977" height="1113" class="h-12 w-auto"></picture></div>
                     <div class="logo-item flex items-center justify-center px-5 py-3 min-w-[140px]"><picture style="--logo-width:95.588%;--logo-height:59.922%;--logo-left:2.2058823529411766%;--logo-top:20.0390625%"><img loading="lazy" src="images/schneider.png" alt="Schneider Electric, fabricant de bornes de recharge partenaire JCSM" width="400" height="118" class="h-12 w-auto"></picture></div>
@@ -939,7 +920,6 @@
         <section class="py-20 px-6 bg-white" aria-label="Questions fréquentes">
             <div class="max-w-3xl mx-auto">
                 <div class="text-center mb-14 section-appear">
-                    <div class="sec-label">FAQ</div>
                     <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-4 text-gray-900">
                         Questions fréquentes
                     </h2>
@@ -948,7 +928,6 @@
                     <details class="group bg-white border border-gray-200 rounded-xl p-5 hover:border-gray-300 transition-colors card-lift">
                         <summary class="font-medium text-gray-900 cursor-pointer flex items-center justify-between list-none [&::-webkit-details-marker]:hidden">
                             <div class="flex items-center gap-3">
-                                <span class="faq-num" aria-hidden="true">1</span>
                                 <span>On a un gros déploiement à lancer, vous gérez ?</span>
                             </div>
                             <span class="faq-chevron"><svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg></span>
@@ -961,7 +940,6 @@
                     <details class="group bg-white border border-gray-200 rounded-xl p-5 hover:border-gray-300 transition-colors card-lift">
                         <summary class="font-medium text-gray-900 cursor-pointer flex items-center justify-between list-none [&::-webkit-details-marker]:hidden">
                             <div class="flex items-center gap-3">
-                                <span class="faq-num" aria-hidden="true">2</span>
                                 <span>Notre parc existant a des problèmes de conformité</span>
                             </div>
                             <span class="faq-chevron"><svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg></span>
@@ -974,7 +952,6 @@
                     <details class="group bg-white border border-gray-200 rounded-xl p-5 hover:border-gray-300 transition-colors card-lift">
                         <summary class="font-medium text-gray-900 cursor-pointer flex items-center justify-between list-none [&::-webkit-details-marker]:hidden">
                             <div class="flex items-center gap-3">
-                                <span class="faq-num" aria-hidden="true">3</span>
                                 <span>Nos bornes sont souvent indisponibles</span>
                             </div>
                             <span class="faq-chevron"><svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg></span>
@@ -987,7 +964,6 @@
                     <details class="group bg-white border border-gray-200 rounded-xl p-5 hover:border-gray-300 transition-colors card-lift">
                         <summary class="font-medium text-gray-900 cursor-pointer flex items-center justify-between list-none [&::-webkit-details-marker]:hidden">
                             <div class="flex items-center gap-3">
-                                <span class="faq-num" aria-hidden="true">4</span>
                                 <span>On a des problèmes de vandalisme sur nos sites</span>
                             </div>
                             <span class="faq-chevron"><svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg></span>
@@ -1000,7 +976,6 @@
                     <details class="group bg-white border border-gray-200 rounded-xl p-5 hover:border-gray-300 transition-colors card-lift">
                         <summary class="font-medium text-gray-900 cursor-pointer flex items-center justify-between list-none [&::-webkit-details-marker]:hidden">
                             <div class="flex items-center gap-3">
-                                <span class="faq-num" aria-hidden="true">5</span>
                                 <span>Nos utilisateurs appellent trop et on ne peut pas gérer</span>
                             </div>
                             <span class="faq-chevron"><svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg></span>
@@ -1036,7 +1011,6 @@
         <section id="contact" class="py-20 px-6 section-alt" aria-label="Formulaire de contact">
             <div class="max-w-6xl mx-auto">
                 <div class="text-center mb-14 section-appear">
-                    <div class="sec-label">Contact</div>
                     <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-4 text-gray-900">
                         Prêt à confier vos bornes à un mainteneur IRVE certifié ?
                     </h2>
