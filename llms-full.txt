@@ -27,7 +27,6 @@ JCSM est independante des fabricants de bornes et des energeticiens : elle propo
 | Mentions legales | https://jcsm.fr/mentions-legales |
 
 ### Chiffres affiches sur le site
-- 98 % de disponibilite reseau
 - Reponse sous 24h ouvrees
 - Plus de 2 000 interventions
 - Bornes AC et DC jusqu'a 400 kW, multi-marques
