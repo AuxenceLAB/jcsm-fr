@@ -141,6 +141,9 @@ if [ -f package.json ] && ! git diff --quiet -- css/tailwind.css 2>/dev/null; th
 fi
 
 echo "== [4/7] Contrôles sur l'arborescence servie"
+if [ -f scripts/sitemap-lastmod.cjs ] && ! node scripts/sitemap-lastmod.cjs >/dev/null; then
+  warn "sitemap.xml en retard (lastmod git ou URL noindex) : node scripts/sitemap-lastmod.cjs --write puis commiter"
+fi
 if ! check_php . || ! check_versions .; then
   restore_previous
   die "contrôle en échec sur l'arborescence servie (voir ci-dessus)"
