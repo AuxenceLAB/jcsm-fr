@@ -180,7 +180,7 @@
         var styleEl = document.createElement("style");
         styleEl.id = "jcsm-wow-styles";
         styleEl.textContent = [
-            ".js-loaded .will-reveal { opacity: 0; transform: translateY(20px); transition: all 1s cubic-bezier(0.16, 1, 0.3, 1); }",
+            ".js-loaded .will-reveal { opacity: 0; transform: translateY(20px); transition: opacity .5s, transform .5s; }",
             ".revealed { opacity: 1 !important; transform: none !important; }",
             ".reveal-clip { transition: clip-path 1.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 1.4s ease; }",
             ".card-hover, .card-premium { transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease; }",
@@ -199,40 +199,7 @@
     // ─── DOMContentLoaded: hero entrance, observers, interactions ───
     document.addEventListener("DOMContentLoaded", function () {
 
-        // Hero entrance animation
-        (function heroEntrance() {
-            // Le premier ecran doit etre lisible immediatement, photo comprise.
-            if (document.querySelector('.jcsm-editorial-hero')) return;
-            document.querySelectorAll("section:first-of-type .section-appear, section:first-of-type h1, section:first-of-type p, section:first-of-type a, section:first-of-type .inline-flex").forEach(function (el, i) {
-                el.style.opacity = "0";
-                el.style.transform = "translateY(30px)";
-                setTimeout(function () {
-                    el.style.transition = "opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1)";
-                    el.style.opacity = "1";
-                    el.style.transform = "translateY(0)";
-                }, 100 + 60 * i);
-                // Safety fallback
-                setTimeout(function () {
-                    if (el.style.opacity === "0") {
-                        el.style.opacity = "1";
-                        el.style.transform = "translateY(0)";
-                    }
-                }, 2000);
-            });
-
-            var heroImg = document.getElementById("hero-image");
-            if (heroImg) {
-                heroImg.style.opacity = "0";
-                heroImg.style.transform = "scale(1.05) translateZ(0)";
-                heroImg.style.filter = "blur(10px) brightness(0.8)";
-                setTimeout(function () {
-                    heroImg.style.transition = "opacity 1.5s cubic-bezier(0.16, 1, 0.3, 1), transform 1.5s cubic-bezier(0.16, 1, 0.3, 1), filter 1.5s ease-out";
-                    heroImg.style.opacity = "1";
-                    heroImg.style.transform = "scale(1) translateZ(0)";
-                    heroImg.style.filter = "blur(0) brightness(1)";
-                }, 300);
-            }
-        })();
+        // Le premier écran est lisible dès le premier rendu : aucune entrée animée du hero.
 
         // ─── Section reveal (IntersectionObserver, fire once) ───
         (function sectionReveal() {
@@ -246,9 +213,11 @@
                         observer.unobserve(entry.target);
                     }
                 });
-            }, { threshold: 0.15 });
+            }, { threshold: 0, rootMargin: "0px 0px -10% 0px" });
 
             document.querySelectorAll(".section-appear, .reveal-clip").forEach(function (el) {
+                // Déjà à l'écran ou plus haut que la fenêtre : jamais masqué.
+                if (el.getBoundingClientRect().top < window.innerHeight || el.offsetHeight > window.innerHeight * 0.9) return;
                 el.classList.add("will-reveal");
                 if (el.classList.contains("reveal-clip")) {
                     el.style.clipPath = "inset(100% 0 0 0)";

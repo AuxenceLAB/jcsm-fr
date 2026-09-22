@@ -1672,14 +1672,6 @@ input[type="radio"] {
     0 0 40px rgba(37, 99, 235, 0.4),
     0 0 80px rgba(37, 99, 235, 0.15);
 }
-.js-loaded .stat-glow {
-  opacity: 0;
-  transform: scale(0.8);
-}
-.js-loaded .stat-glow.visible {
-  opacity: 1;
-  transform: scale(1);
-}
 
 /* 7. Smooth section transitions */
 .section-fade {
