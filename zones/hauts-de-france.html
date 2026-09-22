@@ -40,40 +40,46 @@
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
     <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
+{
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Installation et maintenance de bornes de recharge · Hauts-de-France",
+    "serviceType": "Installation et maintenance de bornes de recharge",
+    "description": "Installation et maintenance de bornes de recharge électrique en Hauts-de-France",
+    "url": "https://jcsm.fr/zones/hauts-de-france",
+    "provider": {
         "@type": "LocalBusiness",
-        "name": "JCSM - Expert IRVE Hauts-de-France",
-        "description": "Installation et maintenance de bornes de recharge électrique en Hauts-de-France",
-        "url": "https://jcsm.fr/zones/hauts-de-france",
-        "telephone": "+33 1 83 75 57 06",
-        "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "60 rue François 1er",
-            "addressLocality": "Paris",
-            "postalCode": "75008",
-            "addressRegion": "Île-de-France",
-            "addressCountry": "FR"
+        "@id": "https://jcsm.fr/#localbusiness",
+        "name": "JCSM",
+        "url": "https://jcsm.fr/"
+    },
+    "areaServed": [
+        {
+            "@type": "AdministrativeArea",
+            "name": "Hauts-de-France"
         },
-        "geo": {
-            "@type": "GeoCoordinates",
-            "latitude": 50.6292,
-            "longitude": 3.0573
+        {
+            "@type": "AdministrativeArea",
+            "name": "Nord"
         },
-        "areaServed": {
-            "@type": "GeoCircle",
-            "geoMidpoint": {
-                "@type": "GeoCoordinates",
-                "latitude": 50.6292,
-                "longitude": 3.0573
-            },
-            "geoRadius": "100000"
+        {
+            "@type": "AdministrativeArea",
+            "name": "Somme"
         },
-        "serviceArea": ["Nord", "Somme", "Pas-de-Calais", "Aisne", "Oise"],
-        "serviceType": "Installation et maintenance de bornes de recharge",
-        "priceRange": "€€€",
-        "openingHours": "Mo-Su 00:00-24:00"
-    }
+        {
+            "@type": "AdministrativeArea",
+            "name": "Pas-de-Calais"
+        },
+        {
+            "@type": "AdministrativeArea",
+            "name": "Aisne"
+        },
+        {
+            "@type": "AdministrativeArea",
+            "name": "Oise"
+        }
+    ]
+}
     </script>
     <script type="application/ld+json">
     {

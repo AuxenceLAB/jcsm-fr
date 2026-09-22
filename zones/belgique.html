@@ -50,7 +50,7 @@
         "postalCode": "75008",
         "addressCountry": "FR"
       },
-      "siret": "99387429600011",
+      "identifier": {"@type": "PropertyValue", "propertyID": "SIRET", "value": "99387429600011"},
       "taxID": "FR40993874296",
       "telephone": "+33 1 83 75 57 06",
       "contactPoint": [
@@ -103,41 +103,58 @@
     }
     </script>
     <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
+{
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Installation et maintenance de bornes de recharge · Belgique",
+    "serviceType": "Installation et maintenance de bornes de recharge",
+    "description": "Installation et maintenance de bornes de recharge électrique en Belgique",
+    "url": "https://jcsm.fr/zones/belgique",
+    "provider": {
         "@type": "LocalBusiness",
-        "name": "JCSM - Expert IRVE Belgique",
-        "description": "Installation et maintenance de bornes de recharge électrique en Belgique",
-        "url": "https://jcsm.fr/zones/belgique",
-        "telephone": "+33 1 83 75 57 06",
-        "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "60 rue François 1er",
-            "addressLocality": "Paris",
-            "postalCode": "75008",
-            "addressRegion": "Île-de-France",
-            "addressCountry": "FR",
-            "description": "Siège social (interventions sur toute la Belgique)"
+        "@id": "https://jcsm.fr/#localbusiness",
+        "name": "JCSM",
+        "url": "https://jcsm.fr/"
+    },
+    "areaServed": [
+        {
+            "@type": "Country",
+            "name": "Belgique"
         },
-        "geo": {
-            "@type": "GeoCoordinates",
-            "latitude": 50.5039,
-            "longitude": 4.4699
+        {
+            "@type": "AdministrativeArea",
+            "name": "Bruxelles-Capitale"
         },
-        "areaServed": {
-            "@type": "GeoCircle",
-            "geoMidpoint": {
-                "@type": "GeoCoordinates",
-                "latitude": 50.5039,
-                "longitude": 4.4699
-            },
-            "geoRadius": "150000"
+        {
+            "@type": "AdministrativeArea",
+            "name": "Wallonie"
         },
-        "serviceArea": ["Bruxelles-Capitale", "Wallonie", "Flandre", "Liège", "Namur", "Charleroi", "Anvers", "Gand"],
-        "serviceType": "Installation et maintenance de bornes de recharge",
-        "priceRange": "€€€",
-        "openingHours": "Mo-Su 00:00-24:00"
-    }
+        {
+            "@type": "AdministrativeArea",
+            "name": "Flandre"
+        },
+        {
+            "@type": "AdministrativeArea",
+            "name": "Liège"
+        },
+        {
+            "@type": "AdministrativeArea",
+            "name": "Namur"
+        },
+        {
+            "@type": "AdministrativeArea",
+            "name": "Charleroi"
+        },
+        {
+            "@type": "AdministrativeArea",
+            "name": "Anvers"
+        },
+        {
+            "@type": "AdministrativeArea",
+            "name": "Gand"
+        }
+    ]
+}
     </script>
     <script type="application/ld+json">
     {
