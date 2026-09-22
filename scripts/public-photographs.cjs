@@ -5,7 +5,7 @@ const families = {
   vehicle: ['jcsmtesla.jpg','jcsmtesla.webp','jcsmtesla-mobile.webp'],
   electricalInspection: ['remiseconfo.jpg','remiseconfo.webp','remiseconfo-mobile.webp','remiseconformite.jpg','remiseconformite.webp','remiseconformite-mobile.webp'],
   planning: ['amo.jpg','amo.webp','amo-mobile.webp'],
-  maintenance: ['maintenance.jpeg','maintenance.webp'],
+  maintenance: ['maintenance.jpeg','maintenance.webp','maintenance-800.webp','maintenance-mobile-640.avif'],
   chargingPark: ['installation.jpeg','installation.webp'],
   wallChargers: ['2x22kW.jpeg','2x22kW.webp'],
   dcCharger: ['1x60.jpeg','1x60.webp'],

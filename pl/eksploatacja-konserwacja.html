@@ -150,7 +150,8 @@
     <meta name="twitter:image:alt" content="Technik JCSM podczas konserwacji stacji ladowania IRVE">
 
     <link rel="dns-prefetch" href="https://formspree.io">
-    <link rel="preload" as="image" href="/images/maintenance.webp" type="image/webp">
+    <link rel="preload" as="image" href="/images/maintenance-mobile-640.avif" type="image/avif" media="(max-width: 768px)">
+    <link rel="preload" as="image" href="/images/maintenance-800.webp" type="image/webp" media="(min-width: 769px)">
     <link rel="preload" href="/fonts/source-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="/css/site-a.css?v=103">
     <link rel="manifest" href="../manifest.json">
@@ -197,7 +198,7 @@
         <div class="max-w-7xl mx-auto px-6 py-4">
             <div class="flex justify-between items-center">
                 <a href="/pl/" class="flex items-center space-x-3 group mr-10">
-                    <picture><source srcset="../images/logo.webp" type="image/webp"><img src="../images/logo.png" alt="JCSM - Strona glowna" class="w-10 h-10 transition-transform group-hover:scale-105 duration-300" width="40" height="40"></picture>
+                    <picture><source srcset="/images/logo-80.webp 1x, /images/logo-160.webp 2x" type="image/webp"><img src="../images/logo.png" alt="" class="w-10 h-10 transition-transform group-hover:scale-105 duration-300" width="40" height="40"></picture>
                     <span class="text-2xl font-extrabold tracking-tight text-gray-900">JCSM</span>
                 </a>
                 <div class="hidden xl:flex items-center space-x-2">
@@ -256,7 +257,8 @@
                     <div class="section-appear order-2 lg:order-2 mb-4 lg:mb-0">
                         <div class="relative w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg mx-auto overflow-hidden rounded-2xl">
                             <picture>
-                                <source srcset="../images/maintenance.webp" type="image/webp">
+                                <source media="(max-width: 768px)" srcset="../images/maintenance-mobile-640.avif" type="image/avif">
+                                <source srcset="../images/maintenance-800.webp" type="image/webp">
                                 <img id="hero-image" src="../images/maintenance.jpeg" fetchpriority="high"
                                     alt="Konserwacja i eksploatacja infrastruktury IRVE przez certyfikowanego technika JCSM"
                                     class="w-full h-auto max-h-[200px] sm:max-h-[300px] md:max-h-[400px] lg:max-h-[500px] object-cover rounded-2xl shadow-2xl"
@@ -1100,7 +1102,7 @@
             <div class="grid md:grid-cols-4 gap-10 mb-12">
                 <div>
                     <div class="flex items-center space-x-3 mb-4">
-                        <picture><source srcset="../images/logo.webp" type="image/webp"><img src="../images/logo.png" alt="Logo JCSM" class="w-8 h-8" width="32" height="32" loading="lazy" decoding="async"></picture>
+                        <picture><source srcset="/images/logo-80.webp 1x, /images/logo-160.webp 2x" type="image/webp"><img src="../images/logo.png" alt="" class="w-8 h-8" width="32" height="32" loading="lazy" decoding="async"></picture>
                         <span class="text-xl font-semibold text-gray-900">JCSM</span>
                     </div>
                     <p class="text-sm text-gray-600 mb-4">Doswiadczenie IRVE od 2019 roku. Instalacja, konserwacja i zarzadzanie we Francji i Belgii. Firma inkluzywna.</p>
