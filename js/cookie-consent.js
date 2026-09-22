@@ -60,14 +60,14 @@
 
             // Textes dans la langue de la page (repli : français). Seules fr et en ont une page de confidentialité.
             var TEXTS = {
-                fr: ["On utilise des cookies pour analyser notre trafic. Rien de plus. ", "En savoir plus", "Refuser", "Accepter", "Gestion des cookies", "/confidentialite"],
-                en: ["We use cookies to analyse our traffic. Nothing more. ", "Learn more", "Decline", "Accept", "Cookie settings", "/en/privacy"],
-                de: ["Wir verwenden Cookies, um unseren Traffic zu analysieren. Mehr nicht. ", "Mehr erfahren", "Ablehnen", "Akzeptieren", "Cookie-Einstellungen", "/en/privacy"],
-                es: ["Usamos cookies para analizar nuestro tráfico. Nada más. ", "Más información", "Rechazar", "Aceptar", "Gestión de cookies", "/en/privacy"],
-                it: ["Utilizziamo i cookie per analizzare il nostro traffico. Niente di più. ", "Scopri di più", "Rifiuta", "Accetta", "Gestione dei cookie", "/en/privacy"],
-                nl: ["We gebruiken cookies om ons verkeer te analyseren. Meer niet. ", "Meer informatie", "Weigeren", "Accepteren", "Cookiebeheer", "/en/privacy"],
-                pl: ["Używamy plików cookie do analizy ruchu na stronie. Nic więcej. ", "Dowiedz się więcej", "Odrzuć", "Akceptuj", "Zarządzanie plikami cookie", "/en/privacy"],
-                pt: ["Usamos cookies para analisar o nosso tráfego. Nada mais. ", "Saiba mais", "Recusar", "Aceitar", "Gestão de cookies", "/en/privacy"]
+                fr: ["On utilise des cookies pour analyser notre trafic. Rien de plus. ", "Politique de confidentialité", "Refuser", "Accepter", "Gestion des cookies", "/confidentialite"],
+                en: ["We use cookies to analyse our traffic. Nothing more. ", "Privacy policy", "Decline", "Accept", "Cookie settings", "/en/privacy"],
+                de: ["Wir verwenden Cookies, um unseren Traffic zu analysieren. Mehr nicht. ", "Datenschutzerklärung (EN)", "Ablehnen", "Akzeptieren", "Cookie-Einstellungen", "/en/privacy"],
+                es: ["Usamos cookies para analizar nuestro tráfico. Nada más. ", "Política de privacidad (EN)", "Rechazar", "Aceptar", "Gestión de cookies", "/en/privacy"],
+                it: ["Utilizziamo i cookie per analizzare il nostro traffico. Niente di più. ", "Informativa privacy (EN)", "Rifiuta", "Accetta", "Gestione dei cookie", "/en/privacy"],
+                nl: ["We gebruiken cookies om ons verkeer te analyseren. Meer niet. ", "Privacybeleid (EN)", "Weigeren", "Accepteren", "Cookiebeheer", "/en/privacy"],
+                pl: ["Używamy plików cookie do analizy ruchu na stronie. Nic więcej. ", "Polityka prywatności (EN)", "Odrzuć", "Akceptuj", "Zarządzanie plikami cookie", "/en/privacy"],
+                pt: ["Usamos cookies para analisar o nosso tráfego. Nada mais. ", "Política de privacidade (EN)", "Recusar", "Aceitar", "Gestão de cookies", "/en/privacy"]
             };
             var lang = (document.documentElement.lang || "fr").slice(0, 2).toLowerCase();
             if (!TEXTS[lang]) lang = "fr";
