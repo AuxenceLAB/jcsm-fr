@@ -12,3 +12,7 @@ main p{line-height:1.7}.btn,.button-primary,.button-secondary{border-radius:5px}
 
 .jcsm-public :is(h1,h2,h3,h4){font-family:var(--font-sans);letter-spacing:-.015em;line-height:1.2;font-weight:600}
 .jcsm-public .section-kicker{letter-spacing:.025em;font-size:13px}
+
+/* Preserve the photo dimensions before decoding and keep text legible throughout reveals. */
+body .jcsm-editorial-photo img{height:auto;aspect-ratio:4/3}
+.js-loaded .grid-stagger>*{opacity:1;transition-property:transform}

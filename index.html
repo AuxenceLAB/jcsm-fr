@@ -283,8 +283,10 @@
     <meta name="twitter:image" content="https://jcsm.fr/images/logo.png">
     <meta name="twitter:image:alt" content="Logo JCSM - Expert infrastructure de recharge pour véhicules électriques">
 
+    <link rel="preload" href="/fonts/source-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="dns-prefetch" href="https://formspree.io">
     <link rel="preconnect" href="https://formspree.io" crossorigin>
+    <link rel="preload" as="image" href="/images/index-mobile-640-audit.avif" type="image/avif" media="(max-width: 768px)">
     <link rel="preload" as="image" href="/images/index-800.webp" imagesrcset="/images/index-800.webp 800w, /images/index.webp 2048w" imagesizes="512px" type="image/webp" media="(min-width: 769px)">
     <link rel="stylesheet" href="/css/critical.css?v=99">
     <link rel="stylesheet" href="/css/tailwind.css?v=99">
@@ -571,7 +573,7 @@
     </style>
     <!-- Leaflet CSS chargé en lazy avec la carte (voir script en bas de page) -->
     <link rel="stylesheet" href="/css/public-layout.css?v=99">
-<link rel="stylesheet" href="/css/editorial-20260906.css"><style id="quality-first-paint">body.jcsm-public{animation:none!important}</style>
+<link rel="stylesheet" href="/css/editorial-20260906.css?v=20260922-audit"><style id="quality-first-paint">body.jcsm-public{animation:none!important}</style>
 </head>
 
 <body class="text-gray-900 jcsm-public">
@@ -580,7 +582,7 @@
     
 
     <div class="mobile-menu-overlay" id="mobile-menu-overlay"></div>
-    <nav class="mobile-menu" id="mobile-menu" role="dialog" aria-modal="true" aria-label="Menu de navigation" aria-hidden="true">
+    <div class="mobile-menu" id="mobile-menu" role="dialog" aria-modal="true" aria-label="Menu de navigation" aria-hidden="true">
         <div class="p-8">
             <div class="flex justify-between items-center mb-12">
                 <span class="text-xl font-semibold">Menu</span>
@@ -601,7 +603,7 @@
                 <a href="/contact" class="btn-primary px-6 py-3 rounded-lg text-base font-medium text-white inline-block text-center mt-4">Devis gratuit</a>
             </div>
         </div>
-    </nav>
+    </div>
 
     <!-- Barre de progression de scroll -->
 
@@ -664,6 +666,7 @@
                     <div class="relative">
                         <figure class="shot jcsm-editorial-photo w-full max-w-lg mx-auto lg:ml-auto">
                             <picture>
+                                <source media="(max-width: 768px)" srcset="images/index-mobile-640-audit.avif" type="image/avif">
                                 <source media="(max-width: 768px)" srcset="images/index-mobile.webp" type="image/webp">
                                 <source media="(max-width: 768px)" srcset="images/index-mobile.jpg">
                                 <source srcset="images/index-800.webp 800w, images/index.webp 2048w" sizes="512px" type="image/webp">
