@@ -33,7 +33,7 @@ Engagements affiches sur le site :
 Assistance a maitrise d'ouvrage : etude, coordination des corps de metier, raccordement Enedis, suivi de chantier, mise en service et reception.
 
 ### 2. Installation et conformite - https://jcsm.fr/installation-conformite
-Installation certifiee Qualifelec de bornes AC (3,7 a 22 kW) et DC (jusqu'a 400 kW), postes HTA/BT, conformite NF C 15-100 / UTE C15-722, validation Consuel, raccordement Enedis.
+Installation certifiee Qualifelec de bornes AC (3,7 a 22 kW) et DC (jusqu'a 400 kW), postes HTA/BT, conformite NF C 15-100 (partie 7-722), validation Consuel, raccordement Enedis.
 
 ### 3. Exploitation et maintenance - https://jcsm.fr/exploitation
 Maintenance preventive (inspections programmees) et curative, supervision OCPP 1.6 / 2.0.1, diagnostic a distance (environ 40 % des incidents resolus sans deplacement), technicien sur site sous 24h ouvrees, maintenance des transformateurs HTA/BT.

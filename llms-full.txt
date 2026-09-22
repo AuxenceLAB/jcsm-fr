@@ -41,7 +41,7 @@ Assistance a maitrise d'ouvrage pour les deploiements : etude et dimensionnement
 URL : https://jcsm.fr/installation-conformite
 - Bornes AC de 3,7 kW a 22 kW et bornes DC jusqu'a 400 kW
 - Postes HTA/BT associes aux stations de charge rapide
-- Conformite NF C 15-100 et UTE C15-722, validation Consuel
+- Conformite NF C 15-100 (partie 7-722), validation Consuel
 - Raccordement Enedis et dimensionnement electrique
 - Clients : CPO, retailers, entreprises, professionnels et particuliers
 
@@ -111,7 +111,7 @@ Belgique (Wallonie, Flandre, Bruxelles-Capitale) - https://jcsm.fr/zones/belgiqu
 
 ## 8. Normes et reglementation citees
 
-NF C 15-100 (section 722) et UTE C15-722, Consuel, OCPP 1.6 et 2.0.1, reglement europeen AFIR, loi LOM, programme ADVENIR, certification Qualifelec IRVE.
+NF C 15-100 partie 7-722 (qui remplace l'ancien guide UTE C 15-722), Consuel, OCPP 1.6 et 2.0.1, reglement europeen AFIR, loi LOM, programme ADVENIR, certification Qualifelec IRVE.
 
 ## 9. FAQ
 
