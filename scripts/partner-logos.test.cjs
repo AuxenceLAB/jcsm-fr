@@ -13,7 +13,8 @@ test('les logos partenaires utilisent des originaux cadres sans deformation',()=
       assert(body.includes('--logo-width:'),file);
       assert(body.includes('--logo-height:'),file);
       assert(!body.includes('<source'),file);
-      assert(!/src="[^"]*\.webp/.test(body),file);
+      // Seules les vignettes datées (originaux réduits, ratio conservé) sont admises en webp.
+      assert(!/src="[^"]*\.webp/.test(body.replace(/-thumb-\d{8}\.webp/g,'')),file);
       assert(!body.includes('perpignan.png'),file);
       count++;
     }

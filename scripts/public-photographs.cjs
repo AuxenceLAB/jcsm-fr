@@ -1,7 +1,7 @@
 // Reviewed photograph families. Different crops, formats and filenames can show
 // the same scene; byte hashes alone cannot detect those visual duplicates.
 const families = {
-  station: ['index.jpg','index.webp','index-800.webp','index-mobile.jpg','index-mobile.webp'],
+  station: ['index.jpg','index.webp','index-800.webp','index-mobile.jpg','index-mobile.webp','index-mobile-640-audit.avif'],
   vehicle: ['jcsmtesla.jpg','jcsmtesla.webp','jcsmtesla-mobile.webp'],
   electricalInspection: ['remiseconfo.jpg','remiseconfo.webp','remiseconfo-mobile.webp','remiseconformite.jpg','remiseconformite.webp','remiseconformite-mobile.webp'],
   planning: ['amo.jpg','amo.webp','amo-mobile.webp'],
