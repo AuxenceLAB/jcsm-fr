@@ -12,6 +12,9 @@ for(const file of getPublicPages()){
     if(/\bclass=["']/.test(attrs))return '<body'+attrs.replace(/\bclass=(["'])(.*?)\1/,(all,quote,old)=>'class='+quote+[...new Set([...old.split(/\s+/),...classes])].filter(Boolean).join(' ')+quote)+'>';
     return '<body'+attrs+' class="'+classes.join(' ')+'">';
   });
+  // The body font is preloaded on every public page, before the first stylesheet.
+  const fontPreload='<link rel="preload" href="/fonts/source-sans-latin.woff2" as="font" type="font/woff2" crossorigin>';
+  if(!next.includes('href="/fonts/source-sans-latin.woff2"'))next=next.replace(/([ \t]*)<link rel="stylesheet"/i,(all,indent)=>indent+fontPreload+'\n'+all);
   if(!next.includes('/css/public-layout.css?'))next=next.replace(/<\/head>/i,'    <link rel="stylesheet" href="/css/public-layout.css?v='+version+'">\n</head>');
   if(next!==before){changed++;if(write)fs.writeFileSync(absolute,next);}
 }

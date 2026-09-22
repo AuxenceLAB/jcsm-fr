@@ -1,6 +1,8 @@
 @font-face{font-family:'Source Sans';font-style:normal;font-weight:200 900;font-display:swap;src:url('/fonts/source-sans-latin.woff2') format('woff2')}
+/* Repli aux métriques de Source Sans (largeur et hauteurs calculées sur le fichier woff2) : le changement de police ne décale plus la mise en page. */
+@font-face{font-family:'Source Sans Fallback';src:local('Arial'),local('ArialMT'),local('Liberation Sans');size-adjust:89.2%;ascent-override:114.8%;descent-override:44.9%;line-gap-override:0%}
 
-:root,body.jcsm-public{--font-sans:'Source Sans',Arial,sans-serif;--font-serif:var(--font-sans);--font-mono:var(--font-sans);--jcsm-mono:var(--font-sans)}
+:root,body.jcsm-public{--font-sans:'Source Sans','Source Sans Fallback',Arial,sans-serif;--font-serif:var(--font-sans);--font-mono:var(--font-sans);--jcsm-mono:var(--font-sans)}
 body{font-family:var(--font-sans);letter-spacing:0}
 h1,h2,h3,h4{font-family:var(--font-sans);letter-spacing:-.018em;line-height:1.2;text-wrap:balance}
 h1{font-weight:600}h2,h3{font-weight:600}h1 em,h2 em,h3 em{font-family:inherit;font-style:normal;font-weight:inherit}

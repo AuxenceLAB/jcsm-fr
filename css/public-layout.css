@@ -4,7 +4,7 @@ body.jcsm-public {
   --jcsm-shell:80rem;
   --jcsm-gutter:16px;
   --jcsm-header:80px;
-  --font-sans:'Archivo',system-ui,-apple-system,'Helvetica Neue',Arial,sans-serif;
+  --font-sans:'Source Sans','Source Sans Fallback',Arial,sans-serif;
 }
 @media(min-width:640px) { body.jcsm-public { --jcsm-gutter:24px; } }
 
