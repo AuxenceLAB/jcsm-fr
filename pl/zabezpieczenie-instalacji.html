@@ -133,9 +133,6 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="theme-color" content="#205BC4">
 
-    <link rel="stylesheet" href="../css/leaflet.css" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="../css/leaflet.css"></noscript>
-    <script src="../js/vendor/leaflet.js" defer></script>
 
     <link rel="stylesheet" href="/css/public-layout.css?v=103">
 <link rel="stylesheet" href="/css/editorial-20260906.css?v=103"><style id="quality-first-paint">body.jcsm-public{animation:none!important}</style>
@@ -816,7 +813,14 @@
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const mapContainer = document.getElementById('map');
-            if (!mapContainer || typeof L === 'undefined') return;
+            if (!mapContainer) return;
+
+            // Leaflet (41 Ko) chargé seulement à l'approche de la carte.
+            function loadLeaflet(done) {
+                if (typeof L !== 'undefined') return done();
+                var css = document.createElement('link'); css.rel = 'stylesheet'; css.href = '/css/leaflet.css'; document.head.appendChild(css);
+                var js = document.createElement('script'); js.src = '/js/vendor/leaflet.js'; js.onload = done; document.head.appendChild(js);
+            }
 
             function initMapWhenVisible() {
                 const map = L.map('map', { zoomControl: false, scrollWheelZoom: false }).setView([47.5, 2.5], 6);
@@ -877,14 +881,14 @@
                 const mapObserver = new IntersectionObserver(function (entries, observer) {
                     entries.forEach(function (entry) {
                         if (entry.isIntersecting) {
-                            initMapWhenVisible();
+                            loadLeaflet(initMapWhenVisible);
                             observer.unobserve(entry.target);
                         }
                     });
-                }, { rootMargin: '200px 0px' });
+                }, { rootMargin: '300px 0px' });
                 mapObserver.observe(mapContainer);
             } else {
-                initMapWhenVisible();
+                loadLeaflet(initMapWhenVisible);
             }
         });
     </script>
