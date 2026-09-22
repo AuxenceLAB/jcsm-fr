@@ -193,7 +193,8 @@ function initPreloader(){
         wrap.appendChild(el);
         
         var btn = document.createElement('button');
-        btn.className = 'copy-btn absolute top-2 right-2 px-2 py-1 text-xs font-medium bg-gray-100 hover:bg-gray-200 text-gray-600 rounded transition-colors';
+        // Sur un tableau, le bouton se place au-dessus et ne masque plus l'en-tête.
+        btn.className = (el.tagName === 'TABLE' ? 'copy-btn block ml-auto mb-2' : 'copy-btn absolute top-2 right-2') + ' px-2 py-1 text-xs font-medium bg-gray-100 hover:bg-gray-200 text-gray-600 rounded transition-colors';
         btn.textContent = 'Copier';
         btn.setAttribute('aria-label', 'Copier le contenu');
         btn.addEventListener('click', function() {
@@ -207,6 +208,6 @@ function initPreloader(){
                 }, 2000);
             });
         });
-        wrap.appendChild(btn);
+        if (el.tagName === 'TABLE') wrap.insertBefore(btn, el); else wrap.appendChild(btn);
     });
 })();
