@@ -73,6 +73,18 @@ server {
     if ($request_uri ~ "^/([^?]+)\.html(\?|$)") {
         return 301 /$1;
     }
+    # Barre finale retirée sur les chemins qui ne sont pas des répertoires (/contact/ -> /contact).
+    # « if » au niveau serveur avec set/return uniquement : pas de contexte imbriqué sans try_files.
+    set $jcsm_strip_slash "";
+    if ($uri ~ "^(/.+)/$") {
+        set $jcsm_strip_slash $1;
+    }
+    if (-d $request_filename) {
+        set $jcsm_strip_slash "";
+    }
+    if ($jcsm_strip_slash) {
+        return 301 $jcsm_strip_slash$is_args$args;
+    }
 
     # (Les anciennes `location =` de redirection legacy — /interventions,
     # /support-client, /securisation, /mise-en-service, /services, /expertise,
@@ -106,10 +118,6 @@ server {
         limit_conn conn_limit_per_ip 20;
         include /etc/nginx/snippets/jcsm-security.conf;
         add_header Cache-Control $other_public_static_cache always;
-        # Barre finale retirée sur les pages qui ne sont pas des répertoires (/contact/ -> /contact).
-        if (!-d $request_filename) {
-            rewrite ^/(.+)/$ /$1 permanent;
-        }
         try_files $uri $uri.html $uri/ =404;
     }
 
