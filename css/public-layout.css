@@ -38,19 +38,24 @@ body.jcsm-public {
 .jcsm-utility > footer > div > .justify-center { justify-content:flex-start; }
 
 /* The fixed header offset is applied once, even when breadcrumbs precede a hero. */
-.jcsm-public main > nav:first-child {
+.jcsm-public main > nav:first-child,
+.jcsm-public main > #scroll-progress:first-child + nav {
   max-width:var(--jcsm-shell);
   padding:calc(var(--jcsm-header) + 20px) var(--jcsm-gutter) 0;
   margin-inline:auto;
 }
-.jcsm-public main > nav:first-child ol { flex-wrap:wrap; }
+.jcsm-public main > nav:first-child ol,
+.jcsm-public main > #scroll-progress:first-child + nav ol { flex-wrap:wrap; }
 .jcsm-public main > section:first-of-type {
   min-height:0 !important;
   padding-top:calc(var(--jcsm-header) + 40px);
   padding-bottom:56px;
   align-items:flex-start;
 }
-.jcsm-public main > nav:first-child ~ section:first-of-type { padding-top:32px; }
+.jcsm-public main > nav:first-child ~ section:first-of-type,
+.jcsm-public main > #scroll-progress:first-child + nav ~ section:first-of-type { padding-top:32px; }
+/* A full-width secondary pill on mobile keeps its label centred. */
+.jcsm-public main > section:first-of-type .btn-secondary { justify-content:center;text-align:center; }
 .jcsm-public main > section:first-of-type :is(.grid,.text-center):has(h1) { align-items:start;text-align:left; }
 .jcsm-public main > section:first-of-type h1 {
   font-family:var(--font-sans);
@@ -73,7 +78,8 @@ body.jcsm-public {
 .jcsm-public:is(.jcsm-article,.jcsm-legal) main h1 { font-size:clamp(2rem,3.4vw,3rem);line-height:1.16;letter-spacing:-.03em; }
 @media(max-width:639px) {
   .jcsm-public main > section:first-of-type { padding-top:calc(var(--jcsm-header) + 32px);padding-bottom:40px; }
-  .jcsm-public main > nav:first-child ~ section:first-of-type { padding-top:24px; }
+  .jcsm-public main > nav:first-child ~ section:first-of-type,
+  .jcsm-public main > #scroll-progress:first-child + nav ~ section:first-of-type { padding-top:24px; }
 }
 @media print {
   .jcsm-public main > section:first-of-type,

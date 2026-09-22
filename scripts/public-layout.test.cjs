@@ -58,3 +58,9 @@ test('la carte nommee de l accueil possede un role accessible meme avant son cha
   const html=fs.readFileSync(path.join(root,'index.html'),'utf8');
   assert.match(html,/<div\b[^>]*id="coverage-map"[^>]*role="region"[^>]*aria-label="[^"]+"/);
 });
+test('le fil d Ariane precede de la barre de progression garde le decalage d en-tete unique',()=>{
+  const css=fs.readFileSync(path.join(root,'css/public-layout.css'),'utf8');
+  const pages=getPublicPages().filter(file=>/<main\b[^>]*>\s*<div\b[^>]*id="scroll-progress"[^>]*>\s*<\/div>\s*<nav\b/.test(fs.readFileSync(path.join(root,file),'utf8')));
+  assert(pages.length>0);
+  for(const selector of ['#scroll-progress:first-child + nav {','#scroll-progress:first-child + nav ol','#scroll-progress:first-child + nav ~ section:first-of-type'])assert(css.includes(selector),selector);
+});
