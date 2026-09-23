@@ -137,6 +137,8 @@
     <meta name="twitter:image" content="https://jcsm.fr/images/og/installation.jpg">
     <meta name="twitter:image:alt" content="Installazione professionale colonnine di ricarica EV JCSM">
     <link rel="preload" href="/fonts/source-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" as="image" fetchpriority="high" href="/images/index-mobile-640-audit.avif" type="image/avif" media="(max-width: 768px)">
+    <link rel="preload" as="image" fetchpriority="high" href="/images/index-800.webp" imagesrcset="/images/index-800.webp 800w, /images/index.webp 2048w" imagesizes="512px" type="image/webp" media="(min-width: 769px)">
     <link rel="stylesheet" href="/css/site-a.css?v=106">
     <link rel="manifest" href="../manifest.json">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -171,7 +173,7 @@
                 <a href="/it/centro-chiamate" class="text-base text-gray-600 hover:text-gray-900 transition-colors py-2">Supporto</a>
                 <a href="/it/chi-siamo" class="text-base text-gray-600 hover:text-gray-900 transition-colors py-2">Chi siamo</a>
                 <div class="lang-selector relative"></div>
-                <a href="/it/contatti" class="btn-primary px-6 py-3 rounded-lg text-base font-medium inline-block text-center mt-4 text-white">Preventivo gratuito</a>
+                <a href="/it/contatti" class="btn-primary px-6 py-3 rounded-lg text-base font-medium inline-block text-center mt-4 text-white">Richiedi una diagnosi</a>
             </div>
         </div>
     </div>
@@ -194,7 +196,7 @@
                     <a href="/it/centro-chiamate" class="nav-link text-[15px] font-semibold text-gray-700 whitespace-nowrap">Supporto</a>
                     <a href="/it/chi-siamo" class="nav-link text-[15px] font-semibold text-gray-700 whitespace-nowrap">Chi siamo</a>
                     <div class="lang-selector relative"></div>
-                    <a href="/it/contatti" class="btn-primary ml-5 px-8 py-3 rounded-xl text-[15px] font-semibold text-white shadow-lg hover:shadow-xl whitespace-nowrap">Preventivo gratuito</a>
+                    <a href="/it/contatti" class="btn-primary ml-5 px-8 py-3 rounded-xl text-[15px] font-semibold text-white shadow-lg hover:shadow-xl whitespace-nowrap">Richiedi una diagnosi</a>
                 </div>
                 <button class="mobile-menu-btn text-gray-700 hover:text-gray-900" id="mobile-menu-btn" aria-label="Apri menu di navigazione" aria-expanded="false" aria-controls="mobile-menu">
                     <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -242,6 +244,7 @@
                     <div class="section-appear order-2 lg:order-2 mb-4 lg:mb-0">
                         <div class="hero-image-container relative w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg mx-auto">
                             <picture>
+                                <source media="(max-width: 768px)" srcset="../images/index-mobile-640-audit.avif" type="image/avif">
                                 <source media="(max-width: 768px)" srcset="../images/index-mobile.webp" type="image/webp">
                                 <source media="(max-width: 768px)" srcset="../images/index-mobile.jpg">
                                 <source srcset="../images/index-800.webp 800w, ../images/index.webp 2048w" sizes="512px" type="image/webp">
@@ -273,7 +276,7 @@
                     <div class="card-feature card-lift overflow-hidden section-appear">
                         <div class="img-zoom">
                             <picture>
-                                <source srcset="../images/installation.webp" type="image/webp">
+                                <source srcset="../images/installation-400.webp 400w, ../images/installation.webp 800w" sizes="(min-width: 768px) 30vw, 100vw" type="image/webp">
                                 <img loading="lazy" src="../images/installation.jpeg" alt="Parco di colonnine di ricarica EV installato da JCSM"
                                     class="w-full h-64 object-cover object-center" width="800" height="533">
                             </picture>
@@ -286,7 +289,7 @@
                     <div class="card-feature card-lift overflow-hidden section-appear">
                         <div class="img-zoom">
                             <picture>
-                                <source srcset="../images/2x22kW.webp" type="image/webp">
+                                <source srcset="../images/2x22kW-400.webp 400w, ../images/2x22kW-800.webp 800w" sizes="(min-width: 768px) 30vw, 100vw" type="image/webp">
                                 <img loading="lazy" src="../images/2x22kW.jpeg" alt="Installazione doppio caricatore 22 kW AC da JCSM"
                                     class="w-full h-64 object-cover" style="object-position: center 35%" width="950" height="1349">
                             </picture>
@@ -299,7 +302,7 @@
                     <div class="card-feature card-lift overflow-hidden section-appear">
                         <div class="img-zoom">
                             <picture>
-                                <source srcset="../images/1x60.webp" type="image/webp">
+                                <source srcset="../images/1x60-400.webp 400w, ../images/1x60-800.webp 800w" sizes="(min-width: 768px) 30vw, 100vw" type="image/webp">
                                 <img loading="lazy" src="../images/1x60.jpeg" alt="Caricatore rapido 60 kW DC installato da JCSM"
                                     class="w-full h-64 object-cover" style="object-position: center 30%" width="1280" height="1706">
                             </picture>
@@ -554,7 +557,7 @@
                 <div class="card-feature p-10 section-appear text-center">
                     <h3 class="text-2xl font-bold mb-3">Siete un privato?</h3>
                     <p class="mb-6 max-w-2xl mx-auto" style="color: var(--color-text-secondary)">JCSM installa la vostra wallbox AC da 7 a 22 kW a casa vostra, di ogni marca (Wallbox, Hager, Legrand, Schneider). Casa indipendente o condominio, diagnostica gratuita, installazione certificata IRVE e messa in servizio lo stesso giorno.</p>
-                    <a href="/it/contatti" class="btn-primary inline-block px-8 py-3 rounded-full font-medium text-white">Richiedete un preventivo gratuito</a>
+                    <a href="/it/contatti" class="btn-primary inline-block px-8 py-3 rounded-full font-medium text-white">Richiedete un preventivo</a>
                     <p class="text-xs mt-4" style="color: var(--color-text-secondary)">Preventivo entro 24h lavorative - Installazione entro 2 settimane</p>
                 </div>
             </div>
@@ -567,7 +570,7 @@
                 <h2 class="text-3xl sm:text-4xl mt-3 text-white section-appear">
                     Dall'audit alla <em>messa in servizio</em>.
                 </h2>
-                <p class="text-base sm:text-lg mt-4 max-w-xl leading-relaxed section-appear" style="opacity:.65">
+                <p class="text-base sm:text-lg mt-4 max-w-xl leading-relaxed section-appear" style="opacity:.65;margin-left:0">
                     Tre fasi per un'installazione IRVE conforme dal primo giorno.
                 </p>
 
