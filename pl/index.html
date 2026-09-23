@@ -276,8 +276,8 @@
 
     <link rel="dns-prefetch" href="https://formspree.io">
     <link rel="preconnect" href="https://formspree.io" crossorigin>
-    <link rel="preload" as="image" href="/images/index-mobile-640-audit.avif" type="image/avif" media="(max-width: 768px)">
-    <link rel="preload" as="image" href="/images/index-800.webp" imagesrcset="/images/index-800.webp 800w, /images/index.webp 2048w" imagesizes="512px" type="image/webp" media="(min-width: 769px)">
+    <link rel="preload" as="image" fetchpriority="high" href="/images/index-mobile-640-audit.avif" type="image/avif" media="(max-width: 768px)">
+    <link rel="preload" as="image" fetchpriority="high" href="/images/index-800.webp" imagesrcset="/images/index-800.webp 800w, /images/index.webp 2048w" imagesizes="512px" type="image/webp" media="(min-width: 769px)">
     <link rel="preload" href="/fonts/source-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="/css/site-a-theme.css?v=106">
     <link rel="manifest" href="../manifest.json">
@@ -570,7 +570,7 @@
                 <a href="/pl/zabezpieczenie-instalacji" class="text-base text-gray-600 hover:text-gray-900 transition-colors py-2">Zabezpieczenie</a>
                 <a href="/pl/centrum-telefoniczne" class="text-base text-gray-600 hover:text-gray-900 transition-colors py-2">Wsparcie</a>
                 <a href="/pl/o-nas" class="text-base text-gray-600 hover:text-gray-900 transition-colors py-2">O nas</a>
-                <a href="/pl/kontakt" class="btn-primary px-6 py-3 rounded-lg text-base font-medium text-white inline-block text-center mt-4">Kontakt</a>
+                <a href="/pl/kontakt" class="btn-primary px-6 py-3 rounded-lg text-base font-medium text-white inline-block text-center mt-4">Zamów diagnostykę</a>
             </div>
         </div>
     </div>
@@ -593,7 +593,7 @@
                     <a href="/pl/centrum-telefoniczne" class="nav-link text-[15px] font-semibold text-gray-700 whitespace-nowrap">Wsparcie</a>
                     <a href="/pl/o-nas" class="nav-link text-[15px] font-semibold text-gray-700 whitespace-nowrap">O nas</a>
                     <div class="lang-selector relative"></div>
-                    <a href="/pl/kontakt" class="btn-primary ml-5 px-8 py-3 rounded-xl text-[15px] font-semibold text-white shadow-lg hover:shadow-xl whitespace-nowrap">Kontakt</a>
+                    <a href="/pl/kontakt" class="btn-primary ml-5 px-8 py-3 rounded-xl text-[15px] font-semibold text-white shadow-lg hover:shadow-xl whitespace-nowrap">Zamów diagnostykę</a>
                 </div>
                 <button class="mobile-menu-btn text-gray-700 hover:text-gray-900" id="mobile-menu-btn" aria-label="Otworz menu nawigacji" aria-expanded="false" aria-controls="mobile-menu">
                     <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -623,7 +623,7 @@
                         <div class="flex flex-wrap gap-3">
                             <a href="/pl/kontakt" title="Zamów bezpłatną diagnostykę dla swojego parku IRVE"
                                 class="btn-primary px-7 py-3.5 font-bold text-[15px] text-white inline-flex items-center gap-2.5">
-                                Zamów bezpłatną diagnostykę
+                                Zamów diagnostykę
                                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
                             </a>
                             <a href="tel:+33183755706" title="Zadzwoń do JCSM: +33 1 83 75 57 06"
@@ -888,7 +888,7 @@
                     <a href="/pl/eksploatacja-konserwacja" class="btn-secondary inline-block px-6 py-3 text-sm font-semibold mt-6">Zobacz nasz zasieg</a>
                 </div>
                 <div style="background:#fff; border:1px solid var(--color-line); border-radius: var(--radius-xl); overflow: hidden;">
-                    <div id="coverage-map" role="region" style="height: 400px; width: 100%; border-radius: var(--radius-xl);" aria-label="Mapa lokalizacji referencyjnych JCSM"></div>
+                    <div id="coverage-map" class="coverage-map-frame" role="region" style="width: 100%; border-radius: var(--radius-xl);" aria-label="Mapa lokalizacji referencyjnych JCSM"></div>
                     <p id="coverage-map-status" role="status" style="padding:12px 16px;font-size:12px;color:#46574e;line-height:1.6">Ładowanie lokalizacji referencyjnych.</p>
                 </div>
             </div>
@@ -1009,26 +1009,26 @@
                             <div id="formMessage" class="hidden p-3 rounded-lg mb-4 text-center text-sm"></div>
                             <div class="grid sm:grid-cols-2 gap-4">
                                 <div>
-                                    <label for="nom" class="sr-only">Twoje imie i nazwisko</label>
-                                    <input type="text" name="nom" id="nom" placeholder="Imie i nazwisko *" required aria-required="true" autocomplete="name" aria-describedby="nom-error"
+                                    <label for="nom" class="block text-sm font-medium text-gray-700 mb-1">Imię i nazwisko <span class="text-red-500" aria-hidden="true">*</span></label>
+                                    <input type="text" name="nom" id="nom" placeholder="np. Kowalski" required aria-required="true" autocomplete="name" aria-describedby="nom-error"
                                         class="contact-input w-full px-4 py-3 rounded-xl focus:outline-none text-sm">
                                     <span id="nom-error" aria-live="polite" class="error-message hidden text-red-500 text-xs mt-1 block"></span>
                                 </div>
                                 <div>
-                                    <label for="entreprise" class="sr-only">Twoja firma</label>
-                                    <input type="text" name="entreprise" id="entreprise" placeholder="Firma" autocomplete="organization"
+                                    <label for="entreprise" class="block text-sm font-medium text-gray-700 mb-1">Firma</label>
+                                    <input type="text" name="entreprise" id="entreprise" placeholder="np. zarządca, CPO, operator" autocomplete="organization"
                                         class="contact-input w-full px-4 py-3 rounded-xl focus:outline-none text-sm">
                                 </div>
                             </div>
                             <div>
-                                <label for="email" class="sr-only">Twoj email</label>
-                                <input type="email" name="email" id="email" placeholder="Email *" required aria-required="true" autocomplete="email" aria-describedby="email-error"
+                                <label for="email" class="block text-sm font-medium text-gray-700 mb-1">E-mail <span class="text-red-500" aria-hidden="true">*</span></label>
+                                <input type="email" name="email" id="email" placeholder="np. imie@firma.pl" required aria-required="true" autocomplete="email" aria-describedby="email-error"
                                     class="contact-input w-full px-4 py-3 rounded-xl focus:outline-none text-sm">
                                 <span id="email-error" aria-live="polite" class="error-message hidden text-red-500 text-xs mt-1 block"></span>
                             </div>
                             <div>
-                                <label for="message" class="sr-only">Twoja wiadomosc</label>
-                                <textarea name="message" id="message" placeholder="Twoja wiadomosc *" rows="4" required aria-required="true" maxlength="2000" autocomplete="off" aria-describedby="message-error"
+                                <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Wiadomość <span class="text-red-500" aria-hidden="true">*</span></label>
+                                <textarea name="message" id="message" placeholder="Twoja lokalizacja, potrzeba, ograniczenia na miejscu" rows="4" required aria-required="true" maxlength="2000" autocomplete="off" aria-describedby="message-error"
                                     class="contact-input contact-textarea w-full px-4 py-3 rounded-xl focus:outline-none text-sm resize-none"></textarea>
                                 <span id="message-error" aria-live="polite" class="error-message hidden text-red-500 text-xs mt-1 block"></span>
                             </div>
@@ -1042,7 +1042,7 @@
                                 <span id="rgpd-error" aria-live="polite" class="error-message hidden text-red-500 text-xs mt-1 block"></span>
                             </div>
                             <button type="submit" class="btn-primary w-full py-3.5 rounded-xl font-medium text-sm text-white">
-                                <span class="submit-text">Wyslij zapytanie, odpowiedz w ciagu 24h</span>
+                                <span class="submit-text">Zamów diagnostykę · odpowiedź w ciągu 24 godzin roboczych</span>
                                 <span class="submit-loading hidden flex items-center justify-center">
                                     <svg class="animate-spin h-5 w-5 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true">
                                         <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
@@ -1198,7 +1198,7 @@
 
     <aside aria-label="Szybkie działania">
     <a href="/pl/kontakt" class="fixed bottom-4 left-4 right-4 z-40 btn-primary py-4 text-center font-semibold text-white text-sm lg:hidden" style="display:none" id="mobile-cta">
-        Zamów bezpłatną diagnostykę
+        Zamów diagnostykę
     </a>
     </aside>
 
@@ -1252,7 +1252,7 @@
 <div id="sticky-cta" class="hidden fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-sm border-t border-gray-200 shadow-lg px-6 py-3 md:flex items-center justify-between max-w-full" style="display:none">
     <p class="text-sm font-medium text-gray-700">Konserwacja, instalacja czy wsparcie IRVE?</p>
     <div class="flex items-center gap-3">
-        <a href="/pl/kontakt" class="btn-primary px-6 py-2.5 rounded-lg text-sm font-semibold text-white">Bezplatna diagnostyka w 24h</a>
+        <a href="/pl/kontakt" class="btn-primary px-6 py-2.5 rounded-lg text-sm font-semibold text-white">Zamów diagnostykę</a>
         <button id="sticky-cta-close" class="text-gray-400 hover:text-gray-600 p-1" aria-label="Zamknij">
             <svg aria-hidden="true" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
         </button>

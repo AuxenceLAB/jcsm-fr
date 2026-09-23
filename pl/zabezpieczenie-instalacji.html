@@ -159,7 +159,7 @@
                 <a href="/pl/zabezpieczenie-instalacji" class="text-base text-gray-600 hover:text-gray-900 transition-colors py-2" aria-current="page">Zabezpieczenie</a>
                 <a href="/pl/centrum-telefoniczne" class="text-base text-gray-600 hover:text-gray-900 transition-colors py-2">Wsparcie</a>
                 <a href="/pl/o-nas" class="text-base text-gray-600 hover:text-gray-900 transition-colors py-2">O nas</a>
-                <a href="/pl/kontakt" class="btn-primary px-6 py-3 rounded-lg text-base font-medium inline-block text-center mt-4 text-white">Bezplatna wycena</a>
+                <a href="/pl/kontakt" class="btn-primary px-6 py-3 rounded-lg text-base font-medium inline-block text-center mt-4 text-white">Zamów diagnostykę</a>
             </div>
         </div>
     </div>
@@ -182,7 +182,7 @@
                     <a href="/pl/centrum-telefoniczne" class="nav-link text-[15px] font-semibold text-gray-700 whitespace-nowrap">Wsparcie</a>
                     <a href="/pl/o-nas" class="nav-link text-[15px] font-semibold text-gray-700 whitespace-nowrap">O nas</a>
                     <div class="lang-selector relative"></div>
-                    <a href="/pl/kontakt" class="btn-primary ml-5 px-8 py-3 rounded-xl text-[15px] font-semibold text-white shadow-lg hover:shadow-xl whitespace-nowrap">Bezplatna wycena</a>
+                    <a href="/pl/kontakt" class="btn-primary ml-5 px-8 py-3 rounded-xl text-[15px] font-semibold text-white shadow-lg hover:shadow-xl whitespace-nowrap">Zamów diagnostykę</a>
                 </div>
                 <button class="mobile-menu-btn text-gray-700 hover:text-gray-900" id="mobile-menu-btn" aria-label="Otworz menu nawigacji" aria-expanded="false" aria-controls="mobile-menu">
                     <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -549,7 +549,7 @@
                     <p class="text-base sm:text-lg max-w-xl mx-auto leading-relaxed" style="color: var(--color-text-secondary)">Nasi eksperci ds. bezpieczenstwa interweniuja we wszystkich regionach, aby chronic Twoje stacje ladowania.</p>
                 </div>
                 <div class="section-appear">
-                    <div id="map" class="shadow-lg" role="img" aria-label="Mapa obszarow interwencji zabezpieczen JCSM we Francji"></div>
+                    <div id="map" class="shadow-lg" role="region" aria-label="Mapa obszarow interwencji zabezpieczen JCSM we Francji"></div>
                 </div>
             </div>
         </section>
@@ -821,7 +821,7 @@
             }
 
             function initMapWhenVisible() {
-                const map = L.map('map', { zoomControl: false, scrollWheelZoom: false }).setView([47.5, 2.5], 6);
+                const map = L.map('map', { zoomSnap: 0.25, zoomDelta: 0.5, zoomControl: false, scrollWheelZoom: false }).fitBounds([[41.3, -5.2], [51.5, 9.6]], { padding: [16, 16] });
                 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
                     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>', maxZoom: 19
                 }).addTo(map);

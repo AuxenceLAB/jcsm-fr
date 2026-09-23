@@ -534,7 +534,7 @@
                 <a href="/solutions/" class="text-base text-gray-600 hover:text-gray-900 transition-colors py-2">Solutions</a>
                 <a href="/en/about" class="text-base text-gray-600 hover:text-gray-900 transition-colors py-2">About</a>
                 <div class="lang-selector relative"></div>
-                <a href="/en/contact" class="btn-primary px-6 py-3 rounded-lg text-base font-medium inline-block text-center mt-4">Free quote</a>
+                <a href="/en/contact" class="btn-primary px-6 py-3 rounded-lg text-base font-medium inline-block text-center mt-4">Request an assessment</a>
             </div>
         </div>
     </div>
@@ -557,7 +557,7 @@
                     <a href="/en/call-center" class="nav-link text-[15px] font-semibold text-gray-700 whitespace-nowrap">Support</a>
                     <a href="/solutions/" class="nav-link text-[15px] font-semibold text-gray-700 whitespace-nowrap">Solutions</a>
                     <a href="/en/about" class="nav-link text-[15px] font-semibold text-gray-700 whitespace-nowrap">About</a>
-                    <a href="/en/contact" class="btn-primary ml-5 px-8 py-3 rounded-xl text-[15px] font-semibold text-white shadow-lg hover:shadow-xl whitespace-nowrap">Free quote</a>
+                    <a href="/en/contact" class="btn-primary ml-5 px-8 py-3 rounded-xl text-[15px] font-semibold text-white shadow-lg hover:shadow-xl whitespace-nowrap">Request an assessment</a>
                 </div>
                 <button class="mobile-menu-btn text-gray-700 hover:text-gray-900" id="mobile-menu-btn" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-menu">
                     <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -1105,9 +1105,11 @@ const MAPDATA={"depts":{"01":{"n":"Ain","p":[[4.78,46.18],[4.83,46.3],[4.92,46.4
 
         // Initialize map
         const map = L.map('coverage-map', {
+            zoomSnap: 0.25,
+            zoomDelta: 0.5,
             zoomControl: false,
             scrollWheelZoom: true
-        }).setView([46.8, 2.8], 6);
+        }).fitBounds([[41.3, -5.2], [51.5, 9.6]], { padding: [16, 16] });
 
         L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',

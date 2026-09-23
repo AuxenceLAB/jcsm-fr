@@ -160,7 +160,7 @@
                 <a href="/en/call-center" class="text-base text-gray-600 hover:text-gray-900 transition-colors py-2">Support</a>
                 <a href="/en/about" class="text-base text-gray-600 hover:text-gray-900 transition-colors py-2">About</a>
                 <div class="lang-selector relative"></div>
-                <a href="/en/contact" class="btn-primary px-6 py-3 rounded-lg text-base font-medium inline-block text-center mt-4 text-white">Free quote</a>
+                <a href="/en/contact" class="btn-primary px-6 py-3 rounded-lg text-base font-medium inline-block text-center mt-4 text-white">Request an assessment</a>
             </div>
         </div>
     </div>
@@ -183,7 +183,7 @@
                     <a href="/en/call-center" class="nav-link text-[15px] font-semibold text-gray-700 whitespace-nowrap">Support</a>
                     <a href="/en/about" class="nav-link text-[15px] font-semibold text-gray-700 whitespace-nowrap">About</a>
                     <div class="lang-selector relative"></div>
-                    <a href="/en/contact" class="btn-primary ml-5 px-8 py-3 rounded-xl text-[15px] font-semibold text-white shadow-lg hover:shadow-xl whitespace-nowrap">Free quote</a>
+                    <a href="/en/contact" class="btn-primary ml-5 px-8 py-3 rounded-xl text-[15px] font-semibold text-white shadow-lg hover:shadow-xl whitespace-nowrap">Request an assessment</a>
                 </div>
                 <button class="mobile-menu-btn text-gray-700 hover:text-gray-900" id="mobile-menu-btn" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-menu">
                     <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -550,7 +550,7 @@
                     <p class="text-base sm:text-lg max-w-xl mx-auto leading-relaxed" style="color: var(--color-text-secondary)">Our security experts operate in all regions to protect your charging stations.</p>
                 </div>
                 <div class="section-appear">
-                    <div id="map" class="shadow-lg" role="img" aria-label="Map of JCSM security intervention zones across France"></div>
+                    <div id="map" class="shadow-lg" role="region" aria-label="Map of JCSM security intervention zones across France"></div>
                 </div>
             </div>
         </section>
@@ -828,7 +828,7 @@
             }
 
             function initMapWhenVisible() {
-                const map = L.map('map', { zoomControl: false, scrollWheelZoom: false }).setView([47.5, 2.5], 6);
+                const map = L.map('map', { zoomSnap: 0.25, zoomDelta: 0.5, zoomControl: false, scrollWheelZoom: false }).fitBounds([[41.3, -5.2], [51.5, 9.6]], { padding: [16, 16] });
                 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
                     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>', maxZoom: 19
                 }).addTo(map);
