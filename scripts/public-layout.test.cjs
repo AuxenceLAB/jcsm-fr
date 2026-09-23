@@ -69,6 +69,17 @@ test('les feuilles groupees sont a jour avec leurs sources',()=>{
   assert.deepEqual(bundles['css/site-b.css'],['css/public-layout.css','css/editorial-20260906.css']);
   for(const [out,parts] of Object.entries(bundles))assert.equal(read(out),build(parts),out+' : relancer npm run build:bundle');
 });
+test('les feuilles groupees gardent la propriete standard a cote du prefixe -webkit-',()=>{
+  // lightningcss ne garde que la derniere de deux declarations equivalentes : un -webkit- place apres
+  // la forme standard l'efface (flou de la nav perdu sur Chrome/Edge/Firefox, commit f895cf4).
+  const {bundles}=require('./build-css-bundle.cjs');
+  for(const out of Object.keys(bundles)){
+    const rules=fs.readFileSync(path.join(root,out),'utf8').split('}').map(r=>r.slice(r.lastIndexOf('{')+1));
+    for(const decls of rules)for(const prop of ['backdrop-filter']){
+      if(new RegExp('(^|;)-webkit-'+prop+'\\s*:').test(decls))assert.match(decls,new RegExp('(^|;)'+prop+'\\s*:'),out+' : '+decls.slice(0,120));
+    }
+  }
+});
 test('le fil d Ariane en tete de main garde le decalage d en-tete unique',()=>{
   const css=fs.readFileSync(path.join(root,'css/public-layout.css'),'utf8');
   const pages=getPublicPages().filter(file=>/<main\b[^>]*>\s*<nav\b/.test(fs.readFileSync(path.join(root,file),'utf8')));
