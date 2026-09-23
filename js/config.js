@@ -27,7 +27,7 @@ const JCSM_CONFIG = {
         interval: 60 * 60 * 1000,               /* 1 hour */
         backgroundSync: true
     },
-    version: "2.57.23",
+    version: "2.57.24",
     buildDate: "2026-04-22"
 };
 
