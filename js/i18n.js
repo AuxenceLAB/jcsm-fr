@@ -110,7 +110,7 @@
 
         // Auto-create containers in nav if none exist
         if (containers.length === 0) {
-            var desktopNav = document.querySelector("nav.glass-nav .hidden.lg\\:flex");
+            var desktopNav = document.querySelector("nav.glass-nav .hidden.xl\\:flex, nav.glass-nav .hidden.lg\\:flex");
             if (desktopNav) {
                 var contactBtn = desktopNav.querySelector('a[href*="contact"].btn-primary');
                 var div1 = document.createElement("div");
@@ -122,7 +122,7 @@
                 }
                 containers.push(div1);
             }
-            var mobileNav = document.querySelector("nav.mobile-menu .flex.flex-col");
+            var mobileNav = document.querySelector("#mobile-menu .flex.flex-col, nav.mobile-menu .flex.flex-col");
             if (mobileNav) {
                 var mContactBtn = mobileNav.querySelector('a[href*="contact"].btn-primary');
                 var div2 = document.createElement("div");

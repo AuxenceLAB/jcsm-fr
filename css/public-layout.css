@@ -65,7 +65,8 @@ body.jcsm-public {
 }
 .jcsm-public main > section:first-of-type h1 em { font-style:normal; }
 .jcsm-public main > section:first-of-type p { margin-left:0;padding-inline:0; }
-.jcsm-public main > section:first-of-type .justify-center { justify-content:flex-start; }
+/* Rangées du hero calées à gauche ; le libellé d'un bouton reste centré dans sa pilule. */
+.jcsm-public main > section:first-of-type .justify-center:not(.btn-primary):not(.btn-secondary) { justify-content:flex-start; }
 
 /* Long articles and legal text retain deliberate reading widths. */
 .jcsm-public.jcsm-article main > article { padding:calc(var(--jcsm-header) + 40px) var(--jcsm-gutter) 64px; }

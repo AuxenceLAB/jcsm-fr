@@ -37,7 +37,7 @@ After adding a public page, run `node scripts/sync-public-layout.cjs --write` an
 |------|------|
 | `config.js` | API endpoints (all server-side proxied), auth helpers (session CRUD, Bearer token headers), cache TTLs. Version 2.57.22. |
 | `public.js` | Public page behaviour: mobile menu, scroll animations, form validation, toast notifications (XSS-safe via `textContent`). Internal links are never intercepted (Ctrl/Cmd+click opens a new tab). |
-| `wow-effects.js` | The single motion sequence: section fade-in (opacity 0.3 s) and smooth anchor scroll (skip link excluded). Nothing under `prefers-reduced-motion`. Style injection with `id="jcsm-wow-styles"` dedup guard. |
+| `wow-effects.js` | The single motion sequence: fade-in (opacity 0.3 s) of photo-only blocks below the fold (text is never faded, so its contrast is measurable at any time) and smooth anchor scroll that moves focus to the target (skip link excluded). Nothing under `prefers-reduced-motion`. Style injection with `id="jcsm-wow-styles"` dedup guard. |
 | `map.js` | Leaflet map integration with geocoded intervention markers. Uses centralized `window.escapeHtml()`. Filters Null Island (0,0) coordinates. |
 | `analytics.js` | Optional analytics, started only after a valid dated consent. Query strings are excluded, refusal prevents collection, session storage is optional. `cookie-consent.js` independently gates GTM with the same validity rules. |
 | `utils.js` | Centralized `window.escapeHtml()`, toast notifications (XSS-safe), safe localStorage, date formatting (fr-FR) |
@@ -88,7 +88,8 @@ Config loads → check auth (Bearer token) → fetch data via `proxy-sheets.php`
 Edit HTML/CSS/JS files directly; they are live on the nginx server. The only build step is Tailwind CSS:
 
 ```
-npm run build:css   # one-shot purge + minify into css/tailwind.css
+npm run build:css   # one-shot purge + minify into css/tailwind.css, then scripts/build-css-bundle.cjs
+                    # concatenates + minifies (lightningcss, Safari 14 targets) css/site-a*.css and css/site-b.css
 npm run watch:css   # rebuild on changes
 ```
 

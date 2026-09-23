@@ -1,7 +1,8 @@
 /**
- * wow-effects.js - une seule séquence de mouvement : l'apparition des sections
+ * wow-effects.js - une seule séquence de mouvement : l'apparition des blocs photo
  * sous la ligne de flottaison (fondu d'opacité 0,3 s), et le défilement doux
- * vers les ancres. Rien au premier écran, rien sous prefers-reduced-motion.
+ * vers les ancres. Le texte n'est jamais en fondu (son contraste reste mesurable
+ * à tout instant). Rien au premier écran, rien sous prefers-reduced-motion.
  * Plus de compteurs, de barre de progression, de logos qui défilent ni de rebonds.
  */
 !function () {
@@ -36,6 +37,7 @@
             // Déjà à l'écran ou plus haut que la fenêtre : jamais masqué.
             var rect = el.getBoundingClientRect();
             if (rect.top < viewport || rect.height > viewport * 0.9) return;
+            if (el.textContent.trim()) return;
             pending.push(el);
         });
         pending.forEach(function (el) {
@@ -60,6 +62,10 @@
                     e.preventDefault();
                     var top = target.getBoundingClientRect().top + window.pageYOffset - 100;
                     window.scrollTo({ top: top, behavior: "smooth" });
+                    // Le focus suit le défilement : au clavier, la tabulation reprend depuis la cible.
+                    if (!target.hasAttribute("tabindex")) target.setAttribute("tabindex", "-1");
+                    target.focus({ preventScroll: true });
+                    if (history.pushState) history.pushState(null, "", href);
 
                     var mobileMenu = document.getElementById("mobile-menu");
                     if (mobileMenu && mobileMenu.classList.contains("open")) {

@@ -15,6 +15,12 @@ const banned=[
   /\b6\+ (ans|years|Jahre|a[ñn]os|anni|jaar|lat)\b|>6<span/,
   /sp[ée]cialis[ée]s, form[ée]s en interne|Specialised IRVE technicians, trained in-house|Pas d'interm[ée]diaires|No middlemen/i,
   /\+200 ?%|3 000 bornes maintenues/,
+  // Équipe : certification constructeur et recyclage annuel non prouvés (retirés le 23/09/2026).
+  /certifi[ée]s? constructeurs|certifi[ée]s par les constructeurs|recycl[ée]s (chaque|en continu)|manufacturer-certified|recertified|herstellerzertifiziert|rezertifiziert|reciclaje anual|reciclagem anual|jaarlijks bijgeschoold|doszkalani co roku|[Mm]anufacturer-trained|door de fabrikant opgeleide|certificados por el fabricante/i,
+  // Intégrateurs nommés sans accord écrit.
+  /Bouygues, Eiffage|Firalp|Sogetrel/,
+  // Régions : chiffre identique partout, base et équipes locales non établies.
+  />500\+<\/div>|base principale|supervision r[ée]gional|bas[ée]s localement|[ée]quipe (locale|r[ée]gionale|implant[ée]e)|Qualifelec (garantie|assur[ée]e)|Contactez notre [ée]quipe en/i,
 ];
 test('aucune preuve invérifiable retirée ne réapparaît',()=>{
   for(const file of getPublicPages()){

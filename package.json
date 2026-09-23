@@ -11,6 +11,7 @@
     "build:bundle": "node scripts/build-css-bundle.cjs"
   },
   "devDependencies": {
+    "lightningcss": "^1.33.0",
     "tailwindcss": "^3.4.19"
   }
 }

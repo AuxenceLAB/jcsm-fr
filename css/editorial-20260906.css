@@ -23,3 +23,10 @@ body .jcsm-editorial-photo img{height:auto;aspect-ratio:4/3}
 .jcsm-public :is(h2,h3,h4) em{color:inherit}
 .jcsm-public :is(.card-cta,.section-dark) :is(h1,h2,h3) em{color:inherit}
 .jcsm-public .card-cta p{color:#fff!important}
+
+/* Un seul signe d'accordéon sur le site : le chevron. Les questions sans chevron dessiné (régions, articles) en reçoivent un, et le triangle natif disparaît. */
+.jcsm-public details>summary{list-style:none}
+.jcsm-public details>summary::marker{content:""}
+.jcsm-public details>summary:not(:has(path[d^="M19 9"])){display:flex;align-items:center;gap:1rem}
+.jcsm-public details>summary:not(:has(path[d^="M19 9"]))::after{content:"";flex:none;width:.5rem;height:.5rem;margin:0 .35rem .25rem auto;border-right:2px solid #5A6470;border-bottom:2px solid #5A6470;transform:rotate(45deg);transition:transform .2s ease-out}
+.jcsm-public details[open]>summary:not(:has(path[d^="M19 9"]))::after{transform:translateY(.3rem) rotate(-135deg)}

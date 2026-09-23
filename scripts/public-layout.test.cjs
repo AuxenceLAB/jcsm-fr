@@ -63,10 +63,11 @@ test('la carte nommee de l accueil possede un role accessible meme avant son cha
 });
 test('les feuilles groupees sont a jour avec leurs sources',()=>{
   const read=f=>fs.readFileSync(path.join(root,f),'utf8');
-  const expect=parts=>parts.map(f=>'/* '+f+' */\n'+read(f).trim()).join('\n');
-  assert(read('css/site-a.css').includes(expect(['css/critical.css','css/tailwind.css','styles.css'])));
-  assert(read('css/site-a-theme.css').includes(expect(['css/critical.css','css/tailwind.css','styles.css','css/theme-2026.css'])));
-  assert(read('css/site-b.css').includes(expect(['css/public-layout.css','css/editorial-20260906.css'])));
+  const {bundles,build}=require('./build-css-bundle.cjs');
+  assert.deepEqual(bundles['css/site-a.css'],['css/critical.css','css/tailwind.css','styles.css']);
+  assert.deepEqual(bundles['css/site-a-theme.css'],['css/critical.css','css/tailwind.css','styles.css','css/theme-2026.css']);
+  assert.deepEqual(bundles['css/site-b.css'],['css/public-layout.css','css/editorial-20260906.css']);
+  for(const [out,parts] of Object.entries(bundles))assert.equal(read(out),build(parts),out+' : relancer npm run build:bundle');
 });
 test('le fil d Ariane en tete de main garde le decalage d en-tete unique',()=>{
   const css=fs.readFileSync(path.join(root,'css/public-layout.css'),'utf8');

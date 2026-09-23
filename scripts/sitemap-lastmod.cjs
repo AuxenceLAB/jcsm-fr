@@ -10,8 +10,35 @@ function pageFor(loc) {
   const candidates = p === '' || p.endsWith('/') ? [p + 'index.html'] : [p + '.html', p + '/index.html', p];
   return candidates.find(c => fs.existsSync(path.join(root, c)));
 }
+// Date du dernier commit qui change le CONTENU de la page : le <main>, le <title> ou la description.
+// Un commit qui ne touche que l'en-tête, le pied de page ou les ?v= (cache-bust de tout le site)
+// ne compte pas, sinon les 145 lastmod portent la même date.
+const git = (args) => cp.execFileSync('git', args, { cwd: root, encoding: 'utf8', maxBuffer: 1 << 28 });
+function touchesContent(hash, rel, diff) {
+  const lines = git(['show', hash + ':' + rel]).split('\n');
+  const start = lines.findIndex(l => /<main\b/.test(l));
+  const end = lines.findIndex((l, i) => i > start && /<\/main>/.test(l));
+  const content = (n) => (start >= 0 && n >= start && n <= end) || /<title>|name="description"/.test(lines[n] || '');
+  const strip = l => l.slice(1).replace(/\?v=[\w.-]+/g, '');
+  for (const hunk of diff.split(/^(?=@@ )/m).slice(1)) {
+    const m = hunk.match(/^@@ -\d+(?:,\d+)? \+(\d+)(?:,(\d+))? @@/);
+    if (!m) continue;
+    const body = hunk.split('\n').slice(1);
+    const del = body.filter(l => l.startsWith('-')).map(strip).sort().join('\n');
+    const add = body.filter(l => l.startsWith('+')).map(strip).sort().join('\n');
+    if (del === add) continue; // seul le ?v= a changé dans ce bloc
+    const first = +m[1] - 1, count = m[2] === undefined ? 1 : +m[2];
+    if (count === 0 ? content(first) : Array.from({ length: count }, (_, i) => first + i).some(content)) return true;
+  }
+  return false;
+}
 function gitDate(rel) {
-  return cp.execFileSync('git', ['log', '-1', '--format=%cs', '--', rel], { cwd: root, encoding: 'utf8' }).trim();
+  const commits = git(['log', '-p', '-U0', '--format=%x00%H %cs', '--', rel]).split('\0').slice(1);
+  for (const c of commits) {
+    const [hash, date] = c.slice(0, c.indexOf('\n')).split(' ');
+    if (touchesContent(hash, rel, c)) return date;
+  }
+  return commits.length ? commits[commits.length - 1].slice(41, 51) : '';
 }
 
 let changed = 0, removed = [];
