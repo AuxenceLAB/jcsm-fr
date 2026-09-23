@@ -123,3 +123,8 @@ body.jcsm-public {
 .jcsm-public .jcsm-see-also>a h3{font-size:1.0625rem;margin-bottom:.25rem}
 .jcsm-public .jcsm-see-also>a h3::after{content:" →";color:var(--color-primary)}
 .jcsm-public .jcsm-see-also>a p{font-size:.9375rem;color:var(--color-text-secondary)}
+
+/* Place réservée au sélecteur de langue que js/i18n.js pose dans la barre : 61 px plus
+   la marge space-x-2 (8 px) qu'il prendra. Son arrivée ne décale plus les liens. */
+.jcsm-public .glass-nav .lang-selector { width:61px; }
+.jcsm-public .glass-nav .xl\:flex:not(:has(.lang-selector)) > .btn-primary { margin-left:77px; }
