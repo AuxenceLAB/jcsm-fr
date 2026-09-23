@@ -113,3 +113,12 @@ body.jcsm-public {
 .jcsm-public .coverage-map-frame,.jcsm-public #map{aspect-ratio:1/1;height:auto}
 .jcsm-public #map{max-width:760px;margin-inline:auto}
 @media(min-width:640px){.jcsm-public .coverage-map-frame,.jcsm-public #map{aspect-ratio:4/3}}
+
+/* « Nos autres expertises » : liste éditoriale (filet, titre, phrase) plutôt qu'une énième grille de tuiles à pictogramme. */
+.jcsm-public .jcsm-see-also{gap:0 2rem}
+.jcsm-public .jcsm-see-also>a{display:block;background:none;border:0;border-top:1px solid var(--color-line);border-radius:0;box-shadow:none;padding:1.25rem 0 .75rem;text-align:left}
+.jcsm-public .jcsm-see-also>a:hover{transform:none;box-shadow:none}
+.jcsm-public .jcsm-see-also>a>div:first-child{display:none}
+.jcsm-public .jcsm-see-also>a h3{font-size:1.0625rem;margin-bottom:.25rem}
+.jcsm-public .jcsm-see-also>a h3::after{content:" →";color:var(--color-primary)}
+.jcsm-public .jcsm-see-also>a p{font-size:.9375rem;color:var(--color-text-secondary)}
