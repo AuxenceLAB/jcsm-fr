@@ -9,6 +9,7 @@ server {
 # www → non-www HTTPS redirect
 server {
     listen 443 ssl;
+    include /etc/nginx/snippets/cloudflare-only.conf;
     http2 on;
     server_name www.jcsm.fr;
 
@@ -262,6 +263,7 @@ server {
 
     # Configuration SSL (Gérée par Certbot)
     listen 443 ssl;
+    include /etc/nginx/snippets/cloudflare-only.conf;
     ssl_certificate     /etc/ssl/certs/jcsm.fr.crt;
     ssl_certificate_key /etc/ssl/private/jcsm.fr.key;
     include     /etc/letsencrypt/options-ssl-nginx.conf;
