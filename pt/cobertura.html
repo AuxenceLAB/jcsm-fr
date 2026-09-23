@@ -65,7 +65,7 @@
                 "name": "Intervêm em todas as marcas de postos?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Sim, os nossos técnicos estão formados e certificados em mais de 12 marcas: ABB, Alfen, EVBox, Kempower, Wallbox, Schneider Electric, Legrand, DBT-CEV, Circontrol, Delta, Autel e Tritium. Postos AC de 3,7 a 22 kW e DC até 400 kW."
+                    "text": "Sim, os nossos técnicos intervêm em mais de 12 marcas: ABB, Alfen, EVBox, Kempower, Wallbox, Schneider Electric, Legrand, DBT-CEV, Circontrol, Delta, Autel e Tritium. Postos AC de 3,7 a 22 kW e DC até 400 kW."
                 }
             },
             {
@@ -125,16 +125,6 @@
         .hero-section::before { display: none; }
         .hero-section::after { display: none; }
         .hero-grid-pattern { display: none; }
-        .hero-badge {
-            display: inline-flex; align-items: center; gap: 8px;
-            background: rgba(255,255,255,0.8); -webkit-
-            border: 1px solid rgba(32,91,196,0.15);
-            border-radius: 9999px; padding: 10px 22px; font-size: 13px;
-            font-weight: 600; color: #205BC4; letter-spacing: 0.025em;
-            box-shadow: 0 2px 12px rgba(32,91,196,0.08), 0 1px 3px rgba(0,0,0,0.04);
-            transition: all 0.3s ease;
-        }
-        .hero-badge:hover { box-shadow: 0 4px 20px rgba(32,91,196,0.14); transform: translateY(-1px); }
         .hero-search-wrapper {
             position: relative; max-width: 680px; margin: 0 auto;
         }
@@ -297,11 +287,11 @@
         }
         .map-popup-body .tag:hover { transform: translateY(-1px); }
         .map-sidebar { width: 370px; flex-shrink: 0; }
+        .map-layout { display: flex; gap: 24px; align-items: flex-start; }
         @media (max-width: 1024px) {
             .map-sidebar { width: 100%; }
-            .map-layout { flex-direction: column; }
+            .map-layout { flex-direction: column; align-items: stretch; }
         }
-        .map-layout { display: flex; gap: 24px; align-items: flex-start; }
         .sidebar-panel {
             background: rgba(255,255,255,0.9); -webkit-
             border-radius: 22px; padding: 26px;
@@ -387,6 +377,7 @@
             transform: translateY(-1px);
         }
         .region-search-input::placeholder { color: #5A6470; }
+        #region-search { padding-left: 40px; }
         .region-item {
             padding: 11px 16px; border-radius: 14px; cursor: pointer;
             transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
@@ -556,6 +547,7 @@
                     <a href="/pt/sobre-nos" class="nav-link text-[15px] font-semibold text-gray-700 whitespace-nowrap">Sobre nós</a>
                     <a href="/pt/contato" class="btn-primary ml-5 px-8 py-3 rounded-xl text-[15px] font-semibold text-white shadow-lg hover:shadow-xl whitespace-nowrap">Pedir um diagnóstico</a>
                 </div>
+                <a href="/pt/contato" class="btn-primary hidden md:inline-flex xl:hidden items-center ml-auto mr-4 px-5 py-2.5 rounded-xl text-[15px] font-semibold text-white whitespace-nowrap">Pedir um diagnóstico</a>
                 <button class="mobile-menu-btn text-gray-700 hover:text-gray-900" id="mobile-menu-btn" aria-label="Abrir o menu de navegação" aria-expanded="false" aria-controls="mobile-menu">
                     <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
@@ -578,10 +570,7 @@
         <section class="hero-section pt-36 pb-14 px-4 sm:px-6">
             <div class="hero-grid-pattern" aria-hidden="true"></div>
             <div class="max-w-4xl mx-auto text-center relative">
-                <div class="hero-badge mb-8 section-appear">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-                    Cobertura nacional França & Bélgica
-                </div>
+                <div class="sec-label mb-6 section-appear">Cobertura nacional França & Bélgica</div>
                 <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight tracking-tight mb-6 section-appear">
                     Onde estiverem os seus postos. <em>Nós já lá estamos.</em>
                 </h1>
@@ -781,61 +770,44 @@
                 <div class="sec-label mb-5 text-center">FAQ</div>
                 <h2 class="text-3xl font-bold text-center mb-10">Perguntas frequentes</h2>
                 <div class="space-y-4">
-                    <div class="border border-gray-200 rounded-xl overflow-hidden">
-                        <button type="button" class="faq-toggle w-full flex items-center justify-between p-6 text-left font-semibold text-lg hover:bg-gray-50 transition-colors" aria-expanded="true" aria-controls="faq-couv-1">
-                            Em que regiões a JCSM intervém?
-                            <svg class="faq-chevron w-5 h-5 text-gray-400 transition-transform rotate-180 flex-shrink-0 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-                        </button>
-                        <div id="faq-couv-1" class="faq-content px-6 pb-6" role="region">
+                    <details class="faq-item card-lift bg-white rounded-xl border border-gray-200" open>
+                        <summary class="flex items-center justify-between p-6 font-semibold text-lg cursor-pointer">
+                            <span>Em que regiões a JCSM intervém?</span>
+                            <svg class="w-5 h-5 text-gray-400 flex-shrink-0 ml-4 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                        </summary>
+                        <div class="faq-content px-6 pb-6">
                             <p class="text-gray-600 leading-relaxed">A JCSM cobre toda a França metropolitana e a Bélgica. Os nossos técnicos estão presentes em todas as regiões: Île-de-France, Auvergne-Rhône-Alpes, PACA, Occitanie, Nouvelle-Aquitaine, Hauts-de-France e todas as restantes. Na Bélgica, intervimos nas três regiões (Valónia, Flandres, Bruxelas-Capital).</p>
                         </div>
-                    </div>
-                    <div class="border border-gray-200 rounded-xl overflow-hidden">
-                        <button type="button" class="faq-toggle w-full flex items-center justify-between p-6 text-left font-semibold text-lg hover:bg-gray-50 transition-colors" aria-expanded="false" aria-controls="faq-couv-2">
-                            Qual é o prazo de intervenção no local?
-                            <svg class="faq-chevron w-5 h-5 text-gray-400 transition-transform flex-shrink-0 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-                        </button>
-                        <div id="faq-couv-2" class="faq-content px-6 pb-6 hidden" role="region">
+                    </details>
+                    <details class="faq-item card-lift bg-white rounded-xl border border-gray-200">
+                        <summary class="flex items-center justify-between p-6 font-semibold text-lg cursor-pointer">
+                            <span>Qual é o prazo de intervenção no local?</span>
+                            <svg class="w-5 h-5 text-gray-400 flex-shrink-0 ml-4 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                        </summary>
+                        <div class="faq-content px-6 pb-6">
                             <p class="text-gray-600 leading-relaxed">O nosso SLA padrão garante uma resposta em 24h úteis. Para os contratos premium, propomos compromissos reforçados com piquete 24/7.</p>
                         </div>
-                    </div>
-                    <div class="border border-gray-200 rounded-xl overflow-hidden">
-                        <button type="button" class="faq-toggle w-full flex items-center justify-between p-6 text-left font-semibold text-lg hover:bg-gray-50 transition-colors" aria-expanded="false" aria-controls="faq-couv-3">
-                            Intervêm em todas as marcas de postos?
-                            <svg class="faq-chevron w-5 h-5 text-gray-400 transition-transform flex-shrink-0 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-                        </button>
-                        <div id="faq-couv-3" class="faq-content px-6 pb-6 hidden" role="region">
-                            <p class="text-gray-600 leading-relaxed">Sim, os nossos técnicos estão formados e certificados em mais de 12 marcas: ABB, Alfen, EVBox, Kempower, Wallbox, Schneider Electric, Legrand, DBT-CEV, Circontrol, Delta, Autel e Tritium. Postos AC de 3,7 a 22 kW e DC até 400 kW.</p>
+                    </details>
+                    <details class="faq-item card-lift bg-white rounded-xl border border-gray-200">
+                        <summary class="flex items-center justify-between p-6 font-semibold text-lg cursor-pointer">
+                            <span>Intervêm em todas as marcas de postos?</span>
+                            <svg class="w-5 h-5 text-gray-400 flex-shrink-0 ml-4 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                        </summary>
+                        <div class="faq-content px-6 pb-6">
+                            <p class="text-gray-600 leading-relaxed">Sim, os nossos técnicos intervêm em mais de 12 marcas: ABB, Alfen, EVBox, Kempower, Wallbox, Schneider Electric, Legrand, DBT-CEV, Circontrol, Delta, Autel e Tritium. Postos AC de 3,7 a 22 kW e DC até 400 kW.</p>
                         </div>
-                    </div>
-                    <div class="border border-gray-200 rounded-xl overflow-hidden">
-                        <button type="button" class="faq-toggle w-full flex items-center justify-between p-6 text-left font-semibold text-lg hover:bg-gray-50 transition-colors" aria-expanded="false" aria-controls="faq-couv-4">
-                            Como solicitar uma intervenção na minha zona?
-                            <svg class="faq-chevron w-5 h-5 text-gray-400 transition-transform flex-shrink-0 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-                        </button>
-                        <div id="faq-couv-4" class="faq-content px-6 pb-6 hidden" role="region">
+                    </details>
+                    <details class="faq-item card-lift bg-white rounded-xl border border-gray-200">
+                        <summary class="flex items-center justify-between p-6 font-semibold text-lg cursor-pointer">
+                            <span>Como solicitar uma intervenção na minha zona?</span>
+                            <svg class="w-5 h-5 text-gray-400 flex-shrink-0 ml-4 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                        </summary>
+                        <div class="faq-content px-6 pb-6">
                             <p class="text-gray-600 leading-relaxed">Contacte-nos através do formulário no nosso site, por telefone através do <a href="tel:+33183755706" class="text-blue-600 font-medium hover:text-blue-800">+33 1 83 75 57 06</a> ou por email para <a href="mailto:contact@jcsm.fr" class="text-blue-600 font-medium hover:text-blue-800">contact@jcsm.fr</a>. Descreva a sua necessidade e a sua localização: um técnico no terreno liga-lhe em 24h.</p>
                         </div>
-                    </div>
+                    </details>
                 </div>
             </div>
-            <script>
-            document.querySelectorAll('#faq .faq-toggle').forEach(function(btn) {
-                btn.addEventListener('click', function() {
-                    var expanded = this.getAttribute('aria-expanded') === 'true';
-                    this.setAttribute('aria-expanded', String(!expanded));
-                    var content = document.getElementById(this.getAttribute('aria-controls'));
-                    var chevron = this.querySelector('.faq-chevron');
-                    if (expanded) {
-                        content.classList.add('hidden');
-                        chevron.classList.remove('rotate-180');
-                    } else {
-                        content.classList.remove('hidden');
-                        chevron.classList.add('rotate-180');
-                    }
-                });
-            });
-            </script>
         </section>
 
         <!-- ====== ZONE LINKS ====== -->

@@ -65,7 +65,7 @@
                 "name": "Do you service all charger brands?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Yes, our technicians are trained and certified on more than 12 brands: ABB, Alfen, EVBox, Kempower, Wallbox, Schneider Electric, Legrand, DBT-CEV, Circontrol, Delta, Autel and Tritium. AC chargers from 3.7 to 22 kW and DC up to 400 kW."
+                    "text": "Yes, our technicians work on more than 12 brands: ABB, Alfen, EVBox, Kempower, Wallbox, Schneider Electric, Legrand, DBT-CEV, Circontrol, Delta, Autel and Tritium. AC chargers from 3.7 to 22 kW and DC up to 400 kW."
                 }
             },
             {
@@ -125,16 +125,6 @@
         .hero-section::before { display: none; }
         .hero-section::after { display: none; }
         .hero-grid-pattern { display: none; }
-        .hero-badge {
-            display: inline-flex; align-items: center; gap: 8px;
-            background: rgba(255,255,255,0.8); -webkit-
-            border: 1px solid rgba(32,91,196,0.15);
-            border-radius: 9999px; padding: 10px 22px; font-size: 13px;
-            font-weight: 600; color: #205BC4; letter-spacing: 0.025em;
-            box-shadow: 0 2px 12px rgba(32,91,196,0.08), 0 1px 3px rgba(0,0,0,0.04);
-            transition: all 0.3s ease;
-        }
-        .hero-badge:hover { box-shadow: 0 4px 20px rgba(32,91,196,0.14); transform: translateY(-1px); }
         .hero-search-wrapper {
             position: relative; max-width: 680px; margin: 0 auto;
         }
@@ -297,11 +287,11 @@
         }
         .map-popup-body .tag:hover { transform: translateY(-1px); }
         .map-sidebar { width: 370px; flex-shrink: 0; }
+        .map-layout { display: flex; gap: 24px; align-items: flex-start; }
         @media (max-width: 1024px) {
             .map-sidebar { width: 100%; }
-            .map-layout { flex-direction: column; }
+            .map-layout { flex-direction: column; align-items: stretch; }
         }
-        .map-layout { display: flex; gap: 24px; align-items: flex-start; }
         .sidebar-panel {
             background: rgba(255,255,255,0.9); -webkit-
             border-radius: 22px; padding: 26px;
@@ -387,6 +377,7 @@
             transform: translateY(-1px);
         }
         .region-search-input::placeholder { color: #5A6470; }
+        #region-search { padding-left: 40px; }
         .region-item {
             padding: 11px 16px; border-radius: 14px; cursor: pointer;
             transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
@@ -559,6 +550,7 @@
                     <a href="/en/about" class="nav-link text-[15px] font-semibold text-gray-700 whitespace-nowrap">About</a>
                     <a href="/en/contact" class="btn-primary ml-5 px-8 py-3 rounded-xl text-[15px] font-semibold text-white shadow-lg hover:shadow-xl whitespace-nowrap">Request an assessment</a>
                 </div>
+                <a href="/en/contact" class="btn-primary hidden md:inline-flex xl:hidden items-center ml-auto mr-4 px-5 py-2.5 rounded-xl text-[15px] font-semibold text-white whitespace-nowrap">Request an assessment</a>
                 <button class="mobile-menu-btn text-gray-700 hover:text-gray-900" id="mobile-menu-btn" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-menu">
                     <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
@@ -581,10 +573,7 @@
         <section class="hero-section pt-36 pb-14 px-4 sm:px-6">
             <div class="hero-grid-pattern" aria-hidden="true"></div>
             <div class="max-w-4xl mx-auto text-center relative">
-                <div class="hero-badge mb-8 section-appear">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-                    Nationwide coverage across France & Belgium
-                </div>
+                <div class="sec-label mb-6 section-appear">Nationwide coverage across France & Belgium</div>
                 <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight tracking-tight mb-6 section-appear">
                     Wherever your chargers are. <em>We are already there.</em>
                 </h1>
@@ -784,61 +773,44 @@
                 <div class="sec-label mb-5 text-center">FAQ</div>
                 <h2 class="text-3xl font-bold text-center mb-10">Frequently asked questions</h2>
                 <div class="space-y-4">
-                    <div class="border border-gray-200 rounded-xl overflow-hidden">
-                        <button type="button" class="faq-toggle w-full flex items-center justify-between p-6 text-left font-semibold text-lg hover:bg-gray-50 transition-colors" aria-expanded="true" aria-controls="faq-couv-1">
-                            Which regions does JCSM operate in?
-                            <svg class="faq-chevron w-5 h-5 text-gray-400 transition-transform rotate-180 flex-shrink-0 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-                        </button>
-                        <div id="faq-couv-1" class="faq-content px-6 pb-6" role="region">
+                    <details class="faq-item card-lift bg-white rounded-xl border border-gray-200" open>
+                        <summary class="flex items-center justify-between p-6 font-semibold text-lg cursor-pointer">
+                            <span>Which regions does JCSM operate in?</span>
+                            <svg class="w-5 h-5 text-gray-400 flex-shrink-0 ml-4 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                        </summary>
+                        <div class="faq-content px-6 pb-6">
                             <p class="text-gray-600 leading-relaxed">JCSM covers the whole of mainland France and Belgium. Our technicians are deployed in every region: Ile-de-France, Auvergne-Rhone-Alpes, PACA, Occitanie, Nouvelle-Aquitaine, Hauts-de-France, and all the others. In Belgium, we operate in all three regions (Wallonia, Flanders, Brussels-Capital).</p>
                         </div>
-                    </div>
-                    <div class="border border-gray-200 rounded-xl overflow-hidden">
-                        <button type="button" class="faq-toggle w-full flex items-center justify-between p-6 text-left font-semibold text-lg hover:bg-gray-50 transition-colors" aria-expanded="false" aria-controls="faq-couv-2">
-                            What is the on-site response time?
-                            <svg class="faq-chevron w-5 h-5 text-gray-400 transition-transform flex-shrink-0 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-                        </button>
-                        <div id="faq-couv-2" class="faq-content px-6 pb-6 hidden" role="region">
+                    </details>
+                    <details class="faq-item card-lift bg-white rounded-xl border border-gray-200">
+                        <summary class="flex items-center justify-between p-6 font-semibold text-lg cursor-pointer">
+                            <span>What is the on-site response time?</span>
+                            <svg class="w-5 h-5 text-gray-400 flex-shrink-0 ml-4 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                        </summary>
+                        <div class="faq-content px-6 pb-6">
                             <p class="text-gray-600 leading-relaxed">Our standard SLA guarantees a response within 24 working hours. For premium contracts, we offer enhanced commitments with 24/7 on-call cover.</p>
                         </div>
-                    </div>
-                    <div class="border border-gray-200 rounded-xl overflow-hidden">
-                        <button type="button" class="faq-toggle w-full flex items-center justify-between p-6 text-left font-semibold text-lg hover:bg-gray-50 transition-colors" aria-expanded="false" aria-controls="faq-couv-3">
-                            Do you service all charger brands?
-                            <svg class="faq-chevron w-5 h-5 text-gray-400 transition-transform flex-shrink-0 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-                        </button>
-                        <div id="faq-couv-3" class="faq-content px-6 pb-6 hidden" role="region">
-                            <p class="text-gray-600 leading-relaxed">Yes, our technicians are trained and certified on more than 12 brands: ABB, Alfen, EVBox, Kempower, Wallbox, Schneider Electric, Legrand, DBT-CEV, Circontrol, Delta, Autel and Tritium. AC chargers from 3.7 to 22 kW and DC up to 400 kW.</p>
+                    </details>
+                    <details class="faq-item card-lift bg-white rounded-xl border border-gray-200">
+                        <summary class="flex items-center justify-between p-6 font-semibold text-lg cursor-pointer">
+                            <span>Do you service all charger brands?</span>
+                            <svg class="w-5 h-5 text-gray-400 flex-shrink-0 ml-4 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                        </summary>
+                        <div class="faq-content px-6 pb-6">
+                            <p class="text-gray-600 leading-relaxed">Yes, our technicians work on more than 12 brands: ABB, Alfen, EVBox, Kempower, Wallbox, Schneider Electric, Legrand, DBT-CEV, Circontrol, Delta, Autel and Tritium. AC chargers from 3.7 to 22 kW and DC up to 400 kW.</p>
                         </div>
-                    </div>
-                    <div class="border border-gray-200 rounded-xl overflow-hidden">
-                        <button type="button" class="faq-toggle w-full flex items-center justify-between p-6 text-left font-semibold text-lg hover:bg-gray-50 transition-colors" aria-expanded="false" aria-controls="faq-couv-4">
-                            How do I request an intervention in my area?
-                            <svg class="faq-chevron w-5 h-5 text-gray-400 transition-transform flex-shrink-0 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-                        </button>
-                        <div id="faq-couv-4" class="faq-content px-6 pb-6 hidden" role="region">
+                    </details>
+                    <details class="faq-item card-lift bg-white rounded-xl border border-gray-200">
+                        <summary class="flex items-center justify-between p-6 font-semibold text-lg cursor-pointer">
+                            <span>How do I request an intervention in my area?</span>
+                            <svg class="w-5 h-5 text-gray-400 flex-shrink-0 ml-4 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                        </summary>
+                        <div class="faq-content px-6 pb-6">
                             <p class="text-gray-600 leading-relaxed">Contact us via the form on our website, by phone at <a href="tel:+33183755706" class="text-blue-600 font-medium hover:text-blue-800">+33 1 83 75 57 06</a>, or by email at <a href="mailto:contact@jcsm.fr" class="text-blue-600 font-medium hover:text-blue-800">contact@jcsm.fr</a>. Describe your need and your location: a field technician will call you back within 24 working hours.</p>
                         </div>
-                    </div>
+                    </details>
                 </div>
             </div>
-            <script>
-            document.querySelectorAll('#faq .faq-toggle').forEach(function(btn) {
-                btn.addEventListener('click', function() {
-                    var expanded = this.getAttribute('aria-expanded') === 'true';
-                    this.setAttribute('aria-expanded', String(!expanded));
-                    var content = document.getElementById(this.getAttribute('aria-controls'));
-                    var chevron = this.querySelector('.faq-chevron');
-                    if (expanded) {
-                        content.classList.add('hidden');
-                        chevron.classList.remove('rotate-180');
-                    } else {
-                        content.classList.remove('hidden');
-                        chevron.classList.add('rotate-180');
-                    }
-                });
-            });
-            </script>
         </section>
 
         <!-- ====== ZONE LINKS ====== -->
