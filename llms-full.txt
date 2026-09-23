@@ -48,7 +48,7 @@ URL : https://jcsm.fr/installation-conformite
 ### 2.3 Exploitation et maintenance
 URL : https://jcsm.fr/exploitation
 - Maintenance preventive : inspections programmees avec check-list, mise a jour firmware, tests de charge
-- Maintenance curative : diagnostic a distance via OCPP (environ 40 % des incidents resolus sans deplacement), technicien sur site sous 24h ouvrees, pieces detachees critiques en stock
+- Maintenance curative : diagnostic a distance via OCPP, technicien sur site sous 24h ouvrees, pieces detachees critiques en stock
 - Supervision : OCPP 1.6 / 2.0.1, raccordement au superviseur (CSMS), parametrage tarifaire, dashboard temps reel par site et par borne, alertes automatiques, reporting SLA
 - Transformateurs HTA/BT : maintenance des postes en amont des bornes DC (une part importante des pannes DC provient du poste HTA/BT)
 
@@ -62,7 +62,6 @@ URL : https://jcsm.fr/centre-appel
 - Langues : francais, anglais, neerlandais
 - Niveau 1 : assistance utilisateur (demarrage de charge, badge, paiement, signalement)
 - Niveau 2 : diagnostic technique a distance (OCPP, redemarrage, analyse)
-- Resolution au premier contact : 95 % ; objectif de decroche en moins de 30 secondes
 - Postes de support ouverts aux personnes en situation de handicap (RQTH, AAH) - https://jcsm.fr/inclusion
 
 ## 3. Tarification indicative (HT)

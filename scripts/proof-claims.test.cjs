@@ -19,11 +19,16 @@ const banned=[
   /certifi[ée]s? constructeurs|certifi[ée]s par les constructeurs|recycl[ée]s (chaque|en continu)|manufacturer-certified|recertified|herstellerzertifiziert|rezertifiziert|reciclaje anual|reciclagem anual|jaarlijks bijgeschoold|doszkalani co roku|[Mm]anufacturer-trained|door de fabrikant opgeleide|certificados por el fabricante/i,
   // Intégrateurs nommés sans accord écrit.
   /Bouygues, Eiffage|Firalp|Sogetrel/,
+  // Témoignage inventé (« Julien, technicien partenaire », retiré le 23/09/2026) ; le slogan
+  // « Your trusted EV charging partner since 2019 » du pied de page anglais reste permis.
+  /partenaire depuis 20|(?<!EV charging )partner since 20/i,
+  // Hotline et diagnostic : taux non sourcés (retirés de llms.txt le 23/09/2026).
+  /premier contact\s*:\s*\d+\s?%|\d+\s?% des incidents r[ée]solus/i,
   // Régions : chiffre identique partout, base et équipes locales non établies.
   />500\+<\/div>|base principale|supervision r[ée]gional|bas[ée]s localement|[ée]quipe (locale|r[ée]gionale|implant[ée]e)|Qualifelec (garantie|assur[ée]e)|Contactez notre [ée]quipe en/i,
 ];
 test('aucune preuve invérifiable retirée ne réapparaît',()=>{
-  for(const file of getPublicPages()){
+  for(const file of [...getPublicPages(),'llms.txt','llms-full.txt']){
     const html=fs.readFileSync(path.join(root,file),'utf8');
     for(const re of banned)assert(!re.test(html),`${file} : ${re}`);
   }

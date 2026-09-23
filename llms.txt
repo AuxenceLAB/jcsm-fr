@@ -1,78 +1,78 @@
 # JCSM SAS - Maintenance et installation IRVE terrain en France et Belgique
 
-> JCSM est une entreprise francaise specialisee dans l'infrastructure de recharge pour vehicules electriques (IRVE). Equipe terrain depuis 2019, societe JCSM SAS creee en 2023, certifiee Qualifelec IRVE. JCSM pilote, installe, exploite et maintient des bornes de recharge AC et DC (jusqu'a 400 kW) ainsi que les postes HTA/BT associes, sur toute la France et en Belgique, pour les operateurs de recharge (CPO), les fabricants de bornes, les entreprises et flottes, et le retail.
+> JCSM est une entreprise française spécialisée dans l'infrastructure de recharge pour véhicules électriques (IRVE). Équipe terrain depuis 2019, société JCSM SAS créée en 2023, certifiée Qualifelec IRVE. JCSM pilote, installe, exploite et maintient des bornes de recharge AC et DC (jusqu'à 400 kW) ainsi que les postes HTA/BT associés, sur toute la France et en Belgique, pour les opérateurs de recharge (CPO), les fabricants de bornes, les entreprises et flottes, et le retail.
 
-> Version complete : https://jcsm.fr/llms-full.txt
+> Version complète : https://jcsm.fr/llms-full.txt
 
-## Identite de l'entreprise
+## Identité de l'entreprise
 
 - Raison sociale : JCSM SAS (capital social 500 EUR)
 - SIRET : 993 874 296 00011 - RCS Paris 993 874 296
 - TVA intracommunautaire : FR40993874296
-- Siege social : 60 rue Francois 1er, 75008 Paris, France
-- Telephone : +33 1 83 75 57 06
+- Siège social : 60 rue François 1er, 75008 Paris, France
+- Téléphone : +33 1 83 75 57 06
 - Email : contact@jcsm.fr - support technique : support@jcsm.fr
 - Site web : https://jcsm.fr (8 langues : fr, en, de, es, it, nl, pl, pt)
 - Certification : Qualifelec IRVE
-- Historique : experience terrain IRVE depuis 2019, creation de JCSM SAS en 2023
-- Couverture : France entiere et Belgique (Wallonie, Flandre, Bruxelles-Capitale)
-- Entreprise inclusive : postes de support client ouverts aux beneficiaires RQTH et AAH
+- Historique : expérience terrain IRVE depuis 2019, création de JCSM SAS en 2023
+- Couverture : France entière et Belgique (Wallonie, Flandre, Bruxelles-Capitale)
+- Entreprise inclusive : postes de support client ouverts aux bénéficiaires RQTH et AAH
 
 ## Positionnement
 
-JCSM est un prestataire terrain independant et multi-marques : ses techniciens interviennent sur les bornes AC et DC des principaux fabricants (ABB, Alfen, EVBox, Schneider, Kempower, Autel, BYD, Delta, Tritium, Efacec, Wallbox) sans etre lies a un constructeur. Un contrat unique couvre l'ensemble du parc, avec rapport horodate et photos a chaque passage.
+JCSM est un prestataire terrain indépendant et multi-marques : ses techniciens interviennent sur les bornes AC et DC des principaux fabricants (ABB, Alfen, EVBox, Schneider, Kempower, Autel, BYD, Delta, Tritium, Efacec, Wallbox) sans être liés à un constructeur. Un contrat unique couvre l'ensemble du parc, avec rapport horodaté et photos à chaque passage.
 
-Engagements affiches sur le site :
-- Reponse sous 24h ouvrees (aucune promesse de delai plus court)
-- Plus de 2 000 interventions realisees
-- Bornes AC et DC jusqu'a 400 kW, toutes marques
+Engagements affichés sur le site :
+- Réponse sous 24h ouvrées (aucune promesse de délai plus court)
+- Plus de 2 000 interventions réalisées
+- Bornes AC et DC jusqu'à 400 kW, toutes marques
 
 ## Services
 
 ### 1. Pilotage de projets IRVE - https://jcsm.fr/pilotage-projets
-Assistance a maitrise d'ouvrage : etude, coordination des corps de metier, raccordement Enedis, suivi de chantier, mise en service et reception.
+Assistance à maîtrise d'ouvrage : étude, coordination des corps de métier, raccordement Enedis, suivi de chantier, mise en service et réception.
 
-### 2. Installation et conformite - https://jcsm.fr/installation-conformite
-Installation certifiee Qualifelec de bornes AC (3,7 a 22 kW) et DC (jusqu'a 400 kW), postes HTA/BT, conformite NF C 15-100 (partie 7-722), validation Consuel, raccordement Enedis.
+### 2. Installation et conformité - https://jcsm.fr/installation-conformite
+Installation certifiée Qualifelec de bornes AC (3,7 à 22 kW) et DC (jusqu'à 400 kW), postes HTA/BT, conformité NF C 15-100 (partie 7-722), validation Consuel, raccordement Enedis.
 
 ### 3. Exploitation et maintenance - https://jcsm.fr/exploitation
-Maintenance preventive (inspections programmees) et curative, supervision OCPP 1.6 / 2.0.1, diagnostic a distance (environ 40 % des incidents resolus sans deplacement), technicien sur site sous 24h ouvrees, maintenance des transformateurs HTA/BT.
+Maintenance préventive (inspections programmées) et curative, supervision OCPP 1.6 / 2.0.1, diagnostic à distance, technicien sur site sous 24h ouvrées, maintenance des transformateurs HTA/BT.
 
-### 4. Securisation des installations - https://jcsm.fr/securisation-installations
-Protection contre les cables coupes, ecrans casses et bornes arrachees : videosurveillance, anti-vandalisme, remise en etat.
+### 4. Sécurisation des installations - https://jcsm.fr/securisation-installations
+Protection contre les câbles coupés, écrans cassés et bornes arrachées : vidéosurveillance, anti-vandalisme, remise en état.
 
 ### 5. Support client 24/7 - https://jcsm.fr/centre-appel
-Hotline IRVE en marque blanche, 100 % basee en France, 24/7, en francais, anglais et neerlandais. Niveau 1 (assistance utilisateur) et niveau 2 (diagnostic a distance). Resolution au premier contact : 95 %.
+Hotline IRVE en marque blanche, 100 % basée en France, 24/7, en français, anglais et néerlandais. Niveau 1 (assistance utilisateur) et niveau 2 (diagnostic à distance).
 
 ## Tarification indicative (HT) - https://jcsm.fr/tarification
 
-- Contrat de maintenance preventive : a partir de 50 EUR/borne/mois (AC), 120 EUR/borne/mois (DC)
-- Intervention curative ponctuelle : a partir de 150 EUR (AC), 350 EUR (DC)
-- Mise en service : a partir de 200 EUR/borne
-- Devis personnalise sous 24h ouvrees : https://jcsm.fr/contact
+- Contrat de maintenance préventive : à partir de 50 EUR/borne/mois (AC), 120 EUR/borne/mois (DC)
+- Intervention curative ponctuelle : à partir de 150 EUR (AC), 350 EUR (DC)
+- Mise en service : à partir de 200 EUR/borne
+- Devis personnalisé sous 24h ouvrées : https://jcsm.fr/contact
 
 ## Solutions par segment
 
-- CPO et operateurs : https://jcsm.fr/solutions/cpo-operateurs
+- CPO et opérateurs : https://jcsm.fr/solutions/cpo-operateurs
 - Fabricants de bornes : https://jcsm.fr/solutions/fabricants-bornes
 - Entreprises et flottes : https://jcsm.fr/solutions/entreprises-flottes
 - Retail et grande distribution : https://jcsm.fr/solutions/retail-grande-distribution
 
-## Couverture geographique - https://jcsm.fr/couverture
+## Couverture géographique - https://jcsm.fr/couverture
 
-France : https://jcsm.fr/zones/france - Ile-de-France, Auvergne-Rhone-Alpes, PACA, Occitanie, Nouvelle-Aquitaine, Hauts-de-France, Grand Est, Bretagne, Pays de la Loire, Normandie, Bourgogne-Franche-Comte (une page dediee par region, liste complete dans https://jcsm.fr/llms-full.txt).
+France : https://jcsm.fr/zones/france - Île-de-France, Auvergne-Rhône-Alpes, PACA, Occitanie, Nouvelle-Aquitaine, Hauts-de-France, Grand Est, Bretagne, Pays de la Loire, Normandie, Bourgogne-Franche-Comté (une page dédiée par région, liste complète dans https://jcsm.fr/llms-full.txt).
 Belgique : https://jcsm.fr/zones/belgique
 
 ## Autres pages utiles
 
-- A propos : https://jcsm.fr/a-propos
+- À propos : https://jcsm.fr/a-propos
 - FAQ : https://jcsm.fr/faq
-- Blog IRVE (guides, reglementation, marche) : https://jcsm.fr/blog
-- Carrieres : https://jcsm.fr/carrieres - Devenir partenaire technicien : https://jcsm.fr/devenir-partenaire
+- Blog IRVE (guides, réglementation, marché) : https://jcsm.fr/blog
+- Carrières : https://jcsm.fr/carrieres - Devenir partenaire technicien : https://jcsm.fr/devenir-partenaire
 - Inclusion et handicap : https://jcsm.fr/inclusion
 - Presse : https://jcsm.fr/presse
 - Contact : https://jcsm.fr/contact
 
 ## Contact
 
-Telephone +33 1 83 75 57 06 - contact@jcsm.fr - 60 rue Francois 1er, 75008 Paris.
+Téléphone +33 1 83 75 57 06 - contact@jcsm.fr - 60 rue François 1er, 75008 Paris.
