@@ -94,6 +94,7 @@ server {
 
     # Répertoires sans index : redirection vers la page qui les présente.
     location = /blog/ { return 301 /blog; }
+    location = /zones { return 301 /couverture; }
     location = /zones/ { return 301 /couverture; }
 
     # 404 page: only reachable via error_page internal redirect (never 301'd,
