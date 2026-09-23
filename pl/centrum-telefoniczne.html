@@ -64,10 +64,10 @@
             },
             {
                 "@type": "Question",
-                "name": "Jaki jest wasz wskaznik rozwiazywania przy pierwszym kontakcie?",
+                "name": "Czy usterkę można rozwiązać już przy pierwszym zgłoszeniu?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Nasz wskaznik rozwiazywania przy pierwszym kontakcie wynosi 95%. Dzieki zdalnemu nadzorowi i diagnostyce, nasi technicy moga rozwiazac wiekszosc incydentow (restart stacji, resetowanie sesji, odblokowanie zlacza) bez wizyty na miejscu."
+                    "text": "Często tak. Dzięki zdalnemu nadzorowi i diagnostyce, nasi technicy moga rozwiazac wiekszosc incydentow (restart stacji, resetowanie sesji, odblokowanie zlacza) bez wizyty na miejscu."
                 }
             },
             {
@@ -97,7 +97,7 @@
     <meta property="og:url" content="https://jcsm.fr/pl/centrum-telefoniczne">
     <meta property="og:title" content="Wsparcie Klienta IRVE 24/7 | Centrum Telefoniczne | JCSM">
     <meta property="og:description"
-        content="Wielokanalowe wsparcie IRVE we Francji i Belgii: infolinia 24/7, czat, e-mail. Usluga pod wlasna marka dla CPO i EMSP. Wskaznik rozwiazywania 95%.">
+        content="Wielokanalowe wsparcie IRVE we Francji i Belgii: infolinia 24/7, czat, e-mail. Usluga pod wlasna marka dla CPO i EMSP.">
     <meta property="og:image" content="https://jcsm.fr/images/og/hotline.jpg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
@@ -185,7 +185,6 @@
     </header>
 
     <main id="main-content" tabindex="-1" role="main">
-    <div id="scroll-progress" class="fixed top-0 left-0 h-1 bg-blue-600 z-[60] transition-all duration-150" style="width: 0%;" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Postep czytania"></div>
         <nav aria-label="Sciezka nawigacyjna" class="max-w-6xl mx-auto px-4 sm:px-6 pt-24 pb-0">
             <ol class="flex items-center gap-2 text-sm text-gray-500">
                 <li><a href="/pl/" class="hover:text-blue-600 transition-colors">Strona glowna</a></li>
@@ -366,50 +365,6 @@
             </div>
         </section>
 
-        <!-- Statystyki -->
-        <section class="py-20 px-6">
-            <div class="max-w-6xl mx-auto">
-                <div class="text-center mb-16 section-appear">
-                    <p class="sec-label mb-3">Wyniki</p>
-                    <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-4">
-                        Dowody, <em>w liczbach</em>
-                    </h2>
-                </div>
-                <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-8 text-center">
-                    <div class="card-feature p-8 section-appear">
-                        <div class="w-10 h-10 mx-auto mb-4 rounded-lg bg-blue-600 flex items-center justify-center text-white">
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                        </div>
-                        <div class="text-4xl md:text-5xl font-bold mb-2 num-highlight counter-animate">100<span class="text-2xl md:text-3xl text-gray-500">%</span></div>
-                        <p class="text-sm text-gray-600 font-semibold">Obsluzone polaczenia</p>
-                        <p class="text-xs text-gray-500 mt-1">Srednia w branzy: 85%</p>
-                    </div>
-                    <div class="card-feature p-8 section-appear">
-                        <div class="w-10 h-10 mx-auto mb-4 rounded-lg bg-blue-600 flex items-center justify-center text-white">
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                        </div>
-                        <div class="text-4xl md:text-5xl font-bold mb-2 num-highlight counter-animate">1:27</div>
-                        <p class="text-sm text-gray-600 font-semibold">Sredni czas odpowiedzi</p>
-                        <p class="text-xs text-gray-500 mt-1">Srednia w branzy: 3:45</p>
-                    </div>
-                    <div class="card-feature p-8 section-appear">
-                        <div class="w-10 h-10 mx-auto mb-4 rounded-lg bg-blue-600 flex items-center justify-center text-white">
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
-                        </div>
-                        <div class="text-4xl md:text-5xl font-bold mb-2 num-highlight counter-animate">3.7<span class="text-2xl md:text-3xl text-gray-500">%</span></div>
-                        <p class="text-sm text-gray-600 font-semibold">Porzucone polaczenia</p>
-                        <p class="text-xs text-gray-500 mt-1">Srednia w branzy: 15%</p>
-                    </div>
-                    <div class="card-feature p-8 section-appear">
-                        <div class="w-10 h-10 mx-auto mb-4 rounded-lg bg-blue-600 flex items-center justify-center text-white">
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-                        </div>
-                        <div class="text-4xl md:text-5xl font-bold mb-2 num-highlight counter-animate">150<span class="text-2xl md:text-3xl text-gray-500">+</span></div>
-                        <p class="text-sm text-gray-600 font-semibold">Polaczen / miesiac</p>
-                    </div>
-                </div>
-            </div>
-        </section>
 
         <!-- Nasz zespol -->
         <section class="py-20 px-6 section-alt">
@@ -655,11 +610,11 @@
                     </details>
                     <details class="faq-item card-lift bg-white rounded-xl border border-gray-200 section-appear">
                         <summary class="flex items-center justify-between p-6 font-semibold text-lg cursor-pointer">
-                            <span>Jaki jest wasz wskaznik rozwiazywania przy pierwszym kontakcie?</span>
+                            <span>Czy usterkę można rozwiązać już przy pierwszym zgłoszeniu?</span>
                             <svg class="w-5 h-5 text-blue-600 flex-shrink-0 ml-4 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/></svg>
                         </summary>
                         <div class="faq-content px-6 pb-6">
-                            <p class="text-gray-600 leading-relaxed">Nasz wskaznik rozwiazywania przy pierwszym kontakcie wynosi 95%. Dzieki zdalnemu nadzorowi i diagnostyce, nasi technicy moga rozwiazac wiekszosc incydentow (restart stacji, resetowanie sesji, odblokowanie zlacza) bez wizyty na miejscu.</p>
+                            <p class="text-gray-600 leading-relaxed">Często tak. Dzięki zdalnemu nadzorowi i diagnostyce, nasi technicy moga rozwiazac wiekszosc incydentow (restart stacji, resetowanie sesji, odblokowanie zlacza) bez wizyty na miejscu.</p>
                         </div>
                     </details>
                     <details class="faq-item card-lift bg-white rounded-xl border border-gray-200 section-appear">
