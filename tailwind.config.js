@@ -18,8 +18,10 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: '#2563EB',
-        secondary: '#1D4ED8',
+        primary: '#205BC4',
+        secondary: '#19499F',
+        // Bleu de marque JCSM : les utilitaires blue-* ne ressortent plus le bleu Tailwind #2563EB.
+        blue: { 50: '#EAF1FF', 100: '#EAF1FF', 500: '#205BC4', 600: '#205BC4', 700: '#19499F', 800: '#153C80', 900: '#153C80' },
       },
       fontFamily: {
         sans: ['system-ui', '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', '"Helvetica Neue"', 'Arial', 'sans-serif'],

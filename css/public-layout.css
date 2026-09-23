@@ -38,22 +38,19 @@ body.jcsm-public {
 .jcsm-utility > footer > div > .justify-center { justify-content:flex-start; }
 
 /* The fixed header offset is applied once, even when breadcrumbs precede a hero. */
-.jcsm-public main > nav:first-child,
-.jcsm-public main > #scroll-progress:first-child + nav {
+.jcsm-public main > nav:first-child {
   max-width:var(--jcsm-shell);
   padding:calc(var(--jcsm-header) + 20px) var(--jcsm-gutter) 0;
   margin-inline:auto;
 }
-.jcsm-public main > nav:first-child ol,
-.jcsm-public main > #scroll-progress:first-child + nav ol { flex-wrap:wrap; }
+.jcsm-public main > nav:first-child ol { flex-wrap:wrap; }
 .jcsm-public main > section:first-of-type {
   min-height:0 !important;
   padding-top:calc(var(--jcsm-header) + 40px);
   padding-bottom:56px;
   align-items:flex-start;
 }
-.jcsm-public main > nav:first-child ~ section:first-of-type,
-.jcsm-public main > #scroll-progress:first-child + nav ~ section:first-of-type { padding-top:32px; }
+.jcsm-public main > nav:first-child ~ section:first-of-type { padding-top:32px; }
 /* A full-width secondary pill on mobile keeps its label centred. */
 .jcsm-public main > section:first-of-type .btn-secondary { justify-content:center;text-align:center; }
 .jcsm-public main > section:first-of-type :is(.grid,.text-center):has(h1) { align-items:start;text-align:left; }
@@ -78,8 +75,7 @@ body.jcsm-public {
 .jcsm-public:is(.jcsm-article,.jcsm-legal) main h1 { font-size:clamp(2rem,3.4vw,3rem);line-height:1.16;letter-spacing:-.03em; }
 @media(max-width:639px) {
   .jcsm-public main > section:first-of-type { padding-top:calc(var(--jcsm-header) + 32px);padding-bottom:40px; }
-  .jcsm-public main > nav:first-child ~ section:first-of-type,
-  .jcsm-public main > #scroll-progress:first-child + nav ~ section:first-of-type { padding-top:24px; }
+  .jcsm-public main > nav:first-child ~ section:first-of-type { padding-top:24px; }
 }
 @media print {
   .jcsm-public main > section:first-of-type,
@@ -104,3 +100,11 @@ body.jcsm-public {
 /* Cibles d'au moins 24 px : liens de langue, pied de page, retour au blog. */
 .jcsm-public .jcsm-lang-nav a{min-width:24px;justify-content:center}
 .jcsm-public > footer a,.jcsm-public.jcsm-article main a[href="/blog"]{min-height:24px;display:inline-flex;align-items:center}
+
+/* Mur de logos immobile : une seule séquence de mouvement par page (les apparitions de sections). */
+.jcsm-public .logo-marquee{overflow:visible;-webkit-mask-image:none;mask-image:none}
+.jcsm-public .logo-marquee-track{flex-wrap:wrap;justify-content:center;width:auto;max-width:var(--jcsm-shell);margin-inline:auto;padding-inline:var(--jcsm-gutter);gap:.25rem 1rem;will-change:auto}
+.jcsm-public .logo-marquee-track > [aria-hidden="true"]{display:none}
+
+/* Casse normale partout : plus de capitales espacées (titres de pied de page, libellés de chiffres, étiquettes du blog). */
+.jcsm-public :is(.uppercase,.hero-badge span,.glass-badge .text-sm,.glass-badge .text-xs,.blog-card span[class*="bg-blue"],.blog-badge,.blog-toc-title,.takeaway-title){text-transform:none;letter-spacing:.01em}

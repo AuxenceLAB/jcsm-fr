@@ -358,13 +358,13 @@ body:not(.jcsm-public) :is(.max-w-2xl,.max-w-3xl,.max-w-4xl,.max-w-5xl,.max-w-6x
   background: var(--color-primary);
   color: #fff;
   border-radius: var(--radius-full) !important;
-  box-shadow: 0 10px 24px rgba(37,99,235,0.25);
+  box-shadow: 0 10px 24px rgba(32,91,196,0.25);
   transition: background var(--duration-normal), transform var(--duration-normal), box-shadow var(--duration-normal);
 }
 .btn-primary:hover {
   background: var(--color-primary-dark);
   transform: translateY(-1px);
-  box-shadow: 0 14px 30px rgba(37,99,235,0.32);
+  box-shadow: 0 14px 30px rgba(32,91,196,0.32);
 }
 .section-appear {
   opacity: 1;
@@ -402,10 +402,6 @@ footer a:not(.btn-primary) {
 footer a:not(.btn-primary):hover {
   color: #205BC4;
   transform: translateX(4px);
-}
-/* Footer clair : titres de colonnes affinés (sans doré) */
-footer h3 {
-  letter-spacing: 0.12em !important;
 }
 .scroll-top {
   position: fixed;
@@ -612,8 +608,13 @@ details summary {
 details summary::-webkit-details-marker {
   display: none;
 }
-details[open] summary svg {
+/* Seuls les « + » (qui deviennent « × ») et les chevrons (pointe en haut) tournent ;
+   les pictogrammes décoratifs d'un <summary> restent droits. */
+details[open] > summary svg:not(.faq-chevron svg):has(path[d^="M12 4v16"], path[d^="M12 6v"]) {
   transform: rotate(45deg);
+}
+details[open] > summary svg:not(.faq-chevron svg):has(path[d^="M19 9"]) {
+  transform: rotate(180deg);
 }
 details summary svg {
   transition: transform 0.2s ease-out;
@@ -878,13 +879,13 @@ input:focus,
 select:focus,
 textarea:focus {
   border-color: var(--color-primary);
-  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+  box-shadow: 0 0 0 3px rgba(32, 91, 196, 0.1);
   outline: 0;
 }
 input:focus-visible,
 select:focus-visible,
 textarea:focus-visible {
-  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.3);
+  box-shadow: 0 0 0 3px rgba(32, 91, 196, 0.3);
   outline: 2px solid var(--color-primary);
   outline-offset: 1px;
 }
@@ -966,7 +967,7 @@ body .input-success {
   z-index: 60;
   transition: width 0.1s linear;
   width: 0%;
-  box-shadow: 0 0 6px rgba(37, 99, 235, 0.25);
+  box-shadow: 0 0 6px rgba(32, 91, 196, 0.25);
 }
 .btn-ripple {
   position: relative;
@@ -1008,10 +1009,10 @@ body .input-success {
 @keyframes subtlePulse {
   0%,
   100% {
-    box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.4);
+    box-shadow: 0 0 0 0 rgba(32, 91, 196, 0.4);
   }
   50% {
-    box-shadow: 0 0 0 8px rgba(37, 99, 235, 0);
+    box-shadow: 0 0 0 8px rgba(32, 91, 196, 0);
   }
 }
 .pulse-cta {
@@ -1030,7 +1031,7 @@ body .input-success {
 }
 .card-glow:hover {
   box-shadow:
-    0 0 20px rgba(37, 99, 235, 0.1),
+    0 0 20px rgba(32, 91, 196, 0.1),
     0 8px 24px rgba(0, 0, 0, 0.06);
 }
 /* nav.scrolled removed — nav state is now constant (no scroll-blur variant) */
@@ -1075,7 +1076,7 @@ details[open] > .faq-content {
 }
 .faq-item[open] {
   border-color: #93c5fd;
-  box-shadow: 0 1px 3px rgba(37, 99, 235, 0.08);
+  box-shadow: 0 1px 3px rgba(32, 91, 196, 0.08);
 }
 .fade-in-up {
   opacity: 0;
@@ -1151,7 +1152,7 @@ body {
   animation-play-state: paused;
 }
 ::selection {
-  background: rgba(37, 99, 235, 0.15);
+  background: rgba(32, 91, 196, 0.15);
   color: #1e293b;
 }
 img {
@@ -1169,7 +1170,7 @@ h3 {
   background: linear-gradient(
     90deg,
     transparent,
-    rgba(37, 99, 235, 0.2),
+    rgba(32, 91, 196, 0.2),
     transparent
   );
   border: none;
@@ -1333,8 +1334,8 @@ h3 {
 }
 .card-border-glow:hover {
   box-shadow:
-    0 0 0 1px rgba(37, 99, 235, 0.2),
-    0 8px 25px -5px rgba(37, 99, 235, 0.12);
+    0 0 0 1px rgba(32, 91, 196, 0.2),
+    0 8px 25px -5px rgba(32, 91, 196, 0.12);
 }
 .stagger-fade > * {
   opacity: 0;
@@ -1401,7 +1402,7 @@ h3 {
 }
 .focus-ring:focus-visible {
   outline: 0;
-  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.4);
+  box-shadow: 0 0 0 3px rgba(32, 91, 196, 0.4);
   transition: box-shadow 0.2s ease;
 }
 .js-loaded .will-reveal.visible,
@@ -1412,15 +1413,13 @@ h3 {
 @keyframes revealFallback {
   0% {
     opacity: 0;
-    transform: translateY(20px);
   }
   100% {
     opacity: 1;
-    transform: translateY(0);
   }
 }
 .js-loaded .will-reveal {
-  animation: revealFallback 0.8s ease-out 3.5s both;
+  animation: revealFallback 0.3s ease-out 3.5s both;
 }
 .js-loaded .will-reveal.revealed,
 .js-loaded .will-reveal.visible {
@@ -1607,7 +1606,7 @@ input[type="radio"] {
   height: 140%;
   background: radial-gradient(
     ellipse at 30% 50%,
-    rgba(37, 99, 235, 0.06) 0%,
+    rgba(32, 91, 196, 0.06) 0%,
     transparent 70%
   );
   pointer-events: none;
@@ -1626,8 +1625,8 @@ input[type="radio"] {
 .card-premium:hover {
   transform: translateY(-8px);
   box-shadow:
-    0 32px 64px -16px rgba(37, 99, 235, 0.15),
-    0 0 0 1px rgba(37, 99, 235, 0.08);
+    0 32px 64px -16px rgba(32, 91, 196, 0.15),
+    0 0 0 1px rgba(32, 91, 196, 0.08);
 }
 
 /* 3. Animated gradient border for key sections */
@@ -1657,8 +1656,8 @@ input[type="radio"] {
 /* 5. Enhanced stat number with glow + scale-in */
 .stat-glow {
   text-shadow:
-    0 0 30px rgba(37, 99, 235, 0.25),
-    0 0 60px rgba(37, 99, 235, 0.08);
+    0 0 30px rgba(32, 91, 196, 0.25),
+    0 0 60px rgba(32, 91, 196, 0.08);
   transition:
     text-shadow 0.4s ease,
     transform 0.6s cubic-bezier(0.16, 1, 0.3, 1),
@@ -1666,8 +1665,8 @@ input[type="radio"] {
 }
 .stat-glow:hover {
   text-shadow:
-    0 0 40px rgba(37, 99, 235, 0.4),
-    0 0 80px rgba(37, 99, 235, 0.15);
+    0 0 40px rgba(32, 91, 196, 0.4),
+    0 0 80px rgba(32, 91, 196, 0.15);
 }
 
 /* 7. Smooth section transitions */
@@ -1690,8 +1689,8 @@ input[type="radio"] {
 /* Precision grid lines : engineering blueprint feel */
 .grid-lines {
   background-image:
-    linear-gradient(rgba(37, 99, 235, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(37, 99, 235, 0.03) 1px, transparent 1px);
+    linear-gradient(rgba(32, 91, 196, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(32, 91, 196, 0.03) 1px, transparent 1px);
   background-size: 60px 60px;
 }
 
@@ -1759,18 +1758,18 @@ input[type="radio"] {
   left: 1.25rem;
   font-size: 4rem;
   font-family: Georgia, "Times New Roman", serif;
-  color: rgba(37, 99, 235, 0.08);
+  color: rgba(32, 91, 196, 0.08);
   line-height: 1;
   pointer-events: none;
 }
 .testimonial-industrial:hover {
   transform: translateY(-6px);
   box-shadow:
-    0 24px 48px -12px rgba(37, 99, 235, 0.15),
-    0 0 0 1px rgba(37, 99, 235, 0.08);
+    0 24px 48px -12px rgba(32, 91, 196, 0.15),
+    0 0 0 1px rgba(32, 91, 196, 0.08);
 }
 .testimonial-industrial:hover::before {
-  color: rgba(37, 99, 235, 0.15);
+  color: rgba(32, 91, 196, 0.15);
 }
 
 /* Why-us card : industrial accent bar on hover */
@@ -1806,7 +1805,7 @@ input[type="radio"] {
 .card-hover:hover .icon-pulse-hover,
 .blog-card-premium:hover .icon-pulse-hover {
   transform: scale(1.1) rotate(-3deg);
-  box-shadow: 0 12px 28px -6px rgba(37, 99, 235, 0.3);
+  box-shadow: 0 12px 28px -6px rgba(32, 91, 196, 0.3);
 }
 
 /* Stat counter industrial glow */
@@ -1870,7 +1869,7 @@ input[type="radio"] {
     ),
     radial-gradient(
       ellipse at 70% 80%,
-      rgba(37, 99, 235, 0.07) 0%,
+      rgba(32, 91, 196, 0.07) 0%,
       transparent 50%
     );
   pointer-events: none;
@@ -1898,9 +1897,9 @@ input[type="radio"] {
 .blog-card-premium:hover {
   transform: translateY(-6px);
   box-shadow:
-    0 20px 40px -10px rgba(37, 99, 235, 0.12),
-    0 0 0 1px rgba(37, 99, 235, 0.08);
-  border-color: rgba(37, 99, 235, 0.12);
+    0 20px 40px -10px rgba(32, 91, 196, 0.12),
+    0 0 0 1px rgba(32, 91, 196, 0.08);
+  border-color: rgba(32, 91, 196, 0.12);
 }
 .blog-card-premium:hover img {
   transform: scale(1.06);
@@ -2134,12 +2133,6 @@ section.bg-gray-50 {
   letter-spacing: -0.02em;
   text-shadow: none !important;
 }
-/* Section-appear "label pills" (small mono uppercase text above H2) */
-.text-xs.font-bold.uppercase.tracking-\[2px\] {
-  font-family: var(--jcsm-mono);
-  letter-spacing: 0.16em !important;
-  font-weight: 500;
-}
 
 /* ============================================================
    POLISH-PRO COVERAGE OVERRIDES: catch scattered inline utilities
@@ -2227,8 +2220,8 @@ section.bg-gray-50 {
 }
 /* Finesse pass : transitions premium, focus soigné, icônes services */
 .svc-icon { width: 46px; height: 46px; border-radius: 13px; }
-.card-feature .svc-icon { background: rgba(37,99,235,0.07); }
-.card-feature:hover .svc-icon { background: rgba(37,99,235,0.12); }
+.card-feature .svc-icon { background: rgba(32,91,196,0.07); }
+.card-feature:hover .svc-icon { background: rgba(32,91,196,0.12); }
 a, button { transition: color var(--duration-normal), background var(--duration-normal), box-shadow var(--duration-normal), transform var(--duration-normal); }
 a:focus-visible, button:focus-visible {
   outline: 2px solid var(--color-primary);
@@ -2515,7 +2508,7 @@ a:focus-visible, button:focus-visible {
 }
 .card-interactive:hover {
   border-color: var(--color-primary);
-  box-shadow: 0 20px 40px -15px rgba(37, 99, 235, 0.12), 0 0 0 1px rgba(37, 99, 235, 0.06);
+  box-shadow: 0 20px 40px -15px rgba(32, 91, 196, 0.12), 0 0 0 1px rgba(32, 91, 196, 0.06);
 }
 
 /* 3. Animated gradient border */
@@ -2588,7 +2581,7 @@ a:focus-visible, button:focus-visible {
 }
 .card-lift:hover {
   transform: translateY(-6px);
-  box-shadow: 0 24px 48px -12px rgba(37, 99, 235, 0.15), 0 0 0 1px rgba(37, 99, 235, 0.05);
+  box-shadow: 0 24px 48px -12px rgba(32, 91, 196, 0.15), 0 0 0 1px rgba(32, 91, 196, 0.05);
 }
 
 /* 8. Staggered grid reveal.

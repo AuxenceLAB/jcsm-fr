@@ -404,11 +404,11 @@ nav a:not(.btn-primary):not(.nav-link-active):hover::after { width: 80%; }
     transform: none !important;
 }
 @keyframes revealFallback {
-    0% { opacity: 0; transform: translateY(20px); }
-    100% { opacity: 1; transform: translateY(0); }
+    0% { opacity: 0; }
+    100% { opacity: 1; }
 }
 .js-loaded .will-reveal {
-    animation: revealFallback .8s ease-out 3.5s both;
+    animation: revealFallback .3s ease-out 3.5s both;
 }
 .js-loaded .will-reveal.revealed,
 .js-loaded .will-reveal.visible {

@@ -68,11 +68,13 @@ test('les feuilles groupees sont a jour avec leurs sources',()=>{
   assert(read('css/site-a-theme.css').includes(expect(['css/critical.css','css/tailwind.css','styles.css','css/theme-2026.css'])));
   assert(read('css/site-b.css').includes(expect(['css/public-layout.css','css/editorial-20260906.css'])));
 });
-test('le fil d Ariane precede de la barre de progression garde le decalage d en-tete unique',()=>{
+test('le fil d Ariane en tete de main garde le decalage d en-tete unique',()=>{
   const css=fs.readFileSync(path.join(root,'css/public-layout.css'),'utf8');
-  const pages=getPublicPages().filter(file=>/<main\b[^>]*>\s*<div\b[^>]*id="scroll-progress"[^>]*>\s*<\/div>\s*<nav\b/.test(fs.readFileSync(path.join(root,file),'utf8')));
+  const pages=getPublicPages().filter(file=>/<main\b[^>]*>\s*<nav\b/.test(fs.readFileSync(path.join(root,file),'utf8')));
   assert(pages.length>0);
-  for(const selector of ['#scroll-progress:first-child + nav {','#scroll-progress:first-child + nav ol','#scroll-progress:first-child + nav ~ section:first-of-type'])assert(css.includes(selector),selector);
+  for(const selector of ['main > nav:first-child {','main > nav:first-child ol','main > nav:first-child ~ section:first-of-type'])assert(css.includes(selector),selector);
+  // Plus de barre de progression de défilement : elle précédait le fil d'Ariane et cassait ce sélecteur.
+  for(const file of getPublicPages())assert(!fs.readFileSync(path.join(root,file),'utf8').includes('id="scroll-progress"'),file);
 });
 test('chaque pied de page public relie les huit langues sans drapeau emoji',()=>{
   for(const file of getPublicPages()){
