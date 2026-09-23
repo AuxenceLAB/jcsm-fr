@@ -34,29 +34,8 @@
         function showBanner() {
             if (document.getElementById("cookie-banner")) return;
 
-            // Inject styles once
-            if (!document.getElementById("cookie-banner-styles")) {
-                var style = document.createElement("style");
-                style.id = "cookie-banner-styles";
-                style.textContent = [
-                    "#cookie-banner{position:fixed;bottom:0;left:0;right:0;z-index:9999;padding:1rem 1.5rem;background:#fff;border-top:1px solid rgba(32,91,196,0.08);box-shadow:0 -8px 32px rgba(0,0,0,0.06);transform:translateY(100%);animation:cookieSlideUp .4s cubic-bezier(.22,1,.36,1) forwards;animation-delay:.5s;opacity:0}",
-                    "@keyframes cookieSlideUp{to{transform:translateY(0);opacity:1}}",
-                    "body:has(#mobile-menu.open) #cookie-banner{display:none}",
-                    "#cookie-banner .cookie-inner{max-width:72rem;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1rem}",
-                    "#cookie-banner .cookie-text{font-size:0.875rem;color:#374151;flex:1;min-width:240px;margin:0;line-height:1.6}",
-                    "#cookie-banner .cookie-link{color:#205BC4;text-decoration:underline;text-underline-offset:2px;transition:color .2s ease}",
-                    "#cookie-banner .cookie-link:hover{color:#19499F}",
-                    "#cookie-banner .cookie-btns{display:flex;gap:0.5rem;flex-shrink:0}",
-                    "#cookie-banner .cookie-btn{padding:0.5rem 1.25rem;min-height:44px;font-size:0.875rem;font-weight:500;border-radius:0.5rem;cursor:pointer;transition:all .2s ease;font-family:inherit;line-height:1.4}",
-                    "#cookie-banner .cookie-btn:focus-visible{outline:2px solid #205BC4;outline-offset:2px}",
-                    "#cookie-banner .cookie-reject{border:1.5px solid #d1d5db;background:#fff;color:#374151}",
-                    "#cookie-banner .cookie-reject:hover{border-color:#205BC4;color:#19499F;background:#EAF1FF}",
-                    "#cookie-banner .cookie-accept{border:none;background:#205BC4;color:#fff;box-shadow:0 2px 8px rgba(32,91,196,0.25)}",
-                    "#cookie-banner .cookie-accept:hover{background:#19499F;box-shadow:0 4px 12px rgba(32,91,196,0.35);transform:translateY(-1px)}",
-                    "@media(max-width:640px){#cookie-banner{padding:1rem}#cookie-banner .cookie-inner{flex-direction:column;text-align:center;gap:0.75rem}#cookie-banner .cookie-btns{width:100%;justify-content:center}#cookie-banner .cookie-btn{flex:1;min-height:44px;justify-content:center}}"
-                ].join("");
-                document.head.appendChild(style);
-            }
+            // Styles : css/public-layout.css (feuille site-b). Les injecter ici forçait un recalcul
+            // complet des styles pendant le chargement (long task de 130 à 250 ms en mobile).
 
             // Textes dans la langue de la page (repli : français). Seules fr et en ont une page de confidentialité.
             var TEXTS = {
@@ -161,10 +140,14 @@
         if (consent === "accepted") {
             loadGTM();
         } else if (!consent) {
+            // Le bandeau attend que le navigateur soit libre : il ne concurrence plus le premier rendu.
+            var later = function () {
+                (window.requestIdleCallback || function (fn) { setTimeout(fn, 1); })(showBanner, { timeout: 2000 });
+            };
             if (document.readyState === "loading") {
-                document.addEventListener("DOMContentLoaded", showBanner);
+                document.addEventListener("DOMContentLoaded", later);
             } else {
-                showBanner();
+                later();
             }
         }
     } catch (e) {

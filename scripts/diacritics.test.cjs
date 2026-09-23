@@ -7,8 +7,8 @@ const path=require('node:path');
 const {root,getPublicPages}=require('./public-pages.cjs');
 const banned={
   es:/(?<![\p{L}-])(Instalacion|Belgica|Gestion|Diagnostico|diagnostico|Auditoria|auditoria|tecnicos?|navegacion|Proteccion|Operacion)(?![\p{L}-])/u,
-  pt:/(?<![\p{L}-])(servicos?|eletricos?|eletricas?|Instalacoes|instalacoes|ligacao|navegacao|Orcamento|orcamento)(?![\p{L}-])/u,
-  pl:/(?<![\p{L}-])(ciagu|Ciagly|nadzor|Nadzor|uslugi|Uslugi|Zarzadzanie|zarzadzanie|sie|Wyslij|Zadzwon)(?![\p{L}-])/u,
+  pt:/(?<![\p{L}-])(servicos?|eletricos?|eletricas?|Instalacoes|instalacoes|ligacao|navegacao|Orcamento|orcamento|telegestao|diagnostico)(?![\p{L}-])/u,
+  pl:/(?<![\p{L}-])(ciagu|Ciagly|nadzor|Nadzor|uslugi|Uslugi|Zarzadzanie|zarzadzanie|sie|Wyslij|Zadzwon|Pelna|pelna|Usluga|usluga|obejmujaca|identyfikowalnosc|identyfikowalnosci|identyfikowalnoscia|wlasna|ladowania|ladowanie|wielokanalowa)(?![\p{L}-])/u,
 };
 function readable(html){
   return html
@@ -21,6 +21,13 @@ test('aucune forme sans accent relevée ne réapparaît (es, pt, pl)',()=>{
     const re=banned[file.slice(0,2)];
     if(!re||file[2]!=='/')continue;
     const m=readable(fs.readFileSync(path.join(root,file),'utf8')).match(re);
+    assert(!m,`${file} : ${m&&m[0]}`);
+  }
+});
+test('les fichiers pour LLM (llms.txt, llms-full.txt) gardent leurs accents',()=>{
+  const re=/(?<![\p{L}/.-])(vehicules|electriques|societe|conformite|reponse|ouvrees|geographique|reglementation|certifiee|independante?)(?![\p{L}-])/iu;
+  for(const file of ['llms.txt','llms-full.txt']){
+    const m=fs.readFileSync(path.join(root,file),'utf8').replace(/https?:\/\/\S+/g,' ').match(re);
     assert(!m,`${file} : ${m&&m[0]}`);
   }
 });

@@ -108,3 +108,24 @@ test('les cartes sociales sont en 1200x630, identiques pour Open Graph et Twitte
     assert(/<meta property="og:image:alt" content="[^"]+">/.test(html),file);
   }
 });
+test('le texte des pages publiques ne part jamais en fondu (stagger-reveal masque les cartes a opacity 0)',()=>{
+  for(const file of getPublicPages())assert(!/\bstagger-reveal\b/.test(fs.readFileSync(path.join(root,file),'utf8')),file);
+});
+test('les tuiles Leaflet ne se fondent pas en plus-lighter (filets blancs au zoom fractionnaire)',()=>{
+  assert.match(fs.readFileSync(path.join(root,'css/site-b.css'),'utf8'),/\.leaflet-container \.leaflet-tile\{mix-blend-mode:normal\}/);
+});
+test('le bandeau cookies est style par la feuille site-b, pas injecte au chargement',()=>{
+  assert(!/createElement\(["']style["']\)/.test(fs.readFileSync(path.join(root,'js/cookie-consent.js'),'utf8')));
+  assert.match(fs.readFileSync(path.join(root,'css/site-b.css'),'utf8'),/#cookie-banner\{[^}]*position:fixed/);
+});
+test('chaque page regionale affiche son fil d Ariane Accueil / Couverture / Region, aligne sur le JSON-LD',()=>{
+  const zones=fs.readdirSync(path.join(root,'zones')).filter(f=>f.endsWith('.html'));assert.equal(zones.length,13);
+  for(const f of zones){
+    const html=fs.readFileSync(path.join(root,'zones',f),'utf8');
+    const nav=html.match(/<main[^>]*>\s*<nav aria-label="Fil d'Ariane"[\s\S]*?<\/nav>/);assert(nav,f);
+    assert.match(nav[0],/href="\/couverture"/,f);
+    const ld=JSON.parse(html.match(/<script type="application\/ld\+json">([^<]*BreadcrumbList[^<]*)<\/script>/)[1]).itemListElement;
+    assert.equal(ld[1].item,'https://jcsm.fr/couverture',f);
+    assert(nav[0].includes('aria-current="page">'+ld[2].name.replace(/&/g,'&amp;')+'<'),f);
+  }
+});

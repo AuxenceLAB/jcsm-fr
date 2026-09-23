@@ -44,6 +44,8 @@ server {
     server_name jcsm.fr;
 
     root /var/www/jcsm.fr;
+    # llms.txt, robots.txt, security.txt : sans charset, un navigateur lit l UTF-8 en windows-1252.
+    charset utf-8;
     index index.html index.php;
 
     # Custom 404 page

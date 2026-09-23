@@ -8,7 +8,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <!-- Cookie Consent + GTM (chargé après acceptation) -->
-    <script src="/js/cookie-consent.js?v=112" defer></script>
+    <script src="/js/cookie-consent.js?v=113" defer></script>
     <title>FAQ | Maintenance et Installation IRVE - JCSM</title>
     <meta name="description"
         content="Délais d'intervention, zones couvertes, certifications, devis, contrats de maintenance : les réponses de JCSM aux questions sur les bornes de recharge.">
@@ -35,7 +35,7 @@
     <meta name="twitter:image" content="https://jcsm.fr/images/og/jcsmtesla.jpg">
     <meta name="twitter:image:alt" content="Équipe JCSM sur un chantier d'installation de bornes de recharge">
     <link rel="preload" href="/fonts/source-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="/css/site-a-theme.css?v=112">
+    <link rel="stylesheet" href="/css/site-a-theme.css?v=113">
     <link rel="manifest" href="/manifest.json">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -58,18 +58,6 @@
         @keyframes faqReveal {
             from { opacity: 0; transform: translateY(-8px); }
             to { opacity: 1; transform: translateY(0); }
-        }
-        .faq-num {
-            width: 28px; height: 28px; border-radius: 8px;
-            background: rgba(32,91,196,0.07);
-            color: var(--blue);
-            font-size: 0.75rem; font-weight: 700;
-            display: flex; align-items: center; justify-content: center;
-            flex-shrink: 0;
-            transition: background 0.3s var(--ease), color 0.3s var(--ease);
-        }
-        details[open] .faq-num {
-            background: var(--blue); color: #fff;
         }
         @media (prefers-reduced-motion: reduce) {
             details .faq-answer { animation: none !important; }
@@ -214,7 +202,7 @@
         ]
     }
     </script>
-    <link rel="stylesheet" href="/css/site-b.css?v=112"><style id="quality-first-paint">body.jcsm-public{animation:none!important}</style>
+    <link rel="stylesheet" href="/css/site-b.css?v=113"><style id="quality-first-paint">body.jcsm-public{animation:none!important}</style>
 </head>
 
 <body class="text-gray-900 jcsm-public">
@@ -309,7 +297,6 @@
                     <details class="group bg-white border border-gray-200 rounded-xl p-5 hover:border-gray-300 transition-colors card-lift">
                         <summary class="font-medium text-gray-900 cursor-pointer flex items-center justify-between list-none [&::-webkit-details-marker]:hidden">
                             <div class="flex items-center gap-3">
-                                <span class="faq-num" aria-hidden="true">1</span>
                                 <span>Dans quels délais intervenez-vous en cas de panne ?</span>
                             </div>
                             <span class="faq-chevron"><svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg></span>
@@ -322,7 +309,6 @@
                     <details class="group bg-white border border-gray-200 rounded-xl p-5 hover:border-gray-300 transition-colors card-lift">
                         <summary class="font-medium text-gray-900 cursor-pointer flex items-center justify-between list-none [&::-webkit-details-marker]:hidden">
                             <div class="flex items-center gap-3">
-                                <span class="faq-num" aria-hidden="true">2</span>
                                 <span>Comment demander un dépannage urgent ?</span>
                             </div>
                             <span class="faq-chevron"><svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg></span>
@@ -335,7 +321,6 @@
                     <details class="group bg-white border border-gray-200 rounded-xl p-5 hover:border-gray-300 transition-colors card-lift">
                         <summary class="font-medium text-gray-900 cursor-pointer flex items-center justify-between list-none [&::-webkit-details-marker]:hidden">
                             <div class="flex items-center gap-3">
-                                <span class="faq-num" aria-hidden="true">3</span>
                                 <span>Quelles zones couvrez-vous ?</span>
                             </div>
                             <span class="faq-chevron"><svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg></span>
@@ -348,7 +333,6 @@
                     <details class="group bg-white border border-gray-200 rounded-xl p-5 hover:border-gray-300 transition-colors card-lift">
                         <summary class="font-medium text-gray-900 cursor-pointer flex items-center justify-between list-none [&::-webkit-details-marker]:hidden">
                             <div class="flex items-center gap-3">
-                                <span class="faq-num" aria-hidden="true">4</span>
                                 <span>Faut-il un contrat pour demander une intervention ?</span>
                             </div>
                             <span class="faq-chevron"><svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg></span>
@@ -373,7 +357,6 @@
                     <details class="group bg-white border border-gray-200 rounded-xl p-5 hover:border-gray-300 transition-colors card-lift">
                         <summary class="font-medium text-gray-900 cursor-pointer flex items-center justify-between list-none [&::-webkit-details-marker]:hidden">
                             <div class="flex items-center gap-3">
-                                <span class="faq-num" aria-hidden="true">5</span>
                                 <span>Intervenez-vous sur toutes les marques de bornes ?</span>
                             </div>
                             <span class="faq-chevron"><svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg></span>
@@ -386,7 +369,6 @@
                     <details class="group bg-white border border-gray-200 rounded-xl p-5 hover:border-gray-300 transition-colors card-lift">
                         <summary class="font-medium text-gray-900 cursor-pointer flex items-center justify-between list-none [&::-webkit-details-marker]:hidden">
                             <div class="flex items-center gap-3">
-                                <span class="faq-num" aria-hidden="true">6</span>
                                 <span>Intervenez-vous sur des bornes installées par un autre prestataire ?</span>
                             </div>
                             <span class="faq-chevron"><svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg></span>
@@ -399,7 +381,6 @@
                     <details class="group bg-white border border-gray-200 rounded-xl p-5 hover:border-gray-300 transition-colors card-lift">
                         <summary class="font-medium text-gray-900 cursor-pointer flex items-center justify-between list-none [&::-webkit-details-marker]:hidden">
                             <div class="flex items-center gap-3">
-                                <span class="faq-num" aria-hidden="true">7</span>
                                 <span>Prenez-vous en charge la recharge rapide (DC) ?</span>
                             </div>
                             <span class="faq-chevron"><svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg></span>
@@ -424,7 +405,6 @@
                     <details class="group bg-white border border-gray-200 rounded-xl p-5 hover:border-gray-300 transition-colors card-lift">
                         <summary class="font-medium text-gray-900 cursor-pointer flex items-center justify-between list-none [&::-webkit-details-marker]:hidden">
                             <div class="flex items-center gap-3">
-                                <span class="faq-num" aria-hidden="true">8</span>
                                 <span>Comment obtenir un devis ?</span>
                             </div>
                             <span class="faq-chevron"><svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg></span>
@@ -437,7 +417,6 @@
                     <details class="group bg-white border border-gray-200 rounded-xl p-5 hover:border-gray-300 transition-colors card-lift">
                         <summary class="font-medium text-gray-900 cursor-pointer flex items-center justify-between list-none [&::-webkit-details-marker]:hidden">
                             <div class="flex items-center gap-3">
-                                <span class="faq-num" aria-hidden="true">9</span>
                                 <span>Que comprend un contrat de maintenance ?</span>
                             </div>
                             <span class="faq-chevron"><svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg></span>
@@ -450,7 +429,6 @@
                     <details class="group bg-white border border-gray-200 rounded-xl p-5 hover:border-gray-300 transition-colors card-lift">
                         <summary class="font-medium text-gray-900 cursor-pointer flex items-center justify-between list-none [&::-webkit-details-marker]:hidden">
                             <div class="flex items-center gap-3">
-                                <span class="faq-num" aria-hidden="true">10</span>
                                 <span>À quelle fréquence faut-il faire la maintenance préventive ?</span>
                             </div>
                             <span class="faq-chevron"><svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg></span>
@@ -463,7 +441,6 @@
                     <details class="group bg-white border border-gray-200 rounded-xl p-5 hover:border-gray-300 transition-colors card-lift">
                         <summary class="font-medium text-gray-900 cursor-pointer flex items-center justify-between list-none [&::-webkit-details-marker]:hidden">
                             <div class="flex items-center gap-3">
-                                <span class="faq-num" aria-hidden="true">11</span>
                                 <span>Que contient un rapport d'intervention ?</span>
                             </div>
                             <span class="faq-chevron"><svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg></span>
@@ -488,7 +465,6 @@
                     <details class="group bg-white border border-gray-200 rounded-xl p-5 hover:border-gray-300 transition-colors card-lift">
                         <summary class="font-medium text-gray-900 cursor-pointer flex items-center justify-between list-none [&::-webkit-details-marker]:hidden">
                             <div class="flex items-center gap-3">
-                                <span class="faq-num" aria-hidden="true">12</span>
                                 <span>Vos techniciens sont-ils certifiés ?</span>
                             </div>
                             <span class="faq-chevron"><svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg></span>
@@ -501,7 +477,6 @@
                     <details class="group bg-white border border-gray-200 rounded-xl p-5 hover:border-gray-300 transition-colors card-lift">
                         <summary class="font-medium text-gray-900 cursor-pointer flex items-center justify-between list-none [&::-webkit-details-marker]:hidden">
                             <div class="flex items-center gap-3">
-                                <span class="faq-num" aria-hidden="true">13</span>
                                 <span>Travaillez-vous avec les particuliers ?</span>
                             </div>
                             <span class="faq-chevron"><svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg></span>
@@ -514,7 +489,6 @@
                     <details class="group bg-white border border-gray-200 rounded-xl p-5 hover:border-gray-300 transition-colors card-lift">
                         <summary class="font-medium text-gray-900 cursor-pointer flex items-center justify-between list-none [&::-webkit-details-marker]:hidden">
                             <div class="flex items-center gap-3">
-                                <span class="faq-num" aria-hidden="true">14</span>
                                 <span>Proposez-vous un support téléphonique pour les utilisateurs de bornes ?</span>
                             </div>
                             <span class="faq-chevron"><svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg></span>
@@ -527,7 +501,6 @@
                     <details class="group bg-white border border-gray-200 rounded-xl p-5 hover:border-gray-300 transition-colors card-lift">
                         <summary class="font-medium text-gray-900 cursor-pointer flex items-center justify-between list-none [&::-webkit-details-marker]:hidden">
                             <div class="flex items-center gap-3">
-                                <span class="faq-num" aria-hidden="true">15</span>
                                 <span>Pouvez-vous piloter un déploiement multi-sites ?</span>
                             </div>
                             <span class="faq-chevron"><svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg></span>
@@ -659,11 +632,11 @@
         </svg>
     </button>
 
-    <script src="/js/config.js?v=112" defer></script>
-    <script src="/js/utils.js?v=112" defer></script>
-    <script src="/js/i18n.js?v=112" defer></script>
-    <script src="/js/public.js?v=112" defer></script>
-    <script src="/js/wow-effects.js?v=112" defer></script>
+    <script src="/js/config.js?v=113" defer></script>
+    <script src="/js/utils.js?v=113" defer></script>
+    <script src="/js/i18n.js?v=113" defer></script>
+    <script src="/js/public.js?v=113" defer></script>
+    <script src="/js/wow-effects.js?v=113" defer></script>
     <!-- Service Worker Registration -->
     <script>
         if ('serviceWorker' in navigator) {
