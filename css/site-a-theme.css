@@ -3277,21 +3277,7 @@ a:focus-visible, button:focus-visible {
   box-shadow: 0 24px 48px -12px rgba(32, 91, 196, 0.15), 0 0 0 1px rgba(32, 91, 196, 0.05);
 }
 
-/* 8. Staggered grid reveal.
-   Le masquage (opacity:0) est GATE sur .js-loaded, comme .section-appear : sans JS,
-   JS lent, ou crawler, le contenu reste visible (amelioration progressive). Sinon des
-   grilles entieres restaient invisibles a jamais (rattrapees seulement par reduced-motion). */
-.js-loaded .grid-stagger > * {
-  opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1), transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
-}
-.grid-stagger.visible > :nth-child(1) { transition-delay: 0s; opacity: 1; transform: none; }
-.grid-stagger.visible > :nth-child(2) { transition-delay: 0.08s; opacity: 1; transform: none; }
-.grid-stagger.visible > :nth-child(3) { transition-delay: 0.16s; opacity: 1; transform: none; }
-.grid-stagger.visible > :nth-child(4) { transition-delay: 0.24s; opacity: 1; transform: none; }
-.grid-stagger.visible > :nth-child(5) { transition-delay: 0.32s; opacity: 1; transform: none; }
-.grid-stagger.visible > :nth-child(6) { transition-delay: 0.4s; opacity: 1; transform: none; }
+/* 8. Grilles : plus de décalage échelonné, les sections apparaissent d'un seul fondu (wow-effects.js). */
 
 /* 9. Accessibility: disable animations for reduced-motion preference */
 @media (prefers-reduced-motion: reduce) {
