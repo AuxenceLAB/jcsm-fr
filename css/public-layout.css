@@ -108,3 +108,8 @@ body.jcsm-public {
 
 /* Casse normale partout : plus de capitales espacées (titres de pied de page, libellés de chiffres, étiquettes du blog). */
 .jcsm-public :is(.uppercase,.hero-badge span,.glass-badge .text-sm,.glass-badge .text-xs,.blog-card span[class*="bg-blue"],.blog-badge,.blog-toc-title,.takeaway-title){text-transform:none;letter-spacing:.01em}
+
+/* Cartes : cadre carré au téléphone, 4:3 ailleurs, pour que la France et la Belgique remplissent le cadre. */
+.jcsm-public .coverage-map-frame,.jcsm-public #map{aspect-ratio:1/1;height:auto}
+.jcsm-public #map{max-width:760px;margin-inline:auto}
+@media(min-width:640px){.jcsm-public .coverage-map-frame,.jcsm-public #map{aspect-ratio:4/3}}

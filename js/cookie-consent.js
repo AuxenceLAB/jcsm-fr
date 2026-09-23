@@ -39,9 +39,9 @@
                 var style = document.createElement("style");
                 style.id = "cookie-banner-styles";
                 style.textContent = [
-                    "#cookie-banner{position:fixed;bottom:0;left:0;right:0;z-index:9999;padding:1rem 1.5rem;background:rgba(255,255,255,0.95);backdrop-filter:blur(16px) saturate(1.8);-webkit-backdrop-filter:blur(16px) saturate(1.8);border-top:1px solid rgba(32,91,196,0.08);box-shadow:0 -8px 32px rgba(0,0,0,0.06);transform:translateY(100%);animation:cookieSlideUp .4s cubic-bezier(.22,1,.36,1) forwards;animation-delay:.5s;opacity:0}",
+                    "#cookie-banner{position:fixed;bottom:0;left:0;right:0;z-index:9999;padding:1rem 1.5rem;background:#fff;border-top:1px solid rgba(32,91,196,0.08);box-shadow:0 -8px 32px rgba(0,0,0,0.06);transform:translateY(100%);animation:cookieSlideUp .4s cubic-bezier(.22,1,.36,1) forwards;animation-delay:.5s;opacity:0}",
                     "@keyframes cookieSlideUp{to{transform:translateY(0);opacity:1}}",
-                    "#mobile-menu.open~#cookie-banner{display:none}",
+                    "body:has(#mobile-menu.open) #cookie-banner{display:none}",
                     "#cookie-banner .cookie-inner{max-width:72rem;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1rem}",
                     "#cookie-banner .cookie-text{font-size:0.875rem;color:#374151;flex:1;min-width:240px;margin:0;line-height:1.6}",
                     "#cookie-banner .cookie-link{color:#205BC4;text-decoration:underline;text-underline-offset:2px;transition:color .2s ease}",
@@ -110,7 +110,18 @@
 
             wrapper.appendChild(btnGroup);
             banner.appendChild(wrapper);
-            document.body.appendChild(banner);
+            // Tôt dans l'ordre de tabulation (juste après le lien d'évitement) : pas besoin de
+            // parcourir toute la page pour atteindre Refuser / Accepter.
+            var skip = document.querySelector(".skip-link");
+            if (skip && skip.parentNode === document.body) skip.after(banner);
+            else document.body.insertBefore(banner, document.body.firstChild);
+
+            // Tant que le bandeau est affiché, le défilement au clavier garde l'élément
+            // focalisé au-dessus de lui (WCAG 2.4.11).
+            var root = document.documentElement;
+            function reserve() { root.style.scrollPaddingBottom = (banner.offsetHeight + 16) + "px"; }
+            reserve();
+            window.addEventListener("resize", reserve, { passive: true });
 
             // Non-modal banner: preserve DOM tab order and never steal focus.
             // Escape rejects optional cookies only when focus is inside the banner.
@@ -123,6 +134,8 @@
             });
 
             function dismiss() {
+                window.removeEventListener("resize", reserve);
+                root.style.scrollPaddingBottom = "";
                 banner.style.animation = "none";
                 banner.style.transform = "translateY(100%)";
                 banner.style.opacity = "0";

@@ -24,28 +24,33 @@
             var points = data.points.filter(function (p) {
                 return Number.isFinite(p.lat) && Number.isFinite(p.lng) && p.lat > 40 && p.lat < 53 && p.lng > -6 && p.lng < 11;
             });
-            var map = L.map(host, { scrollWheelZoom: false, attributionControl: true });
+            // Zoom fractionnaire : la France et la Belgique remplissent le cadre au lieu de retomber au zoom entier inférieur.
+            var map = L.map(host, { scrollWheelZoom: false, attributionControl: true, zoomSnap: 0.25, zoomDelta: 0.5 });
             L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
                 maxZoom: 19,
                 attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
             }).addTo(map);
-            var bounds = L.latLngBounds(points.map(function (p) { return [p.lat, p.lng]; }));
+            var bounds = L.latLngBounds([[41.3, -5.2], [51.5, 9.6]]).extend(L.latLngBounds(points.map(function (p) { return [p.lat, p.lng]; })));
+            map.setMaxBounds(bounds.pad(0.6));
             var layer = L.layerGroup().addTo(map);
-            function overview() { map.closePopup(); map.fitBounds(bounds, { padding: [26, 26], maxZoom: 6 }); }
+            function overview() { map.closePopup(); map.fitBounds(bounds, { padding: [16, 16], maxZoom: 7 }); }
             function draw() {
                 layer.clearLayers();
-                var groups = new Map();
+                // Regroupement glouton : chaque repère reste à 44 px au moins de ses voisins,
+                // donc aucune cible (36 px) n'en recouvre une autre.
+                var seeds = [];
                 points.forEach(function (p) {
                     var pixel = map.project([p.lat, p.lng], map.getZoom());
-                    var key = map.getZoom() >= 9 ? p.code : Math.floor(pixel.x / 42) + ':' + Math.floor(pixel.y / 42);
-                    if (!groups.has(key)) groups.set(key, []);
-                    groups.get(key).push(p);
+                    var seed = null;
+                    for (var i = 0; i < seeds.length && !seed; i++) {
+                        if (map.getZoom() >= 9 ? seeds[i].group[0].code === p.code : seeds[i].pixel.distanceTo(pixel) < 44) seed = seeds[i];
+                    }
+                    if (seed) seed.group.push(p); else seeds.push({ pixel: pixel, at: [p.lat, p.lng], group: [p] });
                 });
-                groups.forEach(function (group) {
-                    var lat = group.reduce(function (s, p) { return s + p.lat; }, 0) / group.length;
-                    var lng = group.reduce(function (s, p) { return s + p.lng; }, 0) / group.length;
+                seeds.forEach(function (seed) {
+                    var group = seed.group, lat = seed.at[0], lng = seed.at[1];
                     var label = group.length > 1 ? group.length + T.many : group[0].name;
-                    var icon = L.divIcon({ className: 'jcsm-coverage-marker', iconSize: [44, 44], iconAnchor: [22, 22],
+                    var icon = L.divIcon({ className: 'jcsm-coverage-marker', iconSize: [36, 36], iconAnchor: [18, 18],
                         html: '<span>' + (group.length > 1 ? group.length : '<i></i>') + '</span>' });
                     var marker = L.marker([lat, lng], { icon: icon, title: label, alt: label, keyboard: true }).addTo(layer);
                     var text = document.createElement('span');
