@@ -197,7 +197,6 @@
     </header>
 
     <main id="main-content" tabindex="-1" role="main">
-    <div id="scroll-progress" class="fixed top-0 left-0 h-1 bg-blue-600 z-[60] transition-all duration-150" style="width: 0%;" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Lesefortschritt"></div>
         <nav aria-label="Brotkrümelnavigation" class="max-w-6xl mx-auto px-4 sm:px-6 pt-24 pb-0">
             <ol class="flex items-center gap-2 text-sm text-gray-500">
                 <li><a href="/de/" class="hover:text-blue-600 transition-colors">Startseite</a></li>
@@ -802,7 +801,7 @@
         .popup-content { padding: 16px 20px; }
         .popup-content h3 { font-size: 15px; font-weight: 700; color: #1e293b; margin-bottom: 4px; }
         .popup-content p { font-size: 12px; color: #64748b; margin: 0; }
-        .popup-content .popup-badge { display: inline-block; margin-top: 8px; padding: 3px 10px; background: #EFF6FF; color: #2563EB; border-radius: 8px; font-size: 11px; font-weight: 600; }
+        .popup-content .popup-badge { display: inline-block; margin-top: 8px; padding: 3px 10px; background: #EAF1FF; color: #205BC4; border-radius: 8px; font-size: 11px; font-weight: 600; }
     </style>
 
     <script src="../js/config.js?v=105" defer></script>
@@ -866,7 +865,7 @@
                 cities.forEach(city => {
                     L.circleMarker([city.lat, city.lng], {
                         radius: 7,
-                        fillColor: '#2563EB',
+                        fillColor: '#205BC4',
                         fillOpacity: 1,
                         color: '#fff',
                         weight: 2.5,
