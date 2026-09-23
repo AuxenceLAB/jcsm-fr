@@ -21,7 +21,7 @@ JCSM is a static website for an electric vehicle charging infrastructure (IRVE) 
 - **Design system (refonte 2026-06, "Clarté éditoriale B1")**: cream background `#FAFAF7` (`--color-bg`), ink text `#0F1B2D` (`--color-ink`), JCSM blue `#2563EB` accents only (violet/cyan banned), borders `#E3E2DB` (`--color-line`). Fonts: editorial serif **Fraunces**, **self-hosted** (RGPD-safe, no Google CDN) with Georgia/Times fallback via `--font-serif`, for h1-h2 only, weight 400 (`em` inside h1/h2 renders italic blue), h3-h6 in Inter bold, Inter for body (`--font-sans`). The `.woff2` files live in `/fonts/` (latin + latin-ext, normal 400/600 + italic 400/500); `@font-face` declarations are at the top of `css/critical.css` (render-blocking, loaded early); each page `<head>` preloads `/fonts/fraunces-400-latin.woff2` (the h1 weight). No external font dependency, so the CSP stays `font-src 'self'` (no Google allowed). Site is behind Cloudflare; cache-busting via `?v=` invalidates at the edge too. Evolution "Éditorial premium" 2026-06: `.sec-label` carries a gold rule (`#9A7B3F`), `.card-feature` lifts on soft shadow hover, stats use `.stat-serif`, hero photos use `.shot` (badge + floatcard) or `.hero-image-container`. Spec: `docs/superpowers/specs/2026-06-16-refonte-editorial-premium-design.md`. Components: `.card-lead` (ink), `.card-feature` (white+border), `.card-quote`, `.card-cta` (blue, bring own padding), `.sec-label`, `.section-dark` (one per page max, with `.step`), `.section-alt`, pill `.btn-primary`/`.btn-secondary` (border-radius forced via `!important`). Animations kept (2026-09): one sequence only, section fade-in below the fold (opacity, 0.3 s); no counters, no scroll progress bar, static logo wall (grayscale logos). Banned: particles, magnetic, spotlight, parallax, splittext, glassmorphism (except nav blur 8px), animated gradients, `bg-gradient-to-*` utilities. Wording rules: "réponse sous 24h ouvrées" (never "4h"), "France entière et Belgique" (never "7 régions"), no Google-rating claims ("4,9/5") or `aggregateRating`. Spec: `docs/superpowers/specs/2026-06-09-refonte-design-editorial-design.md`.
 - **Standalone partner/product mockups**: `powerdot.html`, `virta.html`, `evergreen.html` are intentional standalone partner/product mockup pages (noindex, orphaned, not on the shared B1 shell). They are **EXCLUDED from the B1 design-system scope** — they intentionally use their own separate palette, so design audits should not flag them. (All three are `Disallow`ed in `robots.txt`.)
 - **`demo/`**: a separate, git-tracked copy of the site; blocked from indexing (`Disallow: /demo/` should cover it) and out of scope for design audits.
-- **PWA**: `manifest.json` + `sw.js` (cache v108). Strategies: network-first for public HTML, cache-first for assets. Private API and report paths are network-only and never stored.
+- **PWA**: `manifest.json` + `sw.js` (cache v109). Strategies: network-first for public HTML, cache-first for assets. Private API and report paths are network-only and never stored.
 
 ### Current public layout contract (2026-09-05)
 
@@ -35,7 +35,7 @@ After adding a public page, run `node scripts/sync-public-layout.cjs --write` an
 
 | File | Role |
 |------|------|
-| `config.js` | API endpoints (all server-side proxied), auth helpers (session CRUD, Bearer token headers), cache TTLs. Version 2.57.21. |
+| `config.js` | API endpoints (all server-side proxied), auth helpers (session CRUD, Bearer token headers), cache TTLs. Version 2.57.22. |
 | `public.js` | Public page behaviour: mobile menu, scroll animations, form validation, toast notifications (XSS-safe via `textContent`). Internal links are never intercepted (Ctrl/Cmd+click opens a new tab). |
 | `wow-effects.js` | The single motion sequence: section fade-in (opacity 0.3 s) and smooth anchor scroll (skip link excluded). Nothing under `prefers-reduced-motion`. Style injection with `id="jcsm-wow-styles"` dedup guard. |
 | `map.js` | Leaflet map integration with geocoded intervention markers. Uses centralized `window.escapeHtml()`. Filters Null Island (0,0) coordinates. |
@@ -115,9 +115,9 @@ Cache-bust by hard-refreshing (Ctrl+Shift+R). When adding a new language directo
 
 ### Service Worker
 
-After CSS/JS changes, bump the cache version in `sw.js` (comment + `STATIC_CACHE`, `DYNAMIC_CACHE`) to invalidate old caches. Current version: **v108**. There is no private API cache.
+After CSS/JS changes, bump the cache version in `sw.js` (comment + `STATIC_CACHE`, `DYNAMIC_CACHE`) to invalidate old caches. Current version: **v109**. There is no private API cache.
 
-Also bump `version` in `js/config.js`. Current: **2.57.21** (HTML `?v=108`).
+Also bump `version` in `js/config.js`. Current: **2.57.22** (HTML `?v=109`).
 
 HTML pages also carry `?v=NN` cache-buster query strings on their CSS/JS links (~149 files). After significant CSS/JS changes, bump them too: `grep -rln '?v=NN' --include='*.html' . | grep -v '^./demo' | xargs sed -i 's/?v=NN/?v=MM/g'`. Keep this number in sync with the sw.js version.
 
