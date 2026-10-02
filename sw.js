@@ -1,6 +1,6 @@
-// JCSM Service Worker - Enhanced PWA Support v113
-const STATIC_CACHE = 'jcsm-static-v113';
-const DYNAMIC_CACHE = 'jcsm-dynamic-v113';
+// JCSM Service Worker - Enhanced PWA Support v114
+const STATIC_CACHE = 'jcsm-static-v114';
+const DYNAMIC_CACHE = 'jcsm-dynamic-v114';
 
 // Chemins privés : jamais mis en cache, jamais servis depuis le cache
 // (API authentifiée, portail interne, rapports d'intervention). L'API reste
@@ -33,7 +33,7 @@ const CRITICAL_URLS = [
     '/js/analytics.js',
     '/js/cookie-consent.js',
     '/images/logo.webp',
-    '/icon-192.png',
+    '/icon-192.png?v=114',
     '/manifest.json',
     '/offline.html'
 ];
