@@ -14,7 +14,7 @@
     <xhtml:link rel="alternate" hreflang="pl" href="https://jcsm.fr/pl/"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://jcsm.fr/it/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://jcsm.fr/"/>
-    <lastmod>2026-09-23</lastmod>
+    <lastmod>2026-10-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
@@ -114,7 +114,7 @@
     <xhtml:link rel="alternate" hreflang="pl" href="https://jcsm.fr/pl/centrum-telefoniczne"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://jcsm.fr/it/centro-chiamate"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://jcsm.fr/centre-appel"/>
-    <lastmod>2026-09-23</lastmod>
+    <lastmod>2026-10-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -125,7 +125,7 @@
   <!-- Solutions pages (priority 0.8) -->
   <url>
     <loc>https://jcsm.fr/solutions/</loc>
-    <lastmod>2026-09-23</lastmod>
+    <lastmod>2026-10-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -137,7 +137,7 @@
   </url>
   <url>
     <loc>https://jcsm.fr/solutions/fabricants-bornes</loc>
-    <lastmod>2026-09-23</lastmod>
+    <lastmod>2026-10-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -149,7 +149,7 @@
   </url>
   <url>
     <loc>https://jcsm.fr/solutions/retail-grande-distribution</loc>
-    <lastmod>2026-09-23</lastmod>
+    <lastmod>2026-10-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -165,7 +165,7 @@
     <xhtml:link rel="alternate" hreflang="pl" href="https://jcsm.fr/pl/o-nas"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://jcsm.fr/it/chi-siamo"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://jcsm.fr/a-propos"/>
-    <lastmod>2026-09-23</lastmod>
+    <lastmod>2026-10-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -173,7 +173,7 @@
     <loc>https://jcsm.fr/faq</loc>
     <xhtml:link rel="alternate" hreflang="fr" href="https://jcsm.fr/faq"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://jcsm.fr/faq"/>
-    <lastmod>2026-09-23</lastmod>
+    <lastmod>2026-10-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -182,7 +182,7 @@
     <xhtml:link rel="alternate" hreflang="fr" href="https://jcsm.fr/devenir-partenaire"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://jcsm.fr/en/become-partner"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://jcsm.fr/devenir-partenaire"/>
-    <lastmod>2026-09-23</lastmod>
+    <lastmod>2026-10-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -212,7 +212,7 @@
   </url>
   <url>
     <loc>https://jcsm.fr/presse</loc>
-    <lastmod>2026-09-23</lastmod>
+    <lastmod>2026-10-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -222,7 +222,7 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://jcsm.fr/en/coverage"/>
     <xhtml:link rel="alternate" hreflang="pt" href="https://jcsm.fr/pt/cobertura"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://jcsm.fr/couverture"/>
-    <lastmod>2026-09-23</lastmod>
+    <lastmod>2026-10-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -236,38 +236,38 @@
   <!-- Inclusion page -->
   <url>
     <loc>https://jcsm.fr/inclusion</loc>
-    <lastmod>2026-09-23</lastmod>
+    <lastmod>2026-10-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <!-- Zone pages (priority 0.7) -->
   <url>
     <loc>https://jcsm.fr/zones/france</loc>
-    <lastmod>2026-09-23</lastmod>
+    <lastmod>2026-10-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://jcsm.fr/zones/ile-de-france</loc>
-    <lastmod>2026-09-23</lastmod>
+    <lastmod>2026-10-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://jcsm.fr/zones/paca</loc>
-    <lastmod>2026-09-23</lastmod>
+    <lastmod>2026-10-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://jcsm.fr/zones/auvergne-rhone-alpes</loc>
-    <lastmod>2026-09-23</lastmod>
+    <lastmod>2026-10-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://jcsm.fr/zones/occitanie</loc>
-    <lastmod>2026-09-23</lastmod>
+    <lastmod>2026-10-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -279,7 +279,7 @@
   </url>
   <url>
     <loc>https://jcsm.fr/zones/hauts-de-france</loc>
-    <lastmod>2026-09-23</lastmod>
+    <lastmod>2026-10-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -291,7 +291,7 @@
   </url>
   <url>
     <loc>https://jcsm.fr/zones/bretagne</loc>
-    <lastmod>2026-09-23</lastmod>
+    <lastmod>2026-10-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -315,51 +315,51 @@
   </url>
   <url>
     <loc>https://jcsm.fr/zones/belgique</loc>
-    <lastmod>2026-09-23</lastmod>
+    <lastmod>2026-10-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <!-- Blog index -->
   <url>
     <loc>https://jcsm.fr/blog</loc>
-    <lastmod>2026-09-23</lastmod>
+    <lastmod>2026-10-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <!-- Blog articles (priority 0.6, changefreq weekly) -->
   <url>
     <loc>https://jcsm.fr/blog/prix-installation-borne-recharge-2026</loc>
-    <lastmod>2026-09-23</lastmod>
+    <lastmod>2026-10-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://jcsm.fr/blog/conformite-irve-2026-normes-nf-c-15-100</loc>
-    <lastmod>2026-09-22</lastmod>
+    <lastmod>2026-10-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://jcsm.fr/blog/cout-maintenance-borne-recharge-2026</loc>
-    <lastmod>2026-09-23</lastmod>
+    <lastmod>2026-10-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://jcsm.fr/blog/aides-installation-borne-recharge-entreprise-2026</loc>
-    <lastmod>2026-09-23</lastmod>
+    <lastmod>2026-10-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://jcsm.fr/blog/taux-disponibilite-bornes-irve</loc>
-    <lastmod>2026-09-23</lastmod>
+    <lastmod>2026-10-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://jcsm.fr/blog/certification-qualifelec-irve</loc>
-    <lastmod>2026-09-23</lastmod>
+    <lastmod>2026-10-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -371,7 +371,7 @@
   </url>
   <url>
     <loc>https://jcsm.fr/blog/deploiement-multi-sites-irve</loc>
-    <lastmod>2026-09-23</lastmod>
+    <lastmod>2026-10-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -383,19 +383,19 @@
   </url>
   <url>
     <loc>https://jcsm.fr/blog/comparatif-bornes-dc-puissance</loc>
-    <lastmod>2026-09-23</lastmod>
+    <lastmod>2026-10-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://jcsm.fr/blog/immatriculations-vehicules-electriques-bilan-2025</loc>
-    <lastmod>2026-09-23</lastmod>
+    <lastmod>2026-10-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://jcsm.fr/blog/ce-qui-change-2026-mobilite-electrique</loc>
-    <lastmod>2026-09-23</lastmod>
+    <lastmod>2026-10-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -407,7 +407,7 @@
   </url>
   <url>
     <loc>https://jcsm.fr/blog/aide-advenir-subventions-irve</loc>
-    <lastmod>2026-09-23</lastmod>
+    <lastmod>2026-10-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -431,7 +431,7 @@
   </url>
   <url>
     <loc>https://jcsm.fr/blog/record-recharge-ete-2025</loc>
-    <lastmod>2026-09-23</lastmod>
+    <lastmod>2026-10-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -461,13 +461,13 @@
   </url>
   <url>
     <loc>https://jcsm.fr/blog/plan-gouvernement-400000-bornes-2030</loc>
-    <lastmod>2026-09-23</lastmod>
+    <lastmod>2026-10-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://jcsm.fr/blog/reglement-afir-obligations-bornes-recharge</loc>
-    <lastmod>2026-09-23</lastmod>
+    <lastmod>2026-10-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -491,7 +491,7 @@
   </url>
   <url>
     <loc>https://jcsm.fr/blog/courbes-de-charge-recharge-electrique</loc>
-    <lastmod>2026-09-23</lastmod>
+    <lastmod>2026-10-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -509,25 +509,25 @@
   </url>
   <url>
     <loc>https://jcsm.fr/blog/degradations-cables-coupes-bornes-recharge</loc>
-    <lastmod>2026-09-22</lastmod>
+    <lastmod>2026-10-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://jcsm.fr/blog/choisir-prestataire-maintenance-irve</loc>
-    <lastmod>2026-09-23</lastmod>
+    <lastmod>2026-10-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://jcsm.fr/blog/installer-bornes-recharge-entreprise</loc>
-    <lastmod>2026-09-23</lastmod>
+    <lastmod>2026-10-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://jcsm.fr/blog/ocpp-1-6-vs-2-0-protocole-bornes</loc>
-    <lastmod>2026-09-23</lastmod>
+    <lastmod>2026-10-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -551,13 +551,13 @@
   </url>
   <url>
     <loc>https://jcsm.fr/blog/cpo-emsp-acteurs-recharge-electrique</loc>
-    <lastmod>2026-09-23</lastmod>
+    <lastmod>2026-10-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://jcsm.fr/blog/v2g-v2h-recharge-bidirectionnelle</loc>
-    <lastmod>2026-09-23</lastmod>
+    <lastmod>2026-10-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -569,7 +569,7 @@
   </url>
   <url>
     <loc>https://jcsm.fr/blog/flottes-electriques-guide-entreprises</loc>
-    <lastmod>2026-09-22</lastmod>
+    <lastmod>2026-10-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -581,7 +581,7 @@
   </url>
   <url>
     <loc>https://jcsm.fr/blog/interoperabilite-roaming-recharge-europe</loc>
-    <lastmod>2026-09-23</lastmod>
+    <lastmod>2026-10-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -593,7 +593,7 @@
   </url>
   <url>
     <loc>https://jcsm.fr/blog/temps-recharge-calculer-optimiser</loc>
-    <lastmod>2026-09-23</lastmod>
+    <lastmod>2026-10-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -637,7 +637,7 @@
     <xhtml:link rel="alternate" hreflang="pt" href="https://jcsm.fr/pt/operacao-manutencao"/>
     <xhtml:link rel="alternate" hreflang="pl" href="https://jcsm.fr/pl/eksploatacja-konserwacja"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://jcsm.fr/it/gestione-manutenzione"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://jcsm.fr/exploitation"/><lastmod>2026-09-23</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jcsm.fr/exploitation"/><lastmod>2026-10-04</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://jcsm.fr/en/installation-security</loc>
     <xhtml:link rel="alternate" hreflang="fr" href="https://jcsm.fr/securisation-installations"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://jcsm.fr/en/installation-security"/>
@@ -657,7 +657,7 @@
     <xhtml:link rel="alternate" hreflang="pt" href="https://jcsm.fr/pt/central-atendimento"/>
     <xhtml:link rel="alternate" hreflang="pl" href="https://jcsm.fr/pl/centrum-telefoniczne"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://jcsm.fr/it/centro-chiamate"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://jcsm.fr/centre-appel"/><lastmod>2026-09-23</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jcsm.fr/centre-appel"/><lastmod>2026-10-04</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://jcsm.fr/en/about</loc>
     <xhtml:link rel="alternate" hreflang="fr" href="https://jcsm.fr/a-propos"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://jcsm.fr/en/about"/>
@@ -667,7 +667,7 @@
     <xhtml:link rel="alternate" hreflang="pt" href="https://jcsm.fr/pt/sobre-nos"/>
     <xhtml:link rel="alternate" hreflang="pl" href="https://jcsm.fr/pl/o-nas"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://jcsm.fr/it/chi-siamo"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://jcsm.fr/a-propos"/><lastmod>2026-09-23</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jcsm.fr/a-propos"/><lastmod>2026-10-04</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://jcsm.fr/en/contact</loc>
     <xhtml:link rel="alternate" hreflang="fr" href="https://jcsm.fr/contact"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://jcsm.fr/en/contact"/>
@@ -685,12 +685,12 @@
   <url><loc>https://jcsm.fr/en/careers</loc>
     <xhtml:link rel="alternate" hreflang="fr" href="https://jcsm.fr/carrieres"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://jcsm.fr/en/careers"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://jcsm.fr/carrieres"/><lastmod>2026-09-23</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jcsm.fr/carrieres"/><lastmod>2026-10-04</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://jcsm.fr/en/coverage</loc>
     <xhtml:link rel="alternate" hreflang="fr" href="https://jcsm.fr/couverture"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://jcsm.fr/en/coverage"/>
     <xhtml:link rel="alternate" hreflang="pt" href="https://jcsm.fr/pt/cobertura"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://jcsm.fr/couverture"/><lastmod>2026-09-23</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jcsm.fr/couverture"/><lastmod>2026-10-04</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <!-- Spanish pages -->
   <url><loc>https://jcsm.fr/es/</loc>
     <xhtml:link rel="alternate" hreflang="fr" href="https://jcsm.fr/"/>
@@ -761,7 +761,7 @@
     <xhtml:link rel="alternate" hreflang="pt" href="https://jcsm.fr/pt/sobre-nos"/>
     <xhtml:link rel="alternate" hreflang="pl" href="https://jcsm.fr/pl/o-nas"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://jcsm.fr/it/chi-siamo"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://jcsm.fr/a-propos"/><lastmod>2026-09-23</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jcsm.fr/a-propos"/><lastmod>2026-10-04</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://jcsm.fr/es/contacto</loc>
     <xhtml:link rel="alternate" hreflang="fr" href="https://jcsm.fr/contact"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://jcsm.fr/en/contact"/>
@@ -771,7 +771,7 @@
     <xhtml:link rel="alternate" hreflang="pt" href="https://jcsm.fr/pt/contato"/>
     <xhtml:link rel="alternate" hreflang="pl" href="https://jcsm.fr/pl/kontakt"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://jcsm.fr/it/contatti"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://jcsm.fr/contact"/><lastmod>2026-09-23</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jcsm.fr/contact"/><lastmod>2026-10-04</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <!-- German pages -->
   <url><loc>https://jcsm.fr/de/</loc>
     <xhtml:link rel="alternate" hreflang="fr" href="https://jcsm.fr/"/>
@@ -812,7 +812,7 @@
     <xhtml:link rel="alternate" hreflang="pt" href="https://jcsm.fr/pt/operacao-manutencao"/>
     <xhtml:link rel="alternate" hreflang="pl" href="https://jcsm.fr/pl/eksploatacja-konserwacja"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://jcsm.fr/it/gestione-manutenzione"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://jcsm.fr/exploitation"/><lastmod>2026-09-23</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jcsm.fr/exploitation"/><lastmod>2026-10-04</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://jcsm.fr/de/anlagensicherung</loc>
     <xhtml:link rel="alternate" hreflang="fr" href="https://jcsm.fr/securisation-installations"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://jcsm.fr/en/installation-security"/>
@@ -842,7 +842,7 @@
     <xhtml:link rel="alternate" hreflang="pt" href="https://jcsm.fr/pt/sobre-nos"/>
     <xhtml:link rel="alternate" hreflang="pl" href="https://jcsm.fr/pl/o-nas"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://jcsm.fr/it/chi-siamo"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://jcsm.fr/a-propos"/><lastmod>2026-09-23</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jcsm.fr/a-propos"/><lastmod>2026-10-04</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://jcsm.fr/de/kontakt</loc>
     <xhtml:link rel="alternate" hreflang="fr" href="https://jcsm.fr/contact"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://jcsm.fr/en/contact"/>
@@ -883,7 +883,7 @@
     <xhtml:link rel="alternate" hreflang="pt" href="https://jcsm.fr/pt/instalacao-conformidade"/>
     <xhtml:link rel="alternate" hreflang="pl" href="https://jcsm.fr/pl/instalacja-zgodnosc"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://jcsm.fr/it/installazione-conformita"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://jcsm.fr/installation-conformite"/><lastmod>2026-09-23</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jcsm.fr/installation-conformite"/><lastmod>2026-10-04</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://jcsm.fr/pt/operacao-manutencao</loc>
     <xhtml:link rel="alternate" hreflang="fr" href="https://jcsm.fr/exploitation"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://jcsm.fr/en/operations-maintenance"/>
@@ -893,7 +893,7 @@
     <xhtml:link rel="alternate" hreflang="pt" href="https://jcsm.fr/pt/operacao-manutencao"/>
     <xhtml:link rel="alternate" hreflang="pl" href="https://jcsm.fr/pl/eksploatacja-konserwacja"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://jcsm.fr/it/gestione-manutenzione"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://jcsm.fr/exploitation"/><lastmod>2026-09-23</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jcsm.fr/exploitation"/><lastmod>2026-10-04</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://jcsm.fr/pt/seguranca-instalacoes</loc>
     <xhtml:link rel="alternate" hreflang="fr" href="https://jcsm.fr/securisation-installations"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://jcsm.fr/en/installation-security"/>
@@ -949,7 +949,7 @@
     <xhtml:link rel="alternate" hreflang="nl" href="https://jcsm.fr/nl/"/>
     <xhtml:link rel="alternate" hreflang="pl" href="https://jcsm.fr/pl/"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://jcsm.fr/it/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://jcsm.fr/"/><lastmod>2026-09-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jcsm.fr/"/><lastmod>2026-10-04</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://jcsm.fr/nl/projectbeheer</loc>
     <xhtml:link rel="alternate" hreflang="fr" href="https://jcsm.fr/pilotage-projets"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://jcsm.fr/en/project-management"/>
@@ -979,7 +979,7 @@
     <xhtml:link rel="alternate" hreflang="pt" href="https://jcsm.fr/pt/operacao-manutencao"/>
     <xhtml:link rel="alternate" hreflang="pl" href="https://jcsm.fr/pl/eksploatacja-konserwacja"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://jcsm.fr/it/gestione-manutenzione"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://jcsm.fr/exploitation"/><lastmod>2026-09-23</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jcsm.fr/exploitation"/><lastmod>2026-10-04</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://jcsm.fr/nl/beveiliging-installaties</loc>
     <xhtml:link rel="alternate" hreflang="fr" href="https://jcsm.fr/securisation-installations"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://jcsm.fr/en/installation-security"/>
@@ -989,7 +989,7 @@
     <xhtml:link rel="alternate" hreflang="pt" href="https://jcsm.fr/pt/seguranca-instalacoes"/>
     <xhtml:link rel="alternate" hreflang="pl" href="https://jcsm.fr/pl/zabezpieczenie-instalacji"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://jcsm.fr/it/sicurezza-installazioni"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://jcsm.fr/securisation-installations"/><lastmod>2026-09-23</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jcsm.fr/securisation-installations"/><lastmod>2026-10-04</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://jcsm.fr/nl/callcenter</loc>
     <xhtml:link rel="alternate" hreflang="fr" href="https://jcsm.fr/centre-appel"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://jcsm.fr/en/call-center"/>
@@ -1009,7 +1009,7 @@
     <xhtml:link rel="alternate" hreflang="pt" href="https://jcsm.fr/pt/sobre-nos"/>
     <xhtml:link rel="alternate" hreflang="pl" href="https://jcsm.fr/pl/o-nas"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://jcsm.fr/it/chi-siamo"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://jcsm.fr/a-propos"/><lastmod>2026-09-23</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jcsm.fr/a-propos"/><lastmod>2026-10-04</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://jcsm.fr/nl/contact</loc>
     <xhtml:link rel="alternate" hreflang="fr" href="https://jcsm.fr/contact"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://jcsm.fr/en/contact"/>
@@ -1019,7 +1019,7 @@
     <xhtml:link rel="alternate" hreflang="pt" href="https://jcsm.fr/pt/contato"/>
     <xhtml:link rel="alternate" hreflang="pl" href="https://jcsm.fr/pl/kontakt"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://jcsm.fr/it/contatti"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://jcsm.fr/contact"/><lastmod>2026-09-23</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jcsm.fr/contact"/><lastmod>2026-10-04</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <!-- Polish pages -->
   <url><loc>https://jcsm.fr/pl/</loc>
     <xhtml:link rel="alternate" hreflang="fr" href="https://jcsm.fr/"/>
@@ -1060,7 +1060,7 @@
     <xhtml:link rel="alternate" hreflang="pt" href="https://jcsm.fr/pt/operacao-manutencao"/>
     <xhtml:link rel="alternate" hreflang="pl" href="https://jcsm.fr/pl/eksploatacja-konserwacja"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://jcsm.fr/it/gestione-manutenzione"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://jcsm.fr/exploitation"/><lastmod>2026-09-23</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jcsm.fr/exploitation"/><lastmod>2026-10-04</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://jcsm.fr/pl/zabezpieczenie-instalacji</loc>
     <xhtml:link rel="alternate" hreflang="fr" href="https://jcsm.fr/securisation-installations"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://jcsm.fr/en/installation-security"/>
@@ -1100,7 +1100,7 @@
     <xhtml:link rel="alternate" hreflang="pt" href="https://jcsm.fr/pt/contato"/>
     <xhtml:link rel="alternate" hreflang="pl" href="https://jcsm.fr/pl/kontakt"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://jcsm.fr/it/contatti"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://jcsm.fr/contact"/><lastmod>2026-09-23</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jcsm.fr/contact"/><lastmod>2026-10-04</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <!-- Italian pages -->
   <url><loc>https://jcsm.fr/it/</loc>
     <xhtml:link rel="alternate" hreflang="fr" href="https://jcsm.fr/"/>
@@ -1111,7 +1111,7 @@
     <xhtml:link rel="alternate" hreflang="pt" href="https://jcsm.fr/pt/"/>
     <xhtml:link rel="alternate" hreflang="pl" href="https://jcsm.fr/pl/"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://jcsm.fr/it/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://jcsm.fr/"/><lastmod>2026-09-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jcsm.fr/"/><lastmod>2026-10-04</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://jcsm.fr/it/gestione-progetti</loc>
     <xhtml:link rel="alternate" hreflang="fr" href="https://jcsm.fr/pilotage-projets"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://jcsm.fr/en/project-management"/>
@@ -1131,7 +1131,7 @@
     <xhtml:link rel="alternate" hreflang="pt" href="https://jcsm.fr/pt/instalacao-conformidade"/>
     <xhtml:link rel="alternate" hreflang="pl" href="https://jcsm.fr/pl/instalacja-zgodnosc"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://jcsm.fr/it/installazione-conformita"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://jcsm.fr/installation-conformite"/><lastmod>2026-09-23</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jcsm.fr/installation-conformite"/><lastmod>2026-10-04</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://jcsm.fr/it/gestione-manutenzione</loc>
     <xhtml:link rel="alternate" hreflang="fr" href="https://jcsm.fr/exploitation"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://jcsm.fr/en/operations-maintenance"/>
@@ -1171,7 +1171,7 @@
     <xhtml:link rel="alternate" hreflang="pt" href="https://jcsm.fr/pt/sobre-nos"/>
     <xhtml:link rel="alternate" hreflang="pl" href="https://jcsm.fr/pl/o-nas"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://jcsm.fr/it/chi-siamo"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://jcsm.fr/a-propos"/><lastmod>2026-09-23</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jcsm.fr/a-propos"/><lastmod>2026-10-04</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://jcsm.fr/it/contatti</loc>
     <xhtml:link rel="alternate" hreflang="fr" href="https://jcsm.fr/contact"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://jcsm.fr/en/contact"/>
@@ -1181,7 +1181,7 @@
     <xhtml:link rel="alternate" hreflang="pt" href="https://jcsm.fr/pt/contato"/>
     <xhtml:link rel="alternate" hreflang="pl" href="https://jcsm.fr/pl/kontakt"/>
     <xhtml:link rel="alternate" hreflang="it" href="https://jcsm.fr/it/contatti"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://jcsm.fr/contact"/><lastmod>2026-09-23</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jcsm.fr/contact"/><lastmod>2026-10-04</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url>
     <loc>https://jcsm.fr/blog/comparatif-bornes-recharge-marques-2026</loc>
     <lastmod>2026-09-23</lastmod>
@@ -1190,7 +1190,7 @@
   </url>
   <url>
     <loc>https://jcsm.fr/blog/borne-recharge-entreprise-obligations-2026</loc>
-    <lastmod>2026-09-23</lastmod>
+    <lastmod>2026-10-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -1202,19 +1202,19 @@
   </url>
   <url>
     <loc>https://jcsm.fr/blog/cybersecurite-bornes-recharge-irve</loc>
-    <lastmod>2026-09-23</lastmod>
+    <lastmod>2026-10-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://jcsm.fr/blog/stockage-batterie-bess-recharge-irve</loc>
-    <lastmod>2026-09-22</lastmod>
+    <lastmod>2026-10-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://jcsm.fr/blog/tai-taxe-verdissement-flottes-2026</loc>
-    <lastmod>2026-09-22</lastmod>
+    <lastmod>2026-10-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
