@@ -8,15 +8,29 @@ Source : `git clone ssh://auxence@37.187.128.186/var/www/jcsm.fr` (lecture seule
 3. `Legal : cookies d'audience...` (0a7aace) : mentions légales FR/EN et politique FR/EN corrigées, code APE/NAF 4321A. Détail et ce qui reste : `propositions-legales/LISEZ-MOI.md`.
 4. `dossier propositions-legales` (6bf3131) : terminologie dans les 7 langues, promesses de délai (comptes et fichier:ligne), journaux de métas.
 
+## Délai unique « 48 h » et disponibilité 24/7 (décision d'Auxence du 04/10)
+Source : `propositions-legales/terminologie-7-langues-et-promesses.md` (section 3). Appliqué en FR (racine, zones/, solutions/, blog/, `llms.txt`, `llms-full.txt`, `CLAUDE.md`) et en EN (`en/*.html`) : 60 fichiers.
+- « Réponse/intervention sous 24h ouvrées » devient « sous 48 h » ; avec « selon contrat » (EN « as per contract ») pour les engagements de service (SLA, technicien sur site, borne de courtoisie, GTR, tuiles de chiffres, CGV art. 6, FAQ, zones). Pour les réponses avant contrat (formulaire, devis, rappel, presse, candidatures) : « sous 48 h » seul, la nuance contractuelle n'aurait pas de sens (écart assumé avec « partout », voir A-DECIDER 1). Espace insécable entre 48 et h pour éviter la coupure en fin de ligne.
+- Tuiles de chiffres : « 24h » ou « <24 h » passés à « 48 h » (13 pages de zone, exploitation, à propos, EN idem) avec libellé « selon contrat ».
+- « 7j/7 » (FR) et « 7 days a week » (EN) remplacés par « 24/7 » : retenu parce que les CGV (art. 6, support client 24/7) permettent de le tenir. Technicien « disponibles 7j/7 » (powerdot, virta) retiré (non établi). « Astreinte technique 7j/7 » devenue « 24/7, selon contrat ». « Remplacement par borne de courtoisie sous 24h » (FR) et « within 24 hours » (EN) passés à 48 h selon contrat.
+- « SLA standard garantit » devenu « prévoit » (couverture FR et EN), aligné sur la FAQ.
+- Test `scripts/delais-promesses.test.cjs` (4 tests, branché dans `scripts/check.sh`), écrit avant les corrections : rouge sur l'état précédent (3 tests sur 4 en échec, le 2e vide faute de formule), vert après (4 sur 4) ; mutation vérifiée (retirer un « selon contrat » ou remettre « 24h ouvrées » le fait échouer).
+- 6 autres langues : `propositions-legales/delais-5-langues.md` (liste fichier:ligne et formules), non appliquées.
+- Titres et descriptions : inchangés en longueur sauf `contact.html` (titres og/twitter « sous 48 h », même longueur +1) ; contrôle : aucune page nouvelle hors cible 50-60 / 70-150 (seules 9 déjà hors cible avant, dont `en/terms.html`). JSON-LD des fichiers modifiés : tous valides (json.loads).
+
 ## Déjà conforme, non modifié
 - `security.txt` : présent (`/.well-known/` et racine), Expires 2027-03-22, répond 200.
 - CSP : déjà sans `unsafe-inline` dans `script-src` sur les pages listées (hashes) ; restent les hôtes tiers larges et `style-src 'unsafe-inline'` (A-DECIDER 4).
 
 ## Testé (commandes réelles)
-- `node --test scripts/{coverage-points,partner-logos,brand-palette,analytics-consent,mobile-menu,security-images,public-images,proof-claims,diacritics,public-layout}.test.cjs` après `npm ci` : tous verts (2, 1, 4, 13, 10, 8, 155, 1, 2 et 18 tests).
+- `node --test scripts/{coverage-points,partner-logos,brand-palette,analytics-consent,mobile-menu,security-images,public-images,proof-claims,diacritics,public-layout}.test.cjs` après `npm ci` : tous verts (2, 1, 4, 13, 10, 8, 155, 1, 2 et 18 tests, avant la décision du 04/10). Relancées après la décision du 04/10 : mêmes dix suites toujours vertes (mêmes nombres de tests), plus `scripts/delais-promesses.test.cjs` 4 sur 4.
 - `python3 meta.py` (script local de mesure) : 145 pages indexables, 0 hors cible après correction.
 - `node scripts/sitemap-lastmod.cjs` : `changed: 0` après réécriture (idempotent).
 - Non lancé : `bash scripts/check.sh` en entier (demande `php`, non vérifié ici).
+
+## Non vérifié (décision 04/10)
+- Rendu : captures relues pour zones/bretagne et exploitation seulement (tuile « 48 h », libellé, liste) ; a-propos, accueil, EN et autres pages de zone non relus à l'œil. Le texte plus long du libellé de tuile passe sur deux lignes (bretagne).
+- Les 6 autres langues restent à « 24h ouvrées » : tant que `delais-5-langues.md` n'est pas appliqué, le site est incohérent entre langues.
 
 ## Non vérifié
 - Rendu visuel des pages modifiées (seules des balises `<head>` et deux blocs de texte légal ont changé) : pas de navigateur lancé sur jcsm.fr.

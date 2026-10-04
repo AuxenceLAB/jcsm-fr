@@ -27,7 +27,7 @@ JCSM est indépendante des fabricants de bornes et des énergéticiens : elle pr
 | Mentions légales | https://jcsm.fr/mentions-legales |
 
 ### Chiffres affichés sur le site
-- Réponse sous 24h ouvrées
+- Réponse sous 48 h, selon contrat
 - Plus de 2 000 interventions
 - Bornes AC et DC jusqu'à 400 kW, multi-marques
 
@@ -48,7 +48,7 @@ URL : https://jcsm.fr/installation-conformite
 ### 2.3 Exploitation et maintenance
 URL : https://jcsm.fr/exploitation
 - Maintenance préventive : inspections programmées avec check-list, mise à jour firmware, tests de charge
-- Maintenance curative : diagnostic à distance via OCPP, technicien sur site sous 24h ouvrées, pièces détachées critiques en stock
+- Maintenance curative : diagnostic à distance via OCPP, technicien sur site sous 48 h, selon contrat, pièces détachées critiques en stock
 - Supervision : OCPP 1.6 / 2.0.1, raccordement au superviseur (CSMS), paramétrage tarifaire, dashboard temps réel par site et par borne, alertes automatiques, reporting SLA
 - Transformateurs HTA/BT : maintenance des postes en amont des bornes DC (une part importante des pannes DC provient du poste HTA/BT)
 
@@ -70,7 +70,7 @@ URL : https://jcsm.fr/tarification
 - Intervention curative ponctuelle (diagnostic + intervention + rapport) : à partir de 150 EUR (AC) et 350 EUR (DC)
 - Mise en service (paramétrage, tests, rapport) : à partir de 200 EUR/borne
 - Trois modèles : forfait maintenance, intervention ponctuelle, support marque blanche
-- Le prix final dépend du nombre de bornes, du type (AC/DC), de la localisation et du SLA souhaité. Devis personnalisé sous 24h ouvrées.
+- Le prix final dépend du nombre de bornes, du type (AC/DC), de la localisation et du SLA souhaité. Devis personnalisé sous 48 h.
 
 ## 4. Marques de bornes maintenues
 
@@ -124,7 +124,7 @@ Q : Quelle est la couverture géographique ?
 R : France entière et Belgique (Wallonie, Flandre, Bruxelles-Capitale).
 
 Q : Quel est le délai de réponse ?
-R : Réponse sous 24h ouvrées ; les délais d'intervention sont définis contractuellement selon la criticité et la localisation.
+R : Réponse sous 48 h, selon contrat ; les délais d'intervention sont définis contractuellement selon la criticité et la localisation.
 
 Q : JCSM intervient-elle sur des bornes qu'elle n'a pas installées ?
 R : Oui, sur des parcs existants multi-installateurs et multi-fabricants.

@@ -26,6 +26,7 @@ if ! node --test scripts/coverage-points.test.cjs; then fail=1; fi
 if ! node --test scripts/partner-logos.test.cjs; then fail=1; fi
 if ! node --test scripts/brand-palette.test.cjs; then fail=1; fi
 if ! node --test scripts/analytics-consent.test.cjs; then fail=1; fi
+if ! node --test scripts/delais-promesses.test.cjs; then fail=1; fi
 if ! node --test scripts/mobile-menu.test.cjs; then fail=1; fi
 if ! node --test scripts/public-layout.test.cjs; then fail=1; fi
 if ! node --test scripts/security-images.test.cjs; then fail=1; fi

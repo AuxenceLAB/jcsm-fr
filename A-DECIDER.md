@@ -2,18 +2,21 @@
 
 Rien n'est publié ni déployé. Pour chaque point : options, puis recommandation.
 
-## 1. Quelle promesse de délai et de disponibilité est vraie ? (revue, écarts 5 et 6)
-Constat (détail fichier:ligne dans `propositions-legales/terminologie-7-langues-et-promesses.md`, section 3) : la vitrine promet « Diagnostic sous 48h » et « Réponse sous 24h ouvrées » (accueil, exploitation, contact, 7 langues), « Hotline 7j/7 » dans une carte et « 24/7 » ailleurs, « SLA garanti » ; la FAQ dit « Les délais sont définis dans votre contrat » ; les CGV art. 6 disent « à titre indicatif » puis « JCSM s'engage à respecter ». Le fichier CLAUDE.md du dépôt impose « réponse sous 24h ouvrées », ce qui est une règle de rédaction, pas une preuve que le délai est tenu.
-- Option A, contractuelle sans chiffre : « Délai défini au contrat ; diagnostic à distance avant tout déplacement ». Le plus sûr juridiquement, le moins vendeur.
-- Option B, objectif indicatif chiffré : « Première réponse visée sous 24 h ouvrées, à titre indicatif ; le délai d'intervention sur site est fixé au contrat ». Hotline : choisir 7j/7 **ou** 24/7 et le dire partout.
-- Option C, par le processus : « Un technicien qualifie votre demande, réalise un diagnostic à distance, puis planifie selon la criticité ».
-Recommandation : B si la première réponse sous 24 h ouvrées est mesurée et tenue (donnée à sortir de la console), sinon A. Dans les deux cas, retirer « 48h » (14 occurrences en français), aligner les CGV art. 6 (supprimer la contradiction « indicatif » et « s'engage ») et corriger les 7 langues et les données structurées (FAQ JSON-LD) en même temps : un remplacement sur 8 langues et ~370 occurrences ne doit pas être fait à la main. Je n'ai pas appliqué ce lot : la formulation vraie dépend de ce que JCSM tient réellement.
+## 1. Promesses de délai : RÉSOLU le 04/10 (décision d'Auxence), reste à trancher ci-dessous
+Appliqué en FR et EN : délai unique « sous 48 h », avec « selon contrat » (EN « as per contract ») pour les engagements de service, « 24/7 » seul (CGV art. 6 : support client 24/7), « 7j/7 » supprimé, « SLA standard garantit » devenu « prévoit ». Détail dans RAPPORT-CORRECTIFS.md. Restent à décider :
+- **CGV art. 6** : la phrase d'introduction (« donnés à titre indicatif » puis « JCSM s'engage à respecter ») est inchangée, seule la ligne d'urgence est passée à « réponse sous 48 h selon contrat ». C'est un texte contractuel : à faire relire par un juriste avant publication.
+- **Réponses avant contrat** (formulaires, devis, rappel, presse, candidatures) : « sous 48 h » sans « selon contrat », qui n'aurait pas de sens avant la signature. Dites-le si vous voulez la nuance partout.
+- **Autres délais gardés** : rapport d'intervention « sous 24 h », déploiement de la hotline « en 48 h » (déjà 48 h), tableaux de niveaux de SLA génériques des articles de blog (4 h, 8 h, 24 h : niveaux du marché, pas des promesses de JCSM).
+- **« SLA garanti »** (une quinzaine d'occurrences) et « Délais d'intervention garantis » (blog) : non touchés, hors décision ; à aligner sur « SLA défini au contrat » si vous voulez effacer le dernier écart avec l'article 6.
+- **Astreinte 24/7** : conservée uniquement avec « selon contrat » (couverture : contrats premium).
+- **Technicien « disponibles 7j/7 »** (pages powerdot et virta) : retiré, non établi par les CGV.
+- **Six autres langues** : propositions dans `propositions-legales/delais-5-langues.md` (de, es, it, nl, pl, pt ; six et non cinq), non appliquées, traductions à faire relire.
 
 ## 2. Directeur de la publication
 Mentions : « le représentant légal de JCSM SAS », sans nom ; vorena.fr et wattena.fr nomment M. Julien Merlet. Option A : nommer (texte repris de Vorena) ; option B : laisser. Recommandation : A, avec confirmation d'Auxence (obligation d'identification de l'éditeur, LCEN).
 
 ## 3. security.txt : contact et expiration
-Le fichier existe déjà (`/.well-known/security.txt` et `/security.txt`, `Contact: mailto:contact@jcsm.fr`, `Expires: 2027-03-22`), il répond 200 en production. Je n'ai rien changé. À confirmer : l'adresse (une boîte dédiée serait préférable à contact@) et ajouter un rappel de renouvellement avant mars 2027.
+Le fichier existe déjà (`/.well-known/security.txt` et `/security.txt`, `Contact: mailto:contact@jcsm.fr`, `Expires: 2027-03-22`), il répond 200 en production. Je n'ai rien changé (la décision du 04/10 sur contact@chargeteam.pro et 2027-04-04 vise les sites ChargeTeam, Vorena, Chargelia, Wattena, portail et vitrine, pas jcsm.fr). À confirmer : l'adresse (une boîte dédiée serait préférable à contact@) et ajouter un rappel de renouvellement avant mars 2027.
 
 ## 4. CSP : hôtes tiers dans `script-src`
 Constat : la CSP de production autorise `unpkg.com`, `cdn.jsdelivr.net` et `sdk.twilio.com` en script, plus GTM et Google Analytics. Dans les pages publiques, `unpkg.com` n'est utilisé que par `evergreen.html` (maquette partenaire noindex, interdite dans robots.txt), `cdn.jsdelivr.net` et `sdk.twilio.com` par aucune page du dépôt. Le générateur de map (`/usr/local/sbin/refresh-static-csp.py`, hors dépôt) a aussi une valeur par défaut `'unsafe-inline'` pour toute URL non listée.

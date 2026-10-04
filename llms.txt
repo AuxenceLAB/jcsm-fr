@@ -23,7 +23,7 @@
 JCSM est un prestataire terrain indépendant et multi-marques : ses techniciens interviennent sur les bornes AC et DC des principaux fabricants (ABB, Alfen, EVBox, Schneider, Kempower, Autel, BYD, Delta, Tritium, Efacec, Wallbox) sans être liés à un constructeur. Un contrat unique couvre l'ensemble du parc, avec rapport horodaté et photos à chaque passage.
 
 Engagements affichés sur le site :
-- Réponse sous 24h ouvrées (aucune promesse de délai plus court)
+- Réponse sous 48 h, selon contrat (aucune promesse de délai plus court)
 - Plus de 2 000 interventions réalisées
 - Bornes AC et DC jusqu'à 400 kW, toutes marques
 
@@ -36,7 +36,7 @@ Assistance à maîtrise d'ouvrage : étude, coordination des corps de métier, r
 Installation certifiée Qualifelec de bornes AC (3,7 à 22 kW) et DC (jusqu'à 400 kW), postes HTA/BT, conformité NF C 15-100 (partie 7-722), validation Consuel, raccordement Enedis.
 
 ### 3. Exploitation et maintenance - https://jcsm.fr/exploitation
-Maintenance préventive (inspections programmées) et curative, supervision OCPP 1.6 / 2.0.1, diagnostic à distance, technicien sur site sous 24h ouvrées, maintenance des transformateurs HTA/BT.
+Maintenance préventive (inspections programmées) et curative, supervision OCPP 1.6 / 2.0.1, diagnostic à distance, technicien sur site sous 48 h, selon contrat, maintenance des transformateurs HTA/BT.
 
 ### 4. Sécurisation des installations - https://jcsm.fr/securisation-installations
 Protection contre les câbles coupés, écrans cassés et bornes arrachées : vidéosurveillance, anti-vandalisme, remise en état.
@@ -49,7 +49,7 @@ Hotline IRVE en marque blanche, 100 % basée en France, 24/7, en français, angl
 - Contrat de maintenance préventive : à partir de 50 EUR/borne/mois (AC), 120 EUR/borne/mois (DC)
 - Intervention curative ponctuelle : à partir de 150 EUR (AC), 350 EUR (DC)
 - Mise en service : à partir de 200 EUR/borne
-- Devis personnalisé sous 24h ouvrées : https://jcsm.fr/contact
+- Devis personnalisé sous 48 h : https://jcsm.fr/contact
 
 ## Solutions par segment
 
