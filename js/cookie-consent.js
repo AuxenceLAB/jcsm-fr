@@ -31,6 +31,21 @@
             document.head.appendChild(script);
         }
 
+        // Umami (auto-heberge, sans cookie, meme origine via nginx /_m/) : seulement apres accord, comme GTM.
+        function loadUmami() {
+            if (document.getElementById("umami-script")) return;
+            var script = document.createElement("script");
+            script.id = "umami-script";
+            script.src = "/_m/s.js";
+            script.defer = true;
+            script.setAttribute("data-website-id", "ef9c5d6c-99a8-4ad6-86a8-358e9488471d");
+            script.setAttribute("data-domains", "jcsm.fr");
+            script.setAttribute("data-do-not-track", "true");
+            script.setAttribute("data-exclude-search", "true");
+            script.setAttribute("data-exclude-hash", "true");
+            document.head.appendChild(script);
+        }
+
         function showBanner() {
             if (document.getElementById("cookie-banner")) return;
 
@@ -128,6 +143,7 @@
                 dismiss();
                 window.dispatchEvent(new Event('jcsm:consent-change'));
                 loadGTM();
+                loadUmami();
             });
 
             rejectBtn.addEventListener("click", function () {
@@ -139,6 +155,7 @@
 
         if (consent === "accepted") {
             loadGTM();
+            loadUmami();
         } else if (!consent) {
             // Le bandeau attend que le navigateur soit libre : il ne concurrence plus le premier rendu.
             var later = function () {

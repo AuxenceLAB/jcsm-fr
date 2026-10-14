@@ -60,6 +60,10 @@ server {
     # incluent deja ce snippet et gardent leur jeu complet (heritage non cumulatif).
     include /etc/nginx/snippets/jcsm-security.conf;
 
+    # Mesure d audience Umami (auto-hebergee, sans cookie, meme origine). Chargee par
+    # js/cookie-consent.js seulement apres acceptation du bandeau.
+    include /etc/nginx/snippets/chargeteam-mesure-audience.conf;
+
     # Legacy 301 en un seul saut (voir map $jcsm_legacy_redirect en tete de fichier).
     # DOIT rester avant les regles .html generiques.
     if ($jcsm_legacy_redirect) {

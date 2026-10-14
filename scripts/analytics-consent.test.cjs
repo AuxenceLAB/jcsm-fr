@@ -41,7 +41,7 @@ function cookieFixture(choice,timestamp){
   const events={},scripts=[];
   const context={localStorage:{getItem:k=>store.get(k),removeItem:k=>store.delete(k)},Date,Number,
     window:{},document:{readyState:'loading',addEventListener:(name,fn)=>{events[name]=fn;},
-      getElementById:()=>null,createElement:()=>({}),head:{appendChild:el=>scripts.push(el)}}};
+      getElementById:()=>null,createElement:()=>({setAttribute(){}}),head:{appendChild:el=>scripts.push(el)}}};
   vm.runInNewContext(fs.readFileSync('js/cookie-consent.js','utf8'),context);
   return {store,events,scripts};
 }
@@ -51,8 +51,8 @@ for(const [label,timestamp] of [['absente',null],['invalide','NaN'],['future',St
     assert.equal(typeof f.events.DOMContentLoaded,'function');assert.equal(f.store.has('jcsm_cookie_consent'),false);
   });
 }
-test('GTM respecte une decision valide et refuse les choix inconnus',()=>{
-  const now=String(Date.now());assert.equal(cookieFixture('accepted',now).scripts.length,1);
+test('GTM et Umami respectent une decision valide et refusent les choix inconnus',()=>{
+  const now=String(Date.now());assert.equal(cookieFixture('accepted',now).scripts.length,2);
   assert.equal(cookieFixture('rejected',now).scripts.length,0);
   const invalid=cookieFixture('unknown',now);assert.equal(invalid.scripts.length,0);assert.equal(typeof invalid.events.DOMContentLoaded,'function');
 });

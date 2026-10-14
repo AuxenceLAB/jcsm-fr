@@ -21,7 +21,7 @@ Disallow: /*.sql
 Disallow: /*.sh
 Disallow: /*.log
 
-# Old URLs now have 301 redirects in nginx — no longer blocked
+# Old URLs now have 301 redirects in nginx - no longer blocked
 
 # Disallow reports & internal pages
 Disallow: /rapports/
@@ -52,7 +52,7 @@ Allow: /images/
 # Crawl-delay
 Crawl-delay: 1
 
-# AI/LLM crawlers — explicitly allowed for AI search visibility, MAIS soumis aux
+# AI/LLM crawlers - explicitly allowed for AI search visibility, MAIS soumis aux
 # memes Disallow que * (le matching robots est exclusif : un groupe nomme n'herite
 # pas de *). On empile les User-agent pour partager un seul bloc de regles.
 User-agent: GPTBot
