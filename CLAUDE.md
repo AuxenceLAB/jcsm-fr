@@ -93,6 +93,8 @@ npm run build:css   # one-shot purge + minify into css/tailwind.css, then script
 npm run watch:css   # rebuild on changes
 ```
 
+**Pre-commit hook**: `scripts/pre-commit` runs `scripts/check.sh` and refuses the commit if a check fails (typically a `css/` source changed without `npm run build:bundle`: pages load the bundled `css/site-*.css`, so the change would not be served). Install once per clone: `ln -sf ../../scripts/pre-commit .git/hooks/pre-commit`.
+
 Cache-bust by hard-refreshing (Ctrl+Shift+R). When adding a new language directory or HTML folder, update the `content` glob in `tailwind.config.js` so its classes are preserved.
 
 ### Deployment

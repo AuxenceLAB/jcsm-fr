@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+# Hook pre-commit de jcsm.fr (installé par : ln -sf ../../scripts/pre-commit .git/hooks/pre-commit).
+# Refuse un commit qui casserait les contrôles du site, en particulier une feuille de
+# css/ modifiée sans « npm run build:bundle » : les pages chargent les feuilles groupées
+# (css/site-*.css), donc la modification ne serait pas publiée (a80c700, 15/10).
+# Contournement exceptionnel et conscient : git commit --no-verify.
+cd "$(git rev-parse --show-toplevel)" || exit 1
+if ! out=$(bash scripts/check.sh 2>&1); then
+    echo "$out" | grep -E "ERREUR|✖|AssertionError|relancer" | head -20
+    echo
+    echo "Commit refusé : npm run check échoue. Feuille CSS modifiée ? Lancer npm run build:bundle (ou npm run build:css), puis recommencer."
+    exit 1
+fi
