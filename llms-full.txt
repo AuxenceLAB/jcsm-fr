@@ -49,7 +49,7 @@ URL : https://jcsm.fr/installation-conformite
 URL : https://jcsm.fr/exploitation
 - Maintenance préventive : inspections programmées avec check-list, mise à jour firmware, tests de charge
 - Maintenance curative : diagnostic à distance via OCPP, technicien sur site sous 48 h, selon contrat, pièces détachées critiques en stock
-- Supervision : OCPP 1.6 / 2.0.1, raccordement au superviseur (CSMS), paramétrage tarifaire, dashboard temps réel par site et par borne, alertes automatiques, reporting SLA
+- Supervision : OCPP 1.6 / 2.0.1, raccordement au superviseur (CSMS), paramétrage tarifaire, tableau de bord temps réel par site et par borne, alertes automatiques, reporting SLA
 - Transformateurs HTA/BT : maintenance des postes en amont des bornes DC (une part importante des pannes DC provient du poste HTA/BT)
 
 ### 2.4 Sécurisation des installations
