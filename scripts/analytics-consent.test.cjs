@@ -56,3 +56,22 @@ test('GTM et Umami respectent une decision valide et refusent les choix inconnus
   assert.equal(cookieFixture('rejected',now).scripts.length,0);
   const invalid=cookieFixture('unknown',now);assert.equal(invalid.scripts.length,0);assert.equal(typeof invalid.events.DOMContentLoaded,'function');
 });
+
+test('« modifier mon choix » efface la decision et rouvre le bandeau (RGPD art. 7.3)',()=>{
+  const store=new Map([['jcsm_cookie_consent','accepted'],['jcsm_cookie_consent_ts',String(Date.now())]]);
+  const events={},added=[];let focused=null;
+  const node=()=>({setAttribute(){},appendChild(){},addEventListener(){},after(){},style:{},focus(){focused=this;}});
+  const reject=node();
+  const context={localStorage:{getItem:k=>store.get(k),setItem:(k,v)=>store.set(k,v),removeItem:k=>store.delete(k)},Date,Number,
+    window:{addEventListener(){}},location:{reload(){}},
+    document:{readyState:'complete',addEventListener:(n,fn)=>{events[n]=fn;},getElementById:()=>null,cookie:'',
+      createElement:node,head:{appendChild:el=>added.push(el)},body:{insertBefore:el=>added.push(el),firstChild:null},
+      documentElement:{lang:'fr',style:{}},querySelector:s=>s==='#cookie-banner .cookie-reject'?reject:null}};
+  vm.runInNewContext(fs.readFileSync('js/cookie-consent.js','utf8'),context);
+  assert.equal(typeof events.click,'function');
+  let prevented=false;
+  events.click({target:{closest:s=>s==='[data-cookie-settings]'?{}:null},preventDefault(){prevented=true;}});
+  assert.equal(prevented,true);assert.equal(store.has('jcsm_cookie_consent'),false);assert.equal(store.has('jcsm_cookie_consent_ts'),false);
+  assert.ok(added.length>=3,'bandeau ajoute a la page');assert.equal(focused,reject);
+  events.click({target:{closest:()=>null},preventDefault(){throw Error('autre clic intercepte');}});
+});

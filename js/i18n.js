@@ -24,6 +24,10 @@
         formSuccess: { fr: "Votre message a été enregistré. JCSM vous recontactera.", en: "Your message has been received. JCSM will contact you.", es: "Hemos recibido su mensaje. JCSM se pondrá en contacto con usted.", de: "Ihre Nachricht wurde empfangen. JCSM wird Sie kontaktieren.", pt: "A sua mensagem foi recebida. A JCSM entrará em contacto consigo.", nl: "Uw bericht is ontvangen. JCSM neemt contact met u op.", pl: "Twoja wiadomość została odebrana. JCSM skontaktuje się z Tobą.", it: "Il tuo messaggio è stato ricevuto. JCSM ti ricontatterà." },
         formError: { fr: "Une erreur est survenue. Veuillez r\u00e9essayer.", en: "An error occurred. Please try again.", es: "Se ha producido un error. Por favor, int\u00e9ntelo de nuevo.", de: "Ein Fehler ist aufgetreten. Bitte versuchen Sie es erneut.", pt: "Ocorreu um erro. Por favor, tente novamente.", nl: "Er is een fout opgetreden. Probeer het opnieuw.", pl: "Wyst\u0105pi\u0142 b\u0142\u0105d. Prosz\u0119 spr\u00f3bowa\u0107 ponownie.", it: "Si \u00e8 verificato un errore. Riprova." },
         formTimeout: { fr: "Le serveur ne r\u00e9pond pas. Veuillez r\u00e9essayer.", en: "Server is not responding. Please try again.", es: "El servidor no responde. Por favor, int\u00e9ntelo de nuevo.", de: "Der Server antwortet nicht. Bitte versuchen Sie es erneut.", pt: "O servidor n\u00e3o responde. Por favor, tente novamente.", nl: "De server reageert niet. Probeer het opnieuw.", pl: "Serwer nie odpowiada. Prosz\u0119 spr\u00f3bowa\u0107 ponownie.", it: "Il server non risponde. Riprova." },
+        formConflict: { fr: "Ce formulaire avait déjà servi pour un autre envoi. Cliquez de nouveau sur le bouton : votre saisie est conservée.", en: "This form had already been used for another submission. Click the button again: your entries are kept.", es: "Este formulario ya se había utilizado para otro envío. Vuelva a pulsar el botón: sus datos se conservan.", de: "Dieses Formular wurde bereits für eine andere Anfrage verwendet. Klicken Sie erneut auf die Schaltfläche: Ihre Eingaben bleiben erhalten.", pt: "Este formulário já tinha sido usado noutro envio. Clique novamente no botão: os seus dados são mantidos.", nl: "Dit formulier is al voor een andere verzending gebruikt. Klik opnieuw op de knop: uw gegevens blijven bewaard.", pl: "Ten formularz został już użyty do innego wysłania. Kliknij przycisk ponownie: wpisane dane zostają zachowane.", it: "Questo modulo era già stato usato per un altro invio. Fai di nuovo clic sul pulsante: i dati inseriti sono conservati." },
+        formInvalid: { fr: "Certaines informations n'ont pas été acceptées. Vérifiez le nom, l'email et le message, puis renvoyez le formulaire.", en: "Some details were not accepted. Check your name, email and message, then send the form again.", es: "Algunos datos no se han aceptado. Compruebe el nombre, el correo electrónico y el mensaje, y vuelva a enviar el formulario.", de: "Einige Angaben wurden nicht akzeptiert. Prüfen Sie Name, E-Mail und Nachricht und senden Sie das Formular erneut.", pt: "Alguns dados não foram aceites. Verifique o nome, o email e a mensagem e envie novamente o formulário.", nl: "Sommige gegevens zijn niet geaccepteerd. Controleer uw naam, e-mailadres en bericht en verstuur het formulier opnieuw.", pl: "Niektóre dane nie zostały zaakceptowane. Sprawdź imię i nazwisko, adres email oraz wiadomość, a następnie wyślij formularz ponownie.", it: "Alcuni dati non sono stati accettati. Controlla nome, email e messaggio, poi invia di nuovo il modulo." },
+        formRateLimit: { fr: "Trop d'envois en peu de temps. Patientez une dizaine de minutes puis renvoyez : votre saisie est conservée.", en: "Too many submissions in a short time. Wait about ten minutes, then send again: your entries are kept.", es: "Demasiados envíos en poco tiempo. Espere unos diez minutos y vuelva a enviarlo: sus datos se conservan.", de: "Zu viele Anfragen in kurzer Zeit. Warten Sie etwa zehn Minuten und senden Sie dann erneut: Ihre Eingaben bleiben erhalten.", pt: "Demasiados envios em pouco tempo. Aguarde cerca de dez minutos e envie novamente: os seus dados são mantidos.", nl: "Te veel verzendingen in korte tijd. Wacht ongeveer tien minuten en verstuur dan opnieuw: uw gegevens blijven bewaard.", pl: "Zbyt wiele wysłań w krótkim czasie. Odczekaj około dziesięciu minut i wyślij ponownie: wpisane dane zostają zachowane.", it: "Troppi invii in poco tempo. Attendi una decina di minuti, poi invia di nuovo: i dati inseriti sono conservati." },
+        formUnavailable: { fr: "Le service d'envoi est momentanément indisponible. Votre saisie est conservée : réessayez dans quelques minutes ou appelez le +33 1 83 75 57 06.", en: "The sending service is temporarily unavailable. Your entries are kept: try again in a few minutes or call +33 1 83 75 57 06.", es: "El servicio de envío no está disponible en este momento. Sus datos se conservan: inténtelo de nuevo en unos minutos o llame al +33 1 83 75 57 06.", de: "Der Versanddienst ist vorübergehend nicht verfügbar. Ihre Eingaben bleiben erhalten: Versuchen Sie es in einigen Minuten erneut oder rufen Sie +33 1 83 75 57 06 an.", pt: "O serviço de envio está temporariamente indisponível. Os seus dados são mantidos: tente novamente dentro de alguns minutos ou ligue para +33 1 83 75 57 06.", nl: "De verzendservice is tijdelijk niet beschikbaar. Uw gegevens blijven bewaard: probeer het over enkele minuten opnieuw of bel +33 1 83 75 57 06.", pl: "Usługa wysyłania jest chwilowo niedostępna. Wpisane dane zostają zachowane: spróbuj ponownie za kilka minut lub zadzwoń pod numer +33 1 83 75 57 06.", it: "Il servizio di invio è momentaneamente non disponibile. I dati inseriti sono conservati: riprova tra qualche minuto o chiama il +33 1 83 75 57 06." },
         offlineFormError: { fr: "Vous \u00eates hors ligne. V\u00e9rifiez votre connexion et r\u00e9essayez.", en: "You are offline. Check your connection and try again.", es: "Est\u00e1 sin conexi\u00f3n. Compruebe su conexi\u00f3n e int\u00e9ntelo de nuevo.", de: "Sie sind offline. Pr\u00fcfen Sie Ihre Verbindung und versuchen Sie es erneut.", pt: "Est\u00e1 offline. Verifique a sua conex\u00e3o e tente novamente.", nl: "U bent offline. Controleer uw verbinding en probeer het opnieuw.", pl: "Jeste\u015b offline. Sprawd\u017a po\u0142\u0105czenie i spr\u00f3buj ponownie.", it: "Sei offline. Controlla la connessione e riprova." },
         onlineRestored: { fr: "Connexion r\u00e9tablie !", en: "Connection restored!", es: "\u00a1Conexi\u00f3n restablecida!", de: "Verbindung wiederhergestellt!", pt: "Conex\u00e3o restabelecida!", nl: "Verbinding hersteld!", pl: "Po\u0142\u0105czenie przywr\u00f3cone!", it: "Connessione ripristinata!" },
         offlineMode: { fr: "Vous \u00eates hors ligne. Mode d\u00e9grad\u00e9 activ\u00e9.", en: "You are offline. Degraded mode enabled.", es: "Est\u00e1 desconectado. Modo degradado activado.", de: "Sie sind offline. Eingeschr\u00e4nkter Modus aktiviert.", pt: "Est\u00e1 offline. Modo degradado ativado.", nl: "U bent offline. Beperkte modus geactiveerd.", pl: "Jeste\u015b offline. Tryb awaryjny aktywowany.", it: "Sei offline. Modalit\u00e0 limitata attivata." },
@@ -143,8 +147,8 @@
             var btn = document.createElement("button");
             btn.className = "lang-toggle flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-medium text-gray-700 hover:bg-gray-100 transition-colors";
             btn.setAttribute("aria-expanded", "false");
-            btn.setAttribute("aria-haspopup", "listbox");
-            btn.setAttribute("aria-label", t("languageLabel"));
+            btn.setAttribute("aria-controls", "lang-dropdown");
+            btn.setAttribute("aria-label", t("languageLabel") + " " + currentLang.code.toUpperCase());
 
             var codeSpan = document.createElement("span");
             codeSpan.textContent = currentLang.code.toUpperCase();
@@ -178,7 +182,6 @@
         var dropdown = document.createElement("div");
         dropdown.id = "lang-dropdown";
         dropdown.className = "hidden";
-        dropdown.setAttribute("role", "listbox");
         dropdown.setAttribute("aria-label", t("languageLabel"));
         Object.assign(dropdown.style, {
             position: "fixed",
@@ -196,8 +199,7 @@
         LANGUAGES.forEach(function (l) {
             var a = document.createElement("a");
             a.href = getLanguageUrl(l.code);
-            a.setAttribute("role", "option");
-            if (l.code === lang) a.setAttribute("aria-selected", "true");
+            if (l.code === lang) a.setAttribute("aria-current", "true");
             a.setAttribute("hreflang", l.code);
             a.style.cssText = "display:flex;align-items:center;gap:0.625rem;padding:0.625rem 1rem;font-size:0.875rem;text-decoration:none;transition:background-color 0.15s;";
             a.style.color = l.code === lang ? "#1d4ed8" : "#374151";
@@ -261,11 +263,35 @@
                     btn.setAttribute("aria-expanded", "true");
                     var svg = btn.querySelector("svg");
                     if (svg) svg.style.transform = "rotate(180deg)";
+                    (dropdown.querySelector('[aria-current="true"]') || dropdown.querySelector("a")).focus({ preventScroll: true });
                 }
             });
         });
 
         document.addEventListener("click", closeDropdown);
+
+        // Clavier : le menu est ajouté en fin de page, le focus y entre donc à l'ouverture
+        // (langue courante), Échap le referme et Tab le quitte en reprenant après le bouton.
+        dropdown.addEventListener("keydown", function (e) {
+            var links = Array.from(dropdown.querySelectorAll("a"));
+            var i = links.indexOf(document.activeElement);
+            var toggle = activeToggle;
+            if (e.key === "ArrowDown" || e.key === "ArrowUp") {
+                e.preventDefault();
+                links[(i + (e.key === "ArrowDown" ? 1 : links.length - 1)) % links.length].focus();
+            } else if (e.key === "Escape" || e.key === "Tab") {
+                if (e.key === "Escape") e.preventDefault();
+                closeDropdown();
+                if (toggle) toggle.focus();
+            }
+        });
+        document.addEventListener("keydown", function (e) {
+            if (e.key === "Escape" && activeToggle && !dropdown.contains(document.activeElement)) {
+                var toggle = activeToggle;
+                closeDropdown();
+                toggle.focus();
+            }
+        });
 
         // Reposition on scroll (rAF-gated)
         var scrollTick = false;

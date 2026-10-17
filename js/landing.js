@@ -32,6 +32,16 @@ function initContactForm() {
         if (page) page.value = window.location.pathname;
         if (langue) langue.value = (document.documentElement.lang || 'fr').slice(0, 8);
         ensureSourceRef();
+        // Zone d'état annoncée par les lecteurs d'écran et focalisable : le bouton désactivé
+        // pendant l'envoi perd le focus, qui revient ici avec le résultat.
+        if (formMessage) {
+            formMessage.setAttribute("role", "status");
+            formMessage.setAttribute("aria-live", "polite");
+            formMessage.setAttribute("tabindex", "-1");
+        }
+
+        // Chaque refus du relais (api/site-contact.php) a sa consigne ; la saisie reste en place.
+        var STATUS_MESSAGES = { 409: "formConflict", 422: "formInvalid", 429: "formRateLimit", 502: "formUnavailable", 503: "formUnavailable", 504: "formUnavailable" };
 
         form.addEventListener("submit", function (e) {
             e.preventDefault();
@@ -42,6 +52,7 @@ function initContactForm() {
             var t = window.JCSM_I18N ? window.JCSM_I18N.t : function (k) { return k; };
 
             // Clear previous errors
+            if (formMessage) formMessage.classList.add("hidden");
             form.querySelectorAll(".error-message").forEach(function (el) {
                 el.classList.add("hidden");
                 el.textContent = "";
@@ -144,7 +155,7 @@ function initContactForm() {
                         sourceRef.value = '';
                         try { sessionStorage.removeItem(storageKey); } catch (_) { /* stockage facultatif */ }
                     }
-                    showError(null, t("formError"), formMessage);
+                    showError(null, t(STATUS_MESSAGES[res.status] || "formError"), formMessage);
                 }
             }).catch(function (err) {
                 if (err.name === "AbortError") {
@@ -158,6 +169,7 @@ function initContactForm() {
                 if (submitText) submitText.classList.remove("hidden");
                 if (submitLoading) submitLoading.classList.add("hidden");
                 submitBtn.disabled = false;
+                if (formMessage && !formMessage.classList.contains("hidden")) formMessage.focus();
             });
         });
     } catch (e) {
@@ -192,10 +204,8 @@ function showSuccess(msg, formMessage) {
     if (formMessage) {
         formMessage.textContent = msg;
         formMessage.className = "p-4 rounded-xl mb-6 text-center font-medium bg-green-50 text-green-700 border border-green-200";
+        // Reste affiché : c'est la seule confirmation, le formulaire vient d'être vidé.
         formMessage.classList.remove("hidden");
-        setTimeout(function () {
-            formMessage.classList.add("hidden");
-        }, 5000);
     }
 }
 

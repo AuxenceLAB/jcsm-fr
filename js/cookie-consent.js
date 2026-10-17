@@ -150,8 +150,33 @@
                 localStorage.setItem(STORAGE_KEY, "rejected");
                 localStorage.setItem(STORAGE_TS_KEY, String(Date.now()));
                 dismiss();
+                // Retrait d'un accord donné plus tôt : les cookies de mesure sont effacés et la page
+                // rechargée, pour que GTM et Umami déjà chargés cessent aussitôt.
+                if (document.getElementById("gtm-script") || document.getElementById("umami-script")) {
+                    document.cookie.split(";").forEach(function (c) {
+                        var name = c.split("=")[0].trim();
+                        if (!/^(_ga|_gid|_gat|_gcl)/.test(name)) return;
+                        ["", "; domain=.jcsm.fr", "; domain=jcsm.fr"].forEach(function (d) {
+                            document.cookie = name + "=; Max-Age=0; path=/" + d;
+                        });
+                    });
+                    location.reload();
+                }
             });
         }
+
+        // « Modifier mon choix » (pages de confidentialité) : retirer son accord aussi simplement
+        // qu'on l'a donné (RGPD art. 7.3). Le bandeau revient avec Refuser et Accepter.
+        document.addEventListener("click", function (e) {
+            var trigger = e.target && e.target.closest && e.target.closest("[data-cookie-settings]");
+            if (!trigger) return;
+            e.preventDefault();
+            localStorage.removeItem(STORAGE_KEY);
+            localStorage.removeItem(STORAGE_TS_KEY);
+            showBanner();
+            var first = document.querySelector("#cookie-banner .cookie-reject");
+            if (first) first.focus();
+        });
 
         if (consent === "accepted") {
             loadGTM();
