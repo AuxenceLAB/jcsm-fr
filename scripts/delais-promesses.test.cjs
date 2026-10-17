@@ -1,7 +1,7 @@
 // Garde-fou : un seul délai promis (« sous 48 h », avec « selon contrat » quand il s'agit d'un
 // engagement de service) et une seule disponibilité (24/7, ce que les CGV art. 6 permettent de tenir).
-// Décision d'Auxence du 04/10/2026. Les 5 autres langues (de, es, it, nl, pl, pt) restent à aligner :
-// voir propositions-legales/delais-5-langues.md.
+// Décision d'Auxence du 04/10/2026. Les six autres langues (de, es, it, nl, pl, pt) sont alignées sur
+// 48 h depuis l'audit du 17/10 (JFR-002) : le dernier test ci-dessous interdit d'y réintroduire 24 h.
 const test = require('node:test');
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
@@ -60,4 +60,20 @@ test('CGV, FAQ et vitrine disent la même chose', () => {
 test('une seule disponibilité annoncée : 24/7', () => {
   assert.match(plain(read('index.html')), /Hotline IRVE 100% basée en France, 24\/7/);
   assert.match(plain(read('en/index.html')), /hotline based 100% in France, 24\/7/);
+});
+
+// de, es, it, nl, pl, pt : plus aucune promesse « 24 h » (avec ou sans « jours ouvrés »). Sont ignorés :
+// les coordonnées de tracés SVG (« 1.771 24h20.451 »), les valeurs CSS (« 24px ») et le 24/7 (« 24h/24 »,
+// « 24 ore su 24 », « 24 horas al día » n'existent pas dans ces pages ; seul « 24/7 » y figure).
+test('de, es, it, nl, pl, pt : aucune promesse de délai de 24 h', () => {
+  const langs = cp.execFileSync('git', ['ls-files', 'de/*.html', 'es/*.html', 'it/*.html', 'nl/*.html', 'pl/*.html', 'pt/*.html'], { cwd: root, encoding: 'utf8' })
+    .trim().split('\n');
+  assert.ok(langs.length >= 40, 'les six dossiers de langue doivent être scannés');
+  const unit = '(?:h|Std\\.?|Stunden|Arbeitsstunden|Geschäftsstunden|horas|ore|uur|u|werkuur|werkuren|godz\\w*)';
+  const re = new RegExp('(?<![\\d.%-])(?<![\\d.] )24(?:\\s|&nbsp;)?' + unit + '(?![\\w/])(?!\\s+(?:su|sobre|op|por|na|am)\\s+24)', 'g');
+  const hits = [];
+  for (const f of langs) {
+    for (const m of read(f).replace(/\u00a0/g, ' ').matchAll(re)) hits.push(`${f}: ${m[0]}`);
+  }
+  assert.deepEqual(hits, []);
 });
