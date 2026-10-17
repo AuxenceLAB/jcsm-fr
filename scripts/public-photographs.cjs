@@ -3,7 +3,7 @@
 const families = {
   station: ['index.jpg','index.webp','index-800.webp','index-mobile.jpg','index-mobile.webp','index-mobile-640-audit.avif'],
   vehicle: ['jcsmtesla.jpg','jcsmtesla.webp','jcsmtesla-mobile.webp'],
-  electricalInspection: ['remiseconfo.jpg','remiseconfo.webp','remiseconfo-mobile.webp','remiseconfo-mobile-600.webp','remiseconformite.jpg','remiseconformite.webp','remiseconformite-mobile.webp','remiseconformite-1100.webp','remiseconformite-640.webp'],
+  electricalInspection: ['remiseconfo.jpg','remiseconfo.webp','remiseconfo-mobile.webp','remiseconfo-mobile-600.webp','remiseconformite.jpg','remiseconformite.webp','remiseconformite-mobile.webp','remiseconformite-1100.webp','remiseconformite-640.webp','remiseconformite-640.avif'],
   planning: ['amo.jpg','amo.webp','amo-mobile.webp'],
   maintenance: ['maintenance.jpeg','maintenance.webp','maintenance-800.webp','maintenance-mobile-640.avif','maintenance-tuile-720.webp'],
   chargingPark: ['installation.jpeg','installation.webp','installation-400.webp','installation-600.webp'],

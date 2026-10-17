@@ -34,7 +34,7 @@ body .jcsm-editorial-photo img{height:auto;aspect-ratio:4/3}
 /* ===== Accueil 2026-10 (jh-*) : photo terrain en pleine hauteur, typographie de titre, sections sans cartes. Seul index.html utilise ces classes. ===== */
 .jh-hero{--jh-gut:var(--jcsm-gutter,16px);display:grid;grid-template-columns:1fr;background:#fff;border-bottom:1px solid var(--color-line)}
 .jcsm-public main>section.jh-hero{padding:0;min-height:0!important;align-items:stretch}
-.jh-hero__texte{padding:calc(var(--jcsm-header,80px) + 28px) var(--jh-gut) 36px;display:flex;flex-direction:column;justify-content:flex-end}
+.jh-hero__texte{padding:calc(var(--jcsm-header,80px) + 28px) var(--jh-gut) 36px;display:flex;flex-direction:column;justify-content:center}
 .jh-hero__lieu{font-size:15px;font-weight:600;color:var(--color-primary-darker);margin:0 0 20px}
 .jcsm-public main>section.jh-hero h1.jh-hero__titre{font-size:clamp(2.55rem,1.2rem + 4.6vw,5.4rem);line-height:1;letter-spacing:-.038em;font-weight:700;color:var(--color-ink);max-width:11.5ch;margin:0;text-wrap:balance}
 .jcsm-public main>section.jh-hero p.jh-hero__chapo{font-size:clamp(1.0625rem,1rem + .3vw,1.25rem);line-height:1.55;color:#3c4550;max-width:32em;margin:28px 0 0}
@@ -44,10 +44,10 @@ body .jcsm-editorial-photo img{height:auto;aspect-ratio:4/3}
 .jh-tel strong{font-variant-numeric:tabular-nums;color:var(--color-primary);font-weight:700;border-bottom:2px solid currentColor}
 .jh-tel:hover strong{color:var(--color-primary-darker)}
 .jh-hero__photo{margin:0;position:relative;overflow:hidden;background:#d9dee5}
-.jh-hero__photo img{display:block;width:100%;height:100%;aspect-ratio:4/3;object-fit:cover;object-position:55% 30%}
+.jh-hero__photo img{display:block;width:100%;height:100%;aspect-ratio:16/10;object-fit:cover;object-position:55% 30%}
 .jh-hero__photo figcaption{font-size:13px;line-height:1.4;color:#3c4550;padding:10px var(--jh-gut) 14px;background:#fff}
 @media (min-width:1024px){
-  .jcsm-public main>section.jh-hero{grid-template-columns:minmax(0,46fr) minmax(0,54fr);min-height:min(820px,100vh)!important}
+  .jcsm-public main>section.jh-hero{grid-template-columns:minmax(0,46fr) minmax(0,54fr);min-height:min(960px,100vh)!important}
   .jh-hero__texte{padding:calc(var(--jcsm-header,80px) + 48px) 56px 72px max(var(--jh-gut),calc((100vw - var(--jcsm-shell,80rem))/2 + var(--jh-gut)))}
   .jh-hero__photo img{aspect-ratio:auto;position:absolute;inset:0}
   .jh-hero__photo figcaption{position:absolute;left:0;bottom:0;max-width:30em;padding:12px 18px;background:rgba(255,255,255,.92)}
@@ -99,3 +99,16 @@ body .jcsm-editorial-photo img{height:auto;aspect-ratio:4/3}
 @media (min-width:900px){.jh-etapes li:after{content:"";position:absolute;top:32px;left:56px;right:24px;height:1px;background:rgba(157,187,242,.35)}.jh-etapes li:last-child:after{display:none}}
 .jh-etapes h3{font-size:21px;font-weight:700;margin:0 0 10px;color:#fff}
 .jh-etapes p{font-size:16px;line-height:1.6;color:#C9D1DC;margin:0;max-width:30em}
+
+/* ===== Toutes les pages publiques (2026-10-16) : titres affirmés, cartes à plat, plus de demi-titre coloré ni de dégradé de texte. ===== */
+.jcsm-public main>section:first-of-type h1{font-weight:700;letter-spacing:-.034em;line-height:1.04;font-size:clamp(2.35rem,1.3rem + 3.4vw,4.25rem)}
+.jcsm-public.jcsm-article main h1,.jcsm-public.jcsm-legal main h1{font-weight:700}
+.jcsm-public h1 em,.jcsm-public h2 em,.jcsm-public .gradient-text{color:inherit;-webkit-text-fill-color:currentColor;background:none;font-style:normal}
+.jcsm-public main h2{font-weight:700;letter-spacing:-.026em;line-height:1.1}
+.jcsm-public .divider-premium{display:none}
+.jcsm-public main section:not(.section-dark) .card-feature:not(.overflow-hidden){background:transparent;border:0;border-top:3px solid var(--color-primary);border-radius:0;box-shadow:none;padding:22px 4px 8px}
+.jcsm-public main section:not(.section-dark) .card-feature:not(.overflow-hidden):hover{box-shadow:none;transform:none;border-color:var(--color-primary-darker)}
+.jcsm-public .card-feature>div:first-child:has(>svg[aria-hidden=true]:only-child),.jcsm-public .card-feature .svc-icon,.jcsm-public .card-feature>.flex:first-child:has(>.svc-icon:only-child){display:none}
+.jcsm-public .card-lift:hover{transform:none}
+.jcsm-public .shot,.jcsm-public .jcsm-editorial-photo,.jcsm-public main>section:first-of-type img{border-radius:4px}
+.jcsm-public .card-cta{border-radius:6px}
