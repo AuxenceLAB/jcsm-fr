@@ -145,8 +145,9 @@ server {
         add_header Cache-Control "no-cache, no-store, must-revalidate" always;
     }
 
-    # PHP-FPM : uniquement les scripts situes directement dans /api/.
-    location ~ ^/api/[^/]+\.php$ {
+    # PHP-FPM : seul le formulaire public reste servi (audit 17/10 JFR-001). L'ancien espace
+    # interne (login, rapports, proxy Twilio, Sheets...) est retire : plus aucun appelant.
+    location ~ ^/api/site-contact\.php$ {
         limit_req zone=req_limit_per_ip burst=20 nodelay;
         limit_conn conn_limit_per_ip 20;
         include snippets/fastcgi-php.conf;
@@ -156,6 +157,10 @@ server {
         include /etc/nginx/snippets/jcsm-security.conf;
         add_header Cache-Control "no-cache, no-store, must-revalidate" always;
         add_header Pragma "no-cache" always;
+    }
+
+    location ~ ^/api/[^/]+\.php$ {
+        return 410;
     }
 
     # Refuse tout autre PHP, notamment les dependances et les uploads.
@@ -234,15 +239,9 @@ server {
         try_files $uri =404;
     }
 
-    # Rapports - allow access to generated reports
+    # Anciens rapports publics sans authentification : retires (audit 17/10 JFR-001).
     location ^~ /rapports/ {
-        limit_req zone=req_limit_per_ip burst=20 nodelay;
-        limit_conn conn_limit_per_ip 20;
-        autoindex off;
-        include /etc/nginx/snippets/jcsm-security.conf;
-        add_header Cache-Control "no-cache, no-store, must-revalidate" always;
-        add_header X-Robots-Tag "noindex, nofollow" always;
-        try_files $uri =404;
+        return 410;
     }
 
     # Cache images (1 month) - no rate limiting for static assets
