@@ -73,7 +73,20 @@ test('de, es, it, nl, pl, pt : aucune promesse de délai de 24 h', () => {
   const re = new RegExp('(?<![\\d.%-])(?<![\\d.] )24(?:\\s|&nbsp;)?' + unit + '(?![\\w/])(?!\\s+(?:su|sobre|op|por|na|am)\\s+24)', 'g');
   const hits = [];
   for (const f of langs) {
-    for (const m of read(f).replace(/\u00a0/g, ' ').matchAll(re)) hits.push(`${f}: ${m[0]}`);
+    // Texte brut aussi : un chiffre de bandeau « 24<span>h</span> » ou « &lt;24 h » se lit « 24 h » (audit 17/10).
+    const raw = read(f).replace(/\u00a0/g, ' ');
+    const text = raw.replace(/<(script|style)[\s\S]*?<\/\1>/g, ' ').replace(/<[^>]*>/g, '').replace(/&lt;/g, '<');
+    for (const t of [raw, text]) for (const m of t.matchAll(re)) hits.push(`${f}: ${m[0]}`);
   }
+  assert.deepEqual([...new Set(hits)], []);
+});
+
+// Équivalents de « 7j/7 » : une seule disponibilité, 24/7, dans toutes les langues (audit 17/10).
+test('de, es, it, nl, pl, pt : 24/7, jamais « 7 jours sur 7 »', () => {
+  const langs = cp.execFileSync('git', ['ls-files', 'de/*.html', 'es/*.html', 'it/*.html', 'nl/*.html', 'pl/*.html', 'pt/*.html'], { cwd: root, encoding: 'utf8' })
+    .trim().split('\n');
+  const re = /7 Tage die Woche|7 días a la semana|7 giorni su 7|7 dagen per week|7 dni w tygodniu|7 dias por semana/g;
+  const hits = [];
+  for (const f of langs) for (const m of plain(read(f)).matchAll(re)) hits.push(`${f}: ${m[0]}`);
   assert.deepEqual(hits, []);
 });

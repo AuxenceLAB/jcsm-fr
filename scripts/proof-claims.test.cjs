@@ -25,6 +25,8 @@ const banned=[
   // Hotline et diagnostic : taux non sourcés (retirés de llms.txt le 23/09/2026).
   /premier contact\s*:\s*\d+\s?%|\d+\s?% des incidents r[ée]solus/i,
   // Régions : chiffre identique partout, base et équipes locales non établies.
+  // Premier passage promis par les traductions, absent du français (alignées le 17/10/2026).
+  /inspection first time|resolved on the first visit|Prüfung beim ersten Mal|Behebung beim ersten Einsatz|NF C 15-100 a la primera|resuelta en la primera visita|al primo colpo|risolto al primo passaggio|in één keer voor de NF|verholpen bij het eerste bezoek|15-100 za pierwszym razem|rozwiazywana za pierwszym razem|15-100 à primeira|resolvida na primeira passagem/i,
   />500\+<\/div>|base principale|supervision r[ée]gional|bas[ée]s localement|[ée]quipe (locale|r[ée]gionale|implant[ée]e)|Qualifelec (garantie|assur[ée]e)|Contactez notre [ée]quipe en/i,
 ];
 test('aucune preuve invérifiable retirée ne réapparaît',()=>{
